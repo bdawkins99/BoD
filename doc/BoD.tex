@@ -188,15 +188,16 @@
 % Title must be 250 characters or less.
 % \begin{flushleft}
 {\Large
-\textbf\newline{Blessings of dimensionality: Detecting interactions with nearest neighbors} % Please use "sentence case" for title and headings (capitalize only the first word in a title (or heading), the first word in a subtitle (or subheading), and any proper nouns).
+\textbf\newline{Blessings of dimensionality: Theoretical analysis of nearest-neighbor projected-distance methods for detecting interactions in high dimension} % Please use "sentence case" for title and headings (capitalize only the first word in a title (or heading), the first word in a subtitle (or subheading), and any proper nouns).
 }
 \newline
 % Insert author names, affiliations and corresponding author email (do not include titles, positions, or degrees).
 \\
-\author[]{Bryan/Trang$^{\text{1}}$ and Brett A. McKinney$^{\text{2,3,}*}$}
+Bryan A. Dawkins$^{\text{1}}$, Trang T. Le$^{\text{2}}$ and Brett A. McKinney$^{\text{1,3,}*}$
 \\
-$^{\text{1}}$ Someplace\\
-$^{\text{2}}$Department of Mathematics, University of Tulsa, Tulsa, OK 74104, USA \\
+$^{\text{1}}$Department of Mathematics, University of Tulsa, Tulsa, OK 74104, USA \\
+$^{\text{2}}$ Department of Biostatistics, Epidemiology and Informatics,
+University of Pennsylvania, Philadelphia, PA 19104\\
 $^{\text{3}}$Tandy School of Computer Science, University of Tulsa, Tulsa, OK 74104, USA.
 
 
@@ -229,7 +230,7 @@ Relief-based methods identify interacting attributes as important by using neare
 
 \newpage
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
 \begin{wrapfigure}{l}{0.6\textwidth}
     \vspace{-12pt}
 	\centering
@@ -244,7 +245,7 @@ Relief-based methods use information from all attributes available to it (omnige
 [Ideas: Relating the increasing $k$ and myopic view to other distance-related method such as MDS/t-SNE vs PCA - local vs global distance - capturing non-linear manifold structure. \url{https://www.kdnuggets.com/2018/08/introduction-t-sne-python.html}]
 
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
 %%\begin{center}
 \begin{minipage}[c]{0.4\textheight}
 \centering 
@@ -257,7 +258,7 @@ Relief-based methods use information from all attributes available to it (omnige
 %%\end{center}
 \end{figure}  
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
 %%\begin{center}
 \begin{minipage}[c]{0.4\textheight}
 \centering
@@ -270,7 +271,7 @@ Relief-based methods use information from all attributes available to it (omnige
 %%\end{center}
 \end{figure}  
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
 %%\begin{center}
 \begin{minipage}[c]{0.4\textheight}
 \centering
@@ -294,7 +295,7 @@ The NPD methods rely on a neighborhood algorithm.
 One may specifiy a fixed-k, ..., multiSURF~\cite{urbanowicz17} adaptive radius neighborhood, which varies with each instance, and we use a fixed-$k$ neighborhood that well-approximates mulitSURF, derived below.
 The multiSURF radius for an instance is the mean of its distances to all other instances subtracted by $\alpha=1/2$ of the standard deviation of this mean. Previously we showed empirically for balanced case-control datasets that a good constant-$k$ approximation to the expected number of neighbors within the multiSURF radii is $k=m/6$~\cite{stir}, where $m$ is the number of samples. Here we derive a more exact theoretical mean that shows the mathematical connection between neighbor-finding methods. This fixed-$k$ approximation to multi-SURF is independent of the type of data and the particular radii of each instance in the data.
 %
-Discuss Central Limit Theorem. [I would be cautious here - TTL.]
+Discuss Central Limit Theorem. [I would be cautious here - TTL. We will be - BAM.]
 
 Regardless of the predictor data type (numeric or categorical), the distribution of the $p$ predictors (uniform, Gaussian, or binomial), or the metric used to compute distances (Manhattan or Euclidean), the $m(m-1)/2$ pairwise distances in the $p$-dimensional space are well approximated by a normal distribution. An instance $j$ is in the adaptive $\alpha$-radius neighborhood of $i$ ($j \in N^{\alpha}_{i}$) under the condition
 %\begin{equation}
@@ -316,7 +317,7 @@ and
 \begin{equation}
 \bar{D}_i = \frac{1}{m-1} \sum_{j \ne i} D^{(\cdot)}_{ij}
 \end{equation}
-is the average of instance $i$'s pairwise distances (using Eq. \ref{eq:D}) with standard deviation $\sigma_{\bar{D}_i}$. MultiSURF uses $\alpha=1/2$~\cite{msurf13}.
+is the average of instance $i$'s pairwise distances (using Eq. D Equation) with standard deviation $\sigma_{\bar{D}_i}$. MultiSURF uses $\alpha=1/2$~\cite{msurf13}.
 
 The probability of the remaining $m-1$ instances being inside the $\alpha$-radius of instance $i$ ($R_i^{\alpha}$) can be viewed as $m-1$ Bernoulli trials each with a probability of success $q_{\alpha}$. Then the average average number of neighbors is given by
 \begin{equation}
