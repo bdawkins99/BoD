@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  17 FEB 2019 15:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  17 FEB 2019 17:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -576,28 +576,28 @@ tim
 ) (./BoD.aux)
 \openout1 = `BoD.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 184.
-LaTeX Font Info:    ... okay on input line 184.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 184.
-LaTeX Font Info:    ... okay on input line 184.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 184.
-LaTeX Font Info:    ... okay on input line 184.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 184.
-LaTeX Font Info:    ... okay on input line 184.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 184.
-LaTeX Font Info:    ... okay on input line 184.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 184.
-LaTeX Font Info:    ... okay on input line 184.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 184.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 184.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 185.
+LaTeX Font Info:    ... okay on input line 185.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 185.
+LaTeX Font Info:    ... okay on input line 185.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 185.
+LaTeX Font Info:    ... okay on input line 185.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 185.
+LaTeX Font Info:    ... okay on input line 185.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 185.
+LaTeX Font Info:    ... okay on input line 185.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 185.
+LaTeX Font Info:    ... okay on input line 185.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 185.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 185.
 
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 184.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 184.
-LaTeX Font Info:    ... okay on input line 184.
+LaTeX Font Info:    ... okay on input line 185.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 185.
+LaTeX Font Info:    ... okay on input line 185.
 
 (/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -651,16 +651,16 @@ LaTeX Font Info:    ... okay on input line 184.
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 )
 \AtBeginShipoutBox=\box35
-Package hyperref Info: Link coloring OFF on input line 184.
-LaTeX Info: Redefining \ref on input line 184.
-LaTeX Info: Redefining \pageref on input line 184.
-LaTeX Info: Redefining \nameref on input line 184.
+Package hyperref Info: Link coloring OFF on input line 185.
+LaTeX Info: Redefining \ref on input line 185.
+LaTeX Info: Redefining \pageref on input line 185.
+LaTeX Info: Redefining \nameref on input line 185.
  (./BoD.out)
 (./BoD.out)
 \@outlinefile=\write3
 \openout3 = `BoD.out'.
 
-LaTeX Info: Redefining \microtypecontext on input line 184.
+LaTeX Info: Redefining \microtypecontext on input line 185.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -678,15 +678,15 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 184.
-LaTeX Font Info:    Try loading font information for U+msa on input line 195.
+(lastpage)             ! on input line 185.
+LaTeX Font Info:    Try loading font information for U+msa on input line 196.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 195.
+LaTeX Font Info:    Try loading font information for U+msb on input line 196.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -701,83 +701,96 @@ Package microtype Info: Loading generic protrusion settings for font family
  [1
 
 {/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<glmSTIR_figure_2D_final_CvsA.pdf, id=25, 369.37198pt x 366.18909pt>
+<glmSTIR_figure_2D_final_CvsA.pdf, id=45, 369.37198pt x 366.18909pt>
 File: glmSTIR_figure_2D_final_CvsA.pdf Graphic file (type pdf)
 <use glmSTIR_figure_2D_final_CvsA.pdf>
 Package pdftex.def Info: glmSTIR_figure_2D_final_CvsA.pdf  used on input line 2
-35.
+36.
 (pdftex.def)             Requested size: 208.68077pt x 206.88603pt.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<glmSTIR_figure_2D_final_BvsA.pdf, id=31, 369.17725pt x 366.18909pt>
+<glmSTIR_figure_2D_final_BvsA.pdf, id=51, 369.17725pt x 366.18909pt>
 File: glmSTIR_figure_2D_final_BvsA.pdf Graphic file (type pdf)
 <use glmSTIR_figure_2D_final_BvsA.pdf>
 Package pdftex.def Info: glmSTIR_figure_2D_final_BvsA.pdf  used on input line 2
-50.
+51.
 (pdftex.def)             Requested size: 202.35367pt x 200.71735pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<nice_box_2D_points.pdf, id=32, 351.00034pt x 360.49481pt>
+<nice_box_2D_points.pdf, id=52, 351.00034pt x 360.49481pt>
 File: nice_box_2D_points.pdf Graphic file (type pdf)
 <use nice_box_2D_points.pdf>
-Package pdftex.def Info: nice_box_2D_points.pdf  used on input line 263.
+Package pdftex.def Info: nice_box_2D_points.pdf  used on input line 264.
 (pdftex.def)             Requested size: 202.35367pt x 207.83296pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<nice_box_2D_points2.pdf, id=33, 351.00034pt x 360.49481pt>
+<nice_box_2D_points2.pdf, id=53, 351.00034pt x 360.49481pt>
 File: nice_box_2D_points2.pdf Graphic file (type pdf)
 <use nice_box_2D_points2.pdf>
-Package pdftex.def Info: nice_box_2D_points2.pdf  used on input line 276.
+Package pdftex.def Info: nice_box_2D_points2.pdf  used on input line 277.
 (pdftex.def)             Requested size: 202.35367pt x 207.83296pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-No file BoD.bbl.
+[2 <./glmSTIR_figure_2D_final_CvsA.pdf>] [3 <./glmSTIR_figure_2D_final_BvsA.pdf
+> <./nice_box_2D_points.pdf>]
+
+LaTeX Warning: Reference `eq:D' on page 4 undefined on input line 319.
+
+[4 <./nice_box_2D_points2.pdf>] (./BoD.bbl [5])
 
 AED: lastpage setting LastPage
-[2 <./glmSTIR_figure_2D_final_CvsA.pdf>] [3 <./glmSTIR_figure_2D_final_BvsA.pdf
-> <./nice_box_2D_points.pdf>] [4 <./nice_box_2D_points2.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 289.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 289.
+[6]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 350.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 350.
  (./BoD.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 289.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 289.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 350.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 350.
 Package rerunfilecheck Info: File `BoD.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 289.
+(rerunfilecheck)             Checksum: D763C11E08C9BEC13A13C2374C90BD1F;387.
+
+
+LaTeX Warning: There were undefined references.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 350.
  ) 
 Here is how much of TeX's memory you used:
- 11234 strings out of 492649
- 170990 string characters out of 6129622
- 321631 words of memory out of 5000000
- 14876 multiletter control sequences out of 15000+600000
- 9883 words of font info for 49 fonts, out of 8000000 for 9000
+ 11297 strings out of 492649
+ 171644 string characters out of 6129622
+ 321959 words of memory out of 5000000
+ 14897 multiletter control sequences out of 15000+600000
+ 11562 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,11n,43p,1532b,395s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,12n,43p,1532b,464s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></
 usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></us
-r/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr
-/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb><
-/usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.p
-fb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
-></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><
-/usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></us
-r/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/
-local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/lo
-cal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/loc
-al/texlive/2018/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texl
-ive/2018/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on BoD.pdf (4 pages, 394729 bytes).
+r/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr
+/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/
+local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/lo
+cal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/loca
+l/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/
+local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></
+usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
+r/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/
+local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/loc
+al/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local
+/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/
+texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/te
+xlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/tex
+live/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texl
+ive/2018/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/201
+8/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
+Output written on BoD.pdf (6 pages, 460464 bytes).
 PDF statistics:
- 246 PDF objects out of 1000 (max. 8388607)
- 179 compressed objects within 2 object streams
- 12 named destinations out of 1000 (max. 500000)
- 6677 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 316 PDF objects out of 1000 (max. 8388607)
+ 241 compressed objects within 3 object streams
+ 29 named destinations out of 1000 (max. 500000)
+ 11325 words of extra memory for PDF output out of 12000 (max. 10000000)
 
