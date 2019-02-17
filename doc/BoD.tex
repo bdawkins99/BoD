@@ -243,8 +243,6 @@ Relief-based methods identify interacting attributes as important by using neare
 
 Relief-based methods use information from all attributes available to it (omnigenic) to estimate an attribute's importance. However, if relevant higher-dimensional information is not used, even Relief-based methods will miss the effect of A because ``imposter'' neighbors will be used in the attribute estimate (False Miss (FM) in Fig.~\ref{fig:2dAvC}, where $d_{\text{X,FM}}(A)<d_{\text{X,H}}(A)$).  If one were to compute nearest neighbors in the A-C plane (ignoring the B dimension), the nearest miss would be an imposter (FM), which leads to a negative contribution to the importance score for A. One might call this C attribute a type-I confounding attribute because it increases the chances of interacting attributes to be false negatives. When nearest neighbors are calculated based on higher dimensions with relevant information (Fig.~\ref{fig:2dAvB}c), it is clear that TM is closer to X than FM. The imposter (FM) is replaced by the true nearest miss (TM) and attribute A correctly shows a greater projected difference between misses than hits (Fig.~\ref{fig:2dAvB}d $d_{\text{X,TM}}(A)>d_{\text{X,H}}(A)$), which is the signature of an important attribute. Univariate methods still cannot find the importance of A unless the interaction is explicitly modeled, but as long as functional variables A and B are in the space for nearest neighbor calculations (Fig.~\ref{fig:2dAvB}c-d), imposters can be excluded and Relief-based methods will find that A (and B) are important discriminators. 
 
-\newpage
-
 \begin{figure}[ht!]
 %%\begin{center}
 \begin{minipage}[c]{0.4\textheight}
@@ -257,8 +255,6 @@ Relief-based methods use information from all attributes available to it (omnige
 \end{minipage}
 %%\end{center}
 \end{figure}  
-
-\newpage
 
 \begin{figure}[ht!]
 %%\begin{center}
@@ -273,8 +269,6 @@ Relief-based methods use information from all attributes available to it (omnige
 %%\end{center}
 \end{figure}  
 
-\newpage
-
 \begin{figure}[ht!]
 %%\begin{center}
 \begin{minipage}[c]{0.4\textheight}
@@ -288,10 +282,7 @@ Relief-based methods use information from all attributes available to it (omnige
 %%\end{center}
 \end{figure}  
 
-\newpage 
 Using same interaction, increase background noise genes to see degrading of A and B Relief importance because of curse of dimensionality (sparseness). 
-
-\newpage
 
 \subsection{Neighborhood Methods}
 Fixed-k, SURF, multiSURF, gene-wise adative-$k$. 
