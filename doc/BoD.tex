@@ -1,5 +1,4 @@
-\documentclass[10pt,letterpaper]{article}
-\usepackage[]{graphicx}\usepackage[]{color}
+\documentclass[10pt,letterpaper]{article}\usepackage[]{graphicx}\usepackage[]{color}
 %% maxwidth is the original width if it is less than linewidth
 %% otherwise use linewidth (to make sure the graphics do not exceed the margin)
 \makeatletter
@@ -50,13 +49,7 @@
 \newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
 
 \usepackage{alltt}
-\usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
-
-\usepackage{authblk}
-\usepackage{array}
-\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\usepackage[top=0.85in,left=1.75in,footskip=0.75in]{geometry}
 
 % amsmath and amssymb packages, useful for mathematical formulas and symbols
 \usepackage{amsmath,amssymb}
@@ -149,12 +142,12 @@
 % Header and Footer with logo
 \usepackage{lastpage,fancyhdr,graphicx}
 \usepackage{epstopdf}
-\pagestyle{myheadings}
+%\pagestyle{myheadings}
 \pagestyle{fancy}
 \fancyhf{}
 %\setlength{\headheight}{27.023pt}
 %\lhead{\includegraphics[width=2.0in]{PLOS-submission.eps}}
-%\rfoot{\thepage/\pageref{LastPage}}
+\rfoot{\thepage/\pageref{LastPage}}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrule}{\hrule height 2pt \vspace{2mm}}
 \fancyheadoffset[L]{2.25in}
@@ -188,36 +181,39 @@
 
 %% END MACROS SECTION
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-%\begin{document}
+\begin{document}
 \vspace*{0.2in}
 
+% Title must be 250 characters or less.
+% \begin{flushleft}
+{\Large
+\textbf\newline{Blessings of dimensionality: Detecting interactions with nearest neighbors} % Please use "sentence case" for title and headings (capitalize only the first word in a title (or heading), the first word in a subtitle (or subheading), and any proper nouns).
+}
+\newline
 % Insert author names, affiliations and corresponding author email (do not include titles, positions, or degrees).
-\title{The Blessings of Dimensionality: Theoretical analysis of nearest-neighbor projected-distance methods for finding interactions in high dimension} 
-\author[1]{Bryan A. Dawkins}
-\author[2]{Trang T. Le}
-\author[1,3*]{Brett A. McKinney}
-\affil[1]{Department of Mathematics, University of Tulsa, Tulsa, OK 74104}
-\affil[2]{Department of Biostatistics, Epidemiology and Informatics,
-University of Pennsylvania, Philadelphia, PA 19104}
-\affil[3]{Tandy School of Computer Science, University of Tulsa, Tulsa, OK 74104}
-\renewcommand{\Authands}{ and }
-\date{\today}
-\usepackage{Sweave}
-\begin{document}
-\setkeys{Gin}{width=1\textwidth}
+\\
+\author[]{Bryan/Trang$^{\text{1}}$ and Brett A. McKinney$^{\text{2,3,}*}$}
+\\
+$^{\text{1}}$ Someplace\\
+$^{\text{2}}$Department of Mathematics, University of Tulsa, Tulsa, OK 74104, USA \\
+$^{\text{3}}$Tandy School of Computer Science, University of Tulsa, Tulsa, OK 74104, USA.
 
-\maketitle
 
-\begin{abstract}
+
+% \end{flushleft}
+% Please keep the abstract below 300 words
+\section*{Abstract}
 It is commonly known that high-throughput data has many inherent statistical challenges, such as multiple testing, sparsity and over fitting. Collectively these challenges are known as the Curse of Dimensionality. Here we highlight an important Blessing of Dimensionality: the ability to identify interactions with nearest neighborhoods. We review nearest-neighbor concepts for finding interactions, and we derive important distribution moments for distance metrics in high dimensional spaces. We use these theoretical results and simulated data to offer recommendations for computational approaches to find nearest neighbors in high dimension. We discuss ways to maximize the blessings and minimize the curses of dimensionality to reliably identify interactions.  
-\end{abstract}
+
+\section*{Author summary}
 
 \linenumbers
-\section{Introduction}
+
+\section*{Introduction}
 
 Relief-based methods identify interacting attributes as important by using nearest-neighbor information in higher dimensions (the ``blessings of dimensionality'' ). Myopic methods, such as univariate tests, that do not account for information from higher dimensions, are susceptible to false negatives when there are interactions. For example in the plot of variable A versus C in a three-variable simulation (Fig.~\ref{fig:2dAvC}a), variable A appears to show no difference between cases and controls (the marginal group means are the same). However, A is actually simulated to have a strong differential correlation with B, conditioned on the outcome variable (Fig.~\ref{fig:2dAvB}b). Current Relief-based methods determine the importance of an attribute by computing the average difference of a target instance (X) and its nearest instance form the same class (Hit) projected onto the attribute A dimension ($d_{\text{X,H}}(A)$) subtracted from the projected difference of target X and its nearest instance from the opposite class (Miss) ($d_{\text{X,M}}(A)$). When the inequality $d_{\text{X,M}}(A)>d_{\text{X,H}}(A)$, it suggests that attribute A is useful for discriminating between cases and controls.  
 
-%\begin{figure}[ht!]
+%\begin{figure}[h!]
 %%\begin{center}
 %\begin{minipage}[c]{0.4\textheight}
 %\centering
@@ -232,7 +228,7 @@ Relief-based methods identify interacting attributes as important by using neare
 
 \newpage
 
-\begin{figure}[ht!]
+\begin{figure}[h!]
 \begin{wrapfigure}{l}{0.6\textwidth}
     \vspace{-12pt}
 	\centering
@@ -243,7 +239,11 @@ Relief-based methods identify interacting attributes as important by using neare
 
 Relief-based methods use information from all attributes available to it (omnigenic) to estimate an attribute's importance. However, if relevant higher-dimensional information is not used, even Relief-based methods will miss the effect of A because ``imposter'' neighbors will be used in the attribute estimate (False Miss (FM) in Fig.~\ref{fig:2dAvC}, where $d_{\text{X,FM}}(A)<d_{\text{X,H}}(A)$).  If one were to compute nearest neighbors in the A-C plane (ignoring the B dimension), the nearest miss would be an imposter (FM), which leads to a negative contribution to the importance score for A. One might call this C attribute a type-I confounding attribute because it increases the chances of interacting attributes to be false negatives. When nearest neighbors are calculated based on higher dimensions with relevant information (Fig.~\ref{fig:2dAvB}c), it is clear that TM is closer to X than FM. The imposter (FM) is replaced by the true nearest miss (TM) and attribute A correctly shows a greater projected difference between misses than hits (Fig.~\ref{fig:2dAvB}d $d_{\text{X,TM}}(A)>d_{\text{X,H}}(A)$), which is the signature of an important attribute. Univariate methods still cannot find the importance of A unless the interaction is explicitly modeled, but as long as functional variables A and B are in the space for nearest neighbor calculations (Fig.~\ref{fig:2dAvB}c-d), imposters can be excluded and Relief-based methods will find that A (and B) are important discriminators. 
 
-\begin{figure}[ht!]
+
+[Ideas: Relating the increasing $k$ and myopic view to other distance-related method such as MDS/t-SNE vs PCA - local vs global distance - capturing non-linear manifold structure. \url{https://www.kdnuggets.com/2018/08/introduction-t-sne-python.html}]
+
+
+\begin{figure}[h!]
 %%\begin{center}
 \begin{minipage}[c]{0.4\textheight}
 \centering 
@@ -256,7 +256,7 @@ Relief-based methods use information from all attributes available to it (omnige
 %%\end{center}
 \end{figure}  
 
-\begin{figure}[ht!]
+\begin{figure}[h!]
 %%\begin{center}
 \begin{minipage}[c]{0.4\textheight}
 \centering
@@ -269,7 +269,7 @@ Relief-based methods use information from all attributes available to it (omnige
 %%\end{center}
 \end{figure}  
 
-\begin{figure}[ht!]
+\begin{figure}[h!]
 %%\begin{center}
 \begin{minipage}[c]{0.4\textheight}
 \centering
@@ -282,63 +282,7 @@ Relief-based methods use information from all attributes available to it (omnige
 %%\end{center}
 \end{figure}  
 
-Using same interaction, increase background noise genes to see degrading of A and B Relief importance because of curse of dimensionality (sparseness). 
-
-\subsection{Neighborhood Methods}
-Fixed-k, SURF, multiSURF, gene-wise adative-$k$. 
-
-\section{Derivation of expected k for multiSURF neighborhoods}
-Uncomment this and debug. I don't understand what the issue is (bam).  
-% The NPD methods rely on a neighborhood algorithm. One may specifiy a fixed-k,..., multiSURF~\cite{urbanowicz17} adaptive radius neighborhood, which varies with each instance, and we use a fixed-$k$ neighborhood that well-approximates mulitSURF, derived below. The multiSURF radius for an instance is the mean of its distances to all other instances subtracted by $\alpha=1/2$ of the standard deviation of this mean. Previously we showed empirically for balanced case-control datasets that a good constant-$k$ approximation to the expected number of neighbors within the multiSURF radii is $k=m/6$~\cite{stir}, where $m$ is the number of samples. Here we derive a more exact theoretical mean that shows the mathematical connection between neighbor-finding methods. This fixed-$k$ approximation to multi-SURF is independent of the type of data and the particular radii of each instance in the data. 
-% 
-% Discuss Central Limit Theorem. 
-% 
-% Regardless of the predictor data type (numeric or categorical), the distribution of the $p$ predictors (uniform, Gaussian, or binomial), or the metric used to compute distances (Manhattan or Euclidean), the $m(m-1)/2$ pairwise distances in the $p$-dimensional space are well approximated by a normal distribution. An instance $j$ is in the adaptive $\alpha$-radius neighborhood of $i$ ($j \in N^{\alpha}_{i}$) under the condition
-% %\begin{equation}
-% %\bar{D = \frac{2p}{\sqrt{\pi}}
-% %\end{equation}
-% %
-% %\begin{equation}
-% %\sigma_{D} = \frac{2p(\pi-2)}{\pi}
-% %\end{equation}
-% %
-% \begin{equation}
-% D_{ij} \le \, R_i^{\alpha} \implies j \in N^{\alpha}_{i},
-% \end{equation}
-% where the threshold radius for instance $i$ is
-% \begin{equation} 
-% R_i^{\alpha} =  \bar{D}_i - \alpha \, \sigma_{\bar{D}_i}
-% \end{equation}
-% and 
-% \begin{equation}
-% \bar{D}_i = \frac{1}{m-1} \sum_{j \ne i} D^{(\cdot)}_{ij}
-% \end{equation}
-% is the average of instance $i$'s pairwise distances (using Eq. \ref{eq:D}) with standard deviation $\sigma_{\bar{D}_i}$. MultiSURF uses $\alpha=1/2$~\cite{msurf13}. 
-%  
-% The probability of the remaining $m-1$ instances being inside the $\alpha$-radius of instance $i$ ($R_i^{\alpha}$) can be viewed as $m-1$ Bernoulli trials each with a probability of success $q_{\alpha}$. Then the average average number of neighbors is given by
-% \begin{equation}
-% \label{eq:binomial_average}
-%   {\bar{k}}_{\alpha} = (m-1)q_{\alpha},
-% \end{equation}
-% from the mean of a binomial random variable. To calculate $q_{\alpha}$, we assume the distribution of distances $(\{D_{ij} \}_{j \ne i})$ of neighbors of instance $i$ is normal $N(\bar{D}_i,\sigma_{\bar{D}_i})$. Our empirical studies confirm a normal distribution and that it is robust to data type and metric. Extreme violations of independence of attributes (extreme correlations or interactions) will cause the distribution to be right skewed, but this effect is difficult to observe in real data. Thus, for a Gaussian pairwise distance distribution, the probability $q_{\alpha}$ for one instance $j \ne i$ to be in the neighborhood of $i$ ($j \in N^{\alpha}_{i}$) is given by the area under the mean-centered ($\bar{D}_i$) Gaussian from $-\infty$ to $R_i^{\alpha}$. {\bf show Gaussian plot illustration?} This integral can be written in terms of the error function (erf):
-% \begin{equation}
-% \label{eq:q_prob}
-% q_{\alpha} = \frac{1}{2} \left( 1 - \mathrm{erf}\left( \frac{\alpha}{\sqrt{2}} \right) \right).
-% \end{equation}
-% And finally using Eqs. (\ref{eq:binomial_average} and \ref{eq:q_prob}) we find
-% \begin{equation}\label{eq:kbar}
-% {\bar{k}}_{\alpha} = \lfloor \frac{m-1}{2}  \left( 1 - \mathrm{erf}\left( \frac{\alpha}{\sqrt{2}} \right) \right) \rfloor,
-% \end{equation}
-% where we apply the floor to ensure the number of neighbors is integer. For data with balanced hits and misses in standard fixed-$k$ Relief, one divides this formula by 2. For multiSURF ($\alpha=1/2$), this formula gives $\bar{k}_{1/2}^{\text{hit/miss}} = \frac{1}{2}\bar{k}_{1/2} = .154 (m-1)$, which is very close to our previous empirical estimate $m/6$. When we compare multiSURF neighborhood methods with fixed-$k$ neighborhoods, we use $\bar{k}_{1/2}$. Using this $\alpha=1/2$ value has been shown to give good performance for simulated data sets. However, the best value for $\alpha$ is likely data-specific and may be determined through nested cross-validation and other parameter tuning methods. 
-
-\section{Derivation of means and standard deviations for metrics and data distributions}
-
-\section{Optimal neighborhood parameters for detecting effects}
-k or $\alpha$. 
-Balancing blessing and curse of dimensionality.
-
-
-\section{ICA?}
+Using same interaction, increase background noise genes to see degrading of A and B Relief importance because of curse of dimensionality (sparseness).  
 
 \bibliography{BoD}   % name of bib file
 
