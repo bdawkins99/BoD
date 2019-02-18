@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  17 FEB 2019 16:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  17 FEB 2019 19:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -701,7 +701,7 @@ Package microtype Info: Loading generic settings for font family
  [1
 
 {/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<glmSTIR_figure_2D_final_CvsA.pdf, id=45, 369.37198pt x 366.18909pt>
+<glmSTIR_figure_2D_final_CvsA.pdf, id=53, 369.37198pt x 366.18909pt>
 File: glmSTIR_figure_2D_final_CvsA.pdf Graphic file (type pdf)
 
 <use glmSTIR_figure_2D_final_CvsA.pdf>
@@ -713,7 +713,7 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-<glmSTIR_figure_2D_final_BvsA.pdf, id=51, 369.17725pt x 366.18909pt>
+<glmSTIR_figure_2D_final_BvsA.pdf, id=59, 369.17725pt x 366.18909pt>
 File: glmSTIR_figure_2D_final_BvsA.pdf Graphic file (type pdf)
 
 <use glmSTIR_figure_2D_final_BvsA.pdf>
@@ -721,14 +721,14 @@ Package pdftex.def Info: glmSTIR_figure_2D_final_BvsA.pdf used on input line 25
 2.
 (pdftex.def)             Requested size: 202.35367pt x 200.71735pt.
 
-<nice_box_2D_points.pdf, id=52, 351.00034pt x 360.49481pt>
+<nice_box_2D_points.pdf, id=60, 351.00034pt x 360.49481pt>
 File: nice_box_2D_points.pdf Graphic file (type pdf)
 
 <use nice_box_2D_points.pdf>
 Package pdftex.def Info: nice_box_2D_points.pdf used on input line 265.
 (pdftex.def)             Requested size: 202.35367pt x 207.83296pt.
 
-<nice_box_2D_points2.pdf, id=53, 351.00034pt x 360.49481pt>
+<nice_box_2D_points2.pdf, id=61, 351.00034pt x 360.49481pt>
 File: nice_box_2D_points2.pdf Graphic file (type pdf)
 
 <use nice_box_2D_points2.pdf>
@@ -739,23 +739,23 @@ f> <./nice_box_2D_points.pdf>] [4 <./nice_box_2D_points2.pdf>] (./BoD.bbl [5])
 
 AED: lastpage setting LastPage
 [6]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 351.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 351.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 352.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 352.
  (./BoD.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 351.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 351.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 352.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 352.
 Package rerunfilecheck Info: File `BoD.out' has not changed.
-(rerunfilecheck)             Checksum: D763C11E08C9BEC13A13C2374C90BD1F;387.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 351.
+(rerunfilecheck)             Checksum: 8E205722319E119AC2853935844BC25A;579.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 352.
  ) 
 Here is how much of TeX's memory you used:
- 11347 strings out of 492995
- 172220 string characters out of 6132704
- 320441 words of memory out of 5000000
- 14619 multiletter control sequences out of 15000+600000
- 11511 words of font info for 62 fonts, out of 8000000 for 9000
+ 11353 strings out of 492995
+ 172284 string characters out of 6132704
+ 320483 words of memory out of 5000000
+ 14621 multiletter control sequences out of 15000+600000
+ 11562 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,12n,43p,1532b,464s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,11n,43p,1532b,464s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></
@@ -776,10 +776,10 @@ xlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/tex
 live/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texl
 ive/2017/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/201
 7/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on BoD.pdf (6 pages, 460770 bytes).
+Output written on BoD.pdf (6 pages, 461805 bytes).
 PDF statistics:
- 316 PDF objects out of 1000 (max. 8388607)
- 241 compressed objects within 3 object streams
- 29 named destinations out of 1000 (max. 500000)
- 11325 words of extra memory for PDF output out of 12000 (max. 10000000)
+ 325 PDF objects out of 1000 (max. 8388607)
+ 250 compressed objects within 3 object streams
+ 31 named destinations out of 1000 (max. 500000)
+ 11341 words of extra memory for PDF output out of 12000 (max. 10000000)
 

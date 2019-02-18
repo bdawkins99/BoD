@@ -188,7 +188,7 @@
 % Title must be 250 characters or less.
 % \begin{flushleft}
 {\Large
-\textbf\newline{Blessings of dimensionality: Theoretical analysis of nearest-neighbor projected-distance methods for detecting interactions in high dimension} % Please use "sentence case" for title and headings (capitalize only the first word in a title (or heading), the first word in a subtitle (or subheading), and any proper nouns).
+\textbf\newline{Blessings of Dimensionality: Theoretical analysis of nearest-neighbor projected-distance methods for detecting interactions in high dimension} % Please use "sentence case" for title and headings (capitalize only the first word in a title (or heading), the first word in a subtitle (or subheading), and any proper nouns).
 }
 \newline
 % Insert author names, affiliations and corresponding author email (do not include titles, positions, or degrees).
@@ -285,17 +285,18 @@ Relief-based methods use information from all attributes available to it (omnige
 \end{figure}  
 Using same interaction, increase background noise genes to see degrading of A and B Relief importance because of curse of dimensionality (sparseness). 
 
-\subsection{Neighborhood Methods}
-Fixed-k, SURF, multiSURF, gene-wise adative-$k$. 
+\section{Neighborhood Methods}
+NPD methods rely on a neighborhood algorithm for feature selection. One may specify a fixed-k number of neighbors, an average radius SURF, a multiSURF radius that adapts for each instance ~\cite{urbanowicz17}, or a gene-wise adaptive-$k$. 
 
 \section{Derivation of expected k for multiSURF neighborhoods}
-Uncomment this and debug. I don't understand what the issue is (bam).  
-
-The NPD methods rely on a neighborhood algorithm.
-One may specifiy a fixed-k, ..., multiSURF~\cite{urbanowicz17} adaptive radius neighborhood, which varies with each instance, and we use a fixed-$k$ neighborhood that well-approximates mulitSURF, derived below.
 The multiSURF radius for an instance is the mean of its distances to all other instances subtracted by $\alpha=1/2$ of the standard deviation of this mean. Previously we showed empirically for balanced case-control datasets that a good constant-$k$ approximation to the expected number of neighbors within the multiSURF radii is $k=m/6$~\cite{stir}, where $m$ is the number of samples. Here we derive a more exact theoretical mean that shows the mathematical connection between neighbor-finding methods. This fixed-$k$ approximation to multi-SURF is independent of the type of data and the particular radii of each instance in the data.
 %
-Discuss Central Limit Theorem. [I would be cautious here - TTL. We will be - BAM.]
+\subsection{Distribution of pairwise distances}
+Discuss Central Limit Theorem argument for the distribution being Gaussian. We can always say this is an assumption, but I think we can invoke the CLT. [I would be cautious here - TTL. We will be cautious invoking the CLT - BAM.]
+
+We may also want to show simulated distributions. 
+
+\subsection{Predicted number of neighbors in the multiSURF alpha neighborhood}
 
 Regardless of the predictor data type (numeric or categorical), the distribution of the $p$ predictors (uniform, Gaussian, or binomial), or the metric used to compute distances (Manhattan or Euclidean), the $m(m-1)/2$ pairwise distances in the $p$-dimensional space are well approximated by a normal distribution. An instance $j$ is in the adaptive $\alpha$-radius neighborhood of $i$ ($j \in N^{\alpha}_{i}$) under the condition
 %\begin{equation}
