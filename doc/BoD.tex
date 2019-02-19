@@ -294,6 +294,29 @@ The multiSURF radius for an instance is the mean of its distances to all other i
 \subsection{Distribution of pairwise distances}
 Discuss Central Limit Theorem argument for the distribution being Gaussian. We can always say this is an assumption, but I think we can invoke the CLT. [I would be cautious here - TTL. We will be cautious invoking the CLT - BAM.]
 
+Let $\mathcal{D}_X$ denote an arbitrary multivariate probability distribution with a corresponding univariate distribution $\mathcal{D}_x$. Consider $X = (X_1,X_2,\dots,X_m)$ where $X_1,X_2,\dots,X_m \overset{iid}{\sim} \mathcal{D}_X$. That is, each $X_j$ is a random sample of length $p$ such that $X_{ij} \overset{iid}{\sim} \mathcal{D}_x$. It is clear that $X$ is a random data set of dimensions $p \times m$ such that $X_{ij} \overset{iid}{\sim} \mathcal{D}_x$ for $i=1,2,\dots,p$ and $j=1,2,\dots,m$.
+
+\begin{center}
+\textbf{Argument Outline}
+\end{center}
+
+\noindent \textbf{Manhattan}
+\begin{enumerate}
+\item The Manhattan distance between instances $j$ and $k$ is a sum of magnitude differences $|X_{ij}-X_{ik}|$ for $i=1,2,\dots,p$. That is $d(X_j,X_k)=D_{jk} = \displaystyle \sum_{i=1}^{p}|X_{ij}-X_{ik}|$
+\item The magnitude differences $y_i = |X_{ij} - X_{ik}| \overset{iid}{\sim} \mathcal{F}_y$.
+\item The antecedent of the classical Central Limit Theorem is satisfied in (1) and (2).
+\item The distribution of Manhattan distance between two fixed instances $j$ and $k$ is asymptotically normal by the classical Central Limit Theorem.
+\end{enumerate}
+
+\noindent \textbf{Euclidean}
+\begin{enumerate}
+\item The Euclidean distance between instances $j$ and $k$ is the square root of the sum of squared differences $(X_{ij}-X_{ik})^2$ for $i=1,2,\dots,p$. That is $d(X_j,X_k)=D_{jk} = \sqrt{\displaystyle \sum_{i=1}^{p}(X_{ij}-X_{ik})^2}$
+\item The squared differences $y_i = (X_{ij} - X_{ik})^2 \overset{iid}{\sim} \mathcal{F}_y$.
+\item The antecedent of the classical Central Limit Theorem is satisfied in (1) and (2).
+\item The distribution of the sum of squared differences between two fixed instances $j$ and $k$ is asymptotically normal by the classical Central Limit Theorem.
+\item The square root function $f(x) = \sqrt{x}$ is a smooth functional transformation of the sum of squared differences.
+\item Based on (4) and (5), the Delta Method implies that the Euclidean distance between two fixed instances $j$ and $k$ is asymptotically normal.
+\end{enumerate}
 We may also want to show simulated distributions. 
 
 \subsection{Predicted number of neighbors in the multiSURF alpha neighborhood}
