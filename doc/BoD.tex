@@ -362,11 +362,19 @@ where we apply the floor to ensure the number of neighbors is integer. For data 
 \section{Derivation of means and standard deviations for metrics and data distributions}
 
 \begin{table}[H]
-\caption{Summary of all asymptotic distance distributions for each metric. Metrics with subscripts M and E represent Manhattan and Euclidean, respectively. Metrics with superscript $^*$ represent the standard metric without attribute range normalization. The function $\Phi^{-1}(x)$ denotes the standard normal quantile function, where $x \in (0,1)$.}
-\label{tab:dist_distr}
+\caption{Summary of asymptotic distance distributions for common data types. Metrics with subscripts M and E represent Manhattan and Euclidean, respectively. Metrics with superscript $^*$ represent the standard metric without attribute range normalization. The function $\Phi^{-1}(x)$ denotes the standard normal quantile function, where $x \in (0,1)$.}
+\label{tab:dist_distr_common}
 \centering
 % trim=left botm right top
-\includegraphics[clip, trim=0.15cm 0.15cm 0.15cm 0.15cm,width=\textwidth]{distributions_table.pdf}
+\includegraphics[width=\textwidth]{typical_data-metric_tab.pdf}
+\end{table}
+
+\begin{table}[H]
+\caption{Summary of asymptotic distance distributions for rs-fMRI and GWAS data. Metrics with superscript $^*$ represent the standard metric without attribute range normalization. The function $\Phi^{-1}(x)$ denotes the standard normal quantile function, where $x \in (0,1)$.}
+\label{tab:dist_distr_bio}
+\centering
+% trim=left botm right top
+\includegraphics[width=\textwidth]{bioinformaticsy_tab.pdf}
 \end{table}
 
 \section{Optimal neighborhood parameters for detecting effects}
