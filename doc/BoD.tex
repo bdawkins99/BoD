@@ -190,16 +190,17 @@
 {\Large
 \textbf\newline{Blessings of Dimensionality: Theoretical analysis of nearest-neighbor projected-distance methods for detecting interactions in high dimension} % Please use "sentence case" for title and headings (capitalize only the first word in a title (or heading), the first word in a subtitle (or subheading), and any proper nouns).
 }
-\newline
+%\newline
 % Insert author names, affiliations and corresponding author email (do not include titles, positions, or degrees).
-\\
-Bryan A. Dawkins$^{\text{1}}$, Trang T. Le$^{\text{2}}$ and Brett A. McKinney$^{\text{1,3,}*}$
-\\
-$^{\text{1}}$Department of Mathematics, University of Tulsa, Tulsa, OK 74104, USA \\
-$^{\text{2}}$ Department of Biostatistics, Epidemiology and Informatics,
-University of Pennsylvania, Philadelphia, PA 19104\\
-$^{\text{3}}$Tandy School of Computer Science, University of Tulsa, Tulsa, OK 74104, USA.
-
+\begin{center}
+  \begin{tabular}{l}
+  Bryan A. Dawkins$^{\text{1}}$, Trang T. Le$^{\text{2}}$ and Brett A. McKinney$^{\text{1,3,}*}$ \\
+  $^{\text{1}}$Department of Mathematics, University of Tulsa, Tulsa, OK 74104, USA \\
+  $^{\text{2}}$Department of Biostatistics, Epidemiology and Informatics, University of \\
+  \hphantom{2}Pennsylvania, Philadelphia, PA 19104 \\
+  $^{\text{3}}$Tandy School of Computer Science, University of Tulsa, Tulsa, OK 74104, USA.
+  \end{tabular}
+\end{center}
 
 
 % \end{flushleft}
@@ -294,7 +295,7 @@ The multiSURF radius for an instance is the mean of its distances to all other i
 \subsection{Distribution of pairwise distances}
 Discuss Central Limit Theorem argument for the distribution being Gaussian. We can always say this is an assumption, but I think we can invoke the CLT. [I would be cautious here - TTL. We will be cautious invoking the CLT - BAM.]
 
-Let $\mathcal{D}_X$ denote an arbitrary multivariate probability distribution with a corresponding univariate distribution $\mathcal{D}_x$. Consider $X = (X_1,X_2,\dots,X_m)$ where $X_1,X_2,\dots,X_m \overset{iid}{\sim} \mathcal{D}_X$. That is, each $X_j$ is a random sample of length $p$ such that $X_{ij} \overset{iid}{\sim} \mathcal{D}_x$. It is clear that $X$ is a random data set of dimensions $p \times m$ such that $X_{ij} \overset{iid}{\sim} \mathcal{D}_x$ for $i=1,2,\dots,p$ and $j=1,2,\dots,m$.
+Let $\mathcal{D}_X$ denote an arbitrary multivariate probability distribution with a corresponding univariate distribution $\mathcal{D}_x$. Consider $X = (X_1,X_2,\dots,X_m)$ where $X_1,X_2,\dots,X_m \overset{iid}{\sim} \mathcal{D}_X$. That is, each $X_j$ is a random sample of size $p$ such that $X_{ij} \overset{iid}{\sim} \mathcal{D}_x$. It is clear that $X$ is a random data set of dimensions $p \times m$ such that $X_{ij} \overset{iid}{\sim} \mathcal{D}_x$ for $i=1,2,\dots,p$ and $j=1,2,\dots,m$.
 
 \begin{center}
 \textbf{Argument Outline}
