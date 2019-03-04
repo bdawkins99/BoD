@@ -292,8 +292,44 @@ NPD methods rely on a neighborhood algorithm for feature selection. One may spec
 \section{Derivation of expected k for multiSURF neighborhoods}
 The multiSURF radius for an instance is the mean of its distances to all other instances subtracted by $\alpha=1/2$ of the standard deviation of this mean. Previously we showed empirically for balanced case-control datasets that a good constant-$k$ approximation to the expected number of neighbors within the multiSURF radii is $k=m/6$~\cite{stir}, where $m$ is the number of samples. Here we derive a more exact theoretical mean that shows the mathematical connection between neighbor-finding methods. This fixed-$k$ approximation to multi-SURF is independent of the type of data and the particular radii of each instance in the data.
 %
+
+The distance between instances $i$ and $j$ in the data set $X^{m \times p}$ of $m$ instances and $p$ attributes is calculated in the space of all attributes ($a \in A$, $|A|=p$) using a metric such as
+\begin{equation}\label{eq:D}
+% D^{(q)}_{ij}=\left(\sum_{a\in A}|\text{d}^{\text{type}}_{ij}(a)|^q\right)^{1/q},
+D^{(q)}_{ij}=\left(\sum_{a\in A}|\text{d}_{ij}(a)|^q\right)^{1/q},
+\end{equation}
+which is typically Manhattan ($q=1$) but may also be Euclidean ($q=2$). The quantity 
+% $\text{d}^{\text{type}}_{ij}(a)$, 
+$\text{d}_{ij}(a)$,
+known as a ``$\text{diff}$'' in Relief literature, is the projection of the distance between instances $i$ and $j$ onto the attribute $a$ dimension. The 
+% ``type'' refers to the data type of the attribute
+function $\text{d}_{ij}(a)$ supports any type of attributes
+(e.g., numeric continuous versus categorical).
+For example, the projected difference between two instances $i$ and $j$ for a continuous numeric ($\text{d}^{\text{num}}$) attribute $a$ may be
+%\begin{equation}\label{eq:diff}
+%\text{diff}^{(\text{num})}(a,(\ri,\rj))=\frac{|\text{value}(a,\ri)-\text{value}(a,\rj)%|}{\max(a)-\min(a)}.
+%\end{equation}
+\begin{equation}\label{eq:diff}
+\begin{aligned}
+\text{d}^{\text{num}}_{ij}(a)&=\text{diff}(a,(i,j))\\
+                                            & = {|\hat{X}_{ia}-\hat{X}_{ja}|},
+\end{aligned}
+\end{equation}
+where $\hat{X}$ represents the standardized data matrix $X$.
+We use a simplified d$_{ij}(a)$ notation in place of the $\text{diff}(a,(i,j))$ notation that is customary in Relief-based methods.
+We omit the division by $\max(a)-\min(a)$ used by Relief to constrain scores to the interval from $-1$ to $1$.
+As we show in subsequent sections, NPDR scores are [standardized] regression coefficients with corresponding P values, so any scaling operation at this stage is unnecessary for comparing attribute scores. 
+%\emph{Omit: The scaling may alleviate bias in the distance calculation. However, standardizing the data matrix $X$ ($\hat{X}$) should have the same effect without division by $\max(a)-\min(a)$, which has usual distribution properties for distances (expand).}
+The numeric d$^{\text{num}}_{ij}(a)$ projection is simply the absolute difference between row elements $i$ and $j$ of the data matrix $X^{m \times p}$ for the attribute column $a$. 
+
+We define the NPDR neighborhood set $\mathcal{N}$ of ordered pair indices as follows. Instance $i$ is a point in $p$ dimensions, and we designate the topological neighborhood of $i$ as $N_{i}$. This neighborhood is a set of other instances trained on the data $X^{m \times p}$ and depends on the type of Relief neighborhood method (e.g., fixed-$k$ or adaptive radius) and the type of metric (e.g., Manhattan or Euclidean). If instance $j$ is in the neighborhood of $i$ ($j \in N_{i}$), then the ordered pair $(i,j) \in \mathcal{N}$ for the projected-distance regression analysis. The ordered pairs constituting the neighborhood can then be represented as nested sets:
+\begin{equation}\label{eq:N}
+\mathcal{N}=\{\{(i, j)\}_{i=1}^{m}\}_{\{j \ne i : j \in N_{i}\}}.
+\end{equation}
+The cardinality of the set $\{j \ne i : j \in N_{i}\}$ is $k_i$, the number of nearest neighbors for subject $i$. 
+
 \subsection{Distribution of pairwise distances}
-Discuss Central Limit Theorem argument for the distribution being Gaussian. We can always say this is an assumption, but I think we can invoke the CLT. [I would be cautious here - TTL. We will be cautious invoking the CLT - BAM.]
+%Discuss Central Limit Theorem argument for the distribution being Gaussian. We can always say this is an assumption, but I think we can invoke the CLT. [I would be cautious here - TTL. We will be cautious invoking the CLT - BAM.]
 
 Let $\mathcal{D}_X$ denote an arbitrary multivariate probability distribution with a corresponding univariate distribution $\mathcal{D}_x$. Consider $X = (X_1,X_2,\dots,X_m)$ where $X_1,X_2,\dots,X_m \overset{iid}{\sim} \mathcal{D}_X$. That is, each $X_j$ is a random sample of size $p$ such that $X_{ij} \overset{iid}{\sim} \mathcal{D}_x$. It is clear that $X$ is a random data set of dimensions $p \times m$ such that $X_{ij} \overset{iid}{\sim} \mathcal{D}_x$ for $i=1,2,\dots,p$ and $j=1,2,\dots,m$.
 
@@ -356,7 +392,7 @@ q_{\alpha} = \frac{1}{2} \left( 1 - \mathrm{erf}\left( \frac{\alpha}{\sqrt{2}} \
 \end{equation}
 And finally using Eqs. (\ref{eq:binomial_average} and \ref{eq:q_prob}) we find
 \begin{equation}\label{eq:kbar}
-{\bar{k}}_{\alpha} = \lfloor \frac{m-1}{2}  \left( 1 - \mathrm{erf}\left( \frac{\alpha}{\sqrt{2}} \right) \right) \rfloor,
+{\bar{k}}_{\alpha} = \left \lfloor \frac{m-1}{2}  \left( 1 - \mathrm{erf}\left( \frac{\alpha}{\sqrt{2}} \right) \right) \right \rfloor,
 \end{equation}
 where we apply the floor to ensure the number of neighbors is integer. For data with balanced hits and misses in standard fixed-$k$ Relief, one divides this formula by 2. For multiSURF ($\alpha=1/2$), this formula gives $\bar{k}_{1/2}^{\text{hit/miss}} = \frac{1}{2}\bar{k}_{1/2} = .154 (m-1)$, which is very close to our previous empirical estimate $m/6$. When we compare multiSURF neighborhood methods with fixed-$k$ neighborhoods, we use $\bar{k}_{1/2}$. Using this $\alpha=1/2$ value has been shown to give good performance for simulated data sets. However, the best value for $\alpha$ is likely data-specific and may be determined through nested cross-validation and other parameter tuning methods.
 
