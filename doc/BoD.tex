@@ -331,30 +331,57 @@ The cardinality of the set $\{j \ne i : j \in N_{i}\}$ is $k_i$, the number of n
 \subsection{Distribution of pairwise distances}
 %Discuss Central Limit Theorem argument for the distribution being Gaussian. We can always say this is an assumption, but I think we can invoke the CLT. [I would be cautious here - TTL. We will be cautious invoking the CLT - BAM.]
 
-Let $\mathcal{D}_X$ denote an arbitrary multivariate probability distribution with a corresponding univariate distribution $\mathcal{D}_x$. Consider $X = (X_1,X_2,\dots,X_m)$ where $X_1,X_2,\dots,X_m \overset{iid}{\sim} \mathcal{D}_X$. That is, each $X_j$ is a random sample of size $p$ such that $X_{ij} \overset{iid}{\sim} \mathcal{D}_x$. It is clear that $X$ is a random data set of dimensions $p \times m$ such that $X_{ij} \overset{iid}{\sim} \mathcal{D}_x$ for $i=1,2,\dots,p$ and $j=1,2,\dots,m$.
+Suppose that $X_{ia}, X_{ja} \overset{iid}{\sim} \mathcal{F}_X(\mu_X,\sigma^2_X)$ for two fixed and distinct instances $i,j \in \{n\}^m_{n=1}$ and a fixed attribute $a \in \mathcal{A}$. 
 
-\begin{center}
-\textbf{Argument Outline}
-\end{center}
+It is clear that the magnitude difference, or numeric diff given by Eq. \ref{eq:diff}, between $X_{ia}$ and $X_{ja}$ is another random variable $Z_a$. That is,
 
-\noindent \textbf{Manhattan}
-\begin{enumerate}
-\item The Manhattan distance between instances $j$ and $k$ is a sum of magnitude differences $|X_{ij}-X_{ik}|$ for $i=1,2,\dots,p$. That is $d(X_j,X_k)=D_{jk} = \displaystyle \sum_{i=1}^{p}|X_{ij}-X_{ik}|$
-\item The magnitude differences $y_i = |X_{ij} - X_{ik}| \overset{iid}{\sim} \mathcal{F}_y$.
-\item The antecedent of the classical Central Limit Theorem is satisfied in (1) and (2).
-\item The distribution of Manhattan distance between two fixed instances $j$ and $k$ is asymptotically normal by the classical Central Limit Theorem.
-\end{enumerate}
+\begin{equation}\label{eq:diffDistr}
+Z_a = d_{ij}(a) = |X_{ia} - X_{ja}| \sim \mathcal{F}_Z(\mu_z,\sigma^2_z).
+\end{equation}
 
-\noindent \textbf{Euclidean}
-\begin{enumerate}
-\item The Euclidean distance between instances $j$ and $k$ is the square root of the sum of squared differences $(X_{ij}-X_{ik})^2$ for $i=1,2,\dots,p$. That is $d(X_j,X_k)=D_{jk} = \sqrt{\displaystyle \sum_{i=1}^{p}(X_{ij}-X_{ik})^2}$
-\item The squared differences $y_i = (X_{ij} - X_{ik})^2 \overset{iid}{\sim} \mathcal{F}_y$.
-\item The antecedent of the classical Central Limit Theorem is satisfied in (1) and (2).
-\item The distribution of the sum of squared differences between two fixed instances $j$ and $k$ is asymptotically normal by the classical Central Limit Theorem.
-\item The square root function $f(x) = \sqrt{x}$ is a smooth functional transformation of the sum of squared differences.
-\item Based on (4) and (5), the Delta Method implies that the Euclidean distance between two fixed instances $j$ and $k$ is asymptotically normal.
-\end{enumerate}
-We may also want to show simulated distributions. 
+Furthermore, the collection of all magnitude differences between fixed instances $i$ and $j$ is a random sample of size $p$ from $\mathcal{F}_Z(\mu_z,\sigma^2_z)$. That is, $Z_{a_1},Z_{a_2},\dots,Z_{a_p} \overset{iid}{\sim} \mathcal{F}_Z(\mu_z,\sigma^2_Z)$ such that
+
+\begin{equation}\label{eq:AlldiffDistr}
+Z_{a_k} = d_{ij}(a_k) = |X_{ia_k} - X_{ja_k}|.
+\end{equation}
+
+Therefore, the sum of all $Z_{a_k}$ for $k=1,2,\dots,p$ is asymptotically normal by the Classical Central Limit Theorem (CCLT). Explicitly, this means that
+
+\begin{equation}\label{eq:manhattanAsympt}
+D^{(1)}_{ij} = \displaystyle \sum_{k=1}^{p}|X_{ia_k} - X_{ja_k}| = \displaystyle \sum_{k=1}^{p}d_{ij}(a_k) = \displaystyle \sum_{k=1}^{p}Z_{a_k} \overset{.}{\sim} \mathcal{N}(\mu_zp,\sigma^2_zp).
+\end{equation}
+
+Therefore, the standard manhattan distance between two distinct and fixed instances $i$ and $j$ is asymptotically normal.
+
+It is also apparent that the squared difference, or squared numeric diff, between $X_{ia}$ and $X_{ja}$ is another random variable $Z^2_{a}$. That is,
+
+\begin{equation}\label{eq:SqudiffDistr}
+Z^2_a = d^2_{ij}(a) = (X_{ia} - X_{ja})^2 \sim \mathcal{F}_{Z^2}(\mu_{z^2},\sigma^2_{z^2}).
+\end{equation}
+
+Furthermore, the collection of all squared differences between fixed instances $i$ and $j$ is a random sample of size $p$ from $\mathcal{F}_{Z^2}(\mu_{z^2},\sigma^2_{z^2})$. That is, $Z^2_{a_1},Z^2_{a_2},\dots,Z^2_{a_p} \overset{iid}{\sim} \mathcal{F}_{Z^2}(\mu_{z^2},\sigma^2_{z^2})$ such that
+
+\begin{equation}\label{eq:AllSqudiffDistr}
+Z^2_{a_k} = (X_{ia_k} - X_{ja_k})^2.
+\end{equation}
+
+Therefore, the sum of all $Z^2_{a_k}$ for $k=1,2,\dots,p$ is asymptotically normal by the Classical Central Limit Theorem. Explicitly, this means that
+
+\begin{equation}\label{eq:SquEuclideanAsympt}
+\left(D^{(2)}_{ij}\right)^2 = \displaystyle \sum_{k=1}^{p}(X_{ia_k} - X_{ja_k})^2 = \displaystyle \sum_{k=1}^{p}d^2_{ij}(a_k) = \displaystyle \sum_{k=1}^{p}Z^2_{a_k} \overset{.}{\sim} \mathcal{N}(\mu_{z^2}p,\sigma^2_{z^2}p).
+\end{equation}
+
+Consider the smooth functional transformation $g(\alpha) = \sqrt{\alpha}$ applied to the random variable given by Eq. \ref{eq:SquEuclideanAsympt}. The Delta Method (cite textbook) can be applied to show that
+
+\begin{equation}\label{eq:DeltaMethod}
+g\left(\left(D^{(2)}_{ij}\right)^2\right) = g\left(\displaystyle \sum_{k=1}^{p}Z^2_{a_k}\right) = \sqrt{\displaystyle \sum_{k=1}^{p} (X_{ia_k} - X_{ja_k})^2} \overset{.}{\sim} \mathcal{N}\left(g(\mu_{z^2}p),[g\prime(\mu_{z^2}p)]^2\sigma^2_{z^2}\right)
+\end{equation}
+
+Therefore, the standard Euclidean distance between two fixed and distinct instances $i$ and $j$ is asymptotically normal.
+
+We have considered the distance metric given by Eq. \ref{eq:D} for $q=1$ (Manhattan) and $q=2$ (Euclidean). Without loss of generality, the argument presented previously for $q=2$ can be used to show asymptotic normality of $D^{(q)}_{ij}$ with $q>2$. Therefore, the pairwise distance distribution of $D^{(q)}_{ij}$ is asymptotically normal with the assumption of independently and identically distributed instances. This result is true for any null data distribution, whether continuous or discrete.
+
+For distance based learning methods, all pairwise distances are used to determine relative importances for attributes. The collection of all distances above the diagonal in an $m \times m$ distance matrix does not satisfy the independence assumption used in the previous derivations. This is because of the redundancy that is inherent to the distance matrix calcuation. However, this collection is still asymptotically normal with mean and variance approximately equal to those given in Eqs. \ref{eq:manhattanAsympt} or \ref{eq:DeltaMethod}. Hence, all fixed-radius methods will use a fixed radius that is some fraction of the expected pairwise distance for a given metric and data type. This implies that the probability of a fixed instance $j$ being within a fixed radius of a given instance $i$ can be parameterized by the expected pairwise distance and the variance of the pairwise distance. This probability is obtained by evaluating the normal cumulative distribution function (CDF), with corresponding mean and variance, at the quantile given by the fixed radius. Therefore, we can derive the expected number of neighbors in the neighborhood of a fixed instance $i$. In other words, for sufficiently large data sets, the sample mean of the number of neighbors in a given neighborhood is well approximated by the product between the total number of possible neighbors and the expected probability of an instance being in a given neighborhood. The total number of possible neighbors for a fixed instance $i$ is always $m-1$, but this becomes approximately $\lfloor{\frac{m - 1}{2}}\rfloor$ when delineating between possible hits and misses for balanced data.
 
 \subsection{Predicted number of neighbors in the multiSURF alpha neighborhood}
 
