@@ -331,7 +331,7 @@ The cardinality of the set $\{j \ne i : j \in N_{i}\}$ is $k_i$, the number of n
 \subsection{Distribution of pairwise distances}
 %Discuss Central Limit Theorem argument for the distribution being Gaussian. We can always say this is an assumption, but I think we can invoke the CLT. [I would be cautious here - TTL. We will be cautious invoking the CLT - BAM.]
 
-Suppose that $X_{ia}, X_{ja} \overset{iid}{\sim} \mathcal{F}_X(\mu_X,\sigma^2_X)$ for two fixed and distinct instances $i,j \in \{n\}^m_{n=1}$ and a fixed attribute $a \in \mathcal{A}$. 
+Suppose that $X_{ia}, X_{ja} \overset{iid}{\sim} \mathcal{F}_X(\mu_X,\sigma^2_X)$ for two fixed and distinct instances $(i,j) \in \mathcal{N}$ and a fixed attribute $a \in \mathcal{A}$. 
 
 It is clear that the magnitude difference, or numeric diff given by Eq. \ref{eq:diff}, between $X_{ia}$ and $X_{ja}$ is another random variable $Z_a$. That is,
 
@@ -371,7 +371,7 @@ Therefore, the sum of all $Z^2_{a_k}$ for $k=1,2,\dots,p$ is asymptotically norm
 \left(D^{(2)}_{ij}\right)^2 = \displaystyle \sum_{k=1}^{p}(X_{ia_k} - X_{ja_k})^2 = \displaystyle \sum_{k=1}^{p}d^2_{ij}(a_k) = \displaystyle \sum_{k=1}^{p}Z^2_{a_k} \overset{.}{\sim} \mathcal{N}(\mu_{z^2}p,\sigma^2_{z^2}p).
 \end{equation}
 
-Consider the smooth functional transformation $g(\alpha) = \sqrt{\alpha}$ applied to the random variable given by Eq. \ref{eq:SquEuclideanAsympt}. The Delta Method (cite textbook) can be applied to show that
+Consider the smooth functional transformation $g(\alpha) = \sqrt{\alpha}$ applied to the random variable given by Eq. \ref{eq:SquEuclideanAsympt}. The Delta Method \cite{allStats} can be applied to show that
 
 \begin{equation}\label{eq:DeltaMethod}
 g\left(\left(D^{(2)}_{ij}\right)^2\right) = g\left(\displaystyle \sum_{k=1}^{p}Z^2_{a_k}\right) = \sqrt{\displaystyle \sum_{k=1}^{p} (X_{ia_k} - X_{ja_k})^2} \overset{.}{\sim} \mathcal{N}\left(g(\mu_{z^2}p),[g\prime(\mu_{z^2}p)]^2\sigma^2_{z^2}\right)
@@ -446,6 +446,64 @@ where we apply the floor to ensure the number of neighbors is integer. For data 
 \end{figure} 
 
 \section{Derivation of means and standard deviations for metrics and data distributions}
+
+Suppose that $X_{ia}, X_{ja} \overset{iid}{\sim} \mathcal{F}_X(\mu_x,\sigma^2_x)$ and define $Z_a \sim \mathcal{F}_Z(\mu_z,\sigma^2_z)$ such that $Z_a = d_{ij}(a) = |X_{ia} - X_{ja}|$, where $a \in \mathcal{A}$ and $|\mathcal{A}| = p$.
+
+\begin{itemize}
+\item[(i)] Suppose that $x_{ia} \geq x_{ja}$. Based on the iid assumption for $X_{ia}$ and $X_{ja}$, it follows that the joint density function $g^{(1)}$ of $X_{ia}$ and $Z_a$ is given by
+
+\begin{equation}
+\begin{aligned}
+g^{(1)}(x_{ia},z_a) &= f_X(x_{ia},x_{ja})\biggl|\frac{\partial x_{ja}}{\partial z_a}\biggr| \\
+&= f_X(x_{ia})f_X(x_{ja})|-1| \\
+&= f_X(x_{ia})f_X(x_{ia}-z_a), \quad z_a \geq 0
+\end{aligned}
+\end{equation}
+
+The density function $f^{(1)}_Z$ of $Z_a$ is then defined as
+
+\begin{equation}
+f^{(1)}_Z(z_a) = \int_{-\infty}^{\infty} g^{(1)}(x_{ia},z_a)\text{d}x_{ia} = \int_{-\infty}^{\infty} f_X(x_{ia})f_X(x_{ia}-z_a)\text{d}x_{ia}, \quad z_a \geq 0
+\end{equation}
+
+\item[(ii)] Suppose that $x_{ia} < x_{ja}$. Based on the iid assumption for $X_{ia}$ and $X_{ja}$, it follows that the joint density function $g^{(2)}$ of $X_{ia}$ and $Z_a$ is given by
+
+\begin{equation}
+\begin{aligned}
+g^{(2)}(x_{ia},z_a) &= f_X(x_{ia},x_{ja})\biggl|\frac{\partial x_{ja}}{\partial z_a}\biggr| \\
+&= f_X(x_{ia})f_X(x_{ja})|1| \\
+&= f_X(x_{ia})f_X(x_{ia}+z_a), \quad z_a \geq 0
+\end{aligned}
+\end{equation}
+
+The density function $f^{(2)}_Z$ of $Z_a$ is then defined as
+
+\begin{equation}
+f^{(2)}_Z(z_a) = \int_{-\infty}^{\infty} g^{(2)}(x_{ia},z_a)\text{d}x_{ia} = \int_{-\infty}^{\infty} f_X(x_{ia})f_X(x_{ia}+z_a)\text{d}x_{ia}, \quad z_a \geq 0
+\end{equation}
+\end{itemize}
+
+Let $F_Z$ denote the distribution function of the random variable $Z_a$. Furthermore, let $E^{(1)}=\{X_{ia}-X_{ja} \leq z_a | X_{ia} \geq X_{ja}\}$ and $E^{(2)}=\{-X_{ia}+X_{ja} \leq z_a | X_{ia} < X_{ja}\}$. Then we have
+
+\begin{equation}\label{eq:manhattanCDF}
+\begin{aligned}
+F_Z(z_a) &= \text{P}[Z_a \leq z_a] \\
+&= \text{P}[|X_{ia} - X_{ja}| \leq z_a] \\
+&= \text{P}[\{X_{ia}-X_{ja} \leq z_a | X_{ia} \geq X_{ja}\} \cup \{-X_{ia}+X_{ja} \leq z_a | X_{ia} < X_{ja}\}] \\
+&= \text{P}[E^{(1)} \cup E^{(2)}] \\
+&= \text{P}[E^{(1)}] + \text{P}[E^{(2)}] - \text{P}[E^{(1)} \cap E^{(2)}] \\
+&= \text{P}[E^{(1)}] + \text{P}[E^{(2)}] \\
+&= \int_{-\infty}^{z_a} f^{(1)}_Z(t) \text{d}t + \int_{-\infty}^{z_a} f^{(2)}_Z(t) \text{d}t \\
+&= \int_{-\infty}^{z_a} \left(f^{(1)}_Z(t) + f^{(2)}_Z(t)\right) \text{d}t \\
+&= \int_{-\infty}^{z_a} \left(\int_{-\infty}^{\infty}f_X(x_{ia})\left[f_X(x_{ia} - t) + f_X(x_{ia} + t)\right] \text{d}x_{ia}\right)\text{d}t, \quad z_a \geq 0
+\end{aligned}
+\end{equation}
+
+It follows directly from the result in Eq. \ref{eq:manhattanCDF} that the density function of the random variable $Z_a$ is given by
+
+\begin{equation}\label{eq:manhattanPDF}
+f_Z(z_a) = \frac{\partial}{\partial z_a} F_Z(z_a) = \int_{-\infty}^{\infty} f_X(x_{ia}) \left[f_X(x_{ia} - z_a) + f_X(x_{ia} + z_a)\right] \text{d}x_{ia}, \quad z_a \geq 0
+\end{equation}
 
 \begin{table}[H]
 \caption{Summary of asymptotic distance distributions for common data types. Metrics with subscripts M and E represent Manhattan and Euclidean, respectively. Metrics with superscript $^*$ represent a deviation from the standard metric by attribute range normalization. The function $\Phi^{-1}(x)$ denotes the standard normal quantile function, where $x \in (0,1)$.}
