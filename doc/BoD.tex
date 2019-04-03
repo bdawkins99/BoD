@@ -447,6 +447,8 @@ where we apply the floor to ensure the number of neighbors is integer. For data 
 
 \section{Derivation of means and standard deviations for metrics and data distributions}
 
+\subsection{Magnitude Difference Distribution}
+
 Suppose that $X_{ia}, X_{ja} \overset{iid}{\sim} \mathcal{F}_X(\mu_x,\sigma^2_x)$ and define $Z_a \sim \mathcal{F}_Z(\mu_z,\sigma^2_z)$ such that $Z_a = d_{ij}(a) = |X_{ia} - X_{ja}|$, where $a \in \mathcal{A}$ and $|\mathcal{A}| = p$.
 
 \begin{itemize}
@@ -483,16 +485,16 @@ f^{(2)}_Z(z_a) = \int_{-\infty}^{\infty} g^{(2)}(x_{ia},z_a)\text{d}x_{ia} = \in
 \end{equation}
 \end{itemize}
 
-Let $F_Z$ denote the distribution function of the random variable $Z_a$. Furthermore, let $E^{(1)}=\{X_{ia}-X_{ja} \leq z_a | X_{ia} \geq X_{ja}\}$ and $E^{(2)}=\{-X_{ia}+X_{ja} \leq z_a | X_{ia} < X_{ja}\}$. Then we have
+Let $F_Z$ denote the distribution function of the random variable $Z_a$. Furthermore, let $E^{(1)}=\bigl\{X_{ia}-X_{ja} \leq z_a | X_{ia} \geq X_{ja}\bigr\}$ and $E^{(2)}=\bigl\{-X_{ia}+X_{ja} \leq z_a | X_{ia} < X_{ja}\bigr\}$. Then we have
 
 \begin{equation}\label{eq:manhattanCDF}
 \begin{aligned}
-F_Z(z_a) &= \text{P}[Z_a \leq z_a] \\
-&= \text{P}[|X_{ia} - X_{ja}| \leq z_a] \\
-&= \text{P}[\{X_{ia}-X_{ja} \leq z_a | X_{ia} \geq X_{ja}\} \cup \{-X_{ia}+X_{ja} \leq z_a | X_{ia} < X_{ja}\}] \\
-&= \text{P}[E^{(1)} \cup E^{(2)}] \\
-&= \text{P}[E^{(1)}] + \text{P}[E^{(2)}] - \text{P}[E^{(1)} \cap E^{(2)}] \\
-&= \text{P}[E^{(1)}] + \text{P}[E^{(2)}] \\
+F_Z(z_a) &= \text{P}\bigl[Z_a \leq z_a\bigr] \\
+&= \text{P}\bigl[|X_{ia} - X_{ja}| \leq z_a\bigr] \\
+&= \text{P}\bigl[\bigl\{X_{ia}-X_{ja} \leq z_a | X_{ia} \geq X_{ja}\bigr\} \cup \bigl\{-X_{ia}+X_{ja} \leq z_a | X_{ia} < X_{ja}\bigr\}\bigr] \\
+&= \text{P}\bigl[E^{(1)} \cup E^{(2)}\bigr] \\
+&= \text{P}\bigl[E^{(1)}\bigr] + \text{P}\bigl[E^{(2)}\bigr] - \text{P}\bigl[E^{(1)} \cap E^{(2)}\bigr] \\
+&= \text{P}\bigl[E^{(1)}\bigr] + \text{P}\bigl[E^{(2)}\bigr] \\
 &= \int_{-\infty}^{z_a} f^{(1)}_Z(t) \text{d}t + \int_{-\infty}^{z_a} f^{(2)}_Z(t) \text{d}t \\
 &= \int_{-\infty}^{z_a} \left(f^{(1)}_Z(t) + f^{(2)}_Z(t)\right) \text{d}t \\
 &= \int_{-\infty}^{z_a} \left(\int_{-\infty}^{\infty}f_X(x_{ia})\left[f_X(x_{ia} - t) + f_X(x_{ia} + t)\right] \text{d}x_{ia}\right)\text{d}t, \quad z_a \geq 0
@@ -503,6 +505,67 @@ It follows directly from the result in Eq. \ref{eq:manhattanCDF} that the densit
 
 \begin{equation}\label{eq:manhattanPDF}
 f_Z(z_a) = \frac{\partial}{\partial z_a} F_Z(z_a) = \int_{-\infty}^{\infty} f_X(x_{ia}) \left[f_X(x_{ia} - z_a) + f_X(x_{ia} + z_a)\right] \text{d}x_{ia}, \quad z_a \geq 0
+\end{equation}
+
+\subsection{Squared Difference Distribution}
+
+Suppose that $X_{ia}, X_{ja} \overset{iid}{\sim} \mathcal{F}_X(\mu_x,\sigma^2_x)$ and define $Z^2_a \sim \mathcal{F}_{Z^2}(\mu_{z^2},\sigma^2_{z^2})$ such that $Z^2_a = d^2_{ij}(a) = (X_{ia} - X_{ja})^2$, where $a \in \mathcal{A}$ and $|\mathcal{A}| = p$.
+
+\begin{itemize}
+\item[(i)] Suppose that $x_{ja} = x_{ia} - \sqrt{z^2_a}$. Based on the iid assumption for $X_{ia}$ and $X_{ja}$, it follows that the joint density function $g^{(1)}$ of $X_{ia}$ and $Z^2_a$ is given by
+
+\begin{equation}
+\begin{aligned}
+g^{(1)}(x_{ia},z^2_a) &= f_X(x_{ia},x_{ja})\biggl|\frac{\partial x_{ja}}{\partial z^2_a}\biggr| \\
+&= f_X(x_{ia})f_X(x_{ja})\biggl|\frac{-1}{2\sqrt{z^2_a}}\biggr| \\
+&= \frac{1}{2\sqrt{z^2_a}}f_X(x_{ia})f_X(x_{ia}-\sqrt{z^2_a})
+\end{aligned}
+\end{equation}
+
+The density function $f^{(1)}_{Z^2}$ of $Z^2_a$ is then defined as
+
+\begin{equation}
+f^{(1)}_{Z^2}(z^2_a) = \int_{-\infty}^{\infty} g^{(1)}(x_{ia},z^2_a)\text{d}x_{ia} = \int_{-\infty}^{\infty} f_X(x_{ia})f_X(x_{ia}-\sqrt{z^2_a})\text{d}x_{ia}
+\end{equation}
+
+\item[(ii)] Suppose that $x_{ja} = x_{ia} + \sqrt{z^2_a}$. Based on the iid assumption for $X_{ia}$ and $X_{ja}$, it follows that the joint density function $g^{(2)}$ of $X_{ia}$ and $Z^2_a$ is given by
+
+\begin{equation}
+\begin{aligned}
+g^{(2)}(x_{ia},z^2_a) &= f_X(x_{ia},x_{ja})\biggl|\frac{\partial x_{ja}}{\partial z^2_a}\biggr| \\
+&= f_X(x_{ia})f_X(x_{ja})\biggl|\frac{1}{2\sqrt{z^2_a}}\biggr| \\
+&= \frac{1}{2\sqrt{z^2_a}}f_X(x_{ia})f_X(x_{ia}+\sqrt{z^2_a})
+\end{aligned}
+\end{equation}
+
+The density function $f^{(2)}_{Z^2}$ of $Z^2_a$ is then defined as
+
+\begin{equation}
+f^{(2)}_{Z^2}(z_a) = \int_{-\infty}^{\infty} g^{(2)}(x_{ia},z^2_a)\text{d}x_{ia} = \int_{-\infty}^{\infty} f_X(x_{ia})f_X(x_{ia}+\sqrt{z^2_a})\text{d}x_{ia}
+\end{equation}
+\end{itemize}
+
+Let $F_Z$ denote the distribution function of the random variable $Z_a$. Furthermore, let $E^{(1)}=\bigl\{(X_{ia}-X_{ja})^2 \leq z^2_a | X_{ja}=X_{ia}-\sqrt{Z^2_a}\bigr\}$ and $E^{(2)}=\bigl\{(X_{ia} - X_{ja})^2 \leq z_a | X_{ja}=X_{ia} + \sqrt{Z^2_a}\bigr\}$. Then we have
+
+\begin{equation}\label{eq:SquDiffCDF}
+\begin{aligned}
+F_{Z^2}(z^2_a) &= \text{P}\bigl[Z^2_a \leq z^2_a\bigr] \\
+&= \text{P}\bigl[(X_{ia} - X_{ja})^2 \leq z^2_a\bigr] \\
+&= \text{P}\bigl[\bigl\{(X_{ia}-X_{ja})^2 \leq z^2_a | X_{ja}=X_{ia}-\sqrt{Z^2_a}\bigr\} \cup \\
+&\hphantom{=} \quad \quad \bigl\{(X_{ia} - X_{ja})^2 \leq z_a | X_{ja}=X_{ia} + \sqrt{Z^2_a}\bigr\}\bigr] \\
+&= \text{P}\bigl[E^{(1)} \cup E^{(2)}\bigr] \\
+&= \text{P}\bigl[E^{(1)}\bigr] + \text{P}\bigl[E^{(2)}\bigr] - \text{P}\bigl[E^{(1)} \cap E^{(2)}\bigr] \\
+&= \text{P}\bigl[E^{(1)}\bigr] + \text{P}\bigl[E^{(2)}\bigr] \\
+&= \int_{-\infty}^{z^2_a} f^{(1)}_{Z^2}(t) \text{d}t + \int_{-\infty}^{z^2_a} f^{(2)}_{Z^2}(t) \text{d}t \\
+&= \int_{-\infty}^{z^2_a} \left(f^{(1)}_{Z^2}(t) + f^{(2)}_{Z^2}(t)\right) \text{d}t \\
+&= \frac{1}{2\sqrt{z^2_a}}\int_{-\infty}^{z^2_a} \left(\int_{-\infty}^{\infty}f_X(x_{ia})\left[f_X(x_{ia} - t) + f_X(x_{ia} + t)\right] \text{d}x_{ia}\right)\text{d}t
+\end{aligned}
+\end{equation}
+
+It follows directly from the result in Eq. \ref{eq:SquDiffCDF} that the density function of the random variable $Z^2_a$ is given by
+
+\begin{equation}\label{eq:SquDiffPDF}
+f_{Z^2}(z^2_a) = \frac{\partial}{\partial z^2_a} F_{Z^2}(z^2_a) = \int_{-\infty}^{\infty} f_X(x_{ia}) \left[f_X(x_{ia} - \sqrt{z^2_a}) + f_X(x_{ia} + \sqrt{z^2_a})\right] \text{d}x_{ia}
 \end{equation}
 
 \begin{table}[H]
