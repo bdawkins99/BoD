@@ -286,7 +286,7 @@ Relief-based methods use information from all attributes available to it (omnige
 \end{figure}  
 Using same interaction, increase background noise genes to see degrading of A and B Relief importance because of curse of dimensionality (sparseness). 
 
-\section{Neighborhood Methods}
+\section{Neighborhood methods}
 NPD methods rely on a neighborhood algorithm for feature selection. One may specify a fixed-k number of neighbors, an average radius SURF, a multiSURF radius that adapts for each instance ~\cite{urbanowicz17}, or a gene-wise adaptive-$k$. 
 
 \section{Derivation of expected k for multiSURF neighborhoods}
@@ -525,7 +525,142 @@ It follows immediately from Eqs. \ref{eq:1DMagDiffMean} and \ref{eq:1DMagDiffVar
 D^{(1)}_{ij} = \sum_{a \in \mathcal{A}} Z_a = \sum_{a \in \mathcal{A}} |X_{ia} - X_{ja}| \overset{.}{\sim} \mathcal{N}\left(\mu_zp,\sigma^2_zp\right)
 \end{equation}
 
-\subsection{Squared Difference Distribution}
+\subsubsection{Standard normal data}
+
+If $X_{ia},X_{ja} \overset{iid}{\sim} \mathcal{N}(0,1)$, then the marginal density functions with respect to $X$ for $X_{ia}$, $X_{ia} - Z_a$, and $X_{ia} + Z_a$ are defined as
+
+\begin{equation}\label{eq:normalManXmarg}
+f_X(x_{ia}) = \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}x^2_{ia}},
+\end{equation}
+
+\begin{equation}\label{eq:normalManXMinusZmarg}
+f_X(x_{ia} - z_a) = \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}(x_{ia} - z_a)^2}, \quad z_a \geq 0, \text{ and}
+\end{equation}
+
+\begin{equation}\label{eq:normalManXPlusZmarg}
+f_X(x_{ia} + z_a) = \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}(x_{ia} + z_a)^2}, \quad z_a \geq 0.
+\end{equation}
+
+Substituting the results given by Eqs. \ref{eq:normalManXmarg}-\ref{eq:normalManXPlusZmarg} into Eq. \ref{eq:MagDiffPDF} and completing the square on $x_{ia}$ in the exponents, we have
+
+\begin{equation}\label{eq:normalManPDF}
+\begin{aligned}
+f_Z(z_a) &= \frac{1}{2\pi}e^{-\frac{1}{4}z^2_a}\int_{-\infty}^{\infty}\left(e^{-\frac{1}{2}\left[\sqrt{2}\left(x_{ia} - \frac{1}{2}z_a\right)\right]^2} + e^{-\frac{1}{2}\left[\sqrt{2}\left(x_{ia} + \frac{1}{2}z_a\right)\right]^2}\right)\text{d}x_{ia}, \quad z_a \geq 0\\
+&= \frac{1}{2\sqrt{\pi}}e^{-\frac{1}{4}z^2_a}\int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi}}\left(e^{-\frac{1}{2}u^2} + e^{-\frac{1}{2}u^2}\right)\text{d}u, \quad z_a \geq 0\\
+&= \frac{1}{2\sqrt{\pi}}e^{-\frac{1}{4}z^2_a}(1 + 1), \quad z_a \geq 0\\
+&= \frac{1}{2\sqrt{\pi}}e^{-\frac{1}{4}z^2_a} + \frac{1}{2\sqrt{\pi}}e^{-\frac{1}{4}z^2_a}, \quad z_a \geq 0 \\
+&= \frac{1}{\sqrt{\pi}}e^{-\frac{1}{2}\left(\frac{z_a}{\sqrt{2}}\right)^2}, \quad z_a \geq 0 \\
+&= \frac{\sqrt{2}}{\sqrt{2}\sqrt{\pi}} e^{-\frac{1}{2}\left(\frac{z_a}{\sqrt{2}}\right)^2}, \quad z_a \geq 0
+\end{aligned}
+\end{equation}
+
+The density function given by Eq. \ref{eq:normalManPDF} is a half-normal (or folded normal) density with scale parameter $\sigma = \sqrt{2}$. This distribution has mean and variance given by
+
+\begin{equation}\label{eq:normalAbsDiffMean}
+\begin{aligned}
+\mu_z &= \frac{\sigma \sqrt{2}}{\sqrt{\pi}} \\
+&= \frac{2}{\sqrt{\pi}}
+\end{aligned}
+\end{equation}
+
+\noindent and
+
+\begin{equation}\label{eq:normalAbsDiffVar}
+\begin{aligned}
+\sigma^2_z &= \sigma^2\left(1 - \frac{2}{\pi}\right) \\
+&= \frac{2(\pi-2)}{\pi}.
+\end{aligned}
+\end{equation}
+
+By linearity of the expected value and variance operators under the iid assumption, Eqs. \ref{eq:normalAbsDiffMean} and \ref{eq:normalAbsDiffVar} allow the $p\text{-dimensional}$ mean and variance of the $D^{(1)}_{ij}$ distribution to be computed directly as
+
+\begin{equation}\label{eq:normalManMean}
+\mu_{D^{(1)}_{ij}} = \text{E}\left(D^{(1)}_{ij}\right) = \text{E}\left(\sum_{a \in \mathcal{A}} Z_a\right) = \sum_{a \in \mathcal{A}} \text{E}\left(Z_a\right) = \sum_{a \in \mathcal{A}} \frac{2}{\sqrt{\pi}} = \frac{2p}{\sqrt{\pi}}
+\end{equation}
+
+\noindent and
+
+\begin{equation}\label{eq:normalManVar}
+\sigma^2_{D^{(1)}_{ij}} = \text{Var}\left(D^{(1)}_{ij}\right) = \text{Var}\left(\sum_{a \in \mathcal{A}} Z_a\right) = \sum_{a \in \mathcal{A}} \text{Var}\left(Z_a\right) = \sum_{a \in \mathcal{A}} \frac{2(\pi - 2)}{\pi} = \frac{2(\pi - 2)p}{\pi}
+\end{equation}
+
+Therefore, the asymptotic distribution of $D^{(1)}_{ij}$ for standard normal data is
+
+\begin{equation}\label{eq:normalManDistr}
+\mathcal{N}\left(\frac{2p}{\sqrt{\pi}},\frac{2(\pi - 2)p}{\sqrt{\pi}}\right)
+\end{equation}
+
+\subsubsection{Standard uniform data}
+
+If $X_{ia},X_{ja} \overset{iid}{\sim} \mathcal{U}(0,1)$, then the marginal density functions with respect to $X$ for $X_{ia}$, $X_{ia} - Z_a$, and $X_{ia} + Z_a$ are defined as
+
+\begin{equation}\label{eq:uniformManXmarg}
+f_X(x_{ia}) = 1, \quad 0 \leq x_{ia} \leq 1
+\end{equation}
+
+\begin{equation}\label{eq:uniformManXMinusZmarg}
+f_X(x_{ia} - z_a) = 1, \quad 0 \leq x_{ia} - z_a \leq 1, \text{ and}
+\end{equation}
+
+\begin{equation}\label{eq:uniformManXPlusZmarg}
+f_X(x_{ia} + z_a) = 1, \quad 0 \leq x_{ia} + z_a \leq 1.
+\end{equation}
+
+Substituting the results given by Eqs. \ref{eq:uniformManXmarg}-\ref{eq:uniformManXPlusZmarg}, we have
+
+\begin{equation}\label{eq:uniformManPDF}
+\begin{aligned}
+f_Z(z_a) &= \int_{-\infty}^{\infty}f_X(x_{ia})[f_X(x_{ia} - z_a) + f_X(x_{ia} + z_a)]\text{d}x_{ia}, \quad z_a \geq 0 \\
+&= \int_{0}^{1}[f_X(x_{ia} - z_a) + f_X(x_{ia} + z_a)]\text{d}x_{ia}, \quad z_a \geq 0 \\
+&= \int_{z_a}^{1}1\text{d}x_{ia} + \int_{0}^{1 - z_a}1\text{d}x_{ia}, \quad z_a \geq 0 \\
+&= (1 - z_a) + (1 - z_a), \quad z_a \geq 0 \\
+&= 2(1 - z_a), \quad z_a \geq 0
+\end{aligned}
+\end{equation}
+
+The density given by Eq. \ref{eq:uniformManPDF} is a triangular density 
+
+\begin{equation}\label{eq:triangle}
+f_Z(z_a) = \frac{2(b - z_a)}{(b - a)(b - c)}, \quad c \leq z_a \leq b 
+\end{equation}
+
+\noindent with parameters $a = 0$, $b = 1$, and $c = 0$ with mean and variance given by
+
+\begin{equation}\label{eq:uniformAbsDiffMean}
+\begin{aligned}
+\mu_z &= \frac{a + b + c}{3} \\
+&= \frac{1}{3}
+\end{aligned}
+\end{equation}
+
+\noindent and
+
+\begin{equation}\label{eq:uniformAbsDiffVar}
+\begin{aligned}
+\sigma^2_z &= \frac{a^2 + b^2 + c^2 - ab - ac - bc}{18} \\
+&= \frac{1}{18}
+\end{aligned}
+\end{equation}
+
+By linearity of the expected value and variance operators under the iid assumption, Eqs. \ref{eq:uniformAbsDiffMean} and \ref{eq:uniformAbsDiffVar} allow the $p \text{-dimensional}$ mean and variance of the $D^{(1)}_{ij}$ distribution to be computed directly as
+
+\begin{equation}\label{eq:uniformManMean}
+\mu_{D^{(1)}_{ij}} = \text{E}\left(D^{(1)}_{ij}\right) = \text{E}\left(\sum_{a \in \mathcal{A}}Z_a\right) = \sum_{a \in \mathcal{A}} \text{E}(Z_a) = \sum_{a \in \mathcal{A}}\frac{1}{3} = \frac{p}{3}
+\end{equation}
+
+\noindent and
+
+\begin{equation}\label{eq:uniformManVar}
+\sigma^2_{D^{(1)}_{ij}} = \text{Var}\left(D^{(1)}_{ij}\right) = \text{Var}\left(\sum_{a \in \mathcal{A}} Z_a\right) = \sum_{a \in \mathcal{A}} \text{Var}\left(Z_a\right) = \sum_{a \in \mathcal{A}} \frac{1}{18} = \frac{p}{18}
+\end{equation}
+
+Therefore, the asymptotic distribution of $D^{(1)}_{ij}$ for standard uniform data is
+
+\begin{equation}\label{eq:uniformManDistr}
+\mathcal{N}\left(\frac{p}{3},\frac{p}{18}\right)
+\end{equation}
+
+\subsection{Squared difference distribution}
 
 Suppose that $X_{ia}, X_{ja} \overset{iid}{\sim} \mathcal{F}_X(\mu_x,\sigma^2_x)$ and define $Z^2_a \sim \mathcal{F}_{Z^2}(\mu_{z^2},\sigma^2_{z^2})$ such that $Z^2_a = d^2_{ij}(a) = (X_{ia} - X_{ja})^2$, where $a \in \mathcal{A}$ and $|\mathcal{A}| = p$.
 
@@ -576,14 +711,14 @@ F_{Z^2}(z^2_a) &= \text{P}\bigl[Z^2_a \leq z^2_a\bigr] \\
 &= \text{P}\bigl[E^{(1)}\bigr] + \text{P}\bigl[E^{(2)}\bigr] \\
 &= \int_{-\infty}^{z^2_a} f^{(1)}_{Z^2}(t) \text{d}t + \int_{-\infty}^{z^2_a} f^{(2)}_{Z^2}(t) \text{d}t \\
 &= \int_{-\infty}^{z^2_a} \left(f^{(1)}_{Z^2}(t) + f^{(2)}_{Z^2}(t)\right) \text{d}t \\
-&= \frac{1}{2\sqrt{z^2_a}}\int_{-\infty}^{z^2_a} \left(\int_{-\infty}^{\infty}f_X(x_{ia})\left[f_X(x_{ia} - t) + f_X(x_{ia} + t)\right] \text{d}x_{ia}\right)\text{d}t
+&= \frac{1}{2\sqrt{z^2_a}}\int_{-\infty}^{z^2_a} \left(\int_{-\infty}^{\infty}f_X(x_{ia})\left[f_X(x_{ia} - t) + f_X(x_{ia} + t)\right] \text{d}x_{ia}\right)\text{d}t, \quad z_a > 0
 \end{aligned}
 \end{equation}
 
 It follows directly from the result in Eq. \ref{eq:SquDiffCDF} that the density function of the random variable $Z^2_a$ is given by
 
 \begin{equation}\label{eq:SquDiffPDF}
-f_{Z^2}(z^2_a) = \frac{\partial}{\partial z^2_a} F_{Z^2}(z^2_a) = \int_{-\infty}^{\infty} f_X(x_{ia}) \left[f_X(x_{ia} - \sqrt{z^2_a}) + f_X(x_{ia} + \sqrt{z^2_a})\right] \text{d}x_{ia}
+f_{Z^2}(z^2_a) = \frac{\partial}{\partial z^2_a} F_{Z^2}(z^2_a) = \frac{1}{2\sqrt{z^2_a}}\int_{-\infty}^{\infty} f_X(x_{ia}) \left[f_X(x_{ia} - \sqrt{z^2_a}) + f_X(x_{ia} + \sqrt{z^2_a})\right] \text{d}x_{ia}
 \end{equation}
 
 Using Eq. \ref{eq:SquDiffPDF}, we can compute the mean and variance of the squared difference as
@@ -600,17 +735,107 @@ and
 
 It follows immediately from Eqs. \ref{eq:1DSquDiffMean} and \ref{eq:1DSquDiffVar} and the Classical Central Limit Theorem that
 
-\begin{equation}\label{eq:SquDiffDistr}
+\begin{equation}\label{eq:SquDiffDistrGeneral}
 \left(D^{(2)}_{ij}\right)^2 = \sum_{a \in \mathcal{A}} Z^2_a = \sum_{a \in \mathcal{A}} (X_{ia} - X_{ja})^2 \overset{.}{\sim} \mathcal{N}\left(\mu_{z^2}p,\sigma^2_{z^2}p\right)
 \end{equation}
 
 Then the Delta Method \cite{allStats} can be used to show that
 
 \begin{equation}\label{eq:euclideanDistr}
-D^{(2)}_{ij} = \left(\sum_{a \in \mathcal{A}} Z^2_a\right)^{1/2} = \left(\sum_{a \in \mathcal{A}} (X_{ia} - X_{ja})^2\right)^{1/2} \overset{.}{\sim} \mathcal{N}\left(\sqrt{\mu_{d^2_{ij}}p},\frac{\sigma^2_{d^2_{ij}}}{4\mu_{d^2_{ij}}}\right)
+D^{(2)}_{ij} = \left(\sum_{a \in \mathcal{A}} Z^2_a\right)^{1/2} = \left(\sum_{a \in \mathcal{A}} (X_{ia} - X_{ja})^2\right)^{1/2} \overset{.}{\sim} \mathcal{N}\left(\sqrt{\mu_{z^2}p},\frac{\sigma^2_{z^2}}{4\mu_{z^2}}\right)
+\end{equation}
+
+Given that $\text{E}\left[\left(\left[D^{(2)}_{ij}\right]^2\right)^{1/2}\right] = \left(\text{E}\left[\left(D^{(2)}_{ij}\right)^2\right] - \text{Var}\left[\left(\left[D^{(2)}_{ij}\right]^2\right)^{1/2}\right]\right)^{1/2}$, and the results given in Eq. \ref{eq:euclideanDistr} provide an estimate of both $\text{E}\left[\left(D^{(2)}_{ij}\right)^2\right]$ and $\text{Var}\left[\left(\left[D^{(2)}_{ij}\right]^2\right)^{1/2}\right]$, an improved estimate of the mean is given by
+
+\begin{equation}\label{eq:euclideanMean}
+\text{E}\left(D^{(2)}_{ij}\right) = \sqrt{\mu_{z^2}p - \frac{\sigma^2_{z^2}}{4\mu_{z^2}}}.
+\end{equation}
+
+The asymptotic distribution of $D^{(2)}_{ij}$ with improved estimate of the mean is then given by
+
+\begin{equation}
+\mathcal{N}\left(\sqrt{\mu_{z^2}p - \frac{\sigma^2_{z^2}}{4\mu_{z^2}}},\frac{\sigma^2_{z^2}}{4\mu_{z^2}}\right).
 \end{equation}
 
 Without loss of generality, the argument leading to and resulting in Eq. \ref{eq:euclideanDistr} can be generalized to the case of $q>2$. This implies that we have the asymptotic distribution of $D^{(q)}$ for all $q \in \mathbb{Z}$.
+
+\subsubsection{Standard normal data}
+
+If $X_{ia},X_{ja} \overset{iid}{\sim} \mathcal{N}(0,1)$, then the marginal density functions with respect to $X$ for $X_{ia}$, $X_{ia} - \sqrt{Z^2_a}$, and $X_{ia} + \sqrt{Z^2_a}$ are defined as
+
+\begin{equation}\label{eq:normalSquDiffXmarg}
+f_X(x_{ia}) = \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2}x^2_{ia}},
+\end{equation}
+
+\begin{equation}\label{eq:normalSquDiffXMinusZmarg}
+f_X(x_{ia} - z_a) = \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2}\left(x_{ia} - \sqrt{z^2_a}\right)^2}, \quad z_a \geq 0, \text{ and}
+\end{equation}
+
+\begin{equation}\label{eq:normalSquDiffXPlusZmarg}
+f_X(x_{ia} + z_a) = \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2}\left(x_{ia} + \sqrt{z^2_a}\right)^2}, \quad z_a \geq 0.
+\end{equation}
+
+Substituting the results given by Eqs. \ref{eq:normalSquDiffXmarg}-\ref{eq:normalSquDiffXPlusZmarg} into Eq. \ref{eq:SquDiffPDF} and completing the square on $x_{ia}$ in the exponents, we have
+
+\begin{equation}\label{eq:normalSquDiffPDF}
+\begin{aligned}
+f_{Z^2}(z^2_a) &= \frac{1}{4\pi\sqrt{z^2_a}} e^{-\frac{1}{4}z^2_a} \int_{-\infty}^{\infty} \left(e^{-\frac{1}{2}\left(\sqrt{2}x_{ia} - \frac{\sqrt{2}}{2}\sqrt{z^2_a}\right)^2} + e^{-\frac{1}{2}\left(\sqrt{2}x_{ia} + \frac{\sqrt{2}}{2}\sqrt{z^2_a}\right)^2} \right) \text{d}x_{ia}, \\
+&\hphantom{= } \hspace{10.8cm} z_a > 0 \\
+&= \frac{1}{4\sqrt{\pi z^2_a}} e^{-\frac{1}{4}z^2_a}\int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} \left(e^{-\frac{1}{2}u^2} + e^{-\frac{1}{2}u^2}\right) \text{d}u, \quad z_a > 0 \\
+&= \frac{1}{4\sqrt{\pi z^2_a}}e^{-\frac{1}{4}z^2_a}(1 + 1), \quad z_a > 0 \\
+&= \frac{1}{2\sqrt{\pi z^2_a}}e^{-\frac{1}{4}z^2_a}, \quad z_a > 0 \\
+&= \frac{1}{\sqrt{pi} 4^{1/2}} \left(z^2_a\right)^{-1/2} e^{-\frac{1}{4}z^2_a}, \quad z_a > 0 \\
+&= \frac{1}{\Gamma\left(\frac{1}{2}\right) 4^{-1/2}} \left(z^2_a\right)^{\frac{1}{2} - 1} e^{-\frac{1}{4}z^2_a}, \quad z_a > 0
+\end{aligned}
+\end{equation}
+
+The density function given by Eq. \ref{eq:normalSquDiffPDF} is a Gamma density with shape and scale parameters $\alpha = \frac{1}{2}$ and $\beta = 4$, respectively. This distribution has mean and variance given by
+
+\begin{equation}\label{eq:1DnormalSquDiffMean}
+\begin{aligned}
+\mu_{z^2} &= \alpha \beta \\
+&= 2
+\end{aligned}
+\end{equation}
+
+\noindent and
+
+\begin{equation}\label{eq:1DnormalSquDiffVar}
+\begin{aligned}
+\sigma^2_{z^2} &= \alpha \beta^2 \\
+&= 8
+\end{aligned}
+\end{equation}
+
+By linearity of the expected value and variance operators under the iid assumption, Eqs. \ref{eq:1DnormalSquDiffMean} and \ref{eq:1DnormalSquDiffVar} allow the $p \text{-dimensional}$ mean and variance of the $\left(D^{(2)}_{ij}\right)^2$ distribution to be computed directly as
+
+\begin{equation}\label{eq:normalSquDiffMean}
+\mu_{\left(D^{(2)}_{ij}\right)^2} = \text{E}\left[\left(D^{(2)}_{ij}\right)^2\right] = \text{E}\left(\sum_{a \in \mathcal{A}} Z^2_a\right) = \sum_{a \in \mathcal{A}} \text{E}\left(Z^2_a\right) = \sum_{a \in \mathcal{A}} 2 = 2p
+\end{equation}
+
+\noindent and
+
+\begin{equation}\label{eq:normalSquDiffVar}
+\sigma^2_{\left(D^{(2)}_{ij}\right)^2} = \text{Var}\left[\left(D^{(2)}_{ij}\right)^2\right] = \text{Var}\left(\sum_{a \in \mathcal{A}} Z^2_a\right) = \sum_{a \in \mathcal{A}} \text{Var}\left(Z^2_a\right) = \sum_{a \in \mathcal{A}} 8 = 8p
+\end{equation}
+
+Therefore, the asymptotic distribution of $\left(D^{(2)}_{ij}\right)^2$ for standard normal data is
+
+\begin{equation}\label{eq:SquDiffDistr}
+\mathcal{N}(2p,8p)
+\end{equation}
+
+The random variable $D^{(2)}_{ij}$ is just the square root of the squared difference random variable $\left(D^{(2)}_{ij}\right)^2$. Given that this is a smooth function that is continuously differentiable at $\mu_{\left(D^{(2)}_{ij}\right)^2}$, we can use the Delta Method \cite{allStats} to show that
+
+\begin{equation}\label{eq:normalEucDistr}
+D^{(2)}_{ij} = \left(\left[D^{(2)}_{ij}\right]^2\right)^{1/2} \overset{.}{\sim} \mathcal{N}\left(\sqrt{2p},\frac{8p}{4 \cdot 2p}\right) = \mathcal{N}(\sqrt{2p},1)
+\end{equation}
+
+Using the improved estimate of the mean given by Eq. \ref{eq:euclideanMean}, the asymptotic distribution of $D^{(2)}_{ij}$ is then given by
+
+\begin{equation}\label{eq:normalEucDistr2}
+D^{(2)}_{ij} = \left(\left[D^{(2)}_{ij}\right]^2\right)^{1/2} \overset{.}{\sim} \mathcal{N}\left(\sqrt{2p},\frac{8p}{4 \cdot 2p}\right) = \mathcal{N}(\sqrt{2p - 1},1)
+\end{equation}
 
 \begin{table}[H]
 \caption{Summary of asymptotic distance distributions for common data types. Metrics with subscripts M and E represent Manhattan and Euclidean, respectively. Metrics with superscript $^*$ represent a deviation from the standard metric by attribute range normalization. The function $\Phi^{-1}(x)$ denotes the standard normal quantile function, where $x \in (0,1)$.}
