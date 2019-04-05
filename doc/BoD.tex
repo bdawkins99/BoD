@@ -742,19 +742,19 @@ It follows immediately from Eqs. \ref{eq:1DSquDiffMean} and \ref{eq:1DSquDiffVar
 Then the Delta Method \cite{allStats} can be used to show that
 
 \begin{equation}\label{eq:euclideanDistr}
-D^{(2)}_{ij} = \left(\sum_{a \in \mathcal{A}} Z^2_a\right)^{1/2} = \left(\sum_{a \in \mathcal{A}} (X_{ia} - X_{ja})^2\right)^{1/2} \overset{.}{\sim} \mathcal{N}\left(\sqrt{\mu_{z^2}p},\frac{\sigma^2_{z^2}}{4\mu_{z^2}}\right)
+D^{(2)}_{ij} = \left(\sum_{a \in \mathcal{A}} Z^2_a\right)^{1/2} = \left(\sum_{a \in \mathcal{A}} (X_{ia} - X_{ja})^2\right)^{1/2} \overset{.}{\sim} \mathcal{N}\left(\sqrt{\mu_{z^2}p},\frac{\sigma^2_{z^2}}{4\mu_{z^2}}\right), \quad \mu_{z^2} > 0
 \end{equation}
 
 Given that $\text{E}\left[\left(\left[D^{(2)}_{ij}\right]^2\right)^{1/2}\right] = \left(\text{E}\left[\left(D^{(2)}_{ij}\right)^2\right] - \text{Var}\left[\left(\left[D^{(2)}_{ij}\right]^2\right)^{1/2}\right]\right)^{1/2}$, and the results given in Eq. \ref{eq:euclideanDistr} provide an estimate of both $\text{E}\left[\left(D^{(2)}_{ij}\right)^2\right]$ and $\text{Var}\left[\left(\left[D^{(2)}_{ij}\right]^2\right)^{1/2}\right]$, an improved estimate of the mean is given by
 
 \begin{equation}\label{eq:euclideanMean}
-\text{E}\left(D^{(2)}_{ij}\right) = \sqrt{\mu_{z^2}p - \frac{\sigma^2_{z^2}}{4\mu_{z^2}}}.
+\text{E}\left(D^{(2)}_{ij}\right) = \sqrt{\mu_{z^2}p - \frac{\sigma^2_{z^2}}{4\mu_{z^2}}}, \quad \mu_{z^2} > 0.
 \end{equation}
 
 The asymptotic distribution of $D^{(2)}_{ij}$ with improved estimate of the mean is then given by
 
 \begin{equation}
-\mathcal{N}\left(\sqrt{\mu_{z^2}p - \frac{\sigma^2_{z^2}}{4\mu_{z^2}}},\frac{\sigma^2_{z^2}}{4\mu_{z^2}}\right).
+\mathcal{N}\left(\sqrt{\mu_{z^2}p - \frac{\sigma^2_{z^2}}{4\mu_{z^2}}},\frac{\sigma^2_{z^2}}{4\mu_{z^2}}\right), \quad \mu_{z^2} > 0.
 \end{equation}
 
 Without loss of generality, the argument leading to and resulting in Eq. \ref{eq:euclideanDistr} can be generalized to the case of $q>2$. This implies that we have the asymptotic distribution of $D^{(q)}$ for all $q \in \mathbb{Z}$.
@@ -828,13 +828,91 @@ Therefore, the asymptotic distribution of $\left(D^{(2)}_{ij}\right)^2$ for stan
 The random variable $D^{(2)}_{ij}$ is just the square root of the squared difference random variable $\left(D^{(2)}_{ij}\right)^2$. Given that this is a smooth function that is continuously differentiable at $\mu_{\left(D^{(2)}_{ij}\right)^2}$, we can use the Delta Method \cite{allStats} to show that
 
 \begin{equation}\label{eq:normalEucDistr}
-D^{(2)}_{ij} = \left(\left[D^{(2)}_{ij}\right]^2\right)^{1/2} \overset{.}{\sim} \mathcal{N}\left(\sqrt{2p},\frac{8p}{4 \cdot 2p}\right) = \mathcal{N}(\sqrt{2p},1)
+D^{(2)}_{ij} = \left(\left[D^{(2)}_{ij}\right]^2\right)^{1/2} \overset{.}{\sim} \mathcal{N}\left(\sqrt{2p},\frac{8p}{4 \cdot 2p}\right) = \mathcal{N}\left(\sqrt{2p},1\right)
 \end{equation}
 
 Using the improved estimate of the mean given by Eq. \ref{eq:euclideanMean}, the asymptotic distribution of $D^{(2)}_{ij}$ is then given by
 
 \begin{equation}\label{eq:normalEucDistr2}
-D^{(2)}_{ij} = \left(\left[D^{(2)}_{ij}\right]^2\right)^{1/2} \overset{.}{\sim} \mathcal{N}\left(\sqrt{2p},\frac{8p}{4 \cdot 2p}\right) = \mathcal{N}(\sqrt{2p - 1},1)
+\mathcal{N}\left(\sqrt{2p - 1},1\right)
+\end{equation}
+
+\subsubsection{Standard uniform data}
+
+If $X_{ia},X_{ja} \overset{iid}{\sim} \mathcal{U}(0,1)$, then the marginal density functions with respect to $X$ for $X_{ia}$, $X_{ia} - \sqrt{Z^2_a}$, and $X_{ia} + \sqrt{Z^2_a}$ are defined as
+
+\begin{equation}\label{eq:uniformSquDiffXmarg}
+f_X(x_{ia}) = 1, \quad 0 \leq x_{ia} \leq 1,
+\end{equation}
+
+\begin{equation}\label{eq:uniformSquDiffXminusZmarg}
+f_X(x_{ia} - \sqrt{z^2_a}) = 1, \quad 0 \leq x_{ia} - \sqrt{z^2_a} \leq 1, and
+\end{equation}
+
+\begin{equation}\label{eq:uniformSquDiffXplusZmarg}
+f_X(x_{ia} + \sqrt{z^2_a}) = 1, \quad 0 \leq x_{ia} + \sqrt{z^2_a} \leq 1.
+\end{equation}
+
+Substituting the results given by Eqs. \ref{eq:uniformSquDiffXmarg}-\ref{eq:uniformSquDiffXplusZmarg} into Eq. \ref{eq:SquDiffPDF}, we have
+
+\begin{equation}\label{eq:uniformSquDiffPDF}
+\begin{aligned}
+f_{Z^2}(z^2_a) &= \frac{1}{2\sqrt{z^2_a}} \int_{0}^{1} \left[f_X\left(x_{ia} - \sqrt{z^2_a}\right) + f_X\left(x_{ia} + \sqrt{z^2_a}\right)\right] \text{d}x_{ia}, \quad 0 < z_a \leq 1\\
+&= \frac{1}{2\sqrt{z^2_a}}\left(\int_{\sqrt{z^2_a}}^{1}1\text{d}x_{ia} + \int_{0}^{1 - \sqrt{z^2_a}}1\text{d}x_{ia}\right), \quad 0 < z_a \leq 1 \\
+&= \frac{1}{2\sqrt{z^2_a}}[(1 - \sqrt{z^2_a}) + (1 - \sqrt{z^2_a})], \quad 0 < z_a \leq 1 \\
+&= \frac{1}{\sqrt{z^2_a}} - 1, \quad 0 < z_a \leq 1 \\
+&= \frac{1}{2} \cdot 2 \left(z^2_a\right)^{\frac{1}{2} - 1}\left(1 - \left(z^2_a\right)^{\frac{1}{2}}\right)^{2 - 1}, \quad 0 < z_a \leq 1
+\end{aligned}
+\end{equation}
+
+The density function given by Eq. \ref{eq:uniformSquDiffPDF} is a Kumaraswamy density with shape parameters $b=\frac{1}{2}$ and $c=2$. The Kumaraswamy density function is given by
+
+\begin{equation}\label{eq:kumaraswamy}
+f(y) = b c y^{b - 1} (1 - y^b)^{c-1}, \quad 0 < y \leq 1.
+\end{equation}
+
+\noindent where $b,c>0$.
+
+The moment generating function (MGF) of the Kumaraswamy distribution is given by
+
+\begin{equation}\label{eq:kumaraswamyMoment}
+M_n = \frac{c \Gamma\left(1 + \frac{n}{b}\right) \Gamma(c)}{\Gamma\left(1 + \frac{n}{b} + c\right)} = c B\left(1 + \frac{n}{b},c\right)
+\end{equation}
+
+\noindent where $B$ is the Beta function. Substituting $b=\frac{1}{2}$ and $c=2$ into the MGF given by Eq. \ref{eq:kumaraswamyMoment}, it is easy to show that $M_1 = \frac{1}{6}$ and $M_2 = \frac{1}{15}$. Therefore, the mean and variance of the random variable $Z^2_a$ are given by
+
+\begin{equation}\label{eq:1DuniformSquDiffMean}
+\mu_{z^2} = \frac{1}{6}
+\end{equation}
+
+\noindent and
+
+\begin{equation}\label{eq:1DuniformSquDiffVar}
+\sigma^2_{z^2} = \frac{7}{180}.
+\end{equation}
+
+By linearity of the expected value and variance operators under the iid assumption, Eqs. \ref{eq:1DuniformSquDiffMean} and \ref{eq:1DuniformSquDiffMean} allow the $p \text{-dimensional}$ mean and variance of the $\left(D^{(2)}_{ij}\right)^2$ distribution to be computed directly as
+
+\begin{equation}\label{eq:uniformSquDiffMean}
+\mu_{\left(D^{(2)}_{ij}\right)^2} = \text{E}\left[\left(D^{(2)}_{ij}\right)^2\right] = \text{E}\left(\sum_{a \in \mathcal{A}} Z^2_a\right) = \sum_{a \in \mathcal{A}} \text{E}\left(Z^2_a\right) = \sum_{a \in \mathcal{A}} \frac{1}{6} = \frac{p}{6}
+\end{equation}
+
+\noindent and
+
+\begin{equation}\label{eq:uniformSquDiffVar}
+\sigma^2_{\left(D^{(2)}_{ij}\right)^2} = \text{Var}\left[\left(D^{(2)}_{ij}\right)^2\right] = \text{Var}\left(\sum_{a \in \mathcal{A}} Z^2_a\right) = \sum_{a \in \mathcal{A}} \text{Var}\left(Z^2_a\right) = \sum_{a \in \mathcal{A}} \frac{7}{180} = \frac{7p}{180}
+\end{equation}
+
+The random variable $D^{(2)}_{ij}$ is the square root of the squared difference random variable $\left(D^{(2)}_{ij}\right)^2$. Given that the square root function is continuously differentiable at $\mu_{\left(D^{(2)}_{ij}\right)^2}$, we can use the Delta Method \cite{allStats} to show that
+
+\begin{equation}\label{eq:uniformEucDistr}
+D^{(2)}_{ij} = \left(\left[D^{(2)}_{ij}\right]^2\right)^{1/2} \overset{.}{\sim} \mathcal{N}\left(\sqrt{\frac{p}{6}},\frac{\frac{7p}{180}}{4 \cdot \frac{p}{6}}\right) = \mathcal{N}\left(\sqrt{\frac{p}{6}},\frac{7}{120}\right)
+\end{equation}
+
+Using the improved estimate of the mean given by Eq. \ref{eq:euclideanMean}, the asymptotic distribution of $D^{(2)}_{ij}$ is then given by
+
+\begin{equation}\label{eq:uniformEucDistr2}
+\mathcal{N}\left(\sqrt{\frac{p}{6} - \frac{7}{120}},\frac{7}{120}\right)
 \end{equation}
 
 \begin{table}[H]
