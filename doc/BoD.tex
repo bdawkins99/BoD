@@ -333,53 +333,47 @@ The cardinality of the set $\{j \ne i : j \in N_{i}\}$ is $k_i$, the number of n
 
 Suppose that $X_{ia}, X_{ja} \overset{iid}{\sim} \mathcal{F}_X(\mu_X,\sigma^2_X)$ for two fixed and distinct instances $(i,j) \in \mathcal{N}$ and a fixed attribute $a \in \mathcal{A}$. 
 
-It is clear that the magnitude difference, or numeric diff given by Eq. \ref{eq:diff}, between $X_{ia}$ and $X_{ja}$ is another random variable $Z_a$. That is,
+It is clear that $|X_{ia} - X_{ja}|^q = |d_{ij}(a)|^q$ is another random variable. Let $Z^q_a \sim \mathcal{F}_{Z^q}(\mu_{z^q},\sigma^2_{z^q})$ be the random variable such that
 
 \begin{equation}\label{eq:diffDistr}
-Z_a = d_{ij}(a) = |X_{ia} - X_{ja}| \sim \mathcal{F}_Z(\mu_z,\sigma^2_z).
+Z^q_a = |d_{ij}(a)|^q = |X_{ia} - X_{ja}|^q, \quad a \in \mathcal{A}.
 \end{equation}
 
-Furthermore, the collection of all magnitude differences between fixed instances $i$ and $j$ is a random sample of size $p$ from $\mathcal{F}_Z(\mu_z,\sigma^2_z)$. That is, $Z_{a_1},Z_{a_2},\dots,Z_{a_p} \overset{iid}{\sim} \mathcal{F}_Z(\mu_z,\sigma^2_Z)$ such that
+Furthermore, the collection $\{Z^q_a | a \in \mathcal{A}\}$ is a random sample of size $p$ of mutually indpendent random variables. Hence, the sum of $Z^q_a$ over all $a \in \mathcal{A}$ is asymptotically normal by the Classical Central Limit Theorem (CCLT). More explicitly, this implies that
 
-\begin{equation}\label{eq:AlldiffDistr}
-Z_{a_k} = d_{ij}(a_k) = |X_{ia_k} - X_{ja_k}|.
+\begin{equation}\label{eq:DqAsympt}
+\left(D^{(q)}_{ij}\right)^q = \sum_{a \in \mathcal{A}} |d_{ij}(a)|^q = \sum_{a \in \mathcal{A}} |X_{ia} - X_{ja}|^q = \sum_{a \in \mathcal{A}} Z^q_a \overset{.}{\sim} \mathcal{N}\left(\mu_{z^q}p,\sigma^2_{z^q}p\right)
 \end{equation}
 
-Therefore, the sum of all $Z_{a_k}$ for $k=1,2,\dots,p$ is asymptotically normal by the Classical Central Limit Theorem (CCLT). Explicitly, this means that
+Consider the smooth function $g(z) = z^{1/q}$ that is continuously differentiable for $z>0$. Assuming that $\mu_{z^q}>0$, the Delta Method \cite{allStats} can be applied to show that 
 
-\begin{equation}\label{eq:manhattanAsympt}
-D^{(1)}_{ij} = \displaystyle \sum_{k=1}^{p}|X_{ia_k} - X_{ja_k}| = \displaystyle \sum_{k=1}^{p}d_{ij}(a_k) = \displaystyle \sum_{k=1}^{p}Z_{a_k} \overset{.}{\sim} \mathcal{N}(\mu_zp,\sigma^2_zp).
+\begin{equation}\label{eq:DqDeltaMethod}
+\begin{aligned}
+g\left(\left(D^{(q)}_{ij}\right)^q\right) &= g\left(\displaystyle \sum_{a \in \mathcal{A}}^{p}Z^q_a\right) \\
+&= \left(\sum_{a \in \mathcal{A}} |X_{ia} - X_{ja}|^q\right)^{1/q} \\
+&= D^{(q)}_{ij} \overset{.}{\sim} \mathcal{N}\left(g\left(\mu_{z^q}p\right),\left[g\prime \left(\mu_{z^q}p\right)\right]^2\sigma^2_{z^q}p\right) \\
+\Rightarrow &\hphantom{=} D^{(q)}_{ij} \overset{.}{\sim} \mathcal{N}\left(\left(\mu_{z^q}p\right)^{1/q},\frac{\sigma^2_{z^q}p}{q^2\left(\mu_{z^q}p\right)^{2\left(1 - \frac{1}{q}\right)}}\right)
+\end{aligned}
 \end{equation}
 
-Therefore, the standard manhattan distance between two distinct and fixed instances $i$ and $j$ is asymptotically normal.
+For $q = 2$, a more accurate approximation of the sample mean is given by
 
-It is also apparent that the squared difference, or squared numeric diff, between $X_{ia}$ and $X_{ja}$ is another random variable $Z^2_{a}$. That is,
-
-\begin{equation}\label{eq:SqudiffDistr}
-Z^2_a = d^2_{ij}(a) = (X_{ia} - X_{ja})^2 \sim \mathcal{F}_{Z^2}(\mu_{z^2},\sigma^2_{z^2}).
+\begin{equation}\label{eq:DqMeanImproved}
+\text{E}\left(D^{(q)}_{ij}\right) = \left(\mu_{z^q}p - \frac{\sigma^2_{z^q}p}{q^2\left(\mu_{z^q}p\right)^{2\left(1 - \frac{1}{q}\right)}}\right)^{1/q}
 \end{equation}
 
-Furthermore, the collection of all squared differences between fixed instances $i$ and $j$ is a random sample of size $p$ from $\mathcal{F}_{Z^2}(\mu_{z^2},\sigma^2_{z^2})$. That is, $Z^2_{a_1},Z^2_{a_2},\dots,Z^2_{a_p} \overset{iid}{\sim} \mathcal{F}_{Z^2}(\mu_{z^2},\sigma^2_{z^2})$ such that
+This is because
 
-\begin{equation}\label{eq:AllSqudiffDistr}
-Z^2_{a_k} = (X_{ia_k} - X_{ja_k})^2.
+\begin{equation}\label{eq:DqImprovedExplaned}
+\begin{aligned}
+\text{E}\left(D^{(2)}_{ij}\right) &= \sqrt{\text{E}\left[\left(D^{(2)}_{ij}\right)^2\right] - \text{Var}\left(D^{(2)}_{ij}\right)} \\
+&= \sqrt{\mu_{z^2}p - \frac{\sigma^2_{z^2}}{4\mu_{z^2}}}
+\end{aligned}
 \end{equation}
 
-Therefore, the sum of all $Z^2_{a_k}$ for $k=1,2,\dots,p$ is asymptotically normal by the Classical Central Limit Theorem. Explicitly, this means that
+Therefore, the distance between two fixed and distinct instances $i$ and $j$ given by Eq. \ref{eq:D} is asymptotically normal.
 
-\begin{equation}\label{eq:SquEuclideanAsympt}
-\left(D^{(2)}_{ij}\right)^2 = \displaystyle \sum_{k=1}^{p}(X_{ia_k} - X_{ja_k})^2 = \displaystyle \sum_{k=1}^{p}d^2_{ij}(a_k) = \displaystyle \sum_{k=1}^{p}Z^2_{a_k} \overset{.}{\sim} \mathcal{N}(\mu_{z^2}p,\sigma^2_{z^2}p).
-\end{equation}
-
-Consider the smooth functional transformation $g(\alpha) = \sqrt{\alpha}$ applied to the random variable given by Eq. \ref{eq:SquEuclideanAsympt}. The Delta Method \cite{allStats} can be applied to show that
-
-\begin{equation}\label{eq:DeltaMethod}
-g\left(\left(D^{(2)}_{ij}\right)^2\right) = g\left(\displaystyle \sum_{k=1}^{p}Z^2_{a_k}\right) = \sqrt{\displaystyle \sum_{k=1}^{p} (X_{ia_k} - X_{ja_k})^2} \overset{.}{\sim} \mathcal{N}\left(g(\mu_{z^2}p),[g\prime(\mu_{z^2}p)]^2\sigma^2_{z^2}\right)
-\end{equation}
-
-Therefore, the standard Euclidean distance between two fixed and distinct instances $i$ and $j$ is asymptotically normal.
-
-We have considered the distance metric given by Eq. \ref{eq:D} for $q=1$ (Manhattan) and $q=2$ (Euclidean). Without loss of generality, the argument presented previously for $q=2$ can be used to show asymptotic normality of $D^{(q)}_{ij}$ with $q>2$. Therefore, the pairwise distance distribution of $D^{(q)}_{ij}$ is asymptotically normal with the assumption of independently and identically distributed instances. This result is true for any null data distribution, whether continuous or discrete. One can readily verify the normality of distances between independent instances through sampling from any data distribution and plotting the histogram of pairwise distances. Histograms for the case of standard normal data and Manhattan and Euclidean metrics are shown in Figs. \ref{fig:manhattanConverge} and \ref{fig:euclideanConverge}, respectively. For these simulated distances, we fixed $m=100$ and varied $p$ from 10 to 10000. For even a rather small number of predictors, as in the case of $p=10$, the sample distances are approximately normal. As $p$ increases, the normality becomes stronger.
+One can readily verify the normality of distances between independent instances through sampling from any data distribution and plotting the histogram of pairwise distances. Histograms for the case of standard normal data and Manhattan (q=1) and Euclidean (q=2) metrics are shown in Figs. \ref{fig:manhattanConverge} and \ref{fig:euclideanConverge}, respectively. For these simulated distances, we fixed $m=100$ and varied $p$ from 10 to 10000. For even a rather small number of predictors, as in the case of $p=10$, the sample distances are approximately normal. As $p$ increases, the normality becomes stronger.
 
 \begin{figure}[ht!]
 \centering
@@ -393,7 +387,7 @@ We have considered the distance metric given by Eq. \ref{eq:D} for $q=1$ (Manhat
 		\caption{Convergence to normality of Euclidean distances between iid random normal instances. For each simulated distance distribution, we fixed $m=100$ instances but varied $p$ from 10 to 10000. It is clear that convergence is rapid, and approximate normality can be safely assumed for even $p=10$.}\label{fig:euclideanConverge}
 \end{figure}
 
-For distance based learning methods, all pairwise distances are used to determine relative importances for attributes. The collection of all distances above the diagonal in an $m \times m$ distance matrix does not satisfy the independence assumption used in the previous derivations. This is because of the redundancy that is inherent to the distance matrix calcuation. However, this collection is still asymptotically normal with mean and variance approximately equal to those given in Eqs. \ref{eq:manhattanAsympt} or \ref{eq:DeltaMethod}. Hence, all fixed-radius methods will use a fixed radius that is some fraction of the expected pairwise distance for a given metric and data type. This implies that the probability of a fixed instance $j$ being within a fixed radius of a given instance $i$ can be parameterized by the expected pairwise distance and the variance of the pairwise distance. This probability is obtained by evaluating the normal cumulative distribution function (CDF), with corresponding mean and variance, at the quantile given by some function of the fixed radius. Therefore, we can derive the expected number of neighbors in the neighborhood of a fixed instance $i$. In other words, for sufficiently large data sets, the sample mean of the number of neighbors in a given neighborhood is well approximated by the product between the total number of possible neighbors and the expected probability of an instance being in a given neighborhood. The total number of possible neighbors for a fixed instance $i$ is always $m-1$, but this becomes approximately $\lfloor{\frac{m - 1}{2}}\rfloor$ when delineating between possible hits and misses for balanced data.
+For distance based learning methods, all pairwise distances are used to determine relative importances for attributes. The collection of all distances above the diagonal in an $m \times m$ distance matrix does not satisfy the independence assumption used in the previous derivations. This is because of the redundancy that is inherent to the distance matrix calcuation. However, this collection is still asymptotically normal with mean and variance approximately equal to those given in Eq. \ref{eq:DqDeltaMethod}. Hence, all fixed-radius methods will use a fixed radius that is some fraction of the expected pairwise distance for a given metric and data type. This implies that the probability of a fixed instance $j$ being within a fixed radius of a given instance $i$ can be parameterized by the expected pairwise distance and the variance of the pairwise distance. This probability is obtained by evaluating the normal cumulative distribution function (CDF), with corresponding mean and variance, at the quantile given by some function of the fixed radius. Therefore, we can derive the expected number of neighbors in the neighborhood of a fixed instance $i$. In other words, for sufficiently large data sets, the sample mean of the number of neighbors in a given neighborhood is well approximated by the product between the total number of possible neighbors and the expected probability of an instance being in a given neighborhood. The total number of possible neighbors for a fixed instance $i$ is always $m-1$, but this becomes approximately $\lfloor{\frac{m - 1}{2}}\rfloor$ when delineating between possible hits and misses for balanced data.
 
 \subsection{Predicted number of neighbors in the multiSURF alpha neighborhood}
 
@@ -447,472 +441,266 @@ where we apply the floor to ensure the number of neighbors is integer. For data 
 
 \section{Derivation of means and standard deviations for metrics and data distributions}
 
-\subsection{Magnitude Difference Distribution}
+\subsection{Distribution of \texorpdfstring{$|d_{ij}(a)|^q = |X_{ia} - X_{ja}|^q$}{}}
 
-Suppose that $X_{ia}, X_{ja} \overset{iid}{\sim} \mathcal{F}_X(\mu_x,\sigma^2_x)$ and define $Z_a \sim \mathcal{F}_Z(\mu_z,\sigma^2_z)$ such that $Z_a = d_{ij}(a) = |X_{ia} - X_{ja}|$, where $a \in \mathcal{A}$ and $|\mathcal{A}| = p$.
+Suppose that $X_{ia}, X_{ja} \overset{iid}{\sim} \mathcal{F}_X(\mu_x,\sigma^2_x)$ and define $Z^q_a = |d_{ij}(a)|^q = |X_{ia} - X_{ja}|^q$, where $a \in \mathcal{A}$ and $|\mathcal{A}| = p$.
 
 \begin{itemize}
-\item[(i)] Suppose that $x_{ia} \geq x_{ja}$. Based on the iid assumption for $X_{ia}$ and $X_{ja}$, it follows that the joint density function $g^{(1)}$ of $X_{ia}$ and $Z_a$ is given by
+\item[(i)] Suppose that $X_{ja} = X_{ia} - \left(Z^q_a\right)^{1/q}$. Based on the iid assumption for $X_{ia}$ and $X_{ja}$, it follows that the joint density function $g^{(1)}$ of $X_{ia}$ and $Z^q_a$ is given by
 
 \begin{equation}
 \begin{aligned}
 g^{(1)}(x_{ia},z_a) &= f_X(x_{ia},x_{ja})\biggl|\frac{\partial x_{ja}}{\partial z_a}\biggr| \\
-&= f_X(x_{ia})f_X(x_{ja})|-1| \\
-&= f_X(x_{ia})f_X(x_{ia}-z_a), \quad z_a \geq 0
+&= f_X(x_{ia})f_X(x_{ja})\bigl|\frac{-1}{q} \left(z^q_a\right)^{\frac{1}{q}-1}\bigr| \\
+&= \frac{1}{q \left(z^q_a\right)^{1 - \frac{1}{q}}}f_X(x_{ia})f_X\left(x_{ia}-\left(z^q_a\right)^{1/q}\right), \quad z_a > 0
 \end{aligned}
 \end{equation}
 
-The density function $f^{(1)}_Z$ of $Z_a$ is then defined as
+The density function $f^{(1)}_{Z^q}$ of $Z^q_a$ is then defined as
 
 \begin{equation}
-f^{(1)}_Z(z_a) = \int_{-\infty}^{\infty} g^{(1)}(x_{ia},z_a)\text{d}x_{ia} = \int_{-\infty}^{\infty} f_X(x_{ia})f_X(x_{ia}-z_a)\text{d}x_{ia}, \quad z_a \geq 0
+\begin{aligned}
+f^{(1)}_{Z^q}(z^q_a) &= \int_{-\infty}^{\infty} g^{(1)}(x_{ia},z^q_a)\text{d}x_{ia} \\
+&= \frac{1}{q \left(z^q_a\right)^{1 - \frac{1}{q}}}\int_{-\infty}^{\infty} f_X(x_{ia})f_X\left(x_{ia}-\left(z^q_a\right)^{1/q}\right)\text{d}x_{ia}, \quad z_a > 0
+\end{aligned}
 \end{equation}
 
-\item[(ii)] Suppose that $x_{ia} < x_{ja}$. Based on the iid assumption for $X_{ia}$ and $X_{ja}$, it follows that the joint density function $g^{(2)}$ of $X_{ia}$ and $Z_a$ is given by
+\item[(ii)] Suppose that $X_{ja} = X_{ia} + \left(Z^q_a\right)^{1/q}$. Based on the iid assumption for $X_{ia}$ and $X_{ja}$, it follows that the joint density function $g^{(2)}$ of $X_{ia}$ and $Z_a$ is given by
 
 \begin{equation}
 \begin{aligned}
 g^{(2)}(x_{ia},z_a) &= f_X(x_{ia},x_{ja})\biggl|\frac{\partial x_{ja}}{\partial z_a}\biggr| \\
-&= f_X(x_{ia})f_X(x_{ja})|1| \\
-&= f_X(x_{ia})f_X(x_{ia}+z_a), \quad z_a \geq 0
+&= f_X(x_{ia})f_X(x_{ja})\bigl|\frac{1}{q} \left(z^q_a\right)^{\frac{1}{q}-1}\bigr| \\
+&= \frac{1}{q \left(z^q_a\right)^{1 - \frac{1}{q}}}f_X(x_{ia})f_X\left(x_{ia}-\left(z^q_a\right)^{1/q}\right), \quad z_a > 0
 \end{aligned}
 \end{equation}
 
-The density function $f^{(2)}_Z$ of $Z_a$ is then defined as
+The density function $f^{(2)}_{Z^q}$ of $Z^q_a$ is then defined as
 
 \begin{equation}
-f^{(2)}_Z(z_a) = \int_{-\infty}^{\infty} g^{(2)}(x_{ia},z_a)\text{d}x_{ia} = \int_{-\infty}^{\infty} f_X(x_{ia})f_X(x_{ia}+z_a)\text{d}x_{ia}, \quad z_a \geq 0
+\begin{aligned}
+f^{(2)}_{Z^q}(z^q_a) &= \int_{-\infty}^{\infty} g^{(2)}(x_{ia},z^q_a)\text{d}x_{ia} \\
+&= \frac{1}{q \left(z^q_a\right)^{1 - \frac{1}{q}}}\int_{-\infty}^{\infty} f_X(x_{ia})f_X\left(x_{ia}+\left(z^q_a\right)^{1/q}\right)\text{d}x_{ia}, \quad z_a > 0
+\end{aligned}
 \end{equation}
 \end{itemize}
 
-Let $F_Z$ denote the distribution function of the random variable $Z_a$. Furthermore, let $E^{(1)}=\bigl\{X_{ia}-X_{ja} \leq z_a | X_{ia} \geq X_{ja}\bigr\}$ and $E^{(2)}=\bigl\{-X_{ia}+X_{ja} \leq z_a | X_{ia} < X_{ja}\bigr\}$. Then we have
+Let $F_{Z^q}$ denote the distribution function of the random variable $Z^q_a$. Furthermore, we define the events $E^{(1)}$ and $E^{(2)}$ as
 
-\begin{equation}\label{eq:MagDiffCDF}
+\begin{equation}\label{eq:E(1)}
+E^{(1)} = \bigl\{|X_{ia}-X_{ja}|^q \leq z^q_a | X_{ja} = X_{ia} - \left(Z^q_a\right)^{1/q}\bigr\}
+\end{equation}
+
+\noindent and
+
+\begin{equation}\label{eq:E(2)}
+E^{(2)} = \bigl\{|X_{ia}-X_{ja}|^q \leq z^q_a | X_{ja} = X_{ia} + \left(Z^q_a\right)^{1/q}\bigr\}.
+\end{equation}
+
+Then it follows from fundamental rules of probability that
+
+\begin{equation}\label{eq:DqCDF}
 \begin{aligned}
-F_Z(z_a) &= \text{P}\bigl[Z_a \leq z_a\bigr] \\
-&= \text{P}\bigl[|X_{ia} - X_{ja}| \leq z_a\bigr] \\
-&= \text{P}\bigl[\bigl\{X_{ia}-X_{ja} \leq z_a | X_{ia} \geq X_{ja}\bigr\} \cup \bigl\{-X_{ia}+X_{ja} \leq z_a | X_{ia} < X_{ja}\bigr\}\bigr] \\
-&= \text{P}\bigl[E^{(1)} \cup E^{(2)}\bigr] \\
+F_{Z^q}(z^q_a) &= \text{P}\left[Z^q_a \leq z^q_a\right] \\
+&= \text{P}\left[|X_{ia} - X_{ja}|^q \leq z^q_a\right] \\
+&= \text{P}\left[E^{(1)} \cup E^{(2)}\right] \\
 &= \text{P}\bigl[E^{(1)}\bigr] + \text{P}\bigl[E^{(2)}\bigr] - \text{P}\bigl[E^{(1)} \cap E^{(2)}\bigr] \\
 &= \text{P}\bigl[E^{(1)}\bigr] + \text{P}\bigl[E^{(2)}\bigr] \\
-&= \int_{-\infty}^{z_a} f^{(1)}_Z(t) \text{d}t + \int_{-\infty}^{z_a} f^{(2)}_Z(t) \text{d}t \\
-&= \int_{-\infty}^{z_a} \left(f^{(1)}_Z(t) + f^{(2)}_Z(t)\right) \text{d}t \\
-&= \int_{-\infty}^{z_a} \left(\int_{-\infty}^{\infty}f_X(x_{ia})\left[f_X(x_{ia} - t) + f_X(x_{ia} + t)\right] \text{d}x_{ia}\right)\text{d}t, \quad z_a \geq 0
+&= \int_{-\infty}^{z^q_a} f^{(1)}_{Z^q}(t) \text{d}t + \int_{-\infty}^{z^q_a} f^{(2)}_{Z^q}(t) \text{d}t \\
+&= \int_{-\infty}^{z^q_a} \left(f^{(1)}_{Z^q}(t) + f^{(2)}_{Z^q}(t)\right) \text{d}t \\
+&= \frac{1}{q \left(z^q_a\right)^{1 - \frac{1}{q}}}\int_{-\infty}^{z^q_a} \left(\int_{-\infty}^{\infty}f_X(x_{ia})\left[f_X(x_{ia} - t) + f_X(x_{ia} + t)\right] \text{d}x_{ia}\right)\text{d}t, \quad z_a > 0
 \end{aligned}
 \end{equation}
 
-It follows directly from the result in Eq. \ref{eq:MagDiffCDF} that the density function of the random variable $Z_a$ is given by
+It follows directly from the result in Eq. \ref{eq:DqCDF} that the density function of the random variable $Z^q_a$ is given by
 
-\begin{equation}\label{eq:MagDiffPDF}
-f_Z(z_a) = \frac{\partial}{\partial z_a} F_Z(z_a) = \int_{-\infty}^{\infty} f_X(x_{ia}) \left[f_X(x_{ia} - z_a) + f_X(x_{ia} + z_a)\right] \text{d}x_{ia}, \quad z_a \geq 0
+\begin{equation}\label{eq:DqPDF}
+\begin{aligned}
+f_{Z^q}(z^q_a) &= \frac{\partial}{\partial z^q_a} F_{Z^q}(z^q_a) \\
+&= \frac{1}{q \left(z^q_a\right)^{1 - \frac{1}{q}}}\int_{-\infty}^{\infty} f_X(x_{ia})\left[f_X\left(x_{ia} - \left(z^q_a\right)^{1/q}\right) + f_X\left(x_{ia} + \left(z^q_a\right)^{1/q}\right)\right] \text{d}x_{ia}
+\end{aligned}
+\end{equation}
+\noindent where $z_a > 0$.
+
+Using Eq. \ref{eq:DqPDF}, we can compute the mean and variance of the magnitude difference as
+
+\begin{equation}\label{eq:1DDqMean}
+\mu_{z^q} = \int_{-\infty}^{\infty} z^q_a f_{Z^q}(z^q_a) \text{d}z^q_a
 \end{equation}
 
-Using Eq. \ref{eq:MagDiffPDF}, we can compute the mean and variance of the magnitude difference as
+\noindent and 
 
-\begin{equation}\label{eq:1DMagDiffMean}
-\mu_z = \int_{-\infty}^{\infty} z_a f_Z(z_a) \text{d}z_a
+\begin{equation}\label{eq:1DDqVar}
+\sigma^2_{z^q} = \int_{-\infty}^{\infty} \left(z^q_a\right)^2 f_{Z^q}(z^q_a) \text{d}z^q_a - \mu^2_{z^q}.
 \end{equation}
 
-and 
+It follows immediately from Eqs. \ref{eq:1DDqMean} and \ref{eq:1DDqVar} and the Classical Central Limit Theorem (CCLT) that
 
-\begin{equation}\label{eq:1DMagDiffVar}
-\sigma^2_{z} = \int_{-\infty}^{\infty} z^2_a f_Z(z_a) \text{d}z_a - \mu^2_z.
+\begin{equation}\label{eq:DqDistr}
+\left(D^{(q)}_{ij}\right)^q = \sum_{a \in \mathcal{A}} Z^q_a = \sum_{a \in \mathcal{A}} |X_{ia} - X_{ja}|^q \overset{.}{\sim} \mathcal{N}\left(\mu_{z^q}p,\sigma^2_{z^q}p\right)
 \end{equation}
 
-It follows immediately from Eqs. \ref{eq:1DMagDiffMean} and \ref{eq:1DMagDiffVar} and the Classical Central Limit Theorem (CCLT) that
+Applying the result given in Eq. \ref{eq:DqDeltaMethod}, the distribution of $D^{(q)}_{ij}$ is given by
 
-\begin{equation}\label{eq:manhattanDistr}
-D^{(1)}_{ij} = \sum_{a \in \mathcal{A}} Z_a = \sum_{a \in \mathcal{A}} |X_{ia} - X_{ja}| \overset{.}{\sim} \mathcal{N}\left(\mu_zp,\sigma^2_zp\right)
+\begin{equation}\label{eq:DDistr}
+D^{(q)}_{ij} \overset{.}{\sim} \mathcal{N}\left(\left(\mu_{z^q}p\right)^{1/q},\frac{\sigma^2_{z^q}p}{q^2\left(\mu_{z^q}p\right)^{2\left(1 - \frac{1}{q}\right)}}\right), \quad \mu_{z^q} > 0
 \end{equation}
+
+\noindent with improved estimate of the mean for $q=2$ given by Eq. \ref{eq:DqMeanImproved}.
 
 \subsubsection{Standard normal data}
 
-If $X_{ia},X_{ja} \overset{iid}{\sim} \mathcal{N}(0,1)$, then the marginal density functions with respect to $X$ for $X_{ia}$, $X_{ia} - Z_a$, and $X_{ia} + Z_a$ are defined as
+If $X_{ia},X_{ja} \overset{iid}{\sim} \mathcal{N}(0,1)$, then the marginal density functions with respect to $X$ for $X_{ia}$, $X_{ia} - \left(Z^q_a\right)^{1/q}$, and $X_{ia} + \left(Z^q_a\right)^{1/q}$ are defined as
 
-\begin{equation}\label{eq:normalManXmarg}
+\begin{equation}\label{eq:normalXmarg}
 f_X(x_{ia}) = \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}x^2_{ia}},
 \end{equation}
 
-\begin{equation}\label{eq:normalManXMinusZmarg}
-f_X(x_{ia} - z_a) = \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}(x_{ia} - z_a)^2}, \quad z_a \geq 0, \text{ and}
+\begin{equation}\label{eq:normalXMinusZmarg}
+f_X\left(x_{ia} - \left(z^q_a\right)^{1/q}\right) = \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}\left(x_{ia} - \left(z^q_a\right)^{1/q}\right)^2}, \quad z_a > 0, \text{ and}
 \end{equation}
 
-\begin{equation}\label{eq:normalManXPlusZmarg}
-f_X(x_{ia} + z_a) = \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}(x_{ia} + z_a)^2}, \quad z_a \geq 0.
+\begin{equation}\label{eq:normalXPlusZmarg}
+f_X\left(x_{ia} + \left(z^q_a\right)^{1/q}\right) = \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}\left(x_{ia} + \left(z^q_a\right)^{1/q}\right)^2}, \quad z_a > 0
 \end{equation}
 
-Substituting the results given by Eqs. \ref{eq:normalManXmarg}-\ref{eq:normalManXPlusZmarg} into Eq. \ref{eq:MagDiffPDF} and completing the square on $x_{ia}$ in the exponents, we have
+Substituting the results given by Eqs. \ref{eq:normalXmarg}-\ref{eq:normalXPlusZmarg} into Eq. \ref{eq:DqPDF} and completing the square on $x_{ia}$ in the exponents, we have
 
-\begin{equation}\label{eq:normalManPDF}
+%\begin{equation}\label{eq:normalPDF}
+\begin{align}\label{eq:normalPDF}
+  \begin{split}
+  f_{Z^q}(z^q_a) &= \frac{1}{2 q \pi \left(z^q_a\right)^{1 - \frac{1}{q}}} e^{-\frac{1}{4}\left(z^q_a\right)^{2    /q}}\int_{-\infty}^{\infty} \biggl(e^{-\frac{1}{2}\left[\sqrt{2}x_{ia} - \frac{\sqrt{2}}{2}\left(z^q_a\right)^{1/q}\right]^2} \\
+&\hspace{2in} + e^{-\frac{1}{2}\left[\sqrt{2}x_{ia} + \frac{\sqrt{2}}{2}\left(z^q_a\right)^{1/q}\right]^2}\biggr) \text{d}x_{ia}
+\end{split} 
+\\
+&= \frac{1}{2 q \sqrt{\pi} \left(z^q_a\right)^{1 - \frac{1}{q}}} e^{-\frac{1}{4}\left(z^q_a\right)^{2/q}} \int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi}} \left(e^{-\frac{1}{2}u^2} + e^{-\frac{1}{2}u^2}\right) \text{d}u \\
+&= \frac{1}{2 q \sqrt{\pi} \left(z^q_a\right)^{1 - \frac{1}{q}}} e^{-\frac{1}{4}\left(z^q_a\right)^{2/q}} (1 + 1) \\
+&= \frac{1}{q \sqrt{\pi}}\left(z^q_a\right)^{\frac{1}{q} - 1} e^{-\frac{1}{4}\left(z^q_a\right)^{2/q}} \\
+&= \frac{\frac{2}{q}}{\left(2^q\right)^{1/q} \Gamma\left(\frac{\frac{1}{q}}{\frac{2}{q}}\right)}\left(z^q_a\right)^{\frac{1}{q} - 1} e^{-\left(\frac{z^q_a}{2^q}\right)^{2/q}}
+\end{align}
+%\end{equation}
+
+The density function given by Eq. \ref{eq:normalPDF} is a Generalized Gamma density with parameters $b = \frac{2}{q}$, $c = 2^q$, and $d = \frac{1}{q}$. This distribution has mean and variance given by
+
+\begin{equation}\label{eq:1DnormalDqMean}
 \begin{aligned}
-f_Z(z_a) &= \frac{1}{2\pi}e^{-\frac{1}{4}z^2_a}\int_{-\infty}^{\infty}\left(e^{-\frac{1}{2}\left[\sqrt{2}\left(x_{ia} - \frac{1}{2}z_a\right)\right]^2} + e^{-\frac{1}{2}\left[\sqrt{2}\left(x_{ia} + \frac{1}{2}z_a\right)\right]^2}\right)\text{d}x_{ia}, \quad z_a \geq 0\\
-&= \frac{1}{2\sqrt{\pi}}e^{-\frac{1}{4}z^2_a}\int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi}}\left(e^{-\frac{1}{2}u^2} + e^{-\frac{1}{2}u^2}\right)\text{d}u, \quad z_a \geq 0\\
-&= \frac{1}{2\sqrt{\pi}}e^{-\frac{1}{4}z^2_a}(1 + 1), \quad z_a \geq 0\\
-&= \frac{1}{2\sqrt{\pi}}e^{-\frac{1}{4}z^2_a} + \frac{1}{2\sqrt{\pi}}e^{-\frac{1}{4}z^2_a}, \quad z_a \geq 0 \\
-&= \frac{1}{\sqrt{\pi}}e^{-\frac{1}{2}\left(\frac{z_a}{\sqrt{2}}\right)^2}, \quad z_a \geq 0 \\
-&= \frac{\sqrt{2}}{\sqrt{2}\sqrt{\pi}} e^{-\frac{1}{2}\left(\frac{z_a}{\sqrt{2}}\right)^2}, \quad z_a \geq 0
-\end{aligned}
-\end{equation}
-
-The density function given by Eq. \ref{eq:normalManPDF} is a half-normal (or folded normal) density with scale parameter $\sigma = \sqrt{2}$. This distribution has mean and variance given by
-
-\begin{equation}\label{eq:normalAbsDiffMean}
-\begin{aligned}
-\mu_z &= \frac{\sigma \sqrt{2}}{\sqrt{\pi}} \\
-&= \frac{2}{\sqrt{\pi}}
+\mu_{z^q} &= \frac{c\Gamma\left(\frac{d+1}{b}\right)}{\Gamma\left(\frac{d}{b}\right)} \\
+&= \frac{2^q \Gamma\left(\frac{q + 1}{2}\right)}{\sqrt{\pi}}
 \end{aligned}
 \end{equation}
 
 \noindent and
 
-\begin{equation}\label{eq:normalAbsDiffVar}
+\begin{equation}\label{eq:1DnormalDqVar}
 \begin{aligned}
-\sigma^2_z &= \sigma^2\left(1 - \frac{2}{\pi}\right) \\
-&= \frac{2(\pi-2)}{\pi}.
+\sigma^2_{z^q} &= c^2\left[\frac{\Gamma\left(\frac{d+2}{b}\right)}{\Gamma\left(\frac{d}{b}\right)} - \left(\frac{\Gamma\left(\frac{d+1}{b}\right)}{\Gamma\left(\frac{d}{b}\right)}\right)^2\right] \\
+&= 4^{q}\left[\frac{\Gamma\left(q + \frac{1}{2}\right)}{\sqrt{\pi}} - \frac{\Gamma^2\left(\frac{1}{2}q + \frac{1}{2}\right)}{\pi}\right]
 \end{aligned}
 \end{equation}
 
-By linearity of the expected value and variance operators under the iid assumption, Eqs. \ref{eq:normalAbsDiffMean} and \ref{eq:normalAbsDiffVar} allow the $p\text{-dimensional}$ mean and variance of the $D^{(1)}_{ij}$ distribution to be computed directly as
+By linearity of the expected value and variance operators under the iid assumption, Eqs. \ref{eq:1DnormalDqMean} and \ref{eq:1DnormalDqVar} allow the $p\text{-dimensional}$ mean and variance of the $D^{(q)}_{ij}$ distribution to be computed directly as
 
-\begin{equation}\label{eq:normalManMean}
-\mu_{D^{(1)}_{ij}} = \text{E}\left(D^{(1)}_{ij}\right) = \text{E}\left(\sum_{a \in \mathcal{A}} Z_a\right) = \sum_{a \in \mathcal{A}} \text{E}\left(Z_a\right) = \sum_{a \in \mathcal{A}} \frac{2}{\sqrt{\pi}} = \frac{2p}{\sqrt{\pi}}
+\begin{equation}\label{eq:normalDqMean}
+\mu_{\left(D^{(q)}_{ij}\right)^q} = \text{E}\left[\left(D^{(q)}_{ij}\right)^q\right] = \text{E}\left(\sum_{a \in \mathcal{A}} Z^q_a\right) = \sum_{a \in \mathcal{A}} \text{E}\left(Z^q_a\right) = \sum_{a \in \mathcal{A}} \frac{2^q \Gamma\left(\frac{q + 1}{2}\right)}{\sqrt{\pi}} = \frac{2^q\Gamma\left(\frac{q + 1}{2}\right)}{\sqrt{\pi}}p
 \end{equation}
 
 \noindent and
 
-\begin{equation}\label{eq:normalManVar}
-\sigma^2_{D^{(1)}_{ij}} = \text{Var}\left(D^{(1)}_{ij}\right) = \text{Var}\left(\sum_{a \in \mathcal{A}} Z_a\right) = \sum_{a \in \mathcal{A}} \text{Var}\left(Z_a\right) = \sum_{a \in \mathcal{A}} \frac{2(\pi - 2)}{\pi} = \frac{2(\pi - 2)p}{\pi}
+\begin{equation}\label{eq:normalVar}
+\begin{split}
+\sigma^2_{\left(D^{(q)}_{ij}\right)^q} = \text{Var}\left[\left(D^{(q)}_{ij}\right)^q\right] &= \text{Var}\left(\sum_{a \in \mathcal{A}} Z^q_a\right) \\
+&= \sum_{a \in \mathcal{A}} \text{Var}\left(Z^q_a\right) \\
+&= \sum_{a \in \mathcal{A}} 4^{q}\left[\frac{\Gamma\left(q + \frac{1}{2}\right)}{\sqrt{\pi}} - \frac{\Gamma^2\left(\frac{1}{2}q + \frac{1}{2}\right)}{\pi}\right] \\
+&= 4^{q}\left[\frac{\Gamma\left(q + \frac{1}{2}\right)}{\sqrt{\pi}} - \frac{\Gamma^2\left(\frac{1}{2}q + \frac{1}{2}\right)}{\pi}\right]p
+\end{split}
 \end{equation}
 
-Therefore, the asymptotic distribution of $D^{(1)}_{ij}$ for standard normal data is
+Therefore, the asymptotic distribution of $D^{(q)}_{ij}$ for standard normal data is
 
-\begin{equation}\label{eq:normalManDistr}
-\mathcal{N}\left(\frac{2p}{\sqrt{\pi}},\frac{2(\pi - 2)p}{\sqrt{\pi}}\right)
+\begin{equation}\label{eq:normalDistr}
+\mathcal{N}\left(\left(2\frac{\Gamma\left(\frac{q + 1}{2}\right)}{\sqrt{\pi}}p\right)^{1/q},
+\frac{4^q p}{q^2 \left(\frac{2^q \Gamma\left(\frac{1}{2}q + \frac{1}{2}\right)}{\sqrt{pi}}p\right)^{2\left(1 - \frac{1}{q}\right)}}\left[\frac{\Gamma\left(q + \frac{1}{2}\right)}{\sqrt{\pi}} - \frac{\Gamma^2\left(\frac{1}{2}q + \frac{1}{2}\right)}{\pi}\right]\right)
 \end{equation}
 
 \subsubsection{Standard uniform data}
 
-If $X_{ia},X_{ja} \overset{iid}{\sim} \mathcal{U}(0,1)$, then the marginal density functions with respect to $X$ for $X_{ia}$, $X_{ia} - Z_a$, and $X_{ia} + Z_a$ are defined as
+If $X_{ia},X_{ja} \overset{iid}{\sim} \mathcal{U}(0,1)$, then the marginal density functions with respect to $X$ for $X_{ia}$, $X_{ia} - \left(Z^q_a\right)^{1/q}$, and $X_{ia} + \left(Z^q_a\right)^{1/q}$ are defined as
 
-\begin{equation}\label{eq:uniformManXmarg}
+\begin{equation}\label{eq:uniformXmarg}
 f_X(x_{ia}) = 1, \quad 0 \leq x_{ia} \leq 1
 \end{equation}
 
-\begin{equation}\label{eq:uniformManXMinusZmarg}
-f_X(x_{ia} - z_a) = 1, \quad 0 \leq x_{ia} - z_a \leq 1, \text{ and}
+\begin{equation}\label{eq:uniformXMinusZmarg}
+f_X\left(x_{ia} - \left(z^q_a\right)^{1/q}\right) = 1, \quad 0 \leq x_{ia} - \left(z^q_a\right)^{1/q} \leq 1, \text{ and}
 \end{equation}
 
-\begin{equation}\label{eq:uniformManXPlusZmarg}
-f_X(x_{ia} + z_a) = 1, \quad 0 \leq x_{ia} + z_a \leq 1.
+\begin{equation}\label{eq:uniformXPlusZmarg}
+f_X\left(x_{ia} + \left(z^q_a\right)^{1/q}\right) = 1, \quad 0 \leq x_{ia} + \left(z^q_a\right)^{1/q} \leq 1.
 \end{equation}
 
-Substituting the results given by Eqs. \ref{eq:uniformManXmarg}-\ref{eq:uniformManXPlusZmarg}, we have
+Substituting the results given by Eqs. \ref{eq:uniformXmarg}-\ref{eq:uniformXPlusZmarg} into Eq. \ref{eq:DqPDF}, we have
 
-\begin{equation}\label{eq:uniformManPDF}
+\begin{equation}\label{eq:uniformDqPDF}
 \begin{aligned}
-f_Z(z_a) &= \int_{-\infty}^{\infty}f_X(x_{ia})[f_X(x_{ia} - z_a) + f_X(x_{ia} + z_a)]\text{d}x_{ia}, \quad z_a \geq 0 \\
-&= \int_{0}^{1}[f_X(x_{ia} - z_a) + f_X(x_{ia} + z_a)]\text{d}x_{ia}, \quad z_a \geq 0 \\
-&= \int_{z_a}^{1}1\text{d}x_{ia} + \int_{0}^{1 - z_a}1\text{d}x_{ia}, \quad z_a \geq 0 \\
-&= (1 - z_a) + (1 - z_a), \quad z_a \geq 0 \\
-&= 2(1 - z_a), \quad z_a \geq 0
+f_{Z^q}(z^q_a) &= \frac{1}{q\left(z^q_a\right)^{1 - \frac{1}{q}}}\int_{-\infty}^{\infty}f_X(x_{ia})\left[f_X\left(x_{ia} - \left(z^q_a\right)^{1/q}\right) + f_X\left(x_{ia} + \left(z^q_a\right)^{1/q}\right)\right]\text{d}x_{ia},\\
+& \hspace{4in} 0 < z_a \leq 1\\
+&= \frac{1}{q\left(z^q_a\right)^{1 - \frac{1}{q}}}\int_{0}^{1}[f_X(x_{ia} - \left(z^q_a\right) + f_X\left(x_{ia} + \left(z^q_a\right)^{1/q}\right)]\text{d}x_{ia}, \quad 0 < z_a \leq 1 \\
+&= \frac{1}{q\left(z^q_a\right)^{1 - \frac{1}{q}}}\int_{\left(z^q_a\right)}^{1}1\text{d}x_{ia} + \int_{0}^{1 - \left(z^q_a\right)}1\text{d}x_{ia}, \quad 0 < z_a \leq 1 \\
+&= \frac{1}{q\left(z^q_a\right)^{1 - \frac{1}{q}}}\left[\left(1 - \left(z^q_a\right)\right) + \left(1 - \left(z^q_a\right)\right)\right], \quad 0 < z_a \leq 1 \\
+&= \frac{1}{q} \cdot 2 \left(z^q_a\right)^{\frac{1}{q} - 1}\left[1 - \left(z^q_a\right)^{1/q}\right]^{2 - 1}, \quad 0 < z_a \leq 1
 \end{aligned}
 \end{equation}
 
-The density given by Eq. \ref{eq:uniformManPDF} is a triangular density 
+The density given by Eq. \ref{eq:uniformDqPDF} is a Kumaraswamy density with parameters $b = \frac{1}{q}$ and $c = 2$ with moment generating function (MGF) given by
 
-\begin{equation}\label{eq:triangle}
-f_Z(z_a) = \frac{2(b - z_a)}{(b - a)(b - c)}, \quad c \leq z_a \leq b 
+\begin{equation}\label{eq:uniformDqMGF}
+\begin{aligned}
+M_n &=  \frac{c\Gamma\left(1 + \frac{n}{b}\right) \Gamma(c)}{\Gamma\left(1 + c + \frac{n}{b}\right)}\\
+&= \frac{2}{(nq + 2)(nq + 1)}
+\end{aligned}
 \end{equation}
 
-\noindent with parameters $a = 0$, $b = 1$, and $c = 0$ with mean and variance given by
+Using the MGF given by Eq. \ref{eq:uniformDqMGF}, the mean and variance of $Z^q_a$ are computed as
 
-\begin{equation}\label{eq:uniformAbsDiffMean}
-\begin{aligned}
-\mu_z &= \frac{a + b + c}{3} \\
-&= \frac{1}{3}
-\end{aligned}
+\begin{equation}\label{eq:1DuniformDqMean}
+\mu_{z^q} = \frac{2}{(q + 2)(q + 1)}
 \end{equation}
 
 \noindent and
 
-\begin{equation}\label{eq:uniformAbsDiffVar}
-\begin{aligned}
-\sigma^2_z &= \frac{a^2 + b^2 + c^2 - ab - ac - bc}{18} \\
-&= \frac{1}{18}
-\end{aligned}
+\begin{equation}\label{eq:1DuniformDqVar}
+\sigma^2_{z^q} = \frac{1}{(q + 1)(2q + 1)} - \left(\frac{2}{(q + 2)(q + 1)}\right)^2
 \end{equation}
 
-By linearity of the expected value and variance operators under the iid assumption, Eqs. \ref{eq:uniformAbsDiffMean} and \ref{eq:uniformAbsDiffVar} allow the $p \text{-dimensional}$ mean and variance of the $D^{(1)}_{ij}$ distribution to be computed directly as
+By linearity of the expected value and variance operators under the iid assumption, Eqs. \ref{eq:uniformDqMean} and \ref{eq:uniformDqVar} allow the $p \text{-dimensional}$ mean and variance of the $\left(D^{(q)}_{ij}\right)^q$ distribution to be computed directly as
 
-\begin{equation}\label{eq:uniformManMean}
-\mu_{D^{(1)}_{ij}} = \text{E}\left(D^{(1)}_{ij}\right) = \text{E}\left(\sum_{a \in \mathcal{A}}Z_a\right) = \sum_{a \in \mathcal{A}} \text{E}(Z_a) = \sum_{a \in \mathcal{A}}\frac{1}{3} = \frac{p}{3}
-\end{equation}
-
-\noindent and
-
-\begin{equation}\label{eq:uniformManVar}
-\sigma^2_{D^{(1)}_{ij}} = \text{Var}\left(D^{(1)}_{ij}\right) = \text{Var}\left(\sum_{a \in \mathcal{A}} Z_a\right) = \sum_{a \in \mathcal{A}} \text{Var}\left(Z_a\right) = \sum_{a \in \mathcal{A}} \frac{1}{18} = \frac{p}{18}
-\end{equation}
-
-Therefore, the asymptotic distribution of $D^{(1)}_{ij}$ for standard uniform data is
-
-\begin{equation}\label{eq:uniformManDistr}
-\mathcal{N}\left(\frac{p}{3},\frac{p}{18}\right)
-\end{equation}
-
-\subsection{Squared difference distribution}
-
-Suppose that $X_{ia}, X_{ja} \overset{iid}{\sim} \mathcal{F}_X(\mu_x,\sigma^2_x)$ and define $Z^2_a \sim \mathcal{F}_{Z^2}(\mu_{z^2},\sigma^2_{z^2})$ such that $Z^2_a = d^2_{ij}(a) = (X_{ia} - X_{ja})^2$, where $a \in \mathcal{A}$ and $|\mathcal{A}| = p$.
-
-\begin{itemize}
-\item[(i)] Suppose that $x_{ja} = x_{ia} - \sqrt{z^2_a}$. Based on the iid assumption for $X_{ia}$ and $X_{ja}$, it follows that the joint density function $g^{(1)}$ of $X_{ia}$ and $Z^2_a$ is given by
-
-\begin{equation}
-\begin{aligned}
-g^{(1)}(x_{ia},z^2_a) &= f_X(x_{ia},x_{ja})\biggl|\frac{\partial x_{ja}}{\partial z^2_a}\biggr| \\
-&= f_X(x_{ia})f_X(x_{ja})\biggl|\frac{-1}{2\sqrt{z^2_a}}\biggr| \\
-&= \frac{1}{2\sqrt{z^2_a}}f_X(x_{ia})f_X(x_{ia}-\sqrt{z^2_a})
-\end{aligned}
-\end{equation}
-
-The density function $f^{(1)}_{Z^2}$ of $Z^2_a$ is then defined as
-
-\begin{equation}
-f^{(1)}_{Z^2}(z^2_a) = \int_{-\infty}^{\infty} g^{(1)}(x_{ia},z^2_a)\text{d}x_{ia} = \int_{-\infty}^{\infty} f_X(x_{ia})f_X(x_{ia}-\sqrt{z^2_a})\text{d}x_{ia}
-\end{equation}
-
-\item[(ii)] Suppose that $x_{ja} = x_{ia} + \sqrt{z^2_a}$. Based on the iid assumption for $X_{ia}$ and $X_{ja}$, it follows that the joint density function $g^{(2)}$ of $X_{ia}$ and $Z^2_a$ is given by
-
-\begin{equation}
-\begin{aligned}
-g^{(2)}(x_{ia},z^2_a) &= f_X(x_{ia},x_{ja})\biggl|\frac{\partial x_{ja}}{\partial z^2_a}\biggr| \\
-&= f_X(x_{ia})f_X(x_{ja})\biggl|\frac{1}{2\sqrt{z^2_a}}\biggr| \\
-&= \frac{1}{2\sqrt{z^2_a}}f_X(x_{ia})f_X(x_{ia}+\sqrt{z^2_a})
-\end{aligned}
-\end{equation}
-
-The density function $f^{(2)}_{Z^2}$ of $Z^2_a$ is then defined as
-
-\begin{equation}
-f^{(2)}_{Z^2}(z_a) = \int_{-\infty}^{\infty} g^{(2)}(x_{ia},z^2_a)\text{d}x_{ia} = \int_{-\infty}^{\infty} f_X(x_{ia})f_X(x_{ia}+\sqrt{z^2_a})\text{d}x_{ia}
-\end{equation}
-\end{itemize}
-
-Let $F_Z$ denote the distribution function of the random variable $Z_a$. Furthermore, let $E^{(1)}=\bigl\{(X_{ia}-X_{ja})^2 \leq z^2_a | X_{ja}=X_{ia}-\sqrt{Z^2_a}\bigr\}$ and $E^{(2)}=\bigl\{(X_{ia} - X_{ja})^2 \leq z_a | X_{ja}=X_{ia} + \sqrt{Z^2_a}\bigr\}$. Then we have
-
-\begin{equation}\label{eq:SquDiffCDF}
-\begin{aligned}
-F_{Z^2}(z^2_a) &= \text{P}\bigl[Z^2_a \leq z^2_a\bigr] \\
-&= \text{P}\bigl[(X_{ia} - X_{ja})^2 \leq z^2_a\bigr] \\
-&= \text{P}\bigl[\bigl\{(X_{ia}-X_{ja})^2 \leq z^2_a | X_{ja}=X_{ia}-\sqrt{Z^2_a}\bigr\} \cup \\
-&\hphantom{=} \quad \quad \bigl\{(X_{ia} - X_{ja})^2 \leq z_a | X_{ja}=X_{ia} + \sqrt{Z^2_a}\bigr\}\bigr] \\
-&= \text{P}\bigl[E^{(1)} \cup E^{(2)}\bigr] \\
-&= \text{P}\bigl[E^{(1)}\bigr] + \text{P}\bigl[E^{(2)}\bigr] - \text{P}\bigl[E^{(1)} \cap E^{(2)}\bigr] \\
-&= \text{P}\bigl[E^{(1)}\bigr] + \text{P}\bigl[E^{(2)}\bigr] \\
-&= \int_{-\infty}^{z^2_a} f^{(1)}_{Z^2}(t) \text{d}t + \int_{-\infty}^{z^2_a} f^{(2)}_{Z^2}(t) \text{d}t \\
-&= \int_{-\infty}^{z^2_a} \left(f^{(1)}_{Z^2}(t) + f^{(2)}_{Z^2}(t)\right) \text{d}t \\
-&= \frac{1}{2\sqrt{z^2_a}}\int_{-\infty}^{z^2_a} \left(\int_{-\infty}^{\infty}f_X(x_{ia})\left[f_X(x_{ia} - t) + f_X(x_{ia} + t)\right] \text{d}x_{ia}\right)\text{d}t, \quad z_a > 0
-\end{aligned}
-\end{equation}
-
-It follows directly from the result in Eq. \ref{eq:SquDiffCDF} that the density function of the random variable $Z^2_a$ is given by
-
-\begin{equation}\label{eq:SquDiffPDF}
-f_{Z^2}(z^2_a) = \frac{\partial}{\partial z^2_a} F_{Z^2}(z^2_a) = \frac{1}{2\sqrt{z^2_a}}\int_{-\infty}^{\infty} f_X(x_{ia}) \left[f_X(x_{ia} - \sqrt{z^2_a}) + f_X(x_{ia} + \sqrt{z^2_a})\right] \text{d}x_{ia}
-\end{equation}
-
-Using Eq. \ref{eq:SquDiffPDF}, we can compute the mean and variance of the squared difference as
-
-\begin{equation}\label{eq:1DSquDiffMean}
-\mu_{z^2} = \int_{-\infty}^{\infty} z^2_a f_{Z^2}(z^2_a) \text{d}z^2_a
-\end{equation}
-
-and
-
-\begin{equation}\label{eq:1DSquDiffVar}
-\sigma^2_{z^2} = \int_{-\infty}^{\infty} (z^2_a)^2 f_{Z^2}(z^2_a) \text{d}z^2_a - \mu^2_{z^2}
-\end{equation}
-
-It follows immediately from Eqs. \ref{eq:1DSquDiffMean} and \ref{eq:1DSquDiffVar} and the Classical Central Limit Theorem that
-
-\begin{equation}\label{eq:SquDiffDistrGeneral}
-\left(D^{(2)}_{ij}\right)^2 = \sum_{a \in \mathcal{A}} Z^2_a = \sum_{a \in \mathcal{A}} (X_{ia} - X_{ja})^2 \overset{.}{\sim} \mathcal{N}\left(\mu_{z^2}p,\sigma^2_{z^2}p\right)
-\end{equation}
-
-Then the Delta Method \cite{allStats} can be used to show that
-
-\begin{equation}\label{eq:euclideanDistr}
-D^{(2)}_{ij} = \left(\sum_{a \in \mathcal{A}} Z^2_a\right)^{1/2} = \left(\sum_{a \in \mathcal{A}} (X_{ia} - X_{ja})^2\right)^{1/2} \overset{.}{\sim} \mathcal{N}\left(\sqrt{\mu_{z^2}p},\frac{\sigma^2_{z^2}}{4\mu_{z^2}}\right), \quad \mu_{z^2} > 0
-\end{equation}
-
-Given that $\text{E}\left[\left(\left[D^{(2)}_{ij}\right]^2\right)^{1/2}\right] = \left(\text{E}\left[\left(D^{(2)}_{ij}\right)^2\right] - \text{Var}\left[\left(\left[D^{(2)}_{ij}\right]^2\right)^{1/2}\right]\right)^{1/2}$, and the results given in Eq. \ref{eq:euclideanDistr} provide an estimate of both $\text{E}\left[\left(D^{(2)}_{ij}\right)^2\right]$ and $\text{Var}\left[\left(\left[D^{(2)}_{ij}\right]^2\right)^{1/2}\right]$, an improved estimate of the mean is given by
-
-\begin{equation}\label{eq:euclideanMean}
-\text{E}\left(D^{(2)}_{ij}\right) = \sqrt{\mu_{z^2}p - \frac{\sigma^2_{z^2}}{4\mu_{z^2}}}, \quad \mu_{z^2} > 0.
-\end{equation}
-
-The asymptotic distribution of $D^{(2)}_{ij}$ with improved estimate of the mean is then given by
-
-\begin{equation}
-\mathcal{N}\left(\sqrt{\mu_{z^2}p - \frac{\sigma^2_{z^2}}{4\mu_{z^2}}},\frac{\sigma^2_{z^2}}{4\mu_{z^2}}\right), \quad \mu_{z^2} > 0.
-\end{equation}
-
-Without loss of generality, the argument leading to and resulting in Eq. \ref{eq:euclideanDistr} can be generalized to the case of $q>2$. This implies that we have the asymptotic distribution of $D^{(q)}$ for all $q \in \mathbb{Z}$.
-
-\subsubsection{Standard normal data}
-
-If $X_{ia},X_{ja} \overset{iid}{\sim} \mathcal{N}(0,1)$, then the marginal density functions with respect to $X$ for $X_{ia}$, $X_{ia} - \sqrt{Z^2_a}$, and $X_{ia} + \sqrt{Z^2_a}$ are defined as
-
-\begin{equation}\label{eq:normalSquDiffXmarg}
-f_X(x_{ia}) = \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2}x^2_{ia}},
-\end{equation}
-
-\begin{equation}\label{eq:normalSquDiffXMinusZmarg}
-f_X(x_{ia} - z_a) = \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2}\left(x_{ia} - \sqrt{z^2_a}\right)^2}, \quad z_a \geq 0, \text{ and}
-\end{equation}
-
-\begin{equation}\label{eq:normalSquDiffXPlusZmarg}
-f_X(x_{ia} + z_a) = \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2}\left(x_{ia} + \sqrt{z^2_a}\right)^2}, \quad z_a \geq 0.
-\end{equation}
-
-Substituting the results given by Eqs. \ref{eq:normalSquDiffXmarg}-\ref{eq:normalSquDiffXPlusZmarg} into Eq. \ref{eq:SquDiffPDF} and completing the square on $x_{ia}$ in the exponents, we have
-
-\begin{equation}\label{eq:normalSquDiffPDF}
-\begin{aligned}
-f_{Z^2}(z^2_a) &= \frac{1}{4\pi\sqrt{z^2_a}} e^{-\frac{1}{4}z^2_a} \int_{-\infty}^{\infty} \left(e^{-\frac{1}{2}\left(\sqrt{2}x_{ia} - \frac{\sqrt{2}}{2}\sqrt{z^2_a}\right)^2} + e^{-\frac{1}{2}\left(\sqrt{2}x_{ia} + \frac{\sqrt{2}}{2}\sqrt{z^2_a}\right)^2} \right) \text{d}x_{ia}, \\
-&\hphantom{= } \hspace{10.8cm} z_a > 0 \\
-&= \frac{1}{4\sqrt{\pi z^2_a}} e^{-\frac{1}{4}z^2_a}\int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} \left(e^{-\frac{1}{2}u^2} + e^{-\frac{1}{2}u^2}\right) \text{d}u, \quad z_a > 0 \\
-&= \frac{1}{4\sqrt{\pi z^2_a}}e^{-\frac{1}{4}z^2_a}(1 + 1), \quad z_a > 0 \\
-&= \frac{1}{2\sqrt{\pi z^2_a}}e^{-\frac{1}{4}z^2_a}, \quad z_a > 0 \\
-&= \frac{1}{\sqrt{pi} 4^{1/2}} \left(z^2_a\right)^{-1/2} e^{-\frac{1}{4}z^2_a}, \quad z_a > 0 \\
-&= \frac{1}{\Gamma\left(\frac{1}{2}\right) 4^{-1/2}} \left(z^2_a\right)^{\frac{1}{2} - 1} e^{-\frac{1}{4}z^2_a}, \quad z_a > 0
-\end{aligned}
-\end{equation}
-
-The density function given by Eq. \ref{eq:normalSquDiffPDF} is a Gamma density with shape and scale parameters $\alpha = \frac{1}{2}$ and $\beta = 4$, respectively. This distribution has mean and variance given by
-
-\begin{equation}\label{eq:1DnormalSquDiffMean}
-\begin{aligned}
-\mu_{z^2} &= \alpha \beta \\
-&= 2
-\end{aligned}
+\begin{equation}\label{eq:uniformDqMean}
+\begin{split}
+\mu_{\left(D^{(q)}_{ij}\right)^q} = \text{E}\left[\left(D^{(q)}_{ij}\right)^q\right] &= \text{E}\left(\sum_{a \in \mathcal{A}}Z^q_a\right) \\
+&= \sum_{a \in \mathcal{A}} \text{E}(Z^q_a) \\
+&= \sum_{a \in \mathcal{A}} \frac{2}{(q + 2)(q + 1)} \\
+&= \frac{2p}{(q + 2)(q + 1)}
+\end{split}
 \end{equation}
 
 \noindent and
 
-\begin{equation}\label{eq:1DnormalSquDiffVar}
-\begin{aligned}
-\sigma^2_{z^2} &= \alpha \beta^2 \\
-&= 8
-\end{aligned}
+\begin{equation}\label{eq:uniformDqVar}
+\begin{split}
+\sigma^2_{\left(D^{(q)}_{ij}\right)^q} = \text{Var}\left[\left(D^{(q)}_{ij}\right)^q\right] &= \text{Var}\left(\sum_{a \in \mathcal{A}} Z^q_a\right) \\
+&= \sum_{a \in \mathcal{A}} \text{Var}\left(Z^q_a\right) \\
+&= \sum_{a \in \mathcal{A}} \left[\frac{1}{(q + 1)(2q + 1)} - \left(\frac{2}{(q + 2)(q + 1)}\right)^2\right] \\
+&= \left[\frac{1}{(q + 1)(2q + 1)} - \left(\frac{2}{(q + 2)(q + 1)}\right)^2\right]p
+\end{split}
 \end{equation}
 
-By linearity of the expected value and variance operators under the iid assumption, Eqs. \ref{eq:1DnormalSquDiffMean} and \ref{eq:1DnormalSquDiffVar} allow the $p \text{-dimensional}$ mean and variance of the $\left(D^{(2)}_{ij}\right)^2$ distribution to be computed directly as
+Therefore, the asymptotic distribution of $D^{(q)}_{ij}$ for standard uniform data is
 
-\begin{equation}\label{eq:normalSquDiffMean}
-\mu_{\left(D^{(2)}_{ij}\right)^2} = \text{E}\left[\left(D^{(2)}_{ij}\right)^2\right] = \text{E}\left(\sum_{a \in \mathcal{A}} Z^2_a\right) = \sum_{a \in \mathcal{A}} \text{E}\left(Z^2_a\right) = \sum_{a \in \mathcal{A}} 2 = 2p
-\end{equation}
-
-\noindent and
-
-\begin{equation}\label{eq:normalSquDiffVar}
-\sigma^2_{\left(D^{(2)}_{ij}\right)^2} = \text{Var}\left[\left(D^{(2)}_{ij}\right)^2\right] = \text{Var}\left(\sum_{a \in \mathcal{A}} Z^2_a\right) = \sum_{a \in \mathcal{A}} \text{Var}\left(Z^2_a\right) = \sum_{a \in \mathcal{A}} 8 = 8p
-\end{equation}
-
-Therefore, the asymptotic distribution of $\left(D^{(2)}_{ij}\right)^2$ for standard normal data is
-
-\begin{equation}\label{eq:SquDiffDistr}
-\mathcal{N}(2p,8p)
-\end{equation}
-
-The random variable $D^{(2)}_{ij}$ is just the square root of the squared difference random variable $\left(D^{(2)}_{ij}\right)^2$. Given that this is a smooth function that is continuously differentiable at $\mu_{\left(D^{(2)}_{ij}\right)^2}$, we can use the Delta Method \cite{allStats} to show that
-
-\begin{equation}\label{eq:normalEucDistr}
-D^{(2)}_{ij} = \left(\left[D^{(2)}_{ij}\right]^2\right)^{1/2} \overset{.}{\sim} \mathcal{N}\left(\sqrt{2p},\frac{8p}{4 \cdot 2p}\right) = \mathcal{N}\left(\sqrt{2p},1\right)
-\end{equation}
-
-Using the improved estimate of the mean given by Eq. \ref{eq:euclideanMean}, the asymptotic distribution of $D^{(2)}_{ij}$ is then given by
-
-\begin{equation}\label{eq:normalEucDistr2}
-\mathcal{N}\left(\sqrt{2p - 1},1\right)
-\end{equation}
-
-\subsubsection{Standard uniform data}
-
-If $X_{ia},X_{ja} \overset{iid}{\sim} \mathcal{U}(0,1)$, then the marginal density functions with respect to $X$ for $X_{ia}$, $X_{ia} - \sqrt{Z^2_a}$, and $X_{ia} + \sqrt{Z^2_a}$ are defined as
-
-\begin{equation}\label{eq:uniformSquDiffXmarg}
-f_X(x_{ia}) = 1, \quad 0 \leq x_{ia} \leq 1,
-\end{equation}
-
-\begin{equation}\label{eq:uniformSquDiffXminusZmarg}
-f_X(x_{ia} - \sqrt{z^2_a}) = 1, \quad 0 \leq x_{ia} - \sqrt{z^2_a} \leq 1, and
-\end{equation}
-
-\begin{equation}\label{eq:uniformSquDiffXplusZmarg}
-f_X(x_{ia} + \sqrt{z^2_a}) = 1, \quad 0 \leq x_{ia} + \sqrt{z^2_a} \leq 1.
-\end{equation}
-
-Substituting the results given by Eqs. \ref{eq:uniformSquDiffXmarg}-\ref{eq:uniformSquDiffXplusZmarg} into Eq. \ref{eq:SquDiffPDF}, we have
-
-\begin{equation}\label{eq:uniformSquDiffPDF}
-\begin{aligned}
-f_{Z^2}(z^2_a) &= \frac{1}{2\sqrt{z^2_a}} \int_{0}^{1} \left[f_X\left(x_{ia} - \sqrt{z^2_a}\right) + f_X\left(x_{ia} + \sqrt{z^2_a}\right)\right] \text{d}x_{ia}, \quad 0 < z_a \leq 1\\
-&= \frac{1}{2\sqrt{z^2_a}}\left(\int_{\sqrt{z^2_a}}^{1}1\text{d}x_{ia} + \int_{0}^{1 - \sqrt{z^2_a}}1\text{d}x_{ia}\right), \quad 0 < z_a \leq 1 \\
-&= \frac{1}{2\sqrt{z^2_a}}[(1 - \sqrt{z^2_a}) + (1 - \sqrt{z^2_a})], \quad 0 < z_a \leq 1 \\
-&= \frac{1}{\sqrt{z^2_a}} - 1, \quad 0 < z_a \leq 1 \\
-&= \frac{1}{2} \cdot 2 \left(z^2_a\right)^{\frac{1}{2} - 1}\left(1 - \left(z^2_a\right)^{\frac{1}{2}}\right)^{2 - 1}, \quad 0 < z_a \leq 1
-\end{aligned}
-\end{equation}
-
-The density function given by Eq. \ref{eq:uniformSquDiffPDF} is a Kumaraswamy density with shape parameters $b=\frac{1}{2}$ and $c=2$. The Kumaraswamy density function is given by
-
-\begin{equation}\label{eq:kumaraswamy}
-f(y) = b c y^{b - 1} (1 - y^b)^{c-1}, \quad 0 < y \leq 1.
-\end{equation}
-
-\noindent where $b,c>0$.
-
-The moment generating function (MGF) of the Kumaraswamy distribution is given by
-
-\begin{equation}\label{eq:kumaraswamyMoment}
-M_n = \frac{c \Gamma\left(1 + \frac{n}{b}\right) \Gamma(c)}{\Gamma\left(1 + \frac{n}{b} + c\right)} = c B\left(1 + \frac{n}{b},c\right)
-\end{equation}
-
-\noindent where $B$ is the Beta function. Substituting $b=\frac{1}{2}$ and $c=2$ into the MGF given by Eq. \ref{eq:kumaraswamyMoment}, it is easy to show that $M_1 = \frac{1}{6}$ and $M_2 = \frac{1}{15}$. Therefore, the mean and variance of the random variable $Z^2_a$ are given by
-
-\begin{equation}\label{eq:1DuniformSquDiffMean}
-\mu_{z^2} = \frac{1}{6}
-\end{equation}
-
-\noindent and
-
-\begin{equation}\label{eq:1DuniformSquDiffVar}
-\sigma^2_{z^2} = \frac{7}{180}.
-\end{equation}
-
-By linearity of the expected value and variance operators under the iid assumption, Eqs. \ref{eq:1DuniformSquDiffMean} and \ref{eq:1DuniformSquDiffMean} allow the $p \text{-dimensional}$ mean and variance of the $\left(D^{(2)}_{ij}\right)^2$ distribution to be computed directly as
-
-\begin{equation}\label{eq:uniformSquDiffMean}
-\mu_{\left(D^{(2)}_{ij}\right)^2} = \text{E}\left[\left(D^{(2)}_{ij}\right)^2\right] = \text{E}\left(\sum_{a \in \mathcal{A}} Z^2_a\right) = \sum_{a \in \mathcal{A}} \text{E}\left(Z^2_a\right) = \sum_{a \in \mathcal{A}} \frac{1}{6} = \frac{p}{6}
-\end{equation}
-
-\noindent and
-
-\begin{equation}\label{eq:uniformSquDiffVar}
-\sigma^2_{\left(D^{(2)}_{ij}\right)^2} = \text{Var}\left[\left(D^{(2)}_{ij}\right)^2\right] = \text{Var}\left(\sum_{a \in \mathcal{A}} Z^2_a\right) = \sum_{a \in \mathcal{A}} \text{Var}\left(Z^2_a\right) = \sum_{a \in \mathcal{A}} \frac{7}{180} = \frac{7p}{180}
-\end{equation}
-
-The random variable $D^{(2)}_{ij}$ is the square root of the squared difference random variable $\left(D^{(2)}_{ij}\right)^2$. Given that the square root function is continuously differentiable at $\mu_{\left(D^{(2)}_{ij}\right)^2}$, we can use the Delta Method \cite{allStats} to show that
-
-\begin{equation}\label{eq:uniformEucDistr}
-D^{(2)}_{ij} = \left(\left[D^{(2)}_{ij}\right]^2\right)^{1/2} \overset{.}{\sim} \mathcal{N}\left(\sqrt{\frac{p}{6}},\frac{\frac{7p}{180}}{4 \cdot \frac{p}{6}}\right) = \mathcal{N}\left(\sqrt{\frac{p}{6}},\frac{7}{120}\right)
-\end{equation}
-
-Using the improved estimate of the mean given by Eq. \ref{eq:euclideanMean}, the asymptotic distribution of $D^{(2)}_{ij}$ is then given by
-
-\begin{equation}\label{eq:uniformEucDistr2}
-\mathcal{N}\left(\sqrt{\frac{p}{6} - \frac{7}{120}},\frac{7}{120}\right)
+\begin{equation}\label{eq:uniformDistr}
+\begin{split}
+\mathcal{N}{\large \Biggl(}& \left(\frac{2p}{(q + 2)(q + 1)}\right)^{1/q}, \\
+& \frac{p}{q^2\left(\frac{2p}{(q + 2)(q + 1)}\right)^{2\left(1 - \frac{1}{q}\right)}}\left[\frac{1}{(q + 1)(2q + 1)} - \left(\frac{2}{(q + 2)(q + 1)}\right)^2\right]{\large \Biggr)}.
+\end{split}
 \end{equation}
 
 \begin{table}[H]
