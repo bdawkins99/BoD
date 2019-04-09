@@ -522,7 +522,7 @@ f_{Z^q}(z^q_a) &= \frac{\partial}{\partial z^q_a} F_{Z^q}(z^q_a) \\
 \end{equation}
 \noindent where $z_a > 0$.
 
-Using Eq. \ref{eq:DqPDF}, we can compute the mean and variance of the magnitude difference as
+Using Eq. \ref{eq:DqPDF}, we can compute the mean and variance of the random variable $Z^q_a$ as
 
 \begin{equation}\label{eq:1DDqMean}
 \mu_{z^q} = \int_{-\infty}^{\infty} z^q_a f_{Z^q}(z^q_a) \text{d}z^q_a
@@ -619,7 +619,7 @@ Therefore, the asymptotic distribution of $D^{(q)}_{ij}$ for standard normal dat
 
 \begin{equation}\label{eq:normalDistr}
 \mathcal{N}\left(\left(2\frac{\Gamma\left(\frac{q + 1}{2}\right)}{\sqrt{\pi}}p\right)^{1/q},
-\frac{4^q p}{q^2 \left(\frac{2^q \Gamma\left(\frac{1}{2}q + \frac{1}{2}\right)}{\sqrt{pi}}p\right)^{2\left(1 - \frac{1}{q}\right)}}\left[\frac{\Gamma\left(q + \frac{1}{2}\right)}{\sqrt{\pi}} - \frac{\Gamma^2\left(\frac{1}{2}q + \frac{1}{2}\right)}{\pi}\right]\right)
+\frac{4^q p}{q^2 \left(\frac{2^q \Gamma\left(\frac{1}{2}q + \frac{1}{2}\right)}{\sqrt{\pi}}p\right)^{2\left(1 - \frac{1}{q}\right)}}\left[\frac{\Gamma\left(q + \frac{1}{2}\right)}{\sqrt{\pi}} - \frac{\Gamma^2\left(\frac{1}{2}q + \frac{1}{2}\right)}{\pi}\right]\right)
 \end{equation}
 
 \subsubsection{Standard uniform data}
@@ -698,10 +698,135 @@ Therefore, the asymptotic distribution of $D^{(q)}_{ij}$ for standard uniform da
 
 \begin{equation}\label{eq:uniformDistr}
 \begin{split}
-\mathcal{N}{\large \Biggl(}& \left(\frac{2p}{(q + 2)(q + 1)}\right)^{1/q}, \\
-& \frac{p}{q^2\left(\frac{2p}{(q + 2)(q + 1)}\right)^{2\left(1 - \frac{1}{q}\right)}}\left[\frac{1}{(q + 1)(2q + 1)} - \left(\frac{2}{(q + 2)(q + 1)}\right)^2\right]{\large \Biggr)}.
+\mathcal{N}{\text{\LARGE $\Biggl($}}& \left(\frac{2p}{(q + 2)(q + 1)}\right)^{1/q}, \\
+& \frac{p}{q^2\left(\frac{2p}{(q + 2)(q + 1)}\right)^{2\left(1 - \frac{1}{q}\right)}}\left[\frac{1}{(q + 1)(2q + 1)} - \left(\frac{2}{(q + 2)(q + 1)}\right)^2\right]{\text{\LARGE $\Biggr)$}}.
 \end{split}
 \end{equation}
+
+\subsection{Manhattan \texorpdfstring{($q=1$)}{}}
+
+With our general formulas for the asymptotic mean and variance given by Eqs. \ref{eq:normalDistr} and \ref{eq:uniformDistr} for any value of $q \in \mathbb{Z}^+$, we can simply substitute a particular value of $q$ in order to determine the asymptotic distribution of the corresponding distance metric $D^{(q)}_{ij}$. We demonstrate this with the example of the Manhattan ($q=1$) metric for standard normal and standard uniform data.
+
+\subsubsection{Standard normal data}
+
+Using the mean given by Eq. \ref{eq:normalDistr} and substituting $q=1$, we have the following for standard normal data
+
+\begin{equation}\label{eq:normalManMean}
+\begin{aligned}
+\text{E}\left(D^{(1)}_{ij}\right) &= \left(2\frac{\Gamma\left(\frac{1 + 1}{2}\right)}{\sqrt{\pi}}p\right)^{1/1} \\
+&= \frac{2p}{\sqrt{\pi}}\Gamma(1) \\
+&= \frac{2p}{\sqrt{\pi}}
+\end{aligned}
+\end{equation}
+
+Similarly, the variance of $D^{(1)}_{ij}$ is given by
+
+\begin{equation}\label{eq:normalManVar}
+\begin{aligned}
+\text{Var}\left(D^{(1)}_{ij}\right) &= \frac{4^1p}{1^2\left(\frac{2^1\Gamma\left(\frac{1}{2}(1) + \frac{1}{2}\right)}{\sqrt{\pi}}p\right)^{2\left(1 - \frac{1}{1}\right)}}\left[\frac{\Gamma\left(1 + \frac{1}{2}\right)}{\sqrt{\pi}} - \frac{\Gamma^2\left(\frac{1}{2}(1) + \frac{1}{2}\right)}{\pi}\right] \\
+&= \frac{4p}{1}\left[\frac{\frac{1}{2}\Gamma\left(\frac{1}{2}\right)}{\sqrt{\pi}} - \frac{\Gamma^2(1)}{\pi}\right] \\
+&= 4p\left[\frac{1}{2} - \frac{1}{\pi}\right] \\
+&= \frac{2(\pi - 2)p}{\pi}
+\end{aligned}
+\end{equation}
+
+\subsubsection{Standard uniform data}
+
+Using the mean given by Eq. \ref{eq:uniformDistr} and substituting $q=1$, we have the following for standard uniform data
+
+\begin{equation}\label{eq:uniformManMean}
+\begin{aligned}
+\text{E}\left(D^{(1)}_{ij}\right) &= \left(\frac{2p}{(1+2)(1+1)}\right)^{1/1} \\
+&= \frac{2p}{6} \\
+&= \frac{p}{3}
+\end{aligned}
+\end{equation}
+
+Similarly, the variance of $D^{(1)}_{ij}$ is given by
+
+\begin{equation}\label{eq:uniformManVar}
+\begin{aligned}
+\text{Var}\left(D^{(1)}_{ij}\right) &= \frac{p}{1^2\left(\frac{2p}{(1 + 2)(1 + 1)}\right)^{2\left(1 - \frac{1}{1}\right)}}\left[\frac{1}{(1 + 1)(2(1) + 1)} - \left(\frac{2}{(1 + 2)(1 + 1)}\right)^2\right] \\
+&= p\left[\frac{1}{6} - \frac{1}{9}\right] \\
+&= \frac{p}{18}
+\end{aligned}
+\end{equation}
+
+\subsection{Euclidean \texorpdfstring{($q=2$)}{}}
+
+Analogous to the previous section, we demonstrate the usage of Eqs. \ref{eq:normalDistr} and \ref{eq:uniformDistr} for the Euclidean ($q=2$) metric for standard normal and standard uniform data.
+
+\subsubsection{Standard normal data}
+
+Using the mean given by Eq. \ref{eq:normalDistr} and substituting $q=2$, we have the following for standard normal data
+
+\begin{equation}\label{eq:normalEucMean}
+\begin{aligned}
+\text{E}\left(D^{(2)}_{ij}\right) &= \left(2\frac{\Gamma\left(\frac{2 + 1}{2}\right)}{\sqrt{\pi}}p\right)^{1/2} \\
+&= \left(\frac{2p}{\sqrt{\pi}}\Gamma\left(\frac{3}{2}\right)\right)^{1/2} \\
+&= \sqrt{2p}
+\end{aligned}
+\end{equation}
+
+Similarly, the variance of $D^{(2)}_{ij}$ is given by
+
+\begin{equation}\label{eq:normalEucVar}
+\begin{aligned}
+\text{Var}\left(D^{(1)}_{ij}\right) &= \frac{4^2p}{2^2\left(\frac{2^2\Gamma\left(\frac{1}{2}(2) + \frac{1}{2}\right)}{\sqrt{\pi}}p\right)^{2\left(1 - \frac{1}{2}\right)}}\left[\frac{\Gamma\left(2 + \frac{1}{2}\right)}{\sqrt{\pi}} - \frac{\Gamma^2\left(\frac{1}{2}(2) + \frac{1}{2}\right)}{\pi}\right] \\
+&= \frac{16p}{4\left(\frac{4\Gamma\left(\frac{3}{2}\right)}{\sqrt{\pi}}p\right)}\left[\frac{\Gamma\left(\frac{5}{2}\right)}{\sqrt{\pi}} - \frac{\Gamma^2\left(\frac{3}{2}\right)}{\pi}\right] \\
+&= 2\left[\frac{3}{4} - \frac{1}{4}\right] \\
+&= 1 
+\end{aligned}
+\end{equation}
+
+For the case in which the number of attributes $p$ is small, an improved estimate of the mean is given by Eq. \ref{eq:DqMeanImproved}. The lower dimensional estimate of the mean is as follows.
+
+\begin{equation}\label{eq:normalEucMeanImproved}
+\begin{aligned}
+\text{E}\left(D^{(2)}_{ij}\right) &= \left(2\frac{\Gamma\left(\frac{2 + 1}{2}\right)}{\sqrt{\pi}}p - 1\right)^{1/2} \\
+&= \left(\frac{2p}{\sqrt{\pi}}\Gamma\left(\frac{3}{2}\right) - 1\right)^{1/2} \\
+&= \sqrt{2p - 1}
+\end{aligned}
+\end{equation}
+
+For high dimensional data sets, such as gene expression, rs-fMRI, or GWAS, it is clear that the magntiude of $p$ will be sufficient to use Eq. \ref{eq:normalEucMean} since $\sqrt{2p} \approx \sqrt{2p - 1}$ in that case.
+
+\subsubsection{Standard uniform data}
+
+Using the mean given by Eq. \ref{eq:uniformDistr} and substituting $q=2$, we have the following for standard uniform data
+
+\begin{equation}\label{eq:uniformEucMean}
+\begin{aligned}
+\text{E}\left(D^{(2)}_{ij}\right) &= \left(\frac{2p}{(2+2)(2+1)}\right)^{1/2} \\
+&= \left(\frac{2p}{12}\right)^{1/2} \\
+&= \sqrt{\frac{p}{6}}
+\end{aligned}
+\end{equation}
+
+Similarly, the variance of $D^{(2)}_{ij}$ is given by
+
+\begin{equation}\label{eq:uniformEucVar}
+\begin{aligned}
+\text{Var}\left(D^{(2)}_{ij}\right) &= \frac{p}{2^2\left(\frac{2p}{(2 + 2)(2 + 1)}\right)^{2\left(1 - \frac{1}{2}\right)}}\left[\frac{1}{(2 + 1)(2(2) + 1)} - \left(\frac{2}{(2 + 2)(2 + 1)}\right)^2\right] \\
+&= \frac{3p}{2}\left[\frac{1}{15} - \frac{1}{36}\right] \\
+&= \frac{7p}{120}
+\end{aligned}
+\end{equation}
+
+For the case in which the number of attributes $p$ is small, an improved estimate of the mean is given by Eq. \ref{eq:DqMeanImproved}. The lower dimensional estimate of the mean is as follows.
+
+\begin{equation}\label{eq:uniformEucMeanImproved}
+\begin{aligned}
+\text{E}\left(D^{(2)}_{ij}\right) &= \left(\frac{2p}{(2+2)(2+1)} - \frac{7}{120}\right)^{1/2} \\
+&= \left(\frac{2p}{12} - \frac{7}{120}\right)^{1/2} \\
+&= \sqrt{\frac{p}{6} - \frac{7}{120}}
+\end{aligned}
+\end{equation}
+
+For high dimensional data sets, such as gene expression, rs-fMRI, or GWAS, it is clear that the magntiude of $p$ will be sufficient to use Eq. \ref{eq:normalEucMean} since $\sqrt{\frac{p}{6}} \approx \sqrt{\frac{p}{6} - \frac{7}{120}}$ in that case.
+
+
+% mean/variance tables
 
 \begin{table}[H]
 \caption{Summary of asymptotic distance distributions for common data types. Metrics with subscripts M and E represent Manhattan and Euclidean, respectively. Metrics with superscript $^*$ represent a deviation from the standard metric by attribute range normalization. The function $\Phi^{-1}(x)$ denotes the standard normal quantile function, where $x \in (0,1)$.}

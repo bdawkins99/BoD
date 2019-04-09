@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  8 APR 2019 17:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  9 APR 2019 10:22
 entering extended mode
 **./BoD.tex
 (BoD.tex
@@ -692,7 +692,7 @@ Package microtype Info: Loading generic protrusion settings for font family
  [1
 
 {C:/Users/bdawk/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-<glmSTIR_figure_2D_final_CvsA.pdf, id=64, 369.37198pt x 366.18909pt>
+<glmSTIR_figure_2D_final_CvsA.pdf, id=88, 369.37198pt x 366.18909pt>
 File: glmSTIR_figure_2D_final_CvsA.pdf Graphic file (type pdf)
 <use glmSTIR_figure_2D_final_CvsA.pdf>
 Package pdftex.def Info: glmSTIR_figure_2D_final_CvsA.pdf  used on input line 2
@@ -702,25 +702,25 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<glmSTIR_figure_2D_final_BvsA.pdf, id=70, 369.17725pt x 366.18909pt>
+<glmSTIR_figure_2D_final_BvsA.pdf, id=94, 369.17725pt x 366.18909pt>
 File: glmSTIR_figure_2D_final_BvsA.pdf Graphic file (type pdf)
 <use glmSTIR_figure_2D_final_BvsA.pdf>
 Package pdftex.def Info: glmSTIR_figure_2D_final_BvsA.pdf  used on input line 2
 53.
 (pdftex.def)             Requested size: 202.35367pt x 200.71735pt.
-<nice_box_2D_points.pdf, id=71, 351.00034pt x 360.49481pt>
+<nice_box_2D_points.pdf, id=95, 351.00034pt x 360.49481pt>
 File: nice_box_2D_points.pdf Graphic file (type pdf)
 <use nice_box_2D_points.pdf>
 Package pdftex.def Info: nice_box_2D_points.pdf  used on input line 266.
 (pdftex.def)             Requested size: 202.35367pt x 207.83296pt.
-<nice_box_2D_points2.pdf, id=72, 351.00034pt x 360.49481pt>
+<nice_box_2D_points2.pdf, id=96, 351.00034pt x 360.49481pt>
 File: nice_box_2D_points2.pdf Graphic file (type pdf)
 <use nice_box_2D_points2.pdf>
 Package pdftex.def Info: nice_box_2D_points2.pdf  used on input line 279.
 (pdftex.def)             Requested size: 202.35367pt x 207.83296pt.
  [2 <./glmSTIR_figure_2D_final_CvsA.pdf>] [3 <./glmSTIR_figure_2D_final_BvsA.pd
 f> <./nice_box_2D_points.pdf>] [4 <./nice_box_2D_points2.pdf>] [5]
-<central_limit_distances-Manhattan-Normal-diffstar.pdf, id=273, 578.16pt x 722.
+<central_limit_distances-Manhattan-Normal-diffstar.pdf, id=297, 578.16pt x 722.
 7pt>
 File: central_limit_distances-Manhattan-Normal-diffstar.pdf Graphic file (type 
 pdf)
@@ -728,7 +728,7 @@ pdf)
 Package pdftex.def Info: central_limit_distances-Manhattan-Normal-diffstar.pdf 
  used on input line 380.
 (pdftex.def)             Requested size: 360.44545pt x 450.55055pt.
-<central_limit_distances-Euclidean-Normal-diffstar.pdf, id=274, 578.16pt x 722.
+<central_limit_distances-Euclidean-Normal-diffstar.pdf, id=298, 578.16pt x 722.
 7pt>
 File: central_limit_distances-Euclidean-Normal-diffstar.pdf Graphic file (type 
 pdf)
@@ -738,56 +738,44 @@ Package pdftex.def Info: central_limit_distances-Euclidean-Normal-diffstar.pdf
 (pdftex.def)             Requested size: 360.44545pt x 450.55055pt.
  [6 <./central_limit_distances-Manhattan-Normal-diffstar.pdf>] [7 <./central_li
 mit_distances-Euclidean-Normal-diffstar.pdf>] [8]
-<shaded_bell_curve.pdf, id=318, 334.22667pt x 149.06891pt>
+<shaded_bell_curve.pdf, id=342, 334.22667pt x 149.06891pt>
 File: shaded_bell_curve.pdf Graphic file (type pdf)
 <use shaded_bell_curve.pdf>
 Package pdftex.def Info: shaded_bell_curve.pdf  used on input line 435.
 (pdftex.def)             Requested size: 252.31071pt x 112.53383pt.
- [9 <./shaded_bell_curve.pdf>] [10] [11] [12] [13]
-
-LaTeX Font Warning: Command \large invalid in math mode on input line 703.
-
-
-LaTeX Font Warning: Command \large invalid in math mode on input line 703.
-
-
-LaTeX Font Warning: Command \large invalid in math mode on input line 703.
-
-
-LaTeX Font Warning: Command \large invalid in math mode on input line 703.
-
-<typical_data-metric_tab.pdf, id=449, 347.0004pt x 315.87912pt>
+ [9 <./shaded_bell_curve.pdf>] [10] [11] [12] [13] [14] [15] [16]
+<typical_data-metric_tab.pdf, id=511, 347.0004pt x 315.87912pt>
 File: typical_data-metric_tab.pdf Graphic file (type pdf)
 <use typical_data-metric_tab.pdf>
-Package pdftex.def Info: typical_data-metric_tab.pdf  used on input line 711.
+Package pdftex.def Info: typical_data-metric_tab.pdf  used on input line 836.
 (pdftex.def)             Requested size: 379.4175pt x 345.41481pt.
-[14]
-<bioinformaticsy_tab.pdf, id=456, 347.0004pt x 338.93628pt>
+<bioinformaticsy_tab.pdf, id=512, 347.0004pt x 338.93628pt>
 File: bioinformaticsy_tab.pdf Graphic file (type pdf)
 <use bioinformaticsy_tab.pdf>
-Package pdftex.def Info: bioinformaticsy_tab.pdf  used on input line 719.
+Package pdftex.def Info: bioinformaticsy_tab.pdf  used on input line 844.
 (pdftex.def)             Requested size: 379.4175pt x 370.62788pt.
- [15 <./typical_data-metric_tab.pdf>] (BoD.bbl [16 <./bioinformaticsy_tab.pdf>]
-) 
+
+[17 <./typical_data-metric_tab.pdf>] (BoD.bbl [18 <./bioinformaticsy_tab.pdf>])
+
 AED: lastpage setting LastPage
-[17]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 733.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 733.
+[19]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 858.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 858.
  (BoD.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 733.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 733.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 858.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 858.
 Package rerunfilecheck Info: File `BoD.out' has not changed.
-(rerunfilecheck)             Checksum: 8AEB20B4CE16EDA583F7A2F9FF18B809;814.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 733.
+(rerunfilecheck)             Checksum: D0B91F65E17A4FBE5867E09853BBF52D;1262.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 858.
  ) 
 Here is how much of TeX's memory you used:
- 11564 strings out of 492946
- 175211 string characters out of 3135528
- 336064 words of memory out of 3000000
- 15082 multiletter control sequences out of 15000+200000
- 18675 words of font info for 94 fonts, out of 3000000 for 9000
+ 11617 strings out of 492946
+ 176168 string characters out of 3135528
+ 336566 words of memory out of 3000000
+ 15116 multiletter control sequences out of 15000+200000
+ 21141 words of font info for 103 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,20n,43p,1684b,466s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,24n,43p,1684b,466s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Program Files/MiKTe
@@ -809,11 +797,12 @@ msy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb
 ><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Prog
 ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program File
 s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
-e1/urw/helvetic/uhvr8a.pfb>
-Output written on BoD.pdf (17 pages, 1340565 bytes).
+ 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Program Files/MiKTeX 2.
+9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+urw/helvetic/uhvr8a.pfb>
+Output written on BoD.pdf (19 pages, 1360161 bytes).
 PDF statistics:
- 659 PDF objects out of 1000 (max. 8388607)
- 94 named destinations out of 1000 (max. 500000)
- 14974 words of extra memory for PDF output out of 17280 (max. 10000000)
+ 724 PDF objects out of 1000 (max. 8388607)
+ 112 named destinations out of 1000 (max. 500000)
+ 16046 words of extra memory for PDF output out of 17280 (max. 10000000)
 
