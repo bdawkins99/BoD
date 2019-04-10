@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  9 APR 2019 10:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  9 APR 2019 19:36
 entering extended mode
 **./BoD.tex
 (BoD.tex
@@ -526,6 +526,9 @@ Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: wrapfig package is loaded.
 )
+\c@theorem=\count131
+\c@definition=\count132
+
 ("C:\Program Files\MiKTeX 2.9\tex/latex/lastpage\lastpage.sty"
 Package: lastpage 2015/03/29 v1.2m Refers to last page's name (HMM; JPG)
 )
@@ -566,41 +569,41 @@ tim
 ) (BoD.aux)
 \openout1 = `BoD.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 185.
-LaTeX Font Info:    ... okay on input line 185.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 185.
-LaTeX Font Info:    ... okay on input line 185.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 185.
-LaTeX Font Info:    ... okay on input line 185.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 185.
-LaTeX Font Info:    ... okay on input line 185.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 185.
-LaTeX Font Info:    ... okay on input line 185.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 185.
-LaTeX Font Info:    ... okay on input line 185.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 185.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 185.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 187.
+LaTeX Font Info:    ... okay on input line 187.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 187.
+LaTeX Font Info:    ... okay on input line 187.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 187.
+LaTeX Font Info:    ... okay on input line 187.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 187.
+LaTeX Font Info:    ... okay on input line 187.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 187.
+LaTeX Font Info:    ... okay on input line 187.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 187.
+LaTeX Font Info:    ... okay on input line 187.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 187.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 187.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 185.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 185.
-LaTeX Font Info:    ... okay on input line 185.
+LaTeX Font Info:    ... okay on input line 187.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 187.
+LaTeX Font Info:    ... okay on input line 187.
 
 ("C:\Program Files\MiKTeX 2.9\tex/context/base/mkii\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count131
+\scratchcounter=\count133
 \scratchdimen=\dimen147
 \scratchbox=\box35
-\nofMPsegments=\count132
-\nofMParguments=\count133
+\nofMPsegments=\count134
+\nofMParguments=\count135
 \everyMPshowfont=\toks34
-\MPscratchCnt=\count134
+\MPscratchCnt=\count136
 \MPscratchDim=\dimen148
-\MPnumerator=\count135
-\makeMPintoPDFobject=\count136
+\MPnumerator=\count137
+\makeMPintoPDFobject=\count138
 \everyMPtoPDFconversion=\toks35
 )
 *geometry* driver: auto-detecting
@@ -641,15 +644,15 @@ LaTeX Font Info:    ... okay on input line 185.
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 )
 \AtBeginShipoutBox=\box36
-Package hyperref Info: Link coloring OFF on input line 185.
-LaTeX Info: Redefining \ref on input line 185.
-LaTeX Info: Redefining \pageref on input line 185.
-LaTeX Info: Redefining \nameref on input line 185.
+Package hyperref Info: Link coloring OFF on input line 187.
+LaTeX Info: Redefining \ref on input line 187.
+LaTeX Info: Redefining \pageref on input line 187.
+LaTeX Info: Redefining \nameref on input line 187.
  (BoD.out) (BoD.out)
 \@outlinefile=\write3
 \openout3 = `BoD.out'.
 
-LaTeX Info: Redefining \microtypecontext on input line 185.
+LaTeX Info: Redefining \microtypecontext on input line 187.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -668,8 +671,8 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 185.
-LaTeX Font Info:    Try loading font information for U+msa on input line 196.
+(lastpage)             ! on input line 187.
+LaTeX Font Info:    Try loading font information for U+msa on input line 198.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -677,7 +680,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ("C:\Program Files\MiKTeX 2.9\tex/latex/microtype\mt-msa.cfg"
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 196.
+LaTeX Font Info:    Try loading font information for U+msb on input line 198.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -692,117 +695,119 @@ Package microtype Info: Loading generic protrusion settings for font family
  [1
 
 {C:/Users/bdawk/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-<glmSTIR_figure_2D_final_CvsA.pdf, id=88, 369.37198pt x 366.18909pt>
+<glmSTIR_figure_2D_final_CvsA.pdf, id=92, 369.37198pt x 366.18909pt>
 File: glmSTIR_figure_2D_final_CvsA.pdf Graphic file (type pdf)
 <use glmSTIR_figure_2D_final_CvsA.pdf>
 Package pdftex.def Info: glmSTIR_figure_2D_final_CvsA.pdf  used on input line 2
-38.
+40.
 (pdftex.def)             Requested size: 208.68077pt x 206.88603pt.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<glmSTIR_figure_2D_final_BvsA.pdf, id=94, 369.17725pt x 366.18909pt>
+<glmSTIR_figure_2D_final_BvsA.pdf, id=98, 369.17725pt x 366.18909pt>
 File: glmSTIR_figure_2D_final_BvsA.pdf Graphic file (type pdf)
 <use glmSTIR_figure_2D_final_BvsA.pdf>
 Package pdftex.def Info: glmSTIR_figure_2D_final_BvsA.pdf  used on input line 2
-53.
+55.
 (pdftex.def)             Requested size: 202.35367pt x 200.71735pt.
-<nice_box_2D_points.pdf, id=95, 351.00034pt x 360.49481pt>
+<nice_box_2D_points.pdf, id=99, 351.00034pt x 360.49481pt>
 File: nice_box_2D_points.pdf Graphic file (type pdf)
 <use nice_box_2D_points.pdf>
-Package pdftex.def Info: nice_box_2D_points.pdf  used on input line 266.
+Package pdftex.def Info: nice_box_2D_points.pdf  used on input line 268.
 (pdftex.def)             Requested size: 202.35367pt x 207.83296pt.
-<nice_box_2D_points2.pdf, id=96, 351.00034pt x 360.49481pt>
+<nice_box_2D_points2.pdf, id=100, 351.00034pt x 360.49481pt>
 File: nice_box_2D_points2.pdf Graphic file (type pdf)
 <use nice_box_2D_points2.pdf>
-Package pdftex.def Info: nice_box_2D_points2.pdf  used on input line 279.
+Package pdftex.def Info: nice_box_2D_points2.pdf  used on input line 281.
 (pdftex.def)             Requested size: 202.35367pt x 207.83296pt.
  [2 <./glmSTIR_figure_2D_final_CvsA.pdf>] [3 <./glmSTIR_figure_2D_final_BvsA.pd
 f> <./nice_box_2D_points.pdf>] [4 <./nice_box_2D_points2.pdf>] [5]
-<central_limit_distances-Manhattan-Normal-diffstar.pdf, id=297, 578.16pt x 722.
+<central_limit_distances-Manhattan-Normal-diffstar.pdf, id=301, 578.16pt x 722.
 7pt>
 File: central_limit_distances-Manhattan-Normal-diffstar.pdf Graphic file (type 
 pdf)
 <use central_limit_distances-Manhattan-Normal-diffstar.pdf>
 Package pdftex.def Info: central_limit_distances-Manhattan-Normal-diffstar.pdf 
- used on input line 380.
+ used on input line 382.
 (pdftex.def)             Requested size: 360.44545pt x 450.55055pt.
-<central_limit_distances-Euclidean-Normal-diffstar.pdf, id=298, 578.16pt x 722.
+<central_limit_distances-Euclidean-Normal-diffstar.pdf, id=302, 578.16pt x 722.
 7pt>
 File: central_limit_distances-Euclidean-Normal-diffstar.pdf Graphic file (type 
 pdf)
 <use central_limit_distances-Euclidean-Normal-diffstar.pdf>
 Package pdftex.def Info: central_limit_distances-Euclidean-Normal-diffstar.pdf 
- used on input line 386.
+ used on input line 388.
 (pdftex.def)             Requested size: 360.44545pt x 450.55055pt.
  [6 <./central_limit_distances-Manhattan-Normal-diffstar.pdf>] [7 <./central_li
 mit_distances-Euclidean-Normal-diffstar.pdf>] [8]
-<shaded_bell_curve.pdf, id=342, 334.22667pt x 149.06891pt>
+<shaded_bell_curve.pdf, id=346, 334.22667pt x 149.06891pt>
 File: shaded_bell_curve.pdf Graphic file (type pdf)
 <use shaded_bell_curve.pdf>
-Package pdftex.def Info: shaded_bell_curve.pdf  used on input line 435.
+Package pdftex.def Info: shaded_bell_curve.pdf  used on input line 437.
 (pdftex.def)             Requested size: 252.31071pt x 112.53383pt.
  [9 <./shaded_bell_curve.pdf>] [10] [11] [12] [13] [14] [15] [16]
-<typical_data-metric_tab.pdf, id=511, 347.0004pt x 315.87912pt>
+<typical_data-metric_tab.pdf, id=520, 347.0004pt x 315.87912pt>
 File: typical_data-metric_tab.pdf Graphic file (type pdf)
 <use typical_data-metric_tab.pdf>
-Package pdftex.def Info: typical_data-metric_tab.pdf  used on input line 836.
+Package pdftex.def Info: typical_data-metric_tab.pdf  used on input line 869.
 (pdftex.def)             Requested size: 379.4175pt x 345.41481pt.
-<bioinformaticsy_tab.pdf, id=512, 347.0004pt x 338.93628pt>
+
+[17]
+<bioinformaticsy_tab.pdf, id=534, 347.0004pt x 338.93628pt>
 File: bioinformaticsy_tab.pdf Graphic file (type pdf)
 <use bioinformaticsy_tab.pdf>
-Package pdftex.def Info: bioinformaticsy_tab.pdf  used on input line 844.
+Package pdftex.def Info: bioinformaticsy_tab.pdf  used on input line 877.
 (pdftex.def)             Requested size: 379.4175pt x 370.62788pt.
-
-[17 <./typical_data-metric_tab.pdf>] (BoD.bbl [18 <./bioinformaticsy_tab.pdf>])
-
+ [18 <./typical_data-metric_tab.pdf>] (BoD.bbl [19 <./bioinformaticsy_tab.pdf>]
+) 
 AED: lastpage setting LastPage
-[19]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 858.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 858.
+[20]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 891.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 891.
  (BoD.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 858.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 858.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 891.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 891.
 Package rerunfilecheck Info: File `BoD.out' has not changed.
-(rerunfilecheck)             Checksum: D0B91F65E17A4FBE5867E09853BBF52D;1262.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 858.
+(rerunfilecheck)             Checksum: C64588DCD5299F2CDE224462AD3E95D4;1344.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 891.
  ) 
 Here is how much of TeX's memory you used:
- 11617 strings out of 492946
- 176168 string characters out of 3135528
- 336566 words of memory out of 3000000
- 15116 multiletter control sequences out of 15000+200000
- 21141 words of font info for 103 fonts, out of 3000000 for 9000
+ 11654 strings out of 492946
+ 176651 string characters out of 3135528
+ 336965 words of memory out of 3000000
+ 15140 multiletter control sequences out of 15000+200000
+ 22357 words of font info for 108 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,24n,43p,1684b,466s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Program Files/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cmextra/cmex7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
-lic/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
-onts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
-cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb
-><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb><C:/Program
- Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
-onts/cm/cmss8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-msy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb
-><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Program Files/MiKTeX 2.
-9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-urw/helvetic/uhvr8a.pfb>
-Output written on BoD.pdf (19 pages, 1360161 bytes).
+ts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
+c/amsfonts/cmextra/cmex7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb><C:/Program Files
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb><C:/Program Files/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmss8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/f
+onts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/he
+lvetic/uhvr8a.pfb>
+Output written on BoD.pdf (20 pages, 1380255 bytes).
 PDF statistics:
- 724 PDF objects out of 1000 (max. 8388607)
- 112 named destinations out of 1000 (max. 500000)
- 16046 words of extra memory for PDF output out of 17280 (max. 10000000)
+ 748 PDF objects out of 1000 (max. 8388607)
+ 119 named destinations out of 1000 (max. 500000)
+ 17590 words of extra memory for PDF output out of 20736 (max. 10000000)
 

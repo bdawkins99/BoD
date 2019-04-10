@@ -138,7 +138,9 @@
 \renewcommand{\@biblabel}[1]{\quad#1.}
 \makeatother
 
-
+% define theorem and definition environments commands
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
 
 % Header and Footer with logo
 \usepackage{lastpage,fancyhdr,graphicx}
@@ -825,6 +827,37 @@ For the case in which the number of attributes $p$ is small, an improved estimat
 
 For high dimensional data sets, such as gene expression, rs-fMRI, or GWAS, it is clear that the magntiude of $p$ will be sufficient to use Eq. \ref{eq:normalEucMean} since $\sqrt{\frac{p}{6}} \approx \sqrt{\frac{p}{6} - \frac{7}{120}}$ in that case.
 
+\subsection{Distribution of attribute range}
+
+For Relief-based methods \cite{robnik2003,urbanowiczReliefReview2018}, the standard numeric diff metric is given by
+
+\begin{equation}\label{eq:normDiff}
+d^{\text{num}}_{ij}(a) = \text{diff}(a,(i,j)) = \frac{|X_{ia} - X_{ja}|}{\text{max}(a) - \text{min}(a)}
+\end{equation}
+
+\noindent where $\text{max}(a) = \displaystyle \max_{k \in \mathcal{I}}\{X_{ka}\}$, $\text{min}(a) = \displaystyle \min_{k \in \mathcal{I}}\{X_{ka}\}$, and $\mathcal{I} = \{1,2,\dots,m\}$. 
+
+In order to determine moments of asymptotic distance distributions induced by Eq. \ref{eq:normDiff}, we must first derive the asymptotic extreme value distributions of the attribute maximum and minimum. Although the exact distribution of the maximum or minimum requires an assumption about the data distribution, the Fisher-Tippett-Gnedenko Theorem allows us to categorize the extreme value distribution for a collection of independent and identically distributed random variables into one of three distributional families. Before stating the theorem, we first need the following definition.
+
+\begin{definition}
+A distribution $\mathcal{F}_X$ is said to be \textbf{degenerate} if its density function $f_X$ is the Dirac delta $\delta(x - c_0)$ centered at a constant $c_0 \in \mathbb{R}$, with corresponding distribution function $F_X$ defined as
+
+\[F_X(x)\begin{cases}
+          1, & x \geq c_0, \\
+          0, & x < c_0.
+        \end{cases}
+\]
+\end{definition}
+
+\begin{theorem}[Fisher-Tippett-Gnedenko]\label{thm:EVT}
+Let $X_{1a},X_{2a},\dots,X_{ma} \overset{iid}{\sim} \mathcal{F}_X\left(\mu_x,\sigma^2_x\right)$ and let $\alpha_a = \max_{k \in \mathcal{I}}\{X_{ka}\}$. If there exists two non-random sequences $b_m>0$ and $c_m$ such that
+
+\[\lim_{m \to \infty} \text{P}\left(\frac{\alpha_a - c_m}{b_m}\right) = G_X(x),\]
+
+\noindent where $G_X$ is a non-degenerate distribution function, then the limiting distribution $\mathcal{G}_X$ is in the Gumbel, Fr\'{e}chet, or Wiebull family.
+\end{theorem}
+
+The three distribution families given in Thm. \ref{thm:EVT} are actually special cases of the Generalized Extreme Value Distribution. In the context of extreme values, Thm. \ref{thm:EVT} is analogous to the Central Limit Theorem for the distribution of sample mean. We will take advantage of this theorem for the distribution of the maximum for standard normal data to show that the limiting distribution is in the Gumbel family. However, we will derive the distribution of the maximum and minimum for standard uniform data directly. 
 
 % mean/variance tables
 
