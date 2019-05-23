@@ -295,10 +295,10 @@ NPD methods rely on a neighborhood algorithm for feature selection. One may spec
 The multiSURF radius for an instance is the mean of its distances to all other instances subtracted by $\alpha=1/2$ of the standard deviation of this mean. Previously we showed empirically for balanced case-control datasets that a good constant-$k$ approximation to the expected number of neighbors within the multiSURF radii is $k=m/6$~\cite{stir}, where $m$ is the number of samples. Here we derive a more exact theoretical mean that shows the mathematical connection between neighbor-finding methods. This fixed-$k$ approximation to multi-SURF is independent of the type of data and the particular radii of each instance in the data.
 %
 
-The distance between instances $i$ and $j$ in the data set $X^{m \times p}$ of $m$ instances and $p$ attributes is calculated in the space of all attributes ($a \in A$, $|A|=p$) using a metric such as
+The distance between instances $i$ and $j$ in the data set $X^{m \times p}$ of $m$ instances and $p$ attributes is calculated in the space of all attributes ($a \in \mathcal{A}$, $|\mathcal{A}|=p$) using a metric such as
 \begin{equation}\label{eq:D}
 % D^{(q)}_{ij}=\left(\sum_{a\in A}|\text{d}^{\text{type}}_{ij}(a)|^q\right)^{1/q},
-D^{(q)}_{ij}=\left(\sum_{a\in A}|\text{d}_{ij}(a)|^q\right)^{1/q},
+D^{(q)}_{ij}=\left(\sum_{a\in \mathcal{A}}|\text{d}_{ij}(a)|^q\right)^{1/q},
 \end{equation}
 which is typically Manhattan ($q=1$) but may also be Euclidean ($q=2$). The quantity 
 % $\text{d}^{\text{type}}_{ij}(a)$, 
@@ -1098,7 +1098,7 @@ Using the result given by Eq. \ref{eq:approx_log_expand}, we have the following.
 The right-hand side of Eq. \ref{eq:prob_normal_max} is the cumulative distribution function of the standard Gumbel distribution. The mean of the asymptotic distribution is given by the following.
 
 \begin{equation}\label{eq:mu_max_normal}
-\text{E}(X^\alpha_a) = -\Phi^{-1} \left(\frac{1}{m}\right) - \frac{\gamma}{\Phi^{-1}\left(\frac{1}{m}\right)}
+\text{E}(X^\alpha_a) = \mu^{(1)}_\alpha = -\Phi^{-1} \left(\frac{1}{m}\right) - \frac{\gamma}{\Phi^{-1}\left(\frac{1}{m}\right)}
 \end{equation}
 
 \noindent where $\gamma$ is the Euler-Mascheroni constant. The median of this distribution is given by the following.
@@ -1125,7 +1125,7 @@ For typical sample sizes $m$ in high-dimensional spaces, the variance estimate g
 Then the mean of the range of $m$ iid standard normal random variables are given by the following.
 
 \begin{equation}\label{eq:mu_rng_normal}
-\text{E}(X^\alpha_a - X^\omega_a) = 2\mu_\alpha(m) = 2\left[-\Phi^{-1} \left(\frac{1}{m}\right) - \frac{\gamma}{\Phi^{-1}\left(\frac{1}{m}\right)}\right]
+\text{E}(X^\alpha_a - X^\omega_a) = 2\mu^{(1)}_\alpha(m) = 2\left[-\Phi^{-1} \left(\frac{1}{m}\right) - \frac{\gamma}{\Phi^{-1}\left(\frac{1}{m}\right)}\right]
 \end{equation}
 
 It is well known that the sample extremes from the standard normal distribution are approximately uncorrelated for large sample size $m$ \cite{gumbel1947}. This implies that we can approximate the variance of the range of $m$ iid standard normal random variables with the following result.
@@ -1143,13 +1143,13 @@ It is well known that the sample extremes from the standard normal distribution 
 For the purpose of approximating the mean and variance of the max-min normalized distance distribution, the formula for the median of the distribution of the attribute maximum yields more accurate results. That is, the approximation of the expected maximum given by Eq. \ref{eq:mu_max_normal} overestimates the sample maximum. The formula for the median of the sample maximum, given by Eq. \ref{eq:med_max_normal}, provides a more accurate estimate of this sample extreme. Therefore, the following estimate for the mean of the attribute range will be used instead.
 
 \begin{equation}\label{eq:mu_rng_normal_improved}
-\text{E}(X^\alpha_a - X^\omega_a) = 2\mu_\alpha(m) = 2\left[\frac{\text{log}(\text{log}(2))}{\Phi^{-1}\left(\frac{1}{m}\right)} - \Phi^{-1}\left(\frac{1}{m}\right)\right]
+\text{E}(X^\alpha_a - X^\omega_a) = 2\mu^{(1)}_\alpha(m) \approx 2\left[\frac{\text{log}(\text{log}(2))}{\Phi^{-1}\left(\frac{1}{m}\right)} - \Phi^{-1}\left(\frac{1}{m}\right)\right]
 \end{equation}
 
   We have already determined that $\mu_{D^{(q)}_{ij}}$ and $\sigma^2_{D^{(q)}_{ij}}$ are given by Eq. \ref{eq:normalDistr}. Using the results given by Eqs. \ref{eq:mu_rng_normal_improved} and \ref{eq:var_rng_normal} and the general formulas for the mean and variance of the max-min normalized distance distribution given in Eq. \ref{eq:max-min_DDistr}, this leads us to the following asymptotic estimate for the distribution of the max-min normalized distances for standard normal data.
 
 \begin{equation}\label{eq:max-min_DDistr_normal}
-D^{(q*)}_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{\mu_{D^{(q)}_{ij}}}{2\mu_\alpha(m)}, \frac{6 \text{log}(m) \sigma^2_{D^{(q)}_{ij}}}{\pi^2 + 24 \mu^2_\alpha(m) \text{log}(m)}\right)
+D^{(q*)}_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{\mu_{D^{(q)}_{ij}}}{2\mu^{(1)}_\alpha(m)}, \frac{6 \text{log}(m) \sigma^2_{D^{(q)}_{ij}}}{\pi^2 + 24 \left[\mu^{(1)}_\alpha(m)\right]^2 \text{log}(m)}\right)
 \end{equation}
 
 \subsubsection{Standard Uniform Data}
@@ -1567,7 +1567,80 @@ X = \left[
 \end{equation}
 where $\hat{A}^{(i)}_{ka}$ is the r-to-z transformed correlation between ROIs $a$ and $k$ for instance $i$.
 
-We further transform the data matrix $X$ by standardizing so that each of the $m$ columns has zero mean and unit variance. Therefore, the data in matrix $X$ are standard normal. Recall from Eqs. \ref{eq:normalManMean} and \ref{eq:normalManVar}, that the mean and variance of the Manhattan ($q=1$) distance distribution for standard normal data are
+We further transform the data matrix $X$ by standardizing so that each of the $m$ columns has zero mean and unit variance. Therefore, the data in matrix $X$ are standard normal. Recall from Eqs. \ref{eq:normalManMean} and \ref{eq:normalManVar}, that the mean and variance of the Manhattan ($q=1$) distance distribution for standard normal data are $\frac{2p}{\sqrt{\pi}}$ and $\frac{2(\pi - 2)p}{\pi}$, respectively. This allows us to easily derive the expected pairwise distance between instances $i$ and $j$ in rs-fMRI data as follows.
+
+\begin{equation}\label{eq:mu_DDistr_rs-fMRI}
+\begin{aligned}
+\text{E}(D_{ij}) &= \text{E}\left(\sum_{a \in \mathcal{A}} \sum_{k \neq a} \bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|\right) \\
+&= \sum_{a \in \mathcal{A}} \sum_{k \neq a} \text{E}\left(\bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|\right) \\
+&= \sum_{a \in \mathcal{A}} \sum_{k \neq a} \frac{2}{\sqrt{\pi}} \\
+&= \frac{2p(p-1)}{\sqrt{\pi}}
+\end{aligned}
+\end{equation}
+
+Due to the dependencies that exist between terms in the double sum when computing the rs-fMRI distance, linearity no longer applies to the variance operator. We proceed by writing the form of the variance as follows.
+
+\begin{equation}\label{eq:var_DDistr_rs-fMRI}
+\begin{aligned}
+\text{Var}(D_{ij}) &= \text{Var}\left(\sum_{a \in \mathcal{A}} \sum_{k \neq a} \bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|\right) \\
+&= \sum_{a = 1}^{p-1} \text{Var}\left(\sum_{k=a+1}^{p} 2\bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|\right) \\
+&+ 2\sum_{a = 1}^{p-1} \sum_{r=a+1}^{p-1} \text{Cov}\left(\sum_{k=a+1}^{p} 2\bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|, \sum_{s=r+1}^{p} 2\bigl|\hat{A}^{(i)}_{rs} - \hat{A}^{(j)}_{rs}\bigr|\right) \\
+&= \sum_{a=1}^{p-1} \sum_{k=a+1}^{p} \text{Var}\left(2\bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|\right) \\
+&+ 2\sum_{a = 1}^{p-1} \sum_{r=a+1}^{p-1} \text{Cov}\left(\sum_{k=a+1}^{p} 2\bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|, \sum_{s=r+1}^{p} 2\bigl|\hat{A}^{(i)}_{rs} - \hat{A}^{(j)}_{rs}\bigr|\right) \\
+&= \sum_{a = 1}^{p-1} \sum_{k=a+1}^{p-1}\frac{4(\pi-2)}{\pi} \\
+&+ 2\sum_{a = 1}^{p-1} \sum_{r=a+1}^{p-1} \text{Cov}\left(\sum_{k=a+1}^{p} 2\bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|, \sum_{s=r+1}^{p} 2\bigl|\hat{A}^{(i)}_{rs} - \hat{A}^{(j)}_{rs}\bigr|\right) \\
+&= \frac{2p(\pi-2)(p-1)}{\pi} \\
+&+ 2\sum_{a = 1}^{p-1} \sum_{r=a+1}^{p-1} \text{Cov}\left(\sum_{k=a+1}^{p} 2\bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|, \sum_{s=r+1}^{p} 2\bigl|\hat{A}^{(i)}_{rs} - \hat{A}^{(j)}_{rs}\bigr|\right)
+\end{aligned}
+\end{equation}
+
+In order to have a formula in terms of the number of ROIs $p$ only, we must estimate the double sum on the right-hand side of Eq. \ref{eq:var_DDistr_rs-fMRI}. Through simulation, it can be seen that the difference between the sample variance $S^2_{D_{ij}}$ and $\frac{2p(\pi-2)(p-1)}{\pi}$ has a quadratic relationship with $p$. More explicitly, we have the following relationship.
+
+\begin{equation}\label{eq:estimate_cov}
+S^2_{D_{ij}} - \frac{2p(\pi-2)(p-1)}{\pi} = \beta_1 p^2 + \beta_0 p
+\end{equation}
+
+The coefficient estimates found through least squares fitting are $\beta_0 = - \beta_1 \approx 0.08$. These estimates allow one to infer a functional form for the double sum in the right-hand side of Eq. \ref{eq:var_DDistr_rs-fMRI} that is actually proportional to $\frac{2p(\pi-2)(p-1)}{\pi}$. That is, we have the following formula for approximating the double sum.
+
+\begin{equation}\label{eq:estimate_cov_form}
+2\sum_{a = 1}^{p-1} \sum_{r=a+1}^{p-1} \text{Cov}\left(\sum_{k=a+1}^{p} 2\bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|, \sum_{s=r+1}^{p} 2\bigl|\hat{A}^{(i)}_{rs} - \hat{A}^{(j)}_{rs}\bigr|\right) = \frac{p(\pi - 2)(p - 1)}{4\pi}
+\end{equation}
+
+Therefore, the variance of the rs-fMRI distances is approximated well by the following.
+
+\begin{equation}\label{eq:var_DDistr_rs-fMRI2}
+\text{Var}(D_{ij}) = \frac{9p(\pi - 2)(p-1)}{4\pi}
+\end{equation}
+
+With the mean and variance estimates given by Eqs. \ref{eq:mu_DDistr_rs-fMRI} and \ref{eq:var_DDistr_rs-fMRI2}, we have the following asymptotic distribution for rs-fMRI distances.
+
+\begin{equation}\label{eq:DDistr_rs-fMRI}
+D_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{2p(p-1)}{\sqrt{\pi}}, \frac{9p(\pi - 2)(p-1)}{4\pi}\right)
+\end{equation}
+
+Consider the max-min normalized rs-fMRI distance given by the following equation.
+
+\begin{equation}\label{eq:max-min_diff_rs-fMRI}
+D^*_{ij} = \sum_{a \in \mathcal{A}} \sum_{k \neq a} \frac{\bigl|A^{(i)}_{ak} - A^{(j)}_{ak}\bigr|}{\max(a) - \min(a)}
+\end{equation}
+
+Assuming that the data $X$ has been r-to-z transformed and standardized, we can easily compute the expected attribute range and variance of the attribute range. The expected maximum of a given attribute in data matrix $X$ is estimated by the following.
+
+\begin{equation}\label{eq:mean_max_rs-fMRI}
+\text{E}\left(X^\alpha_a - X^\omega_a\right) = 2\mu^{(1)}_\alpha(m,p) = 2 \left[\frac{\text{log}(\text{log}(2))}{\Phi^{-1}\left(\frac{1}{m(p-1)}\right)} - \Phi^{-1}\left(\frac{1}{m(p-1)}\right)\right]
+\end{equation}
+
+The variance can be esimated with the following.
+
+\begin{equation}\label{eq:var_max_rs-fMRI}
+\text{Var}\left(X^\alpha_a - X^\omega_a\right) = \frac{\pi^2}{6\text{log}[m(p-1)]}
+\end{equation}
+
+Let $\mu_{D_{ij}}$ and $\sigma^2_{D_{ij}}$ denote the mean and variance of the rs-fMRI distance distribution given by Eqs. \ref{eq:mu_DDistr_rs-fMRI} and \ref{eq:var_DDistr_rs-fMRI2}. Using the formulas for the mean and variance of the max-min normalized distance distribution given in Eq. \ref{eq:max-min_DDistr_normal}, we have the following asymptotic distribution for the max-min normalized rs-fMRI distances.
+
+\begin{equation}\label{eq:max-min_DDistr_normal_rs-fMRI}
+D^*_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{\mu_{D_{ij}}}{2\mu^{(1)}_\alpha(m,p)}, \frac{6\sigma^2_{D_{ij}}\text{log}[m(p-1)]}{\pi^2 + 24\left[\mu^{(1)}_\alpha(m,p)\right]^2\text{log}[m(p-1)]}\right)
+\end{equation}
 
 % mean/variance tables
 
@@ -1585,6 +1658,30 @@ We further transform the data matrix $X$ by standardizing so that each of the $m
 \centering
 % trim=left botm right top
 \includegraphics[width=\textwidth]{bioinformaticsy_tab.pdf}
+\end{table}
+
+\begin{table}[H]
+\caption{Summary of distance distribution derivations for standard normal and standard uniform data.}
+\label{tab:dist_distr_general1}
+\centering
+% trim=left botm right top
+\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.03cm,width=\textwidth]{updated_distributions_table(5-23-2019).pdf}
+\end{table}
+
+\begin{table}[H]
+\caption{Summary of distance distribution derivations for GWAS data.}
+\label{tab:dist_distr_gwas}
+\centering
+% trim=left botm right top
+\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.03cm,width=\textwidth]{updated_distributions_table-gwas(5-23-2019).pdf}
+\end{table}
+
+\begin{table}[H]
+\caption{Summary of distance distribution derivations for rs-fMRI data.}
+\label{tab:dist_distr_rs-fMRI}
+\centering
+% trim=left botm right top
+\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.03cm,width=\textwidth]{updated_distributions_table-rs-fMRI.pdf}
 \end{table}
 
 \section{Optimal neighborhood parameters for detecting effects}
