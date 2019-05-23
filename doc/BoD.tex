@@ -1536,6 +1536,39 @@ where $F(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a)$ and $G(a) = (1 - f_a)^2 f^2_a$.
 
 \subsection{Resting-State fMRI Distance Distribution}
 
+For resting-state fMRI (rs-fMRI), the data consists of correlation matrices for each instance. These correlations are between different ROIs for a particular brain atlas. We would like the attributes to be the ROIs themselves, which leads us to the following metric.
+
+\begin{equation}\label{eq:diff_rs-fMRI}
+d^\text{ROI}_{ij}(a) = \sum_{k \neq a}\bigl|A^{(i)}_{ka} - A^{(j)}_{ka}\bigr|
+\end{equation}
+where $A^{(i)}_{ka}$ and $A^{(j)}_{ka}$ are the correlations between ROI $a$ and ROI $k$ for instances $i$ and $j$, respectively. In order for comparisons between different correlations to be possible, we first perform a Fisher r-to-z transform on the correlations. We then load all of the transformed correlations into a $p(p-1) \times m$ matrix $X$ with the following form.
+
+\begin{equation}\label{eq:rs-fMRI_matrix}
+X = \left[
+\begin{array}{c c c c c}
+\hat{A}^{(1)}_{12} & \hat{A}^{(2)}_{12} & \hat{A}^{(3)}_{12} & \dots & \hat{A}^{(m)}_{12} \\
+\hat{A}^{(1)}_{13} & \hat{A}^{(2)}_{13} & \hat{A}^{(3)}_{13} & \dots & \hat{A}^{(m)}_{13} \\
+\hat{A}^{(1)}_{14} & \hat{A}^{(2)}_{14} & \hat{A}^{(3)}_{14} & \dots & \hat{A}^{(m)}_{14} \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+\hat{A}^{(1)}_{1p} & \hat{A}^{(2)}_{1p} & \hat{A}^{(3)}_{1p} & \dots & \hat{A}^{(m)}_{1p} \\
+\hat{A}^{(1)}_{21} & \hat{A}^{(2)}_{21} & \hat{A}^{(3)}_{21} & \dots & \hat{A}^{(m)}_{21} \\
+\hat{A}^{(1)}_{23} & \hat{A}^{(2)}_{23} & \hat{A}^{(3)}_{23} & \dots & \hat{A}^{(m)}_{23} \\
+\hat{A}^{(1)}_{24} & \hat{A}^{(2)}_{24} & \hat{A}^{(3)}_{24} & \dots & \hat{A}^{(m)}_{24} \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+\hat{A}^{(1)}_{2p} & \hat{A}^{(2)}_{2p} & \hat{A}^{(3)}_{2p} & \dots & \hat{A}^{(m)}_{2p} \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+\hat{A}^{(1)}_{p1} & \hat{A}^{(2)}_{p1} & \hat{A}^{(3)}_{p1} & \dots & \hat{A}^{(m)}_{p1} \\
+\hat{A}^{(1)}_{p2} & \hat{A}^{(2)}_{p2} & \hat{A}^{(3)}_{p2} & \dots & \hat{A}^{(m)}_{p2} \\
+\hat{A}^{(1)}_{p3} & \hat{A}^{(2)}_{p3} & \hat{A}^{(3)}_{p3} & \dots & \hat{A}^{(m)}_{p3} \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+\hat{A}^{(1)}_{p,(p-1)} & \hat{A}^{(2)}_{p,(p-1)} & \hat{A}^{(3)}_{p,(p-1)} & \dots & \hat{A}^{(m)}_{p,(p-1)}
+\end{array}
+\right]
+\end{equation}
+where $\hat{A}^{(i)}_{ka}$ is the r-to-z transformed correlation between ROIs $a$ and $k$ for instance $i$.
+
+We further transform the data matrix $X$ by standardizing so that each of the $m$ columns has zero mean and unit variance. Therefore, the data in matrix $X$ are standard normal. Recall from Eqs. \ref{eq:normalManMean} and \ref{eq:normalManVar}, that the mean and variance of the Manhattan ($q=1$) distance distribution for standard normal data are
+
 % mean/variance tables
 
 \begin{table}[H]
