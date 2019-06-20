@@ -478,14 +478,4 @@ year={2018}
   isbn      = {0691005478, 9780691005478},
 }
 
-@Article{arabnejad2018,
-  author  = {M. {A}rabnejad and {B}. {A}. {D}awkins and {W}. {S}. {B}ush and {B}. {C}. {W}hite and {A}. {R}. {H}arkness and {B}. {A}. {M}c{K}inney},
-  title   = {{Transition-transversion encoding and genetic relationship metfic in ReliefF feature selection improves pathway enrichment in GWAS}},
-  journal = {{BioData Mining}},
-  year    = {2018},
-  volume  = {11},
-  number  = {23},
-  url     = {https://doi.org/10.1186/s13040-018-0186-4},
-}
-
 @Comment{jabref-meta: databaseType:bibtex;}

@@ -119,7 +119,7 @@
 %\doublespacing
 
 % Text layout
-\raggedright
+% \raggedright
 \setlength{\parindent}{0.5cm}
 \textwidth 5.25in 
 \textheight 8.75in
@@ -154,7 +154,7 @@
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrule}{\hrule height 2pt \vspace{2mm}}
 \fancyheadoffset[L]{2.25in}
-\fancyfootoffset[L]{2.25in}
+% \fancyfootoffset[L]{1.25in}
 \lfoot{\today}
 
 
@@ -190,7 +190,7 @@
 % Title must be 250 characters or less.
 % \begin{flushleft}
 {\Large
-\textbf\newline{Blessings of Dimensionality: Theoretical analysis of nearest-neighbor projected-distance methods for detecting interactions in high dimension} % Please use "sentence case" for title and headings (capitalize only the first word in a title (or heading), the first word in a subtitle (or subheading), and any proper nouns).
+\textbf\newline{Blessings of Dimensionality: Theoretical analysis of nearest-neighbor projected-distance methods for detecting interactions in high dimensional data} % Please use "sentence case" for title and headings (capitalize only the first word in a title (or heading), the first word in a subtitle (or subheading), and any proper nouns).
 }
 %\newline
 % Insert author names, affiliations and corresponding author email (do not include titles, positions, or degrees).
@@ -208,7 +208,7 @@
 % \end{flushleft}
 % Please keep the abstract below 300 words
 \section*{Abstract}
-It is commonly known that high-throughput data has many inherent statistical challenges, such as multiple testing, sparsity and over fitting. Collectively these challenges are known as the Curse of Dimensionality. Here we highlight an important Blessing of Dimensionality: the ability to identify interactions with nearest neighborhoods. We review nearest-neighbor concepts for finding interactions, and we derive important distribution moments for distance metrics in high dimensional spaces. We use these theoretical results and simulated data to offer recommendations for computational approaches to find nearest neighbors in high dimension. We discuss ways to maximize the blessings and minimize the curses of dimensionality to reliably identify interactions.  
+It is commonly known that high-throughput data has many inherent statistical challenges, such as multiple testing, sparsity and over fitting. Collectively, these challenges are known as the Curse of Dimensionality. Here we highlight an important Blessing of Dimensionality: the ability to identify interactions with neighborhoods of instances. We review the nearest-neighbor concept for finding interactions among attributes and derive important distribution moments for distance metrics in high dimensional spaces. We use these theoretical results and simulated data to offer recommendations for computational approaches to find nearest neighbors in high dimension. We discuss ways to maximize the blessings and minimize the curses of dimensionality to reliably identify interactions.  
 
 \section*{Author summary}
 
@@ -216,7 +216,7 @@ It is commonly known that high-throughput data has many inherent statistical cha
 
 \section*{Introduction}
 
-Relief-based methods identify interacting attributes as important by using nearest-neighbor information in higher dimensions (the ``blessings of dimensionality'' ). Myopic methods, such as univariate tests, that do not account for information from higher dimensions, are susceptible to false negatives when there are interactions. For example in the plot of variable A versus C in a three-variable simulation (Fig.~\ref{fig:2dAvC}a), variable A appears to show no difference between cases and controls (the marginal group means are the same). However, A is actually simulated to have a strong differential correlation with B, conditioned on the outcome variable (Fig.~\ref{fig:2dAvB}b). Current Relief-based methods determine the importance of an attribute by computing the average difference of a target instance (X) and its nearest instance form the same class (Hit) projected onto the attribute A dimension ($d_{\text{X,H}}(A)$) subtracted from the projected difference of target X and its nearest instance from the opposite class (Miss) ($d_{\text{X,M}}(A)$). When the inequality $d_{\text{X,M}}(A)>d_{\text{X,H}}(A)$, it suggests that attribute A is useful for discriminating between cases and controls.  
+Relief-based methods identify interacting attributes as important by using nearest-neighbor information in higher dimensions (the ``blessings of dimensionality''). Myopic methods that do not account for information from higher dimensions such as univariate tests are susceptible to false negatives when there are interactions. For example, in the plot of variable A versus C in a three-variable simulation (Fig.~\ref{fig:2dAvC}a), variable A appears to show no difference between cases and controls (the marginal group means are the same). However, A is actually simulated to have a strong differential correlation with B, conditioned on the outcome variable (Fig.~\ref{fig:2dAvB}b). Current Relief-based methods determine the importance of an attribute by computing the average difference of attribute $A$ value between a target instance (X) and its nearest instance from the opposite class (Miss), $d_{\text{X,M}}(A)$, subtracted from the similarly projected difference of target X and its nearest instance from the same class (Hit), $d_{\text{X,H}}(A)$. A positive value from this calculation, i.e., $d_{\text{X,M}}(A)-d_{\text{X,H}}(A) > 0$ suggests that attribute A is useful for discriminating between cases and controls.  
 
 %\begin{figure}[h!]
 %%\begin{center}
@@ -242,7 +242,7 @@ Relief-based methods identify interacting attributes as important by using neare
 \noindent\refstepcounter{figure}\textbf{Fig \thefigure \label{fig:2dAvC}.} \textbf{Imposters vs true neighbors in the presence of interactions with three variables}. Scatter plot of simulated irrelevant Attribute C with a functional Attribute A \textbf{(a)}. None of the attributes has a main effect, but Attribute B and C interact through differential correlation \textbf{(b)}. Computing nearest neighbors with irrelevant attributes \textbf{(a)} or lower dimensions leads to imposter nearest neighbors and degrades the ability of Relief-based methods to identify interaction effects. Computing distances in only these two dimensions leads to an imposter false miss (FM) for the nearest neighbor from the opposite outcome class for target instance X. This imposter leads to attribute A predicting closer projected distances for misses than hits (H), which incorrectly indicates that A is a poor discriminator (yellow boxes in \textbf{(a)}). Computing nearest neighbors in higher dimensions \textbf{(c-d)} or with the correct interaction partner leads to imposter nearest neighbor (FM) being replaced by the true nearest miss neighbor (TM) for target instance X, which correctly leads to attribute A predicting closer projected distances for hits (H) than misses, which is an indication that attribute A is a good discriminator (yellow boxes \textbf{(b)}).
 \end{figure}
 
-Relief-based methods use information from all attributes available to it (omnigenic) to estimate an attribute's importance. However, if relevant higher-dimensional information is not used, even Relief-based methods will miss the effect of A because ``imposter'' neighbors will be used in the attribute estimate (False Miss (FM) in Fig.~\ref{fig:2dAvC}, where $d_{\text{X,FM}}(A)<d_{\text{X,H}}(A)$).  If one were to compute nearest neighbors in the A-C plane (ignoring the B dimension), the nearest miss would be an imposter (FM), which leads to a negative contribution to the importance score for A. One might call this C attribute a type-I confounding attribute because it increases the chances of interacting attributes to be false negatives. When nearest neighbors are calculated based on higher dimensions with relevant information (Fig.~\ref{fig:2dAvB}c), it is clear that TM is closer to X than FM. The imposter (FM) is replaced by the true nearest miss (TM) and attribute A correctly shows a greater projected difference between misses than hits (Fig.~\ref{fig:2dAvB}d $d_{\text{X,TM}}(A)>d_{\text{X,H}}(A)$), which is the signature of an important attribute. Univariate methods still cannot find the importance of A unless the interaction is explicitly modeled, but as long as functional variables A and B are in the space for nearest neighbor calculations (Fig.~\ref{fig:2dAvB}c-d), imposters can be excluded and Relief-based methods will find that A (and B) are important discriminators. 
+Relief-based methods use information from all available attributes (omnigenic) to estimate an attribute's importance. However, if relevant higher-dimensional information is not used to establish the neighborhoods of instances, these methods will miss the effect of A because ``imposter'' neighbors will be used in the attribute estimate (False Miss (FM) in Fig.~\ref{fig:2dAvC}, where $d_{\text{X,FM}}(A)<d_{\text{X,H}}(A)$).  If one were to compute nearest neighbors in the A-C plane (ignoring the B dimension), the nearest miss would be an imposter (FM), which leads to a negative contribution to the importance score for A. One might call this C attribute a type-I confounding attribute because it increases the chances of interacting attributes to be false negatives. When nearest neighbors are calculated based on higher dimensions with relevant information (Fig.~\ref{fig:2dAvB}c), it is clear that TM is closer to X than FM. The imposter (FM) is replaced by the true nearest miss (TM) and attribute A correctly shows a greater projected difference between misses than hits (Fig.~\ref{fig:2dAvB}d $d_{\text{X,TM}}(A)>d_{\text{X,H}}(A)$), which is the signature of an important attribute. Univariate methods still cannot find the importance of A unless the interaction is explicitly modeled, but as long as functional variables A and B are in the space for nearest neighbor calculations (Fig.~\ref{fig:2dAvB}c-d), imposters can be excluded and Relief-based methods will find that A (and B) are important discriminators. 
 
 
 [Ideas: Relating the increasing $k$ and myopic view to other distance-related method such as MDS/t-SNE vs PCA - local vs global distance - capturing non-linear manifold structure. \url{https://www.kdnuggets.com/2018/08/introduction-t-sne-python.html}]
@@ -289,9 +289,9 @@ Relief-based methods use information from all attributes available to it (omnige
 Using same interaction, increase background noise genes to see degrading of A and B Relief importance because of curse of dimensionality (sparseness). 
 
 \section{Neighborhood methods}
-NPD methods rely on a neighborhood algorithm for feature selection. One may specify a fixed-k number of neighbors, an average radius SURF, a multiSURF radius that adapts for each instance ~\cite{urbanowicz17}, or a gene-wise adaptive-$k$. 
+NPD methods rely on a neighborhood algorithm for feature selection. One may specify a fixed-$k$ number of neighbors, an average radius SURF, a multiSURF radius that adapts for each instance~\cite{urbanowicz17}, or a gene-wise adaptive-$k$. 
 
-\section{Derivation of expected k for multiSURF neighborhoods}
+\section{Derivation of expected $k$ for multiSURF neighborhoods}
 The multiSURF radius for an instance is the mean of its distances to all other instances subtracted by $\alpha=1/2$ of the standard deviation of this mean. Previously we showed empirically for balanced case-control datasets that a good constant-$k$ approximation to the expected number of neighbors within the multiSURF radii is $k=m/6$~\cite{stir}, where $m$ is the number of samples. Here we derive a more exact theoretical mean that shows the mathematical connection between neighbor-finding methods. This fixed-$k$ approximation to multi-SURF is independent of the type of data and the particular radii of each instance in the data.
 %
 
@@ -306,7 +306,7 @@ $\text{d}_{ij}(a)$,
 known as a ``$\text{diff}$'' in Relief literature, is the projection of the distance between instances $i$ and $j$ onto the attribute $a$ dimension. The 
 % ``type'' refers to the data type of the attribute
 function $\text{d}_{ij}(a)$ supports any type of attributes
-(e.g., numeric continuous versus categorical).
+(e.g., numeric and categorical).
 For example, the projected difference between two instances $i$ and $j$ for a continuous numeric ($\text{d}^{\text{num}}$) attribute $a$ may be
 %\begin{equation}\label{eq:diff}
 %\text{diff}^{(\text{num})}(a,(\ri,\rj))=\frac{|\text{value}(a,\ri)-\text{value}(a,\rj)%|}{\max(a)-\min(a)}.
@@ -320,7 +320,7 @@ For example, the projected difference between two instances $i$ and $j$ for a co
 where $\hat{X}$ represents the standardized data matrix $X$.
 We use a simplified d$_{ij}(a)$ notation in place of the $\text{diff}(a,(i,j))$ notation that is customary in Relief-based methods.
 We omit the division by $\max(a)-\min(a)$ used by Relief to constrain scores to the interval from $-1$ to $1$.
-As we show in subsequent sections, NPDR scores are [standardized] regression coefficients with corresponding P values, so any scaling operation at this stage is unnecessary for comparing attribute scores. 
+As we show in subsequent sections, NPDR scores are standardized regression coefficients with corresponding P values, so any scaling operation at this stage is unnecessary for comparing attribute scores. 
 %\emph{Omit: The scaling may alleviate bias in the distance calculation. However, standardizing the data matrix $X$ ($\hat{X}$) should have the same effect without division by $\max(a)-\min(a)$, which has usual distribution properties for distances (expand).}
 The numeric d$^{\text{num}}_{ij}(a)$ projection is simply the absolute difference between row elements $i$ and $j$ of the data matrix $X^{m \times p}$ for the attribute column $a$. 
 
@@ -341,7 +341,7 @@ It is clear that $|X_{ia} - X_{ja}|^q = |d_{ij}(a)|^q$ is another random variabl
 Z^q_a = |d_{ij}(a)|^q = |X_{ia} - X_{ja}|^q, \quad a \in \mathcal{A}.
 \end{equation}
 
-Furthermore, the collection $\{Z^q_a | a \in \mathcal{A}\}$ is a random sample of size $p$ of mutually indpendent random variables. Hence, the sum of $Z^q_a$ over all $a \in \mathcal{A}$ is asymptotically normal by the Classical Central Limit Theorem (CCLT). More explicitly, this implies that
+Furthermore, the collection $\{Z^q_a | a \in \mathcal{A}\}$ is a random sample of size $p$ of mutually independent random variables. Hence, the sum of $Z^q_a$ over all $a \in \mathcal{A}$ is asymptotically normal by the Classical Central Limit Theorem (CCLT). More explicitly, this implies that
 
 \begin{equation}\label{eq:DqAsympt}
 \left(D^{(q)}_{ij}\right)^q = \sum_{a \in \mathcal{A}} |d_{ij}(a)|^q = \sum_{a \in \mathcal{A}} |X_{ia} - X_{ja}|^q = \sum_{a \in \mathcal{A}} Z^q_a \overset{.}{\sim} \mathcal{N}\left(\mu_{z^q}p,\sigma^2_{z^q}p\right)
@@ -375,7 +375,7 @@ This is because
 
 Therefore, the distance between two fixed and distinct instances $i$ and $j$ given by Eq. \ref{eq:D} is asymptotically normal.
 
-One can readily verify the normality of distances between independent instances through sampling from any data distribution and plotting the histogram of pairwise distances. Histograms for the case of standard normal data and Manhattan (q=1) and Euclidean (q=2) metrics are shown in Figs. \ref{fig:manhattanConverge} and \ref{fig:euclideanConverge}, respectively. For these simulated distances, we fixed $m=100$ and varied $p$ from 10 to 10000. For even a rather small number of predictors, as in the case of $p=10$, the sample distances are approximately normal. As $p$ increases, the normality becomes stronger.
+One can readily verify the normality of distances between independent instances through sampling from any data distribution and plotting the histogram of pairwise distances. Histograms for the case of standard normal data and Manhattan ($q=1$) and Euclidean ($q=2$) metrics are shown in Figs. \ref{fig:manhattanConverge} and \ref{fig:euclideanConverge}, respectively. For these simulated distances, we fixed the number of instances $m=100$ and varied the number of attributes $p$ from 10 to 10000. For even a rather small number of predictors, as in the case of $p=10$, the sample distances are approximately normal. As $p$ increases, the normality becomes stronger.
 
 \begin{figure}[ht!]
 \centering
@@ -1644,21 +1644,21 @@ D^*_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{\mu_{D_{ij}}}{2\mu^{(1)}_\alph
 
 % mean/variance tables
 
-%\begin{table}[H]
-%\caption{Summary of asymptotic distance distributions for common data types. Metrics with subscripts M and E represent Manhattan and Euclidean, respectively. Metrics with superscript $^*$ represent a deviation from the standard metric by attribute range normalization. The function $\Phi^{-1}(x)$ denotes the standard normal quantile function, where $x \in (0,1)$.}
-%\label{tab:dist_distr_common}
-%\centering
+\begin{table}[H]
+\caption{Summary of asymptotic distance distributions for common data types. Metrics with subscripts M and E represent Manhattan and Euclidean, respectively. Metrics with superscript $^*$ represent a deviation from the standard metric by attribute range normalization. The function $\Phi^{-1}(x)$ denotes the standard normal quantile function, where $x \in (0,1)$.}
+\label{tab:dist_distr_common}
+\centering
 % trim=left botm right top
-%\includegraphics[width=\textwidth]{typical_data-metric_tab.pdf}
-%\end{table}
+\includegraphics[width=\textwidth]{typical_data-metric_tab.pdf}
+\end{table}
 
-%\begin{table}[H]
-%\caption{Summary of asymptotic distance distributions for rs-fMRI and GWAS data. Metrics with superscript $^*$ represent a deviation from the standard metric by attribute range normalization. The function $\Phi^{-1}(x)$ denotes the standard normal quantile function, where $x \in (0,1)$.}
-%\label{tab:dist_distr_bio}
-%\centering
+\begin{table}[H]
+\caption{Summary of asymptotic distance distributions for rs-fMRI and GWAS data. Metrics with superscript $^*$ represent a deviation from the standard metric by attribute range normalization. The function $\Phi^{-1}(x)$ denotes the standard normal quantile function, where $x \in (0,1)$.}
+\label{tab:dist_distr_bio}
+\centering
 % trim=left botm right top
-%\includegraphics[width=\textwidth]{bioinformaticsy_tab.pdf}
-%\end{table}
+\includegraphics[width=\textwidth]{bioinformaticsy_tab.pdf}
+\end{table}
 
 \begin{table}[H]
 \caption{Summary of distance distribution derivations for standard normal and standard uniform data.}
@@ -1673,7 +1673,7 @@ D^*_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{\mu_{D_{ij}}}{2\mu^{(1)}_\alph
 \label{tab:dist_distr_gwas}
 \centering
 % trim=left botm right top
-\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.045cm,width=\textwidth]{updated_distributions_table-gwas(5-23-2019).pdf}
+\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.03cm,width=\textwidth]{updated_distributions_table-gwas(5-23-2019).pdf}
 \end{table}
 
 \begin{table}[H]
@@ -1681,7 +1681,7 @@ D^*_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{\mu_{D_{ij}}}{2\mu^{(1)}_\alph
 \label{tab:dist_distr_rs-fMRI}
 \centering
 % trim=left botm right top
-\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.04cm,width=\textwidth]{updated_distributions_table-rs-fMRI.pdf}
+\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.03cm,width=\textwidth]{updated_distributions_table-rs-fMRI.pdf}
 \end{table}
 
 \section{Optimal neighborhood parameters for detecting effects}
