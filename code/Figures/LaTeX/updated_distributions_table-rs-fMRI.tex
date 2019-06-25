@@ -1,0 +1,71 @@
+\RequirePackage[hyphens]{url}
+\documentclass[hidelinks,a4paper,border=1pt]{standalone}
+%\usepackage[top=0.1in, bottom=0.1in, left=0.1in, right=0.1in]{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{url}
+%\usepackage[hyphens]{url}
+\usepackage{hyperref}
+\usepackage{breakurl}
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{amssymb}
+\usepackage[mathscr]{euscript}
+%\renewcommand{\rmdefault}{bch} % change default font
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{shapes}
+\usepackage{enumitem}
+\setlength{\parindent}{0in}
+\usepackage{bm}
+\usepackage{multirow}
+\usepackage{adjustbox}
+\usepackage{scalerel}
+\usepackage[many]{tcolorbox}
+\usepackage{booktabs}
+%\usepackage{adjustbox}
+%>{\centering\arraybackslash}m{3cm}
+%\newcolumntype{Y}{>{\small\raggedright\arraybackslash}X}
+%\newcolumntype{C}{>{\centering\arraybackslash}m{3cm}}
+\newcolumntype{C}{>{$}c<{$}}
+%\captionsetup{
+%	justification = centering
+%}
+
+\newcommand{\myfrac}[2]{\displaystyle \frac{#1}{#2}}
+\newcommand{\dsum}{\displaystyle \sum}
+%\newcommand{\mystrut}{\rule[10pt]{10pt}{20pt}}
+\newcommand{\mystrut}{\rule[1\dp\strutbox]{0pt}{\baselineskip}}
+\newcommand{\mysup}[1]{\scaleto{\rule[2.9\dp\strutbox]{0pt}{-1\baselineskip}^{#1}}{12pt}}
+\newcommand{\mysub}[1]{\scaleto{\rule[-1.5\dp\strutbox]{-2.5pt}{-1\baselineskip}_{#1}}{5pt}}
+
+\doublespacing
+\pagenumbering{gobble}
+\begin{document}
+
+%\begin{table}[h!]
+\setlength\arrayrulewidth{1.2pt}
+\def\arraystretch{1.9}
+\begin{tabular}{|c|>{\centering\arraybackslash}m{1.3cm}|>{\centering\arraybackslash}m{1.3cm}|c|@{}m{0pt}@{}}\hline 
+	& & & & \\ [-10ex]
+	{\large\textbf{Equation}} & {\large\textbf{Data}} & {\large \textbf{Stat}} & {\large \textbf{Formula}} & \\ [0ex] \hline
+	139 & rs-fMRI & mean & $\displaystyle \frac{2p(p-1)}{\sqrt{\pi}}$ &\\ [1.5ex] \hline
+	139 & rs-fMRI & variance & $\displaystyle \frac{9p(\pi - 2)(p - 1)}{4\pi}$ & \\ [1.5ex] \hline
+	143 & rs-fMRI & mean &
+{\begin{tabular}{c} 
+		\fcolorbox{black}{black!10}{$\displaystyle \frac{\mu_{D_{ij}}}{2\mu^{(1)}_\alpha(m,p)}$} \\ [-1.8ex]
+		$\begin{aligned}
+		&\text{where } \mu_{D_{ij}} \text{ and } \mu^{(1)}_\alpha(m,p) \text{ are given by Eqs. 140 and 142}
+		\end{aligned}$
+\end{tabular}} & \\ [1.5ex] \hline
+143 & rs-fMRI & variance &
+{\begin{tabular}{c} 
+		\fcolorbox{black}{black!10}{$\displaystyle \frac{6\sigma^2_{D_{ij}}\text{log}[m(p-1)]}{\pi^2 + 24\left[\mu^{(1)}_\alpha(m,p)\right]^2\text{log}[m(p-1)]}$} \\ [-1.8ex]
+		$\begin{aligned}
+		&\text{where } \sigma^2_{D_{ij}} \text{ and } \mu^{(1)}_\alpha(m,p) \text{ are given by Eqs. 140 and 142}
+		\end{aligned}$
+\end{tabular}} & \\ [1.5ex] \hline
+\end{tabular}
+%\end{table}
+
+\end{document}

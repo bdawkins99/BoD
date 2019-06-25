@@ -1,0 +1,89 @@
+\RequirePackage[hyphens]{url}
+\documentclass[hidelinks,a4paper,border=1pt]{standalone}
+%\usepackage[top=0.1in, bottom=0.1in, left=0.1in, right=0.1in]{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{url}
+%\usepackage[hyphens]{url}
+\usepackage{hyperref}
+\usepackage{breakurl}
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{amssymb}
+\usepackage[mathscr]{euscript}
+%\renewcommand{\rmdefault}{bch} % change default font
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{shapes}
+\usepackage{enumitem}
+\setlength{\parindent}{0in}
+\usepackage{bm}
+\usepackage{multirow}
+\usepackage{adjustbox}
+\usepackage{scalerel}
+\usepackage[many]{tcolorbox}
+\usepackage{booktabs}
+%\usepackage{adjustbox}
+%>{\centering\arraybackslash}m{3cm}
+%\newcolumntype{Y}{>{\small\raggedright\arraybackslash}X}
+%\newcolumntype{C}{>{\centering\arraybackslash}m{3cm}}
+\newcolumntype{C}{>{$}c<{$}}
+%\captionsetup{
+%	justification = centering
+%}
+
+\newcommand{\myfrac}[2]{\displaystyle \frac{#1}{#2}}
+\newcommand{\dsum}{\displaystyle \sum}
+%\newcommand{\mystrut}{\rule[10pt]{10pt}{20pt}}
+\newcommand{\mystrut}{\rule[1\dp\strutbox]{0pt}{\baselineskip}}
+\newcommand{\mysup}[1]{\scaleto{\rule[2.9\dp\strutbox]{0pt}{-1\baselineskip}^{#1}}{12pt}}
+\newcommand{\mysub}[1]{\scaleto{\rule[-1.5\dp\strutbox]{-2.5pt}{-1\baselineskip}_{#1}}{5pt}}
+
+\doublespacing
+\pagenumbering{gobble}
+\begin{document}
+
+%\begin{table}[h!]
+\setlength\arrayrulewidth{1.2pt}
+\def\arraystretch{1.8}
+\begin{tabular}{|c|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{1.3cm}|c|@{}m{0pt}@{}}\hline 
+	& & & & \\ [-10ex]
+	{\large\textbf{Equation}} & {\large\textbf{Data}} & {\large \textbf{Stat}} & {\large \textbf{Formula}} & \\ [0ex] \hline
+	38 & $\mathcal{N}(0,1)$ & mean & $\left(\frac{2^q \Gamma \left(\frac{q+1}{2}\right) p}{\sqrt{\pi}}\right)^{1/q}$ & \\ [1.5ex] \hline
+	38 & $\mathcal{N}(0,1)$ & variance & $\frac{4^q p}{q^2 \left(\frac{2^q \Gamma\left(\frac{1}{2}q + \frac{1}{2}\right)}{\sqrt{\pi}}p\right)^{2\left(1 - \frac{1}{q}\right)}}\left[\frac{\Gamma\left(q + \frac{1}{2}\right)}{\sqrt{\pi}} - \frac{\Gamma^2\left(\frac{1}{2}q + \frac{1}{2}\right)}{\pi}\right]$ & \\ [5ex] \hline
+	48 & $\mathcal{U}(0,1)$ & mean & $\left(\frac{2p}{(q+2)(q+1)}\right)^{1/q}$ & \\ [1.5ex] \hline
+	48 & $\mathcal{U}(0,1)$ & variance & $\frac{p}{q^2\left(\frac{2p}{(q + 2)(q + 1)}\right)^{2\left(1 - \frac{1}{q}\right)}}\left[\frac{1}{(q + 1)(2q + 1)} - \left(\frac{2}{(q + 2)(q + 1)}\right)^2\right]$ & \\ [1.5ex] \hline
+	93 & $\mathcal{N}(0,1)$ & mean & 
+	    {\begin{tabular}{c} 
+			\fcolorbox{black}{black!10}{$\frac{\mu_{D^{(q)}_{ij}}}{2 \mu^{(1)}_\alpha(m)}$} \\ [2ex]
+			$\begin{aligned}
+			&\text{where } \mu_{D^{(q)}_{ij}} \text{ and } \mu^{(1)}_\alpha(m) \text{ are given by Eqs.} \\
+			&\text{39 and 88, respectively.}
+			\end{aligned}$
+		\end{tabular}} & \\ [1.5ex] \hline
+	93 & $\mathcal{N}(0,1)$ & variance &
+		    {\begin{tabular}{c} 
+			\fcolorbox{black}{black!10}{$\frac{6\text{log}(m)\sigma^2_{D^{(q)}_{ij}}}{\pi^2 + 24\left[\mu^{(1)}_\alpha(m)\right]^2\text{log}(m)}$} \\ [2ex]
+			$\begin{aligned}
+			&\text{where } \sigma^2_{D^{(q)}_{ij}} \text{ and } \mu^{(1)}_\alpha(m) \text{ are given by Eqs.} \\
+			&\text{39 and 88, respectively.}
+			\end{aligned}$
+	\end{tabular}} & \\ [5ex] \hline
+    101 & $\mathcal{U}(0,1)$ & mean &
+    		    {\begin{tabular}{c} 
+    		\fcolorbox{black}{black!10}{$\frac{(m+1)\mu_{D^{(q)}_{ij}}}{m-1}$} \\ [-2.5ex]
+    		$\begin{aligned}
+    		&\text{where } \mu_{D^{(q)}_{ij}} \text{ is given by Eq. 49}
+    		\end{aligned}$
+    \end{tabular}} & \\ [5ex] \hline
+    101 & $\mathcal{U}(0,1)$ & variance & 
+    {\begin{tabular}{c} 
+    		\fcolorbox{black}{black!10}{$\frac{(m+2)(m+1)^2\sigma^2_{D^{(q)}_{ij}}}{m^3 - m + 2}$} \\ [-2.5ex]
+    		$\begin{aligned}
+    		&\text{where } \sigma^2_{D^{(q)}_{ij}} \text{ is given by Eq. 49}
+    		\end{aligned}$
+    \end{tabular}} & \\ [5ex] \hline
+\end{tabular}
+%\end{table}
+
+\end{document}
