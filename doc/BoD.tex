@@ -216,7 +216,7 @@ It is commonly known that high-throughput data has many inherent statistical cha
 
 \section*{Introduction}
 
-Relief-based methods identify interacting attributes as important by using nearest-neighbor information in higher dimensions (the ``blessings of dimensionality''). Myopic methods that do not account for information from higher dimensions such as univariate tests are susceptible to false negatives when there are interactions. For example, in the plot of variable A versus C in a three-variable simulation (Fig.~\ref{fig:2dAvC}a), variable A appears to show no difference between cases and controls (the marginal group means are the same). However, A is actually simulated to have a strong differential correlation with B, conditioned on the outcome variable (Fig.~\ref{fig:2dAvB}b). Current Relief-based methods determine the importance of an attribute by computing the average difference of attribute $A$ value between a target instance (X) and its nearest instance from the opposite class (Miss), $d_{\text{X,M}}(A)$, subtracted from the similarly projected difference of target X and its nearest instance from the same class (Hit), $d_{\text{X,H}}(A)$. A positive value from this calculation, i.e., $d_{\text{X,M}}(A)-d_{\text{X,H}}(A) > 0$ suggests that attribute A is useful for discriminating between cases and controls.  
+Relief-based methods identify interacting attributes as important by using nearest-neighbor information in higher dimensions (the ``blessings of dimensionality''). Myopic methods that do not account for information from higher dimensions such as univariate tests are susceptible to false negatives when there are interactions. For example, in the plot of variable A versus C in a three-variable simulation (Fig.~\ref{fig:2dAvC}a), variable A appears to show no difference between cases and controls (the marginal group means are the same). However, A is actually simulated to have a strong differential correlation with B, conditioned on the outcome variable (Fig.~\ref{fig:2dAvB}b). Current Relief-based methods determine the importance of an attribute by computing the average difference of attribute $A$ value between a target instance (X) and its nearest instance from the opposite class (Miss), $d_{\text{X,M}}(A)$, subtracted from the similarly projected difference of target X and its nearest instance from the same class (Hit), $d_{\text{X,H}}(A)$. A positive value from this calculation, i.e., $d_{\text{X,M}}(A)-d_{\text{X,H}}(A) > 0$, suggests that attribute A is useful for discriminating between cases and controls.  
 
 %\begin{figure}[h!]
 %%\begin{center}
@@ -244,8 +244,6 @@ Relief-based methods identify interacting attributes as important by using neare
 
 Relief-based methods use information from all available attributes (omnigenic) to estimate an attribute's importance. However, if relevant higher-dimensional information is not used to establish the neighborhoods of instances, these methods will miss the effect of A because ``imposter'' neighbors will be used in the attribute estimate (False Miss (FM) in Fig.~\ref{fig:2dAvC}, where $d_{\text{X,FM}}(A)<d_{\text{X,H}}(A)$).  If one were to compute nearest neighbors in the A-C plane (ignoring the B dimension), the nearest miss would be an imposter (FM), which leads to a negative contribution to the importance score for A. One might call this C attribute a type-I confounding attribute because it increases the chances of interacting attributes to be false negatives. When nearest neighbors are calculated based on higher dimensions with relevant information (Fig.~\ref{fig:2dAvB}c), it is clear that TM is closer to X than FM. The imposter (FM) is replaced by the true nearest miss (TM) and attribute A correctly shows a greater projected difference between misses than hits (Fig.~\ref{fig:2dAvB}d $d_{\text{X,TM}}(A)>d_{\text{X,H}}(A)$), which is the signature of an important attribute. Univariate methods still cannot find the importance of A unless the interaction is explicitly modeled, but as long as functional variables A and B are in the space for nearest neighbor calculations (Fig.~\ref{fig:2dAvB}c-d), imposters can be excluded and Relief-based methods will find that A (and B) are important discriminators. 
 
-
-[Ideas: Relating the increasing $k$ and myopic view to other distance-related method such as MDS/t-SNE vs PCA - local vs global distance - capturing non-linear manifold structure. \url{https://www.kdnuggets.com/2018/08/introduction-t-sne-python.html}]
 
 
 \begin{figure}[ht!]
@@ -333,7 +331,8 @@ The cardinality of the set $\{j \ne i : j \in N_{i}\}$ is $k_i$, the number of n
 \subsection{Distribution of pairwise distances}
 %Discuss Central Limit Theorem argument for the distribution being Gaussian. We can always say this is an assumption, but I think we can invoke the CLT. [I would be cautious here - TTL. We will be cautious invoking the CLT - BAM.]
 
-Suppose that $X_{ia}, X_{ja} \overset{iid}{\sim} \mathcal{F}_X(\mu_X,\sigma^2_X)$ for two fixed and distinct instances $(i,j) \in \mathcal{N}$ and a fixed attribute $a \in \mathcal{A}$. 
+Suppose that $X_{ia}, X_{ja} \overset{iid}{\sim} \mathcal{F}_X(\mu_X,\sigma^2_X)$ for two fixed and distinct instances $(i,j) \in \mathcal{N}$ and a fixed attribute $a \in \mathcal{A}$.
+$\mathcal{F}_X$ represents any data distribution with mean $\mu_X$ and variance $\sigma^2_X$.
 
 It is clear that $|X_{ia} - X_{ja}|^q = |d_{ij}(a)|^q$ is another random variable. Let $Z^q_a \sim \mathcal{F}_{Z^q}(\mu_{z^q},\sigma^2_{z^q})$ be the random variable such that
 
@@ -358,22 +357,20 @@ g\left(\left(D^{(q)}_{ij}\right)^q\right) &= g\left(\displaystyle \sum_{a \in \m
 \end{aligned}
 \end{equation}
 
-For $q = 2$, a more accurate approximation of the sample mean is given by
+Therefore, the distance between two fixed, distinct instances $i$ and $j$ given by Eq. \ref{eq:D} is asymptotically normal.
+Specifically, when $q = 2$, the distribution of $D_{ij}^{(2)}$ asymptotically approaches $\mathcal{N}\left(\sqrt{\mu_{z^2}p}, \frac{\sigma^2_{z^2}}{4\mu_{z^2}}\right)$. 
+When $p$ is small, however, we observe empirically that a closer estimate of the sample mean is 
+% \begin{equation}\label{eq:DqMeanImproved}
+% \text{E}\left(D^{(q)}_{ij}\right) = \left(\mu_{z^q}p - \frac{\sigma^2_{z^q}p}{q^2\left(\mu_{z^q}p\right)^{2\left(1 - \frac{1}{q}\right)}}\right)^{1/q}
+% \end{equation}
 
-\begin{equation}\label{eq:DqMeanImproved}
-\text{E}\left(D^{(q)}_{ij}\right) = \left(\mu_{z^q}p - \frac{\sigma^2_{z^q}p}{q^2\left(\mu_{z^q}p\right)^{2\left(1 - \frac{1}{q}\right)}}\right)^{1/q}
-\end{equation}
-
-This is because
-
-\begin{equation}\label{eq:DqImprovedExplaned}
+\begin{equation}\label{eq:DqImprovedExplained}
 \begin{aligned}
 \text{E}\left(D^{(2)}_{ij}\right) &= \sqrt{\text{E}\left[\left(D^{(2)}_{ij}\right)^2\right] - \text{Var}\left(D^{(2)}_{ij}\right)} \\
-&= \sqrt{\mu_{z^2}p - \frac{\sigma^2_{z^2}}{4\mu_{z^2}}}
+&= \sqrt{\mu_{z^2}p - \frac{\sigma^2_{z^2}}{4\mu_{z^2}}}.
 \end{aligned}
 \end{equation}
 
-Therefore, the distance between two fixed and distinct instances $i$ and $j$ given by Eq. \ref{eq:D} is asymptotically normal.
 
 One can readily verify the normality of distances between independent instances through sampling from any data distribution and plotting the histogram of pairwise distances. Histograms for the case of standard normal data and Manhattan ($q=1$) and Euclidean ($q=2$) metrics are shown in Figs. \ref{fig:manhattanConverge} and \ref{fig:euclideanConverge}, respectively. For these simulated distances, we fixed the number of instances $m=100$ and varied the number of attributes $p$ from 10 to 10000. For even a rather small number of predictors, as in the case of $p=10$, the sample distances are approximately normal. As $p$ increases, the normality becomes stronger.
 
@@ -389,7 +386,7 @@ One can readily verify the normality of distances between independent instances 
 		\caption{Convergence to normality of Euclidean distances between iid random normal instances. For each simulated distance distribution, we fixed $m=100$ instances but varied $p$ from 10 to 10000. It is clear that convergence is rapid, and approximate normality can be safely assumed for even $p=10$.}\label{fig:euclideanConverge}
 \end{figure}
 
-For distance based learning methods, all pairwise distances are used to determine relative importances for attributes. The collection of all distances above the diagonal in an $m \times m$ distance matrix does not satisfy the independence assumption used in the previous derivations. This is because of the redundancy that is inherent to the distance matrix calcuation. However, this collection is still asymptotically normal with mean and variance approximately equal to those given in Eq. \ref{eq:DqDeltaMethod}. Hence, all fixed-radius methods will use a fixed radius that is some fraction of the expected pairwise distance for a given metric and data type. This implies that the probability of a fixed instance $j$ being within a fixed radius of a given instance $i$ can be parameterized by the expected pairwise distance and the variance of the pairwise distance. This probability is obtained by evaluating the normal cumulative distribution function (CDF), with corresponding mean and variance, at the quantile given by some function of the fixed radius. Therefore, we can derive the expected number of neighbors in the neighborhood of a fixed instance $i$. In other words, for sufficiently large data sets, the sample mean of the number of neighbors in a given neighborhood is well approximated by the product between the total number of possible neighbors and the expected probability of an instance being in a given neighborhood. The total number of possible neighbors for a fixed instance $i$ is always $m-1$, but this becomes approximately $\lfloor{\frac{m - 1}{2}}\rfloor$ when delineating between possible hits and misses for balanced data.
+For distance based learning methods, all pairwise distances are used to determine relative importances for attributes. The collection of all distances above the diagonal in an $m \times m$ distance matrix does not satisfy the independence assumption used in the previous derivations. This is because of the redundancy that is inherent to the distance matrix calculation. However, this collection is still asymptotically normal with mean and variance approximately equal to those given in Eq. \ref{eq:DqDeltaMethod}. Hence, all fixed-radius methods will use a fixed radius that is some fraction of the expected pairwise distance for a given metric and data type. This implies that the probability of a fixed instance $j$ being within a fixed radius of a given instance $i$ can be parameterized by the expected pairwise distance and the variance of the pairwise distance. This probability is obtained by evaluating the normal cumulative distribution function (CDF), with corresponding mean and variance, at the quantile given by some function of the fixed radius. Therefore, we can derive the expected number of neighbors in the neighborhood of a fixed instance $i$. In other words, for sufficiently large data sets, the sample mean of the number of neighbors in a given neighborhood is well approximated by the product between the total number of possible neighbors and the expected probability of an instance being in a given neighborhood. The total number of possible neighbors for a fixed instance $i$ is always $m-1$, but this becomes approximately $\lfloor{\frac{m - 1}{2}}\rfloor$ when delineating between possible hits and misses for balanced data.
 
 \subsection{Predicted number of neighbors in the multiSURF alpha neighborhood}
 
@@ -413,14 +410,14 @@ and
 \begin{equation}
 \bar{D}_i = \frac{1}{m-1} \sum_{j \ne i} D^{(\cdot)}_{ij}
 \end{equation}
-is the average of instance $i$'s pairwise distances (using Eq. D Equation) with standard deviation $\sigma_{\bar{D}_i}$. MultiSURF uses $\alpha=1/2$~\cite{msurf13}.
+is the average of instance $i$'s pairwise distances (Eq. \ref{eq:D}) with standard deviation $\sigma_{\bar{D}_i}$. MultiSURF implements $\alpha=1/2$~\cite{urbanowicz17}.
 
 The probability of the remaining $m-1$ instances being inside the $\alpha$-radius of instance $i$ ($R_i^{\alpha}$) can be viewed as $m-1$ Bernoulli trials each with a probability of success $q_{\alpha}$. Then the average average number of neighbors is given by
 \begin{equation}
 \label{eq:binomial_average}
   {\bar{k}}_{\alpha} = (m-1)q_{\alpha},
 \end{equation}
-from the mean of a binomial random variable. To calculate $q_{\alpha}$, we assume the distribution of distances $(\{D_{ij} \}_{j \ne i})$ of neighbors of instance $i$ is normal $N(\bar{D}_i,\sigma_{\bar{D}_i})$. Our empirical studies confirm a normal distribution and that it is robust to data type and metric. Extreme violations of independence of attributes (extreme correlations or interactions) will cause the distribution to be right skewed, but this effect is difficult to observe in real data. Thus, for a Gaussian pairwise distance distribution, the probability $q_{\alpha}$ for one instance $j \ne i$ to be in the neighborhood of $i$ ($j \in N^{\alpha}_{i}$) is given by the area under the mean-centered ($\bar{D}_i$) Gaussian from $-\infty$ to $R_i^{\alpha}$. {\bf show Gaussian plot illustration?} An illustration of the area computed to estimate $q_{\alpha}$ is given by Fig. \ref{fig:gaussPlot}. This integral can be written in terms of the error function (erf):
+from the mean of a binomial random variable. To calculate $q_{\alpha}$, we assume the distribution of distances $\{D_{ij} \}_{j \ne i}$ of neighbors of instance $i$ is normal $N(\bar{D}_i,\sigma_{\bar{D}_i})$. Our empirical studies confirm a normal distribution and that it is robust to data type and metric. Extreme violations of independence of attributes (extreme correlations or interactions) will cause the distribution to be right skewed, but this effect is difficult to observe in real data. Thus, for a Gaussian pairwise distance distribution, the probability $q_{\alpha}$ for one instance $j \ne i$ to be in the neighborhood of $i$ ($j \in N^{\alpha}_{i}$) is given by the area under the mean-centered ($\bar{D}_i$) Gaussian from $-\infty$ to $R_i^{\alpha}$. An illustration of the area computed to estimate $q_{\alpha}$ is given by Fig. \ref{fig:gaussPlot}. This integral can be written in terms of the error function (erf):
 \begin{equation}
 \label{eq:q_prob}
 q_{\alpha} = \frac{1}{2} \left( 1 - \mathrm{erf}\left( \frac{\alpha}{\sqrt{2}} \right) \right).
@@ -429,7 +426,7 @@ And finally using Eqs. (\ref{eq:binomial_average} and \ref{eq:q_prob}) we find
 \begin{equation}\label{eq:kbar}
 {\bar{k}}_{\alpha} = \left \lfloor \frac{m-1}{2}  \left( 1 - \mathrm{erf}\left( \frac{\alpha}{\sqrt{2}} \right) \right) \right \rfloor,
 \end{equation}
-where we apply the floor to ensure the number of neighbors is integer. For data with balanced hits and misses in standard fixed-$k$ Relief, one divides this formula by 2. For multiSURF ($\alpha=1/2$), this formula gives $\bar{k}_{1/2}^{\text{hit/miss}} = \frac{1}{2}\bar{k}_{1/2} = .154 (m-1)$, which is very close to our previous empirical estimate $m/6$. When we compare multiSURF neighborhood methods with fixed-$k$ neighborhoods, we use $\bar{k}_{1/2}$. Using this $\alpha=1/2$ value has been shown to give good performance for simulated data sets. However, the best value for $\alpha$ is likely data-specific and may be determined through nested cross-validation and other parameter tuning methods.
+where we apply the floor function to ensure the number of neighbors is integer. For data with balanced hits and misses in standard fixed-$k$ Relief, one divides this formula by 2. For multiSURF ($\alpha=1/2$), this formula gives $\bar{k}_{\alpha}^{\text{hit/miss}} = \bar{k}_{1/2}^{\text{hit/miss}} = \frac{1}{2}\bar{k}_{1/2} = .154 (m-1)$, which is very close to our previous empirical estimate $m/6$. When we compare multiSURF neighborhood methods with fixed-$k$ neighborhoods, we use $\bar{k}_{1/2}$. Using this $\alpha=1/2$ value has been shown to give good performance for simulated data sets. However, the best value for $\alpha$ is likely data-specific and may be determined through nested cross-validation and other parameter tuning methods.
 
 \begin{figure}[ht!]
 \centering
@@ -557,7 +554,7 @@ Applying the result given in Eq. \ref{eq:DqDeltaMethod}, the distribution of $D^
 D^{(q)}_{ij} \overset{.}{\sim} \mathcal{N}\left(\left(\mu_{z^q}p\right)^{1/q},\frac{\sigma^2_{z^q}p}{q^2\left(\mu_{z^q}p\right)^{2\left(1 - \frac{1}{q}\right)}}\right), \quad \mu_{z^q} > 0
 \end{equation}
 
-\noindent with improved estimate of the mean for $q=2$ given by Eq. \ref{eq:DqMeanImproved}.
+\noindent with improved estimate of the mean for $q=2$ given by Eq. \ref{eq:DqImprovedExplained}.
 
 \subsubsection{Standard normal data}
 
@@ -790,7 +787,7 @@ Similarly, the variance of $D^{(2)}_{ij}$ is given by
 \end{aligned}
 \end{equation}
 
-For the case in which the number of attributes $p$ is small, an improved estimate of the mean is given by Eq. \ref{eq:DqMeanImproved}. The lower dimensional estimate of the mean is as follows.
+For the case in which the number of attributes $p$ is small, an improved estimate of the mean is given by Eq. \ref{eq:DqImprovedExplained}. The lower dimensional estimate of the mean is as follows.
 
 \begin{equation}\label{eq:normalEucMeanImproved}
 \begin{aligned}
@@ -824,7 +821,7 @@ Similarly, the variance of $D^{(2)}_{ij}$ is given by
 \end{aligned}
 \end{equation}
 
-For the case in which the number of attributes $p$ is small, an improved estimate of the mean is given by Eq. \ref{eq:DqMeanImproved}. The lower dimensional estimate of the mean is as follows.
+For the case in which the number of attributes $p$ is small, an improved estimate of the mean is given by Eq. \ref{eq:DqImprovedExplained}. The lower dimensional estimate of the mean is as follows.
 
 \begin{equation}\label{eq:uniformEucMeanImproved}
 \begin{aligned}
@@ -851,7 +848,7 @@ In order to determine moments of asymptotic distance distributions induced by Eq
 \begin{definition}
 A distribution $\mathcal{F}_X$ is said to be \textbf{degenerate} if its density function $f_X$ is the Dirac delta $\delta(x - c_0)$ centered at a constant $c_0 \in \mathbb{R}$, with corresponding distribution function $F_X$ defined as
 
-\[F_X(x)\begin{cases}
+\[F_X(x)=\begin{cases}
           1, & x \geq c_0, \\
           0, & x < c_0.
         \end{cases}
