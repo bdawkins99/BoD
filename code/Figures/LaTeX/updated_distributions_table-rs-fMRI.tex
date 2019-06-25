@@ -48,19 +48,19 @@
 \def\arraystretch{1.9}
 \begin{tabular}{|c|>{\centering\arraybackslash}m{1.3cm}|c|@{}m{0pt}@{}}\hline 
 	& & & \\ [-10ex]
-	{\textbf{rs-fMRI - Metric}} & {\textbf{Stat}} & {\textbf{Formula} \bm{$\sim$} (\textbf{Eq.})} & \\ [0ex] \hline
-	standard  & mean & $\displaystyle \frac{2p(p-1)}{\sqrt{\pi}}$ $\sim$ ({\small \textbf{139}})&\\ [1.5ex] \hline
-	standard  & variance & $\displaystyle \frac{9p(\pi - 2)(p - 1)}{4\pi}$ $\sim$ ({\small \textbf{139}})& \\ [1.5ex] \hline
-	{\begin{tabular}{c} max-min \\ [-5ex] normalized \end{tabular}}  & mean &
+	{\textbf{rs-fMRI - Metric}} & {\textbf{Stat}} & {\textbf{Formula} (\textbf{Eq.} \bm{$\#$})} & \\ [0ex] \hline
+	\multirow{2}{*}{\vspace{-0.4cm} standard}  & mean & $\displaystyle \frac{2p(p-1)}{\sqrt{\pi}}$ ({\small \textbf{139}})&\\ [1.5ex] \cline{2-3}
+	& variance & $\displaystyle \frac{9p(\pi - 2)(p - 1)}{4\pi}$ ({\small \textbf{139}})& \\ [1.5ex] \hline
+	\multirow{2}{*}{\vspace{-1.7cm} {\begin{tabular}{c} max-min \\ [-5ex] normalized \end{tabular}}}  & mean &
 {\begin{tabular}{c} 
-		\fcolorbox{black}{black!10}{$\displaystyle \frac{\mu_{D_{ij}}}{2\mu^{(1)}_\alpha(m,p)}$} $\sim$ ({\small \textbf{143}})\\ [-1.8ex]
+		\fcolorbox{black}{black!10}{$\displaystyle \frac{\mu_{D_{ij}}}{2\mu^{(1)}_\alpha(m,p)}$} ({\small \textbf{143}})\\ [-1.8ex]
 		$\begin{aligned}
 		&\text{where } \mu_{D_{ij}} \text{ and } \mu^{(1)}_\alpha(m,p) \text{ are given by Eqs. 140 and 142}
 		\end{aligned}$
-\end{tabular}} & \\ [1.5ex] \hline
-{\begin{tabular}{c} max-min \\ [-5ex] normalized \end{tabular}} & variance &
+\end{tabular}} & \\ [1.5ex] \cline{2-3}
+& variance &
 {\begin{tabular}{c} 
-		\fcolorbox{black}{black!10}{$\displaystyle \frac{6\sigma^2_{D_{ij}}\text{log}[m(p-1)]}{\pi^2 + 24\left[\mu^{(1)}_\alpha(m,p)\right]^2\text{log}[m(p-1)]}$} $\sim$ ({\small \textbf{143}})\\ [-1.8ex]
+		\fcolorbox{black}{black!10}{$\displaystyle \frac{6\sigma^2_{D_{ij}}\text{log}[m(p-1)]}{\pi^2 + 24\left[\mu^{(1)}_\alpha(m,p)\right]^2\text{log}[m(p-1)]}$} ({\small \textbf{143}})\\ [-1.8ex]
 		$\begin{aligned}
 		&\text{where } \sigma^2_{D_{ij}} \text{ and } \mu^{(1)}_\alpha(m,p) \text{ are given by Eqs. 140 and 142}
 		\end{aligned}$

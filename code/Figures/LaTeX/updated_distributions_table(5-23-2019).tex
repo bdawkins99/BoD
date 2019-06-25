@@ -48,37 +48,37 @@
 \def\arraystretch{1.8}
 \begin{tabular}{|c|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{1.3cm}|c|@{}m{0pt}@{}}\hline 
 	& & & & \\ [-10ex]
-	{\bm{$q$}-\textbf{Metric}} & {\textbf{Data}} & {\textbf{Stat}} & {\textbf{Formula}} \bm{$\sim$} (\textbf{Eq.}) & \\ [0ex] \hline
-	standard & $\mathcal{N}(0,1)$ & mean & $\left(\frac{2^q \Gamma \left(\frac{q+1}{2}\right) p}{\sqrt{\pi}}\right)^{1/q}$ $\sim$ ({\small \textbf{38}}) & \\ [1.5ex] \hline
-	standard & $\mathcal{N}(0,1)$ & variance & $\frac{4^q p}{q^2 \left(\frac{2^q \Gamma\left(\frac{1}{2}q + \frac{1}{2}\right)}{\sqrt{\pi}}p\right)^{2\left(1 - \frac{1}{q}\right)}}\left[\frac{\Gamma\left(q + \frac{1}{2}\right)}{\sqrt{\pi}} - \frac{\Gamma^2\left(\frac{1}{2}q + \frac{1}{2}\right)}{\pi}\right]$ $\sim$ ({\small \textbf{38}}) & \\ [5ex] \hline
-	standard & $\mathcal{U}(0,1)$ & mean & $\left(\frac{2p}{(q+2)(q+1)}\right)^{1/q}$ $\sim$ ({\small \textbf{48}}) & \\ [1.5ex] \hline
-	standard & $\mathcal{U}(0,1)$ & variance & $\frac{p}{q^2\left(\frac{2p}{(q + 2)(q + 1)}\right)^{2\left(1 - \frac{1}{q}\right)}}\left[\frac{1}{(q + 1)(2q + 1)} - \left(\frac{2}{(q + 2)(q + 1)}\right)^2\right]$ $\sim$ ({\small \textbf{48}}) & \\ [1.5ex] \hline
-	{\begin{tabular}{c} max-min \\ [-5ex] normalized \end{tabular}} & $\mathcal{N}(0,1)$ & mean & 
+	{\bm{$q$}-\textbf{Metric}} & {\textbf{Data}} & {\textbf{Stat}} & {\textbf{Formula}} (\textbf{Eq.} \bm{$\#$}) & \\ [0ex] \hline
+	\multirow{4}{*}{\vspace{-1.3cm} standard} & $\mathcal{N}(0,1)$ & mean & $\left(\frac{2^q \Gamma \left(\frac{q+1}{2}\right) p}{\sqrt{\pi}}\right)^{1/q}$ ({\small \textbf{38}}) & \\ [1.5ex] \cline{2-4}
+	& $\mathcal{N}(0,1)$ & variance & $\frac{4^q p}{q^2 \left(\frac{2^q \Gamma\left(\frac{1}{2}q + \frac{1}{2}\right)}{\sqrt{\pi}}p\right)^{2\left(1 - \frac{1}{q}\right)}}\left[\frac{\Gamma\left(q + \frac{1}{2}\right)}{\sqrt{\pi}} - \frac{\Gamma^2\left(\frac{1}{2}q + \frac{1}{2}\right)}{\pi}\right]$ ({\small \textbf{38}}) & \\ [5ex] \cline{2-4}
+	& $\mathcal{U}(0,1)$ & mean & $\left(\frac{2p}{(q+2)(q+1)}\right)^{1/q}$ ({\small \textbf{48}}) & \\ [1.5ex] \cline{2-4}
+	& $\mathcal{U}(0,1)$ & variance & $\frac{p}{q^2\left(\frac{2p}{(q + 2)(q + 1)}\right)^{2\left(1 - \frac{1}{q}\right)}}\left[\frac{1}{(q + 1)(2q + 1)} - \left(\frac{2}{(q + 2)(q + 1)}\right)^2\right]$ ({\small \textbf{48}}) & \\ [1.5ex] \cline{1-4}
+	\multirow{4}{*}{\vspace{-4cm} {\begin{tabular}{c} max-min \\ [-5ex] normalized \end{tabular}}} & $\mathcal{N}(0,1)$ & mean & 
 	    {\begin{tabular}{c} 
-			\fcolorbox{black}{black!10}{$\frac{\mu_{D^{(q)}_{ij}}}{2 \mu^{(1)}_\alpha(m)}$} $\sim$ ({\small \textbf{93}})\\ [2ex]
+			\fcolorbox{black}{black!10}{$\frac{\mu_{D^{(q)}_{ij}}}{2 \mu^{(1)}_\alpha(m)}$} ({\small \textbf{93}})\\ [2ex]
 			$\begin{aligned}
 			&\text{where } \mu_{D^{(q)}_{ij}} \text{ and } \mu^{(1)}_\alpha(m) \text{ are given by Eqs.} \\
 			&\text{38 and 87, respectively.}
 			\end{aligned}$
-		\end{tabular}} & \\ [1.5ex] \hline
-	{\begin{tabular}{c} max-min \\ [-5ex] normalized \end{tabular}} & $\mathcal{N}(0,1)$ & variance &
+		\end{tabular}} & \\ [1.5ex] \cline{2-4}
+	 & $\mathcal{N}(0,1)$ & variance &
 		    {\begin{tabular}{c} 
-			\fcolorbox{black}{black!10}{$\frac{6\text{log}(m)\sigma^2_{D^{(q)}_{ij}}}{\pi^2 + 24\left[\mu^{(1)}_\alpha(m)\right]^2\text{log}(m)}$} $\sim$ ({\small \textbf{93}})\\ [2ex]
+			\fcolorbox{black}{black!10}{$\frac{6\text{log}(m)\sigma^2_{D^{(q)}_{ij}}}{\pi^2 + 24\left[\mu^{(1)}_\alpha(m)\right]^2\text{log}(m)}$} ({\small \textbf{93}})\\ [2ex]
 			$\begin{aligned}
 			&\text{where } \sigma^2_{D^{(q)}_{ij}} \text{ and } \mu^{(1)}_\alpha(m) \text{ are given by Eqs.} \\
 			&\text{38 and 87, respectively.}
 			\end{aligned}$
-	\end{tabular}} & \\ [5ex] \hline
-    {\begin{tabular}{c} max-min \\ [-5ex] normalized \end{tabular}} & $\mathcal{U}(0,1)$ & mean &
+	\end{tabular}} & \\ [5ex] \cline{2-4}
+     & $\mathcal{U}(0,1)$ & mean &
     		    {\begin{tabular}{c} 
-    		\fcolorbox{black}{black!10}{$\frac{(m+1)\mu_{D^{(q)}_{ij}}}{m-1}$} $\sim$ ({\small \textbf{101}})\\ [-2.5ex]
+    		\fcolorbox{black}{black!10}{$\frac{(m+1)\mu_{D^{(q)}_{ij}}}{m-1}$} ({\small \textbf{101}})\\ [-2.5ex]
     		$\begin{aligned}
     		&\text{where } \mu_{D^{(q)}_{ij}} \text{ is given by Eq. 48}
     		\end{aligned}$
-    \end{tabular}} & \\ [5ex] \hline
-    {\begin{tabular}{c} max-min \\ [-5ex] normalized \end{tabular}} & $\mathcal{U}(0,1)$ & variance & 
+    \end{tabular}} & \\ [5ex] \cline{2-4}
+     & $\mathcal{U}(0,1)$ & variance & 
     {\begin{tabular}{c} 
-    		\fcolorbox{black}{black!10}{$\frac{(m+2)(m+1)^2\sigma^2_{D^{(q)}_{ij}}}{m^3 - m + 2}$} $\sim$ ({\small \textbf{101}})\\ [-2.5ex]
+    		\fcolorbox{black}{black!10}{$\frac{(m+2)(m+1)^2\sigma^2_{D^{(q)}_{ij}}}{m^3 - m + 2}$} ({\small \textbf{101}})\\ [-2.5ex]
     		$\begin{aligned}
     		&\text{where } \sigma^2_{D^{(q)}_{ij}} \text{ is given by Eq. 48}
     		\end{aligned}$

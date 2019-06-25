@@ -48,10 +48,10 @@
 \def\arraystretch{1.9}
 \begin{tabular}{|c|>{\centering\arraybackslash}m{1.3cm}|c|@{}m{0pt}@{}}\hline 
 	& & & \\ [-10ex]
-	{\textbf{GWAS-Metric}} & {\textbf{Stat}} & {\textbf{Formula} \bm{$\sim$} (\textbf{Eq.})} & \\ [0ex] \hline
+	{\textbf{GWAS-Metric}} & {\textbf{Stat}} & {\textbf{Formula} (\textbf{Eq.} \bm{$\#$})} & \\ [0ex] \hline
 	GM & mean &
 		    {\begin{tabular}{c} 
-			\fcolorbox{black}{black!10}{$2\sum_{a \in \mathcal{A}} F(a)$} $\sim$ ({\small \textbf{110}})\\ [-1.8ex]
+			\fcolorbox{black}{black!10}{$2\sum_{a \in \mathcal{A}} F(a)$} ({\small \textbf{110}})\\ [-1.8ex]
 			$\begin{aligned}
 			&\text{where } \\
 			&F(a) = 2(1 - f_a)^3 f_a + 2f^3_a (1 - f_a) + (1 - f_a)^2 f^2_a
@@ -59,7 +59,7 @@
 	\end{tabular}} & \\ [1.5ex] \hline
 	GM & variance &
             {\begin{tabular}{c} 
-		    \fcolorbox{black}{black!10}{$2\sum_{a \in \mathcal{A}} F(a)[1 - 2F(a)]$} $\sim$ ({\small \textbf{110}})\\ [-1.8ex]
+		    \fcolorbox{black}{black!10}{$2\sum_{a \in \mathcal{A}} F(a)[1 - 2F(a)]$} ({\small \textbf{110}})\\ [-1.8ex]
 		    $\begin{aligned}
 		    &\text{where } \\
 		    &F(a) = 2(1 - f_a)^3 f_a + 2f^3_a (1 - f_a) + (1 - f_a)^2 f^2_a
@@ -67,7 +67,7 @@
 	\end{tabular}} & \\ [1.5ex] \hline
 	AM & mean &
 {\begin{tabular}{c} 
-		\fcolorbox{black}{black!10}{$2\sum_{a \in \mathcal{A}} F(a)$} $\sim$ ({\small \textbf{115}})\\ [-1.8ex]
+		\fcolorbox{black}{black!10}{$2\sum_{a \in \mathcal{A}} F(a)$} ({\small \textbf{115}})\\ [-1.8ex]
 		$\begin{aligned}
 		&\text{where } \\
 		&F(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a) + (1 - f_a)^2 f^2_a
@@ -75,7 +75,7 @@
 \end{tabular}} & \\ [1.5ex] \hline
 AM & variance &
 {\begin{tabular}{c} 
-		\fcolorbox{black}{black!10}{$\sum_{a \in \mathcal{A}} [G(a) - 4F^2(a)]$} $\sim$ ({\small \textbf{115}})\\ [-1.8ex]
+		\fcolorbox{black}{black!10}{$\sum_{a \in \mathcal{A}} [G(a) - 4F^2(a)]$} ({\small \textbf{115}})\\ [-1.8ex]
 		$\begin{aligned}
 		&\text{where } \\
 		&F(a) = 2(1 - f_a)^3 f_a + 2f^3_a (1 - f_a) + (1 - f_a)^2 f^2_a \hspace{0.2cm} \text{ and}\\
@@ -84,7 +84,7 @@ AM & variance &
 \end{tabular}} & \\ [1.5ex] \hline
 TiTv & mean &
 {\begin{tabular}{c} 
-		\fcolorbox{black}{black!10}{$(\gamma_0 + \gamma_2 + 2\gamma_1) \sum_{a \in \mathcal{A}} F(a) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G(a)$} $\sim$ ({\small \textbf{131}})\\ [-1ex]
+		\fcolorbox{black}{black!10}{$(\gamma_0 + \gamma_2 + 2\gamma_1) \sum_{a \in \mathcal{A}} F(a) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G(a)$} ({\small \textbf{131}})\\ [-1ex]
 		$\begin{aligned}
 		&\text{where } \\
 		&F(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a) \hspace{0.2cm} \text{ and } \hspace{0.2cm} G(a) = (1 - f_a)^2 f^2_a
@@ -96,7 +96,7 @@ TiTv & mean &
 		\fcolorbox{black}{black!10}{$\begin{aligned}
 		&\left[\frac{1}{4}(\gamma_0 + \gamma_2) + \gamma_1\right] \sum_{a \in \mathcal{A}} F(a) + \left[\frac{9}{8}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}}G(a) \\
 		+& \sum_{a \in \mathcal{A}}\left([\gamma_0 + \gamma_2 + 2\gamma_1]F(a) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right]G(a)\right)^2
-		\end{aligned}$} $\sim$ ({\small \textbf{131}})\\ [2ex]
+		\end{aligned}$} ({\small \textbf{131}})\\ [2ex]
 		$\begin{aligned}
 		&\text{where } \\
 		&F(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a) \hspace{0.2cm} \text{ and } \hspace{0.2cm} G(a) = (1 - f_a)^2 f^2_a
