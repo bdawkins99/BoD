@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  24 JUN 2019 11:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  25 JUN 2019 11:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -755,7 +755,7 @@ Package pdftex.def Info: central_limit_distances-Euclidean-Normal-diffstar.pdf
 (pdftex.def)             Requested size: 360.44545pt x 450.55055pt.
  [6 <./central_limit_distances-Manhattan-Normal-diffstar.pdf>] [7 <./central_li
 mit_distances-Euclidean-Normal-diffstar.pdf>] [8]
-<shaded_bell_curve.pdf, id=374, 334.22667pt x 149.06891pt>
+<shaded_bell_curve.pdf, id=375, 334.22667pt x 149.06891pt>
 File: shaded_bell_curve.pdf Graphic file (type pdf)
 <use shaded_bell_curve.pdf>
 Package pdftex.def Info: shaded_bell_curve.pdf  used on input line 434.
@@ -764,19 +764,19 @@ Package pdftex.def Info: shaded_bell_curve.pdf  used on input line 434.
 [9 <./shaded_bell_curve.pdf>] [10] [11] [12] [13] [14] [15] [16] [17] [18]
 [19] [20] [21] [22] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33]
 [34]
-<typical_data-metric_tab.pdf, id=809, 347.0004pt x 315.87912pt>
+<typical_data-metric_tab.pdf, id=810, 347.0004pt x 315.87912pt>
 File: typical_data-metric_tab.pdf Graphic file (type pdf)
 <use typical_data-metric_tab.pdf>
 Package pdftex.def Info: typical_data-metric_tab.pdf  used on input line 1649.
 (pdftex.def)             Requested size: 379.4175pt x 345.41481pt.
  [35]
-<bioinformaticsy_tab.pdf, id=822, 347.0004pt x 338.93628pt>
+<bioinformaticsy_tab.pdf, id=823, 347.0004pt x 338.93628pt>
 File: bioinformaticsy_tab.pdf Graphic file (type pdf)
 <use bioinformaticsy_tab.pdf>
 Package pdftex.def Info: bioinformaticsy_tab.pdf  used on input line 1657.
 (pdftex.def)             Requested size: 379.4175pt x 370.62788pt.
  [36 <./typical_data-metric_tab.pdf>]
-<updated_distributions_table(5-23-2019).pdf, id=888, 399.55974pt x 538.13449pt>
+<updated_distributions_table(5-23-2019).pdf, id=889, 399.55974pt x 538.13449pt>
 
 File: updated_distributions_table(5-23-2019).pdf Graphic file (type pdf)
 <use updated_distributions_table(5-23-2019).pdf>
@@ -784,7 +784,7 @@ Package pdftex.def Info: updated_distributions_table(5-23-2019).pdf  used on in
 put line 1665.
 (pdftex.def)             Requested size: 379.4175pt x 520.19452pt.
  [37 <./bioinformaticsy_tab.pdf>]
-<updated_distributions_table-gwas(5-23-2019).pdf, id=945, 471.67517pt x 586.574
+<updated_distributions_table-gwas(5-23-2019).pdf, id=946, 471.67517pt x 586.574
 43pt>
 File: updated_distributions_table-gwas(5-23-2019).pdf Graphic file (type pdf)
 <use updated_distributions_table-gwas(5-23-2019).pdf>
@@ -792,7 +792,7 @@ Package pdftex.def Info: updated_distributions_table-gwas(5-23-2019).pdf  used
 on input line 1673.
 (pdftex.def)             Requested size: 379.4175pt x 478.98045pt.
 [38 <./updated_distributions_table(5-23-2019).pdf>]
-<updated_distributions_table-rs-fMRI.pdf, id=999, 461.95587pt x 282.40106pt>
+<updated_distributions_table-rs-fMRI.pdf, id=1000, 461.95587pt x 282.40106pt>
 File: updated_distributions_table-rs-fMRI.pdf Graphic file (type pdf)
 <use updated_distributions_table-rs-fMRI.pdf>
 Package pdftex.def Info: updated_distributions_table-rs-fMRI.pdf  used on input
@@ -819,7 +819,7 @@ Here is how much of TeX's memory you used:
  15193 multiletter control sequences out of 15000+600000
  25087 words of font info for 131 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,24n,43p,1682b,462s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,24n,43p,1683b,462s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></
@@ -847,10 +847,10 @@ e/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive
 2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texl
 ive/2018/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/201
 8/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on BoD.pdf (41 pages, 1455631 bytes).
+Output written on BoD.pdf (41 pages, 1455705 bytes).
 PDF statistics:
- 1185 PDF objects out of 1200 (max. 8388607)
- 1026 compressed objects within 11 object streams
+ 1186 PDF objects out of 1200 (max. 8388607)
+ 1027 compressed objects within 11 object streams
  238 named destinations out of 1000 (max. 500000)
  17167 words of extra memory for PDF output out of 17280 (max. 10000000)
 
