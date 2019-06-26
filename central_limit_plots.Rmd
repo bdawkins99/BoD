@@ -1,0 +1,138 @@
+---
+title: "Histograms of Distances"
+output: html_document
+---
+
+```{r}
+library(ggplot2)
+library(dplyr)
+```
+
+```{r}
+set.seed(1618)
+fig_path <- here::here('code/Figures/R/') 
+# path to figures, used package `here`
+
+m <- 100  # number of subjects
+ps <- c(10, 100, 10000) # numbers of attributes
+dist.list.manhattan <- list()
+dist.list.euclidean <- list()
+for(i in 1:length(ps)){
+  print(i)
+  p <- ps[i] 
+
+# data matrix
+sub.mat <- matrix(rep(0,length=m*p),nrow=m,ncol=p)
+for(j in 1:m){
+  sub.mat[j,] <- matrix(runif(p),nrow=1,ncol=p)
+}
+
+# find range for each attribute
+maxs <- apply(sub.mat,2,max) # attribute maximums
+mins <- apply(sub.mat,2,min) # attribute minimums
+diffs <- maxs-mins           # attribute ranges
+diffs.inv <- 1/diffs         # inverse of attribute ranges
+
+# distance matrix
+d.mat <- matrix(rep(0,length=m*m),nrow=m,ncol=m,byrow=TRUE)
+d.mat2 <- matrix(rep(0,length=m*m),nrow=m,ncol=m,byrow=TRUE)
+for(j in 1:m){
+  for(k in j:m){
+    d.mat2[j,k] <- sqrt(sum(((sub.mat[j,]-sub.mat[k,])^2)*diffs.inv^2))
+    d.mat[j,k] <- sum(abs(sub.mat[j,]-sub.mat[k,])*diffs.inv)
+    #d.mat[j,k] <- sum(abs(sub.mat[j,]-sub.mat[k,]))
+    #d.mat2[j,k] <- sqrt(sum(((sub.mat[j,]-sub.mat[k,])^2)))
+  }
+}
+
+tmp <- d.mat + t(d.mat)
+d.mat <- tmp
+dist.vec <- c(t(d.mat))
+idx <- which(dist.vec == 0)
+dist.vec <- dist.vec[-idx] # distance vector
+dist.list.manhattan[[i]] <- 
+  data.frame(distances = dist.vec, 
+             p = paste(p, 'attributes'),
+             type = 'Manhattan') %>%
+  mutate(xnorm = seq(min(distances), max(distances), length.out = n()),
+         ynorm = dnorm(xnorm, mean(distances), sd(distances)))
+
+tmp <- d.mat2 + t(d.mat2)
+d.mat2 <- tmp
+dist.vec <- c(t(d.mat2))
+idx <- which(dist.vec==0)
+dist.vec <- dist.vec[-idx] # distance vector
+dist.list.euclidean[[i]] <- 
+  data.frame(distances = dist.vec, 
+             p = paste(p, 'attributes'),
+             type = 'Euclidean') %>%
+  mutate(xnorm = seq(min(distances), max(distances), length.out = n()),
+         ynorm = dnorm(xnorm, mean(distances), sd(distances)))
+}
+
+dist.man.df <- dist.list.manhattan %>%
+  do.call(rbind, .) %>%
+  data.frame()
+dist.euc.df <- dist.list.euclidean %>%
+  do.call(rbind, .) %>%
+  data.frame()
+
+get_shapiro <- function(x){
+  norm_test <- sample(x$distances, 5000) %>%
+    shapiro.test()
+  paste('W =', 
+        norm_test %>%
+          with(statistic) %>%
+          round(5), 
+        '\nP =',
+        norm_test %>%
+          with(p.value) %>%
+          round(5))
+}
+normalities <- data.frame(
+  x = c(5, 39, 3455, 1.8, 4.7, 42.2),
+  y = c(0.5, 0.15, 0.016, 1.57, 1.5, 1.6),
+  w = c(dist.list.manhattan, dist.list.euclidean) %>% sapply(get_shapiro),
+  type = rep(c('Manhattan', 'Euclidean'), each = 3),
+  p = paste(rep(ps, 2), 'attributes'))
+  
+```
+
+
+Plot:
+
+```{r}
+manhattan_plot <- ggplot(dist.man.df, aes(x = distances)) +
+  geom_histogram(aes(y = ..density..), bins = 100, alpha = 0.8) +
+  facet_wrap(vars(p), scales = 'free', nrow = 3) +
+  geom_line(aes(x = xnorm, y = ynorm), color = '#cc79a7') +
+  geom_text(normalities %>% filter(type == 'Manhattan'),
+            mapping = aes(x = x, y = y, label = w) , size = 2.5) +
+  theme_bw() +
+  theme(strip.text = element_blank(),
+        plot.title = element_text(size = 10, hjust = 0.5)) +
+  labs(title = 'Manhattan', y = 'Density', x = NULL) 
+# manhattan_plot
+euclidean_plot <- ggplot(dist.euc.df, aes(x = distances)) +
+  geom_histogram(aes(y = ..density..), bins = 100, alpha = 0.8) +
+  geom_line(aes(x = xnorm, y = ynorm), color = '#cc79a7') +
+  facet_wrap(vars(p), scales = 'free', nrow = 3, strip.position='right') +
+  theme_bw() +
+  geom_text(normalities %>% filter(type == 'Euclidean'),
+            mapping = aes(x = x, y = y, label = w) , size = 2.5) +
+  theme(plot.title = element_text(size = 10, hjust = 0.5)) +
+  labs(y = NULL, title = 'Euclidean', x = NULL)
+# euclidean_plot
+
+my_plot <- cowplot::plot_grid(manhattan_plot, euclidean_plot)
+# my_plot
+
+my_plot %>%
+  ggsave(height = 4, width = 5,
+         filename = paste0(fig_path, 'central_limit_distances_uniform.pdf'))
+
+# my_plot %>%
+#   ggsave(height = 4, width = 5,
+#          filename = paste0(fig_path, 'central_limit_distances_uniform.svg'))
+
+```
