@@ -80,17 +80,12 @@ dist.euc.df <- dist.list.euclidean %>%
 get_shapiro <- function(x){
   norm_test <- sample(x$distances, 5000) %>%
     shapiro.test()
-  paste('W =', 
-        norm_test %>%
-          with(statistic) %>%
-          round(5), 
-        '\nP =',
-        norm_test %>%
-          with(p.value) %>%
-          round(5))
+    sprintf("W = %.4f\nP = %.3g", norm_test$statistic, norm_test$p.value)
 }
+
+
 normalities <- data.frame(
-  x = c(5, 39, 3455, 1.8, 4.7, 42.2),
+  x = c(5.3, 39.5, 3457, 1.8, 4.7, 42.25),
   y = c(0.5, 0.15, 0.016, 1.57, 1.5, 1.6),
   w = c(dist.list.manhattan, dist.list.euclidean) %>% sapply(get_shapiro),
   type = rep(c('Manhattan', 'Euclidean'), each = 3),
@@ -125,14 +120,25 @@ euclidean_plot <- ggplot(dist.euc.df, aes(x = distances)) +
 # euclidean_plot
 
 my_plot <- cowplot::plot_grid(manhattan_plot, euclidean_plot)
-# my_plot
+
+# now add 'Distances' as the x axis
+my_plot <- cowplot::ggdraw(cowplot::add_sub(
+  plot = my_plot, label = "Distances", 
+  vpadding=grid::unit(0.2,"lines"),
+  vjust = 0, hjust = 0.3,
+  size = 10))
+
 
 my_plot %>%
-  ggsave(height = 4, width = 5,
+  ggsave(height = 4.5, width = 5,
          filename = paste0(fig_path, 'central_limit_distances_uniform.pdf'))
 
 # my_plot %>%
-#   ggsave(height = 4, width = 5,
+#   ggsave(height = 4.5, width = 5,
 #          filename = paste0(fig_path, 'central_limit_distances_uniform.svg'))
+# 
+# my_plot %>%
+#   ggsave(height = 4.5, width = 5,
+#          filename = paste0(fig_path, 'central_limit_distances_uniform.png'))
 
 ```
