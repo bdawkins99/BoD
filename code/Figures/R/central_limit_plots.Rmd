@@ -6,6 +6,7 @@ output: html_document
 ```{r}
 library(ggplot2)
 library(dplyr)
+# also used: cowplot, here package
 ```
 
 ```{r}
@@ -20,54 +21,36 @@ dist.list.euclidean <- list()
 for(i in 1:length(ps)){
   print(i)
   p <- ps[i] 
-
-# data matrix
-sub.mat <- matrix(rep(0,length=m*p),nrow=m,ncol=p)
-for(j in 1:m){
-  sub.mat[j,] <- matrix(runif(p),nrow=1,ncol=p)
-}
-
-# find range for each attribute
-maxs <- apply(sub.mat,2,max) # attribute maximums
-mins <- apply(sub.mat,2,min) # attribute minimums
-diffs <- maxs-mins           # attribute ranges
-diffs.inv <- 1/diffs         # inverse of attribute ranges
-
-# distance matrix
-d.mat <- matrix(rep(0,length=m*m),nrow=m,ncol=m,byrow=TRUE)
-d.mat2 <- matrix(rep(0,length=m*m),nrow=m,ncol=m,byrow=TRUE)
-for(j in 1:m){
-  for(k in j:m){
-    d.mat2[j,k] <- sqrt(sum(((sub.mat[j,]-sub.mat[k,])^2)*diffs.inv^2))
-    d.mat[j,k] <- sum(abs(sub.mat[j,]-sub.mat[k,])*diffs.inv)
-    #d.mat[j,k] <- sum(abs(sub.mat[j,]-sub.mat[k,]))
-    #d.mat2[j,k] <- sqrt(sum(((sub.mat[j,]-sub.mat[k,])^2)))
+  
+  # data matrix
+  sub.mat <- matrix(rep(0, length = m*p), nrow = m, ncol = p)
+  for(j in 1:m){
+    sub.mat[j,] <- matrix(runif(p), nrow = 1, ncol = p)
   }
-}
-
-tmp <- d.mat + t(d.mat)
-d.mat <- tmp
-dist.vec <- c(t(d.mat))
-idx <- which(dist.vec == 0)
-dist.vec <- dist.vec[-idx] # distance vector
-dist.list.manhattan[[i]] <- 
-  data.frame(distances = dist.vec, 
-             p = paste(p, 'attributes'),
-             type = 'Manhattan') %>%
-  mutate(xnorm = seq(min(distances), max(distances), length.out = n()),
-         ynorm = dnorm(xnorm, mean(distances), sd(distances)))
-
-tmp <- d.mat2 + t(d.mat2)
-d.mat2 <- tmp
-dist.vec <- c(t(d.mat2))
-idx <- which(dist.vec==0)
-dist.vec <- dist.vec[-idx] # distance vector
-dist.list.euclidean[[i]] <- 
-  data.frame(distances = dist.vec, 
-             p = paste(p, 'attributes'),
-             type = 'Euclidean') %>%
-  mutate(xnorm = seq(min(distances), max(distances), length.out = n()),
-         ynorm = dnorm(xnorm, mean(distances), sd(distances)))
+  
+  # find range for each attribute
+  maxs <- apply(sub.mat, 2, max) # attribute maximums
+  mins <- apply(sub.mat, 2, min) # attribute minimums
+  diffs <- maxs - mins           # attribute ranges
+  diffs.inv <- 1/diffs           # inverse of attribute ranges
+  sub.mat <- sub.mat %*% diag(diffs.inv) # scale the matrix before dist
+  
+  d.mat <- dist(sub.mat, method = 'manhattan')
+  d.mat2 <- dist(sub.mat, method = 'euclidean')
+  
+  dist.list.manhattan[[i]] <- 
+    data.frame(distances = c(d.mat), # distance vector
+               p = paste(p, 'attributes'), # number of attributes
+               type = 'Manhattan') %>%
+    mutate(xnorm = seq(min(distances), max(distances), length.out = n()),
+           ynorm = dnorm(xnorm, mean(distances), sd(distances)))
+  
+  dist.list.euclidean[[i]] <- 
+    data.frame(distances = c(d.mat2), # distance vector
+               p = paste(p, 'attributes'), # number of attributes
+               type = 'Euclidean') %>%
+    mutate(xnorm = seq(min(distances), max(distances), length.out = n()),
+           ynorm = dnorm(xnorm, mean(distances), sd(distances)))
 }
 
 dist.man.df <- dist.list.manhattan %>%
@@ -78,11 +61,12 @@ dist.euc.df <- dist.list.euclidean %>%
   data.frame()
 
 get_shapiro <- function(x){
-  norm_test <- sample(x$distances, 5000) %>%
+  norm_test <- 
+    x$distances %>%
+    # sample(x$distances, 1000) %>%
     shapiro.test()
-    sprintf("W = %.4f\nP = %.3g", norm_test$statistic, norm_test$p.value)
+  sprintf("W = %.4f\nP = %.3g", norm_test$statistic, norm_test$p.value)
 }
-
 
 normalities <- data.frame(
   x = c(5.3, 39.5, 3457, 1.8, 4.7, 42.25),
