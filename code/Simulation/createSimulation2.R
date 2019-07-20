@@ -157,6 +157,7 @@ generate_structured_corrmat <- function(g=NULL,
     diag(new.mat) <- 1              # 1's on diagonal
     
   }
+  R <- new.mat
   
   # correct for negative eigenvalues to make matrix positive definite
   #
@@ -179,7 +180,7 @@ generate_structured_corrmat <- function(g=NULL,
   diag(mydiag) <- inv.diag         # swap 1's for inv.diag
   mydiag <- sqrt(mydiag)           # take sqrt of diag matrix
   R <- mydiag %*% R %*% mydiag     # compute corrected correlation matrix with 1's on diagonal (Still Pos. Def.)
-
+  
   # return correlation matrix, degree vector, adjacency matrix, and functional variables
   list(corrmat = R, deg.vec = kvec, A.mat = Adj, sig.vars = diff.cor.vars)
 }
@@ -290,7 +291,7 @@ createSimulation2 <- function(num.samples=100,
                                      nbias=nbias)
     
     R <- as.matrix(network.atts$corrmat) # correlation matrix
-    
+
     A.mat <- network.atts$A.mat          # adjacency from graph
     
     U <- t(chol(R))                             # upper tri cholesky
