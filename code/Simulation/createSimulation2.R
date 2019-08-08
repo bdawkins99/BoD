@@ -1,3 +1,4 @@
+# 
 # data simulation function - Bryan Dawkins - Summer 2019
 #
 #
@@ -34,33 +35,36 @@ library(RcppArmadillo)
 library(mvtnorm)
 library(Rfast)
 
-
-# set working directory
-setwd("C:/Users/bdawk/Documents/KNN_project_output/R_code_and_output")
-
-# source cpp eigenvalue function
-#Rcpp::sourceCpp('code/arma_getEigenValues.cpp')
+#' source cpp eigenvalue function
+#' Rcpp::sourceCpp('code/arma_getEigenValues.cpp')
 cppFunction(depends="RcppArmadillo",
             'arma::vec getEigenValues(arma::mat M) {
              return arma::eig_sym(M);
             }')
 
-###########################################################################################
-# generate correlation matrix function
-###########################################################################################
-
-# parameters:
-#
-# g              - random graph
-# num.variables  - number of independent variables in data matrix
-# hi.cor         - upper baseline pairwise functional correlation in control group
-# lo.cor         - lower baseline pairwise functional correlation in control group
-# graph.type     - either Erdos-Renyi or Scale-Free graph
-# plot.graph     - logical indicating whether to plot graph or not
-# make.diff.cors - logical indicating whether case correlation matrix for differential 
-#                  correlation is being created or not
-# nbias          - number of functional interaction variables 
-
+#=========================================================================================#
+#' generate_structured_corrmat
+#'
+#' parameters:
+#'
+#' @param g random graph
+#' @param num.variables number of independent variables in data matrix
+#' @param hi.cor upper baseline pairwise functional correlation in control group
+#' @param lo.cor lower baseline pairwise functional correlation in control group
+#' @param graph.type either Erdos-Renyi or Scale-Free graph
+#' @param plot.graph logical indicating whether to plot graph or not
+#' @param make.diff.cors logical indicating whether case correlation matrix for differential correlation is being created or not
+#' @param nbias number of functional interaction variables 
+#' @return A list containing:
+#' \describe{
+#'   \item{cor.mat}{structured correlation matrix}
+#'   \item{deg.vec}{degree vector corresponding to network adjacency}
+#'   \item{A.mat}{adjacency matrix corresponding to network}
+#'   \item{sig.vars}{indices of functional variables}
+#' }
+#' @examples 
+#' 
+#' @export
 generate_structured_corrmat <- function(g=NULL,
                                         num.variables=100, 
                                         hi.cor.tmp=0.8, 
@@ -185,42 +189,63 @@ generate_structured_corrmat <- function(g=NULL,
   list(corrmat = R, deg.vec = kvec, A.mat = Adj, sig.vars = diff.cor.vars)
 }
 
-###########################################################################################
-# (end) generate correlation matrix function
-###########################################################################################
-
-###########################################################################################
-# generate simulated data set
-###########################################################################################
-# parameters:
-# 
-# num.samples      - number of samples
-# num.variables    - number of variables (features)
-# pct.imbalance    - fraction of num.samples that are cases
-# pct.signals      - fraction of num.variables that are functional
-# main.bias        - approximate effect size for main effect simulations
-# interaction.bias - approximate effect size for interaction effects
-# hi.cor           - parameter to use for network-connected pairwise correlations
-# lo.cor           - parameter to use for network-non-connected pairwise correlations
-# label            - should just be "class" for binary response
-# sim.type         - a character that determines the type of simulation
-#
-#       "mainEffect"             - simple main effect simulation
-#       "mainEffect_Erdos-Renyi" - main effects with underlying Erdos-Renyi network
-#       "mainEffect_Scalefree"   - main effects with underlying Scale-Free network
-#       "interactionErdos"       - simple interaction effect simulation with Erdos-Renyi network
-#       "interactionScalefree"   - simple interaction effect simulation with Scale-Free network
-#       "mixed"                  - main + interaction effect simulation
-# pct.train        - fraction of num.samples used for training
-# pct.holdout      - fraction of num.samples used for holdout
-# pct.validation   - fraction of num.samples used for validation
-# save.file        - logical but not currently being used
-# mix.type         - character that determines the type of mixed effects simulation
-#           "main-interactionErdos": (main + interaction effect simulation with Erdos-Renyi network)
-#       "main-interactionScalefree": (main + interaction effect simulation with Scale-Free Network)
-# pct.mixed        - fraction of functional variables with interaction effects
-# verbose          - logical indicating whether to display time required to generate simulation
-# plot.graph       - logical indicating whether to plot networks
+#=========================================================================================#
+#' createSimulation2
+#'
+#' @param num.samples number of samples
+#' @param num.variables number of variables (features)
+#' @param pct.imbalance fraction of num.samples that are cases
+#' @param pct.signals fraction of num.variables that are functional
+#' @param main.bias approximate effect size for main effect simulations
+#' @param interaction.bias approximate effect size for interaction effects
+#' @param hi.cor parameter to use for network-connected pairwise correlations
+#' @param lo.cor parameter to use for network-non-connected pairwise correlations
+#' @param label should just be "class" for binary response
+#' @param sim.type a character that determines the type of simulation:
+#' mainEffect/mainEffect_Erdos-Renyi/mainEffect_Scalefree/interactionErdos/interactionScalefree/mixed
+#' @param pct.train fraction of num.samples used for training
+#' @param pct.holdout fraction of num.samples used for holdout
+#' @param pct.validation fraction of num.samples used for validation
+#' @param save.file logical but not currently being used
+#' @param mix.type character that determines the type of mixed effects simulation:
+#' main-interactionErdos/main-interactionScalefree
+#' @param pct.mixed fraction of functional variables with interaction effects
+#' @param verbose logical indicating whether to display time required to generate simulation
+#' @param plot.graph logical indicating whether to plot networks
+#' @return A list with:
+#' \describe{
+#'   \item{train}{traing data set}
+#'   \item{holdout}{holdout data set}
+#'   \item{validation}{validation data set}
+#'   \item{label}{the class label/column name}
+#'   \item{signal.names}{the variable names with simulated signals}
+#'   \item{elapsed}{total elapsed time}
+#'   \item{A.mat}{adjacency matrix for random network (for interaction/mixed/main plus correlation)}
+#'   \item{main.vars}{indices of main effect variables (for mixed simulations)}
+#'   \item{int.vars}{indices of interaction effect variables (for mixed simulations)}
+#' }
+#' @examples
+#' num.samples <- 100
+#' num.variables <- 10
+#'
+#' dataset <- createSimulation2(num.samples=num.samples,
+#'                             num.variables=num.variables,
+#'                             pct.imbalance=0.5,
+#'                             pct.signals=0.2,
+#'                             main.bias=0.4,
+#'                             interaction.bias=1,
+#'                             hi.cor=10,
+#'                             lo.cor=0.2,
+#'                             mix.type="main-interactionErdos",
+#'                             label="class",
+#'                             sim.type="mainEffect_Erdos-Renyi",
+#'                             pct.mixed=0.5,
+#'                             pct.train=0.5,
+#'                             pct.holdout=0.5,
+#'                             pct.validation=0,
+#'                             plot.graph=F,
+#'                             verbose=T)
+#' @export
 createSimulation2 <- function(num.samples=100,
                               num.variables=100,
                               pct.imbalance = 0.5,
@@ -249,7 +274,7 @@ createSimulation2 <- function(num.samples=100,
     # new simulation:
     # sd.b sort of determines how large the signals are
     # p.b=0.1 makes 10% of the variables signal, bias <- 0.5
-    my.sim.data <- createMainEffects(n.e=num.variables,                   
+    my.sim.data <- privateEC::createMainEffects(n.e=num.variables,                   
                                      n.db=num.samples,              
                                      pct.imbalance=pct.imbalance,
                                      label = label,
@@ -268,7 +293,7 @@ createSimulation2 <- function(num.samples=100,
   }else if(sim.type=="mainEffect_Erdos-Renyi"){ # main + Erdos-Renyi network
     
     # create main-effect simulation
-    my.sim.data <- createMainEffects(n.e=num.variables,                   
+    my.sim.data <- privateEC::createMainEffects(n.e=num.variables,                   
                                      n.db=num.samples,              
                                      pct.imbalance=pct.imbalance,
                                      label = label,
@@ -279,7 +304,7 @@ createSimulation2 <- function(num.samples=100,
     e <- 1    # fudge factor to the number of nodes to avoid giant component
     prob <- 1/(num.variables+e) # probability of a node being connected to another node is less than 1/N to avoid giant component
     
-    g <- erdos.renyi.game(num.variables, prob) # Erdos-Renyi network
+    g <- igraph::erdos.renyi.game(num.variables, prob) # Erdos-Renyi network
     
     # generate correlation matrix from g
     network.atts <- generate_structured_corrmat(g=g,
@@ -310,7 +335,7 @@ createSimulation2 <- function(num.samples=100,
   }else if(sim.type=="mainEffect_Scalefree"){ # main + Scale-Free network
     
     # create main-effect simulation
-    my.sim.data <- createMainEffects(n.e=num.variables,                   
+    my.sim.data <- privateEC::createMainEffects(n.e=num.variables,                   
                                      n.db=num.samples,              
                                      pct.imbalance=pct.imbalance,
                                      label = label,
@@ -321,7 +346,7 @@ createSimulation2 <- function(num.samples=100,
     e <- 1    # fudge factor to the number of nodes to avoid giant component
     prob <- 1/(num.variables+e) # probability of a node being connected to another node is less than 1/N to avoid giant component
     
-    g <- barabasi.game(num.variables, directed=F) # scale-free network
+    g <- igraph::barabasi.game(num.variables, directed=F) # scale-free network
     
     # generate correlation matrix from g
     network.atts <- generate_structured_corrmat(g=g,
@@ -362,7 +387,7 @@ createSimulation2 <- function(num.samples=100,
     e <- 1    # fudge factor to the number of nodes to avoid giant component
     prob <- 1/(num.variables+e) # probability of a node being connected to another node is less than 1/N to avoid giant component
     
-    g <- erdos.renyi.game(num.variables, prob) # Erdos-Renyi network
+    g <- igraph::erdos.renyi.game(num.variables, prob) # Erdos-Renyi network
     
     # generate correlation matrix from g
     network.atts <- generate_structured_corrmat(g=g,
@@ -463,7 +488,7 @@ createSimulation2 <- function(num.samples=100,
     e <- 1    # fudge factor to the number of nodes to avoid giant component
     prob <- 1/(num.variables+e) # probability of a node being connected to another node is less than 1/N to avoid giant component
     
-    g <- barabasi.game(num.variables, directed=F) # scale-free network
+    g <- igraph::barabasi.game(num.variables, directed=F) # scale-free network
     
     # generate correlation matrix from g
     network.atts <- generate_structured_corrmat(g=g,
@@ -572,7 +597,7 @@ createSimulation2 <- function(num.samples=100,
       prob <- 1/(num.variables+e) # probability of a node being connected to another node is less than 1/N to avoid giant component
       
       # generate random Erdos-Renyi network
-      g <- erdos.renyi.game(num.variables, prob)
+      g <- igraph::erdos.renyi.game(num.variables, prob)
       
       # generate correlation matrix from g
       network.atts <- generate_structured_corrmat(g=g,
@@ -663,7 +688,7 @@ createSimulation2 <- function(num.samples=100,
       dataset <- X.all
       
       # create main-effect simulation for num.main attributes
-      my.sim.data <- createMainEffects(n.e=num.main,                   
+      my.sim.data <- privateEC::createMainEffects(n.e=num.main,                   
                                        n.db=num.samples,              
                                        pct.imbalance=pct.imbalance,
                                        label = label,
@@ -726,7 +751,7 @@ createSimulation2 <- function(num.samples=100,
       prob <- 1/(num.variables+e) # probability of a node being connected to another node is less than 1/N to avoid giant component
       
       # generate random Scale-Free network
-      g <- barabasi.game(num.variables, directed=F)
+      g <- igraph::barabasi.game(num.variables, directed=F)
       
       # generate case group correlation matrix
       network.atts <- generate_structured_corrmat(g=g,
@@ -817,7 +842,7 @@ createSimulation2 <- function(num.samples=100,
       dataset <- X.all
       
       # create main effect simulation with num.main features
-      my.sim.data <- createMainEffects(n.e=num.main,                   
+      my.sim.data <- privateEC::createMainEffects(n.e=num.main,                   
                                        n.db=num.samples,              
                                        pct.imbalance=pct.imbalance,
                                        label = label,
@@ -867,7 +892,7 @@ createSimulation2 <- function(num.samples=100,
   }
   
   # split data into train, holdout, and validation sets
-  split.data <- splitDataset(all.data = dataset,
+  split.data <- privateEC::splitDataset(all.data = dataset,
                              pct.train = pct.train,
                              pct.holdout = pct.holdout,
                              pct.validation = pct.validation,
@@ -875,7 +900,7 @@ createSimulation2 <- function(num.samples=100,
   
   if (!is.null(save.file)) {
     if (verbose) cat("saving to data/", save.file, ".Rdata\n", sep = "")
-    save(split.data, pct.signals, bias, sim.type, file = save.file)
+    save(split.data, pct.signals, main.bias, interaction.bias,sim.type, file = save.file)
   }
   
   elapsed <- (proc.time() - ptm)[3]
@@ -940,7 +965,3 @@ createSimulation2 <- function(num.samples=100,
          elapsed = elapsed)
   }
 }
-
-###########################################################################################
-# (end) genearte simulated data set
-###########################################################################################
