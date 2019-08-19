@@ -12,8 +12,8 @@ if(!"Matrix"%in%row.names(installed.packages())){
 if(!"privateEC"%in%row.names(installed.packages())){
   
   if(!"devtools"%in%row.names(installed.packages())){
-      install.packages("devtools")
-      library(devtools)
+    install.packages("devtools")
+    library(devtools)
   }
   install_github("insilico/privateEC")
   
@@ -32,14 +32,14 @@ library(Matrix)
 library(privateEC)
 library(Rcpp)
 library(RcppArmadillo)
-library(mvtnorm)
-library(Rfast)
+#library(mvtnorm)
+#library(Rfast)
 
 #' source cpp eigenvalue function
 #' Rcpp::sourceCpp('code/arma_getEigenValues.cpp')
 cppFunction(depends="RcppArmadillo",
             'arma::vec getEigenValues(arma::mat M) {
-             return arma::eig_sym(M);
+            return arma::eig_sym(M);
             }')
 
 #=========================================================================================#
@@ -69,6 +69,7 @@ generate_structured_corrmat <- function(g=NULL,
                                         num.variables=100, 
                                         hi.cor.tmp=0.8, 
                                         lo.cor.tmp=0.2, 
+                                        hi.cor.fixed=0.8,
                                         graph.type="Erdos-Renyi", 
                                         plot.graph=F,
                                         make.diff.cors=F,
@@ -146,7 +147,7 @@ generate_structured_corrmat <- function(g=NULL,
     tmp <- adj.tmp1[upper.tri(adj.tmp1)] # functional connections only (upper triangle)
     tmp2 <- (hi.cor.tmp + rnorm(length(tmp),sd=.1))*tmp # functional connections correlations matrix  
     tmp3 <- (lo.cor.tmp + rnorm(length(adj.tmp3[upper.tri(adj.tmp3)]),sd=.1))*adj.tmp3[upper.tri(adj.tmp3)] # non-connections correlations matrix
-    tmp4 <- (hi.cor.tmp + rnorm(length(adj.tmp2[upper.tri(adj.tmp2)]),sd=.1))*adj.tmp2[upper.tri(adj.tmp2)] # non-functional connections correlations matrix
+    tmp4 <- (hi.cor.fixed + rnorm(length(adj.tmp2[upper.tri(adj.tmp2)]),sd=.1))*adj.tmp2[upper.tri(adj.tmp2)] # non-functional connections correlations matrix
     
     mat1 <- matrix(0, nrow=dim(Adj)[1], ncol=dim(Adj)[1]) # initialize functional correlation matrix
     mat2 <- matrix(0, nrow=dim(Adj)[1], ncol=dim(Adj)[1]) # initialize non-connection correlation matrix
@@ -165,7 +166,8 @@ generate_structured_corrmat <- function(g=NULL,
   
   # correct for negative eigenvalues to make matrix positive definite
   #
-  R.d <- Matrix(diag(sort(c(getEigenValues(new.mat)),decreasing=T)),sparse=T) # compute eigenvalues and store in diagonal matrix
+  #R.d <- Matrix(diag(sort(c(getEigenValues(new.mat)),decreasing=T)),sparse=T) # compute eigenvalues and store in diagonal matrix
+  R.d <- Matrix(diag(eigen(new.mat)$values),sparse=T)
   tmp <- c(diag(R.d))                                      # vector of eigenvalues
   
   if (any(tmp<0)){                # if any eigenvalues are negative
@@ -275,11 +277,11 @@ createSimulation2 <- function(num.samples=100,
     # sd.b sort of determines how large the signals are
     # p.b=0.1 makes 10% of the variables signal, bias <- 0.5
     my.sim.data <- privateEC::createMainEffects(n.e=num.variables,                   
-                                     n.db=num.samples,              
-                                     pct.imbalance=pct.imbalance,
-                                     label = label,
-                                     sd.b=main.bias,
-                                     p.b=pct.signals)$db
+                                                n.db=num.samples,              
+                                                pct.imbalance=pct.imbalance,
+                                                label = label,
+                                                sd.b=main.bias,
+                                                p.b=pct.signals)$db
     dataset <- cbind(t(my.sim.data$datnobatch), my.sim.data$S)
     
     # make numeric matrix into a data frame for splitting and subsequent ML algorithms
@@ -294,11 +296,11 @@ createSimulation2 <- function(num.samples=100,
     
     # create main-effect simulation
     my.sim.data <- privateEC::createMainEffects(n.e=num.variables,                   
-                                     n.db=num.samples,              
-                                     pct.imbalance=pct.imbalance,
-                                     label = label,
-                                     sd.b=main.bias,
-                                     p.b=pct.signals)$db
+                                                n.db=num.samples,              
+                                                pct.imbalance=pct.imbalance,
+                                                label = label,
+                                                sd.b=main.bias,
+                                                p.b=pct.signals)$db
     dataset <- cbind(t(my.sim.data$datnobatch), my.sim.data$S)
     
     e <- 1    # fudge factor to the number of nodes to avoid giant component
@@ -308,15 +310,15 @@ createSimulation2 <- function(num.samples=100,
     
     # generate correlation matrix from g
     network.atts <- generate_structured_corrmat(g=g,
-                                     num.variables=num.variables, 
-                                     hi.cor.tmp=hi.cor, 
-                                     lo.cor.tmp=lo.cor, 
-                                     graph.type="Erdos-Renyi",
-                                     plot.graph=plot.graph,
-                                     nbias=nbias)
+                                                num.variables=num.variables, 
+                                                hi.cor.tmp=hi.cor, 
+                                                lo.cor.tmp=lo.cor, 
+                                                graph.type="Erdos-Renyi",
+                                                plot.graph=plot.graph,
+                                                nbias=nbias)
     
     R <- as.matrix(network.atts$corrmat) # correlation matrix
-
+    
     A.mat <- network.atts$A.mat          # adjacency from graph
     
     U <- t(chol(R))                             # upper tri cholesky
@@ -336,11 +338,11 @@ createSimulation2 <- function(num.samples=100,
     
     # create main-effect simulation
     my.sim.data <- privateEC::createMainEffects(n.e=num.variables,                   
-                                     n.db=num.samples,              
-                                     pct.imbalance=pct.imbalance,
-                                     label = label,
-                                     sd.b=main.bias,
-                                     p.b=pct.signals)$db
+                                                n.db=num.samples,              
+                                                pct.imbalance=pct.imbalance,
+                                                label = label,
+                                                sd.b=main.bias,
+                                                p.b=pct.signals)$db
     dataset <- cbind(t(my.sim.data$datnobatch), my.sim.data$S)
     
     e <- 1    # fudge factor to the number of nodes to avoid giant component
@@ -350,12 +352,12 @@ createSimulation2 <- function(num.samples=100,
     
     # generate correlation matrix from g
     network.atts <- generate_structured_corrmat(g=g,
-                                               num.variables=num.variables, 
-                                               hi.cor.tmp=hi.cor, 
-                                               lo.cor.tmp=lo.cor, 
-                                               graph.type="Scalefree",
-                                               plot.graph=plot.graph,
-                                               nbias=nbias)
+                                                num.variables=num.variables, 
+                                                hi.cor.tmp=hi.cor, 
+                                                lo.cor.tmp=lo.cor, 
+                                                graph.type="Scalefree",
+                                                plot.graph=plot.graph,
+                                                nbias=nbias)
     R <- as.matrix(network.atts$corrmat) # correlation matrix
     
     A.mat <- network.atts$A.mat          # adjacency from graph
@@ -387,6 +389,7 @@ createSimulation2 <- function(num.samples=100,
     e <- 1    # fudge factor to the number of nodes to avoid giant component
     prob <- 1/(num.variables+e) # probability of a node being connected to another node is less than 1/N to avoid giant component
     
+    #prob <- 1/2
     g <- igraph::erdos.renyi.game(num.variables, prob) # Erdos-Renyi network
     
     # generate correlation matrix from g
@@ -394,6 +397,7 @@ createSimulation2 <- function(num.samples=100,
                                                 num.variables=num.variables, 
                                                 hi.cor.tmp=case.hi.cor,
                                                 lo.cor.tmp=lo.cor,
+                                                hi.cor.fixed=hi.cor,
                                                 graph.type="Erdos-Renyi",
                                                 plot.graph=plot.graph,
                                                 make.diff.cors=T,
@@ -437,7 +441,8 @@ createSimulation2 <- function(num.samples=100,
     
     # correct for negative eigenvalues so R is positive definite
     #
-    R.d <- Matrix(diag(sort(c(getEigenValues(R)),decreasing=T)),sparse=T) # compute eigenvalues and make diag matrix
+    #R.d <- Matrix(diag(sort(c(getEigenValues(R)),decreasing=T)),sparse=T) # compute eigenvalues and make diag matrix
+    R.d <- Matrix(diag(eigen(R)$values),sparse=T)
     tmp <- c(diag(R.d))                                # vector of eigenvalues
     
     if (any(tmp<0)){              # if any eigenvalues are negative
@@ -489,12 +494,14 @@ createSimulation2 <- function(num.samples=100,
     prob <- 1/(num.variables+e) # probability of a node being connected to another node is less than 1/N to avoid giant component
     
     g <- igraph::barabasi.game(num.variables, directed=F) # scale-free network
+    #g <- igraph::barabasi.game(num.variables, m=4, directed=F)
     
     # generate correlation matrix from g
     network.atts <- generate_structured_corrmat(g=g,
                                                 num.variables=num.variables, 
                                                 hi.cor.tmp=case.hi.cor,
                                                 lo.cor.tmp=lo.cor,
+                                                hi.cor.fixed=hi.cor,
                                                 graph.type="Erdos-Renyi",
                                                 plot.graph=plot.graph,
                                                 make.diff.cors=T,
@@ -539,7 +546,8 @@ createSimulation2 <- function(num.samples=100,
     
     # correct for negative eigenvalues to make R positive definite
     #
-    R.d <- Matrix(diag(sort(c(getEigenValues(R)),decreasing=T)),sparse=T) # compute eigenvalues and store in diag matrix
+    #R.d <- Matrix(diag(sort(c(getEigenValues(R)),decreasing=T)),sparse=T) # compute eigenvalues and store in diag matrix
+    R.d <- Matrix(diag(eigen(R)$values),sparse=T)
     tmp <- c(diag(R.d))                                # vector of eigenvalues
     
     if (any(tmp<0)){              # if any eigenvalues are negative
@@ -604,6 +612,7 @@ createSimulation2 <- function(num.samples=100,
                                                   num.variables=num.variables, 
                                                   hi.cor.tmp=case.hi.cor,
                                                   lo.cor.tmp=lo.cor,
+                                                  hi.cor.fixed=hi.cor,
                                                   graph.type="Erdos-Renyi",
                                                   plot.graph=plot.graph,
                                                   make.diff.cors=T,
@@ -658,9 +667,10 @@ createSimulation2 <- function(num.samples=100,
       
       # correct for negative eigenvalues so R is positive definite
       #
-      R.d <- Matrix(diag(sort(c(getEigenValues(R)),decreasing=T)),sparse=T) # compute eigenvalues and store in diag matrix
+      #R.d <- Matrix(diag(sort(c(getEigenValues(R)),decreasing=T)),sparse=T) # compute eigenvalues and store in diag matrix
+      R.d <- Matrix(diag(eigen(R)$values),sparse=T)
       tmp <- c(diag(R.d))                                # vector of eigenvalues
-    
+      
       if (any(tmp<0)){              # if any eigenvalues are negative
         R.V <- eigen(R)$vectors     # compute eigenvectors,
         tmp[tmp<0] <- 1e-7          # make negative into small positive,
@@ -689,11 +699,11 @@ createSimulation2 <- function(num.samples=100,
       
       # create main-effect simulation for num.main attributes
       my.sim.data <- privateEC::createMainEffects(n.e=num.main,                   
-                                       n.db=num.samples,              
-                                       pct.imbalance=pct.imbalance,
-                                       label = label,
-                                       sd.b=main.bias,
-                                       p.b=1)$db
+                                                  n.db=num.samples,              
+                                                  pct.imbalance=pct.imbalance,
+                                                  label = label,
+                                                  sd.b=main.bias,
+                                                  p.b=1)$db
       
       # check dimensions to see if my.sim.data is a matrix or just a vector
       check.dim <- is.null(dim(my.sim.data$datnobatch))
@@ -725,7 +735,7 @@ createSimulation2 <- function(num.samples=100,
       signal.names <- c(main.names, int.names)           # all functional variable names
       background.names <- paste("var", 1:(num.variables - nbias), sep = "") # all non-functional variable names
       var.names <- c(signal.names, background.names, label) # all variable names
-
+      
       colnames(dataset)[sig.vars] <- int.names   # replace interaction colnames with interaction variable names
       colnames(dataset)[main.vars] <- main.names # replace main colnames with main variable names
       colnames(dataset)[-c(sig.vars, main.vars)] <- background.names # replace non-functional colnames with non-functional variable names
@@ -758,6 +768,7 @@ createSimulation2 <- function(num.samples=100,
                                                   num.variables=num.variables, 
                                                   hi.cor.tmp=case.hi.cor,
                                                   lo.cor.tmp=lo.cor,
+                                                  hi.cor.fixed=hi.cor,
                                                   graph.type="Scalefree",
                                                   plot.graph=plot.graph,
                                                   make.diff.cors=T,
@@ -812,7 +823,8 @@ createSimulation2 <- function(num.samples=100,
       
       # correct for negative eigenvalues to make R positive definite
       #
-      R.d <- Matrix(diag(sort(c(getEigenValues(R)),decreasing=T)),sparse=T) # compute eigenvalues and store in diag matrix
+      #R.d <- Matrix(diag(sort(c(getEigenValues(R)),decreasing=T)),sparse=T) # compute eigenvalues and store in diag matrix
+      R.d <- Matrix(diag(eigen(R)$values),sparse=T)
       tmp <- c(diag(R.d))                                # vector of eigenvalues
       
       if (any(tmp<0)){              # if any eigenvalues are negative
@@ -843,11 +855,11 @@ createSimulation2 <- function(num.samples=100,
       
       # create main effect simulation with num.main features
       my.sim.data <- privateEC::createMainEffects(n.e=num.main,                   
-                                       n.db=num.samples,              
-                                       pct.imbalance=pct.imbalance,
-                                       label = label,
-                                       sd.b=main.bias,
-                                       p.b=1)$db
+                                                  n.db=num.samples,              
+                                                  pct.imbalance=pct.imbalance,
+                                                  label = label,
+                                                  sd.b=main.bias,
+                                                  p.b=1)$db
       
       # check dimensions to determine if my.dim.data is a matrix or vector
       check.dim <- is.null(dim(my.sim.data$datnobatch))
@@ -879,7 +891,7 @@ createSimulation2 <- function(num.samples=100,
       signal.names <- c(main.names, int.names) # all functional variable names
       background.names <- paste("var", 1:(num.variables - nbias), sep = "") # non-functional variable names
       var.names <- c(signal.names, background.names, label) # all variable names
-
+      
       colnames(dataset)[sig.vars] <- int.names   # replace interaction colnames with interaction variable names
       colnames(dataset)[main.vars] <- main.names # replace main colnames with main variable names
       colnames(dataset)[-c(sig.vars, main.vars)] <- background.names # replace non-functional colnames with non-functional variable names
@@ -893,10 +905,10 @@ createSimulation2 <- function(num.samples=100,
   
   # split data into train, holdout, and validation sets
   split.data <- privateEC::splitDataset(all.data = dataset,
-                             pct.train = pct.train,
-                             pct.holdout = pct.holdout,
-                             pct.validation = pct.validation,
-                             label = label)
+                                        pct.train = pct.train,
+                                        pct.holdout = pct.holdout,
+                                        pct.validation = pct.validation,
+                                        label = label)
   
   if (!is.null(save.file)) {
     if (verbose) cat("saving to data/", save.file, ".Rdata\n", sep = "")
@@ -944,7 +956,7 @@ createSimulation2 <- function(num.samples=100,
          A.mat=A.mat)
     
   }else if(sim.type == "mainEffect_Scalefree"){
-         
+    
     # for main effect + correlation simulation (Scale-Free Network)
     list(train = split.data$train,
          holdout = split.data$holdout,

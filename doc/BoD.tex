@@ -88,6 +88,12 @@
 % nice figures and captions
 \usepackage{graphicx}
 
+% diagrams or complicated equations
+\usepackage{tikz}
+
+% vertical and horizontal dashed lines
+\usepackage{arydshln}
+
 %\usepackage{floatflt}
 %\usepackage{nonfloat}
 \usepackage{float}
@@ -1689,6 +1695,57 @@ Balancing blessing and curse of dimensionality.
 \section{ICA?}
 
 Using same interaction, increase background noise genes to see degrading of A and B Relief importance because of curse of dimensionality (sparseness).  
+
+\section{Data simulations}
+
+Each simulated data set $X^{(m \times p)}$ contains $m$ instances and $p$ features, where
+\begin{equation}\label{eq:instance_dims}
+m \in \{100, 250, 500\} \text{ and }
+\end{equation}
+\begin{equation}\label{eq:feature_dims}
+p \in \{1000,2000,3000,4000,5000\}.
+\end{equation}
+
+All combinations of $m$ and $p$ were explored in order to determine how neighborhood selection parameters change with dimensionality. We considered a balanced binary outcome only so that there were exactly $m/2$ cases and $m/2$ controls. In each simulation, 10\% of the total number of features $p$ were functionally related to the outcome variable while the remaining 90\% were simply background features with no effect. Functional features were given either main or interaction effect in order to create a random mixed effects data set for which optimal neighborhood method parameters could be calculated. 
+
+\subsection{Interaction effects}
+
+We extend the interaction effect simulation introduced in \cite{lareau15}. This method first generates a random graph from either Erd\H{o}s-R\'{e}nyi or Scale-free degree distribution. In the control group, functional features are given large pairwise correlations with all other features. Differential correlations (interaction effects) are created by randomly permuting functional feature data entries within the case group only, which destroys and preserves the correlation in case and control groups, respectively. This method creates large effect sizes, which are easily detected by nearest-neighbor distance based methods. The reason for this ease of detection is the uniformity in low and high correlations in case and control groups, respectively. In order to establish more influence over the number of differential pairwise correlations, we simulated correlation matrices for case and control groups directly. We allowed only functional connections to be given differential correlation between case and control groups, where a functional connection is simply the presence of an edge/link from one feature to a functional feature in the random network that is generated.
+
+Analogous to the interaction simulation method given in \cite{lareau15}, we give the control group high and low positive pairwise correlation between network connected and non-connected features, respectively. The average magnitudes of the high and low correlations in the control group are determined by fixed parameters $\rho^\text{hi}$ and $\rho^\text{lo}$, respectively. For all simulations, we fixed the low correlation parameter $\rho^\text{lo}$. In order to examine how interaction effect size changes with functional connection pairwise correlation, we let $\rho^\text{hi} \in \{0.2, 0.5, 0.8\}$. Interaction effect size increases and decreases monotonically as $\rho^\text{hi}$ increases and decreases, respectively. Interaction effect size is highly related to how connected a functional feature is in the random network. We control network connectivity by the probability of edge inclusion for Erd\H{o}s-R\'{e}nyi networks and fixed node degree for Scale-free networks. Similar to $\rho^\text{hi}$, interaction effect size increases and decreases monotonically as functional network connectivity increases and decreases, respectively. Furthermore, we determine interaction effect sizes by giving functional connection pairwise correlations in the case group values determined by the parameter $b^\text{int}$, which is defined as
+\begin{equation}\label{eq:b_int}
+b^\text{int} = - t \rho^\text{hi} + (1 - t) \rho^\text{hi}, \text{ where } t \in [0,1].
+\end{equation}
+As $t \to 0$, the effect size decreases monotonically. On the other hand, the effect size increases monotonically as $t \to 1$. By controlling $\rho^\text{hi}$, $b^\text{int}$, and the level of network connectivity, we have the ability to more finely control the interaction effect size than the method presented in \cite{lareau15}. 
+
+After correlation matrices are created for cases and controls, we compute the upper triangular Cholesky factors ($U^\text{case}$ and $U^\text{ctrl}$) for each correlation matrix. We simulate null data matrices $X^\text{case}$ and $X^\text{ctrl}$ for cases and controls, respectively, such that 
+\begin{equation}\label{eq:null_case_ctrl}
+x^\text{case}_{ij}, x^\text{ctrl}_{ij} \sim \mathcal{N}(0,1) \quad \forall i,j.
+\end{equation}
+Multiplication of $X^\text{case}$ and $X^\text{ctrl}$ by the Cholesky factors $U^\text{case}$ and $U^\text{ctrl}$, respectively, produce case and control sub-matrices $Y^\text{case}$ and $Y^\text{ctrl}$ with the correlation structure described previously. These sub-matrices are then combined into a single data $m \times p$ matrix given by
+\begin{equation}\label{eq:full_interaction_data}
+X = \left[
+\begin{array}{c}
+Y^\text{ctrl} \\ [0.5ex]
+\hdashline \\ [-1.7ex]
+Y^\text{case}
+\end{array}
+\right].
+\end{equation}
+A diagram outlining the interaction simulation algorithm for a data set consisting of 7 features is shown in Fig.~\ref{fig:interaction_simulation_diagram}. Boxes 1 and 2 display the random network and its characteristics, such as, adjacencies and node degrees. In particular, boxes 1 and 2 show the features that are selected to be functional (highlighted in \textcolor{black!50!green}{green}). Box 3 shows the case and control correlation matrices generated using $\rho^\text{hi}$, $\rho^\text{lo}$, and $b^\text{int}$. High (\textcolor{red}{red}) and low (\textcolor{blue!70}{blue}) correlations show the functional pairwise correlations for controls and cases, respectively.
+
+\begin{figure}[H]
+\centering
+\begin{minipage}[h]{1\textwidth}
+\framebox{\includegraphics[width=1.0\textwidth]{interaction_simulation_method_diagram2.pdf}}
+\end{minipage}
+
+\begin{minipage}[h]{1\textwidth}
+	\noindent\refstepcounter{figure}\textbf{Fig \thefigure \label{fig:interaction_simulation_diagram}.} Algorithm for interaction simulations from a random undirected network with seven nodes (or features). \textbf{Step 1:} A random network is generated, whose degree distribution is either Erd\H{o}s-R\'{e}nyi or Scale-free. \textbf{Step 2:} Adjacency matrix ($A$) and degree vector ($v_d$) corresponding to the random network are computed and functional features ($F$) are randomly selected from those with positive degree. \textbf{Step 3:} Two correlation matrices are generated for cases and controls. In the control group, high ($\rho^\text{hi}$) and low ($\rho^\text{lo}$) correlations are assigned to connected ($A_{ij}=1$) and non-connected ($A_{ij}=0$) feature pairs, respectively. In the case group, differential correlation ($b^\text{int}$) is applied to functional connections. \textbf{Step 4:} Upper triangular Cholesky factors are computed for case/control correlation matrices. \textbf{Step 5:} Standard normal random data matrices ($X^\text{ctrl}$ and $X^\text{case}$) are given correlation structure associated with case and control groups and combined into full data matrix with interaction effects ($X$).
+\end{minipage}
+\end{figure}
+
+
 
 \bibliographystyle{unsrt}
 \bibliography{BoD}   % name of bib file

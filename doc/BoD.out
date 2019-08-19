@@ -1,0 +1,26 @@
+\BOOKMARK [1][-]{section.1}{Neighborhood methods}{}% 1
+\BOOKMARK [1][-]{section.2}{Derivation of expected k for multiSURF neighborhoods}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Distribution of pairwise distances}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Predicted number of neighbors in the multiSURF alpha neighborhood}{section.2}% 4
+\BOOKMARK [1][-]{section.3}{Derivation of means and standard deviations for metrics and data distributions}{}% 5
+\BOOKMARK [2][-]{subsection.3.1}{Distribution of }{section.3}% 6
+\BOOKMARK [3][-]{subsubsection.3.1.1}{Standard normal data}{subsection.3.1}% 7
+\BOOKMARK [3][-]{subsubsection.3.1.2}{Standard uniform data}{subsection.3.1}% 8
+\BOOKMARK [2][-]{subsection.3.2}{Manhattan }{section.3}% 9
+\BOOKMARK [3][-]{subsubsection.3.2.1}{Standard normal data}{subsection.3.2}% 10
+\BOOKMARK [3][-]{subsubsection.3.2.2}{Standard uniform data}{subsection.3.2}% 11
+\BOOKMARK [2][-]{subsection.3.3}{Euclidean }{section.3}% 12
+\BOOKMARK [3][-]{subsubsection.3.3.1}{Standard normal data}{subsection.3.3}% 13
+\BOOKMARK [3][-]{subsubsection.3.3.2}{Standard uniform data}{subsection.3.3}% 14
+\BOOKMARK [2][-]{subsection.3.4}{Distribution of attribute extremes}{section.3}% 15
+\BOOKMARK [3][-]{subsubsection.3.4.1}{Standard Normal Data}{subsection.3.4}% 16
+\BOOKMARK [3][-]{subsubsection.3.4.2}{Standard Uniform Data}{subsection.3.4}% 17
+\BOOKMARK [2][-]{subsection.3.5}{GWAS Distance Distributions}{section.3}% 18
+\BOOKMARK [3][-]{subsubsection.3.5.1}{GM Distance Distribution}{subsection.3.5}% 19
+\BOOKMARK [3][-]{subsubsection.3.5.2}{AM Distance Distribution}{subsection.3.5}% 20
+\BOOKMARK [3][-]{subsubsection.3.5.3}{TiTv Distance Distribution}{subsection.3.5}% 21
+\BOOKMARK [2][-]{subsection.3.6}{Resting-State fMRI Distance Distribution}{section.3}% 22
+\BOOKMARK [1][-]{section.4}{Optimal neighborhood parameters for detecting effects}{}% 23
+\BOOKMARK [1][-]{section.5}{ICA?}{}% 24
+\BOOKMARK [1][-]{section.6}{Data simulations}{}% 25
+\BOOKMARK [2][-]{subsection.6.1}{Interaction effects}{section.6}% 26
