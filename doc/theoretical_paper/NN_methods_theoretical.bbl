@@ -1,0 +1,57 @@
+ \newcommand{\noop}[1]{}
+\begin{thebibliography}{1}
+
+\bibitem{urbanowicz17}
+Ryan~J. Urbanowicz, Randal~S. Olson, Peter Schmitt, Melissa Meeker, and
+  Jason~H. Moore.
+\newblock Benchmarking relief-based feature selection methods for
+  bioinformatics data mining.
+\newblock {\em Journal of Biomedical Informatics}, 85:168--188, 2018.
+
+\bibitem{allStats}
+Larry {W}asserman.
+\newblock {\em All of {S}tatistics: {A} {C}oncise {C}ourse in {S}tatistical
+  {I}nference}.
+\newblock Springer, New York, NY, 2004.
+
+\bibitem{freund2004}
+Irwin {M}iller and {M}arylees {M}iller.
+\newblock {\em {John E. Freund's Mathematical Statistics with Applications}}.
+\newblock {Pearson Prentice Hall}, 7 edition, 2004.
+
+\bibitem{robnik2003}
+Marko {R}obnik \v{S}ikonja and {I}gor {K}ononenko.
+\newblock Theoretical and {E}mpirical {A}nalysis of {R}elief{F} and
+  {R}{R}elief{F}.
+\newblock {\em Machine {L}earning}, 53:23 -- 69, February 2003.
+
+\bibitem{urbanowiczReliefReview2018}
+Ryan~{J}. {U}rbanowicz, {M}elissa {M}eeker, {W}illiam {L}a{C}ava, {R}andal
+  {S}.~{O}lson, and {J}ason {H}.~{M}oore.
+\newblock Relief-{B}ased {F}eature {S}election: {I}ntroduction and {R}eview.
+\newblock {\em arXiv:1711.08421 [cs.DS]}, 2018.
+
+\bibitem{gumbel1947}
+E.~{J}. {G}umbel.
+\newblock {The Distribution of the Range}.
+\newblock {\em {The Annals of Mathematical Statistics}}, 18(3):384--412,
+  September 1947.
+
+\bibitem{chatterjee2014}
+Sourav {C}hatterjee.
+\newblock {\em {Superconcentration and Related Topics}}.
+\newblock 1439-7382. {Springer International Publishing}, 1 edition, 2014.
+
+\bibitem{cramer1999}
+Harald {C}ram\'{e}r.
+\newblock {\em {Mathematical Methods of Statistics}}, volume~1.
+\newblock Princeton University Press, reprint, revised edition, 1999.
+
+\bibitem{arabnejad2018}
+M.~{A}rabnejad, {B}.~{A}. {D}awkins, {W}.~{S}. {B}ush, {B}.~{C}. {W}hite,
+  {A}.~{R}. {H}arkness, and {B}.~{A}. {M}c{K}inney.
+\newblock {Transition-transversion encoding and genetic relationship metfic in
+  ReliefF feature selection improves pathway enrichment in GWAS}.
+\newblock {\em {BioData Mining}}, 11(23), 2018.
+
+\end{thebibliography}
