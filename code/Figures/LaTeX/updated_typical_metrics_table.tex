@@ -1,0 +1,75 @@
+\RequirePackage[hyphens]{url}
+\documentclass[hidelinks,a4paper,border=1pt]{standalone}
+%\usepackage[top=0.1in, bottom=0.1in, left=0.1in, right=0.1in]{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{url}
+%\usepackage[hyphens]{url}
+\usepackage{hyperref}
+\usepackage{breakurl}
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{amssymb}
+\usepackage[mathscr]{euscript}
+%\renewcommand{\rmdefault}{bch} % change default font
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{shapes}
+\usepackage{enumitem}
+\setlength{\parindent}{0in}
+\usepackage{bm}
+\usepackage{multirow}
+\usepackage{adjustbox}
+\usepackage{scalerel}
+\usepackage[many]{tcolorbox}
+\usepackage{booktabs}
+%\usepackage{adjustbox}
+%>{\centering\arraybackslash}m{3cm}
+%\newcolumntype{Y}{>{\small\raggedright\arraybackslash}X}
+%\newcolumntype{C}{>{\centering\arraybackslash}m{3cm}}
+\newcolumntype{C}{>{$}c<{$}}
+%\captionsetup{
+%	justification = centering
+%}
+
+\newcommand{\myfrac}[2]{\displaystyle \frac{#1}{#2}}
+\newcommand{\dsum}{\displaystyle \sum}
+%\newcommand{\mystrut}{\rule[10pt]{10pt}{20pt}}
+\newcommand{\mystrut}{\rule[1\dp\strutbox]{0pt}{\baselineskip}}
+\newcommand{\mysup}[1]{\scaleto{\rule[2.9\dp\strutbox]{0pt}{-1\baselineskip}^{#1}}{12pt}}
+\newcommand{\mysub}[1]{\scaleto{\rule[-1.5\dp\strutbox]{-2.5pt}{-1\baselineskip}_{#1}}{5pt}}
+
+\doublespacing
+\pagenumbering{gobble}
+\begin{document}
+	
+	%\begin{table}[h!]
+	\setlength\arrayrulewidth{1.2pt}
+	\def\arraystretch{1.8}
+	\begin{tabular}{|c|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{1.3cm}|c|@{}m{0pt}@{}}\hline 
+		& & & & \\ [-10ex]
+		{\bm{$q$}-\textbf{Metric}} & {\textbf{Data}} & {\textbf{Stat}} & {\textbf{Formula}} (\textbf{Eq.} \bm{$\#$}) & \\ [0ex] \hline
+		\multirow{4}{*}{\vspace{-0.6cm} \begin{tabular}{c} standard \\ [-5ex] (\bm{$L_1$}) \end{tabular}} & \multirow{2}{*}{\vspace{-0.5cm} $\mathcal{N}(0,1)$} & mean & {\begin{tabular}{cc} & \\ [-10ex]
+				{\Large \hspace{0.9cm} $\frac{2p}{\sqrt{\pi}}$} & ({\small \textbf{38}})\end{tabular}} & \\ [1.5ex] \cline{3-4}
+		& & variance & {\begin{tabular}{cc} & \\ [-10ex]
+				{\Large \hspace{1cm} $\frac{2(\pi-2)p}{\pi}$} & ({\small \textbf{38}})\end{tabular}} & \\ [1.5ex] \cline{2-4}
+		& \multirow{2}{*}{\vspace{-0.5cm} $\mathcal{U}(0,1)$} & mean & {\begin{tabular}{cc} & \\ [-10ex]
+				{\Large \hspace{0.92cm} $\frac{p}{3}$} & ({\small \textbf{48}})\end{tabular}} & \\ [1.5ex] \cline{3-4}
+		& & variance & {\begin{tabular}{cc} & \\ [-10ex]
+				{\Large \hspace{0.92cm} $\frac{p}{18}$} & ({\small \textbf{48}})\end{tabular}} & \\ [1.5ex] \cline{1-4}
+		\multirow{4}{*}{\vspace{-0.6cm} {\begin{tabular}{c} standard \\ [-5ex] (\bm{$L_2$})\end{tabular}}} & \multirow{2}{*}{\vspace{-0.5cm} $\mathcal{N}(0,1)$} & mean & 
+		{\begin{tabular}{cc} & \\ [-10ex]
+				\hspace{0.9cm} $\sqrt{2p - 1}$ & ({\small \textbf{38}})\end{tabular}} & \\ [1.5ex] \cline{3-4}
+		& & variance &
+		{\begin{tabular}{cc} & \\ [-10ex]
+				\hspace{0.95cm} $1$ & ({\small \textbf{38}})\end{tabular}} & \\ [1.5ex] \cline{2-4}
+		& \multirow{2}{*}{\vspace{-0.5cm} $\mathcal{U}(0,1)$} & mean &
+		{\begin{tabular}{cc} & \\ [-10ex]
+				{\Large \hspace{0.8cm} $\sqrt{\frac{p}{6} - \frac{7}{120}}$} & ({\small \textbf{48}})\end{tabular}} & \\ [1.5ex] \cline{3-4}
+		& & variance & 
+		{\begin{tabular}{cc} & \\ [-10ex]
+				{\Large \hspace{0.87cm} $\frac{7}{120}$} & ({\small \textbf{48}})\end{tabular}} & \\ [1.5ex] \hline
+	\end{tabular}
+	%\end{table}
+	
+\end{document}

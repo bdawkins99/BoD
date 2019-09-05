@@ -1,13 +1,6 @@
  \newcommand{\noop}[1]{}
 \begin{thebibliography}{1}
 
-\bibitem{urbanowicz17}
-Ryan~J. Urbanowicz, Randal~S. Olson, Peter Schmitt, Melissa Meeker, and
-  Jason~H. Moore.
-\newblock Benchmarking relief-based feature selection methods for
-  bioinformatics data mining.
-\newblock {\em Journal of Biomedical Informatics}, 85:168--188, 2018.
-
 \bibitem{allStats}
 Larry {W}asserman.
 \newblock {\em All of {S}tatistics: {A} {C}oncise {C}ourse in {S}tatistical
