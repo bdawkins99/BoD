@@ -737,9 +737,9 @@ A distribution $\mathcal{F}_X$ is said to be \textbf{degenerate} if its density 
 \end{definition}
 %
 \begin{theorem}[Fisher-Tippett-Gnedenko]\label{thm:EVT}
-Let $X_{1a},X_{2a},\dots,X_{ma} \overset{iid}{\sim} \mathcal{F}_X\left(\mu_x,\sigma^2_x\right)$ and let $X^\alpha_a = \displaystyle \max_{k \in \mathcal{I}}\{X_{ka}\}$. If there exists two non-random sequences $b_m>0$ and $c_m$ such that
+Let $X_{1a},X_{2a},\dots,X_{ma} \overset{iid}{\sim} \mathcal{F}_X\left(\mu_x,\sigma^2_x\right)$ and let $X^\text{max}_a = \displaystyle \max_{k \in \mathcal{I}}\{X_{ka}\}$. If there exists two non-random sequences $b_m>0$ and $c_m$ such that
 
-\[\lim_{m \to \infty} \text{P}\left(\frac{X^\alpha_a - c_m}{b_m} \leq x\right) = G_X(x),\]
+\[\lim_{m \to \infty} \text{P}\left(\frac{X^\text{max}_a - c_m}{b_m} \leq x\right) = G_X(x),\]
 
 \noindent where $G_X$ is a non-degenerate distribution function, then the limiting distribution $\mathcal{G}_X$ is in the Gumbel, Fr\'{e}chet, or Wiebull family.
 \end{theorem}
@@ -748,7 +748,7 @@ The three distribution families given in Thm. \ref{thm:EVT} are actually special
 %
 \begin{equation}\label{eq:exact_max}
 \begin{aligned}
-\text{P}[X^\alpha_a \leq x] &= \text{P}\left[\max_{k \in \mathcal{I}}\{X_{ka}\} \leq x\right] \\
+\text{P}[X^\text{max}_a \leq x] &= \text{P}\left[\max_{k \in \mathcal{I}}\{X_{ka}\} \leq x\right] \\
 &= \text{P}[X_{1a} \leq x, X_{2a} \leq x, \dots, X_{ma} \leq x] \\
 &= \prod_{k = 1}^{m} \text{P}[X_{ka} \leq x] \\
 &= \prod_{k=1} F_X(x) \\
@@ -772,11 +772,11 @@ f_\text{max}(x) &= \frac{\text{d}}{\text{d}x} F_\text{max}(x) \\
 \end{aligned}
 \end{equation}
 
-The distribution of the sample minimum, $X^\omega_a$, is derived in Eq. \ref{eq:exact_min}.
+The distribution of the sample minimum, $X^\text{min}_a$, is derived in Eq. \ref{eq:exact_min}.
 %
 \begin{equation}\label{eq:exact_min}
 \begin{aligned}
-\text{P}[X^\omega_a \leq x] &= 1 - \text{P}[X^\omega_a \geq x] \\
+\text{P}[X^\text{min}_a \leq x] &= 1 - \text{P}[X^\text{min}_a \geq x] \\
 &= 1 - \text{P}\left[\min_{k \in \mathcal{I}}\{X_{ka}\} \geq x\right] \\
 &= 1 - \text{P}[X_{1a} \geq x, X_{2a} \geq x, \dots, X_{ma} \geq x] \\
 &= 1 - \prod_{k=1}^{m}\text{P}[X_{ka} \geq x] \\
@@ -806,7 +806,7 @@ Given the densities of the distribution of sample maximum and minimum, we can ea
 %
 \begin{equation}\label{eq:mu_max}
 \begin{aligned}
-\mu^{(1)}_\alpha(m) = \text{E}(X^\alpha_a) &= \int_{-\infty}^{\infty}x f_\text{max}(x)\text{d}x \\
+\mu^{(1)}_\text{max}(m) = \text{E}(X^\text{max}_a) &= \int_{-\infty}^{\infty}x f_\text{max}(x)\text{d}x \\
 &= \int_{-\infty}^{\infty}x \left(m [F_X(x)]^{m-1} f_X(x)\right)\text{d}x \\
 &= m \int_{-\infty}^{\infty}x f_X(x) [F_X(x)]^{m-1}\text{d}x
 \end{aligned}
@@ -814,21 +814,21 @@ Given the densities of the distribution of sample maximum and minimum, we can ea
 %
 \begin{equation}\label{eq:mu2_max}
 \begin{aligned}
-\mu^{(2)}_\alpha(m) = \text{E}[(X^\alpha_a)^2] &= \int_{-\infty}^{\infty}x^2 f_\text{max}(x)\text{d}x \\
+\mu^{(2)}_\text{max}(m) = \text{E}[(X^\text{max}_a)^2] &= \int_{-\infty}^{\infty}x^2 f_\text{max}(x)\text{d}x \\
 &= \int_{-\infty}^{\infty}x^2 \left(m [F_X(x)]^{m-1} f_X(x)\right)\text{d}x \\
 &= m \int_{-\infty}^{\infty}x^2 f_X(x) [F_X(x)]^{m-1}\text{d}x
 \end{aligned}
 \end{equation}
 %
 \begin{equation}\label{eq:sig_max}
-\sigma^2_\alpha(m) = \mu^{(2)}_\alpha(m) - \left[\mu^{(1)}_\alpha(m)\right]^2
+\sigma^2_\text{max}(m) = \mu^{(2)}_\text{max}(m) - \left[\mu^{(1)}_\text{max}(m)\right]^2
 \end{equation}
 
 Similarly, we have the first and second moment about the origin and variance of the distribution of sample minimum given by the following.
 %
 \begin{equation}\label{eq:mu_min}
 \begin{aligned}
-\mu^{(1)}_\omega(m) = \text{E}(X^\omega_a) &= \int_{-\infty}^{\infty}x f_\text{min}(x)\text{d}x \\
+\mu^{(1)}_\text{min}(m) = \text{E}(X^\text{min}_a) &= \int_{-\infty}^{\infty}x f_\text{min}(x)\text{d}x \\
 &= \int_{-\infty}^{\infty}x \left(m [F_X(x)]^{m-1} f_X(x)\right)\text{d}x \\
 &= m \int_{-\infty}^{\infty}x f_X(x) [F_X(x)]^{m-1}\text{d}x
 \end{aligned}
@@ -836,37 +836,37 @@ Similarly, we have the first and second moment about the origin and variance of 
 %
 \begin{equation}\label{eq:mu2_min}
 \begin{aligned}
-\mu^{(2)}_\omega(m) = \text{E}[(X^\omega_a)^2] &= \int_{-\infty}^{\infty}x^2 f_\text{min}(x)\text{d}x \\
+\mu^{(2)}_\text{min}(m) = \text{E}[(X^\text{min}_a)^2] &= \int_{-\infty}^{\infty}x^2 f_\text{min}(x)\text{d}x \\
 &= \int_{-\infty}^{\infty}x^2 \left(m [F_X(x)]^{m-1} f_X(x)\right)\text{d}x \\
 &= m \int_{-\infty}^{\infty}x^2 f_X(x) [F_X(x)]^{m-1}\text{d}x
 \end{aligned}
 \end{equation}
 %
 \begin{equation}\label{eq:sig_min}
-\sigma^2_\omega(m) = \mu^{(2)}_\omega(m) - \left[\mu^{(1)}_\omega(m)\right]^2
+\sigma^2_\text{min}(m) = \mu^{(2)}_\text{min}(m) - \left[\mu^{(1)}_\text{min}(m)\right]^2
 \end{equation}
 
 With the densities of attribute maximum and minimum for sample size $m$, the expected range is given by the following.
 %
 \begin{equation}\label{eq:exp_rng}
 \begin{aligned}
-\text{E}(X^\alpha_a - X^\omega_a) &= \text{E}(X^\alpha_a) - \text{E}(X^\omega_a) \\
-&= \mu^{(1)}_\alpha(m) - \mu^{(1)}_\omega(m)
+\text{E}(X^\text{max}_a - X^\text{min}_a) &= \text{E}(X^\text{max}_a) - \text{E}(X^\text{min}_a) \\
+&= \mu^{(1)}_\text{max}(m) - \mu^{(1)}_\text{min}(m)
 \end{aligned}
 \end{equation}
 
 For a data distribution that has zero skewness and has support that is symmetric about 0, the result given by Eq. \ref{eq:exp_rng} can be simplified to the following expression.
 %
 \begin{equation}\label{eq:exp_rng_symm}
-\text{E}(X^\alpha_a - X^\omega_a) = 2 \mu^{(1)}_\alpha(m)
+\text{E}(X^\text{max}_a - X^\text{min}_a) = 2 \mu^{(1)}_\text{max}(m)
 \end{equation}
 
 For large samples ($m >> 1$), the covariance between the sample maximum and minimum is approximately zero \cite{gumbel1947}. Therefore, the variance of the attribute range of a sample of size $m$ is given by the following.
 %
 \begin{equation}\label{eq:var_rng}
 \begin{aligned}
-\text{Var}(X^\alpha_a - X^\omega_a) &\approx \text{Var}(X^\alpha_a) + \text{Var}(X^\omega_a) \\
-&= \sigma^2_\alpha(m) + \sigma^2_\omega(m)
+\text{Var}(X^\text{max}_a - X^\text{min}_a) &\approx \text{Var}(X^\text{max}_a) + \text{Var}(X^\text{min}_a) \\
+&= \sigma^2_\text{max}(m) + \sigma^2_\text{min}(m)
 \end{aligned}
 \end{equation}
 
@@ -874,8 +874,8 @@ Under the assumption of zero skewness and support that is symmetric about 0, the
 %
 \begin{equation}\label{eq:var_rng_symm}
 \begin{aligned}
-\text{Var}(X^\alpha_a - X^\omega_a) &= 2 \text{Var}(X^\alpha_a) \\
-&= 2 \sigma^2_\alpha
+\text{Var}(X^\text{max}_a - X^\text{min}_a) &= 2 \text{Var}(X^\text{max}_a) \\
+&= 2 \sigma^2_\text{max}
 \end{aligned}
 \end{equation}
 
@@ -883,10 +883,10 @@ Let $\mu_{D^{(q)}_{ij}}$ and $\sigma^2_{D^{(q)}_{ij}}$ denote the mean and varia
 %
 \begin{equation}\label{eq:max-min_D_mean}
 \begin{aligned}
-\mu_{D^{(q*)}_{ij}} &= \text{E}\left[\left(\sum_{a \in \mathcal{A}}\left(\frac{|X_{ia} - X_{ja}|}{X^\alpha_a - X^\omega_a}\right)^q\right)^{1/q}\right] \\
-&\approx \frac{1}{\text{E}(X^\alpha_a - X^\omega_a)}\text{E}\left[\left(\sum_{a \in \mathcal{A}}|X_{ia} - X_{ja}|^q\right)^{1/q}\right] \\
-&= \frac{\mu_{D^{(q)}_{ij}}}{\text{E}(X^\alpha_a) - \text{E}(X^\omega_a)} \\
-&= \frac{\mu_{D^{(q)}_{ij}}}{\mu^{(1)}_\alpha - \mu^{(1)}_\omega}
+\mu_{D^{(q*)}_{ij}} &= \text{E}\left[\left(\sum_{a \in \mathcal{A}}\left(\frac{|X_{ia} - X_{ja}|}{X^\text{max}_a - X^\text{min}_a}\right)^q\right)^{1/q}\right] \\
+&\approx \frac{1}{\text{E}(X^\text{max}_a - X^\text{min}_a)}\text{E}\left[\left(\sum_{a \in \mathcal{A}}|X_{ia} - X_{ja}|^q\right)^{1/q}\right] \\
+&= \frac{\mu_{D^{(q)}_{ij}}}{\text{E}(X^\text{max}_a) - \text{E}(X^\text{min}_a)} \\
+&= \frac{\mu_{D^{(q)}_{ij}}}{\mu^{(1)}_\text{max} - \mu^{(1)}_\text{min}}
 \end{aligned}
 \end{equation}
 
@@ -894,41 +894,41 @@ The variance of the max-min normalized distance distribution is given by the fol
 %
 \begin{equation}\label{eq:max-min_D_var}
 \begin{aligned}
-\sigma^2_{D^{(q*)}_{ij}} &= \text{Var}\left[\left(\sum_{a \in \mathcal{A}}\left(\frac{|X_{ia} - X_{ja}|}{X^\alpha_a - X^\omega_a}\right)^q\right)^{1/q}\right] \\
-&= \text{E}\left[\left(\sum_{a \in \mathcal{A}}\left(\frac{|X_{ia} - X_{ja}|}{X^\alpha_a - X^\omega_a}\right)^q\right)^{2/q}\right] - \left(\text{E}\left[\left(\sum_{a \in \mathcal{A}}\left(\frac{|X_{ia} - X_{ja}|}{X^\alpha_a - X^\omega_a}\right)^q\right)^{1/q}\right]\right)^2 \\
-&\approx \frac{\text{E}\left[\left(\displaystyle \sum_{a \in \mathcal{A}}|X_{ia} - X_{ja}|^q\right)^{2/q}\right]}{\text{E}[(X^\alpha_a - X^\omega_a)^2]} - \frac{\left(\text{E}\left[\left(\displaystyle \sum_{a \in \mathcal{A}}|X_{ia} - X_{ja}|^q\right)^{1/q}\right]\right)^2}{\text{E}[(X^\alpha_a - X^\omega_a)^2]} \\
-&= \frac{\sigma^2_{D^{(q)}_{ij}} + \mu^2_{D^{(q)}_{ij}}}{\text{E}[(X^\alpha_a - X^\omega_a)^2]} - \frac{\mu^2_{D^{(q)}_{ij}}}{\text{E}[(X^\alpha_a - X^\omega_a)^2]} \\
-&= \frac{\sigma^2_{D^{(q)}_{ij}}}{\text{E}[(X^\alpha_a - X^\omega_a)^2]} \\
-&= \frac{\sigma^2_{D^{(q)}_{ij}}}{\text{E}[(X^\alpha_a)^2] - 2\text{E}(X^\alpha_a)\text{E}(X^\omega_a) + \text{E}(X^\omega_a)} \\
-&= \frac{\sigma^2_{D^{(q)}_{ij}}}{\mu^{(2)}_\alpha(m) - 2\mu^{(1)}_\alpha(m)\mu^{(1)}_\omega(m) + \mu^{(2)}_\omega(m)}
+\sigma^2_{D^{(q*)}_{ij}} &= \text{Var}\left[\left(\sum_{a \in \mathcal{A}}\left(\frac{|X_{ia} - X_{ja}|}{X^\text{max}_a - X^\text{min}_a}\right)^q\right)^{1/q}\right] \\
+&= \text{E}\left[\left(\sum_{a \in \mathcal{A}}\left(\frac{|X_{ia} - X_{ja}|}{X^\text{max}_a - X^\text{min}_a}\right)^q\right)^{2/q}\right] - \left(\text{E}\left[\left(\sum_{a \in \mathcal{A}}\left(\frac{|X_{ia} - X_{ja}|}{X^\text{max}_a - X^\text{min}_a}\right)^q\right)^{1/q}\right]\right)^2 \\
+&\approx \frac{\text{E}\left[\left(\displaystyle \sum_{a \in \mathcal{A}}|X_{ia} - X_{ja}|^q\right)^{2/q}\right]}{\text{E}[(X^\text{max}_a - X^\text{min}_a)^2]} - \frac{\left(\text{E}\left[\left(\displaystyle \sum_{a \in \mathcal{A}}|X_{ia} - X_{ja}|^q\right)^{1/q}\right]\right)^2}{\text{E}[(X^\text{max}_a - X^\text{min}_a)^2]} \\
+&= \frac{\sigma^2_{D^{(q)}_{ij}} + \mu^2_{D^{(q)}_{ij}}}{\text{E}[(X^\text{max}_a - X^\text{min}_a)^2]} - \frac{\mu^2_{D^{(q)}_{ij}}}{\text{E}[(X^\text{max}_a - X^\text{min}_a)^2]} \\
+&= \frac{\sigma^2_{D^{(q)}_{ij}}}{\text{E}[(X^\text{max}_a - X^\text{min}_a)^2]} \\
+&= \frac{\sigma^2_{D^{(q)}_{ij}}}{\text{E}[(X^\text{max}_a)^2] - 2\text{E}(X^\text{max}_a)\text{E}(X^\text{min}_a) + \text{E}(X^\text{min}_a)} \\
+&= \frac{\sigma^2_{D^{(q)}_{ij}}}{\mu^{(2)}_\text{max}(m) - 2\mu^{(1)}_\text{max}(m)\mu^{(1)}_\text{min}(m) + \mu^{(2)}_\text{min}(m)}
 \end{aligned}
 \end{equation}
 
 With the results given by Eqs. \ref{eq:max-min_D_mean} and \ref{eq:max-min_D_var}, we have the following generalized estimate for the asymptotic distribution of the max-min normalized distance distribution.
 %
 \begin{equation}\label{eq:max-min-DDistr-general}
-D^{(q*)}_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{\mu_{D^{(q)}_{ij}}}{\mu^{(1)}_\alpha(m) - \mu^{(1)}_\omega(m)}, \frac{\sigma^2_{D^{(q)}_{ij}}}{\mu^{(2)}_\alpha(m) - 2 \mu^{(1)}_\alpha(m) \mu^{(1)}_\omega(m) + \mu^{(2)}_\omega(m)}\right)
+D^{(q*)}_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{\mu_{D^{(q)}_{ij}}}{\mu^{(1)}_\text{max}(m) - \mu^{(1)}_\text{min}(m)}, \frac{\sigma^2_{D^{(q)}_{ij}}}{\mu^{(2)}_\text{max}(m) - 2 \mu^{(1)}_\text{max}(m) \mu^{(1)}_\text{min}(m) + \mu^{(2)}_\text{min}(m)}\right)
 \end{equation}
 
 For data with zero skewness and support that is symmetric about 0, the expected sample maximum is the additive inverse of the expected sample minimum. This allows us to express the formula given by Eq. \ref{eq:max-min_D_mean} exclusively in terms of the expected maximum. This result is given by the following.
 %
 \begin{equation}\label{eq:max-min_D_mean_symm}
-\mu_{D^{(q*)}_{ij}} \approx \frac{\mu_{D^{(q)}_{ij}}}{2\mu^{(1)}_\alpha(m)}
+\mu_{D^{(q*)}_{ij}} \approx \frac{\mu_{D^{(q)}_{ij}}}{2\mu^{(1)}_\text{max}(m)}
 \end{equation}
 
 A similar substitution gives us the following expression for the variance of the max-min normalized distance distribution.
 %
 \begin{equation}\label{eq:max-min_D_var_symm}
 \begin{aligned}
-\sigma^2_{D^{(q*)}_{ij}} &\approx \frac{\sigma^2_{D^{(q)}_{ij}}}{2\mu^{(2)}_\alpha(m) + 2\left[\mu^{(1)}_\alpha(m)\right]^2} \\
-&= \frac{\sigma^2_{D^{(q)}_{ij}}}{2\left(\sigma^2_\alpha(m) + \left[\mu^{(1)}_\alpha(m)\right]^2\right)}
+\sigma^2_{D^{(q*)}_{ij}} &\approx \frac{\sigma^2_{D^{(q)}_{ij}}}{2\mu^{(2)}_\text{max}(m) + 2\left[\mu^{(1)}_\text{max}(m)\right]^2} \\
+&= \frac{\sigma^2_{D^{(q)}_{ij}}}{2\left(\sigma^2_\text{max}(m) + \left[\mu^{(1)}_\text{max}(m)\right]^2\right)}
 \end{aligned}
 \end{equation}
 
 Therefore, the asymptotic distribution of the max-min normalized distance distribution is given by the following.
 %
 \begin{equation}\label{eq:max-min_DDistr}
-D^{(q*)}_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{\mu_{D^{(q)}_{ij}}}{2\mu^{(1)}_\alpha(m)}, \frac{\sigma^2_{D^{(q)}_{ij}}}{2\left(\sigma^2_\alpha(m) + \left[\mu^{(1)}_\alpha(m)\right]^2\right)}\right)
+D^{(q*)}_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{\mu_{D^{(q)}_{ij}}}{2\mu^{(1)}_\text{max}(m)}, \frac{\sigma^2_{D^{(q)}_{ij}}}{2\left(\sigma^2_\text{max}(m) + \left[\mu^{(1)}_\text{max}(m)\right]^2\right)}\right)
 \end{equation}
 
 \subsubsection{Standard Normal Data}
@@ -962,12 +962,12 @@ Using the result given by Eq. \ref{eq:approx_log_expand}, we have the following.
 %
 \begin{equation}\label{eq:prob_normal_max}
 \begin{aligned}
-\text{P}\left(\frac{X^\alpha_a - c_m}{b_m} \leq x\right) &= \text{P}(X^\alpha_a \leq c_m + b_m x) \\
+\text{P}\left(\frac{X^\text{max}_a - c_m}{b_m} \leq x\right) &= \text{P}(X^\text{max}_a \leq c_m + b_m x) \\
 &= \Phi^m(c_m + b_m x) \\
 &\approx \left(1 - \frac{1}{m}e^{-x + \mathcal{O}(b^2_m x^2)}\right)^m \\
 &= \left(1 - \frac{1}{m}e^{-x + \mathcal{O}\left(\frac{1}{c^2_m} x^2\right)}\right)^m \\
 &\approx \left(1 - \frac{1}{m}e^{-x}\right)^m \\
-\Rightarrow \lim_{m \to \infty} \text{P}\left(\frac{X^\alpha_a - c_m}{b_m} \leq x\right) &= \lim_{m \to \infty} \left(1 - \frac{1}{m}e^{-x}\right)^m \\
+\Rightarrow \lim_{m \to \infty} \text{P}\left(\frac{X^\text{max}_a - c_m}{b_m} \leq x\right) &= \lim_{m \to \infty} \left(1 - \frac{1}{m}e^{-x}\right)^m \\
 &= e^{-e^{-x}}
 \end{aligned}
 \end{equation}
@@ -975,26 +975,26 @@ Using the result given by Eq. \ref{eq:approx_log_expand}, we have the following.
 The right-hand side of Eq. \ref{eq:prob_normal_max} is the cumulative distribution function of the standard Gumbel distribution. The mean of the asymptotic distribution is given by the following.
 %
 \begin{equation}\label{eq:mu_max_normal}
-\text{E}(X^\alpha_a) = \mu^{(1)}_\alpha = -\Phi^{-1} \left(\frac{1}{m}\right) - \frac{\gamma}{\Phi^{-1}\left(\frac{1}{m}\right)}
+\text{E}(X^\text{max}_a) = \mu^{(1)}_\text{max} = -\Phi^{-1} \left(\frac{1}{m}\right) - \frac{\gamma}{\Phi^{-1}\left(\frac{1}{m}\right)}
 \end{equation}
 
 \noindent where $\gamma$ is the Euler-Mascheroni constant. The median of this distribution is given by the following.
 %
 \begin{equation}\label{eq:med_max_normal}
-\overset{\sim}{\mu}_\alpha = \frac{\text{log}(\text{log}(2))}{\Phi^{-1}\left(\frac{1}{m}\right)} - \Phi^{-1}\left(\frac{1}{m}\right)
+\overset{\sim}{\mu}_\text{max} = \frac{\text{log}(\text{log}(2))}{\Phi^{-1}\left(\frac{1}{m}\right)} - \Phi^{-1}\left(\frac{1}{m}\right)
 \end{equation}
 
 Finally, the variance of the asymptotic distribution of the sample maximum is given by the following.
 %
 \begin{equation}\label{eq:var_max_normal}
-\text{Var}(X^\alpha_a) = \frac{\pi^2}{6}\left(\frac{1}{-\Phi^{-1}\left(\frac{1}{m}\right)}\right)^2
+\text{Var}(X^\text{max}_a) = \frac{\pi^2}{6}\left(\frac{1}{-\Phi^{-1}\left(\frac{1}{m}\right)}\right)^2
 \end{equation}
 
 For typical sample sizes $m$ in high-dimensional spaces, the variance estimate given by Eq. \ref{eq:var_max_normal} exceeds the variance of the sample maximum significantly. Using the fact that $-\Phi^{-1}\left(\frac{1}{m}\right) \overset{.}{\sim} \sqrt{2 \text{log}(m)}$ \cite{cramer1999} and $\frac{1}{2 \text{log}(m)} \leq \left(\frac{1}{-\Phi^{-1}\left(\frac{1}{m}\right)}\right)^2$ for $m \geq 2$, we can get a more accurate approximation of the variance with the following.
 %
 \begin{equation}\label{eq:var_max_normal_improved}
 \begin{aligned}
-\sigma^2_\alpha(m) = \text{Var}(X^\alpha_a) &\approx \frac{\pi^2}{6}\left(\frac{1}{\sqrt{2\text{log}(m)}}\right)^2 \\
+\sigma^2_\text{max}(m) = \text{Var}(X^\text{max}_a) &\approx \frac{\pi^2}{6}\left(\frac{1}{\sqrt{2\text{log}(m)}}\right)^2 \\
 &= \frac{\pi^2}{12\text{log}(m)}
 \end{aligned}
 \end{equation}
@@ -1002,16 +1002,16 @@ For typical sample sizes $m$ in high-dimensional spaces, the variance estimate g
 Then the mean of the range of $m$ iid standard normal random variables are given by the following.
 %
 \begin{equation}\label{eq:mu_rng_normal}
-\text{E}(X^\alpha_a - X^\omega_a) = 2\mu^{(1)}_\alpha(m) = 2\left[-\Phi^{-1} \left(\frac{1}{m}\right) - \frac{\gamma}{\Phi^{-1}\left(\frac{1}{m}\right)}\right]
+\text{E}(X^\text{max}_a - X^\text{min}_a) = 2\mu^{(1)}_\text{max}(m) = 2\left[-\Phi^{-1} \left(\frac{1}{m}\right) - \frac{\gamma}{\Phi^{-1}\left(\frac{1}{m}\right)}\right]
 \end{equation}
 
 It is well known that the sample extremes from the standard normal distribution are approximately uncorrelated for large sample size $m$ \cite{gumbel1947}. This implies that we can approximate the variance of the range of $m$ iid standard normal random variables with the following result.
 %
 \begin{equation}\label{eq:var_rng_normal}
 \begin{aligned}
-\text{Var}(X^\alpha_a - X^\omega_a) &\approx \text{Var}(X^\alpha_a) + \text{Var}(X^\omega_a) \\
-&= \sigma^2_\alpha(m) + \sigma^2_\omega(m) \\
-&= 2\sigma^2_\alpha(m) \\
+\text{Var}(X^\text{max}_a - X^\text{min}_a) &\approx \text{Var}(X^\text{max}_a) + \text{Var}(X^\text{min}_a) \\
+&= \sigma^2_\text{max}(m) + \sigma^2_\text{min}(m) \\
+&= 2\sigma^2_\text{max}(m) \\
 &\approx 2\left(\frac{\pi^2}{2\text{log}(m)}\right) \\
 &= \frac{\pi^2}{6\text{log}(m)}
 \end{aligned}
@@ -1020,13 +1020,13 @@ It is well known that the sample extremes from the standard normal distribution 
 For the purpose of approximating the mean and variance of the max-min normalized distance distribution, the formula for the median of the distribution of the attribute maximum yields more accurate results. That is, the approximation of the expected maximum given by Eq. \ref{eq:mu_max_normal} overestimates the sample maximum. The formula for the median of the sample maximum, given by Eq. \ref{eq:med_max_normal}, provides a more accurate estimate of this sample extreme. Therefore, the following estimate for the mean of the attribute range will be used instead.
 %
 \begin{equation}\label{eq:mu_rng_normal_improved}
-\text{E}(X^\alpha_a - X^\omega_a) = 2\mu^{(1)}_\alpha(m) \approx 2\left[\frac{\text{log}(\text{log}(2))}{\Phi^{-1}\left(\frac{1}{m}\right)} - \Phi^{-1}\left(\frac{1}{m}\right)\right]
+\text{E}(X^\text{max}_a - X^\text{min}_a) = 2\mu^{(1)}_\text{max}(m) \approx 2\left[\frac{\text{log}(\text{log}(2))}{\Phi^{-1}\left(\frac{1}{m}\right)} - \Phi^{-1}\left(\frac{1}{m}\right)\right]
 \end{equation}
 
   We have already determined that $\mu_{D^{(q)}_{ij}}$ and $\sigma^2_{D^{(q)}_{ij}}$ are given by Eq. \ref{eq:normalDistr}. Using the results given by Eqs. \ref{eq:mu_rng_normal_improved} and \ref{eq:var_rng_normal} and the general formulas for the mean and variance of the max-min normalized distance distribution given in Eq. \ref{eq:max-min_DDistr}, this leads us to the following asymptotic estimate for the distribution of the max-min normalized distances for standard normal data.
 %
 \begin{equation}\label{eq:max-min_DDistr_normal}
-D^{(q*)}_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{\mu_{D^{(q)}_{ij}}}{2\mu^{(1)}_\alpha(m)}, \frac{6 \text{log}(m) \sigma^2_{D^{(q)}_{ij}}}{\pi^2 + 24 \left[\mu^{(1)}_\alpha(m)\right]^2 \text{log}(m)}\right)
+D^{(q*)}_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{\mu_{D^{(q)}_{ij}}}{2\mu^{(1)}_\text{max}(m)}, \frac{6 \text{log}(m) \sigma^2_{D^{(q)}_{ij}}}{\pi^2 + 24 \left[\mu^{(1)}_\text{max}(m)\right]^2 \text{log}(m)}\right)
 \end{equation}
 
 \subsubsection{Standard Uniform Data}
@@ -1055,7 +1055,7 @@ Then the expected maximum and minimum are computed through straightforward integ
 %
 \begin{equation}\label{eq:mu_max_uniform}
 \begin{aligned}
-\text{E}(X^\alpha_a) = \mu^{(1)}_\alpha(m) &= \int_{0}^{1} x f_\text{max}(x) \text{d}x \\
+\text{E}(X^\text{max}_a) = \mu^{(1)}_\text{max}(m) &= \int_{0}^{1} x f_\text{max}(x) \text{d}x \\
 &= \int_{0}^{1} x [m x^{m-1}] \text{d}x \\
 &= \frac{m}{m+1}
 \end{aligned}
@@ -1063,7 +1063,7 @@ Then the expected maximum and minimum are computed through straightforward integ
 %
 \begin{equation}\label{eq:mu_min_uniform}
 \begin{aligned}
-\text{E}(X^\omega_a) = \mu^{(1)}_\omega(m) &= \int_{0}^{1} x f_\text{min}(x) \text{d}x \\
+\text{E}(X^\text{min}_a) = \mu^{(1)}_\text{min}(m) &= \int_{0}^{1} x f_\text{min}(x) \text{d}x \\
 &= \int_{0}^{1} x [m (1 - x)^{m-1}] \text{d}x \\
 &= \frac{1}{m+1}
 \end{aligned}
@@ -1073,9 +1073,9 @@ We can compute the second moment about the origin of the sample range as follows
 %
 \begin{equation}\label{eq:mu2_rng_uniform}
 \begin{aligned}
-\text{E}[(X^\alpha_a - X^\omega_a)^2] &= \text{E}[(X^\alpha_a)^2 - 2 X^\alpha_a X^\omega_a + (X^\omega_a)^2] \\
-&= \text{E}[(X^\alpha_a)^2] - 2 \text{E}(X^\alpha_a) \text{E}(X^\omega_a) + \text{E}[(X^\omega_a)^2] \\
-&= \mu^{(2)}_\alpha(m) - 2 \mu^{(1)}_\alpha(m) \mu^{(1)}_\omega(m) + \mu^{(2)}_\omega(m) \\
+\text{E}[(X^\text{max}_a - X^\text{min}_a)^2] &= \text{E}[(X^\text{max}_a)^2 - 2 X^\text{max}_a X^\text{min}_a + (X^\text{min}_a)^2] \\
+&= \text{E}[(X^\text{max}_a)^2] - 2 \text{E}(X^\text{max}_a) \text{E}(X^\text{min}_a) + \text{E}[(X^\text{min}_a)^2] \\
+&= \mu^{(2)}_\text{max}(m) - 2 \mu^{(1)}_\text{max}(m) \mu^{(1)}_\text{min}(m) + \mu^{(2)}_\text{min}(m) \\
 &= \int_{0}^{1} x^2 [m x^{m-1}] \text{d}x - 2 \left(\frac{m}{m+1}\right) \left(\frac{1}{m+1}\right) + \int_{0}^{1} x^2 [m (1 - x)^{m-1}] \text{d}x \\
 &= \frac{m}{m+2} - \frac{2m}{(m+1)^2} + \frac{2}{(m+1)(m+2)} \\
 &= \frac{m^3 - m + 2}{(m+2)(m+1)^2}
@@ -1086,6 +1086,98 @@ Using the general formulas given in Eq. \ref{eq:max-min-DDistr-general} and the 
 %
 \begin{equation}\label{eq:max-min_DDistr_uniform}
 D^{(q*)}_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{(m+1)\mu_{D^{(q)}_{ij}}}{m-1}, \frac{(m+2)(m+1)^2 \sigma^2_{D^{(q)}_{ij}}}{m^3 - m + 2}\right)
+\end{equation}
+
+\subsection{Normalized Manhattan \texorpdfstring{($q=1$)}{}}
+
+Using the general asymptotic results for mean and variance given by Eqs.~\ref{eq:max-min_DDistr_normal} and \ref{eq:max-min_DDistr_uniform} for any value of $q \in \mathbb{N}$, we can substitute a particular value of $q$ in order to determine a more specified asymptotic distance distribution for $D^{(q*)}_{ij}$. The following results are for the max-min normalized Manhattan ($q = 1$) metric for both standard normal and standard uniform data.
+
+\subsubsection{Standard normal data}
+
+Substituting $q=1$ into Eq.~\ref{eq:max-min_DDistr_normal}, we have the following for standard normal data
+%
+\begin{equation}\label{eq:max-min_manhattan_normal_mean}
+\begin{aligned}
+\text{E}\left(D^{(1*)}_{ij}\right) &= \frac{\mu_{D^{(1)}_{ij}}}{2\mu^{(1)}_\text{max}(m)} \\
+&= \frac{p}{\sqrt{\pi}\mu^{(1)}_\text{max}(m)},
+\end{aligned}
+\end{equation}
+where $\mu^{(1)}_\text{max}(m)$ is given by Eq.~\ref{eq:med_max_normal}.
+
+Similarly, the variance of $D^{(1*)}_{ij}$ is given by
+%
+\begin{equation}\label{eq:max-min_manhattan_normal_var}
+\begin{aligned}
+\text{Var}\left(D^{(1*)}_{ij}\right) &= \frac{6\text{log}(m)\sigma^2_{D^{(1)}_{ij}}}{\pi^2 + 24\left[\mu^{(1)}_\text{max}\right]^2\text{log}(m)} \\
+&= \frac{12p(\pi-2)\text{log}(m)}{\pi\left(\pi^2 + 24\left[\mu^{(1)}_\text{max}\right]^2\text{log}(m)\right)},
+\end{aligned}
+\end{equation}
+where $\mu^{(1)}_\text{max}(m)$ is given by Eq.~\ref{eq:med_max_normal}.
+
+\subsubsection{Standard uniform data}
+
+Substituting $q=1$ into Eq.~\ref{eq:max-min_DDistr_uniform}, we have the following for standard uniform data
+%
+\begin{equation}
+\begin{aligned}
+\text{E}\left(D^{(1*)}_{ij}\right) &= \frac{(m+1)\mu_{D^{(1)}_{ij}}}{m-1} \\
+&= \frac{(m+1)p}{3(m-1)}.
+\end{aligned}
+\end{equation}
+
+Similarly, the variance of $D^{(1*)}_{ij}$ is given by
+%
+\begin{equation}
+\begin{aligned}
+\text{Var}\left(D^{(1*)}_{ij}\right) &= \frac{(m+2)(m+1)^2\sigma^2_{D^{(1)}_{ij}}}{m^3-m+2} \\
+&= \frac{(m+2)(m+1)^2p}{18(m^3 - m + 2)}.
+\end{aligned}
+\end{equation}
+
+\subsection{Normalized Euclidean \texorpdfstring{($q=2$)}{}}
+
+Analogous to the previous section, we demonstrate the usage of Eqs.~\ref{eq:max-min_DDistr_normal} and \ref{eq:max-min_DDistr_uniform} for the max-min normalized Euclidean ($q=2$) metric for both standard normal and standard uniform dtaa.
+
+\subsubsection{Standard normal data}
+
+Substituting $q=2$ into Eq.~\ref{eq:max-min_DDistr_normal}, we have the following for standard normal data
+%
+\begin{equation}
+\begin{aligned}
+\text{E}\left(D^{(2*)}_{ij}\right) &= \frac{\mu^{D^{(2)}_{ij}}}{2\mu^{(1)}_\text{max}(m)} \\
+&= \frac{\sqrt{2p - 1}}{2\mu^{(1)}_\text{max}(m)},
+\end{aligned}
+\end{equation}
+where $\mu^{(1)}_\text{max}(m)$ is given by Eq.~\ref{eq:med_max_normal}.
+
+Similarly, the variance of $D^{(2*)}_{ij}$ is given by
+%
+\begin{equation}
+\begin{aligned}
+\text{Var}\left(D^{(2*)}_{ij}\right) &= \frac{6\text{log}(m)\sigma^2_{D^{(2)}_{ij}}}{\pi^2 + 24\left[\mu^{(1)}_\text{max}(m)\right]^2\text{log}(m)} \\
+&= \frac{6\text{log}(m)}{\pi^2 + 24\left[\mu^{(1)}_\text{max}(m)\right]^2\text{log}(m)},
+\end{aligned}
+\end{equation}
+where $\mu^{(1)}_\text{max}(m)$ is given by Eq.~\ref{eq:med_max_normal}.
+
+\subsubsection{Standard uniform data}
+
+Substituting $q=2$ into Eq.~\ref{eq:max-min_DDistr_uniform}, we have the following for standard uniform data
+%
+\begin{equation}
+\begin{aligned}
+\text{E}\left(D^{(2*)}_{ij}\right) &= \frac{(m+1)\mu_{D^{(2)}_{ij}}}{m-1} \\
+&= \sqrt{\frac{p}{6} - \frac{7}{120}}\left(\frac{m+1}{m-1}\right).
+\end{aligned}
+\end{equation}
+
+Similarly, the variance of $D^{(2*)}_{ij}$ is given by
+%
+\begin{equation}
+\begin{aligned}
+\text{Var}\left(D^{(2*)}_{ij}\right) &= \frac{(m+2)(m+1)^2\sigma^2_{D^{(2)}_{ij}}}{m^3 - m + 2} \\
+&= \frac{7(m+2)(m+1)^2}{120(m^3 - m + 2)}.
+\end{aligned}
 \end{equation}
 
 \subsection{GWAS Distance Distributions}
@@ -1492,32 +1584,54 @@ Therefore, the variance of the rs-fMRI distances is approximated well by the fol
 With the mean and variance estimates given by Eqs. \ref{eq:mu_DDistr_rs-fMRI} and \ref{eq:var_DDistr_rs-fMRI2}, we have the following asymptotic distribution for rs-fMRI distances.
 %
 \begin{equation}\label{eq:DDistr_rs-fMRI}
-D_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{2p(p-1)}{\sqrt{\pi}}, \frac{9p(\pi - 2)(p-1)}{4\pi}\right)
+D^{(1)}_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{2p(p-1)}{\sqrt{\pi}}, \frac{9p(\pi - 2)(p-1)}{4\pi}\right)
 \end{equation}
 
 Consider the max-min normalized rs-fMRI distance given by the following equation.
 %
 \begin{equation}\label{eq:max-min_diff_rs-fMRI}
-D^*_{ij} = \sum_{a \in \mathcal{A}} \sum_{k \neq a} \frac{\bigl|A^{(i)}_{ak} - A^{(j)}_{ak}\bigr|}{\max(a) - \min(a)}
+D^{1*}_{ij} = \sum_{a \in \mathcal{A}} \sum_{k \neq a} \frac{\bigl|A^{(i)}_{ak} - A^{(j)}_{ak}\bigr|}{\max(a) - \min(a)}
 \end{equation}
 
 Assuming that the data $X$ has been r-to-z transformed and standardized, we can easily compute the expected attribute range and variance of the attribute range. The expected maximum of a given attribute in data matrix $X$ is estimated by the following.
 %
 \begin{equation}\label{eq:mean_max_rs-fMRI}
-\text{E}\left(X^\alpha_a - X^\omega_a\right) = 2\mu^{(1)}_\alpha(m,p) = 2 \left[\frac{\text{log}(\text{log}(2))}{\Phi^{-1}\left(\frac{1}{m(p-1)}\right)} - \Phi^{-1}\left(\frac{1}{m(p-1)}\right)\right]
+\text{E}\left(X^\text{max}_a - X^\text{min}_a\right) = 2\mu^{(1)}_\text{max}(m,p) = 2 \left[\frac{\text{log}(\text{log}(2))}{\Phi^{-1}\left(\frac{1}{m(p-1)}\right)} - \Phi^{-1}\left(\frac{1}{m(p-1)}\right)\right]
 \end{equation}
 
 The variance can be esimated with the following.
 %
 \begin{equation}\label{eq:var_max_rs-fMRI}
-\text{Var}\left(X^\alpha_a - X^\omega_a\right) = \frac{\pi^2}{6\text{log}[m(p-1)]}
+\text{Var}\left(X^\text{max}_a - X^\text{min}_a\right) = \frac{\pi^2}{6\text{log}[m(p-1)]}
 \end{equation}
 
 Let $\mu_{D_{ij}}$ and $\sigma^2_{D_{ij}}$ denote the mean and variance of the rs-fMRI distance distribution given by Eqs. \ref{eq:mu_DDistr_rs-fMRI} and \ref{eq:var_DDistr_rs-fMRI2}. Using the formulas for the mean and variance of the max-min normalized distance distribution given in Eq. \ref{eq:max-min_DDistr_normal}, we have the following asymptotic distribution for the max-min normalized rs-fMRI distances.
 %
 \begin{equation}\label{eq:max-min_DDistr_normal_rs-fMRI}
-D^*_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{\mu_{D_{ij}}}{2\mu^{(1)}_\alpha(m,p)}, \frac{6\sigma^2_{D_{ij}}\text{log}[m(p-1)]}{\pi^2 + 24\left[\mu^{(1)}_\alpha(m,p)\right]^2\text{log}[m(p-1)]}\right)
+D^{1*}_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{\mu_{D^{(1)}_{ij}}}{2\mu^{(1)}_\text{max}(m,p)}, \frac{6\sigma^2_{D^{(1)}_{ij}}\text{log}[m(p-1)]}{\pi^2 + 24\left[\mu^{(1)}_\text{max}(m,p)\right]^2\text{log}[m(p-1)]}\right)
 \end{equation}
+
+\subsection{Normalized Manhattan \texorpdfstring{($q=1$)}{} for rs-fMRI}
+
+Substituting the non-normalized mean given by Eq.~\ref{eq:mu_DDistr_rs-fMRI} into Eq.~\ref{eq:max-min_DDistr_normal_rs-fMRI} for the mean of the max-min normalized rs-fMRI metric, we have the following
+%
+\begin{equation}
+\begin{aligned}
+\text{E}\left(D^{(1*)}_{ij}\right) &= \frac{\mu_{D^{(1)}_{ij}}}{2\mu^{(1)}_\text{max}(m,p)} \\
+&= \frac{p(p-1)}{\sqrt{\pi}\mu^{(1)}_\text{max}(m,p)},
+\end{aligned}
+\end{equation}
+where $\mu^{(1)}_\text{max}(m,p)$ is given in Eq.~\ref{eq:mean_max_rs-fMRI}.
+
+Similarly, the variance of $D^{(1*)}_{ij}$ is given by
+%
+\begin{equation}
+\begin{aligned}
+\text{Var}\left(D^{(1*)}_{ij}\right) &= \frac{6\sigma^2_{D^{(1)}_{ij}}\text{log}[m(p-1)]}{\pi^2 + 24\left[\mu^{(1)}_\text{max}(m,p)\right]^2\text{log}[m(p-1)]} \\
+&= \frac{27(\pi-2)\text{log}[m(p-1)](p-1)p}{2\pi\left(\pi^2 + 24\left[\mu^{(1)}_\text{max}(m,p)\right]^2\text{log}[m(p-1)]\right)},
+\end{aligned}
+\end{equation}
+where $mu^{(1)}_\text{max}(m,p)$ is given in Eq.~\ref{eq:mean_max_rs-fMRI}.
 
 % mean/variance tables
 

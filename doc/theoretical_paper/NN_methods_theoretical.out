@@ -13,8 +13,15 @@
 \BOOKMARK [2][-]{subsection.2.4}{Distribution of attribute extremes}{section.2}% 13
 \BOOKMARK [3][-]{subsubsection.2.4.1}{Standard Normal Data}{subsection.2.4}% 14
 \BOOKMARK [3][-]{subsubsection.2.4.2}{Standard Uniform Data}{subsection.2.4}% 15
-\BOOKMARK [2][-]{subsection.2.5}{GWAS Distance Distributions}{section.2}% 16
-\BOOKMARK [3][-]{subsubsection.2.5.1}{GM Distance Distribution}{subsection.2.5}% 17
-\BOOKMARK [3][-]{subsubsection.2.5.2}{AM Distance Distribution}{subsection.2.5}% 18
-\BOOKMARK [3][-]{subsubsection.2.5.3}{TiTv Distance Distribution}{subsection.2.5}% 19
-\BOOKMARK [2][-]{subsection.2.6}{Resting-State fMRI Distance Distribution}{section.2}% 20
+\BOOKMARK [2][-]{subsection.2.5}{Normalized Manhattan }{section.2}% 16
+\BOOKMARK [3][-]{subsubsection.2.5.1}{Standard normal data}{subsection.2.5}% 17
+\BOOKMARK [3][-]{subsubsection.2.5.2}{Standard uniform data}{subsection.2.5}% 18
+\BOOKMARK [2][-]{subsection.2.6}{Normalized Euclidean }{section.2}% 19
+\BOOKMARK [3][-]{subsubsection.2.6.1}{Standard normal data}{subsection.2.6}% 20
+\BOOKMARK [3][-]{subsubsection.2.6.2}{Standard uniform data}{subsection.2.6}% 21
+\BOOKMARK [2][-]{subsection.2.7}{GWAS Distance Distributions}{section.2}% 22
+\BOOKMARK [3][-]{subsubsection.2.7.1}{GM Distance Distribution}{subsection.2.7}% 23
+\BOOKMARK [3][-]{subsubsection.2.7.2}{AM Distance Distribution}{subsection.2.7}% 24
+\BOOKMARK [3][-]{subsubsection.2.7.3}{TiTv Distance Distribution}{subsection.2.7}% 25
+\BOOKMARK [2][-]{subsection.2.8}{Resting-State fMRI Distance Distribution}{section.2}% 26
+\BOOKMARK [2][-]{subsection.2.9}{Normalized Manhattan \040for rs-fMRI}{section.2}% 27
