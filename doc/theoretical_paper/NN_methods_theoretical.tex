@@ -1263,7 +1263,7 @@ Using the moments given by Eqs. \ref{eq:mu_DDistr_GM} and \ref{eq:mu2_DDistr_GM}
 \begin{equation}\label{eq:var_DDistr_GM}
 \begin{aligned}
 \text{Var}(D_{ij}) &= \text{E}\left[(D_{ij})^2\right] - \left[\text{E}(D_{ij})\right]^2 \\
-&= 2\sum_{a \in \mathcal{A}} F(a) + 8\sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} \prod_{\lambda \in \{r,s\}} F(\lambda) - 4\left(\sum_{a \in \mathcal{A}}\right)^2 \\
+&= 2\sum_{a \in \mathcal{A}} F(a) + 8\sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} \prod_{\lambda \in \{r,s\}} F(\lambda) - 4\left(\sum_{a \in \mathcal{A}}F(a)\right)^2 \\
 &= 2\sum_{a \in \mathcal{A}} F(a) - 4\sum_{a \in \mathcal{A}}F^2(a) \\
 &= 2\sum_{a \in \mathcal{A}} F(a)[1 - 2F(a)]
 \end{aligned}
@@ -1322,7 +1322,7 @@ Using the moments given by Eqs. \ref{eq:mu_DDistr_AM} and \ref{eq:mu2_DDistr_AM}
 \begin{equation}\label{eq:var_DDistr_AM}
 \begin{aligned}
 \text{Var}(D_{ij}) &= \text{E}\left[(D_{ij})^2\right] - \left[\text{E}(D_{ij})\right]^2 \\
-&= \sum_{a \in \mathcal{A}} G(a) + 8\sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} \prod_{\lambda \in \{r,s\}} F(\lambda) - 4\left(\sum_{a \in \mathcal{A}}\right)^2 \\
+&= \sum_{a \in \mathcal{A}} G(a) + 8\sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} \prod_{\lambda \in \{r,s\}} F(\lambda) - 4\left(\sum_{a \in \mathcal{A}}F(a)\right)^2 \\
 &= \sum_{a \in \mathcal{A}} G(a) - 4\sum_{a \in \mathcal{A}}F^2(a) \\
 &= \sum_{a \in \mathcal{A}} \left[G(a)- 4F^2(a)\right]
 \end{aligned}
@@ -1338,74 +1338,68 @@ where $G(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a) + 2 (1 - f_a)^2 f^2_a$ and $F(\l
 
 \subsubsection{TiTv Distance Distribution}
 
-The TiTv metric allows for one to account for both genotype mismatch, allele mismatch, transition, and transversion. However, this added dimension of information requires knowledge of the nucleotide makeup at a particular locus. A sufficient conditions to compute the TiTv metric between instances $i$ an $j$ is that we know whether the nucleotides associated with a particular locus $a$ are both purines (PuPu), purine and pyrimidine (PuPy), or both pyrimidines (PyPy). This information is always given in a particular data set. Let $\gamma_0$, $\gamma_1$, and $\gamma_2$ denote the probabilities of PuPu, PuPy, and PyPy, respectively, for the $p$ loci of data matrix $X$. In real data, there are approximately twice as many transitions as there are transversions. Thas is, the probability of a transition $\text{P}(\text{Ti})$ is approximately twice the probability of transversion $\text{P}(\text{Tv})$. In order to enforce this in simulated data, we sample $\gamma_0$, $\gamma_1$, and $\gamma_2$ subject to the following constraints.
+The TiTv metric allows for one to account for both genotype mismatch, allele mismatch, transition, and transversion. However, this added dimension of information requires knowledge of the nucleotide makeup at a particular locus. A sufficient condition to compute the TiTv metric between instances $i$ an $j$ is that we know whether the nucleotides associated with a particular locus $a$ are both purines (PuPu), purine and pyrimidine (PuPy), or both pyrimidines (PyPy). This information is always given in a particular data set. Let $\gamma_0$, $\gamma_1$, and $\gamma_2$ denote the probabilities of PuPu, PuPy, and PyPy, respectively, for the $p$ loci of data matrix $X$. In real data, there are approximately twice as many transitions as there are transversions. That is, the probability of a transition $\text{P}(\text{Ti})$ is approximately twice the probability of transversion $\text{P}(\text{Tv})$. It is likely that any particular data set will not satisfy this criterion exactly. In this general case, we have $\text{P}(\text{Ti})$ being equal to some multiple $\eta$ times $\text{P}(\text{Tv})$. In order to enforce this general constraint in simulated data, we define the following set of equalities
 %
-\begin{alignat}{3}\label{eq:TiTv_constraints1}
-\gamma_0 + \gamma_1 + \gamma_2 &= 1 \\ \label{eq:TiTv_constraints2}
-\text{P}(\text{Ti}) - 2 \text{P}(\text{Tv}) &= 0 \\ \label{eq:TiTv_constraints3}
-1 - \text{P}(\text{Ti}) - \text{P}(\text{Tv}) &= 0
+\begin{alignat}{2}\label{eq:TiTv_constraints1}
+\gamma_0 + \gamma_1 + \gamma_2 &= 1, \\ \label{eq:TiTv_constraints2}
+\text{P}(\text{Ti}) - \eta \text{P}(\text{Tv}) &= 0.
 \end{alignat}
 
-Let $y$ represent a random sample of size $p$ from $\{\text{PuPu}, \text{PuPy}, \text{PyPy}\}$. Let $Y$ be a matrix with the following entries.
-%
-\begin{equation}\label{eq:Ymat}
-Y_{ia} = \begin{cases}
-0 & \text{ if } X_{ia} \text{ is PuPu} \\
-1 & \text{ if } X_{ia} \text{ is PuPy} \\
-2 & \text{ if } X_{ia} \text{ is PyPy}
-\end{cases}
-\end{equation}
-
-Using the PuPu, PuPy, and PyPy encoding given previously, we compute the probability of a transversion occuring at a position $X_{ia}$ as follows.
+Using this PuPu, PuPy, and PyPy encoding, the probability of a transversion occuring at any fixed locus $a$ is given by the following
 %
 \begin{equation}\label{eq:prob_Tv}
 \begin{aligned}
-\text{P}(\text{Tv}) &= \text{P}\left[Y_{ia} = 1, Y_{ja} = 0\right] + \text{P}\left[Y_{ia} = 0, Y_{ja} = 1\right] \\
-&+ \text{P}\left[Y_{ia} = 2, Y_{ja} = 1\right] + \text{P}\left[Y_{ia} = 1, Y_{ja} = 2\right] \\
-&+ \text{P}\left[Y_{ia} = 2, Y_{ja} = 0\right] + \text{P}\left[Y_{ia} = 0, Y_{ja} = 2\right] \\
-&= \gamma_0 \gamma_1 + \gamma_1 \gamma_0 + \gamma_1 \gamma_2 + \gamma_2 \gamma_1 + \gamma_0 \gamma_2 + \gamma_2 \gamma_0 \\
-&= 2(\gamma_0 \gamma_1 + \gamma_1 \gamma_2 + \gamma_0 \gamma_2)
+\text{P}(\text{Tv}) &= \gamma_1.
 \end{aligned}
 \end{equation}
 
-Using the constraint given by Eq. \ref{eq:TiTv_constraints2}, the probability of a transition occuring at a position $X_{ia}$ is computed as follows.
+Using the constraints given by Eqs.~\ref{eq:TiTv_constraints1} and \ref{eq:TiTv_constraints2}, the probability of a transition occuring at locus $a$ is computed as follows
 %
 \begin{equation}\label{eq:prob_Ti}
 \begin{aligned}
-\text{P}(\text{Ti}) &= 1 - \text{P}(\text{Tv}) \\
-&= 1 - 2(\gamma_0 \gamma_1 + \gamma_1 \gamma_2 + \gamma_0 \gamma_2)
+\text{P}(\text{Ti}) &= \gamma_0 + \gamma_2.
 \end{aligned}
 \end{equation}
 
-Based on the constraint given by Eq. \ref{eq:TiTv_constraints3}, it is clear that we have $\text{P}(\text{Tv}) = \frac{1}{3}$. This implies that $\text{P}(\text{Ti}) = \frac{2}{3}$. In order to satisfy the constraint given by Eq. \ref{eq:TiTv_constraints1}, we can sample $\gamma_0$ so that we have the following.
+Also based on the constraints given by Eqs.~\ref{eq:TiTv_constraints1} and \ref{eq:TiTv_constraints2}, it is clear that we have $\text{P}(\text{Tv}) = \frac{1}{\eta + 1}$ and $\text{P}(\text{Ti}) = \frac{\eta}{\eta + 1}$. Without loss of generality, we then sample 
 %
-\begin{equation}\label{eq:gammas}
-\begin{aligned}
-\gamma_2 &= \frac{6(1 - \gamma_0) + 2 \sqrt{9(1 - \gamma_0)^2 - 6(6 \gamma^2_0 - 6 \gamma_0 + 1)}}{12} \\
-\gamma_1 &= 1 - \gamma_0 - \gamma_2 \\
-0 &< \gamma_1 < 1 \\
-0 &< \gamma_2 < 1
-\end{aligned}
+\begin{equation}\label{eq:gamma0}
+\gamma_0 \sim \mathcal{U}\left(\varepsilon,\frac{\eta}{\eta + 1} - \varepsilon\right),
+\end{equation}
+where $\varepsilon$ is some small positive real number.
+
+Then it immediately follows that we have 
+%
+\begin{equation}\label{eq:gamma2}
+\gamma_2 = \frac{\eta}{\eta + 1} - \gamma_0.
 \end{equation}
 
-The first equality given in Eq. \ref{eq:gammas} comes from the fact that we have a known probability $\gamma_0$, which gives two equations in two unknowns ($\gamma_1$ and $\gamma_2$) that come from the constraint given by Eq. \ref{eq:TiTv_constraints1} and the fact that $\text{P}(\text{Tv}) = 2(\gamma_0 \gamma_1 + \gamma_1 \gamma_2 + \gamma_0 \gamma_2) = \frac{1}{3}$. The solution $(\gamma_0,\gamma_1,\gamma_2)$ to the constraint equations \ref{eq:gammas} allows one to simulate a SNP data set that approximately satisfies constraint \ref{eq:TiTv_constraints2}.
+However, we can derive the mean and variance of the distance distribution induced by the TiTv metric without specifying any relationship between $\gamma_0$, $\gamma_1$, and $\gamma_2$. We proceed by computing $\text{P}\left[d^\text{TiTv}_{ij}(a) = k\right]$ for each $k \in \mathcal{D} = \bigl\{0,\frac{1}{4},\frac{1}{2},\frac{3}{4},1\bigr\}$. Let $y$ represent a random sample of size $p$ from $\{0,1,2\}$, where 
+%
+\begin{equation}\label{eq:yvec}
+y_a = \begin{cases}
+0 & \text{if locus } a \text{ is PuPu}, \\
+1 & \text{if locus } a \text{ is PuPy}, \\
+2 & \text{if locus } a \text{ is PyPy}.
+\end{cases}
+\end{equation}
 
-We proceed by computing $\text{P}\left[d^\text{TiTv}_{ij}(a) = k\right]$ for each $k \in \mathcal{D} = \bigl\{0,\frac{1}{4},\frac{1}{2},\frac{3}{4},1\bigr\}$. We derive $\text{P}\left[d^\text{TiTv}_{ij}(a) = 0\right]$ as follows.
+We derive $\text{P}\left[d^\text{TiTv}_{ij}(a) = 0\right]$ as follows
 %
 \begin{equation}\label{eq:prob_TiTv_0}
 \begin{aligned}
 \text{P}\left[d^\text{TiTv}_{ij}(a) = 0\right] &= \text{P}\left[y_a = 0, X_{ia} = X_{ja}\right] \\
 &+ \text{P}\left[y_a = 1, X_{ia} = X_{ja}\right] \\
 &+ \text{P}\left[y_a = 2, X_{ia} = X_{ja}\right] \\
-&= \gamma_0 \left[(1 - f_a)^2 + 2 f_a (1 - f_a) + f^2_a\right] \\
-&+ \gamma_1 \left[(1 - f_a)^2 + 2 f_a (1 - f_a) + f^2_a\right] \\
-&+ \gamma_2 \left[(1 - f_a)^2 + 2 f_a (1 - f_a) + f^2_a\right] \\
-&= (\gamma_0 + \gamma_1 + \gamma_2)\left[(1 - f_a)^2 + 2 f_a (1 - f_a) + f^2_a\right] \\
-&= (1 - f_a)^2 + 2 f_a (1 - f_a) + f^2_a
+&= \gamma_0 \left[(1 - f_a)^2 + 4 f_a (1 - f_a) + f^2_a\right] \\
+&+ \gamma_1 \left[(1 - f_a)^2 + 4 f_a (1 - f_a) + f^2_a\right] \\
+&+ \gamma_2 \left[(1 - f_a)^2 + 4 f_a (1 - f_a) + f^2_a\right] \\
+&= (\gamma_0 + \gamma_1 + \gamma_2)\left[(1 - f_a)^2 + 4 f_a (1 - f_a) + f^2_a\right] \\
+&= (1 - f_a)^2 + 4 f_a (1 - f_a) + f^2_a.
 \end{aligned}
 \end{equation}
 
-We derive $\text{P}\left[d^\text{TiTv}_{ij}(a) = \frac{1}{4}\right]$ as follows.
+We derive $\text{P}\left[d^\text{TiTv}_{ij}(a) = \frac{1}{4}\right]$ as follows
 %
 \begin{equation}\label{eq:prob_TiTv_0.25}
 \begin{aligned}
@@ -1417,54 +1411,54 @@ We derive $\text{P}\left[d^\text{TiTv}_{ij}(a) = \frac{1}{4}\right]$ as follows.
 &+ 4 \gamma_2 f^3_a (1 - f_a) \\
 &= 4 \gamma_0 \left[(1 - f_a)^3 f_a + f^3_a (1 - f_a)\right] \\
 &+ 4 \gamma_2 \left[(1 - f_a)^3 f_a + f^3_a (1 - f_a)\right] \\
-&= 4(\gamma_0 + \gamma_2)\left[(1 - f_a)^3 f_a + f^3_a (1 - f_a)\right]
+&= 4(\gamma_0 + \gamma_2)\left[(1 - f_a)^3 f_a + f^3_a (1 - f_a)\right].
 \end{aligned}
 \end{equation}
 
-We derive $\text{P}\left[d^\text{TiTv}_{ij}(a) = \frac{1}{2}\right]$ as follows.
+We derive $\text{P}\left[d^\text{TiTv}_{ij}(a) = \frac{1}{2}\right]$ as follows
 %
 \begin{equation}\label{eq:prob_TiTv_0.5}
 \begin{aligned}
 \text{P}\left[d^\text{TiTv}_{ij}(a) = \frac{1}{2}\right] &= 2 \text{P}\left[y_a = 1, X_{ia} = 0, X_{ja} = 1\right] \\
 &+ 2 \text{P}\left[y_a = 1, X_{ia} = 1, X_{ja} = 2\right] \\
 &= 4 \gamma_1 (1 - f_a)^3 f_a + 4 \gamma_1 f^3_a (1 - f_a) \\
-&= 4 \gamma_1 \left[(1 - f_a)^3 f_a + f^3_a (1 - f_a)\right]
+&= 4 \gamma_1 \left[(1 - f_a)^3 f_a + f^3_a (1 - f_a)\right].
 \end{aligned}
 \end{equation}
 
-We derive $\text{P}\left[d^\text{TiTv}_{ij}(a) = \frac{3}{4}\right]$ as follows.
+We derive $\text{P}\left[d^\text{TiTv}_{ij}(a) = \frac{3}{4}\right]$ as follows
 %
 \begin{equation}\label{eq:prob_TiTv_0.75}
 \begin{aligned}
 \text{P}\left[d^\text{TiTv}_{ij}(a) = \frac{3}{4}\right] &= 2 \text{P}\left[y_a = 0, X_{ia} = 0, X_{ja} = 2\right] \\
 &+ 2 \text{P}\left[y_a = 2, X_{ia} = 0, X_{ja} = 2\right] \\
 &= 2 \gamma_0 (1 - f_a)^2 f^2_a + 2 \gamma_2 (1 - f_a)^2 f^2_a \\
-&= 2(\gamma_0 + \gamma_2)(1 - f_a)^2 f^2_a
+&= 2(\gamma_0 + \gamma_2)(1 - f_a)^2 f^2_a.
 \end{aligned}
 \end{equation}
 
-We derive $\text{P}\left[d^\text{TiTv}_{ij}(a) = 1\right]$ as follows.
+We derive $\text{P}\left[d^\text{TiTv}_{ij}(a) = 1\right]$ as follows
 %
 \begin{equation}\label{eq:prob_TiTv_1}
 \begin{aligned}
 \text{P}\left[d^\text{TiTv}_{ij}(a) = 1\right] &= 2 \text{P}\left[y_a = 1, X_{ia} = 0, X_{ja} = 2\right] \\
-&= 2 \gamma_1 (1 - f_a)^2 f^2_a
+&= 2 \gamma_1 (1 - f_a)^2 f^2_a.
 \end{aligned}
 \end{equation}
 
-Using Eqs. \ref{eq:prob_TiTv_0} - \ref{eq:prob_TiTv_1}, we compute the expected TiTv distance between instances $i$ and $j$ as follows.
+Using Eqs. \ref{eq:prob_TiTv_0} - \ref{eq:prob_TiTv_1}, we compute the expected TiTv distance between instances $i$ and $j$ as follows
 %
 \begin{equation}\label{eq:mu_DDistr_TiTv}
 \begin{aligned}
 \text{E}(D_{ij}) &= \sum_{a \in \mathcal{A}} \left(\sum_{k \in \mathcal{D}} k \cdot \text{P}\left[d^\text{TiTv}_{ij}(a) = k\right]\right) \\
 &= (\gamma_0 + \gamma_2 + 2\gamma_1) \sum_{a \in \mathcal{A}} \left[(1 - f_a)^3 f_a + f^3_a (1 - f_a)\right] \\
 &+ \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} (1 - f_a)^2 f^2_a \\
-&= (\gamma_0 + \gamma_2 + 2\gamma_1) \sum_{a \in \mathcal{A}} F(a) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G(a)
+&= (\gamma_0 + \gamma_2 + 2\gamma_1) \sum_{a \in \mathcal{A}} F(a) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G(a),
 \end{aligned}
 \end{equation}
 where $F(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a)$ and $G(a) = (1 - f_a)^2 f^2_a$.
 
-The second moment about the origin for the TiTv distance is computed as follows.
+The second moment about the origin for the TiTv distance is computed as follows
 %
 \begin{equation}\label{eq:mu2_DDistr_TiTv}
 \begin{aligned}
@@ -1473,12 +1467,12 @@ The second moment about the origin for the TiTv distance is computed as follows.
 &= \sum_{a \in \mathcal{A}} \left(\sum_{k \in \mathcal{D}} k^2 \cdot \text{P}\left[d^\text{TiTv}_{ij}(a) = k\right]\right) \\
 &+ 2\sum_{a \in \mathcal{A}} \sum_{s \leq r - 1} \left(\sum_{k \in \mathcal{D}} k \cdot \text{P}\left[d^\text{TiTv}_{ij}(r) = k\right]\right) \cdot \left(\sum_{k \in \mathcal{D}} k \cdot \text{P}\left[d^\text{TiTv}_{ij}(s) = k\right]\right) \\
 &= \left[\frac{1}{4}(\gamma_0 + \gamma_2) + \gamma_1\right] \sum_{a \in \mathcal{A}} F(a) + \left[\frac{9}{8}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G(a) \\
-&+ 2 \sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} \prod_{\lambda \in \{r,s\}} \left([\gamma_0 + \gamma_2 + 2\gamma_1] F(\lambda) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] G(\lambda)\right)
+&+ 2 \sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} \prod_{\lambda \in \{r,s\}} \left([\gamma_0 + \gamma_2 + 2\gamma_1] F(\lambda) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] G(\lambda)\right),
 \end{aligned}
 \end{equation}
 where $F(\lambda) = (1 - f_\lambda)^3 f_\lambda + f^3_\lambda (1 - f_\lambda)$ and $G(\lambda) = (1 - f_\lambda)^2 f^2_\lambda$.
 
-Using the moments given by Eqs. \ref{eq:mu_DDistr_TiTv} and \ref{eq:mu2_DDistr_TiTv}, the variance is computed as follows.
+Using the moments given by Eqs. \ref{eq:mu_DDistr_TiTv} and \ref{eq:mu2_DDistr_TiTv}, the variance is computed as follows
 %
 \begin{equation}\label{eq:var_DDistr_TiTv}
 \begin{aligned}
@@ -1487,18 +1481,18 @@ Using the moments given by Eqs. \ref{eq:mu_DDistr_TiTv} and \ref{eq:mu2_DDistr_T
 &+ 2 \sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} \prod_{\lambda \in \{r,s\}} \left([\gamma_0 + \gamma_2 + 2\gamma_1] F(\lambda) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] G(\lambda)\right) \\
 &- \left([\gamma_0 + \gamma_2 + 2\gamma_1] \sum_{a \in \mathcal{A}} F(a) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G(a)\right)^2 \\
 &=\left[\frac{1}{4}(\gamma_0 + \gamma_2) + \gamma_1\right] \sum_{a \in \mathcal{A}} F(a) + \left[\frac{9}{8}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G(a) \\
-&+ \sum_{a \in \mathcal{A}} \left([\gamma_0 + \gamma_2 + 2\gamma_1] F(a) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] G(a)\right)^2
+&- \sum_{a \in \mathcal{A}} \left([\gamma_0 + \gamma_2 + 2\gamma_1] F(a) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] G(a)\right)^2,
 \end{aligned}
 \end{equation}
 where $F(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a)$ and $G(a) = (1 - f_a)^2 f^2_a$.
 
-With the mean and variance estimates given by Eqs. \ref{eq:mu_DDistr_TiTv} and \ref{eq:var_DDistr_TiTv}, the asymptotic TiTv distance distribution is given by the following.
+With the mean and variance estimates given by Eqs. \ref{eq:mu_DDistr_TiTv} and \ref{eq:var_DDistr_TiTv}, the asymptotic TiTv distance distribution is given by the following
 %
 \begin{equation}\label{eq:DDistr_TiTv}
 \begin{aligned}
 D_{ij} \overset{.}{\sim} \mathcal{N}\Biggl(& (\gamma_0 + \gamma_2 + 2\gamma_1) \sum_{a \in \mathcal{A}} F(a) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G(a), \\
 &\left[\frac{1}{4}(\gamma_0 + \gamma_2) + \gamma_1\right] \sum_{a \in \mathcal{A}} F(a) + \left[\frac{9}{8}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G(a) \\
-&+ \sum_{a \in \mathcal{A}} \left([\gamma_0 + \gamma_2 + 2\gamma_1] F(a) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] G(a)\right)^2\Biggr)
+&- \sum_{a \in \mathcal{A}} \left([\gamma_0 + \gamma_2 + 2\gamma_1] F(a) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] G(a)\right)^2\Biggr),
 \end{aligned}
 \end{equation}
 where $F(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a)$ and $G(a) = (1 - f_a)^2 f^2_a$.

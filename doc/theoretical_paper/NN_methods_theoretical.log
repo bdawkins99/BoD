@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  5 SEP 2019 14:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  5 SEP 2019 16:46
 entering extended mode
 **./NN_methods_theoretical.tex
 (NN_methods_theoretical.tex
@@ -1009,63 +1009,64 @@ Overfull \hbox (12.95203pt too wide) detected at line 1083
 [][][]
  []
 
-[21] [22] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32]
-<updated_distributions_table(5-23-2019).pdf, id=609, 481.5611pt x 537.94978pt>
+[21] [22] [23] [24] [25] [26] [27] [28] [29] [30] [31]
+<updated_distributions_table(5-23-2019).pdf, id=596, 481.5611pt x 537.94978pt>
 File: updated_distributions_table(5-23-2019).pdf Graphic file (type pdf)
 <use updated_distributions_table(5-23-2019).pdf>
 Package pdftex.def Info: updated_distributions_table(5-23-2019).pdf  used on in
-put line 1659.
+put line 1653.
 (pdftex.def)             Requested size: 379.4175pt x 429.57426pt.
-<updated_typical_metrics_table.pdf, id=611, 314.27011pt x 374.28532pt>
+ [32]
+<updated_typical_metrics_table.pdf, id=609, 314.27011pt x 374.28532pt>
 File: updated_typical_metrics_table.pdf Graphic file (type pdf)
 <use updated_typical_metrics_table.pdf>
 Package pdftex.def Info: updated_typical_metrics_table.pdf  used on input line 
-1667.
+1661.
 (pdftex.def)             Requested size: 265.59108pt x 323.02809pt.
  [33 <./updated_distributions_table(5-23-2019).pdf>]
-<updated_typical_metrics_table(normalized).pdf, id=687, 376.8248pt x 563.55441p
+<updated_typical_metrics_table(normalized).pdf, id=684, 376.8248pt x 563.55441p
 t>
 File: updated_typical_metrics_table(normalized).pdf Graphic file (type pdf)
 <use updated_typical_metrics_table(normalized).pdf>
 Package pdftex.def Info: updated_typical_metrics_table(normalized).pdf  used on
- input line 1675.
+ input line 1669.
 (pdftex.def)             Requested size: 322.50719pt x 491.13496pt.
  [34 <./updated_typical_metrics_table.pdf>]
-<updated_distributions_table-gwas(5-23-2019).pdf, id=723, 461.41383pt x 483.965
+<updated_distributions_table-gwas(5-23-2019).pdf, id=720, 461.41383pt x 483.965
 1pt>
 File: updated_distributions_table-gwas(5-23-2019).pdf Graphic file (type pdf)
 <use updated_distributions_table-gwas(5-23-2019).pdf>
 Package pdftex.def Info: updated_distributions_table-gwas(5-23-2019).pdf  used 
-on input line 1683.
+on input line 1677.
 (pdftex.def)             Requested size: 379.4175pt x 403.51419pt.
 
 [35 <./updated_typical_metrics_table(normalized).pdf>]
-<updated_distributions_table-rs-fMRI.pdf, id=769, 427.55835pt x 276.36348pt>
+<updated_distributions_table-rs-fMRI.pdf, id=766, 427.55835pt x 276.36348pt>
 File: updated_distributions_table-rs-fMRI.pdf Graphic file (type pdf)
 <use updated_distributions_table-rs-fMRI.pdf>
 Package pdftex.def Info: updated_distributions_table-rs-fMRI.pdf  used on input
- line 1691.
+ line 1685.
 (pdftex.def)             Requested size: 379.4175pt x 248.46384pt.
  [36 <./updated_distributions_table-gwas(5-23-2019).pdf>] (NN_methods_theoretic
 al.bbl)
 
 AED: lastpage setting LastPage
 [37 <./updated_distributions_table-rs-fMRI.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1696.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1696.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1690.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1690.
  (NN_methods_theoretical.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1696.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1696.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1690.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1690.
 
 Package rerunfilecheck Info: File `NN_methods_theoretical.out' has not changed.
 
 (rerunfilecheck)             Checksum: C9AD7347F775AB116D273D3494CC803C;2215.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1696.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1690.
  ) 
 Here is how much of TeX's memory you used:
  21699 strings out of 492946
- 393083 string characters out of 3135528
- 526941 words of memory out of 3000000
+ 393072 string characters out of 3135528
+ 525941 words of memory out of 3000000
  24827 multiletter control sequences out of 15000+200000
  23170 words of font info for 124 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1092,9 +1093,9 @@ ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Fil
 es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fon
 ts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on NN_methods_theoretical.pdf (37 pages, 1175383 bytes).
+Output written on NN_methods_theoretical.pdf (37 pages, 1173817 bytes).
 PDF statistics:
- 952 PDF objects out of 1000 (max. 8388607)
+ 949 PDF objects out of 1000 (max. 8388607)
  234 named destinations out of 1000 (max. 500000)
  17190 words of extra memory for PDF output out of 17280 (max. 10000000)
 
