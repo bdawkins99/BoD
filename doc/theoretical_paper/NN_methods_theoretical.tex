@@ -1338,7 +1338,18 @@ where $G(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a) + 2 (1 - f_a)^2 f^2_a$ and $F(\l
 
 \subsubsection{TiTv Distance Distribution}
 
-The TiTv metric allows for one to account for both genotype mismatch, allele mismatch, transition, and transversion. However, this added dimension of information requires knowledge of the nucleotide makeup at a particular locus. A sufficient condition to compute the TiTv metric between instances $i$ an $j$ is that we know whether the nucleotides associated with a particular locus $a$ are both purines (PuPu), purine and pyrimidine (PuPy), or both pyrimidines (PyPy). This information is always given in a particular data set. Let $\gamma_0$, $\gamma_1$, and $\gamma_2$ denote the probabilities of PuPu, PuPy, and PyPy, respectively, for the $p$ loci of data matrix $X$. In real data, there are approximately twice as many transitions as there are transversions. That is, the probability of a transition $\text{P}(\text{Ti})$ is approximately twice the probability of transversion $\text{P}(\text{Tv})$. It is likely that any particular data set will not satisfy this criterion exactly. In this general case, we have $\text{P}(\text{Ti})$ being equal to some multiple $\eta$ times $\text{P}(\text{Tv})$. In order to enforce this general constraint in simulated data, we define the following set of equalities
+The TiTv metric allows for one to account for both genotype mismatch, allele mismatch, transition, and transversion. However, this added dimension of information requires knowledge of the nucleotide makeup at a particular locus. A sufficient condition to compute the TiTv metric between instances $i$ an $j$ is that we know whether the nucleotides associated with a particular locus $a$ are both purines (PuPu), purine and pyrimidine (PuPy), or both pyrimidines (PyPy). A diagram showing possible transitions and transversions that may occur is given by Fig.~\ref{fig:TiTv_diagram}. Purines (A and G) and pyrimidines (C and T) are shown at the top and bottom, respectively. Transitions occur in the cases of PuPu and PyPy, while transversion occur only with PuPy encoding.
+
+\begin{figure}[b]
+	\begin{wrapfigure}{l}{0.6\textwidth} 
+	\vspace{-12pt}
+	\centering
+	\framebox{\includegraphics[width=0.55\textwidth]{TiTv_diagram.pdf}}
+	\end{wrapfigure}
+	\noindent\refstepcounter{figure}\textbf{Fig \thefigure \label{fig:TiTv_diagram}.} Purines (A and G) and pyrimidines (C and T) are shown. Transitions occur when a mutation involves purine-to-purine or pyrimidine-to-pyrimidine insertion. Transversions occur when a purine-to-pyrimidine or pyrimidine-to-purine insertion happens, which is a more extreme case. There are visibly more possibilities for transversions to occur than there are transitions, but there are about twice as many transitions in real data.
+\end{figure}
+
+This information is always given in a particular data set. Let $\gamma_0$, $\gamma_1$, and $\gamma_2$ denote the probabilities of PuPu, PuPy, and PyPy, respectively, for the $p$ loci of data matrix $X$. In real data, there are approximately twice as many transitions as there are transversions. That is, the probability of a transition $\text{P}(\text{Ti})$ is approximately twice the probability of transversion $\text{P}(\text{Tv})$. It is likely that any particular data set will not satisfy this criterion exactly. In this general case, we have $\text{P}(\text{Ti})$ being equal to some multiple $\eta$ times $\text{P}(\text{Tv})$. In order to enforce this general constraint in simulated data, we define the following set of equalities
 %
 \begin{alignat}{2}\label{eq:TiTv_constraints1}
 \gamma_0 + \gamma_1 + \gamma_2 &= 1, \\ \label{eq:TiTv_constraints2}
