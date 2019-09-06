@@ -1076,7 +1076,8 @@ We can compute the second moment about the origin of the sample range as follows
 \text{E}[(X^\text{max}_a - X^\text{min}_a)^2] &= \text{E}[(X^\text{max}_a)^2 - 2 X^\text{max}_a X^\text{min}_a + (X^\text{min}_a)^2] \\
 &= \text{E}[(X^\text{max}_a)^2] - 2 \text{E}(X^\text{max}_a) \text{E}(X^\text{min}_a) + \text{E}[(X^\text{min}_a)^2] \\
 &= \mu^{(2)}_\text{max}(m) - 2 \mu^{(1)}_\text{max}(m) \mu^{(1)}_\text{min}(m) + \mu^{(2)}_\text{min}(m) \\
-&= \int_{0}^{1} x^2 [m x^{m-1}] \text{d}x - 2 \left(\frac{m}{m+1}\right) \left(\frac{1}{m+1}\right) + \int_{0}^{1} x^2 [m (1 - x)^{m-1}] \text{d}x \\
+&= \int_{0}^{1} x^2 [m x^{m-1}] \text{d}x - 2 \left(\frac{m}{m+1}\right) \left(\frac{1}{m+1}\right) \\
+& \hspace{3.12cm} + \int_{0}^{1} x^2 [m (1 - x)^{m-1}] \text{d}x \\
 &= \frac{m}{m+2} - \frac{2m}{(m+1)^2} + \frac{2}{(m+1)(m+2)} \\
 &= \frac{m^3 - m + 2}{(m+2)(m+1)^2}
 \end{aligned}
@@ -1182,17 +1183,17 @@ Similarly, the variance of $D^{(2*)}_{ij}$ is given by
 
 \subsection{GWAS Distance Distributions}
 
-Consider a GWAS data set, which has the following encoding based on minor allele frequency.
+Consider a GWAS data set, which has the following encoding based on minor allele frequency
 %
 \begin{equation}\label{eq:gwas_data}
 X_{ia} = \begin{cases}
-0 & \text{ if there are no minor alleles at locus } a  \\
-1 & \text{ if there is 1 minor allele at locus } a \\
-2 & \text{ if there are 2 minor alleles at locus } a
+0 & \text{ if there are no minor alleles at locus } a,  \\
+1 & \text{ if there is 1 minor allele at locus } a, \\
+2 & \text{ if there are 2 minor alleles at locus } a.
 \end{cases}
 \end{equation}
 
-A minor allele at a particular locus $a$ is the least frequent of the two alleles at that particular locus $a$. For random GWAS data sets, we can think $X_{ia}$ as the number of successes in two Bernoulli trials. That is, $X_{ia} \sim \mathcal{B}(2,f_a)$ where $f_a$ is the probability of success. The success probability $f_a$ is the probability of a minor allele occurring at $X_{ia}$. Furthermore, the minor allele probabilities are assumed to be independent and identically distributed. Two commonly known types of metrics for GWAS data are the Genotype Mismatch (GM) and Allele Mismatch (AM) metrics. The GM and AM metrics are defined as follows.
+A minor allele at a particular locus $a$ is the least frequent of the two alleles at that particular locus $a$. For random GWAS data sets, we can think $X_{ia}$ as the number of successes in two Bernoulli trials. That is, $X_{ia} \sim \mathcal{B}(2,f_a)$ where $f_a$ is the probability of success. The success probability $f_a$ is the probability of a minor allele occurring at $a$. Furthermore, the minor allele probabilities are assumed to be independent and identically distributed. Two commonly known types of metrics for GWAS data are the Genotype Mismatch (GM) and Allele Mismatch (AM) metrics. The GM and AM metrics are defined as follows.
 %
 \begin{equation}\label{eq:diff_GM}
 d^\text{GM}_{ij}(a) = \begin{cases} 
@@ -1340,14 +1341,16 @@ where $G(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a) + 2 (1 - f_a)^2 f^2_a$ and $F(\l
 
 The TiTv metric allows for one to account for both genotype mismatch, allele mismatch, transition, and transversion. However, this added dimension of information requires knowledge of the nucleotide makeup at a particular locus. A sufficient condition to compute the TiTv metric between instances $i$ an $j$ is that we know whether the nucleotides associated with a particular locus $a$ are both purines (PuPu), purine and pyrimidine (PuPy), or both pyrimidines (PyPy). A diagram showing possible transitions and transversions that may occur is given by Fig.~\ref{fig:TiTv_diagram}. Purines (A and G) and pyrimidines (C and T) are shown at the top and bottom, respectively. Transitions occur in the cases of PuPu and PyPy, while transversion occur only with PuPy encoding.
 
-\begin{figure}[b]
-	\begin{wrapfigure}{l}{0.6\textwidth} 
-	\vspace{-12pt}
-	\centering
-	\framebox{\includegraphics[width=0.55\textwidth]{TiTv_diagram.pdf}}
-	\end{wrapfigure}
-	\noindent\refstepcounter{figure}\textbf{Fig \thefigure \label{fig:TiTv_diagram}.} Purines (A and G) and pyrimidines (C and T) are shown. Transitions occur when a mutation involves purine-to-purine or pyrimidine-to-pyrimidine insertion. Transversions occur when a purine-to-pyrimidine or pyrimidine-to-purine insertion happens, which is a more extreme case. There are visibly more possibilities for transversions to occur than there are transitions, but there are about twice as many transitions in real data.
-\end{figure}
+\bigskip
+
+\begin{minipage}[c]{0.62\textwidth}\hspace{-0.5cm}
+	\framebox{\includegraphics[width=0.95\textwidth]{TiTv_diagram.pdf}}
+\end{minipage}\hspace{-0.3cm}
+\begin{minipage}[c]{0.35\textwidth}
+    \captionof{figure}{Purines (A and G) and pyrimidines (C and T) are shown. Transitions occur when a mutation involves purine-to-purine or pyrimidine-to-pyrimidine insertion. Transversions occur when a purine-to-pyrimidine or pyrimidine-to-purine insertion happens, which is a more extreme case. There are visibly more possibilities for transversions to occur than there are transitions, but there are about twice as many transitions in real data.}\label{fig:TiTv_diagram}
+\end{minipage}
+
+\bigskip
 
 This information is always given in a particular data set. Let $\gamma_0$, $\gamma_1$, and $\gamma_2$ denote the probabilities of PuPu, PuPy, and PyPy, respectively, for the $p$ loci of data matrix $X$. In real data, there are approximately twice as many transitions as there are transversions. That is, the probability of a transition $\text{P}(\text{Ti})$ is approximately twice the probability of transversion $\text{P}(\text{Tv})$. It is likely that any particular data set will not satisfy this criterion exactly. In this general case, we have $\text{P}(\text{Ti})$ being equal to some multiple $\eta$ times $\text{P}(\text{Tv})$. In order to enforce this general constraint in simulated data, we define the following set of equalities
 %
@@ -1510,49 +1513,60 @@ where $F(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a)$ and $G(a) = (1 - f_a)^2 f^2_a$.
 
 \subsection{Resting-State fMRI Distance Distribution}
 
-For resting-state fMRI (rs-fMRI), the data consists of correlation matrices for each instance. These correlations are between different ROIs for a particular brain atlas. We would like the attributes to be the ROIs themselves, which leads us to the following metric.
+For resting-state fMRI (rs-fMRI), the data consists of correlation matrices for each instance. These correlations are between different ROIs for a particular brain atlas. We would like the attributes to be the ROIs themselves, which leads us to the following metric
 %
 \begin{equation}\label{eq:diff_rs-fMRI}
-d^\text{ROI}_{ij}(a) = \sum_{k \neq a}\bigl|A^{(i)}_{ka} - A^{(j)}_{ka}\bigr|
+d^\text{ROI}_{ij}(a) = \sum_{k \neq a}\bigl|A^{(i)}_{ka} - A^{(j)}_{ka}\bigr|.
 \end{equation}
-where $A^{(i)}_{ka}$ and $A^{(j)}_{ka}$ are the correlations between ROI $a$ and ROI $k$ for instances $i$ and $j$, respectively. In order for comparisons between different correlations to be possible, we first perform a Fisher r-to-z transform on the correlations. We then load all of the transformed correlations into a $p(p-1) \times m$ matrix $X$ with the following form.
-%
-\begin{equation}\label{eq:rs-fMRI_matrix}
-X = \left[
-\begin{array}{c c c c c}
-\hat{A}^{(1)}_{12} & \hat{A}^{(2)}_{12} & \hat{A}^{(3)}_{12} & \dots & \hat{A}^{(m)}_{12} \\
-\hat{A}^{(1)}_{13} & \hat{A}^{(2)}_{13} & \hat{A}^{(3)}_{13} & \dots & \hat{A}^{(m)}_{13} \\
-\hat{A}^{(1)}_{14} & \hat{A}^{(2)}_{14} & \hat{A}^{(3)}_{14} & \dots & \hat{A}^{(m)}_{14} \\
-\vdots & \vdots & \vdots & \ddots & \vdots \\
-\hat{A}^{(1)}_{1p} & \hat{A}^{(2)}_{1p} & \hat{A}^{(3)}_{1p} & \dots & \hat{A}^{(m)}_{1p} \\
-\hat{A}^{(1)}_{21} & \hat{A}^{(2)}_{21} & \hat{A}^{(3)}_{21} & \dots & \hat{A}^{(m)}_{21} \\
-\hat{A}^{(1)}_{23} & \hat{A}^{(2)}_{23} & \hat{A}^{(3)}_{23} & \dots & \hat{A}^{(m)}_{23} \\
-\hat{A}^{(1)}_{24} & \hat{A}^{(2)}_{24} & \hat{A}^{(3)}_{24} & \dots & \hat{A}^{(m)}_{24} \\
-\vdots & \vdots & \vdots & \ddots & \vdots \\
-\hat{A}^{(1)}_{2p} & \hat{A}^{(2)}_{2p} & \hat{A}^{(3)}_{2p} & \dots & \hat{A}^{(m)}_{2p} \\
-\vdots & \vdots & \vdots & \ddots & \vdots \\
-\hat{A}^{(1)}_{p1} & \hat{A}^{(2)}_{p1} & \hat{A}^{(3)}_{p1} & \dots & \hat{A}^{(m)}_{p1} \\
-\hat{A}^{(1)}_{p2} & \hat{A}^{(2)}_{p2} & \hat{A}^{(3)}_{p2} & \dots & \hat{A}^{(m)}_{p2} \\
-\hat{A}^{(1)}_{p3} & \hat{A}^{(2)}_{p3} & \hat{A}^{(3)}_{p3} & \dots & \hat{A}^{(m)}_{p3} \\
-\vdots & \vdots & \vdots & \ddots & \vdots \\
-\hat{A}^{(1)}_{p,(p-1)} & \hat{A}^{(2)}_{p,(p-1)} & \hat{A}^{(3)}_{p,(p-1)} & \dots & \hat{A}^{(m)}_{p,(p-1)}
-\end{array}
-\right]
-\end{equation}
-where $\hat{A}^{(i)}_{ka}$ is the r-to-z transformed correlation between ROIs $a$ and $k$ for instance $i$.
+where $A^{(i)}_{ka}$ and $A^{(j)}_{ka}$ are the correlations between ROI $a$ and ROI $k$ for instances $i$ and $j$, respectively. In order for comparisons between different correlations to be possible, we first perform a Fisher r-to-z transform on the correlations. We then load all of the transformed correlations into a $p(p-1) \times m$ matrix $X$ (see Fig.~\ref{fig:rs-fMRI_matrix}).
 
-We further transform the data matrix $X$ by standardizing so that each of the $m$ columns has zero mean and unit variance. Therefore, the data in matrix $X$ are standard normal. Recall from Eqs. \ref{eq:normalManMean} and \ref{eq:normalManVar}, that the mean and variance of the Manhattan ($q=1$) distance distribution for standard normal data are $\frac{2p}{\sqrt{\pi}}$ and $\frac{2(\pi - 2)p}{\pi}$, respectively. This allows us to easily derive the expected pairwise distance between instances $i$ and $j$ in rs-fMRI data as follows.
+\bigskip
+
+\begin{minipage}[c]{0.7\textwidth}\hspace{-0.6cm}
+	\includegraphics[width=0.95\textwidth]{rs_fmri_all_instance_matrix.pdf}
+\end{minipage}\hspace{-0.8cm}
+\begin{minipage}[c]{0.3\textwidth}
+	\captionof{figure}{Resting-state fMRI transformed subject correlation matrices. Each column corresponds to an instance (or subject) $I_j$ and each column corresponds to an ROI (or feature). The notation $\hat{A}^{(j)}_{ka}$ represents the r-to-z transformed correlation between ROIs $a$ and $k \neq a$ for instance $j$.}\label{fig:rs-fMRI_matrix}
+\end{minipage}
+
+\bigskip
+
+%
+%\begin{equation}\label{eq:rs-fMRI_matrix}
+%X = \left[
+%\begin{array}{c c c c c}
+%\hat{A}^{(1)}_{12} & \hat{A}^{(2)}_{12} & \hat{A}^{(3)}_{12} & \dots & \hat{A}^{(m)}_{12} \\
+%\hat{A}^{(1)}_{13} & \hat{A}^{(2)}_{13} & \hat{A}^{(3)}_{13} & \dots & \hat{A}^{(m)}_{13} \\
+%\hat{A}^{(1)}_{14} & \hat{A}^{(2)}_{14} & \hat{A}^{(3)}_{14} & \dots & \hat{A}^{(m)}_{14} \\
+%\vdots & \vdots & \vdots & \ddots & \vdots \\
+%\hat{A}^{(1)}_{1p} & \hat{A}^{(2)}_{1p} & \hat{A}^{(3)}_{1p} & \dots & \hat{A}^{(m)}_{1p} \\
+%\hat{A}^{(1)}_{21} & \hat{A}^{(2)}_{21} & \hat{A}^{(3)}_{21} & \dots & \hat{A}^{(m)}_{21} \\
+%\hat{A}^{(1)}_{23} & \hat{A}^{(2)}_{23} & \hat{A}^{(3)}_{23} & \dots & \hat{A}^{(m)}_{23} \\
+%\hat{A}^{(1)}_{24} & \hat{A}^{(2)}_{24} & \hat{A}^{(3)}_{24} & \dots & \hat{A}^{(m)}_{24} \\
+%\vdots & \vdots & \vdots & \ddots & \vdots \\
+%\hat{A}^{(1)}_{2p} & \hat{A}^{(2)}_{2p} & \hat{A}^{(3)}_{2p} & \dots & \hat{A}^{(m)}_{2p} \\
+%\vdots & \vdots & \vdots & \ddots & \vdots \\
+%\hat{A}^{(1)}_{p1} & \hat{A}^{(2)}_{p1} & \hat{A}^{(3)}_{p1} & \dots & \hat{A}^{(m)}_{p1} \\
+%\hat{A}^{(1)}_{p2} & \hat{A}^{(2)}_{p2} & \hat{A}^{(3)}_{p2} & \dots & \hat{A}^{(m)}_{p2} \\
+%\hat{A}^{(1)}_{p3} & \hat{A}^{(2)}_{p3} & \hat{A}^{(3)}_{p3} & \dots & \hat{A}^{(m)}_{p3} \\
+%\vdots & \vdots & \vdots & \ddots & \vdots \\
+%\hat{A}^{(1)}_{p,(p-1)} & \hat{A}^{(2)}_{p,(p-1)} & \hat{A}^{(3)}_{p,(p-1)} & \dots & \hat{A}^{(m)}_{p,(p-1)}
+%\end{array}
+%\right],
+%\end{equation}
+
+We further transform the data matrix $X$ by standardizing so that each of the $m$ columns has zero mean and unit variance. Therefore, the data in matrix $X$ are standard normal. Recall from Eqs. \ref{eq:normalManMean} and \ref{eq:normalManVar}, that the mean and variance of the Manhattan ($q=1$) distance distribution for standard normal data are $\frac{2p}{\sqrt{\pi}}$ and $\frac{2(\pi - 2)p}{\pi}$, respectively. This allows us to easily derive the expected pairwise distance between instances $i$ and $j$ in rs-fMRI data as follows
 %
 \begin{equation}\label{eq:mu_DDistr_rs-fMRI}
 \begin{aligned}
 \text{E}(D_{ij}) &= \text{E}\left(\sum_{a \in \mathcal{A}} \sum_{k \neq a} \bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|\right) \\
 &= \sum_{a \in \mathcal{A}} \sum_{k \neq a} \text{E}\left(\bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|\right) \\
 &= \sum_{a \in \mathcal{A}} \sum_{k \neq a} \frac{2}{\sqrt{\pi}} \\
-&= \frac{2p(p-1)}{\sqrt{\pi}}
+&= \frac{2p(p-1)}{\sqrt{\pi}}.
 \end{aligned}
 \end{equation}
 
-Due to the dependencies that exist between terms in the double sum when computing the rs-fMRI distance, linearity no longer applies to the variance operator. We proceed by writing the form of the variance as follows.
+Due to the dependencies that exist between terms in the double sum when computing the rs-fMRI distance, linearity no longer applies to the variance operator. We proceed by writing the form of the variance as follows
 %
 \begin{equation}\label{eq:var_DDistr_rs-fMRI}
 \begin{aligned}
@@ -1564,56 +1578,56 @@ Due to the dependencies that exist between terms in the double sum when computin
 &= \sum_{a = 1}^{p-1} \sum_{k=a+1}^{p-1}\frac{4(\pi-2)}{\pi} \\
 &+ 2\sum_{a = 1}^{p-1} \sum_{r=a+1}^{p-1} \text{Cov}\left(\sum_{k=a+1}^{p} 2\bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|, \sum_{s=r+1}^{p} 2\bigl|\hat{A}^{(i)}_{rs} - \hat{A}^{(j)}_{rs}\bigr|\right) \\
 &= \frac{2p(\pi-2)(p-1)}{\pi} \\
-&+ 2\sum_{a = 1}^{p-1} \sum_{r=a+1}^{p-1} \text{Cov}\left(\sum_{k=a+1}^{p} 2\bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|, \sum_{s=r+1}^{p} 2\bigl|\hat{A}^{(i)}_{rs} - \hat{A}^{(j)}_{rs}\bigr|\right)
+&+ 2\sum_{a = 1}^{p-1} \sum_{r=a+1}^{p-1} \text{Cov}\left(\sum_{k=a+1}^{p} 2\bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|, \sum_{s=r+1}^{p} 2\bigl|\hat{A}^{(i)}_{rs} - \hat{A}^{(j)}_{rs}\bigr|\right).
 \end{aligned}
 \end{equation}
 
-In order to have a formula in terms of the number of ROIs $p$ only, we must estimate the double sum on the right-hand side of Eq. \ref{eq:var_DDistr_rs-fMRI}. Through simulation, it can be seen that the difference between the sample variance $S^2_{D_{ij}}$ and $\frac{2p(\pi-2)(p-1)}{\pi}$ has a quadratic relationship with $p$. More explicitly, we have the following relationship.
+In order to have a formula in terms of the number of ROIs $p$ only, we must estimate the double sum on the right-hand side of Eq. \ref{eq:var_DDistr_rs-fMRI}. Through simulation, it can be seen that the difference between the sample variance $S^2_{D_{ij}}$ and $\frac{2p(\pi-2)(p-1)}{\pi}$ has a quadratic relationship with $p$. More explicitly, we have the following relationship
 %
 \begin{equation}\label{eq:estimate_cov}
-S^2_{D_{ij}} - \frac{2p(\pi-2)(p-1)}{\pi} = \beta_1 p^2 + \beta_0 p
+S^2_{D_{ij}} - \frac{2p(\pi-2)(p-1)}{\pi} = \beta_1 p^2 + \beta_0 p.
 \end{equation}
 
-The coefficient estimates found through least squares fitting are $\beta_0 = - \beta_1 \approx 0.08$. These estimates allow one to infer a functional form for the double sum in the right-hand side of Eq. \ref{eq:var_DDistr_rs-fMRI} that is actually proportional to $\frac{2p(\pi-2)(p-1)}{\pi}$. That is, we have the following formula for approximating the double sum.
+The coefficient estimates found through least squares fitting are $\beta_0 = - \beta_1 \approx 0.08$. These estimates allow one to infer a functional form for the double sum in the right-hand side of Eq. \ref{eq:var_DDistr_rs-fMRI} that is actually proportional to $\frac{2p(\pi-2)(p-1)}{\pi}$. That is, we have the following formula for approximating the double sum
 %
 \begin{equation}\label{eq:estimate_cov_form}
-2\sum_{a = 1}^{p-1} \sum_{r=a+1}^{p-1} \text{Cov}\left(\sum_{k=a+1}^{p} 2\bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|, \sum_{s=r+1}^{p} 2\bigl|\hat{A}^{(i)}_{rs} - \hat{A}^{(j)}_{rs}\bigr|\right) = \frac{p(\pi - 2)(p - 1)}{4\pi}
+2\sum_{a = 1}^{p-1} \sum_{r=a+1}^{p-1} \text{Cov}\left(\sum_{k=a+1}^{p} 2\bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|, \sum_{s=r+1}^{p} 2\bigl|\hat{A}^{(i)}_{rs} - \hat{A}^{(j)}_{rs}\bigr|\right) = \frac{p(\pi - 2)(p - 1)}{4\pi}.
 \end{equation}
 
-Therefore, the variance of the rs-fMRI distances is approximated well by the following.
+Therefore, the variance of the rs-fMRI distances is approximated well by the following
 %
 \begin{equation}\label{eq:var_DDistr_rs-fMRI2}
-\text{Var}(D_{ij}) = \frac{9p(\pi - 2)(p-1)}{4\pi}
+\text{Var}(D_{ij}) = \frac{9p(\pi - 2)(p-1)}{4\pi}.
 \end{equation}
 
-With the mean and variance estimates given by Eqs. \ref{eq:mu_DDistr_rs-fMRI} and \ref{eq:var_DDistr_rs-fMRI2}, we have the following asymptotic distribution for rs-fMRI distances.
+With the mean and variance estimates given by Eqs. \ref{eq:mu_DDistr_rs-fMRI} and \ref{eq:var_DDistr_rs-fMRI2}, we have the following asymptotic distribution for rs-fMRI distances
 %
 \begin{equation}\label{eq:DDistr_rs-fMRI}
-D^{(1)}_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{2p(p-1)}{\sqrt{\pi}}, \frac{9p(\pi - 2)(p-1)}{4\pi}\right)
+D^{(1)}_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{2p(p-1)}{\sqrt{\pi}}, \frac{9p(\pi - 2)(p-1)}{4\pi}\right).
 \end{equation}
 
-Consider the max-min normalized rs-fMRI distance given by the following equation.
+Consider the max-min normalized rs-fMRI distance given by the following equation
 %
 \begin{equation}\label{eq:max-min_diff_rs-fMRI}
-D^{1*}_{ij} = \sum_{a \in \mathcal{A}} \sum_{k \neq a} \frac{\bigl|A^{(i)}_{ak} - A^{(j)}_{ak}\bigr|}{\max(a) - \min(a)}
+D^{1*}_{ij} = \sum_{a \in \mathcal{A}} \sum_{k \neq a} \frac{\bigl|A^{(i)}_{ak} - A^{(j)}_{ak}\bigr|}{\max(a) - \min(a)}.
 \end{equation}
 
-Assuming that the data $X$ has been r-to-z transformed and standardized, we can easily compute the expected attribute range and variance of the attribute range. The expected maximum of a given attribute in data matrix $X$ is estimated by the following.
+Assuming that the data $X$ has been r-to-z transformed and standardized, we can easily compute the expected attribute range and variance of the attribute range. The expected maximum of a given attribute in data matrix $X$ is estimated by the following
 %
 \begin{equation}\label{eq:mean_max_rs-fMRI}
-\text{E}\left(X^\text{max}_a - X^\text{min}_a\right) = 2\mu^{(1)}_\text{max}(m,p) = 2 \left[\frac{\text{log}(\text{log}(2))}{\Phi^{-1}\left(\frac{1}{m(p-1)}\right)} - \Phi^{-1}\left(\frac{1}{m(p-1)}\right)\right]
+\text{E}\left(X^\text{max}_a - X^\text{min}_a\right) = 2\mu^{(1)}_\text{max}(m,p) = 2 \left[\frac{\text{log}(\text{log}(2))}{\Phi^{-1}\left(\frac{1}{m(p-1)}\right)} - \Phi^{-1}\left(\frac{1}{m(p-1)}\right)\right].
 \end{equation}
 
-The variance can be esimated with the following.
+The variance can be esimated with the following
 %
 \begin{equation}\label{eq:var_max_rs-fMRI}
-\text{Var}\left(X^\text{max}_a - X^\text{min}_a\right) = \frac{\pi^2}{6\text{log}[m(p-1)]}
+\text{Var}\left(X^\text{max}_a - X^\text{min}_a\right) = \frac{\pi^2}{6\text{log}[m(p-1)]}.
 \end{equation}
 
-Let $\mu_{D_{ij}}$ and $\sigma^2_{D_{ij}}$ denote the mean and variance of the rs-fMRI distance distribution given by Eqs. \ref{eq:mu_DDistr_rs-fMRI} and \ref{eq:var_DDistr_rs-fMRI2}. Using the formulas for the mean and variance of the max-min normalized distance distribution given in Eq. \ref{eq:max-min_DDistr_normal}, we have the following asymptotic distribution for the max-min normalized rs-fMRI distances.
+Let $\mu_{D_{ij}}$ and $\sigma^2_{D_{ij}}$ denote the mean and variance of the rs-fMRI distance distribution given by Eqs. \ref{eq:mu_DDistr_rs-fMRI} and \ref{eq:var_DDistr_rs-fMRI2}. Using the formulas for the mean and variance of the max-min normalized distance distribution given in Eq. \ref{eq:max-min_DDistr_normal}, we have the following asymptotic distribution for the max-min normalized rs-fMRI distances
 %
 \begin{equation}\label{eq:max-min_DDistr_normal_rs-fMRI}
-D^{1*}_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{\mu_{D^{(1)}_{ij}}}{2\mu^{(1)}_\text{max}(m,p)}, \frac{6\sigma^2_{D^{(1)}_{ij}}\text{log}[m(p-1)]}{\pi^2 + 24\left[\mu^{(1)}_\text{max}(m,p)\right]^2\text{log}[m(p-1)]}\right)
+D^{1*}_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{\mu_{D^{(1)}_{ij}}}{2\mu^{(1)}_\text{max}(m,p)}, \frac{6\sigma^2_{D^{(1)}_{ij}}\text{log}[m(p-1)]}{\pi^2 + 24\left[\mu^{(1)}_\text{max}(m,p)\right]^2\text{log}[m(p-1)]}\right).
 \end{equation}
 
 \subsection{Normalized Manhattan \texorpdfstring{($q=1$)}{} for rs-fMRI}
@@ -1633,9 +1647,9 @@ Similarly, the variance of $D^{(1*)}_{ij}$ is given by
 \begin{equation}
 \begin{aligned}
 \text{Var}\left(D^{(1*)}_{ij}\right) &= \frac{6\sigma^2_{D^{(1)}_{ij}}\text{log}[m(p-1)]}{\pi^2 + 24\left[\mu^{(1)}_\text{max}(m,p)\right]^2\text{log}[m(p-1)]} \\
-&= \frac{27(\pi-2)\text{log}[m(p-1)](p-1)p}{2\pi\left(\pi^2 + 24\left[\mu^{(1)}_\text{max}(m,p)\right]^2\text{log}[m(p-1)]\right)},
+&= \frac{27(\pi-2)\text{log}[m(p-1)](p-1)p}{2\pi\left(\pi^2 + 24\left[\mu^{(1)}_\text{max}(m,p)\right]^2\text{log}[m(p-1)]\right)}
 \end{aligned}
-\end{equation}
+\end{equation},
 where $mu^{(1)}_\text{max}(m,p)$ is given in Eq.~\ref{eq:mean_max_rs-fMRI}.
 
 % mean/variance tables
