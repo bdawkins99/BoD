@@ -1652,6 +1652,18 @@ Similarly, the variance of $D^{(1*)}_{ij}$ is given by
 \end{equation},
 where $mu^{(1)}_\text{max}(m,p)$ is given in Eq.~\ref{eq:mean_max_rs-fMRI}.
 
+\begin{figure}[H]
+	\centering
+	\framebox{\includegraphics[width=1\textwidth]{TiTv_distance_histograms_MAFs.pdf}}
+	\caption{Histograms of simulated TiTv distance distributions for different average MAFs. Average MAF is computed as the expected value of the uniform distribution from which minor allele success probabilities ($f_a$) are drawn. The upper bounds for each success probability uniform distribution are $\{0.1,0.2,0.3,0.4\}$, which are the maximum possible MAF for a given locus $a$. The lower bound is 0.01 in each case. Sample and predicted means, as well as standard deviations, are overlaid on each histogram. Each distance distribution comes from a simulated data set with $m=100$ instances and $p=100$ features.}\label{fig:TiTv_hist}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\framebox{\includegraphics[width=1\textwidth]{TiTv_distance_histogram_TiTvs.pdf}}
+	\caption{Histograms of simulated TiTv distance distributions for different Ti/Tv ratios. Average MAF was fixed to be 0.055. The Ti/Tv ratio was taken to be 2, 1.5, 1, and 0.5. The average distance increases as the Ti/Tv ratio decreases, which is intuitive because the TiTv distance is greater for transversions than transitions. Sample and predicted means, as well as standard deviations, are overlaid on each histogram. Each distance distribution comes from a simulated data set with $m=100$ instances and $p=100$ features.}\label{fig:TiTv_hist2}
+\end{figure}
+
 % mean/variance tables
 
 %\begin{table}[H]
