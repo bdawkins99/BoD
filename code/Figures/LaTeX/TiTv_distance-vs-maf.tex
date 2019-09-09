@@ -1,0 +1,42 @@
+\documentclass[hidelinks,12pt,dvipsnames,border=2pt]{standalone}
+%\usepackage[top=0.7in, bottom=0.8in, left=1in, right=1in]{geometry}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usetikzlibrary{arrows}
+\usetikzlibrary{shapes}
+\usepackage{enumitem}
+\usepackage{bm}
+\usepackage{mathdots}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usetikzlibrary{shadings}
+\usetikzlibrary{decorations.pathreplacing}
+\usepackage{helvet}
+\usepackage{url}
+\usepackage{graphicx}
+\usetikzlibrary{arrows.meta,positioning,fit,calc}
+\renewcommand{\familydefault}{\sfdefault}
+
+
+\usetikzlibrary{arrows,decorations.pathmorphing,backgrounds,fit,positioning,shapes.symbols,chains}
+
+\begin{document}
+	
+% trim=left botm right top
+\begin{tikzpicture}
+\node at (0,0) {\includegraphics[width=\textwidth]{predicted_TiTv_distance-vs-Average_maf.pdf}};
+
+\node[fill=white] at (4.92,-3.35) {\Large $\eta$};
+\node[fill=white] at (4.92,-3.935) {\Large $\eta$};
+\node[fill=white] at (4.92,-4.54) {\Large $\eta$};
+
+\node[fill=white,draw=black!25,rounded corners=5,line width=0.3mm] at (1.2,0) {
+	\begin{tabular}{c}
+		\textbf{Maximum Distance} \\
+		$\bar{f}_a = 0.5$
+	\end{tabular}
+};
+
+\end{tikzpicture}
+
+\end{document}

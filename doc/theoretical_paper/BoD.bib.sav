@@ -521,7 +521,7 @@ year={2018}
   journal = {{Frontiers in Human Neuroscience}},
   year    = {2014},
   month   = sep,
-  doi     = {10.3389/fnhum.2014.00692},
+  doi     = {10.3389/fnhum.2014.00692?},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}

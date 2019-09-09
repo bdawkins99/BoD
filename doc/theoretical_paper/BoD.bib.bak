@@ -515,13 +515,4 @@ year={2018}
   doi     = {10.1371/journal.pcbi.1005410},
 }
 
-@Article{sundermann2014,
-  author  = {Benedikt {S}undermann and {M}ona {O}lde l\"{u}tke {B}everborg and {B}ettina {P}fleiderer},
-  title   = {{Toward literature-based feature selection for diagnostic classification: a meta-analysis of resting-state fMRI in depression}},
-  journal = {{Frontiers in Human Neuroscience}},
-  year    = {2014},
-  month   = sep,
-  doi     = {10.3389/fnhum.2014.00692},
-}
-
 @Comment{jabref-meta: databaseType:bibtex;}
