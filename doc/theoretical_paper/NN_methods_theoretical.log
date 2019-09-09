@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  9 SEP 2019 15:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  9 SEP 2019 17:20
 entering extended mode
 **./NN_methods_theoretical.tex
 (NN_methods_theoretical.tex
@@ -985,147 +985,125 @@ Package microtype Info: Loading generic protrusion settings for font family
  [1
 
 {C:/Users/bdawk/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2] [3]
-<central_limit_distances-Manhattan-Normal-diffstar.pdf, id=174, 578.16pt x 722.
-7pt>
-File: central_limit_distances-Manhattan-Normal-diffstar.pdf Graphic file (type 
-pdf)
-<use central_limit_distances-Manhattan-Normal-diffstar.pdf>
-Package pdftex.def Info: central_limit_distances-Manhattan-Normal-diffstar.pdf 
- used on input line 318.
-(pdftex.def)             Requested size: 360.44545pt x 450.55055pt.
-<central_limit_distances-Euclidean-Normal-diffstar.pdf, id=175, 578.16pt x 722.
-7pt>
-File: central_limit_distances-Euclidean-Normal-diffstar.pdf Graphic file (type 
-pdf)
-<use central_limit_distances-Euclidean-Normal-diffstar.pdf>
-Package pdftex.def Info: central_limit_distances-Euclidean-Normal-diffstar.pdf 
- used on input line 324.
-(pdftex.def)             Requested size: 360.44545pt x 450.55055pt.
- [4] [5 <./central_limit_distances-Manhattan-Normal-diffstar.pdf>] [6 <./centra
-l_limit_distances-Euclidean-Normal-diffstar.pdf>] [7] [8] [9] [10] [11] [12] [1
-3] [14] [15]
-[16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27]
-<TiTv_diagram.pdf, id=540, 278.1602pt x 227.42767pt>
+<central_limit_distances_uniform.pdf, id=177, 361.35pt x 325.215pt>
+File: central_limit_distances_uniform.pdf Graphic file (type pdf)
+<use central_limit_distances_uniform.pdf>
+Package pdftex.def Info: central_limit_distances_uniform.pdf  used on input lin
+e 318.
+(pdftex.def)             Requested size: 371.82751pt x 334.64767pt.
+ [4] [5 <./central_limit_distances_uniform.pdf>] [6] [7] [8] [9] [10] [11] [12]
+ [13] [14]
+[15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26]
+<TiTv_diagram.pdf, id=532, 278.1602pt x 227.42767pt>
 File: TiTv_diagram.pdf Graphic file (type pdf)
 <use TiTv_diagram.pdf>
-Package pdftex.def Info: TiTv_diagram.pdf  used on input line 1366.
+Package pdftex.def Info: TiTv_diagram.pdf  used on input line 1372.
 (pdftex.def)             Requested size: 223.47441pt x 182.71625pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1369.
+(caption)                particular \caption on input line 1375.
 See the caption package documentation for explanation.
 
-[28 <./TiTv_diagram.pdf>] [29] [30] [31]
-<TiTv_distance-vs-maf.pdf, id=603, 401.99887pt x 402.0069pt>
+[27 <./TiTv_diagram.pdf>] [28] [29] [30]
+<TiTv_distance-vs-maf.pdf, id=594, 401.99887pt x 402.0069pt>
 File: TiTv_distance-vs-maf.pdf Graphic file (type pdf)
 <use TiTv_distance-vs-maf.pdf>
-Package pdftex.def Info: TiTv_distance-vs-maf.pdf  used on input line 1544.
+Package pdftex.def Info: TiTv_distance-vs-maf.pdf  used on input line 1550.
 (pdftex.def)             Requested size: 252.31071pt x 252.32101pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1547.
+(caption)                particular \caption on input line 1553.
 See the caption package documentation for explanation.
 
-<rs_fmri_all_instance_matrix.pdf, id=605, 394.1375pt x 397.6988pt>
+<rs_fmri_all_instance_matrix.pdf, id=596, 394.1375pt x 397.6988pt>
 File: rs_fmri_all_instance_matrix.pdf Graphic file (type pdf)
 <use rs_fmri_all_instance_matrix.pdf>
 Package pdftex.def Info: rs_fmri_all_instance_matrix.pdf  used on input line 15
-64.
+70.
 (pdftex.def)             Requested size: 252.31071pt x 254.59311pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1567.
+(caption)                particular \caption on input line 1573.
 See the caption package documentation for explanation.
 
-[32 <./TiTv_distance-vs-maf.pdf>] [33 <./rs_fmri_all_instance_matrix.pdf>]
-[34]
-<TiTv_distance_histograms_MAFs.pdf, id=710, 800.33807pt x 800.34506pt>
+[31 <./TiTv_distance-vs-maf.pdf>] [32 <./rs_fmri_all_instance_matrix.pdf>]
+[33]
+<TiTv_distance_histograms_MAFs.pdf, id=702, 800.33807pt x 800.34506pt>
 File: TiTv_distance_histograms_MAFs.pdf Graphic file (type pdf)
 <use TiTv_distance_histograms_MAFs.pdf>
 Package pdftex.def Info: TiTv_distance_histograms_MAFs.pdf  used on input line 
-1695.
-(pdftex.def)             Requested size: 379.4175pt x 379.42291pt.
-
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 1695--1696
- [][] 
- []
-
-[35]
-<TiTv_distance_histogram_TiTvs.pdf, id=722, 800.33807pt x 800.34506pt>
+1705.
+(pdftex.def)             Requested size: 371.82751pt x 371.83908pt.
+ [34]
+<TiTv_distance_histogram_TiTvs.pdf, id=714, 800.33807pt x 800.34506pt>
 File: TiTv_distance_histogram_TiTvs.pdf Graphic file (type pdf)
 <use TiTv_distance_histogram_TiTvs.pdf>
 Package pdftex.def Info: TiTv_distance_histogram_TiTvs.pdf  used on input line 
-1701.
-(pdftex.def)             Requested size: 379.4175pt x 379.42291pt.
-
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 1701--1702
- [][] 
- []
-
-[36 <./TiTv_distance_histograms_MAFs.pdf>]
-<updated_distributions_table(5-23-2019).pdf, id=758, 481.5611pt x 537.94978pt>
+1711.
+(pdftex.def)             Requested size: 371.82751pt x 371.83908pt.
+ [35 <./TiTv_distance_histograms_MAFs.pdf>]
+<updated_distributions_table(5-23-2019).pdf, id=750, 481.5611pt x 537.94978pt>
 File: updated_distributions_table(5-23-2019).pdf Graphic file (type pdf)
 <use updated_distributions_table(5-23-2019).pdf>
 Package pdftex.def Info: updated_distributions_table(5-23-2019).pdf  used on in
-put line 1728.
+put line 1738.
 (pdftex.def)             Requested size: 379.4175pt x 429.57426pt.
- [37 <./TiTv_distance_histogram_TiTvs.pdf>]
-<updated_typical_metrics_table.pdf, id=796, 314.27011pt x 374.28532pt>
+ [36 <./TiTv_distance_histogram_TiTvs.pdf>]
+<updated_typical_metrics_table.pdf, id=787, 314.27011pt x 374.28532pt>
 File: updated_typical_metrics_table.pdf Graphic file (type pdf)
 <use updated_typical_metrics_table.pdf>
 Package pdftex.def Info: updated_typical_metrics_table.pdf  used on input line 
-1736.
+1746.
 (pdftex.def)             Requested size: 265.59108pt x 323.02809pt.
- [38 <./updated_distributions_table(5-23-2019).pdf>]
-<updated_typical_metrics_table(normalized).pdf, id=865, 376.8248pt x 563.55441p
+ [37 <./updated_distributions_table(5-23-2019).pdf>]
+<updated_typical_metrics_table(normalized).pdf, id=857, 376.8248pt x 563.55441p
 t>
 File: updated_typical_metrics_table(normalized).pdf Graphic file (type pdf)
 <use updated_typical_metrics_table(normalized).pdf>
 Package pdftex.def Info: updated_typical_metrics_table(normalized).pdf  used on
- input line 1744.
+ input line 1754.
 (pdftex.def)             Requested size: 322.50719pt x 491.13496pt.
- [39 <./updated_typical_metrics_table.pdf>]
-<updated_distributions_table-gwas(5-23-2019).pdf, id=901, 461.41383pt x 483.965
+ [38 <./updated_typical_metrics_table.pdf>]
+<updated_distributions_table-gwas(5-23-2019).pdf, id=893, 461.41383pt x 483.965
 1pt>
 File: updated_distributions_table-gwas(5-23-2019).pdf Graphic file (type pdf)
 <use updated_distributions_table-gwas(5-23-2019).pdf>
 Package pdftex.def Info: updated_distributions_table-gwas(5-23-2019).pdf  used 
-on input line 1752.
+on input line 1762.
 (pdftex.def)             Requested size: 379.4175pt x 403.51419pt.
- [40 <./updated_typical_metrics_table(normalized).pdf>]
-<updated_distributions_table-rs-fMRI.pdf, id=947, 427.55835pt x 276.36348pt>
+ [39 <./updated_typical_metrics_table(normalized).pdf>]
+<updated_distributions_table-rs-fMRI.pdf, id=939, 427.55835pt x 276.36348pt>
 File: updated_distributions_table-rs-fMRI.pdf Graphic file (type pdf)
 <use updated_distributions_table-rs-fMRI.pdf>
 Package pdftex.def Info: updated_distributions_table-rs-fMRI.pdf  used on input
- line 1760.
+ line 1770.
 (pdftex.def)             Requested size: 379.4175pt x 248.46384pt.
-
-[41 <./updated_distributions_table-gwas(5-23-2019).pdf>]
-(NN_methods_theoretical.bbl [42 <./updated_distributions_table-rs-fMRI.pdf>])
+ [40 <./updated_distributions_table-gwas(5-23-2019).pdf>]
+(NN_methods_theoretical.bbl [41 <./updated_distributions_table-rs-fMRI.pdf>])
 
 AED: lastpage setting LastPage
-[43]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1765.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1765.
+[42]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1775.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1775.
  (NN_methods_theoretical.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1765.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1765.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1775.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1775.
 
 Package rerunfilecheck Info: File `NN_methods_theoretical.out' has not changed.
 
-(rerunfilecheck)             Checksum: C9AD7347F775AB116D273D3494CC803C;2215.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1765.
+(rerunfilecheck)             Checksum: 1FC4CA8C2480F58F516A96C447AB4413;2287.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1775.
  ) 
 Here is how much of TeX's memory you used:
- 21757 strings out of 492946
- 394366 string characters out of 3135528
- 527585 words of memory out of 3000000
- 24860 multiletter control sequences out of 15000+200000
- 23392 words of font info for 125 fonts, out of 3000000 for 9000
+ 21753 strings out of 492946
+ 393972 string characters out of 3135528
+ 527310 words of memory out of 3000000
+ 24856 multiletter control sequences out of 15000+200000
+ 23443 words of font info for 126 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,24n,48p,1704b,469s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,24n,48p,1704b,467s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb><
 C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Progr
 am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files
@@ -1153,9 +1131,9 @@ e1/public/amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
 /amsfonts/symbols/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helve
 tic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb
 >
-Output written on NN_methods_theoretical.pdf (43 pages, 1485844 bytes).
+Output written on NN_methods_theoretical.pdf (42 pages, 1231635 bytes).
 PDF statistics:
- 1142 PDF objects out of 1200 (max. 8388607)
- 252 named destinations out of 1000 (max. 500000)
- 17215 words of extra memory for PDF output out of 17280 (max. 10000000)
+ 1133 PDF objects out of 1200 (max. 8388607)
+ 251 named destinations out of 1000 (max. 500000)
+ 17218 words of extra memory for PDF output out of 17280 (max. 10000000)
 

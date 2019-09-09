@@ -311,19 +311,25 @@ When $p$ is small, however, we observe empirically that a closer estimate of the
 \end{equation}
 
 
-One can readily verify the normality of distances between independent instances through sampling from any data distribution and plotting the histogram of pairwise distances. Histograms for the case of standard normal data and Manhattan ($q=1$) and Euclidean ($q=2$) metrics are shown in Figs. \ref{fig:manhattanConverge} and \ref{fig:euclideanConverge}, respectively. For these simulated distances, we fixed the number of instances $m=100$ and varied the number of attributes $p$ from 10 to 10000. For even a rather small number of predictors, as in the case of $p=10$, the sample distances are approximately normal. As $p$ increases, the normality becomes stronger.
+One can readily verify the normality of distances between independent instances through sampling from any data distribution and plotting the histogram of pairwise distances. Histograms of distance distributions for standard uniform data for Euclidean ($q=2$) and Manhattan ($q=1$) metrics are shown in Fig.~\ref{fig:central_limit_convergence}. For these simulated distances, we fixed $m=100$ and let $p=10,100,10000$ to see the convergence for different combinations of $m$ and $p$. Normality was assessed using the Shapiro-Wilk test. The null hypothesis of this test is that the distribution is normally distributed. In each case, the $W$-statistics is approximately equal to 1. In the case of the Manhattan metric, convergence does not occur as rapidly as Euclidean. The $W$-statistic is significant at the 0.05 level for both $p=10$ and $p=100$ attributes, which would seem to indicate that there is sufficient evidence to conclude that the distribution is not normal. However, it is still safe to assume normality for most purposes despite the significant p-values. In certain circumstances it may be better to use the Euclidean metric due to the apparently increased rate of convergence.
 
 \begin{figure}[ht!]
-\centering
-		\framebox{\includegraphics[width=0.95\textwidth]{central_limit_distances-Manhattan-Normal-diffstar.pdf}}
-		\caption{Convergence to normality of Manhattan distances between iid random normal instances. For each simulated distance distribution, we fixed $m=100$ instances but varied $p$ from 10 to 10000. It is clear that convergence is rapid, and approximate normality can be safely assumed for even $p=10$.}\label{fig:manhattanConverge}
-\end{figure} 
-
-\begin{figure}[ht!]
-\centering
-		\framebox{\includegraphics[width=0.95\textwidth]{central_limit_distances-Euclidean-Normal-diffstar.pdf}}
-		\caption{Convergence to normality of Euclidean distances between iid random normal instances. For each simulated distance distribution, we fixed $m=100$ instances but varied $p$ from 10 to 10000. It is clear that convergence is rapid, and approximate normality can be safely assumed for even $p=10$.}\label{fig:euclideanConverge}
+	\centering
+	\framebox{\includegraphics[width=0.98\textwidth]{central_limit_distances_uniform.pdf}}
+	\caption{Convergence to normality of Manhattan and Euclidean distances. For each simulated distance distribution, we fixed $m=100$ instances and let $p=10,100,10000$. It is clear that convergence is rapid, and approximate normality can be safely assumed for even $p=10$.}\label{fig:central_limit_convergence}
 \end{figure}
+
+%\begin{figure}[ht!]
+%\centering
+%		\framebox{\includegraphics[width=0.95\textwidth]{central_limit_distances-Manhattan-Normal-diffstar.pdf}}
+%		\caption{Convergence to normality of Manhattan distances between iid random normal instances. For each simulated distance distribution, we fixed $m=100$ instances but varied $p$ from 10 to 10000. It is clear that convergence is rapid, and approximate normality can be safely assumed for even $p=10$.}\label{fig:manhattanConverge}
+%\end{figure} 
+
+%\begin{figure}[ht!]
+%\centering
+%		\framebox{\includegraphics[width=0.95\textwidth]{central_limit_distances-Euclidean-Normal-diffstar.pdf}}
+%		\caption{Convergence to normality of Euclidean distances between iid random normal instances. For each simulated distance distribution, we fixed $m=100$ instances but varied $p$ from 10 to 10000. It is clear that convergence is rapid, and approximate normality can be safely assumed for even $p=10$.}\label{fig:euclideanConverge}
+%\end{figure}
 
 For distance based learning methods, all pairwise distances are used to determine relative importances for attributes. The collection of all distances above the diagonal in an $m \times m$ distance matrix does not satisfy the independence assumption used in the previous derivations. This is because of the redundancy that is inherent to the distance matrix calculation. However, this collection is still asymptotically normal with mean and variance approximately equal to those given in Eq. \ref{eq:DqDeltaMethod}. Hence, all fixed-radius methods will use a fixed radius that is some fraction of the expected pairwise distance for a given metric and data type. This implies that the probability of a fixed instance $j$ being within a fixed radius of a given instance $i$ can be parameterized by the expected pairwise distance and the variance of the pairwise distance. This probability is obtained by evaluating the normal cumulative distribution function (CDF), with corresponding mean and variance, at the quantile given by some function of the fixed radius. Therefore, we can derive the expected number of neighbors in the neighborhood of a fixed instance $i$. In other words, for sufficiently large data sets, the sample mean of the number of neighbors in a given neighborhood is well approximated by the product between the total number of possible neighbors and the expected probability of an instance being in a given neighborhood. The total number of possible neighbors for a fixed instance $i$ is always $m-1$, but this becomes approximately $\lfloor{\frac{m - 1}{2}}\rfloor$ when delineating between possible hits and misses for balanced data.
 
@@ -1210,7 +1216,7 @@ X_{ia} = \begin{cases}
 \end{cases}
 \end{equation}
 
-A minor allele at a particular locus $a$ is the least frequent of the two alleles at that particular locus $a$. For random GWAS data sets, we can think $X_{ia}$ as the number of successes in two Bernoulli trials. That is, $X_{ia} \sim \mathcal{B}(2,f_a)$ where $f_a$ is the probability of success. The success probability $f_a$ is the probability of a minor allele occurring at $a$. Furthermore, the minor allele probabilities are assumed to be independent and identically distributed. Two commonly known types of metrics for GWAS data are the Genotype Mismatch (GM) and Allele Mismatch (AM) metrics. The GM and AM metrics are defined by
+A minor allele at a particular locus $a$ is the least frequent of the two alleles at that particular locus $a$. For random GWAS data sets, we can think $X_{ia}$ as the number of successes in two Bernoulli trials. That is, $X_{ia} \sim \mathcal{B}(2,f_a)$ where $f_a$ is the probability of success. The success probability $f_a$ is the probability of a minor allele occurring at $a$. Furthermore, the minor allele probabilities are assumed to be independent and identically distributed according to $\mathcal{U}(l,u)$, where $l$ and $u$ are the lower and upper bounds, respectively, of the sampling distribution's support. Two commonly known types of metrics for GWAS data are the Genotype Mismatch (GM) and Allele Mismatch (AM) metrics. The GM and AM metrics are defined by
 %
 \begin{equation}\label{eq:diff_GM}
 d^\text{GM}_{ij}(a) = \begin{cases} 
@@ -1690,15 +1696,19 @@ Similarly, the variance of $D^{(1*)}_{ij}$ is given by
 \end{equation}
 where $mu^{(1)}_\text{max}(m,p)$ is given in Eq.~\ref{eq:mean_max_rs-fMRI}.
 
+\section{Effects of correlation on distances}
+
+
+
 \begin{figure}[H]
 	\centering
-	\framebox{\includegraphics[width=1\textwidth]{TiTv_distance_histograms_MAFs.pdf}}
-	\caption{Histograms of simulated TiTv distance distributions for different average MAFs. Average MAF is computed as the expected value of the uniform distribution from which minor allele success probabilities ($f_a$) are drawn. The upper bounds for each success probability uniform distribution are $\{0.1,0.2,0.3,0.4\}$, which are the maximum possible MAF for a given locus $a$. The lower bound is 0.01 in each case. Sample and predicted means, as well as standard deviations, are overlaid on each histogram. Each distance distribution comes from a simulated data set with $m=100$ instances and $p=100$ features.}\label{fig:TiTv_hist}
+	\framebox{\includegraphics[width=0.98\textwidth]{TiTv_distance_histograms_MAFs.pdf}}
+	\caption{Histograms of simulated TiTv distance distributions for different average MAFs. The Ti/Tv ratio was fixed to be 2 in all simulations. Average MAF is computed as the expected value of the uniform distribution from which minor allele success probabilities ($f_a$) are drawn. The upper bounds for each success probability uniform distribution are $\{0.1,0.2,0.3,0.4\}$, which are the maximum possible MAF for a given locus $a$. The corresponding lower bounds were $\{0.01,0.1,0.2,0.3\}$. Sample and predicted means, as well as standard deviations, are overlaid on each histogram. Each distance distribution comes from a simulated data set with $m=100$ instances and $p=100$ features.}\label{fig:TiTv_hist}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\framebox{\includegraphics[width=1\textwidth]{TiTv_distance_histogram_TiTvs.pdf}}
+	\framebox{\includegraphics[width=0.98\textwidth]{TiTv_distance_histogram_TiTvs.pdf}}
 	\caption{Histograms of simulated TiTv distance distributions for different Ti/Tv ratios. Average MAF was fixed to be 0.055. The Ti/Tv ratio was taken to be 2, 1.5, 1, and 0.5. The average distance increases as the Ti/Tv ratio decreases, which is intuitive because the TiTv distance is greater for transversions than transitions. Sample and predicted means, as well as standard deviations, are overlaid on each histogram. Each distance distribution comes from a simulated data set with $m=100$ instances and $p=100$ features.}\label{fig:TiTv_hist2}
 \end{figure}
 

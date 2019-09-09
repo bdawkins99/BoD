@@ -56,6 +56,13 @@ Trang~T Le, Ryan~J Urbanowicz, Jason~H Moore, and Brett~A McKinney.
 \newblock Statistical inference relief (stir) feature selection.
 \newblock {\em Bioinformatics}, page bty788, 2018.
 
+\bibitem{arabnejad2018}
+M.~{A}rabnejad, {B}.~{A}. {D}awkins, {W}.~{S}. {B}ush, {B}.~{C}. {W}hite,
+  {A}.~{R}. {H}arkness, and {B}.~{A}. {M}c{K}inney.
+\newblock {Transition-transversion encoding and genetic relationship metfic in
+  ReliefF feature selection improves pathway enrichment in GWAS}.
+\newblock {\em {BioData Mining}}, 11(23), 2018.
+
 \bibitem{allStats}
 Larry {W}asserman.
 \newblock {\em All of {S}tatistics: {A} {C}oncise {C}ourse in {S}tatistical
@@ -88,12 +95,5 @@ Sourav {C}hatterjee.
 Harald {C}ram\'{e}r.
 \newblock {\em {Mathematical Methods of Statistics}}, volume~1.
 \newblock Princeton University Press, reprint, revised edition, 1999.
-
-\bibitem{arabnejad2018}
-M.~{A}rabnejad, {B}.~{A}. {D}awkins, {W}.~{S}. {B}ush, {B}.~{C}. {W}hite,
-  {A}.~{R}. {H}arkness, and {B}.~{A}. {M}c{K}inney.
-\newblock {Transition-transversion encoding and genetic relationship metfic in
-  ReliefF feature selection improves pathway enrichment in GWAS}.
-\newblock {\em {BioData Mining}}, 11(23), 2018.
 
 \end{thebibliography}
