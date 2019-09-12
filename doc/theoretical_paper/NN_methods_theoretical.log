@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  12 SEP 2019 11:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  12 SEP 2019 18:38
 entering extended mode
 **./NN_methods_theoretical.tex
 (NN_methods_theoretical.tex
@@ -1010,14 +1010,14 @@ See the caption package documentation for explanation.
 File: TiTv_distance-vs-maf.pdf Graphic file (type pdf)
 <use TiTv_distance-vs-maf.pdf>
 Package pdftex.def Info: TiTv_distance-vs-maf.pdf  used on input line 1550.
-(pdftex.def)             Requested size: 252.31071pt x 252.32101pt.
+(pdftex.def)             Requested size: 241.68561pt x 241.69672pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 1553.
 See the caption package documentation for explanation.
 
-<rs_fmri_all_instance_matrix.pdf, id=608, 394.1375pt x 397.6988pt>
+<rs_fmri_all_instance_matrix.pdf, id=610, 394.1375pt x 397.6988pt>
 File: rs_fmri_all_instance_matrix.pdf Graphic file (type pdf)
 <use rs_fmri_all_instance_matrix.pdf>
 Package pdftex.def Info: rs_fmri_all_instance_matrix.pdf  used on input line 15
@@ -1030,7 +1030,7 @@ See the caption package documentation for explanation.
 
 [31 <./TiTv_distance-vs-maf.pdf>] [32 <./rs_fmri_all_instance_matrix.pdf>]
 [33] [34]
-<null_vs_correlated_normal_euclidean_standard.pdf, id=728, 800.33807pt x 814.44
+<null_vs_correlated_normal_euclidean_standard.pdf, id=730, 800.33807pt x 814.44
 473pt>
 File: null_vs_correlated_normal_euclidean_standard.pdf Graphic file (type pdf)
 <use null_vs_correlated_normal_euclidean_standard.pdf>
@@ -1038,14 +1038,14 @@ Package pdftex.def Info: null_vs_correlated_normal_euclidean_standard.pdf  used
  on input line 1715.
 (pdftex.def)             Requested size: 371.82751pt x 378.38977pt.
  [35]
-<TiTv_distance_histograms_MAFs.pdf, id=736, 800.33807pt x 800.34506pt>
+<TiTv_distance_histograms_MAFs.pdf, id=738, 800.33807pt x 800.34506pt>
 File: TiTv_distance_histograms_MAFs.pdf Graphic file (type pdf)
 <use TiTv_distance_histograms_MAFs.pdf>
 Package pdftex.def Info: TiTv_distance_histograms_MAFs.pdf  used on input line 
 1725.
 (pdftex.def)             Requested size: 371.82751pt x 371.83908pt.
  [36 <./null_vs_correlated_normal_euclidean_standard.pdf>]
-<TiTv_distance_histogram_TiTvs.pdf, id=780, 800.33807pt x 800.34506pt>
+<TiTv_distance_histogram_TiTvs.pdf, id=782, 800.33807pt x 800.34506pt>
 File: TiTv_distance_histogram_TiTvs.pdf Graphic file (type pdf)
 <use TiTv_distance_histogram_TiTvs.pdf>
 Package pdftex.def Info: TiTv_distance_histogram_TiTvs.pdf  used on input line 
@@ -1053,21 +1053,21 @@ Package pdftex.def Info: TiTv_distance_histogram_TiTvs.pdf  used on input line
 (pdftex.def)             Requested size: 371.82751pt x 371.83908pt.
 
 [37 <./TiTv_distance_histograms_MAFs.pdf>]
-<updated_distributions_table(5-23-2019).pdf, id=817, 481.5611pt x 537.94978pt>
+<updated_distributions_table(5-23-2019).pdf, id=819, 481.5611pt x 537.94978pt>
 File: updated_distributions_table(5-23-2019).pdf Graphic file (type pdf)
 <use updated_distributions_table(5-23-2019).pdf>
 Package pdftex.def Info: updated_distributions_table(5-23-2019).pdf  used on in
 put line 1758.
 (pdftex.def)             Requested size: 379.4175pt x 429.57426pt.
  [38 <./TiTv_distance_histogram_TiTvs.pdf>]
-<updated_typical_metrics_table.pdf, id=854, 314.27011pt x 374.28532pt>
+<updated_typical_metrics_table.pdf, id=856, 314.27011pt x 374.28532pt>
 File: updated_typical_metrics_table.pdf Graphic file (type pdf)
 <use updated_typical_metrics_table.pdf>
 Package pdftex.def Info: updated_typical_metrics_table.pdf  used on input line 
 1766.
 (pdftex.def)             Requested size: 265.59108pt x 323.02809pt.
  [39 <./updated_distributions_table(5-23-2019).pdf>]
-<updated_typical_metrics_table(normalized).pdf, id=923, 376.8248pt x 563.55441p
+<updated_typical_metrics_table(normalized).pdf, id=925, 376.8248pt x 563.55441p
 t>
 File: updated_typical_metrics_table(normalized).pdf Graphic file (type pdf)
 <use updated_typical_metrics_table(normalized).pdf>
@@ -1075,7 +1075,7 @@ Package pdftex.def Info: updated_typical_metrics_table(normalized).pdf  used on
  input line 1774.
 (pdftex.def)             Requested size: 322.50719pt x 491.13496pt.
  [40 <./updated_typical_metrics_table.pdf>]
-<updated_distributions_table-gwas(5-23-2019).pdf, id=959, 461.41383pt x 483.965
+<updated_distributions_table-gwas(5-23-2019).pdf, id=961, 461.41383pt x 483.965
 1pt>
 File: updated_distributions_table-gwas(5-23-2019).pdf Graphic file (type pdf)
 <use updated_distributions_table-gwas(5-23-2019).pdf>
@@ -1083,7 +1083,7 @@ Package pdftex.def Info: updated_distributions_table-gwas(5-23-2019).pdf  used
 on input line 1782.
 (pdftex.def)             Requested size: 379.4175pt x 403.51419pt.
  [41 <./updated_typical_metrics_table(normalized).pdf>]
-<updated_distributions_table-rs-fMRI.pdf, id=1005, 427.55835pt x 276.36348pt>
+<updated_distributions_table-rs-fMRI.pdf, id=1007, 427.55835pt x 276.36348pt>
 File: updated_distributions_table-rs-fMRI.pdf Graphic file (type pdf)
 <use updated_distributions_table-rs-fMRI.pdf>
 Package pdftex.def Info: updated_distributions_table-rs-fMRI.pdf  used on input
@@ -1109,7 +1109,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1795.
 Here is how much of TeX's memory you used:
  21772 strings out of 492946
  394433 string characters out of 3135528
- 528325 words of memory out of 3000000
+ 528361 words of memory out of 3000000
  24865 multiletter control sequences out of 15000+200000
  23494 words of font info for 127 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1141,9 +1141,9 @@ e1/public/amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
 /amsfonts/symbols/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helve
 tic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb
 >
-Output written on NN_methods_theoretical.pdf (44 pages, 1335556 bytes).
+Output written on NN_methods_theoretical.pdf (44 pages, 1335730 bytes).
 PDF statistics:
- 1202 PDF objects out of 1440 (max. 8388607)
+ 1204 PDF objects out of 1440 (max. 8388607)
  258 named destinations out of 1000 (max. 500000)
  17247 words of extra memory for PDF output out of 17280 (max. 10000000)
 
