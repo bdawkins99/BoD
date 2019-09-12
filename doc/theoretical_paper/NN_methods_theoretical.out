@@ -26,3 +26,6 @@
 \BOOKMARK [2][-]{subsection.2.8}{Resting-State fMRI Distance Distribution}{section.2}% 26
 \BOOKMARK [2][-]{subsection.2.9}{Normalized Manhattan \040for rs-fMRI}{section.2}% 27
 \BOOKMARK [1][-]{section.3}{Effects of correlation on distances}{}% 28
+\BOOKMARK [2][-]{subsection.3.1}{Continuous data}{section.3}% 29
+\BOOKMARK [2][-]{subsection.3.2}{GWAS data}{section.3}% 30
+\BOOKMARK [2][-]{subsection.3.3}{Correlation-based data}{section.3}% 31

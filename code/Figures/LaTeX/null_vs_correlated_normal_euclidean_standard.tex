@@ -1,0 +1,42 @@
+\documentclass[hidelinks,12pt,dvipsnames,border=2pt]{standalone}
+%\usepackage[top=0.7in, bottom=0.8in, left=1in, right=1in]{geometry}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usetikzlibrary{arrows}
+\usetikzlibrary{shapes}
+\usepackage{enumitem}
+\usepackage{bm}
+\usepackage{mathdots}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usetikzlibrary{shadings}
+\usetikzlibrary{decorations.pathreplacing}
+\usepackage{helvet}
+\usepackage{url}
+\usepackage{graphicx}
+\usetikzlibrary{arrows.meta,positioning,fit,calc}
+\renewcommand{\familydefault}{\sfdefault}
+
+
+\usetikzlibrary{arrows,decorations.pathmorphing,backgrounds,fit,positioning,shapes.symbols,chains}
+
+\begin{document}
+	
+% trim=left botm right top
+\begin{tikzpicture}
+\node at (7,7) {\LARGE \textbf{Histograms of Null vs Correlated Distances}};
+
+\node at (0,0) {\includegraphics[width=\textwidth]{null_vs_correlated_density1.pdf}};
+\node[draw,rounded corners=3,line width=0.3mm,fill=black!5] at (3.5,-2.5) {\large \textcolor{blue}{\bm{$\bar{r}_\textbf{abs} = 0.0048$}}};
+
+\node at (14,0) {\includegraphics[width=\textwidth]{null_vs_correlated_density2.pdf}};
+\node[draw,rounded corners=3,line width=0.3mm,fill=black!5] at (17.5,-2.5) {\large \textcolor{blue}{\bm{$\bar{r}_\textbf{abs} = 0.2622$}}};
+
+\node at (0,-14) {\includegraphics[width=\textwidth]{null_vs_correlated_density3.pdf}};
+\node[draw,rounded corners=3,line width=0.3mm,fill=black!5] at (3.5,-16.5) {\large \textcolor{blue}{\bm{$\bar{r}_\textbf{abs} = 0.4575$}}};
+
+\node at (14,-14) {\includegraphics[width=\textwidth]{null_vs_correlated_density4.pdf}};
+\node[draw,rounded corners=3,line width=0.3mm,fill=black!5] at (17.5,-16.5) {\large \textcolor{blue}{\bm{$\bar{r}_\textbf{abs} = 0.6124$}}};
+\end{tikzpicture}
+
+\end{document}

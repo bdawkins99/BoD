@@ -1698,7 +1698,27 @@ where $mu^{(1)}_\text{max}(m,p)$ is given in Eq.~\ref{eq:mean_max_rs-fMRI}.
 
 \section{Effects of correlation on distances}
 
+All of the derivations presented in previous sections are for the cases where there is no correlation between instances or features. We assumed that any pair $(X_{ia},X_{ja})$ of data points for instances $i$ and $j$ and fixed feature $a$ were independent and identically distributed. This was done in order to determine asymptotic estimates in null data. That is, data with no main effects, interaction effects, or pairwise correlations between features. Within this highly simplified context, our asymptotic formulas for distributional moments are reliable. However, correlations do exist between features and instances in real data. There are a multitude of different statistical effects that impact distance distributional properties. Ultimately, divergence from normality is caused primarily by large magnitude pairwise correlation between features. Pairwise feature correlation can be the result of main effects, where features have different within-group means. On the other hand, there could be an underlying interaction network in which there are strong associations between features. If features are differentially correlated between phenotype groups, then interactions exist that change affect the distance distribution. In the following few sections, we consider particular cases of the $L_q$ metric for continuous and discrete data under the effects of pairwise feature correlation.
 
+\subsection{Continuous data}
+
+Consider $X^{(m \times p)}$ where $X_{ia} \sim \mathcal{N}(0,1)$ for all $i=1,2,\dots,m$ and $a=1,2,\dots,p$. Without loss of generality, we let $m=p=100$ and consider only the $L_2$ (Euclidean) metric. An illustration of the effects of correlation on distances with the given assumptions is shown in Fig.~\ref{fig:null-vs-corr-normal}. Each density curve shown in (\textcolor{blue}{blue}) is for a simulated distance matrix from data with some degree of pairwise correlation between features. Divergence from normality in distances is directly related to the average absolute pairwise correlation that exists in the simulated data. This measure is given by
+%
+\begin{equation}\label{eq:abs_corr}
+\bar{r}_\text{abs} = \frac{2}{p(p-1)}\sum^{p-1}_{i=1} \sum_{j > i} r_{ij}
+\end{equation}
+%
+where $r_{ij}$ is the correlation between features $i$ and $j$ across all instances $m$. The null distance density curve (\textcolor{orange}{orange}) is representative of distances generated from random standard normal data with no effects added. The mean and variance of this distribution are given by Eqs.~\ref{eq:normalEucMeanImproved} and \ref{eq:normalEucVar}, respectively, by substituting $p=100$ for the mean. From left-to-right and from top-to-bottom, there is an increase in $\bar{r}_\text{abs}$. This very quickly introduces positive skewness and increased variability. The predicted and sample means, however, are approximately the same in each case. This is simply due to linearity of the expectation operator. Because of the dependencies between features, the predicted variance of 1 obviously no longer holds.
+
+\begin{figure}[H]
+	\centering
+	\framebox{\includegraphics[width=0.98\textwidth]{null_vs_correlated_normal_euclidean_standard.pdf}}
+	\caption{Density curves of distance distributions generated from correlated and null data from standard normal distribution. Each plot has the theoretical density curve for the null Euclidean distance distribution (\textcolor{orange}{orange}) and a density curve for Euclidean distances from correlated data (\textcolor{blue}{blue}) with some average magnitude pairwise correlation (\textcolor{blue}{$\bar{r}_\text{abs}$}) between features. (\textbf{Upper left}) With little correlation, distances begin to diverge from the predicted normal distribution. (\textbf{Upper Right}) Low to moderate correlation causes a large positive skew and increased variability in distances. (\textbf{Lower Left}) Moderate to high correlation increases skewness and variability in distances. (\textbf{Lower Right}) Extreme correlation produces maximal skewness and variability in distances. In each case, the null and correlated distance means are approximately the same.}\label{fig:null-vs-corr-normal}
+\end{figure}
+
+\subsection{GWAS data}
+
+\subsection{Correlation-based data}
 
 \begin{figure}[H]
 	\centering
