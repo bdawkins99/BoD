@@ -1723,10 +1723,18 @@ In analogy to the previous section, we explore the effects of pairwise feature c
 \begin{figure}[H]
 	\centering
 	\framebox{\includegraphics[width=0.98\textwidth]{null_vs_correlated_gwas_TiTv.pdf}}
-	\caption{Density curves of distance distributions generated from correlated and null data from standard normal distribution. Each plot has the theoretical density curve for the null Euclidean distance distribution (\textcolor{orange}{orange}) and a density curve for Euclidean distances from correlated data (\textcolor{blue}{blue}) with some average magnitude pairwise correlation (\textcolor{blue}{$\bar{r}_\text{abs}$}) between features. (\textbf{Upper left}) With little correlation, distances begin to diverge from the predicted normal distribution. (\textbf{Upper Right}) Low to moderate correlation causes a large positive skew and increased variability in distances. (\textbf{Lower Left}) Moderate to high correlation increases skewness and variability in distances. (\textbf{Lower Right}) Extreme correlation produces maximal skewness and variability in distances. In each case, the null and correlated distance means are approximately the same.}\label{fig:null-vs-corr-titv}
+	\caption{Density curves of distance distributions generated from correlated and null data from standard normal distribution. Each plot has the theoretical density curve for the null Euclidean distance distribution (\textcolor{orange}{orange}) and a density curve for TiTv distances from correlated data (\textcolor{blue}{blue}) with some average magnitude pairwise correlation (\textcolor{blue}{$\bar{r}_\text{abs}$}) between features. (\textbf{Upper left}) With little correlation, distances begin to diverge from the predicted normal distribution. (\textbf{Upper Right}) Low to moderate correlation causes a large positive skew and increased variability in distances. (\textbf{Lower Left}) Moderate to high correlation increases skewness and variability in distances. (\textbf{Lower Right}) Extreme correlation produces maximal skewness and variability in distances. In each case, the null and correlated distance means are approximately the same.}\label{fig:null-vs-corr-titv}
 \end{figure}
 
 \subsection{Correlation-based data}
+
+For our correlation data-based metric given by Eqs.~\ref{eq:diff_rs-fMRI} and \ref{eq:D} with $q=1$, we consider additional effects of correlation between features. Without loss of generality, we let $m=100$ and $p=30$. 
+
+\begin{figure}[H]
+	\centering
+	\framebox{\includegraphics[width=0.98\textwidth]{null_vs_correlated_rsfMRI.pdf}}
+	\caption{Density curves of distance distributions generated from correlated and null data from standard normal distribution. Each plot has the theoretical density curve for the null Euclidean distance distribution (\textcolor{orange}{orange}) and a density curve for Manhattan distances from correlated corr-ts data (\textcolor{blue}{blue}) with some average magnitude pairwise correlation (\textcolor{blue}{$\bar{r}_\text{abs}$}) between features. (\textbf{Upper left}) With little correlation, distances begin to diverge from the predicted normal distribution. (\textbf{Upper Right}) Low to moderate correlation causes a large positive skew and increased variability in distances. (\textbf{Lower Left}) Moderate to high correlation increases skewness and variability in distances. (\textbf{Lower Right}) Extreme correlation produces maximal skewness and variability in distances. In each case, the null and correlated distance means are approximately the same.}\label{fig:null-vs-corr-rsfMRI}
+\end{figure}
 
 \begin{figure}[H]
 	\centering
