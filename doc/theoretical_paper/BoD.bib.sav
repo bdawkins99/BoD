@@ -581,4 +581,13 @@ year={2018}
   doi     = {10.1093/cercor/bhw157},
 }
 
+@Article{dickie2017,
+  author  = {David {A}lexander {D}ickie and {S}usan {D}. {S}henkin and {D}evasuda {A}nblagan and {J}uyoung {L}ee and {M}anuel {B}lesa {C}abez and {D}avid {R}odriguez and {J}ames {P}. {B}oardman and {A}dam {W}aldman and {D}ominic {E}. {J}ob and {J}oanna {M}. {W}ardlaw},
+  title   = {{Whole Brain Magnetic Resonance Image Atlases: A Systematic Review of Existing Atlases and Caveats for Use in Population Imaging}},
+  journal = {{Frontiers in Neuroinformatics}},
+  year    = {2017},
+  month   = jan,
+  doi     = {10.3389/fninf.2017.00001?},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

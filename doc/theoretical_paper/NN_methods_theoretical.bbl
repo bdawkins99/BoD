@@ -96,4 +96,18 @@ Harald {C}ram\'{e}r.
 \newblock {\em {Mathematical Methods of Statistics}}, volume~1.
 \newblock Princeton University Press, reprint, revised edition, 1999.
 
+\bibitem{lee2013}
+Megan~{H}. {L}ee, {C}hristopher {D}.~{S}myser, and {J}oshua {S}.~{S}himony.
+\newblock {Resting state fMRI: A review of methods and clinical applications}.
+\newblock {\em {AJNR Am J Neuroradiol.}}, 34(10):1866--1872, October 2013.
+
+\bibitem{dickie2017}
+David {A}lexander {D}ickie, {S}usan {D}.~{S}henkin, {D}evasuda {A}nblagan,
+  {J}uyoung {L}ee, {M}anuel~{B}lesa {C}abez, {D}avid {R}odriguez, {J}ames
+  {P}.~{B}oardman, {A}dam {W}aldman, {D}ominic {E}.~{J}ob, and {J}oanna
+  {M}.~{W}ardlaw.
+\newblock {Whole Brain Magnetic Resonance Image Atlases: A Systematic Review of
+  Existing Atlases and Caveats for Use in Population Imaging}.
+\newblock {\em {Frontiers in Neuroinformatics}}, January 2017.
+
 \end{thebibliography}

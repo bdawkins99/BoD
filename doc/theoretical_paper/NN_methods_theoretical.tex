@@ -346,6 +346,8 @@ For distance based learning methods, all pairwise distances are used to determin
 
 \section{Derivation of means and standard deviations for metrics and data distributions}
 
+In this section, we begin by deriving general formulas for asymptotic means and variances of the $L_q$ distance given by Eq.~\ref{eq:D} for standard normal and standard uniform data. With our general formulas for continuous data, we compute moments associated with Manhattan ($L_1$) and Euclidean ($L_2$). We then consider the max-min normalized version of the $L_q$ distance, where the magnitude difference given by Eq.~\ref{eq:diff} is divided by the range of each feature $a$. Using Extreme Value Theory (EVT), we derive formulas for the moments of feature range in standard normal and standard uniform data. Transitioning into discrete data distributions relevant to GWAS, we derive asymptotic moments for two well known metrics and one new metric. In addition, we derive distance asymptotics for time series correlation-based data, such as, resting-state fMRI. 
+
 \subsection{Distribution of \texorpdfstring{$|d_{ij}(a)|^q = |X_{ia} - X_{ja}|^q$}{}}
 
 Suppose that $X_{ia}, X_{ja} \overset{iid}{\sim} \mathcal{F}_X(\mu_x,\sigma^2_x)$ and define $Z^q_a = |d_{ij}(a)|^q = |X_{ia} - X_{ja}|^q$, where $a \in \mathcal{A}$ and $|\mathcal{A}| = p$. In order to find the distribution of $Z^q_a$, we will use the following theorem given in \cite{freund2004}.
@@ -1277,7 +1279,8 @@ Then the expected pairwise GM distance between instances $i$ and $j$ is computed
 %
 \begin{equation}\label{eq:mu_DDistr_GM}
 \begin{aligned}
-\text{E}\left(\sum_{a \in \mathcal{A}} d^\text{GM}_{ij}(a)\right) &= \sum_{a \in \mathcal{A}} \text{E}\left[d^\text{GM}_{ij}(a)\right] \\
+\text{E}\left(D^\text{GM}_{ij}\right) &= \text{E}\left(\sum_{a \in \mathcal{A}} d^\text{GM}_{ij}(a)\right) \\
+&= \sum_{a \in \mathcal{A}} \text{E}\left[d^\text{GM}_{ij}(a)\right] \\
 &= 2 \sum_{a \in \mathcal{A}} F(a).
 \end{aligned}
 \end{equation}
@@ -1286,7 +1289,7 @@ The second moment about the origin for the GM distance is computed as follows
 %
 \begin{equation}\label{eq:mu2_DDistr_GM}
 \begin{aligned}
-\text{E}\left[\left(D_{ij}\right)^2\right] &= \text{E}\left[\left(\sum_{a \in \mathcal{A}} d^\text{GM}_{ij}(a)\right)^2\right] \\
+\text{E}\left[\left(D^\text{GM}_{ij}\right)^2\right] &= \text{E}\left[\left(\sum_{a \in \mathcal{A}} d^\text{GM}_{ij}(a)\right)^2\right] \\
 &= \text{E}\left[\sum_{a \in \mathcal{A}} \left(d^\text{GM}_{ij}(a)\right)^2\right] + 2 \text{E}\left[\sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} d^\text{GM}_{ij}(r) \cdot d^\text{GM}_{ij}(s)\right] \\
 &= \sum_{a \in \mathcal{A}} \left(\sum_{k = 0}^{1} k^2 \cdot \text{P}\left[d^\text{GM}_{ij}(a) = k\right]\right) \\
 &+ 2\sum_{a \in \mathcal{A}} \sum_{s \leq r - 1} \left(\sum_{k = 0}^{1} k \cdot \text{P}\left[d^\text{GM}_{ij}(r) = k\right]\right) \cdot \left(\sum_{k = 0}^{1} k \cdot \text{P}\left[d^\text{GM}_{ij}(s) = k\right]\right) \\
@@ -1299,7 +1302,7 @@ Using the moments given by Eqs. \ref{eq:mu_DDistr_GM} and \ref{eq:mu2_DDistr_GM}
 %
 \begin{equation}\label{eq:var_DDistr_GM}
 \begin{aligned}
-\text{Var}(D_{ij}) &= \text{E}\left[(D_{ij})^2\right] - \left[\text{E}(D_{ij})\right]^2 \\
+\text{Var}(D^\text{GM}_{ij}) &= \text{E}\left[(D^\text{GM}_{ij})^2\right] - \left[\text{E}(D^\text{GM}_{ij})\right]^2 \\
 &= 2\sum_{a \in \mathcal{A}} F(a) + 8\sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} \prod_{\lambda \in \{r,s\}} F(\lambda) - 4\left(\sum_{a \in \mathcal{A}}F(a)\right)^2 \\
 &= 2\sum_{a \in \mathcal{A}} F(a) - 4\sum_{a \in \mathcal{A}}F^2(a) \\
 &= 2\sum_{a \in \mathcal{A}} F(a)[1 - 2F(a)],
@@ -1310,7 +1313,7 @@ where $F(a) = 2(1 - f_a)^3f_a + 2(1 - f_a)f^3_a + (1 - f_a)^2f^2_a$.
 With the mean and variance estimates given by Eqs. \ref{eq:mu_DDistr_GM} and \ref{eq:var_DDistr_GM}, the asymptotic GM distance distribution is given by the following
 %
 \begin{equation}\label{eq:DDistr_GM}
-D_{ij} \overset{.}{\sim} \mathcal{N}\left(2\sum_{a \in \mathcal{A}} F(a), 2\sum_{a \in \mathcal{A}} F(a)[1 - 2F(a)]\right),
+D^\text{GM}_{ij} \overset{.}{\sim} \mathcal{N}\left(2\sum_{a \in \mathcal{A}} F(a), 2\sum_{a \in \mathcal{A}} F(a)[1 - 2F(a)]\right),
 \end{equation}
 where $F(a) = 2(1 - f_a)^3f_a + 2(1 - f_a)f^3_a + (1 - f_a)^2f^2_a$. 
 
@@ -1336,7 +1339,8 @@ Then the expected pairwise AM distance between instances $i$ and $j$ is computed
 %
 \begin{equation}\label{eq:mu_DDistr_AM}
 \begin{aligned}
-\text{E}\left(\sum_{a \in \mathcal{A}} d^\text{AM}_{ij}(a)\right) &= \sum_{a \in \mathcal{A}} \text{E}\left[d^\text{AM}_{ij}(a)\right] \\
+\text{E}\left(D^\text{AM}_{ij}\right) &= \text{E}\left(\sum_{a \in \mathcal{A}} d^\text{AM}_{ij}(a)\right) \\
+&= \sum_{a \in \mathcal{A}} \text{E}\left[d^\text{AM}_{ij}(a)\right] \\
 &= 2 \sum_{a \in \mathcal{A}} F(a).
 \end{aligned}
 \end{equation}
@@ -1345,7 +1349,7 @@ The second moment about the origin for the AM distance is computed as follows
 %
 \begin{equation}\label{eq:mu2_DDistr_AM}
 \begin{aligned}
-\text{E}\left[\left(D_{ij}\right)^2\right] &= \text{E}\left[\left(\sum_{a \in \mathcal{A}} d^\text{AM}_{ij}(a)\right)^2\right] \\
+\text{E}\left[\left(D^\text{AM}_{ij}\right)^2\right] &= \text{E}\left[\left(\sum_{a \in \mathcal{A}} d^\text{AM}_{ij}(a)\right)^2\right] \\
 &= \text{E}\left[\sum_{a \in \mathcal{A}} \left(d^\text{AM}_{ij}(a)\right)^2\right] + 2 \text{E}\left[\sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} d^\text{AM}_{ij}(r) \cdot d^\text{AM}_{ij}(s)\right] \\
 &= \sum_{a \in \mathcal{A}} \left(\sum_{k \in \mathcal{D}} k^2 \cdot \text{P}\left[d^\text{AM}_{ij}(a) = k\right]\right) \\
 &+ 2\sum_{a \in \mathcal{A}} \sum_{s \leq r - 1} \left(\sum_{k \in \mathcal{D}} k \cdot \text{P}\left[d^\text{AM}_{ij}(r) = k\right]\right) \cdot \left(\sum_{k \in \mathcal{D}} k \cdot \text{P}\left[d^\text{AM}_{ij}(s) = k\right]\right) \\
@@ -1358,7 +1362,7 @@ Using the moments given by Eqs. \ref{eq:mu_DDistr_AM} and \ref{eq:mu2_DDistr_AM}
 %
 \begin{equation}\label{eq:var_DDistr_AM}
 \begin{aligned}
-\text{Var}(D_{ij}) &= \text{E}\left[(D_{ij})^2\right] - \left[\text{E}(D_{ij})\right]^2 \\
+\text{Var}(D^\text{AM}_{ij}) &= \text{E}\left[(D^\text{AM}_{ij})^2\right] - \left[\text{E}(D^\text{AM}_{ij})\right]^2 \\
 &= \sum_{a \in \mathcal{A}} G(a) + 8\sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} \prod_{\lambda \in \{r,s\}} F(\lambda) - 4\left(\sum_{a \in \mathcal{A}}F(a)\right)^2 \\
 &= \sum_{a \in \mathcal{A}} G(a) - 4\sum_{a \in \mathcal{A}}F^2(a) \\
 &= \sum_{a \in \mathcal{A}} \left[G(a)- 4F^2(a)\right],
@@ -1369,7 +1373,7 @@ where $G(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a) + 2 (1 - f_a)^2 f^2_a$ and $F(\l
 With the mean and variance estimates given by Eqs. \ref{eq:mu_DDistr_AM} and \ref{eq:var_DDistr_AM}, the asymptotic AM distance distribution is given by the following
 %
 \begin{equation}\label{eq:DDistr_AM}
-D_{ij} \overset{.}{\sim} \mathcal{N}\left(2\sum_{a \in \mathcal{A}} F(a), \sum_{a \in \mathcal{A}} \left[G(a)- 4F^2(a)\right]\right),
+D^\text{AM}_{ij} \overset{.}{\sim} \mathcal{N}\left(2\sum_{a \in \mathcal{A}} F(a), \sum_{a \in \mathcal{A}} \left[G(a)- 4F^2(a)\right]\right),
 \end{equation}
 where $G(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a) + 2 (1 - f_a)^2 f^2_a$ and $F(\lambda) = (1 - f_\lambda)^3 f_\lambda + f^3_\lambda (1 - f_\lambda) + (1 - f_\lambda)^2 f^2_\lambda$.
 
@@ -1500,7 +1504,7 @@ Using Eqs. \ref{eq:prob_TiTv_0} - \ref{eq:prob_TiTv_1}, we compute the expected 
 %
 \begin{equation}\label{eq:mu_DDistr_TiTv}
 \begin{aligned}
-\text{E}(D_{ij}) &= \sum_{a \in \mathcal{A}} \left(\sum_{k \in \mathcal{D}} k \cdot \text{P}\left[d^\text{TiTv}_{ij}(a) = k\right]\right) \\
+\text{E}(D^\text{TiTv}_{ij}) &= \sum_{a \in \mathcal{A}} \left(\sum_{k \in \mathcal{D}} k \cdot \text{P}\left[d^\text{TiTv}_{ij}(a) = k\right]\right) \\
 &= (\gamma_0 + \gamma_2 + 2\gamma_1) \sum_{a \in \mathcal{A}} \left[(1 - f_a)^3 f_a + f^3_a (1 - f_a)\right] \\
 &+ \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} (1 - f_a)^2 f^2_a \\
 &= (\gamma_0 + \gamma_2 + 2\gamma_1) \sum_{a \in \mathcal{A}} F(a) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G(a),
@@ -1512,7 +1516,7 @@ The second moment about the origin for the TiTv distance is computed as follows
 %
 \begin{equation}\label{eq:mu2_DDistr_TiTv}
 \begin{aligned}
-\text{E}\left[\left(D_{ij}\right)^2\right] &= \text{E}\left[\left(\sum_{a \in \mathcal{A}} d^\text{TiTv}_{ij}(a)\right)^2\right] \\
+\text{E}\left[\left(D^\text{TiTv}_{ij}\right)^2\right] &= \text{E}\left[\left(\sum_{a \in \mathcal{A}} d^\text{TiTv}_{ij}(a)\right)^2\right] \\
 &= \text{E}\left[\sum_{a \in \mathcal{A}} \left(d^\text{TiTv}_{ij}(a)\right)^2\right] + 2 \text{E}\left[\sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} d^\text{TiTv}_{ij}(r) \cdot d^\text{TiTv}_{ij}(s)\right] \\
 &= \sum_{a \in \mathcal{A}} \left(\sum_{k \in \mathcal{D}} k^2 \cdot \text{P}\left[d^\text{TiTv}_{ij}(a) = k\right]\right) \\
 &+ 2\sum_{a \in \mathcal{A}} \sum_{s \leq r - 1} \left(\sum_{k \in \mathcal{D}} k \cdot \text{P}\left[d^\text{TiTv}_{ij}(r) = k\right]\right) \cdot \left(\sum_{k \in \mathcal{D}} k \cdot \text{P}\left[d^\text{TiTv}_{ij}(s) = k\right]\right) \\
@@ -1526,7 +1530,7 @@ Using the moments given by Eqs. \ref{eq:mu_DDistr_TiTv} and \ref{eq:mu2_DDistr_T
 %
 \begin{equation}\label{eq:var_DDistr_TiTv}
 \begin{aligned}
-\text{Var}(D_{ij}) &= \text{E}\left[(D_{ij})^2\right] - \left[\text{E}(D_{ij})\right]^2 \\
+\text{Var}(D^\text{TiTv}_{ij}) &= \text{E}\left[(D^\text{TiTv}_{ij})^2\right] - \left[\text{E}(D^\text{TiTv}_{ij})\right]^2 \\
 &=\left[\frac{1}{4}(\gamma_0 + \gamma_2) + \gamma_1\right] \sum_{a \in \mathcal{A}} F(a) + \left[\frac{9}{8}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G(a) \\
 &+ 2 \sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} \prod_{\lambda \in \{r,s\}} \left([\gamma_0 + \gamma_2 + 2\gamma_1] F(\lambda) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] G(\lambda)\right) \\
 &- \left([\gamma_0 + \gamma_2 + 2\gamma_1] \sum_{a \in \mathcal{A}} F(a) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G(a)\right)^2 \\
@@ -1540,7 +1544,7 @@ With the mean and variance estimates given by Eqs. \ref{eq:mu_DDistr_TiTv} and \
 %
 \begin{equation}\label{eq:DDistr_TiTv}
 \begin{aligned}
-D_{ij} \overset{.}{\sim} \mathcal{N}\Biggl(& (\gamma_0 + \gamma_2 + 2\gamma_1) \sum_{a \in \mathcal{A}} F(a) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G(a), \\
+D^\text{TiTv}_{ij} \overset{.}{\sim} \mathcal{N}\Biggl(& (\gamma_0 + \gamma_2 + 2\gamma_1) \sum_{a \in \mathcal{A}} F(a) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G(a), \\
 &\left[\frac{1}{4}(\gamma_0 + \gamma_2) + \gamma_1\right] \sum_{a \in \mathcal{A}} F(a) + \left[\frac{9}{8}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G(a) \\
 &- \sum_{a \in \mathcal{A}} \left([\gamma_0 + \gamma_2 + 2\gamma_1] F(a) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] G(a)\right)^2\Biggr),
 \end{aligned}
@@ -1569,7 +1573,7 @@ The maximum distance occurs at $\bar{f}_a=0.5$, which is the inflection point ab
 %\subsection{Resting-State fMRI Distance Distribution}
 \subsection{Time series correlation-based distance distribution}
 
-For resting-state fMRI (rs-fMRI), the data consists of correlation matrices for each instance. These correlations are between different ROIs for a particular brain atlas. We would like the attributes to be the ROIs themselves, which leads us to the following metric
+For time series correlation-based data, we consider the case where there are $m$ correlation matrices $A^{(p \times p)}$. In particular, we are focusing on resting-state fMRI (rs-fMRI) data, which falls into this category. The derivations that follow, however, are relevant to all correlation-based data fitting the assumptions we have adopted. The features in rs-fMRI are commonly Regions of Interest (ROIs), which are collections of highly correlated and spatially proximal voxels \cite{lee2013}. These correlations are between different ROIs for a particular brain atlas \cite{dickie2017}. Because the features are the ROIs themselves, this leads us to the following metric
 %
 \begin{equation}\label{eq:diff_rs-fMRI}
 d^\text{ROI}_{ij}(a) = \sum_{k \neq a}\bigl|A^{(i)}_{ka} - A^{(j)}_{ka}\bigr|.
@@ -1615,7 +1619,8 @@ We further transform the data matrix $X$ by standardizing so that each of the $m
 %
 \begin{equation}\label{eq:mu_DDistr_rs-fMRI}
 \begin{aligned}
-\text{E}(D_{ij}) &= \text{E}\left(\sum_{a \in \mathcal{A}} \sum_{k \neq a} \bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|\right) \\
+\text{E}(D^\text{fMRI}_{ij}) &= \text{E}\left(\sum_{a \in \mathcal{A}} d^\text{ROI}_{ij}(a)\right) \\
+&= \text{E}\left(\sum_{a \in \mathcal{A}} \sum_{k \neq a} \bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|\right) \\
 &= \sum_{a \in \mathcal{A}} \sum_{k \neq a} \text{E}\left(\bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|\right) \\
 &= \sum_{a \in \mathcal{A}} \sum_{k \neq a} \frac{2}{\sqrt{\pi}} \\
 &= \frac{2p(p-1)}{\sqrt{\pi}}.
@@ -1626,7 +1631,7 @@ Due to the dependencies that exist between terms in the double sum when computin
 %
 \begin{equation}\label{eq:var_DDistr_rs-fMRI}
 \begin{aligned}
-\text{Var}(D_{ij}) &= \text{Var}\left(\sum_{a \in \mathcal{A}} \sum_{k \neq a} \bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|\right) \\
+\text{Var}(D^\text{fMRI}_{ij}) &= \text{Var}\left(\sum_{a \in \mathcal{A}} \sum_{k \neq a} \bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|\right) \\
 &= \sum_{a = 1}^{p-1} \text{Var}\left(\sum_{k=a+1}^{p} 2\bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|\right) \\
 &+ 2\sum_{a = 1}^{p-1} \sum_{r=a+1}^{p-1} \text{Cov}\left(\sum_{k=a+1}^{p} 2\bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|, \sum_{s=r+1}^{p} 2\bigl|\hat{A}^{(i)}_{rs} - \hat{A}^{(j)}_{rs}\bigr|\right) \\
 &= \sum_{a=1}^{p-1} \sum_{k=a+1}^{p} \text{Var}\left(2\bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|\right) \\
@@ -1641,7 +1646,7 @@ Due to the dependencies that exist between terms in the double sum when computin
 In order to have a formula in terms of the number of ROIs $p$ only, we must estimate the double sum on the right-hand side of Eq. \ref{eq:var_DDistr_rs-fMRI}. Through simulation, it can be seen that the difference between the sample variance $S^2_{D_{ij}}$ and $\frac{2p(\pi-2)(p-1)}{\pi}$ has a quadratic relationship with $p$. More explicitly, we have the following relationship
 %
 \begin{equation}\label{eq:estimate_cov}
-S^2_{D_{ij}} - \frac{2p(\pi-2)(p-1)}{\pi} = \beta_1 p^2 + \beta_0 p.
+S^2_{D^\text{fMRI}_{ij}} - \frac{2p(\pi-2)(p-1)}{\pi} = \beta_1 p^2 + \beta_0 p.
 \end{equation}
 
 The coefficient estimates found through least squares fitting are $\beta_0 = - \beta_1 \approx 0.08$. These estimates allow one to infer a functional form for the double sum in the right-hand side of Eq. \ref{eq:var_DDistr_rs-fMRI} that is actually proportional to $\frac{2p(\pi-2)(p-1)}{\pi}$. That is, we have the following formula for approximating the double sum
@@ -1653,19 +1658,19 @@ The coefficient estimates found through least squares fitting are $\beta_0 = - \
 Therefore, the variance of the rs-fMRI distances is approximated well by the following
 %
 \begin{equation}\label{eq:var_DDistr_rs-fMRI2}
-\text{Var}(D_{ij}) = \frac{9p(\pi - 2)(p-1)}{4\pi}.
+\text{Var}(D^\text{fMRI}_{ij}) = \frac{9p(\pi - 2)(p-1)}{4\pi}.
 \end{equation}
 
 With the mean and variance estimates given by Eqs. \ref{eq:mu_DDistr_rs-fMRI} and \ref{eq:var_DDistr_rs-fMRI2}, we have the following asymptotic distribution for rs-fMRI distances
 %
 \begin{equation}\label{eq:DDistr_rs-fMRI}
-D^{(1)}_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{2p(p-1)}{\sqrt{\pi}}, \frac{9p(\pi - 2)(p-1)}{4\pi}\right).
+D^\text{fMRI}_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{2p(p-1)}{\sqrt{\pi}}, \frac{9p(\pi - 2)(p-1)}{4\pi}\right).
 \end{equation}
 
 Consider the max-min normalized rs-fMRI distance given by the following equation
 %
 \begin{equation}\label{eq:max-min_diff_rs-fMRI}
-D^{1*}_{ij} = \sum_{a \in \mathcal{A}} \sum_{k \neq a} \frac{\bigl|A^{(i)}_{ak} - A^{(j)}_{ak}\bigr|}{\max(a) - \min(a)}.
+D^\text{fMRI*}_{ij} = \sum_{a \in \mathcal{A}} \sum_{k \neq a} \frac{\bigl|A^{(i)}_{ak} - A^{(j)}_{ak}\bigr|}{\max(a) - \min(a)}.
 \end{equation}
 
 Assuming that the data $X$ has been r-to-z transformed and standardized, we can easily compute the expected attribute range and variance of the attribute range. The expected maximum of a given attribute in data matrix $X$ is estimated by the following
@@ -1680,10 +1685,10 @@ The variance can be esimated with the following
 \text{Var}\left(X^\text{max}_a - X^\text{min}_a\right) = \frac{\pi^2}{6\text{log}[m(p-1)]}.
 \end{equation}
 
-Let $\mu_{D_{ij}}$ and $\sigma^2_{D_{ij}}$ denote the mean and variance of the rs-fMRI distance distribution given by Eqs. \ref{eq:mu_DDistr_rs-fMRI} and \ref{eq:var_DDistr_rs-fMRI2}. Using the formulas for the mean and variance of the max-min normalized distance distribution given in Eq. \ref{eq:max-min_DDistr_normal}, we have the following asymptotic distribution for the max-min normalized rs-fMRI distances
+Let $\mu_{D^\text{fMRI}_{ij}}$ and $\sigma^2_{D^\text{fMRI}_{ij}}$ denote the mean and variance of the rs-fMRI distance distribution given by Eqs. \ref{eq:mu_DDistr_rs-fMRI} and \ref{eq:var_DDistr_rs-fMRI2}. Using the formulas for the mean and variance of the max-min normalized distance distribution given in Eq. \ref{eq:max-min_DDistr_normal}, we have the following asymptotic distribution for the max-min normalized rs-fMRI distances
 %
 \begin{equation}\label{eq:max-min_DDistr_normal_rs-fMRI}
-D^{1*}_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{\mu_{D^{(1)}_{ij}}}{2\mu^{(1)}_\text{max}(m,p)}, \frac{6\sigma^2_{D^{(1)}_{ij}}\text{log}[m(p-1)]}{\pi^2 + 24\left[\mu^{(1)}_\text{max}(m,p)\right]^2\text{log}[m(p-1)]}\right).
+D^\text{fMRI*}_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{\mu_{D^\text{fMRI}_{ij}}}{2\mu^{(1)}_\text{max}(m,p)}, \frac{6\sigma^2_{D^\text{fMRI}_{ij}}\text{log}[m(p-1)]}{\pi^2 + 24\left[\mu^{(1)}_\text{max}(m,p)\right]^2\text{log}[m(p-1)]}\right).
 \end{equation}
 
 \subsection{Normalized Manhattan \texorpdfstring{($q=1$)}{} for rs-fMRI}
@@ -1692,21 +1697,21 @@ Substituting the non-normalized mean given by Eq.~\ref{eq:mu_DDistr_rs-fMRI} int
 %
 \begin{equation}
 \begin{aligned}
-\text{E}\left(D^{(1*)}_{ij}\right) &= \frac{\mu_{D^{(1)}_{ij}}}{2\mu^{(1)}_\text{max}(m,p)} \\
+\text{E}\left(D^\text{fMRI*}_{ij}\right) &= \frac{\mu_{D^\text{fMRI}_{ij}}}{2\mu^{(1)}_\text{max}(m,p)} \\
 &= \frac{p(p-1)}{\sqrt{\pi}\mu^{(1)}_\text{max}(m,p)},
 \end{aligned}
 \end{equation}
 where $\mu^{(1)}_\text{max}(m,p)$ is given in Eq.~\ref{eq:mean_max_rs-fMRI}.
 
-Similarly, the variance of $D^{(1*)}_{ij}$ is given by
+Similarly, the variance of $D^\text{fMRI*}_{ij}$ is given by
 %
 \begin{equation}
 \begin{aligned}
-\text{Var}\left(D^{(1*)}_{ij}\right) &= \frac{6\sigma^2_{D^{(1)}_{ij}}\text{log}[m(p-1)]}{\pi^2 + 24\left[\mu^{(1)}_\text{max}(m,p)\right]^2\text{log}[m(p-1)]} \\
+\text{Var}\left(D^\text{fMRI*}_{ij}\right) &= \frac{6\sigma^2_{D^\text{fMRI}_{ij}}\text{log}[m(p-1)]}{\pi^2 + 24\left[\mu^{(1)}_\text{max}(m,p)\right]^2\text{log}[m(p-1)]} \\
 &= \frac{27(\pi-2)\text{log}[m(p-1)](p-1)p}{2\pi\left(\pi^2 + 24\left[\mu^{(1)}_\text{max}(m,p)\right]^2\text{log}[m(p-1)]\right)},
 \end{aligned}
 \end{equation}
-where $mu^{(1)}_\text{max}(m,p)$ is given in Eq.~\ref{eq:mean_max_rs-fMRI}.
+where $\mu^{(1)}_\text{max}(m,p)$ is given in Eq.~\ref{eq:mean_max_rs-fMRI}.
 
 \section{Effects of correlation on distances}
 
