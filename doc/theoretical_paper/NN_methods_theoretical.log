@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  19 SEP 2019 16:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  19 SEP 2019 18:25
 entering extended mode
 **./NN_methods_theoretical.tex
 (NN_methods_theoretical.tex
@@ -1058,22 +1058,22 @@ File: null_vs_correlated_rsfMRI.pdf Graphic file (type pdf)
 Package pdftex.def Info: null_vs_correlated_rsfMRI.pdf  used on input line 1760
 .
 (pdftex.def)             Requested size: 371.82751pt x 369.17857pt.
-<TiTv_distance_histograms_MAFs.pdf, id=909, 800.33807pt x 800.34506pt>
+<TiTv_distance_histograms_MAFs.pdf, id=909, 780.11151pt x 774.49654pt>
 File: TiTv_distance_histograms_MAFs.pdf Graphic file (type pdf)
 <use TiTv_distance_histograms_MAFs.pdf>
 Package pdftex.def Info: TiTv_distance_histograms_MAFs.pdf  used on input line 
 1766.
-(pdftex.def)             Requested size: 371.82751pt x 371.83908pt.
+(pdftex.def)             Requested size: 371.82751pt x 369.15419pt.
  [39 <./null_vs_correlated_rsfMRI.pdf>]
-<TiTv_distance_histogram_TiTvs.pdf, id=953, 800.33807pt x 800.34506pt>
+<TiTv_distance_histogram_TiTvs.pdf, id=953, 780.11151pt x 774.61594pt>
 File: TiTv_distance_histogram_TiTvs.pdf Graphic file (type pdf)
 <use TiTv_distance_histogram_TiTvs.pdf>
 Package pdftex.def Info: TiTv_distance_histogram_TiTvs.pdf  used on input line 
 1772.
-(pdftex.def)             Requested size: 371.82751pt x 371.83908pt.
+(pdftex.def)             Requested size: 371.82751pt x 369.21109pt.
  [40 <./TiTv_distance_histograms_MAFs.pdf>] [41 <./TiTv_distance_histogram_TiTv
 s.pdf>] [42]
-<updated_distributions_table(5-23-2019).pdf, id=1043, 481.5611pt x 537.94978pt>
+<updated_distributions_table(5-23-2019).pdf, id=1053, 481.5611pt x 537.94978pt>
 
 File: updated_distributions_table(5-23-2019).pdf Graphic file (type pdf)
 <use updated_distributions_table(5-23-2019).pdf>
@@ -1081,14 +1081,14 @@ Package pdftex.def Info: updated_distributions_table(5-23-2019).pdf  used on in
 put line 1813.
 (pdftex.def)             Requested size: 379.4175pt x 429.57426pt.
  [43]
-<updated_typical_metrics_table.pdf, id=1051, 314.27011pt x 374.28532pt>
+<updated_typical_metrics_table.pdf, id=1061, 314.27011pt x 374.28532pt>
 File: updated_typical_metrics_table.pdf Graphic file (type pdf)
 <use updated_typical_metrics_table.pdf>
 Package pdftex.def Info: updated_typical_metrics_table.pdf  used on input line 
 1821.
 (pdftex.def)             Requested size: 265.59108pt x 323.02809pt.
  [44 <./updated_distributions_table(5-23-2019).pdf>]
-<updated_typical_metrics_table(normalized).pdf, id=1120, 376.8248pt x 563.55441
+<updated_typical_metrics_table(normalized).pdf, id=1130, 376.8248pt x 563.55441
 pt>
 File: updated_typical_metrics_table(normalized).pdf Graphic file (type pdf)
 <use updated_typical_metrics_table(normalized).pdf>
@@ -1096,7 +1096,7 @@ Package pdftex.def Info: updated_typical_metrics_table(normalized).pdf  used on
  input line 1829.
 (pdftex.def)             Requested size: 322.50719pt x 491.13496pt.
  [45 <./updated_typical_metrics_table.pdf>]
-<updated_distributions_table-gwas(5-23-2019).pdf, id=1156, 461.41383pt x 483.96
+<updated_distributions_table-gwas(5-23-2019).pdf, id=1166, 461.41383pt x 483.96
 51pt>
 File: updated_distributions_table-gwas(5-23-2019).pdf Graphic file (type pdf)
 <use updated_distributions_table-gwas(5-23-2019).pdf>
@@ -1104,7 +1104,7 @@ Package pdftex.def Info: updated_distributions_table-gwas(5-23-2019).pdf  used
 on input line 1837.
 (pdftex.def)             Requested size: 379.4175pt x 403.51419pt.
  [46 <./updated_typical_metrics_table(normalized).pdf>]
-<updated_distributions_table-rs-fMRI.pdf, id=1202, 427.55835pt x 276.36348pt>
+<updated_distributions_table-rs-fMRI.pdf, id=1212, 427.55835pt x 276.36348pt>
 File: updated_distributions_table-rs-fMRI.pdf Graphic file (type pdf)
 <use updated_distributions_table-rs-fMRI.pdf>
 Package pdftex.def Info: updated_distributions_table-rs-fMRI.pdf  used on input
@@ -1161,9 +1161,9 @@ e1/public/amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
 /amsfonts/symbols/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helve
 tic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb
 >
-Output written on NN_methods_theoretical.pdf (49 pages, 1842422 bytes).
+Output written on NN_methods_theoretical.pdf (49 pages, 1845779 bytes).
 PDF statistics:
- 1401 PDF objects out of 1440 (max. 8388607)
+ 1411 PDF objects out of 1440 (max. 8388607)
  270 named destinations out of 1000 (max. 500000)
  17270 words of extra memory for PDF output out of 17280 (max. 10000000)
 
