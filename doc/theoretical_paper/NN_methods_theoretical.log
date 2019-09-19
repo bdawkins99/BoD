@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  18 SEP 2019 18:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  19 SEP 2019 15:21
 entering extended mode
 **./NN_methods_theoretical.tex
 (NN_methods_theoretical.tex
@@ -1071,97 +1071,107 @@ File: TiTv_distance_histogram_TiTvs.pdf Graphic file (type pdf)
 Package pdftex.def Info: TiTv_distance_histogram_TiTvs.pdf  used on input line 
 1772.
 (pdftex.def)             Requested size: 371.82751pt x 371.83908pt.
- [40 <./TiTv_distance_histograms_MAFs.pdf>]
-<updated_distributions_table(5-23-2019).pdf, id=993, 481.5611pt x 537.94978pt>
+ [40 <./TiTv_distance_histograms_MAFs.pdf>] [41 <./TiTv_distance_histogram_TiTv
+s.pdf>] [42]
+<updated_distributions_table(5-23-2019).pdf, id=1047, 481.5611pt x 537.94978pt>
+
 File: updated_distributions_table(5-23-2019).pdf Graphic file (type pdf)
 <use updated_distributions_table(5-23-2019).pdf>
 Package pdftex.def Info: updated_distributions_table(5-23-2019).pdf  used on in
-put line 1802.
+put line 1813.
 (pdftex.def)             Requested size: 379.4175pt x 429.57426pt.
- [41 <./TiTv_distance_histogram_TiTvs.pdf>]
-<updated_typical_metrics_table.pdf, id=1030, 314.27011pt x 374.28532pt>
+ [43]
+<updated_typical_metrics_table.pdf, id=1055, 314.27011pt x 374.28532pt>
 File: updated_typical_metrics_table.pdf Graphic file (type pdf)
 <use updated_typical_metrics_table.pdf>
 Package pdftex.def Info: updated_typical_metrics_table.pdf  used on input line 
-1810.
+1821.
 (pdftex.def)             Requested size: 265.59108pt x 323.02809pt.
- [42 <./updated_distributions_table(5-23-2019).pdf>]
-<updated_typical_metrics_table(normalized).pdf, id=1099, 376.8248pt x 563.55441
+ [44 <./updated_distributions_table(5-23-2019).pdf>]
+<updated_typical_metrics_table(normalized).pdf, id=1124, 376.8248pt x 563.55441
 pt>
 File: updated_typical_metrics_table(normalized).pdf Graphic file (type pdf)
 <use updated_typical_metrics_table(normalized).pdf>
 Package pdftex.def Info: updated_typical_metrics_table(normalized).pdf  used on
- input line 1818.
+ input line 1829.
 (pdftex.def)             Requested size: 322.50719pt x 491.13496pt.
- [43 <./updated_typical_metrics_table.pdf>]
-<updated_distributions_table-gwas(5-23-2019).pdf, id=1136, 461.41383pt x 483.96
+ [45 <./updated_typical_metrics_table.pdf>]
+<updated_distributions_table-gwas(5-23-2019).pdf, id=1160, 461.41383pt x 483.96
 51pt>
 File: updated_distributions_table-gwas(5-23-2019).pdf Graphic file (type pdf)
 <use updated_distributions_table-gwas(5-23-2019).pdf>
 Package pdftex.def Info: updated_distributions_table-gwas(5-23-2019).pdf  used 
-on input line 1826.
+on input line 1837.
 (pdftex.def)             Requested size: 379.4175pt x 403.51419pt.
- [44 <./updated_typical_metrics_table(normalized).pdf>]
-<updated_distributions_table-rs-fMRI.pdf, id=1182, 427.55835pt x 276.36348pt>
+ [46 <./updated_typical_metrics_table(normalized).pdf>]
+<updated_distributions_table-rs-fMRI.pdf, id=1206, 427.55835pt x 276.36348pt>
 File: updated_distributions_table-rs-fMRI.pdf Graphic file (type pdf)
 <use updated_distributions_table-rs-fMRI.pdf>
 Package pdftex.def Info: updated_distributions_table-rs-fMRI.pdf  used on input
- line 1834.
+ line 1845.
 (pdftex.def)             Requested size: 379.4175pt x 248.46384pt.
-[45 <./updated_distributions_table-gwas(5-23-2019).pdf>]
-(NN_methods_theoretical.bbl [46 <./updated_distributions_table-rs-fMRI.pdf>])
+ [47 <./updated_distributions_table-gwas(5-23-2019).pdf>]
+(NN_methods_theoretical.bbl [48 <./updated_distributions_table-rs-fMRI.pdf>])
 
 AED: lastpage setting LastPage
-[47]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1839.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1839.
+[49]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1850.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1850.
  (NN_methods_theoretical.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1839.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1839.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1850.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1850.
 
-Package rerunfilecheck Info: File `NN_methods_theoretical.out' has not changed.
 
-(rerunfilecheck)             Checksum: BB0F6E5BA47442EBED5C2770D04A3C41;2592.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1839.
+
+Package rerunfilecheck Warning: File `NN_methods_theoretical.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `NN_methods_theoretical.out':
+(rerunfilecheck)             Before: BB0F6E5BA47442EBED5C2770D04A3C41;2592
+(rerunfilecheck)             After:  BDB55BF841CEBA763B630B87845B4D4F;2544.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1850.
  ) 
 Here is how much of TeX's memory you used:
- 21808 strings out of 492946
- 395166 string characters out of 3135528
+ 21810 strings out of 492946
+ 395180 string characters out of 3135528
  531841 words of memory out of 3000000
  24885 multiletter control sequences out of 15000+200000
  23602 words of font info for 128 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,24n,48p,1604b,465s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb><
-C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Progr
-am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files
-/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Program Files/MiKTeX 2
-.9/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Program Files/MiKTeX 2.9/fonts/
-type1/public/amsfonts/cm/cmbx9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
-lic/amsfonts/cm/cmbxti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
-sfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-mextra/cmex7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
-mi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb
-><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files
-/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2
-.9/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Program Files/MiKTeX 2.9/font
-s/type1/public/amsfonts/cmextra/cmmib8.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7
-.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/
-Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program 
-Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Program Files/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/f
-onts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
-/amsfonts/symbols/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helve
-tic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb
->
-Output written on NN_methods_theoretical.pdf (47 pages, 1841291 bytes).
+ 55i,24n,48p,2436b,467s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{section.5} has been referenced but does not exist
+, replaced by a fixed one
+
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb><C:
+/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program
+ Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Program Files/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmbx9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
+c/amsfonts/cm/cmbxti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cme
+xtra/cmex7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi
+10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><
+C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Progra
+m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/amsfonts/cmextra/cmmib8.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.p
+fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
+msfonts/symbols/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helveti
+c/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb>
+Output written on NN_methods_theoretical.pdf (49 pages, 1852824 bytes).
 PDF statistics:
- 1380 PDF objects out of 1440 (max. 8388607)
- 269 named destinations out of 1000 (max. 500000)
+ 1406 PDF objects out of 1440 (max. 8388607)
+ 271 named destinations out of 1000 (max. 500000)
  17278 words of extra memory for PDF output out of 17280 (max. 10000000)
 
