@@ -344,7 +344,7 @@ For distance based learning methods, all pairwise distances are used to determin
 
 %Hence, all fixed-radius methods will use a fixed radius that is some fraction of the expected pairwise distance for a given metric and data type. This implies that the probability of a fixed instance $j$ being within a fixed radius of a given instance $i$ can be parameterized by the expected pairwise distance and the variance of the pairwise distance. This probability is obtained by evaluating the normal cumulative distribution function (CDF), with corresponding mean and variance, at the quantile given by some function of the fixed radius. Therefore, we can derive the expected number of neighbors in the neighborhood of a fixed instance $i$. In other words, for sufficiently large data sets, the sample mean of the number of neighbors in a given neighborhood is well approximated by the product between the total number of possible neighbors and the expected probability of an instance being in a given neighborhood. The total number of possible neighbors for a fixed instance $i$ is always $m-1$, but this becomes approximately $\lfloor{\frac{m - 1}{2}}\rfloor$ when delineating between possible hits and misses for balanced data.
 
-\section{\texorpdfstring{$L^q$}{} metric moments for continuous data distributions}\label{sec:moment_derivations}
+\section{\texorpdfstring{$L_q$}{} metric moments for continuous data distributions}\label{sec:moment_derivations}
 
 In this section, we begin by deriving general formulas for asymptotic means and variances of the $L_q$ distance given by Eq.~\ref{eq:D} for standard normal and standard uniform data. With our general formulas for continuous data, we compute moments associated with Manhattan ($L_1$) and Euclidean ($L_2$). We then consider the max-min normalized version of the $L_q$ distance, where the magnitude difference given by Eq.~\ref{eq:diff} is divided by the range of each feature $a$. Using Extreme Value Theory (EVT), we derive formulas for the moments of feature range in standard normal and standard uniform data. Transitioning into discrete data distributions relevant to GWAS, we derive asymptotic moments for two well known metrics and one new metric. In addition, we derive distance asymptotics for time series correlation-based data, such as, resting-state fMRI. 
 
@@ -683,7 +683,7 @@ Analogous to the previous section, we demonstrate the usage of Eqs.~\ref{eq:norm
 
 \subsubsection{Standard normal data}
 
-Using the mean given by Eq. \ref{eq:normalDistr} and substituting $q=2$, we have the following for standard normal data
+Using the mean given by Eq. \ref{eq:normalDistr} and substituting $q=2$, we have the following for expected $L_2$ distance between two independently sampled instances $i$ and $j$ in standard normal data
 %
 \begin{equation}\label{eq:normalEucMean}
 \begin{aligned}
@@ -693,16 +693,20 @@ Using the mean given by Eq. \ref{eq:normalDistr} and substituting $q=2$, we have
 \end{aligned}
 \end{equation}
 
-Similarly, the variance of $D^{(2)}_{ij}$ is given by
+In the case of $L_2$ on standard normal data, we see that the mean of $D^{(2)}_{ij}$ given by Eq.~\ref{eq:normalEucMean} grows on the order of $\sqrt{p}$. Hence, the Euclidean distance does not increase as quickly as the Manhattan distance on standard normal data.
+
+Substituting $q=2$ into the formula for the asymptotic variance of $D^{(2)}_{ij}$ given in Eq.~\ref{eq:normalDistr} leads to the following
 %
 \begin{equation}\label{eq:normalEucVar}
 \begin{aligned}
-\text{Var}\left(D^{(1)}_{ij}\right) &= \frac{4^2p}{2^2\left(\frac{2^2\Gamma\left(\frac{1}{2}(2) + \frac{1}{2}\right)}{\sqrt{\pi}}p\right)^{2\left(1 - \frac{1}{2}\right)}}\left[\frac{\Gamma\left(2 + \frac{1}{2}\right)}{\sqrt{\pi}} - \frac{\Gamma^2\left(\frac{1}{2}(2) + \frac{1}{2}\right)}{\pi}\right] \\
+\text{Var}\left(D^{(2)}_{ij}\right) &= \frac{4^2p}{2^2\left(\frac{2^2\Gamma\left(\frac{1}{2}(2) + \frac{1}{2}\right)}{\sqrt{\pi}}p\right)^{2\left(1 - \frac{1}{2}\right)}}\left[\frac{\Gamma\left(2 + \frac{1}{2}\right)}{\sqrt{\pi}} - \frac{\Gamma^2\left(\frac{1}{2}(2) + \frac{1}{2}\right)}{\pi}\right] \\
 &= \frac{16p}{4\left(\frac{4\Gamma\left(\frac{3}{2}\right)}{\sqrt{\pi}}p\right)}\left[\frac{\Gamma\left(\frac{5}{2}\right)}{\sqrt{\pi}} - \frac{\Gamma^2\left(\frac{3}{2}\right)}{\pi}\right] \\
 &= 2\left[\frac{3}{4} - \frac{1}{4}\right] \\
 &= 1.
 \end{aligned}
 \end{equation}
+
+Surprisingly, the asymptotic variance given by Eq.~\ref{eq:normalEucVar} is just 1. Regardless of data dimensions $m$ and $p$, the variance of Euclidean distances on standard normal data tends to 1. Therefore, most instances are contained within a ball of radius 1 about the mean in high feature dimension $p$. This means that the Euclidean distance distribution on standard normal data is simply a horizontal shift to the right of the standard normal distribution.
 
 For the case in which the number of attributes $p$ is small, an improved estimate of the mean is given by Eq. \ref{eq:DqImprovedExplained}. The lower dimensional estimate of the mean is as follows
 %
@@ -714,11 +718,11 @@ For the case in which the number of attributes $p$ is small, an improved estimat
 \end{aligned}
 \end{equation}
 
-For high dimensional data sets, such as gene expression, rs-fMRI, or GWAS, it is clear that the magntiude of $p$ will be sufficient to use Eq. \ref{eq:normalEucMean} since $\sqrt{2p} \approx \sqrt{2p - 1}$ in that case.
+For high dimensional data sets like gene expression \cite{brazma2000,wang2018}, which typically contain thousands of genes (or features), it is clear that the magnitude of $p$ will be sufficient to use Eq. \ref{eq:normalEucMean} since $\sqrt{2p} \approx \sqrt{2p - 1}$ in that case.
 
 \subsubsection{Standard uniform data}
 
-Using the mean given by Eq. \ref{eq:uniformDistr} and substituting $q=2$, we have the following for standard uniform data
+Using the mean given by Eq. \ref{eq:uniformDistr} and substituting $q=2$, we have the following for expected $L_2$ distance between two independently sampled instances $i$ and $j$ in standard uniform data
 %
 \begin{equation}\label{eq:uniformEucMean}
 \begin{aligned}
@@ -728,7 +732,9 @@ Using the mean given by Eq. \ref{eq:uniformDistr} and substituting $q=2$, we hav
 \end{aligned}
 \end{equation}
 
-Similarly, the variance of $D^{(2)}_{ij}$ is given by
+As in the case of standard normal data, the expected value of $D^{(2)}_{ij}$ given by Eq.~\ref{eq:uniformEucMean} grows on the order of $\sqrt{p}$. 
+
+Substituting $q=2$ into the formula for the asymptotic variance of $D^{(2)}_{ij}$ given in Eq.~\ref{eq:uniformDistr} leads to the following
 %
 \begin{equation}\label{eq:uniformEucVar}
 \begin{aligned}
@@ -738,7 +744,9 @@ Similarly, the variance of $D^{(2)}_{ij}$ is given by
 \end{aligned}
 \end{equation}
 
-For the case in which the number of attributes $p$ is small, an improved estimate of the mean is given by Eq. \ref{eq:DqImprovedExplained}. The lower dimensional estimate of the mean is as follows
+Once again, the variance of Euclidean distance surprisingly approaches a constant.
+
+For the case in which the number of attributes $p$ is small, an improved estimate of the mean is given by Eq.~\ref{eq:DqImprovedExplained}. The lower dimensional estimate of the mean is as follows
 %
 \begin{equation}\label{eq:uniformEucMeanImproved}
 \begin{aligned}
@@ -748,17 +756,17 @@ For the case in which the number of attributes $p$ is small, an improved estimat
 \end{aligned}
 \end{equation}
 
-For high dimensional data sets, such as gene expression, rs-fMRI, or GWAS, it is clear that the magntiude of $p$ will be sufficient to use Eq. \ref{eq:normalEucMean} since $\sqrt{\frac{p}{6}} \approx \sqrt{\frac{p}{6} - \frac{7}{120}}$ in that case.
+This concludes our analysis with continuous data distributions and the standard $L_q$ metric. In the next section, we will use extreme value theory to derive the distribution of the sample maximum and minimum for standard normal and standard uniform data. This will lead us to asymptotics for the max-min normalized $L_q$ metric used frequently in Relief-based algorithms \cite{urbanowicz17,robnik2003,urbanowiczReliefReview2018} for scoring features.
 
 \subsection{Distribution of attribute extremes}\label{sec:extremes}
 
-For Relief-based methods \cite{robnik2003,urbanowiczReliefReview2018}, the standard numeric diff metric is given by
+For Relief-based methods \cite{robnik2003,urbanowiczReliefReview2018,urbanowicz17}, the standard numeric diff metric is given by
 %
 \begin{equation}\label{eq:normDiff}
 d^{\text{num}}_{ij}(a) = \text{diff}(a,(i,j)) = \frac{|X_{ia} - X_{ja}|}{\text{max}(a) - \text{min}(a)},
 \end{equation}
-
-\noindent where $\text{max}(a) = \displaystyle \max_{k \in \mathcal{I}}\{X_{ka}\}$, $\text{min}(a) = \displaystyle \min_{k \in \mathcal{I}}\{X_{ka}\}$, and $\mathcal{I} = \{1,2,\dots,m\}$. 
+%
+where $\text{max}(a) = \displaystyle \max_{k \in \mathcal{I}}\{X_{ka}\}$, $\text{min}(a) = \displaystyle \min_{k \in \mathcal{I}}\{X_{ka}\}$, and $\mathcal{I} = \{1,2,\dots,m\}$. 
 
 In order to determine moments of asymptotic distance distributions induced by Eq. \ref{eq:normDiff}, we must first derive the asymptotic extreme value distributions of the attribute maximum and minimum. Although the exact distribution of the maximum or minimum requires an assumption about the data distribution, the Fisher-Tippett-Gnedenko Theorem allows us to categorize the extreme value distribution for a collection of independent and identically distributed random variables into one of three distributional families. Before stating the theorem, we first need the following definition.
 %

@@ -74,6 +74,18 @@ Irwin {M}iller and {M}arylees {M}iller.
 \newblock {\em {John E. Freund's Mathematical Statistics with Applications}}.
 \newblock {Pearson Prentice Hall}, 7 edition, 2004.
 
+\bibitem{brazma2000}
+Alvis {B}razma and {J}aak {V}ilo.
+\newblock {Gene expression data analysis}.
+\newblock {\em {FEBS Letters}}, 480:17--24, June 2000.
+
+\bibitem{wang2018}
+Dongfang {W}ang and {J}in {G}u.
+\newblock {VASC: Dimension Reduction and Visualization of Single-cell RNA-seq
+  Data by Deep Variational Autoencoder}.
+\newblock {\em {Genomics Proteomics Bioinformatics}}, 16:320--331, December
+  2018.
+
 \bibitem{urbanowiczReliefReview2018}
 Ryan~{J}. {U}rbanowicz, {M}elissa {M}eeker, {W}illiam {L}a{C}ava, {R}andal
   {S}.~{O}lson, and {J}ason {H}.~{M}oore.

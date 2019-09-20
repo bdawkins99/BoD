@@ -600,4 +600,15 @@ year={2018}
   month   = jun,
 }
 
+@Article{wang2018,
+  author  = {Dongfang {W}ang and {J}in {G}u},
+  title   = {{VASC: Dimension Reduction and Visualization of Single-cell RNA-seq Data by Deep Variational Autoencoder}},
+  journal = {{Genomics Proteomics Bioinformatics}},
+  year    = {2018},
+  volume  = {16},
+  pages   = {320-331},
+  month   = dec,
+  url     = {https://doi.org/10.1016/j.gpb.2018.08.003?},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
