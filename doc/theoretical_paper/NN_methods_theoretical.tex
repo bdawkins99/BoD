@@ -229,9 +229,9 @@ Newly introduced to feature selection in GWAS data is a metric that accounts for
 
 Optimal choices of neighborhood selection parameters, such as, fixed-radius or fixed-k depend on distance distributional properties with respect to the instance dimension. As neighborhood order increases, nearest neighbor distance based algorithms get better at detecting main effects \cite{stir}. On the other hand, their ability to detect interaction effects decreases as neighborhood order increases \cite{stir}. These different statistical effects impact distance distributions by introducing positive skewness and increased variance, which can lead to changes in neighborhood inclusion. In order to understand how statistical effects impact distance distributions in continuous and discrete data types, we first derive distance asymptotics for null data where instances are independently and identically distributed and there is no correlation between features. Using these derivations, we can then determine how statistical effects and correlation change distance distributional properties from the null case. 
 
-We begin with derivations applicable to continuously distributed data sets with $m$ instances and $p$ features. From these more general derivations, we focus on the cases of standard normal and standard uniform data distributions. We then make a transition to discrete data in which each value in the $m \times p$ data matrix is from a binomial distribution parameterized by $n=2$ trials and some success probability. The final set of asymptotic results will be for our ts-corr metric, with a particular emphasis on rs-fMRI data. Lastly, we show how correlation in the attribute space changes distance distributional properties. 
+In Section~\ref{sec:notation_and_CLT}, we introduce some preliminary notation and apply the Central Limit Theorem (CLT) and the Delta Method to derive asymptotics for pairwise distances. In Section~\ref{sec:moment_derivations}, we present general derivations applicable to continuously distributed data sets with $m$ instances and $p$ features. To illustrate specific realizations of these general derivations, we focus on the cases of standard normal and standard uniform data distributions. We address max-min normalized versions of standard $L_q$ metrics using Extreme Value Theory (EVT) in Section~\ref{sec:extremes}. In Section~\ref{sec:gwas_distances}, we then make a transition to discrete data in which each value in the $m \times p$ data matrix is from a binomial distribution parameterized by $n=2$ trials and some success probability. In Section~\ref{sec:rs-fMRI_distances}, we present the final set of asymptotic results for our newly introduced time series correlation-based distance metric, with a particular emphasis on rs-fMRI data. Lastly, we show how correlation in the attribute space changes distance distributional properties in Section~\ref{sec:correlation}. 
 
-\section{Derivations of distance asymptotics for common metrics used in continuous data}
+\section{Limit distributions for common metrics used in continuous data}\label{sec:notation_and_CLT}
 The distance between instances $i$ and $j$ in the data set $X^{m \times p}$ of $m$ instances and $p$ attributes is calculated in the space of all attributes ($a \in \mathcal{A}$, $|\mathcal{A}|=p$) using a metric such as
 \begin{equation}\label{eq:D}
 % D^{(q)}_{ij}=\left(\sum_{a\in A}|\text{d}^{\text{type}}_{ij}(a)|^q\right)^{1/q},
@@ -267,7 +267,7 @@ We define the NPDR neighborhood set $\mathcal{N}$ of ordered pair indices as fol
 \end{equation}
 The cardinality of the set $\{j \ne i : j \in N_{i}\}$ is $k_i$, the number of nearest neighbors for subject $i$. 
 
-\subsection{Distribution of pairwise distances}
+\subsection{Asymptotic normality of pairwise distances}
 %Discuss Central Limit Theorem argument for the distribution being Gaussian. We can always say this is an assumption, but I think we can invoke the CLT. [I would be cautious here - TTL. We will be cautious invoking the CLT - BAM.]
 
 Suppose that $X_{ia}, X_{ja} \overset{iid}{\sim} \mathcal{F}_X(\mu_X,\sigma^2_X)$ for two fixed and distinct instances $(i,j) \in \mathcal{N}$ and a fixed attribute $a \in \mathcal{A}$.
@@ -344,7 +344,7 @@ For distance based learning methods, all pairwise distances are used to determin
 
 %Hence, all fixed-radius methods will use a fixed radius that is some fraction of the expected pairwise distance for a given metric and data type. This implies that the probability of a fixed instance $j$ being within a fixed radius of a given instance $i$ can be parameterized by the expected pairwise distance and the variance of the pairwise distance. This probability is obtained by evaluating the normal cumulative distribution function (CDF), with corresponding mean and variance, at the quantile given by some function of the fixed radius. Therefore, we can derive the expected number of neighbors in the neighborhood of a fixed instance $i$. In other words, for sufficiently large data sets, the sample mean of the number of neighbors in a given neighborhood is well approximated by the product between the total number of possible neighbors and the expected probability of an instance being in a given neighborhood. The total number of possible neighbors for a fixed instance $i$ is always $m-1$, but this becomes approximately $\lfloor{\frac{m - 1}{2}}\rfloor$ when delineating between possible hits and misses for balanced data.
 
-\section{Derivation of means and standard deviations for metrics and data distributions}
+\section{\texorpdfstring{$L^q$}{} metric moments for continuous data distributions}\label{sec:moment_derivations}
 
 In this section, we begin by deriving general formulas for asymptotic means and variances of the $L_q$ distance given by Eq.~\ref{eq:D} for standard normal and standard uniform data. With our general formulas for continuous data, we compute moments associated with Manhattan ($L_1$) and Euclidean ($L_2$). We then consider the max-min normalized version of the $L_q$ distance, where the magnitude difference given by Eq.~\ref{eq:diff} is divided by the range of each feature $a$. Using Extreme Value Theory (EVT), we derive formulas for the moments of feature range in standard normal and standard uniform data. Transitioning into discrete data distributions relevant to GWAS, we derive asymptotic moments for two well known metrics and one new metric. In addition, we derive distance asymptotics for time series correlation-based data, such as, resting-state fMRI. 
 
@@ -620,13 +620,13 @@ Therefore, the asymptotic distribution of $D^{(q)}_{ij}$ for standard uniform da
 \end{split}
 \end{equation}
 
-\subsection{Manhattan \texorpdfstring{($q=1$)}{}}
+\subsection{Manhattan \texorpdfstring{($L_1$)}{}}
 
-With our general formulas for the asymptotic mean and variance given by Eqs. \ref{eq:normalDistr} and \ref{eq:uniformDistr} for any value of $q \in \mathbb{Z}^+$, we can simply substitute a particular value of $q$ in order to determine the asymptotic distribution of the corresponding distance metric $D^{(q)}_{ij}$. We demonstrate this with the example of the Manhattan ($q=1$) metric for standard normal and standard uniform data.
+With our general formulas for the asymptotic mean and variance given by Eqs. \ref{eq:normalDistr} and \ref{eq:uniformDistr} for any value of $q \in \mathbb{N}$, we can simply substitute a particular value of $q$ in order to determine the asymptotic distribution of the corresponding distance metric $D^{(q)}_{ij}$. We demonstrate this with the example of the Manhattan metric for standard normal and standard uniform data, which is given by Eq.~\ref{eq:D} by setting $q=1$ ($L_1$).
 
 \subsubsection{Standard normal data}
 
-Using the mean given by Eq. \ref{eq:normalDistr} and substituting $q=1$, we have the following for standard normal data
+Using the mean given by Eq.~\ref{eq:normalDistr} and substituting $q=1$, we have the following for expected $L_1$ distance between two independently sample instances $i$ and $j$ in standard normal data
 %
 \begin{equation}\label{eq:normalManMean}
 \begin{aligned}
@@ -636,7 +636,9 @@ Using the mean given by Eq. \ref{eq:normalDistr} and substituting $q=1$, we have
 \end{aligned}
 \end{equation}
 
-Similarly, the variance of $D^{(1)}_{ij}$ is given by
+We see in Eq.~\ref{eq:normalManMean} that $D^{(1)}_{ij} \sim p$ in the limit, which implies that this distance is unbounded as feature dimension $p$ increases.
+
+Substituting $q=1$ into the formula for the asymptotic variance of $D^{(1)}_{ij}$ given in Eq.~\ref{eq:normalDistr} leads to the following
 %
 \begin{equation}\label{eq:normalManVar}
 \begin{aligned}
@@ -647,9 +649,11 @@ Similarly, the variance of $D^{(1)}_{ij}$ is given by
 \end{aligned}
 \end{equation}
 
+Similar to the mean given by Eq.~\ref{eq:normalManMean}, the limiting variance of $D^{(1)}_{ij}$ given by Eq.~\ref{eq:normalManVar} grows on the order of feature dimension $p$, which implies that points become more dispersed as the dimension increases.
+
 \subsubsection{Standard uniform data}
 
-Using the mean given by Eq. \ref{eq:uniformDistr} and substituting $q=1$, we have the following for standard uniform data
+Using the mean given by Eq.~\ref{eq:uniformDistr} and substituting $q=1$, we have the following for the expected $L_1$ distance between two independently sampled instances $i$ and $j$ in standard uniform data
 %
 \begin{equation}\label{eq:uniformManMean}
 \begin{aligned}
@@ -659,7 +663,9 @@ Using the mean given by Eq. \ref{eq:uniformDistr} and substituting $q=1$, we hav
 \end{aligned}
 \end{equation}
 
-Similarly, the variance of $D^{(1)}_{ij}$ is given by
+Once again, we see that the mean of $D^{(1)}_{ij}$ given by Eq.~\ref{eq:uniformManMean} grows on the order of $p$ just as in the case of standard normal data.
+
+Substituting $q=1$ into the formula given by Eq.~\ref{eq:uniformDistr} of the asymptotic variance of $D^{(1)}_{ij}$ leads to the following
 %
 \begin{equation}\label{eq:uniformManVar}
 \begin{aligned}
@@ -669,9 +675,11 @@ Similarly, the variance of $D^{(1)}_{ij}$ is given by
 \end{aligned}
 \end{equation}
 
-\subsection{Euclidean \texorpdfstring{($q=2$)}{}}
+As in the case of the $L_1$ metric on standard normal data, we have a variance given by Eq.~\ref{eq:uniformManVar} that grows on the order of $p$. The distances between points in high-dimensional uniform data become more widely dispersed with this metric.
 
-Analogous to the previous section, we demonstrate the usage of Eqs. \ref{eq:normalDistr} and \ref{eq:uniformDistr} for the Euclidean ($q=2$) metric for standard normal and standard uniform data.
+\subsection{Euclidean \texorpdfstring{($L_2$)}{}}
+
+Analogous to the previous section, we demonstrate the usage of Eqs.~\ref{eq:normalDistr} and \ref{eq:uniformDistr} for the Euclidean metric for standard normal and standard uniform data, which is given by Eq.~\ref{eq:D} by setting $q=2$ ($L_2$).
 
 \subsubsection{Standard normal data}
 
@@ -742,7 +750,7 @@ For the case in which the number of attributes $p$ is small, an improved estimat
 
 For high dimensional data sets, such as gene expression, rs-fMRI, or GWAS, it is clear that the magntiude of $p$ will be sufficient to use Eq. \ref{eq:normalEucMean} since $\sqrt{\frac{p}{6}} \approx \sqrt{\frac{p}{6} - \frac{7}{120}}$ in that case.
 
-\subsection{Distribution of attribute extremes}
+\subsection{Distribution of attribute extremes}\label{sec:extremes}
 
 For Relief-based methods \cite{robnik2003,urbanowiczReliefReview2018}, the standard numeric diff metric is given by
 %
@@ -1217,7 +1225,7 @@ Similarly, the variance of $D^{(2*)}_{ij}$ is given by
 \end{aligned}
 \end{equation}
 
-\subsection{GWAS distance distributions}
+\subsection{GWAS distance distributions}\label{sec:gwas_distances}
 
 Consider a GWAS data set, which has the following encoding based on minor allele frequency
 %
@@ -1377,7 +1385,7 @@ D^\text{AM}_{ij} \overset{.}{\sim} \mathcal{N}\left(2\sum_{a \in \mathcal{A}} F(
 \end{equation}
 where $G(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a) + 2 (1 - f_a)^2 f^2_a$ and $F(\lambda) = (1 - f_\lambda)^3 f_\lambda + f^3_\lambda (1 - f_\lambda) + (1 - f_\lambda)^2 f^2_\lambda$.
 
-\subsubsection{TiTv distance distribution}
+\subsubsection{TiTv distance distribution}\label{sec:TiTv_distances}
 
 The TiTv metric allows for one to account for both genotype mismatch, allele mismatch, transition, and transversion. However, this added dimension of information requires knowledge of the nucleotide makeup at a particular locus. A sufficient condition to compute the TiTv metric between instances $i$ an $j$ is that we know whether the nucleotides associated with a particular locus $a$ are both purines (PuPu), purine and pyrimidine (PuPy), or both pyrimidines (PyPy). A diagram showing possible transitions and transversions that may occur is given by Fig.~\ref{fig:TiTv_diagram}. Purines (A and G) and pyrimidines (C and T) are shown at the top and bottom, respectively. Transitions occur in the cases of PuPu and PyPy, while transversion occur only with PuPy encoding.
 
@@ -1571,7 +1579,7 @@ The maximum distance occurs at $\bar{f}_a=0.5$, which is the inflection point ab
 \bigskip
 
 %\subsection{Resting-State fMRI Distance Distribution}
-\subsection{Time series correlation-based distance distribution}
+\subsection{Time series correlation-based distance distribution}\label{sec:rs-fMRI_distances}
 
 For time series correlation-based data, we consider the case where there are $m$ correlation matrices $A^{(p \times p)}$. In particular, we are focusing on resting-state fMRI (rs-fMRI) data, which falls into this category. The derivations that follow, however, are relevant to all correlation-based data fitting the assumptions we have adopted. The features in rs-fMRI are commonly Regions of Interest (ROIs), which are collections of highly correlated and spatially proximal voxels \cite{lee2013}. These correlations are between different ROIs for a particular brain atlas \cite{dickie2017}. Because the features are the ROIs themselves, this leads us to the following metric
 %
@@ -1713,7 +1721,7 @@ Similarly, the variance of $D^\text{fMRI*}_{ij}$ is given by
 \end{equation}
 where $\mu^{(1)}_\text{max}(m,p)$ is given in Eq.~\ref{eq:mean_max_rs-fMRI}.
 
-\section{Effects of correlation on distances}
+\section{Effects of correlation on distances}\label{sec:correlation}
 
 All of the derivations presented in previous sections are for the cases where there is no correlation between instances or features. We assumed that any pair $(X_{ia},X_{ja})$ of data points for instances $i$ and $j$ and fixed feature $a$ were independent and identically distributed. This was done in order to determine asymptotic estimates in null data. That is, data with no main effects, interaction effects, or pairwise correlations between features. Within this highly simplified context, our asymptotic formulas for distributional moments are reliable. However, correlations do exist between features and instances in real data. There are a multitude of different statistical effects that impact distance distributional properties. Ultimately, divergence from normality is caused primarily by large magnitude pairwise correlation between features. Pairwise feature correlation can be the result of main effects, where features have different within-group means. On the other hand, there could be an underlying interaction network in which there are strong associations between features. If features are differentially correlated between phenotype groups, then interactions exist that change affect the distance distribution. In the following few sections, we consider particular cases of the $L_q$ metric for continuous and discrete data under the effects of pairwise feature correlation.
 
@@ -1773,7 +1781,7 @@ For our correlation data-based metric given by Eqs.~\ref{eq:diff_rs-fMRI} and \r
 	\caption{Histograms of simulated TiTv distance distributions for different Ti/Tv ratios. Average MAF was fixed to be 0.055. The Ti/Tv ratio was taken to be 2, 1.5, 1, and 0.5. The average distance increases as the Ti/Tv ratio decreases, which is intuitive because the TiTv distance is greater for transversions than transitions. Sample and predicted means, as well as standard deviations, are overlaid on each histogram. Each distance distribution comes from a simulated data set with $m=100$ instances and $p=100$ features.}\label{fig:TiTv_hist2}
 \end{figure}
 
-\section{Discussion}
+\section{Discussion}\label{sec:discussion}
 
 Nearest-neighbor distance-based feature selection is class of methods that are relatively simple to implement, intuitive in nature, and perform surprisingly well in detecting interaction effects in high dimensional data. However, there has been little work done to understand how the limiting behavior of distance distributions can aid in determining how to properly parameterize these methods for feature selection. Furthermore, little has been done in the way of optimizing the choice of distance metric. Most often, distance-based feature selection methods use the $L_q$ metric given by Eq.~\ref{eq:D} with $q=1$ or $q=2$. However, these two realizations of the $L_q$ metric have considerably different expressions for the mean and variance of their respective limiting distributions. For instance, the expected distance for $L_1$ and $L_2$ on standard normal data is on the order of $p$ (see Eq.~\ref{eq:normalManMean}) and $\sqrt{p}$ (see Eq.~\ref{eq:normalEucMean}), respectively. In addition, $L_1$ and $L_2$ on standard normal data have asymptotic variances on the order of $p$ and 1, respectively. Considering whether one should choose $L_1$ or $L_2$ in this context may depend on motivation. For instance, distances become harder to distinguish from one another in high dimensions, which is one of the curses of dimensionality. In the case of $L_2$, unit variance in the limit distribution means that distances will be almost completely contained within a ball of radius 1. The limiting $L_2$ distribution can therefore be thought of simply as a positive translation of the standard normal distribution. On the other hand, the $L_1$ distances become more dispersed due to the fact that the variance of the limiting distribution is proportional to the feature dimension $p$. This could actually be more desirable when determining nearest neighbors because instances may be easier to distinguish with this metric. If using $L_1$, then it may be best to use a fixed-k algorithm instead of fixed-radius. This is because fixed-radius neighborhood order could vary quite a bit considering the $L_1$ variance is proportional to feature dimension $p$, which in turn could affect the quality of selected features. If $L_2$ is being used, then perhaps either fixed-k or fixed-radius may perform equally well because most distances will be within 1 standard deviation away from the mean. 
 
