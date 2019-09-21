@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  20 SEP 2019 19:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  21 SEP 2019 12:02
 entering extended mode
 **./NN_methods_theoretical.tex
 (NN_methods_theoretical.tex
@@ -995,7 +995,7 @@ e 319.
 <qq-plots.pdf, id=208, 792.39636pt x 1001.21048pt>
 File: qq-plots.pdf Graphic file (type pdf)
 <use qq-plots.pdf>
-Package pdftex.def Info: qq-plots.pdf  used on input line 327.
+Package pdftex.def Info: qq-plots.pdf  used on input line 328.
 (pdftex.def)             Requested size: 371.82751pt x 469.8204pt.
  [5 <./central_limit_distances_uniform.pdf>] [6 <./qq-plots.pdf>] [7] [8] [9] [
 10] [11]
@@ -1004,35 +1004,35 @@ Package pdftex.def Info: qq-plots.pdf  used on input line 327.
 <TiTv_diagram.pdf, id=646, 278.1602pt x 227.42767pt>
 File: TiTv_diagram.pdf Graphic file (type pdf)
 <use TiTv_diagram.pdf>
-Package pdftex.def Info: TiTv_diagram.pdf  used on input line 1403.
+Package pdftex.def Info: TiTv_diagram.pdf  used on input line 1404.
 (pdftex.def)             Requested size: 223.47441pt x 182.71625pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1406.
+(caption)                particular \caption on input line 1407.
 See the caption package documentation for explanation.
 
 [29 <./TiTv_diagram.pdf>] [30] [31] [32]
 <TiTv_distance-vs-maf.pdf, id=707, 401.99887pt x 402.0069pt>
 File: TiTv_distance-vs-maf.pdf Graphic file (type pdf)
 <use TiTv_distance-vs-maf.pdf>
-Package pdftex.def Info: TiTv_distance-vs-maf.pdf  used on input line 1581.
+Package pdftex.def Info: TiTv_distance-vs-maf.pdf  used on input line 1582.
 (pdftex.def)             Requested size: 241.68561pt x 241.69672pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1584.
+(caption)                particular \caption on input line 1585.
 See the caption package documentation for explanation.
 
 <rs_fmri_all_instance_matrix.pdf, id=713, 394.1375pt x 397.6988pt>
 File: rs_fmri_all_instance_matrix.pdf Graphic file (type pdf)
 <use rs_fmri_all_instance_matrix.pdf>
 Package pdftex.def Info: rs_fmri_all_instance_matrix.pdf  used on input line 16
-02.
+03.
 (pdftex.def)             Requested size: 252.31071pt x 254.59311pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1605.
+(caption)                particular \caption on input line 1606.
 See the caption package documentation for explanation.
 
 [33 <./TiTv_distance-vs-maf.pdf>] [34 <./rs_fmri_all_instance_matrix.pdf>]
@@ -1042,35 +1042,35 @@ See the caption package documentation for explanation.
 File: null_vs_correlated_normal_euclidean_standard.pdf Graphic file (type pdf)
 <use null_vs_correlated_normal_euclidean_standard.pdf>
 Package pdftex.def Info: null_vs_correlated_normal_euclidean_standard.pdf  used
- on input line 1756.
+ on input line 1757.
 (pdftex.def)             Requested size: 371.82751pt x 369.17857pt.
  [37] [38 <./null_vs_correlated_normal_euclidean_standard.pdf>]
 <null_vs_correlated_gwas_TiTv.pdf, id=890, 780.11151pt x 774.5477pt>
 File: null_vs_correlated_gwas_TiTv.pdf Graphic file (type pdf)
 <use null_vs_correlated_gwas_TiTv.pdf>
 Package pdftex.def Info: null_vs_correlated_gwas_TiTv.pdf  used on input line 1
-766.
+767.
 (pdftex.def)             Requested size: 371.82751pt x 369.17857pt.
 
 [39 <./null_vs_correlated_gwas_TiTv.pdf>]
 <null_vs_correlated_rsfMRI.pdf, id=940, 780.11151pt x 774.5477pt>
 File: null_vs_correlated_rsfMRI.pdf Graphic file (type pdf)
 <use null_vs_correlated_rsfMRI.pdf>
-Package pdftex.def Info: null_vs_correlated_rsfMRI.pdf  used on input line 1776
+Package pdftex.def Info: null_vs_correlated_rsfMRI.pdf  used on input line 1777
 .
 (pdftex.def)             Requested size: 371.82751pt x 369.17857pt.
 <TiTv_distance_histograms_MAFs.pdf, id=942, 780.11151pt x 774.49654pt>
 File: TiTv_distance_histograms_MAFs.pdf Graphic file (type pdf)
 <use TiTv_distance_histograms_MAFs.pdf>
 Package pdftex.def Info: TiTv_distance_histograms_MAFs.pdf  used on input line 
-1782.
+1783.
 (pdftex.def)             Requested size: 371.82751pt x 369.15419pt.
  [40 <./null_vs_correlated_rsfMRI.pdf>]
 <TiTv_distance_histogram_TiTvs.pdf, id=986, 780.11151pt x 774.61594pt>
 File: TiTv_distance_histogram_TiTvs.pdf Graphic file (type pdf)
 <use TiTv_distance_histogram_TiTvs.pdf>
 Package pdftex.def Info: TiTv_distance_histogram_TiTvs.pdf  used on input line 
-1788.
+1789.
 (pdftex.def)             Requested size: 371.82751pt x 369.21109pt.
  [41 <./TiTv_distance_histograms_MAFs.pdf>] [42 <./TiTv_distance_histogram_TiTv
 s.pdf>] [43]
@@ -1079,14 +1079,14 @@ s.pdf>] [43]
 File: updated_distributions_table(5-23-2019).pdf Graphic file (type pdf)
 <use updated_distributions_table(5-23-2019).pdf>
 Package pdftex.def Info: updated_distributions_table(5-23-2019).pdf  used on in
-put line 1829.
+put line 1830.
 (pdftex.def)             Requested size: 379.4175pt x 429.57426pt.
  [44]
 <updated_typical_metrics_table.pdf, id=1094, 314.27011pt x 374.28532pt>
 File: updated_typical_metrics_table.pdf Graphic file (type pdf)
 <use updated_typical_metrics_table.pdf>
 Package pdftex.def Info: updated_typical_metrics_table.pdf  used on input line 
-1837.
+1838.
 (pdftex.def)             Requested size: 265.59108pt x 323.02809pt.
  [45 <./updated_distributions_table(5-23-2019).pdf>]
 <updated_typical_metrics_table(normalized).pdf, id=1163, 376.8248pt x 563.55441
@@ -1094,7 +1094,7 @@ pt>
 File: updated_typical_metrics_table(normalized).pdf Graphic file (type pdf)
 <use updated_typical_metrics_table(normalized).pdf>
 Package pdftex.def Info: updated_typical_metrics_table(normalized).pdf  used on
- input line 1845.
+ input line 1846.
 (pdftex.def)             Requested size: 322.50719pt x 491.13496pt.
  [46 <./updated_typical_metrics_table.pdf>]
 <updated_distributions_table-gwas(5-23-2019).pdf, id=1199, 461.41383pt x 483.96
@@ -1102,35 +1102,35 @@ Package pdftex.def Info: updated_typical_metrics_table(normalized).pdf  used on
 File: updated_distributions_table-gwas(5-23-2019).pdf Graphic file (type pdf)
 <use updated_distributions_table-gwas(5-23-2019).pdf>
 Package pdftex.def Info: updated_distributions_table-gwas(5-23-2019).pdf  used 
-on input line 1853.
+on input line 1854.
 (pdftex.def)             Requested size: 379.4175pt x 403.51419pt.
  [47 <./updated_typical_metrics_table(normalized).pdf>]
 <updated_distributions_table-rs-fMRI.pdf, id=1245, 427.55835pt x 276.36348pt>
 File: updated_distributions_table-rs-fMRI.pdf Graphic file (type pdf)
 <use updated_distributions_table-rs-fMRI.pdf>
 Package pdftex.def Info: updated_distributions_table-rs-fMRI.pdf  used on input
- line 1861.
+ line 1862.
 (pdftex.def)             Requested size: 379.4175pt x 248.46384pt.
  [48 <./updated_distributions_table-gwas(5-23-2019).pdf>]
 (NN_methods_theoretical.bbl [49 <./updated_distributions_table-rs-fMRI.pdf>])
 
 AED: lastpage setting LastPage
 [50]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1866.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1866.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1867.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1867.
  (NN_methods_theoretical.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1866.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1866.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1867.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1867.
 
 Package rerunfilecheck Info: File `NN_methods_theoretical.out' has not changed.
 
 (rerunfilecheck)             Checksum: 7394A8B62E7477D7865E40E0B39877B2;2507.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1866.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1867.
  ) 
 Here is how much of TeX's memory you used:
  21835 strings out of 492946
  395662 string characters out of 3135528
- 532422 words of memory out of 3000000
+ 532657 words of memory out of 3000000
  24908 multiletter control sequences out of 15000+200000
  25462 words of font info for 135 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1162,7 +1162,7 @@ nts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
 amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
 symbols/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a
 .pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on NN_methods_theoretical.pdf (50 pages, 1864047 bytes).
+Output written on NN_methods_theoretical.pdf (50 pages, 1863772 bytes).
 PDF statistics:
  1448 PDF objects out of 1728 (max. 8388607)
  273 named destinations out of 1000 (max. 500000)
