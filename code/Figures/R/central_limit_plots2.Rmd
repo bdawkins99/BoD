@@ -72,11 +72,10 @@ get_shapiro <- function(x){
 }
 
 normalities <- data.frame(
-  x = c(5.3, 39.5, 3457, 1.8, 4.7, 42.25),
+  x = c(4.3, 27.5, 2457, 1.5, 3.5, 29.25),
   y = c(0.5, 0.15, 0.016, 1.57, 1.5, 1.6),
   w = c(dist.list.manhattan, dist.list.euclidean) %>% sapply(get_shapiro),
-  type = rep(c('Manhattan', 'Euclidean'), each = 3),
-  p = paste(rep(ps, 2), 'attributes'))
+  type = rep(c('Manhattan', 'Euclidean'), each = 3))
 
 ```
 Plot:
@@ -113,15 +112,16 @@ my_plot <- cowplot::ggdraw(cowplot::add_sub(
   vjust = 0, hjust = 0.3,
   size = 10))
 
+my_plot
 
-my_plot %>%
-  ggsave(height = 4.5, width = 5,
-         filename = paste0(fig_path, '/central_limit_distances_normal.pdf'))
+#my_plot %>%
+#  ggsave(height = 4.5, width = 5,
+#         filename = paste0(fig_path, '/central_limit_distances_normal.pdf'))
 
 
-my_plot %>%
-  ggsave(height = 4.5, width = 5,
-         filename = paste0(fig_path, '/central_limit_distances_normal.svg'))
+#my_plot %>%
+#  ggsave(height = 4.5, width = 5,
+#         filename = paste0(fig_path, '/central_limit_distances_normal.svg'))
 
 # my_plot %>%
 #   ggsave(height = 4.5, width = 5,
