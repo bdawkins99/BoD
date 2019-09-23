@@ -221,9 +221,9 @@ Nearest-neighbor projected distance regression (NPDR) is a feature selection alg
 \linenumbers
 
 \section*{Introduction}
-Feature selection that relies on nearest neighbor algorithms in order to determine relative feature importance requires an understanding of distributional properties for a variety of different metrics. This is, in large part, due to how various statistical effects change distance distributions. For continuous data, $L_q$ metrics with $q=1$ or $q=2$ are those most commonly used in this context. For data from standard normal ($\mathcal{N}(0,1)$) or standard uniform ($\mathcal{U}(0,1)$) distributions, the asymptotic behavior of the $L_q$ metrics is known. However, detailed derivations of these distance distribution asymptotics are not commonly found or mentioned in the literature on nearest-neighbor distance based feature selection \cite{urbanowicz17,urbanowicz17b,robnik2003}. Furthermore, there is much work to be done to better understand new metrics in discrete data, such as, genome-wide association studies (GWAS) data or correlation data like resting-state fMRI (rs-fMRI). 
+Feature selection that relies on nearest-neighbor algorithms in order to determine relative feature importance requires an understanding of distributional properties for a variety of different metrics. This is, in large part, due to how various statistical effects change distance distributions. For continuous data, $L_q$ metrics with $q=1$ or $q=2$ are those most commonly used in this context. For data from standard normal ($\mathcal{N}(0,1)$) or standard uniform ($\mathcal{U}(0,1)$) distributions, the asymptotic behavior of the $L_q$ metrics is known. However, detailed derivations of these distance distribution asymptotics are not commonly found or mentioned in the literature on nearest-neighbor distance-based feature selection, such as, Relief-based algorithms \cite{urbanowicz17,urbanowicz17b,robnik2003}. Furthermore, there is much work to be done to better understand new metrics in discrete data, such as, genome-wide association studies (GWAS) data or correlation data like resting-state fMRI (rs-fMRI). 
 
-Much work has been done in feature selection for rs-fMRI data \cite{venkataraman2010,hay2017,sundermann2014,vergun2013}. Typical feature selection methods include, but are not limited to, best subset feature selection, k-fold cross-validation, and nested cross-validation. In each method, a modeling procedure is chosen along with selected features to optimize some objective, such as, classification accuracy or mean squared error. The features to be selected are usually Regions of Interest (ROIs), which are formed by averaging the time series from highly correlated voxels. By combining voxels into a single ROI, the feature space is greatly reduced. Typically, correlations are then computed between all pairs of ROIs. A matrix of pairwise ROI-ROI correlations is created for each instance (or subject) in a data set. To the best of our knowledge, nearest-neighbor distance based feature selection has not been applied in the context of rs-fMRI. Since these nearest-neighbor distance-based methods have been shown to be able to detect interactions in high-dimensional data \cite{stir,urbanowicz17,urbanowicz17b}, rs-fMRI data is potentially one area in which these methods have not sufficiently exploited. Therefore, we introduce a new metric to be used in combination with NPDR in order to explore potential insights these methods may provide in time series-correlation (ts-corr) based data like rs-fMRI. In this manuscript, we derive asymptotic estimates for the mean and variance of distance distributions induced by our new ts-corr based metric.
+Much work has been done in feature selection for rs-fMRI data \cite{venkataraman2010,hay2017,sundermann2014,vergun2013}, however, nearest-neighbor distance-based methods have not yet been applied in this context to the best of our knowledge. Typical feature selection methods include, but are not limited to, best subset feature selection, k-fold cross-validation, and nested cross-validation. In each method, a modeling procedure is chosen along with selected features to optimize some objective, such as, classification accuracy or mean squared error. The features to be selected are usually Regions of Interest (ROIs), which are formed by averaging the time series from highly correlated voxels. By combining voxels into a single ROI, the feature space is greatly reduced. Typically, correlations are then computed between all pairs of ROIs. A matrix of pairwise ROI-ROI correlations is created for each instance (or subject) in a data set. To the best of our knowledge, nearest-neighbor distance based feature selection has not been applied in the context of rs-fMRI. Since these nearest-neighbor distance-based methods have been shown to be able to detect interactions in high-dimensional data \cite{stir,urbanowicz17,urbanowicz17b}, rs-fMRI data is potentially one area in which these methods have not sufficiently exploited. Therefore, we introduce a new metric to be used in combination with NPDR in order to explore potential insights these methods may provide in time series-correlation (ts-corr) based data like rs-fMRI. In this manuscript, we derive asymptotic estimates for the mean and variance of distance distributions induced by our new ts-corr based metric.
 
 Newly introduced to feature selection in GWAS data is a distance metric that accounts for genotype mismatch (GM), allele mismatch (AM), transitions (Ti), and transversions (Tv) \cite{arabnejad2018}. This TiTv metric provides one additional dimension of information for which GM and AM metrics do not account. Another positive aspect of this metric is its comparable simplicity to the GM and AM metrics. That is, it takes on a finite number of discrete values. We will derive asymptotic formulas for the mean and variance for all three of these GWAS metrics. Since the TiTv metric has been introduced only recently, all of our associated derivations will be new contributions. 
 
@@ -231,13 +231,13 @@ Optimal choices of neighborhood selection parameters, such as, fixed-radius or f
 
 In Section~\ref{sec:notation_and_CLT}, we introduce some preliminary notation and apply the Central Limit Theorem (CLT) and the Delta Method to derive asymptotics for pairwise distances. In Section~\ref{sec:moment_derivations}, we present general derivations applicable to continuously distributed data sets with $m$ instances and $p$ features. To illustrate specific realizations of these general derivations, we focus on the cases of standard normal and standard uniform data distributions. We address max-min normalized versions of standard $L_q$ metrics using Extreme Value Theory (EVT) in Section~\ref{sec:extremes}. In Section~\ref{sec:gwas_distances}, we then make a transition to discrete data in which each value in the $m \times p$ data matrix is from a binomial distribution parameterized by $n=2$ trials and some success probability. In Section~\ref{sec:rs-fMRI_distances}, we present the final set of asymptotic results for our newly introduced time series correlation-based distance metric, with a particular emphasis on rs-fMRI data. Lastly, we show how correlation in the attribute space changes distance distributional properties in Section~\ref{sec:correlation}. 
 
-\section{Limit distributions for common metrics used in continuous data}\label{sec:notation_and_CLT}
-The distance between instances $i$ and $j$ in the data set $X^{m \times p}$ of $m$ instances and $p$ attributes is calculated in the space of all attributes ($a \in \mathcal{A}$, $|\mathcal{A}|=p$) using a metric such as
+\section{Limit distribution for \texorpdfstring{$L_q$}{} on null data}\label{sec:notation_and_CLT}
+In the application of nearest-neighbor distance-based methods to continuous data, the distance between instances ($i,j \in \mathcal{I}, |\mathcal{I}|=m$) in the data set $X^{m \times p}$ of $m$ instances and $p$ attributes (or features) is calculated in the space of all attributes ($a \in \mathcal{A}$, $|\mathcal{A}|=p$) using a metric such as
 \begin{equation}\label{eq:D}
 % D^{(q)}_{ij}=\left(\sum_{a\in A}|\text{d}^{\text{type}}_{ij}(a)|^q\right)^{1/q},
 D^{(q)}_{ij}=\left(\sum_{a\in \mathcal{A}}|\text{d}_{ij}(a)|^q\right)^{1/q},
 \end{equation}
-which is typically Manhattan ($q=1$) but may also be Euclidean ($q=2$). The quantity 
+which is typically Manhattan ($q=1$) but may also be Euclidean ($q=2$). We use the terms ``feature" and ``attribute" interchangeably for the remainder of this work. The quantity 
 % $\text{d}^{\text{type}}_{ij}(a)$, 
 $\text{d}_{ij}(a)$,
 known as a ``$\text{diff}$'' in Relief literature, is the projection of the distance between instances $i$ and $j$ onto the attribute $a$ dimension. The 
@@ -256,33 +256,26 @@ For example, the projected difference between two instances $i$ and $j$ for a co
 \end{equation}
 where $\hat{X}$ represents the standardized data matrix $X$.
 We use a simplified d$_{ij}(a)$ notation in place of the $\text{diff}(a,(i,j))$ notation that is customary in Relief-based methods.
-We omit the division by $\max(a)-\min(a)$ used by Relief to constrain scores to the interval from $-1$ to $1$.
-As we show in subsequent sections, NPDR scores are standardized regression coefficients with corresponding P values, so any scaling operation at this stage is unnecessary for comparing attribute scores. 
-%\emph{Omit: The scaling may alleviate bias in the distance calculation. However, standardizing the data matrix $X$ ($\hat{X}$) should have the same effect without division by $\max(a)-\min(a)$, which has usual distribution properties for distances (expand).}
-The numeric d$^{\text{num}}_{ij}(a)$ projection is simply the absolute difference between row elements $i$ and $j$ of the data matrix $X^{m \times p}$ for the attribute column $a$. 
+In NPDR, we omit the division by $\max(a)-\min(a)$ used by Relief to constrain scores to the interval from $-1$ to $1$, where $\max(a) = \max_{k \in \mathcal{I}}\{X_{ka}\}$ and $\min(a) = \min{k \in \mathcal{I}}\{X_{ka}\}$. The numeric d$^{\text{num}}_{ij}(a)$ projection is simply the absolute difference between row elements $i$ and $j$ of the data matrix $X^{m \times p}$ for the attribute column $a$. 
 
-We define the NPDR neighborhood set $\mathcal{N}$ of ordered pair indices as follows. Instance $i$ is a point in $p$ dimensions, and we designate the topological neighborhood of $i$ as $N_{i}$. This neighborhood is a set of other instances trained on the data $X^{m \times p}$ and depends on the type of Relief neighborhood method (e.g., fixed-$k$ or adaptive radius) and the type of metric (e.g., Manhattan or Euclidean). If instance $j$ is in the neighborhood of $i$ ($j \in N_{i}$), then the ordered pair $(i,j) \in \mathcal{N}$ for the projected-distance regression analysis. The ordered pairs constituting the neighborhood can then be represented as nested sets:
-\begin{equation}\label{eq:N}
-\mathcal{N}=\{\{(i, j)\}_{i=1}^{m}\}_{\{j \ne i : j \in N_{i}\}}.
-\end{equation}
-The cardinality of the set $\{j \ne i : j \in N_{i}\}$ is $k_i$, the number of nearest neighbors for subject $i$. 
+All derivations in the following sections are applicable to nearest-neighbor distance-based methods in general, which includes not only NPDR, but also Relief-based algorithms. Each of these methods uses a distance metric, such as, Eq.~\ref{eq:D} to compute neighbors for each instance $i \in \mathcal{I}$. Therefore, our derivations of asymptotic distance distributions are applicable to all methods that compute neighbors in order to weight features. The predictors used by NPDR, however, are the one-dimensional projected distances between two instances $i,j \in \mathcal{I}$ given by Eq.~\ref{eq:diff}. Hence, all asymptotic estimates we derive for Eq.~\ref{eq:diff} are particularly relevant to NPDR. Since the distance metric given by Eq.~\ref{eq:D} is a function of the one-dimensional projection given by Eq.~\ref{eq:diff}, asymptotic estimates derived for Eq.~\ref{eq:diff} are implicitly relevant to older nearest-neighbor distance-based methods like Relief-based algorithms. We proceed in the following section by applying the Classical Central Limit Theorem and the Delta Method to derive the limit distribution of pairwise distances on any data distribution that is induced by the metric given in Eq.~\ref{eq:D}.
 
 \subsection{Asymptotic normality of pairwise distances}
 %Discuss Central Limit Theorem argument for the distribution being Gaussian. We can always say this is an assumption, but I think we can invoke the CLT. [I would be cautious here - TTL. We will be cautious invoking the CLT - BAM.]
 
-Suppose that $X_{ia}, X_{ja} \overset{iid}{\sim} \mathcal{F}_X(\mu_X,\sigma^2_X)$ for two fixed and distinct instances $(i,j) \in \mathcal{N}$ and a fixed attribute $a \in \mathcal{A}$.
+Suppose that $X_{ia}, X_{ja} \overset{iid}{\sim} \mathcal{F}_X(\mu_X,\sigma^2_X)$ for two fixed and distinct instances $i,j \in \mathcal{I}$ and a fixed attribute $a \in \mathcal{A}$.
 $\mathcal{F}_X$ represents any data distribution with mean $\mu_X$ and variance $\sigma^2_X$.
 
-It is clear that $|X_{ia} - X_{ja}|^q = |d_{ij}(a)|^q$ is another random variable. Let $Z^q_a \sim \mathcal{F}_{Z^q}(\mu_{z^q},\sigma^2_{z^q})$ be the random variable such that
+It is clear that $|X_{ia} - X_{ja}|^q = |\text{d}_{ij}(a)|^q$ is another random variable. Let $Z^q_a \sim \mathcal{F}_{Z^q}(\mu_{z^q},\sigma^2_{z^q})$ be the random variable such that
 %
 \begin{equation}\label{eq:diffDistr}
-Z^q_a = |d_{ij}(a)|^q = |X_{ia} - X_{ja}|^q, \quad a \in \mathcal{A}.
+Z^q_a = |\text{d}_{ij}(a)|^q = |X_{ia} - X_{ja}|^q, \quad a \in \mathcal{A}.
 \end{equation}
 
 Furthermore, the collection $\{Z^q_a | a \in \mathcal{A}\}$ is a random sample of size $p$ of mutually independent random variables. Hence, the sum of $Z^q_a$ over all $a \in \mathcal{A}$ is asymptotically normal by the Classical Central Limit Theorem (CCLT). More explicitly, this implies that
-
+%
 \begin{equation}\label{eq:DqAsympt}
-\left(D^{(q)}_{ij}\right)^q = \sum_{a \in \mathcal{A}} |d_{ij}(a)|^q = \sum_{a \in \mathcal{A}} |X_{ia} - X_{ja}|^q = \sum_{a \in \mathcal{A}} Z^q_a \overset{.}{\sim} \mathcal{N}\left(\mu_{z^q}p,\sigma^2_{z^q}p\right).
+\left(D^{(q)}_{ij}\right)^q = \sum_{a \in \mathcal{A}} |\text{d}_{ij}(a)|^q = \sum_{a \in \mathcal{A}} |X_{ia} - X_{ja}|^q = \sum_{a \in \mathcal{A}} Z^q_a \overset{.}{\sim} \mathcal{N}\left(\mu_{z^q}p,\sigma^2_{z^q}p\right).
 \end{equation}
 
 Consider the smooth function $g(z) = z^{1/q}$ that is continuously differentiable for $z>0$. Assuming that $\mu_{z^q}>0$, the Delta Method \cite{allStats} can be applied to show that 
@@ -310,24 +303,33 @@ When $p$ is small, however, we observe empirically that a closer estimate of the
 \end{aligned}
 \end{equation}
 %
-One can readily verify the normality of distances between independent instances through sampling from any data distribution and plotting the histogram of pairwise distances. Histograms of distance distributions for standard uniform data for Euclidean ($q=2$) and Manhattan ($q=1$) metrics are shown in Fig.~\ref{fig:central_limit_convergence}. For these simulated distances, we fixed $m=100$ and let $p=10,100,10000$ to see the convergence for different combinations of $m$ and $p$. Normality was assessed using the Shapiro-Wilk test. 
+We estimate rate of convergence to normality for Euclidean ($q=2$) and Manhattan ($q=1$)  metrics by comparing the distribution of pairwise distances in simulated data to a Gaussian (Figs.~\ref{fig:central_limit_convergence} and \ref{fig:central_limit_convergence_normal}). We compute the distance between all pairs of instances in simulated datasets of uniformly and normally distributed random data. We simulate data with fixed $m=100$ instances, and, by varying the number of attributes ($p=10,100,10000$), we observe rapid convergence to Gaussian. For $p$ as low as $10$ attributes, Gaussian is a good approximation. The number of attributes in bioinformatics data is typically quite large, at least on the order of $10^3$. The Euclidean metric has stronger convergence to a Gaussian than Manhattan. This may be due to Euclidean's use of the square root, which is a common transformation of data in statistics. Normality was assessed using the Shapiro-Wilk test. 
+
+To show asymptotic normality of distances, we did not specify whether the data distribution $\mathcal{F}_X$ was discrete or continuous. This is because asymptotic normality is a general phenomenon in high attribute dimension $p$ for any data distribution $\mathcal{F}_X$ satisfying the assumptions we have made. Therefore, Figs.~\ref{fig:central_limit_convergence} and \ref{fig:central_limit_convergence_normal} have an analogous representation for discrete data.
 %
 %The null hypothesis of this test is that the distribution is normally distributed. In each case, the $W$-statistics is approximately equal to 1. In the case of the Manhattan metric, convergence does not occur as rapidly as Euclidean. The $W$-statistic is significant at the 0.05 level for both $p=10$ and $p=100$ attributes, which would seem to indicate that there is sufficient evidence to conclude that the distribution is not normal. However, it is still safe to assume normality for most purposes despite the significant P values. In certain circumstances it may be better to use the Euclidean metric due to the apparently increased rate of convergence.
 %
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.98\textwidth]{central_limit_distances_uniform.pdf}
-	\caption{Convergence to normality of Manhattan and Euclidean distances. For each simulated distance distribution, we fixed the number of instances $m=100$ and vary the number of attributes $p=10,100,10000$. W and P represent the Shapiro-Wilk test statistic and its corresponding P values, respectively. Small P values (e.g., $<0.01$) indicate that the data may not be normally distributed. It is clear that convergence is rapid, and approximate normality can be safely assumed for even $p=10$ (Euclidean).}
+	\includegraphics[width=0.98\textwidth]{central_limit_hist_uniform-data.pdf}
+	\caption{Convergence to Gaussian for Manhattan and Euclidean distances for simulated standard uniform data with $m=100$ instances and $p=10, 100,$ and $10000$ attributes. Convergence to Gaussian occurs rapidly with increasing $p$, and Gaussian is a good approximation for $p$ as low as $10$ attributes. The number of attributes in bioinformatics data is typically much larger, at least on the order of $10^3$. The Euclidean metric has stronger convergence to normal than Manhattan.  P values from Shapiro-Wilk test, where the null hypothesis is a Gaussian distribution.}
 	\label{fig:central_limit_convergence}
 \end{figure}
 
-Although some P values are significant at the 0.05 level for Manhattan ($q=1$), a visual inspection of the corresponding QQ-plots shown in Fig.~\ref{fig:qq-plots} indicate the normality assumption holds reasonably well.
-
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.98\textwidth]{qq-plots.pdf}
-	\caption{QQ-plots corresponding to the simulated distances in Fig.~\ref{fig:central_limit_convergence}. Although there are significant P values for the case of Manhattan for $p=10,100$, it is clear that the assumption of normality is safe due to strong relationship between sample and theoretical quantiles.}\label{fig:qq-plots}
+	\includegraphics[width=0.98\textwidth]{central_limit_hist_normal-data.pdf}
+	\caption{Convergence to Gaussian for Manhattan and Euclidean distances for simulated standard normal data with $m=100$ instances and $p=10, 100,$ and $10000$ attributes. Convergence to Gaussian occurs rapidly with increasing $p$, and Gaussian is a good approximation for $p$ as low as $10$ attributes. The number of attributes in bioinformatics data is typically much larger, at least on the order of $10^3$. The Euclidean metric has stronger convergence to normal than Manhattan.  P values from Shapiro-Wilk test, where the null hypothesis is a Gaussian distribution.}
+	\label{fig:central_limit_convergence_normal}
 \end{figure}
+
+%Although some P values are significant at the 0.05 level for Manhattan ($q=1$), a visual inspection of the corresponding QQ-plots shown in Fig.~\ref{fig:qq-plots} indicate the normality assumption holds reasonably well.
+
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=0.98\textwidth]{qq-plots.pdf}
+%	\caption{QQ-plots corresponding to the simulated distances in Fig.~\ref{fig:central_limit_convergence}. Although there are significant P values for the case of Manhattan for $p=10,100$, it is clear that the assumption of normality is safe due to strong relationship between sample and theoretical quantiles.}\label{fig:qq-plots}
+%\end{figure}
 
 %\begin{figure}[ht!]
 %\centering
@@ -349,9 +351,9 @@ For distance based learning methods, all pairwise distances are used to determin
 
 In this section, we begin by deriving general formulas for asymptotic means and variances of the $L_q$ distance given by Eq.~\ref{eq:D} for standard normal and standard uniform data. With our general formulas for continuous data, we compute moments associated with Manhattan ($L_1$) and Euclidean ($L_2$). We then consider the max-min normalized version of the $L_q$ distance, where the magnitude difference given by Eq.~\ref{eq:diff} is divided by the range of each feature $a$. Using Extreme Value Theory (EVT), we derive formulas for the moments of feature range in standard normal and standard uniform data. Transitioning into discrete data distributions relevant to GWAS, we derive asymptotic moments for two well known metrics and one new metric. In addition, we derive distance asymptotics for time series correlation-based data, such as, resting-state fMRI. 
 
-\subsection{Distribution of \texorpdfstring{$|d_{ij}(a)|^q = |X_{ia} - X_{ja}|^q$}{}}
+\subsection{Distribution of \texorpdfstring{$|\text{d}_{ij}(a)|^q = |X_{ia} - X_{ja}|^q$}{}}
 
-Suppose that $X_{ia}, X_{ja} \overset{iid}{\sim} \mathcal{F}_X(\mu_x,\sigma^2_x)$ and define $Z^q_a = |d_{ij}(a)|^q = |X_{ia} - X_{ja}|^q$, where $a \in \mathcal{A}$ and $|\mathcal{A}| = p$. In order to find the distribution of $Z^q_a$, we will use the following theorem given in \cite{freund2004}.
+Suppose that $X_{ia}, X_{ja} \overset{iid}{\sim} \mathcal{F}_X(\mu_x,\sigma^2_x)$ and define $Z^q_a = |\text{d}_{ij}(a)|^q = |X_{ia} - X_{ja}|^q$, where $a \in \mathcal{A}$ and $|\mathcal{A}| = p$. In order to find the distribution of $Z^q_a$, we will use the following theorem given in \cite{freund2004}.
 
 \begin{theorem}\label{thm:freund}
 Let $f(x)$ be the value of the probability density of the continuous random variable $X$ at $x$. If the function given by $y = u(x)$ is differentiable and either increasing or decreasing for all values within the range of $X$ for which $f(x) \neq 0$, then, for these values of $x$, the equation $y = u(x)$ can be uniquely solved for $x$ to give $x = w(y)$, and for the corresponding values of $y$ the probability density of $Y = u(X)$ is given by
@@ -759,17 +761,17 @@ For the case in which the number of attributes $p$ is small, an improved estimat
 
 This concludes our analysis with continuous data distributions and the standard $L_q$ metric. In the next section, we will use extreme value theory to derive the distribution of the sample maximum and minimum for standard normal and standard uniform data. This will lead us to asymptotics for the max-min normalized $L_q$ metric used frequently in Relief-based algorithms \cite{urbanowicz17,robnik2003,urbanowiczReliefReview2018} for scoring features.
 
-\subsection{Distribution of attribute extremes}\label{sec:extremes}
+\subsection{Distribution of max-min normalized \texorpdfstring{$L_q$}{} metric}\label{sec:extremes}
 
 For Relief-based methods \cite{robnik2003,urbanowiczReliefReview2018,urbanowicz17}, the standard numeric diff metric is given by
 %
 \begin{equation}\label{eq:normDiff}
-d^{\text{num}}_{ij}(a) = \text{diff}(a,(i,j)) = \frac{|X_{ia} - X_{ja}|}{\text{max}(a) - \text{min}(a)},
+\text{d}^{\text{num}}_{ij}(a) = \text{diff}(a,(i,j)) = \frac{|X_{ia} - X_{ja}|}{\text{max}(a) - \text{min}(a)},
 \end{equation}
 %
 where $\text{max}(a) = \displaystyle \max_{k \in \mathcal{I}}\{X_{ka}\}$, $\text{min}(a) = \displaystyle \min_{k \in \mathcal{I}}\{X_{ka}\}$, and $\mathcal{I} = \{1,2,\dots,m\}$. 
 
-In order to determine moments of asymptotic distance distributions induced by Eq. \ref{eq:normDiff}, we must first derive the asymptotic extreme value distributions of the attribute maximum and minimum. Although the exact distribution of the maximum or minimum requires an assumption about the data distribution, the Fisher-Tippett-Gnedenko Theorem allows us to generally categorize the extreme value distribution for a collection of independent and identically distributed random variables into one of three distributional families. Before stating the theorem, we first need the following definition.
+In order to determine moments of asymptotic distance distributions induced by Eq. \ref{eq:normDiff}, we must first derive the asymptotic extreme value distributions of the attribute maximum and minimum. Although the exact distribution of the maximum or minimum requires an assumption about the data distribution, the Fisher-Tippett-Gnedenko Theorem allows us to generally categorize the extreme value distribution for a collection of independent and identically distributed random variables into one of three distributional families. Before stating the theorem, we first need the following definition
 %
 \begin{definition}
 A distribution $\mathcal{F}_X$ is said to be \textbf{degenerate} if its density function $f_X$ is the Dirac delta $\delta(x - c_0)$ centered at a constant $c_0 \in \mathbb{R}$, with corresponding distribution function $F_X$ defined as
@@ -1234,7 +1236,31 @@ Similarly, the variance of $D^{(2*)}_{ij}$ is given by
 \end{aligned}
 \end{equation}
 
-\subsection{GWAS distance distributions}\label{sec:gwas_distances}
+\begin{table}[H]
+	\caption{Summary of distance distribution derivations for standard normal and standard uniform data. Asymptotic estimates are given for both standard and max-min normalized q-metrics. These estimates are relevant for all $q \in \mathbb{N}$ and $p \geq 100$.}
+	\label{tab:dist_distr_general1}
+	\centering
+	% trim=left botm right top
+	\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.05cm,width=\textwidth]{updated_distributions_table(5-23-2019).pdf}
+\end{table}
+
+\begin{table}[H]
+	\caption{Asymptotic estimates for means and variances for the standard $L_1$ and $L_2$ distance distributions. Estimates for both standard normal and standard uniform data are given.}
+	\label{tab:dist_distr_standardL1L2}
+	\centering
+	% trim=left botm right top
+	\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.05cm,width=0.7\textwidth]{updated_typical_metrics_table.pdf}
+\end{table}
+
+\begin{table}[H]
+	\caption{Asymptotic estimates for means and variances for the max-min normalized $L_1$ and $L_2$ distance distributions. Estimates for both standard normal and standard uniform data are given.}
+	\label{tab:dist_distr_normalizedL1L2}
+	\centering
+	% trim=left botm right top
+	\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.05cm,width=0.85\textwidth]{updated_typical_metrics_table(normalized).pdf}
+\end{table}
+
+\section{GWAS distance distributions}\label{sec:gwas_distances}
 
 Consider a GWAS data set, which has the following encoding based on minor allele frequency
 %
@@ -1249,7 +1275,7 @@ X_{ia} = \begin{cases}
 A minor allele at a particular locus $a$ is the least frequent of the two alleles at that particular locus $a$. For random GWAS data sets, we can think $X_{ia}$ as the number of successes in two Bernoulli trials. That is, $X_{ia} \sim \mathcal{B}(2,f_a)$ where $f_a$ is the probability of success. The success probability $f_a$ is the probability of a minor allele occurring at $a$. Furthermore, the minor allele probabilities are assumed to be independent and identically distributed according to $\mathcal{U}(l,u)$, where $l$ and $u$ are the lower and upper bounds, respectively, of the sampling distribution's support. Two commonly known types of distance metrics for GWAS data are the Genotype Mismatch (GM) and Allele Mismatch (AM) metrics. The GM and AM metrics are defined by
 %
 \begin{equation}\label{eq:diff_GM}
-d^\text{GM}_{ij}(a) = \begin{cases} 
+\text{d}^\text{GM}_{ij}(a) = \begin{cases} 
 0 & \text{ if } X_{ia} \neq X_{ja}, \\
 1 & \text{ otherwise}
 \end{cases}
@@ -1258,13 +1284,13 @@ d^\text{GM}_{ij}(a) = \begin{cases}
 and
 %
 \begin{equation}\label{eq:diff_AM}
-d^\text{AM}_{ij}(a) = \frac{1}{2}\bigl|X_{ia} - X_{ja}\bigr|.
+\text{d}^\text{AM}_{ij}(a) = \frac{1}{2}\bigl|X_{ia} - X_{ja}\bigr|.
 \end{equation}
 
 A more informative metric must take into account whether differences in allele frequency at a particular locus $a$ result in transitions or transversions. A metric that accounts for transitions (Ti) and transversions (Tv) was introduced in \cite{arabnejad2018}. This metric is given by the following
 %
 \begin{equation}\label{eq:diff_TiTv}
-d^\text{TiTv}_{ij}(a) = \begin{cases}
+\text{d}^\text{TiTv}_{ij}(a) = \begin{cases}
 0 & \text{ if } X_{ia} = X_{ja} \text{ and Ti/Tv}, \\
 1/4 & \text{ if } |X_{ia} - X_{ja}|=1 \text{ and Ti}, \\
 1/2 & \text{ if } |X_{ia} - X_{ja}|=1 \text{ and Tv}, \\
@@ -1273,17 +1299,17 @@ d^\text{TiTv}_{ij}(a) = \begin{cases}
 \end{cases}
 \end{equation}
 
-With any of the three metrics given by Eqs. \ref{eq:diff_GM} - \ref{eq:diff_TiTv}, we compute the pairwise distance between two instances $i$ and $j$ using Eq. \ref{eq:D} with $q=1$. Assuming that all data entries $X_{ia}$ are independent and identically distributed, we have already shown that the distribution of pairwise distances is asymptotically normal regardless of data distribution and value of $q$. Therefore, the distance distributions induced by each of the GWAS metrics given by Eqs. \ref{eq:diff_GM} - \ref{eq:diff_TiTv} are asymptotically normal. Thus, we will proceed by deriving the mean and variance for each distance distribution induced by these three GWAS metrics. 
+With any of the three metrics given by Eqs.~\ref{eq:diff_GM} - \ref{eq:diff_TiTv}, we compute the pairwise distance between two instances $i$ and $j$ using Eq.~\ref{eq:D} with $q=1$. Assuming that all data entries $X_{ia}$ are independent and identically distributed, we have already shown that the distribution of pairwise distances is asymptotically normal regardless of data distribution and value of $q$. Therefore, the distance distributions induced by each of the GWAS metrics given by Eqs.~\ref{eq:diff_GM} - \ref{eq:diff_TiTv} are asymptotically normal. Thus, we will proceed by deriving the mean and variance for each distance distribution induced by these three GWAS metrics. 
 
-\subsubsection{GM distance distribution}
+\subsection{GM distance distribution}
 
 The expected value of the GM metric is given by the following
 %
 \begin{equation}\label{eq:mean_diff_GM}
 \begin{aligned}
-\text{E}\left[d^\text{GM}_{ij}(a)\right] &= \sum_{k=0}^{1} k \cdot \text{P}\left[d^\text{GM}_{ij}(a) = k\right] \\
-&= 0 \cdot \text{P}\left[d^\text{GM}_{ij}(a) = 0\right] + 1 \cdot \text{P}\left[d^\text{GM}_{ij}(a) = 1\right] \\
-&= \text{P}\left[d^\text{GM}_{ij}(a) = 1\right] \\
+\text{E}\left[\text{d}^\text{GM}_{ij}(a)\right] &= \sum_{k=0}^{1} k \cdot \text{P}\left[\text{d}^\text{GM}_{ij}(a) = k\right] \\
+&= 0 \cdot \text{P}\left[\text{d}^\text{GM}_{ij}(a) = 0\right] + 1 \cdot \text{P}\left[\text{d}^\text{GM}_{ij}(a) = 1\right] \\
+&= \text{P}\left[\text{d}^\text{GM}_{ij}(a) = 1\right] \\
 &= 2\text{P}[X_{ia} = 0, X_{ja} = 1] + 2\text{P}[X_{ia} = 1, X_{ja} = 2] + 2\text{P}[X_{ia} = 0, X_{ja} = 2] \\
 &= 4(1 - f_a)^3f_a + 4(1 - f_a)f^3_a + 2(1 - f_a)^2f^2_a \\
 &= 2\left[2(1 - f_a)^3f_a + 2(1 - f_a)f^3_a + (1 - f_a)^2f^2_a\right] \\
@@ -1296,8 +1322,8 @@ Then the expected pairwise GM distance between instances $i$ and $j$ is computed
 %
 \begin{equation}\label{eq:mu_DDistr_GM}
 \begin{aligned}
-\text{E}\left(D^\text{GM}_{ij}\right) &= \text{E}\left(\sum_{a \in \mathcal{A}} d^\text{GM}_{ij}(a)\right) \\
-&= \sum_{a \in \mathcal{A}} \text{E}\left[d^\text{GM}_{ij}(a)\right] \\
+\text{E}\left(D^\text{GM}_{ij}\right) &= \text{E}\left(\sum_{a \in \mathcal{A}} \text{d}^\text{GM}_{ij}(a)\right) \\
+&= \sum_{a \in \mathcal{A}} \text{E}\left[\text{d}^\text{GM}_{ij}(a)\right] \\
 &= 2 \sum_{a \in \mathcal{A}} F(a).
 \end{aligned}
 \end{equation}
@@ -1306,10 +1332,10 @@ The second moment about the origin for the GM distance is computed as follows
 %
 \begin{equation}\label{eq:mu2_DDistr_GM}
 \begin{aligned}
-\text{E}\left[\left(D^\text{GM}_{ij}\right)^2\right] &= \text{E}\left[\left(\sum_{a \in \mathcal{A}} d^\text{GM}_{ij}(a)\right)^2\right] \\
-&= \text{E}\left[\sum_{a \in \mathcal{A}} \left(d^\text{GM}_{ij}(a)\right)^2\right] + 2 \text{E}\left[\sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} d^\text{GM}_{ij}(r) \cdot d^\text{GM}_{ij}(s)\right] \\
-&= \sum_{a \in \mathcal{A}} \left(\sum_{k = 0}^{1} k^2 \cdot \text{P}\left[d^\text{GM}_{ij}(a) = k\right]\right) \\
-&+ 2\sum_{a \in \mathcal{A}} \sum_{s \leq r - 1} \left(\sum_{k = 0}^{1} k \cdot \text{P}\left[d^\text{GM}_{ij}(r) = k\right]\right) \cdot \left(\sum_{k = 0}^{1} k \cdot \text{P}\left[d^\text{GM}_{ij}(s) = k\right]\right) \\
+\text{E}\left[\left(D^\text{GM}_{ij}\right)^2\right] &= \text{E}\left[\left(\sum_{a \in \mathcal{A}} \text{d}^\text{GM}_{ij}(a)\right)^2\right] \\
+&= \text{E}\left[\sum_{a \in \mathcal{A}} \left(\text{d}^\text{GM}_{ij}(a)\right)^2\right] + 2 \text{E}\left[\sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} \text{d}^\text{GM}_{ij}(r) \cdot \text{d}^\text{GM}_{ij}(s)\right] \\
+&= \sum_{a \in \mathcal{A}} \left(\sum_{k = 0}^{1} k^2 \cdot \text{P}\left[\text{d}^\text{GM}_{ij}(a) = k\right]\right) \\
+&+ 2\sum_{a \in \mathcal{A}} \sum_{s \leq r - 1} \left(\sum_{k = 0}^{1} k \cdot \text{P}\left[\text{d}^\text{GM}_{ij}(r) = k\right]\right) \cdot \left(\sum_{k = 0}^{1} k \cdot \text{P}\left[\text{d}^\text{GM}_{ij}(s) = k\right]\right) \\
 &= 2\sum_{a \in \mathcal{A}} F(a) + 8 \sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} \prod_{\lambda \in \{r,s\}} F(\lambda),
 \end{aligned}
 \end{equation}
@@ -1334,14 +1360,14 @@ D^\text{GM}_{ij} \overset{.}{\sim} \mathcal{N}\left(2\sum_{a \in \mathcal{A}} F(
 \end{equation}
 where $F(a) = 2(1 - f_a)^3f_a + 2(1 - f_a)f^3_a + (1 - f_a)^2f^2_a$. 
 
-\subsubsection{AM distance distribution}
+\subsection{AM distance distribution}
 
 The expected value of the AM metric is given by the following
 %
 \begin{equation}\label{eq:mean_diff_AM}
 \begin{aligned}
-\text{E}\left[d^\text{AM}_{ij}(a)\right] &= \sum_{k \in \mathcal{D}} k \cdot \text{P}\left[d^\text{AM}_{ij}(a) = k\right] \\
-&= 0 \cdot \text{P}\left[d^\text{AM}_{ij}(a) = 0\right] + \frac{1}{2} \cdot \text{P}\left[d^\text{AM}_{ij}(a) = \frac{1}{2}\right] + 1 \cdot \text{P}\left[d^\text{AM}_{ij}(a) = 1\right] \\
+\text{E}\left[\text{d}^\text{AM}_{ij}(a)\right] &= \sum_{k \in \mathcal{D}} k \cdot \text{P}\left[\text{d}^\text{AM}_{ij}(a) = k\right] \\
+&= 0 \cdot \text{P}\left[\text{d}^\text{AM}_{ij}(a) = 0\right] + \frac{1}{2} \cdot \text{P}\left[\text{d}^\text{AM}_{ij}(a) = \frac{1}{2}\right] + 1 \cdot \text{P}\left[\text{d}^\text{AM}_{ij}(a) = 1\right] \\
 &= \frac{1}{2}\left(2 \text{P}\left[X_{ia} = 0, X_{ja} = 1\right] + 2 \text{P}\left[X_{ia} = 1, X_{ja} = 2\right]\right) \\
 &+ 2 \text{P}\left[X_{ia} = 0, X_{ja} = 2\right] \\
 &= \text{P}\left[X_{ia} = 0, X_{ja} = 1\right] + \text{P}\left[X_{ia} = 1, X_{ja} = 2\right] + 2 \text{P}\left[X_{ia} = 0, X_{ja} = 2\right] \\
@@ -1356,8 +1382,8 @@ Then the expected pairwise AM distance between instances $i$ and $j$ is computed
 %
 \begin{equation}\label{eq:mu_DDistr_AM}
 \begin{aligned}
-\text{E}\left(D^\text{AM}_{ij}\right) &= \text{E}\left(\sum_{a \in \mathcal{A}} d^\text{AM}_{ij}(a)\right) \\
-&= \sum_{a \in \mathcal{A}} \text{E}\left[d^\text{AM}_{ij}(a)\right] \\
+\text{E}\left(D^\text{AM}_{ij}\right) &= \text{E}\left(\sum_{a \in \mathcal{A}} \text{d}^\text{AM}_{ij}(a)\right) \\
+&= \sum_{a \in \mathcal{A}} \text{E}\left[\text{d}^\text{AM}_{ij}(a)\right] \\
 &= 2 \sum_{a \in \mathcal{A}} F(a).
 \end{aligned}
 \end{equation}
@@ -1366,10 +1392,10 @@ The second moment about the origin for the AM distance is computed as follows
 %
 \begin{equation}\label{eq:mu2_DDistr_AM}
 \begin{aligned}
-\text{E}\left[\left(D^\text{AM}_{ij}\right)^2\right] &= \text{E}\left[\left(\sum_{a \in \mathcal{A}} d^\text{AM}_{ij}(a)\right)^2\right] \\
-&= \text{E}\left[\sum_{a \in \mathcal{A}} \left(d^\text{AM}_{ij}(a)\right)^2\right] + 2 \text{E}\left[\sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} d^\text{AM}_{ij}(r) \cdot d^\text{AM}_{ij}(s)\right] \\
-&= \sum_{a \in \mathcal{A}} \left(\sum_{k \in \mathcal{D}} k^2 \cdot \text{P}\left[d^\text{AM}_{ij}(a) = k\right]\right) \\
-&+ 2\sum_{a \in \mathcal{A}} \sum_{s \leq r - 1} \left(\sum_{k \in \mathcal{D}} k \cdot \text{P}\left[d^\text{AM}_{ij}(r) = k\right]\right) \cdot \left(\sum_{k \in \mathcal{D}} k \cdot \text{P}\left[d^\text{AM}_{ij}(s) = k\right]\right) \\
+\text{E}\left[\left(D^\text{AM}_{ij}\right)^2\right] &= \text{E}\left[\left(\sum_{a \in \mathcal{A}} \text{d}^\text{AM}_{ij}(a)\right)^2\right] \\
+&= \text{E}\left[\sum_{a \in \mathcal{A}} \left(\text{d}^\text{AM}_{ij}(a)\right)^2\right] + 2 \text{E}\left[\sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} \text{d}^\text{AM}_{ij}(r) \cdot \text{d}^\text{AM}_{ij}(s)\right] \\
+&= \sum_{a \in \mathcal{A}} \left(\sum_{k \in \mathcal{D}} k^2 \cdot \text{P}\left[\text{d}^\text{AM}_{ij}(a) = k\right]\right) \\
+&+ 2\sum_{a \in \mathcal{A}} \sum_{s \leq r - 1} \left(\sum_{k \in \mathcal{D}} k \cdot \text{P}\left[\text{d}^\text{AM}_{ij}(r) = k\right]\right) \cdot \left(\sum_{k \in \mathcal{D}} k \cdot \text{P}\left[\text{d}^\text{AM}_{ij}(s) = k\right]\right) \\
 &= \sum_{a \in \mathcal{A}} G(a) + 8 \sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} \prod_{\lambda \in \{r,s\}} F(\lambda),
 \end{aligned}
 \end{equation}
@@ -1394,7 +1420,7 @@ D^\text{AM}_{ij} \overset{.}{\sim} \mathcal{N}\left(2\sum_{a \in \mathcal{A}} F(
 \end{equation}
 where $G(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a) + 2 (1 - f_a)^2 f^2_a$ and $F(\lambda) = (1 - f_\lambda)^3 f_\lambda + f^3_\lambda (1 - f_\lambda) + (1 - f_\lambda)^2 f^2_\lambda$.
 
-\subsubsection{TiTv distance distribution}\label{sec:TiTv_distances}
+\subsection{TiTv distance distribution}\label{sec:TiTv_distances}
 
 The TiTv metric allows for one to account for both genotype mismatch, allele mismatch, transition, and transversion. However, this added dimension of information requires knowledge of the nucleotide makeup at a particular locus. A sufficient condition to compute the TiTv metric between instances $i$ an $j$ is that we know whether the nucleotides associated with a particular locus $a$ are both purines (PuPu), purine and pyrimidine (PuPy), or both pyrimidines (PyPy). A diagram showing possible transitions and transversions that may occur is given by Fig.~\ref{fig:TiTv_diagram}. Purines (A and G) and pyrimidines (C and T) are shown at the top and bottom, respectively. Transitions occur in the cases of PuPu and PyPy, while transversion occur only with PuPy encoding.
 
@@ -1445,7 +1471,7 @@ Then it immediately follows that we have
 \gamma_2 = \frac{\eta}{\eta + 1} - \gamma_0.
 \end{equation}
 
-However, we can derive the mean and variance of the distance distribution induced by the TiTv metric without specifying any relationship between $\gamma_0$, $\gamma_1$, and $\gamma_2$. We proceed by computing $\text{P}\left[d^\text{TiTv}_{ij}(a) = k\right]$ for each $k \in \mathcal{D} = \bigl\{0,\frac{1}{4},\frac{1}{2},\frac{3}{4},1\bigr\}$. Let $y$ represent a random sample of size $p$ from $\{0,1,2\}$, where 
+However, we can derive the mean and variance of the distance distribution induced by the TiTv metric without specifying any relationship between $\gamma_0$, $\gamma_1$, and $\gamma_2$. We proceed by computing $\text{P}\left[\text{d}^\text{TiTv}_{ij}(a) = k\right]$ for each $k \in \mathcal{D} = \bigl\{0,\frac{1}{4},\frac{1}{2},\frac{3}{4},1\bigr\}$. Let $y$ represent a random sample of size $p$ from $\{0,1,2\}$, where 
 %
 \begin{equation}\label{eq:yvec}
 y_a = \begin{cases}
@@ -1455,11 +1481,11 @@ y_a = \begin{cases}
 \end{cases}
 \end{equation}
 
-We derive $\text{P}\left[d^\text{TiTv}_{ij}(a) = 0\right]$ as follows
+We derive $\text{P}\left[\text{d}^\text{TiTv}_{ij}(a) = 0\right]$ as follows
 %
 \begin{equation}\label{eq:prob_TiTv_0}
 \begin{aligned}
-\text{P}\left[d^\text{TiTv}_{ij}(a) = 0\right] &= \text{P}\left[y_a = 0, X_{ia} = X_{ja}\right] \\
+\text{P}\left[\text{d}^\text{TiTv}_{ij}(a) = 0\right] &= \text{P}\left[y_a = 0, X_{ia} = X_{ja}\right] \\
 &+ \text{P}\left[y_a = 1, X_{ia} = X_{ja}\right] \\
 &+ \text{P}\left[y_a = 2, X_{ia} = X_{ja}\right] \\
 &= \gamma_0 \left[(1 - f_a)^2 + 4 f_a (1 - f_a) + f^2_a\right] \\
@@ -1470,11 +1496,11 @@ We derive $\text{P}\left[d^\text{TiTv}_{ij}(a) = 0\right]$ as follows
 \end{aligned}
 \end{equation}
 
-We derive $\text{P}\left[d^\text{TiTv}_{ij}(a) = \frac{1}{4}\right]$ as follows
+We derive $\text{P}\left[\text{d}^\text{TiTv}_{ij}(a) = \frac{1}{4}\right]$ as follows
 %
 \begin{equation}\label{eq:prob_TiTv_0.25}
 \begin{aligned}
-\text{P}\left[d^\text{TiTv}_{ij}(a) = \frac{1}{4}\right] &= 2 \text{P}\left[y_a = 0, X_{ia} = 0, X_{ja} = 1\right] \\
+\text{P}\left[\text{d}^\text{TiTv}_{ij}(a) = \frac{1}{4}\right] &= 2 \text{P}\left[y_a = 0, X_{ia} = 0, X_{ja} = 1\right] \\
 &+ 2 \text{P}\left[y_a = 0, X_{ia} = 1, X_{ja} = 2\right] \\
 &+ 2 \text{P}\left[y_a = 2, X_{ia} = 0, X_{ja} = 1\right] \\
 &+ 2 \text{P}\left[y_a = 2, X_{ia} = 1, X_{ja} = 2\right] \\
@@ -1486,33 +1512,33 @@ We derive $\text{P}\left[d^\text{TiTv}_{ij}(a) = \frac{1}{4}\right]$ as follows
 \end{aligned}
 \end{equation}
 
-We derive $\text{P}\left[d^\text{TiTv}_{ij}(a) = \frac{1}{2}\right]$ as follows
+We derive $\text{P}\left[\text{d}^\text{TiTv}_{ij}(a) = \frac{1}{2}\right]$ as follows
 %
 \begin{equation}\label{eq:prob_TiTv_0.5}
 \begin{aligned}
-\text{P}\left[d^\text{TiTv}_{ij}(a) = \frac{1}{2}\right] &= 2 \text{P}\left[y_a = 1, X_{ia} = 0, X_{ja} = 1\right] \\
+\text{P}\left[\text{d}^\text{TiTv}_{ij}(a) = \frac{1}{2}\right] &= 2 \text{P}\left[y_a = 1, X_{ia} = 0, X_{ja} = 1\right] \\
 &+ 2 \text{P}\left[y_a = 1, X_{ia} = 1, X_{ja} = 2\right] \\
 &= 4 \gamma_1 (1 - f_a)^3 f_a + 4 \gamma_1 f^3_a (1 - f_a) \\
 &= 4 \gamma_1 \left[(1 - f_a)^3 f_a + f^3_a (1 - f_a)\right].
 \end{aligned}
 \end{equation}
 
-We derive $\text{P}\left[d^\text{TiTv}_{ij}(a) = \frac{3}{4}\right]$ as follows
+We derive $\text{P}\left[\text{d}^\text{TiTv}_{ij}(a) = \frac{3}{4}\right]$ as follows
 %
 \begin{equation}\label{eq:prob_TiTv_0.75}
 \begin{aligned}
-\text{P}\left[d^\text{TiTv}_{ij}(a) = \frac{3}{4}\right] &= 2 \text{P}\left[y_a = 0, X_{ia} = 0, X_{ja} = 2\right] \\
+\text{P}\left[\text{d}^\text{TiTv}_{ij}(a) = \frac{3}{4}\right] &= 2 \text{P}\left[y_a = 0, X_{ia} = 0, X_{ja} = 2\right] \\
 &+ 2 \text{P}\left[y_a = 2, X_{ia} = 0, X_{ja} = 2\right] \\
 &= 2 \gamma_0 (1 - f_a)^2 f^2_a + 2 \gamma_2 (1 - f_a)^2 f^2_a \\
 &= 2(\gamma_0 + \gamma_2)(1 - f_a)^2 f^2_a.
 \end{aligned}
 \end{equation}
 
-We derive $\text{P}\left[d^\text{TiTv}_{ij}(a) = 1\right]$ as follows
+We derive $\text{P}\left[\text{d}^\text{TiTv}_{ij}(a) = 1\right]$ as follows
 %
 \begin{equation}\label{eq:prob_TiTv_1}
 \begin{aligned}
-\text{P}\left[d^\text{TiTv}_{ij}(a) = 1\right] &= 2 \text{P}\left[y_a = 1, X_{ia} = 0, X_{ja} = 2\right] \\
+\text{P}\left[\text{d}^\text{TiTv}_{ij}(a) = 1\right] &= 2 \text{P}\left[y_a = 1, X_{ia} = 0, X_{ja} = 2\right] \\
 &= 2 \gamma_1 (1 - f_a)^2 f^2_a.
 \end{aligned}
 \end{equation}
@@ -1521,7 +1547,7 @@ Using Eqs. \ref{eq:prob_TiTv_0} - \ref{eq:prob_TiTv_1}, we compute the expected 
 %
 \begin{equation}\label{eq:mu_DDistr_TiTv}
 \begin{aligned}
-\text{E}\left(D^\text{TiTv}_{ij}\right) &= \sum_{a \in \mathcal{A}} \left(\sum_{k \in \mathcal{D}} k \cdot \text{P}\left[d^\text{TiTv}_{ij}(a) = k\right]\right) \\
+\text{E}\left(D^\text{TiTv}_{ij}\right) &= \sum_{a \in \mathcal{A}} \left(\sum_{k \in \mathcal{D}} k \cdot \text{P}\left[\text{d}^\text{TiTv}_{ij}(a) = k\right]\right) \\
 &= (\gamma_0 + \gamma_2 + 2\gamma_1) \sum_{a \in \mathcal{A}} \left[(1 - f_a)^3 f_a + f^3_a (1 - f_a)\right] \\
 &+ \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} (1 - f_a)^2 f^2_a \\
 &= (\gamma_0 + \gamma_2 + 2\gamma_1) \sum_{a \in \mathcal{A}} F(a) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G(a),
@@ -1533,10 +1559,10 @@ The second moment about the origin for the TiTv distance is computed as follows
 %
 \begin{equation}\label{eq:mu2_DDistr_TiTv}
 \begin{aligned}
-\text{E}\left[\left(D^\text{TiTv}_{ij}\right)^2\right] &= \text{E}\left[\left(\sum_{a \in \mathcal{A}} d^\text{TiTv}_{ij}(a)\right)^2\right] \\
-&= \text{E}\left[\sum_{a \in \mathcal{A}} \left(d^\text{TiTv}_{ij}(a)\right)^2\right] + 2 \text{E}\left[\sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} d^\text{TiTv}_{ij}(r) \cdot d^\text{TiTv}_{ij}(s)\right] \\
-&= \sum_{a \in \mathcal{A}} \left(\sum_{k \in \mathcal{D}} k^2 \cdot \text{P}\left[d^\text{TiTv}_{ij}(a) = k\right]\right) \\
-&+ 2\sum_{a \in \mathcal{A}} \sum_{s \leq r - 1} \left(\sum_{k \in \mathcal{D}} k \cdot \text{P}\left[d^\text{TiTv}_{ij}(r) = k\right]\right) \cdot \left(\sum_{k \in \mathcal{D}} k \cdot \text{P}\left[d^\text{TiTv}_{ij}(s) = k\right]\right) \\
+\text{E}\left[\left(D^\text{TiTv}_{ij}\right)^2\right] &= \text{E}\left[\left(\sum_{a \in \mathcal{A}} \text{d}^\text{TiTv}_{ij}(a)\right)^2\right] \\
+&= \text{E}\left[\sum_{a \in \mathcal{A}} \left(\text{d}^\text{TiTv}_{ij}(a)\right)^2\right] + 2 \text{E}\left[\sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} \text{d}^\text{TiTv}_{ij}(r) \cdot \text{d}^\text{TiTv}_{ij}(s)\right] \\
+&= \sum_{a \in \mathcal{A}} \left(\sum_{k \in \mathcal{D}} k^2 \cdot \text{P}\left[\text{d}^\text{TiTv}_{ij}(a) = k\right]\right) \\
+&+ 2\sum_{a \in \mathcal{A}} \sum_{s \leq r - 1} \left(\sum_{k \in \mathcal{D}} k \cdot \text{P}\left[\text{d}^\text{TiTv}_{ij}(r) = k\right]\right) \cdot \left(\sum_{k \in \mathcal{D}} k \cdot \text{P}\left[\text{d}^\text{TiTv}_{ij}(s) = k\right]\right) \\
 &= \left[\frac{1}{4}(\gamma_0 + \gamma_2) + \gamma_1\right] \sum_{a \in \mathcal{A}} F(a) + \left[\frac{9}{8}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G(a) \\
 &+ 2 \sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} \prod_{\lambda \in \{r,s\}} \left([\gamma_0 + \gamma_2 + 2\gamma_1] F(\lambda) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] G(\lambda)\right),
 \end{aligned}
@@ -1568,13 +1594,13 @@ D^\text{TiTv}_{ij} \overset{.}{\sim} \mathcal{N}\Biggl(& (\gamma_0 + \gamma_2 + 
 \end{equation}
 where $F(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a)$ and $G(a) = (1 - f_a)^2 f^2_a$.
 
-The relationship between the average success probability $\bar{f}_a$ and the predicted TiTv pairwise distance given by Eq.~\ref{eq:mu_DDistr_TiTv} is shown in Fig.~\ref{fig:TiTv-vs-maf}. Given upper and lower bounds $l$ and $u$, respectively, of the success probability sampling interval, the average success probability (or average MAF) is computed as follows
+Given upper and lower bounds $l$ and $u$, respectively, of the success probability sampling interval, the average success probability (or average MAF) is computed as follows
 %
 \begin{equation}\label{eq:avg_maf}
 \bar{f}_a = \frac{1}{2}(l + u).
 \end{equation}
 
-The maximum distance occurs at $\bar{f}_a=0.5$, which is the inflection point about which the minor allele changes at locus $a$. If few minor alleles are present ($\bar{f}_a \to 0$), the predicted TiTv distance approaches 0. The same is true after the minor allele switches ($\bar{f}_a \to 1$).
+The maximum TiTv distance occurs at $\bar{f}_a=0.5$ for any fixed Ti/Tv ratio $\eta$ (Eq.~\ref{eq:TiTv_constraints2}), which is the inflection point about which the minor allele changes at locus $a$ (Fig.~\ref{fig:TiTv-vs-maf}). If few minor alleles are present ($\bar{f}_a \to 0$), the predicted TiTv distance approaches 0. The same is true after the minor allele switches ($\bar{f}_a \to 1$). We fixed the Ti/Tv ratio $\eta$ and generated simulated TiTv distances for $\bar{f}_a = 0.055, 0.150, 0.250, \text{ and } 0.350$ (Fig.~\ref{fig:TiTv_hist}A). For fixed $\eta$, TiTv distance increases significantly with increased $\bar{f}_a$. We similarly fixed the average minor allele frequency $\bar{f}_a$ and generated simulated TiTv distances for $\eta = \text{Ti/Tv} = 0.5, 1, 1.5, \text{ and } 2$ (Fig.~\ref{fig:TiTv_hist}B). 
 
 \bigskip
 
@@ -1587,13 +1613,33 @@ The maximum distance occurs at $\bar{f}_a=0.5$, which is the inflection point ab
 
 \bigskip
 
+\begin{figure}[H]
+	\centering
+	\framebox{\includegraphics[width=0.98\textwidth]{TiTv_distance_ridges_maf_eta.pdf}}
+	\caption{Density curves of TiTv distance as a function of average MAF $\bar{f}_a$, given by Eq.~\ref{eq:avg_maf}, and Ti/Tv ratio $\eta$, given by Eq.~\ref{eq:TiTv_constraints2}. (\textbf{A}) For fixed $\eta=2$, TiTv distance density is plotted as a function of increasing $\bar{f}_a = 0.055, 0.150, 0.250, \text{ and } 0.350$. TiTv distance increases as $\bar{f}_a$ approaches a maximum of 0.5, which means that there is about the same frequency of minor alleles as primary alleles at locus $a$. (\textbf{B}) For fixed $\bar{f}_a=0.055$, TiTv distance density is plotted as a function of increasing $\eta = 0.5, 1, 1.5, \text{ and } 2$. TiTv distance decreases as $\eta$, the Ti/Tv ratio, increases. For $\eta=\text{Ti/Tv}=0.5$, there are twice as many transversions as there are transitions. On the other hand, $\eta=\text{Ti/Tv}=2$ indicates that there are half as many transversions as there are transitions. Since transversions encode a larger magnitude distance than transitions in Eq.~\ref{eq:diff_TiTv}, this behavior is expected.}\label{fig:TiTv_hist}
+\end{figure}
+%
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.98\textwidth]{TiTv_distance_meanSD_vs_MAF_eta.pdf}
+	\caption{TiTv distance predicted and simulated moments as a function of Ti/Tv ratio $\eta$ and average MAF $\bar{f}_a$ given by Eqs.~\ref{eq:TiTv_constraints2} and \ref{eq:avg_maf}, respectively. (\textbf{A}) Simulated and predicted mean $\pm$ SD are shown as a function of increasing Ti/Tv ratio $\eta$. Distance decreases as Tv becomes more frequent than Ti. Theoretical standard deviation is slightly larger than simulated, but the means are approximately the same. (\textbf{B}) Simulated and predicted mean $\pm$ SD are shown as a function of increasing average MAF $\bar{f}_a$. Distance increases as the number of minor alleles increases at each locus $a$. Theoretical and simulated moments are approximately the same.}\label{fig:TiTv_meanSD}
+\end{figure}
+
+\begin{table}[H]
+	\caption{Summary of distance distribution derivations for GWAS data.}
+	\label{tab:dist_distr_gwas}
+	\centering
+	% trim=left botm right top
+	\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.05cm,width=\textwidth]{updated_distributions_table-gwas(5-23-2019).pdf}
+\end{table}
+
 %\subsection{Resting-State fMRI Distance Distribution}
-\subsection{Time series correlation-based distance distribution}\label{sec:rs-fMRI_distances}
+\section{Time series correlation-based distance distribution}\label{sec:rs-fMRI_distances}
 
 For time series correlation-based data, we consider the case where there are $m$ correlation matrices $A^{(p \times p)}$. In particular, we are focusing on resting-state fMRI (rs-fMRI) data, which falls into this category. The derivations that follow, however, are relevant to all correlation-based data fitting the assumptions we have adopted. The features in rs-fMRI are commonly Regions of Interest (ROIs), which are collections of highly correlated and spatially proximal voxels \cite{lee2013}. These correlations are between different ROIs for a particular brain atlas \cite{dickie2017}. Because the features are the ROIs themselves, this leads us to the following metric
 %
 \begin{equation}\label{eq:diff_rs-fMRI}
-d^\text{ROI}_{ij}(a) = \sum_{k \neq a}\bigl|A^{(i)}_{ka} - A^{(j)}_{ka}\bigr|.
+\text{d}^\text{ROI}_{ij}(a) = \sum_{k \neq a}\bigl|A^{(i)}_{ka} - A^{(j)}_{ka}\bigr|.
 \end{equation}
 where $A^{(i)}_{ka}$ and $A^{(j)}_{ka}$ are the correlations between ROI $a$ and ROI $k$ for instances $i$ and $j$, respectively. In order for comparisons between different correlations to be possible, we first perform a Fisher r-to-z transform on the correlations. We then load all of the transformed correlations into a $p(p-1) \times m$ matrix $X$ (see Fig.~\ref{fig:rs-fMRI_matrix}).
 
@@ -1632,11 +1678,11 @@ where $A^{(i)}_{ka}$ and $A^{(j)}_{ka}$ are the correlations between ROI $a$ and
 %\right],
 %\end{equation}
 
-We further transform the data matrix $X$ by standardizing so that each of the $m$ columns has zero mean and unit variance. Therefore, the data in matrix $X$ are standard normal. Recall from Eqs. \ref{eq:normalManMean} and \ref{eq:normalManVar}, that the mean and variance of the Manhattan ($q=1$) distance distribution for standard normal data are $\frac{2p}{\sqrt{\pi}}$ and $\frac{2(\pi - 2)p}{\pi}$, respectively. This allows us to easily derive the expected pairwise distance between instances $i$ and $j$ in rs-fMRI data as follows
+We further transform the data matrix $X$ by standardizing so that each of the $m$ columns has zero mean and unit variance. Therefore, the data in matrix $X$ are standard normal. Recall from Eqs.~\ref{eq:normalManMean} and \ref{eq:normalManVar}, that the mean and variance of the Manhattan ($q=1$) distance distribution for standard normal data are $\frac{2p}{\sqrt{\pi}}$ and $\frac{2(\pi - 2)p}{\pi}$, respectively. This allows us to easily derive the expected pairwise distance between instances $i$ and $j$ in rs-fMRI data as follows
 %
 \begin{equation}\label{eq:mu_DDistr_rs-fMRI}
 \begin{aligned}
-\text{E}(D^\text{fMRI}_{ij}) &= \text{E}\left(\sum_{a \in \mathcal{A}} d^\text{ROI}_{ij}(a)\right) \\
+\text{E}(D^\text{fMRI}_{ij}) &= \text{E}\left(\sum_{a \in \mathcal{A}} \text{d}^\text{ROI}_{ij}(a)\right) \\
 &= \text{E}\left(\sum_{a \in \mathcal{A}} \sum_{k \neq a} \bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|\right) \\
 &= \sum_{a \in \mathcal{A}} \sum_{k \neq a} \text{E}\left(\bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|\right) \\
 &= \sum_{a \in \mathcal{A}} \sum_{k \neq a} \frac{2}{\sqrt{\pi}} \\
@@ -1730,6 +1776,14 @@ Similarly, the variance of $D^\text{fMRI*}_{ij}$ is given by
 \end{equation}
 where $\mu^{(1)}_\text{max}(m,p)$ is given in Eq.~\ref{eq:mean_max_rs-fMRI}.
 
+\begin{table}[H]
+	\caption{Summary of distance distribution derivations for rs-fMRI data.}
+	\label{tab:dist_distr_rs-fMRI}
+	\centering
+	% trim=left botm right top
+	\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.05cm,width=\textwidth]{updated_distributions_table-rs-fMRI.pdf}
+\end{table}
+
 \section{Effects of correlation on distances}\label{sec:correlation}
 
 All of the derivations presented in previous sections are for the cases where there is no correlation between instances or features. We assumed that any pair $(X_{ia},X_{ja})$ of data points for instances $i$ and $j$ and fixed feature $a$ were independent and identically distributed. This was done in order to determine asymptotic estimates in null data. That is, data with no main effects, interaction effects, or pairwise correlations between features. Within this highly simplified context, our asymptotic formulas for distributional moments are reliable. However, correlations do exist between features and instances in real data. There are a multitude of different statistical effects that impact distance distributional properties. Ultimately, divergence from normality is caused primarily by large magnitude pairwise correlation between features. Pairwise feature correlation can be the result of main effects, where features have different within-group means. On the other hand, there could be an underlying interaction network in which there are strong associations between features. If features are differentially correlated between phenotype groups, then interactions exist that change affect the distance distribution. In the following few sections, we consider particular cases of the $L_q$ metric for continuous and discrete data under the effects of pairwise feature correlation.
@@ -1751,44 +1805,44 @@ X^\text{corr} = X U^\text{T}.
 \end{equation}
 
 The new data matrix given by Eq.~\ref{eq:cholesky} has approximately the same correlation structure as the randomly generated correlation matrix created from a random graph. The cholesky method is a standard approach in creating correlated data sets.
-
+%
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.98\textwidth]{null_vs_correlated_normal_euclidean_standard.pdf}
-	\caption{Density curves of distance distributions generated from correlated and uncorrelated data from standard normal distribution. Each plot has the theoretical density curve for the uncorrelated Euclidean distance distribution (\textcolor{orange}{orange}) and a density curve for Euclidean distances from correlated data (\textcolor{blue}{blue}) with some average magnitude pairwise correlation (\textcolor{blue}{$\bar{r}_\text{abs}$}) between features. (\textbf{Upper left}) With little correlation, distances begin to diverge from the predicted normal distribution. (\textbf{Upper Right}) Low to moderate correlation causes a large positive skew and increased variability in distances. (\textbf{Lower Left}) Moderate to high correlation increases skewness and variability in distances. (\textbf{Lower Right}) Extreme correlation produces maximal skewness and variability in distances. In each case, the null and correlated distance means are approximately the same.}\label{fig:null-vs-corr-normal}
+	\framebox{\includegraphics[width=0.98\textwidth]{null_vs_correlated_normal_euclidean_standard_TrangEdit.pdf}}
+	\caption{Density curves of Euclidean distances computed on data with correlated vs uncorrelated features. The average absolute pairwise correlation, given by $r$ (Eq.~\ref{eq:abs_corr}), is a measure of the deviation from normality in distances. When $r=0.103$, correlated distances closely approximate uncorrelated distances. With $r=0.246$, the increased correlation causes significant positive skewness in distances. In the cases of $r=0.436$ and $r=0.597$, the positive skewness becomes more extreme and correlated distances diverge maximally from the uncorrelated distance distribution. The average correlated and uncorrelated distances are approximately the same for each value of $r$, however, the standard deviation of correlated distances are far larger than that of uncorrelated distances.}\label{fig:null-vs-corr-normal}
 \end{figure}
 
 \subsection{GWAS data}
 
 In analogy to the previous section, we explore the effects of pairwise feature correlation in the context of GWAS data. Without loss of generality, we let $m=p=100$ and consider the TiTv metric, which is given by combining Eqs.~\ref{eq:diff_TiTv} and \ref{eq:D} with $q=1$. To create correlated GWAS data, we first generated standard normal data with random correlation structure. We then applied the standard normal cumulative distribution function (CDF) to this correlated data, which was subsequently followed by the application of the inverse binomial CDF with random success probabilities for each feature (or SNP). The resulting GWAS data set is binomial with $n=2$ trials and has roughly the same correlation matrix as the correlated standard normal data.
-
+%
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.98\textwidth]{null_vs_correlated_gwas_TiTv.pdf}
-	\caption{Density curves of distance distributions generated from correlated and uncorrelated data from a binomial distribution with $n=2$ trials and uniformly distributed success probabilities. Each plot has the theoretical density curve for the uncorrelated TiTv distance distribution (\textcolor{orange}{orange}) and a density curve for TiTv distances from correlated data (\textcolor{blue}{blue}) with some average magnitude pairwise correlation (\textcolor{blue}{$\bar{r}_\text{abs}$}) between features. (\textbf{Upper left}) With little correlation, distances begin to diverge from the predicted normal distribution. (\textbf{Upper Right}) Low to moderate correlation causes a large positive skew and increased variability in distances. (\textbf{Lower Left}) Moderate to high correlation increases skewness and variability in distances. (\textbf{Lower Right}) Extreme correlation produces maximal skewness and variability in distances. In each case, the null and correlated distance means are approximately the same.}\label{fig:null-vs-corr-titv}
+	\framebox{\includegraphics[width=0.98\textwidth]{null_vs_correlated_gwas_TiTv_TrangEdit.pdf}}
+	\caption{Density curves of TiTv distances computed on data with correlated vs uncorrelated features. The average absolute pairwise correlation, given by $r$ (Eq.~\ref{eq:abs_corr}), is a measure of the deviation from normality in distances. There is very little difference between correlated vs uncorrelated distances when $r=0.086$. When $r=0.147$, correlated distances begin to show positive skewness. Increasing to $r=0.227$ and $r=0.299$, correlated distances show extreme skewness. Compared to Fig.~\ref{fig:null-vs-corr-normal}, it appears that correlation more drastically affects distances in discrete GWAS data than $L_q$ distances in continuous data. This could have important implications for the choice of neighborhood parameters in nearest-neighbor distance-based feature selection. As in continuous data, the average correlated and uncorrelated TiTv distances are approximately the same with clear differences in standard deviations.}\label{fig:null-vs-corr-titv}
 \end{figure}
 
 \subsection{Correlation-based data}
 
 For our correlation data-based metric given by Eqs.~\ref{eq:diff_rs-fMRI} and \ref{eq:D} with $q=1$, we consider additional effects of correlation between features. Without loss of generality, we let $m=100$ and $p=30$. As in the previous subsections, an illustration of the effects of correlated features in this context is shown in Fig.~\ref{fig:null-vs-corr-rsfMRI}. Based on the correlated distance densities (\textcolor{blue}{blue}), it appears that correlation between features introduces positive skewness at lower values of $\bar{r}_\text{abs}$. We introduced correlation to the transformed data matrix given by Fig.~\ref{fig:rs-fMRI_matrix} with the cholesky method used previously.
-
+%
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.98\textwidth]{null_vs_correlated_rsfMRI.pdf}
-	\caption{Density curves of distance distributions generated from correlated and uncorrelated transformed correlation data (see Fig.~\ref{fig:rs-fMRI_matrix}). Each plot has the theoretical density curve for the uncorrelated distance distribution (\textcolor{orange}{orange}) and a density curve for distances from correlated data (\textcolor{blue}{blue}) with some average magnitude pairwise correlation (\textcolor{blue}{$\bar{r}_\text{abs}$}) between features. (\textbf{Upper left}) With little correlation, distances begin to diverge from the predicted normal distribution. (\textbf{Upper Right}) Low to moderate correlation causes a large positive skew and increased variability in distances. (\textbf{Lower Left}) Moderate to high correlation increases skewness and variability in distances. (\textbf{Lower Right}) Extreme correlation produces maximal skewness and variability in distances. In each case, the null and correlated distance means are approximately the same.}\label{fig:null-vs-corr-rsfMRI}
+	\framebox{\includegraphics[width=0.98\textwidth]{null_vs_correlated_rsfMRI_TrangEdit.pdf}}
+	\caption{Density curves of rs-fMRI distances on data with correlated vs uncorrelated features. The average absolute pairwise correlation, given by $r$ (Eq.~\ref{eq:abs_corr}), is a measure of the deviation from normality in distances. Even with the relatively small $r=0.09$, there is significant deviation from uncorrelated distances with increased variance and some positive skewness. A small increase to $r=0.118$ causes rather extreme positive skewness to develop in correlated distances. As we increase to $r=0.163$ and $r=0.218$, the differences between correlated and uncorrelated rs-fMRI distances become much more pronounced. It appears that the feature-feature dependencies have the largest impact on time series correlation-based data like rs-fMRI. The data already consists of pairwise correlations between ROIs, which are transformed into a single $m \times p(p-1)$ data set. Correlation is then added on top of these transformed ROI-ROI correlations to give what is shown in this figure. The average distances in uncorrelated and correlated distances are still approximately the same for this data type, with obvious differences in variance.}\label{fig:null-vs-corr-rsfMRI}
 \end{figure}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.98\textwidth]{TiTv_distance_histograms_MAFs.pdf}
-	\caption{Histograms of simulated TiTv distance distributions for different average MAFs. The Ti/Tv ratio was fixed to be 2 in all simulations. Average MAF is computed as the expected value of the uniform distribution from which minor allele success probabilities ($f_a$) are drawn. The upper bounds for each success probability uniform distribution are $\{0.1,0.2,0.3,0.4\}$, which are the maximum possible MAF for a given locus $a$. The corresponding lower bounds were $\{0.01,0.1,0.2,0.3\}$. Sample and predicted means, as well as standard deviations, are overlaid on each histogram. Each distance distribution comes from a simulated data set with $m=100$ instances and $p=100$ features.}\label{fig:TiTv_hist}
-\end{figure}
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=0.98\textwidth]{TiTv_distance_histograms_MAFs.pdf}
+%	\caption{Histograms of simulated TiTv distance distributions for different average MAFs. The Ti/Tv ratio was fixed to be 2 in all simulations. Average MAF is computed as the expected value of the uniform distribution from which minor allele success probabilities ($f_a$) are drawn. The upper bounds for each success probability uniform distribution are $\{0.1,0.2,0.3,0.4\}$, which are the maximum possible MAF for a given locus $a$. The corresponding lower bounds were $\{0.01,0.1,0.2,0.3\}$. Sample and predicted means, as well as standard deviations, are overlaid on each histogram. Each distance distribution comes from a simulated data set with $m=100$ instances and $p=100$ features.}\label{fig:TiTv_hist}
+%\end{figure}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.98\textwidth]{TiTv_distance_histogram_TiTvs.pdf}
-	\caption{Histograms of simulated TiTv distance distributions for different Ti/Tv ratios. Average MAF was fixed to be 0.055. The Ti/Tv ratio was taken to be 2, 1.5, 1, and 0.5. The average distance increases as the Ti/Tv ratio decreases, which is intuitive because the TiTv distance is greater for transversions than transitions. Sample and predicted means, as well as standard deviations, are overlaid on each histogram. Each distance distribution comes from a simulated data set with $m=100$ instances and $p=100$ features.}\label{fig:TiTv_hist2}
-\end{figure}
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=0.98\textwidth]{TiTv_distance_histogram_TiTvs.pdf}
+%	\caption{Histograms of simulated TiTv distance distributions for different Ti/Tv ratios. Average MAF was fixed to be 0.055. The Ti/Tv ratio was taken to be 2, 1.5, 1, and 0.5. The average distance increases as the Ti/Tv ratio decreases, which is intuitive because the TiTv distance is greater for transversions than transitions. Sample and predicted means, as well as standard deviations, are overlaid on each histogram. Each distance distribution comes from a simulated data set with $m=100$ instances and $p=100$ features.}\label{fig:TiTv_hist2}
+%\end{figure}
 
 \section{Discussion}\label{sec:discussion}
 
@@ -1821,46 +1875,6 @@ There are many different distance metrics that can be used in place of those we 
 % trim=left botm right top
 %\includegraphics[width=\textwidth]{bioinformaticsy_tab.pdf}
 %\end{table}
-
-\begin{table}[H]
-\caption{Summary of distance distribution derivations for standard normal and standard uniform data. Asymptotic estimates are given for both standard and max-min normalized q-metrics. These estimates are relevant for all $q \in \mathbb{N}$ and $p \geq 100$.}
-\label{tab:dist_distr_general1}
-\centering
-% trim=left botm right top
-\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.05cm,width=\textwidth]{updated_distributions_table(5-23-2019).pdf}
-\end{table}
-
-\begin{table}[H]
-	\caption{Asymptotic estimates for means and variances for the standard $L_1$ and $L_2$ distance distributions. Estimates for both standard normal and standard uniform data are given.}
-	\label{tab:dist_distr_standardL1L2}
-	\centering
-	% trim=left botm right top
-	\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.05cm,width=0.7\textwidth]{updated_typical_metrics_table.pdf}
-\end{table}
-
-\begin{table}[H]
-	\caption{Asymptotic estimates for means and variances for the max-min normalized $L_1$ and $L_2$ distance distributions. Estimates for both standard normal and standard uniform data are given.}
-	\label{tab:dist_distr_normalizedL1L2}
-	\centering
-	% trim=left botm right top
-	\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.05cm,width=0.85\textwidth]{updated_typical_metrics_table(normalized).pdf}
-\end{table}
-
-\begin{table}[H]
-\caption{Summary of distance distribution derivations for GWAS data.}
-\label{tab:dist_distr_gwas}
-\centering
-% trim=left botm right top
-\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.05cm,width=\textwidth]{updated_distributions_table-gwas(5-23-2019).pdf}
-\end{table}
-
-\begin{table}[H]
-\caption{Summary of distance distribution derivations for rs-fMRI data.}
-\label{tab:dist_distr_rs-fMRI}
-\centering
-% trim=left botm right top
-\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.05cm,width=\textwidth]{updated_distributions_table-rs-fMRI.pdf}
-\end{table}
 
 \bibliographystyle{unsrt}
 \bibliography{BoD}   % name of bib file
