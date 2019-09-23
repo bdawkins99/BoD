@@ -45,7 +45,7 @@ for (maf_idx in 1:4) {
     rbind(deltas_df, data.frame(
       Means = c(mean(results$samp.mean), mean(results$theo.mean3)),
       SDs = c(sqrt(mean(results$samp.var)), sqrt(mean(results$theo.var3))),
-      Type = c('Theoretical', 'Simulated')
+      Type = c('Simulated', 'Theoretical')
     ))
 }
 
@@ -90,7 +90,7 @@ for (titv in 1:4) {
     rbind(deltas_df, data.frame(
       Means = c(mean(results$samp.mean), mean(results$theo.mean3)),
       SDs = c(sqrt(mean(results$samp.var)), sqrt(mean(results$theo.var3))),
-      Type = c('Theoretical', 'Simulated')
+      Type = c('Simulated', 'Theoretical')
     ))
 }
 
