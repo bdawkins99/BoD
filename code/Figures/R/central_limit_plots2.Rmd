@@ -9,7 +9,7 @@ output: html_document
 library(ggplot2)
 library(dplyr)
 library(here)
-# also used: cowplot, here package
+# also used: cowplot, here, svglite package
 ```
 
 ```{r}
@@ -71,17 +71,19 @@ get_shapiro <- function(x){
   sprintf("W = %.4f\nP = %.3g", norm_test$statistic, norm_test$p.value)
 }
 
-normalities <- data.frame(
-  x = c(5.3, 39.5, 3457, 1.8, 4.7, 42.25),
-  y = c(0.5, 0.15, 0.016, 1.57, 1.5, 1.6),
-  w = c(dist.list.manhattan, dist.list.euclidean) %>% sapply(get_shapiro),
-  type = rep(c('Manhattan', 'Euclidean'), each = 3),
-  p = paste(rep(ps, 2), 'attributes'))
+
 
 ```
 Plot:
 
 ```{r}
+normalities <- data.frame(
+  x = c(4, 26.5, 2312  , 1.45, 3.25, 29),
+  y = c(0.72, 0.24, 0.024, 1.75 , 2.05 , 1.9),
+  w = c(dist.list.manhattan, dist.list.euclidean) %>% sapply(get_shapiro),
+  type = rep(c('Manhattan', 'Euclidean'), each = 3),
+  p = paste(rep(ps, 2), 'attributes'))
+
 manhattan_plot <- ggplot(dist.man.df, aes(x = distances)) +
   geom_histogram(aes(y = ..density..), bins = 100, alpha = 0.8) +
   facet_wrap(vars(p), scales = 'free', nrow = 3) +
@@ -114,14 +116,14 @@ my_plot <- cowplot::ggdraw(cowplot::add_sub(
   size = 10))
 
 
-my_plot %>%
-  ggsave(height = 4.5, width = 5,
-         filename = paste0(fig_path, '/central_limit_distances_normal.pdf'))
+# my_plot %>%
+#   ggsave(height = 4.5, width = 5,
+#          filename = paste0(fig_path, '/central_limit_distances_normal.pdf'))
 
 
 my_plot %>%
   ggsave(height = 4.5, width = 5,
-         filename = paste0(fig_path, '/central_limit_distances_normal.svg'))
+         filename = paste0(fig_path, '/central_limit_distances_normal.tiff'))
 
 # my_plot %>%
 #   ggsave(height = 4.5, width = 5,

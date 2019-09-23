@@ -113,10 +113,14 @@ my_plot <- cowplot::ggdraw(cowplot::add_sub(
   size = 10))
 
 
+# my_plot %>%
+#   ggsave(height = 4.5, width = 5,
+#          filename = paste0(fig_path, 'central_limit_distances_uniform.pdf'))
+
+
 my_plot %>%
   ggsave(height = 4.5, width = 5,
-         filename = paste0(fig_path, 'central_limit_distances_uniform.pdf'))
-
+         filename = paste0(fig_path, 'central_limit_distances_uniform.tiff'))
 # my_plot %>%
 #   ggsave(height = 4.5, width = 5,
 #          filename = paste0(fig_path, 'central_limit_distances_uniform.svg'))
