@@ -1,0 +1,119 @@
+---
+title: "re_figs_titv"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+rm(list = ls())
+# setup
+lowers <- c(0.01, 0.1, 0.2, 0.3)
+uppers <- c(0.1, 0.2, 0.3, 0.4)
+etas <- c(2, 1.5, 1, 0.5)
+
+n_iters <- 100
+m <- 100
+p <- 100
+```
+
+Vary MAF:
+
+```{r}
+# rm(list = ls())
+deltas_df <- data.frame()
+source('code/Figures/R/util_funcs.R') # assumes the working directory is the main project folder
+
+for (maf_idx in 1:4) {
+  long.dist.vec <- NULL
+  results <- matrix(nrow = n_iters, ncol = 10)
+  set.seed(1989)
+  
+  for(myiter in 1:n_iters){
+    # print(myiter)
+    results_list <- get_means_sds(my.eta = 2, p, lowers, uppers, maf_idx)
+    results[myiter, ] <- unlist(results_list)
+  }
+  colnames(results) <- names(results_list)
+  results <- data.frame(results)
+  
+  deltas_df <-
+    rbind(deltas_df, data.frame(
+      Means = c(mean(results$samp.mean), mean(results$theo.mean3)),
+      SDs = c(sqrt(mean(results$samp.var)), sqrt(mean(results$theo.var3))),
+      Type = c('Theoretical', 'Simulated')
+    ))
+}
+
+
+deltas_df$maf <- rep((lowers + uppers)/2, each = 2)
+fig_9 <- deltas_df %>%
+  ggplot(aes(maf, Means, 
+             color = fct_reorder2(Type, maf, Means),
+             fill = fct_reorder2(Type, maf, Means))) +
+  geom_line() +
+  geom_line(aes(y = Means - SDs), linetype = 2) +
+  geom_line(aes(y = Means + SDs), linetype = 2) +
+  labs(x = 'Minor allele frequency', y = 'Means') +
+  theme_bw() +
+  theme(legend.position = c(0.8, 0.2),
+        legend.title = element_blank()) +
+  scale_color_viridis_d() +
+  scale_fill_viridis_d()
+fig_9
+ #########################################################################################
+```
+
+
+Generate varied Ti/Tv histograms
+```{r}
+deltas_df <- data.frame()
+
+for (titv in 1:4) {
+  my.eta <- etas[titv]
+  results <- matrix(nrow = n_iters, ncol = 10)
+  set.seed(1989)
+  
+  for(myiter in 1:n_iters){
+    # print(myiter)
+    results_list <- get_means_sds(my.eta = my.eta, p, lowers, uppers, maf_idx = 1)
+    results[myiter, ] <- unlist(results_list)
+  }
+  colnames(results) <- names(results_list)
+  results <- data.frame(results)
+  
+  deltas_df <-
+    rbind(deltas_df, data.frame(
+      Means = c(mean(results$samp.mean), mean(results$theo.mean3)),
+      SDs = c(sqrt(mean(results$samp.var)), sqrt(mean(results$theo.var3))),
+      Type = c('Theoretical', 'Simulated')
+    ))
+}
+
+```
+
+
+Now let's draw:
+
+```{r}
+deltas_df$titv <- etas
+deltas_df$titv <- rep(etas, each = 2)
+fig_10 <- deltas_df %>%
+  ggplot(aes(titv, Means, 
+             color = fct_reorder2(Type, titv, Means),
+             fill = fct_reorder2(Type, titv, Means))) +
+  geom_line() +
+  geom_line(aes(y = Means - SDs), linetype = 2) +
+  geom_line(aes(y = Means + SDs), linetype = 2) +
+  labs(x = 'Ti/Tv', y = 'Means') +
+  theme_bw() +
+  theme(legend.position = 'None',
+        legend.title = element_blank()) +
+  scale_color_viridis_d() +
+  scale_fill_viridis_d()
+fig_10
+
+cowplot::plot_grid(fig_10, fig_9, labels = 'AUTO') %>%
+  ggsave(filename = 'code/Figures/R/re_fig_9_10.pdf',
+       width = 7, height = 3)
+```
+
