@@ -12,7 +12,7 @@ library(tidyverse)
 library(bindata)
 
 # Also need these other packages but do not need to call library():
-# cowplot, 
+# cowplot, ggridges
 
 source('code/Figures/R/util_funcs.R') # assumes the working directory is the main project folder
 ```
@@ -32,6 +32,7 @@ n_iters <- 4
 
 ```{r}
 dens_err <- vector('list', length = n_iters)
+sim_dfs <- data.frame()
 for(iter in 1:n_iters){
   plot.graph <- F
   nbias <- round(0.1*num.variables)
@@ -102,6 +103,8 @@ for(iter in 1:n_iters){
     Type = c(rep('Correlated', length(dist.corr)),
              rep('Uncorrelated', length(dist.null))))
   
+  sim_dfs <- rbind(sim_dfs, data.frame(sim_df, r = mean.cor.corr))
+  
   # x_limits <- c(min(sim_df$Value), max(sim_df$Value))
   # print(x_limits)
   x_limits <- c(6, 45)
@@ -129,10 +132,36 @@ do.call(cowplot::plot_grid, c(dens_err, labels = 'AUTO')) %>%
 
 ```
 
+Try ridge plots:
+
+```{r}
+joy_6 <- sim_dfs %>%
+  mutate(TypeFct = fct_rev(as.factor(Type)),
+         rFct = fct_rev(as.factor(paste('r = ', round(r, 3))))) %>%
+  ggplot(aes(y = rFct, fill = TypeFct)) +
+  # geom_density(alpha = 0.5) +
+  ggridges::geom_density_ridges(
+    aes(x = Value, fill = paste(TypeFct)), 
+    scale = 2, alpha = .8, color = "white", from = 0, to = 100
+  ) +
+    ggridges::theme_ridges() +
+    scale_fill_viridis_d() +
+    labs(x = NULL, y = NULL) +
+    theme(legend.position = c(0.65, 0.85),
+          legend.title = element_blank()) +
+    scale_x_continuous(labels = NULL, limits = c(7, 30)) +
+  scale_y_discrete(expand = c(0.01, 0)) 
+
+joy_6 %>%
+  ggsave(filename = 'code/Figures/R/re_fig_6b.pdf', width = 5, height = 4)
+
+```
+
 
 ## GWAS - TiTv
 
 ```{r}
+sim_dfs <- data.frame()
 dens_err <- vector('list', length = n_iters)
 
 lowers <- c(0.0,0.25,0.5,0.75)
@@ -231,6 +260,8 @@ for(iter in 1:n_iters){
     Value = c(dist.vec.corr, dist.vec.null),
     Type = c(rep('Correlated', length(dist.vec.corr)),
              rep('Uncorrelated', length(dist.vec.null))))
+  sim_dfs <- rbind(sim_dfs, data.frame(sim_df, r = mean.cor.corr))
+
   
   # x_limits <- c(min(sim_df$Value), max(sim_df$Value))
   # print(x_limits)
@@ -263,6 +294,28 @@ do.call(cowplot::plot_grid, c(dens_err, labels = 'AUTO')) %>%
 #####################################################################
 ```
 
+```{r}
+joy_7 <- sim_dfs %>%
+  mutate(TypeFct = fct_rev(as.factor(Type)),
+         rFct = fct_rev(as.factor(paste('r = ', round(r, 3))))) %>%
+  ggplot(aes(y = rFct, fill = TypeFct)) +
+  # geom_density(alpha = 0.5) +
+  ggridges::geom_density_ridges(
+    aes(x = Value, fill = paste(TypeFct)), 
+    scale = 2, alpha = .8, color = "white", from = 0, to = 100
+  ) +
+    ggridges::theme_ridges() +
+    scale_fill_viridis_d() +
+    labs(x = NULL, y = NULL) +
+    theme(legend.position = c(0.65, 0.85),
+          legend.title = element_blank()) +
+    scale_x_continuous(labels = NULL, limits = c(8, 50)) +
+  scale_y_discrete(expand = c(0.01, 0)) 
+joy_7
+joy_7 %>%
+  ggsave(filename = 'code/Figures/R/re_fig_7b.pdf', width = 5, height = 4)
+```
+
 
 ## Correlation data (rs-fMRI):
 ```{r}
@@ -279,6 +332,7 @@ nbias <- round(0.1*((p*(p-1))/2))
 
 ```{r}
 dens_err <- vector('list', length = n_iters)
+sim_dfs <- data.frame()
 
 for(iter in 1:n_iters){
   hi.cor <- uppers[iter]
@@ -349,7 +403,8 @@ for(iter in 1:n_iters){
     Value = c(dist_tmp, dist_dmat2),
     Type = c(rep('Correlated', length(dist_tmp)),
              rep('Uncorrelated', length(dist_dmat2))))
-  
+  sim_dfs <- rbind(sim_dfs, data.frame(sim_df, r = mean.cor.corr))
+
   # x_limits <- c(min(sim_df$Value), max(sim_df$Value))
   # print(x_limits)
   x_limits <- c(740, 2050)
@@ -373,5 +428,28 @@ for(iter in 1:n_iters){
 
 do.call(cowplot::plot_grid, c(dens_err, labels = 'AUTO')) %>%
   ggsave(filename = 'code/Figures/R/re_fig_8.pdf', width = 6, height = 5)
+```
+
+
+```{r}
+joy_8 <- sim_dfs %>%
+  mutate(TypeFct = fct_rev(as.factor(Type)),
+         rFct = fct_rev(as.factor(paste('r = ', round(r, 3))))) %>%
+  ggplot(aes(y = rFct, fill = TypeFct)) +
+  # geom_density(alpha = 0.5) +
+  ggridges::geom_density_ridges(
+    aes(x = Value, fill = paste(TypeFct)), 
+    scale = 2, alpha = .8, color = "white"
+  ) +
+    ggridges::theme_ridges() +
+    scale_fill_viridis_d() +
+    labs(x = NULL, y = NULL) +
+    theme(legend.position = c(0.65, 0.85),
+          legend.title = element_blank()) +
+    scale_x_continuous(labels = NULL, limits = c(780, 1350)) +
+  scale_y_discrete(expand = c(0.01, 0)) 
+joy_8
+joy_8 %>%
+  ggsave(filename = 'code/Figures/R/re_fig_8b.pdf', width = 5, height = 4)
 ```
 
