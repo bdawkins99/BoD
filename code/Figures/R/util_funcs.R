@@ -154,7 +154,8 @@ get_means_sds <- function(my.eta, p, lowers, uppers, maf_idx) {
     theo.mean3 = new.mean2,
     samp.mean = mean(dist.vec),
     samp.m2 = mean(dist.vec ^ 2),
-    theo.m2 = theo.m2
+    theo.m2 = theo.m2,
+    long.dist.vec = long.dist.vec
   )
 }
 

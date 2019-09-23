@@ -14,7 +14,7 @@ library(here)
 
 ```{r}
 set.seed(1618)
-fig_path <- here::here('code/Figures/R/') 
+fig_path <- here::here('code', 'Figures', 'R') 
 # path to figures, used package `here`
 
 m <- 100  # number of subjects
@@ -116,7 +116,12 @@ my_plot <- cowplot::ggdraw(cowplot::add_sub(
 
 my_plot %>%
   ggsave(height = 4.5, width = 5,
-         filename = paste0(fig_path, 'central_limit_distances_normal.pdf'))
+         filename = paste0(fig_path, '/central_limit_distances_normal.pdf'))
+
+
+my_plot %>%
+  ggsave(height = 4.5, width = 5,
+         filename = paste0(fig_path, '/central_limit_distances_normal.svg'))
 
 # my_plot %>%
 #   ggsave(height = 4.5, width = 5,

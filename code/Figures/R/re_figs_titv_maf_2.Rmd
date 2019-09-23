@@ -1,0 +1,160 @@
+---
+title: "Ridgelines for varying maf and titv"
+output: html_document
+---
+
+Setup:
+
+```{r}
+library(tidyverse)
+rm(list = ls())
+
+lowers <- c(0.01, 0.1, 0.2, 0.3)
+uppers <- c(0.1, 0.2, 0.3, 0.4)
+etas <- c(2, 1.5, 1, 0.5)
+
+n_iters <- 1
+m <- 100
+p <- 100
+
+source('code/Figures/R/util_funcs.R') # assumes the working directory is the main project folder
+
+```
+
+Vary MAF:
+
+```{r}
+# rm(list = ls())
+source('code/Figures/R/util_funcs.R') # assumes the working directory is the main project folder
+
+sim_dfs <- data.frame()  
+for (maf_idx in 1:4) {
+  long.dist.vec <- NULL
+  results <- matrix(nrow = n_iters, ncol = 10)
+  set.seed(1989)
+  
+  for(myiter in 1:n_iters){
+    results_list <- get_means_sds(my.eta = 2, p, lowers, uppers, maf_idx)
+  }
+
+  sim_df <- tibble(Value = results_list$long.dist.vec)
+  sim_dfs <- rbind(sim_dfs, data.frame(sim_df))
+}
+
+```
+
+
+```{r}
+sim_dfs$maf <- rep((lowers + uppers) / 2, each = p * (p - 1) / 2)
+
+joy_9 <-
+  sim_dfs %>%
+  mutate(mafFct = fct_rev(as.factor(paste(
+    'MAF = ', format(maf, 3)
+  )))) %>%
+  ggplot(aes(x = Value, y = mafFct, fill = ..x..)) +
+  # geom_density(alpha = 0.5) +
+  ggridges::geom_density_ridges_gradient(
+    aes(),
+    gradient_lwd = 1.,
+    scale = 2,
+    alpha = .8,
+    color = "white"
+  ) +
+  ggridges::theme_ridges() +
+  scale_fill_viridis_c() +
+  labs(x = NULL, y = NULL) +
+  theme(legend.position = 'None',
+        legend.title = element_blank()) +
+  scale_x_continuous(labels = NULL, limits = c(0, 35)) +
+  scale_y_discrete(expand = c(0.01, 0))
+
+joy_9
+# joy_6 %>%
+  # ggsave(filename = 'code/Figures/R/re_fig_6b.pdf', width = 5, height = 4)
+```
+
+
+
+
+Generate varied Ti/Tv histograms
+```{r}
+sim_dfs <- data.frame()  
+
+for (titv in 1:4) {
+  my.eta <- etas[titv]
+  results <- matrix(nrow = n_iters, ncol = 10)
+  set.seed(1989)
+  
+  for(myiter in 1:n_iters){
+    # print(myiter)
+    results_list <- get_means_sds(my.eta, p, lowers, uppers, maf_idx = 2)
+  }
+
+  sim_df <- tibble(Value = results_list$long.dist.vec)
+  sim_dfs <- rbind(sim_dfs, data.frame(sim_df))
+}
+
+```
+
+
+Now let's draw:
+
+```{r}
+# deltas_df$titv <- etas
+# deltas_df$titv <- rep(etas, each = 2)
+# fig_10 <- deltas_df %>%
+#   ggplot(aes(titv, Means, 
+#              color = fct_reorder2(Type, titv, Means),
+#              fill = fct_reorder2(Type, titv, Means))) +
+#   geom_line() +
+#   geom_line(aes(y = Means - SDs), linetype = 2) +
+#   geom_line(aes(y = Means + SDs), linetype = 2) +
+#   labs(x = 'Ti/Tv', y = 'Mean ± SD') +
+#   theme_bw() +
+#   theme(legend.position = 'None',
+#         legend.title = element_blank()) +
+#   scale_color_viridis_d() +
+#   scale_fill_viridis_d()
+# fig_10
+
+# cowplot::plot_grid(fig_10, fig_9, labels = 'AUTO') %>%
+#   ggsave(filename = 'code/Figures/R/re_fig_9_10.pdf',
+#        width = 7, height = 3)
+```
+
+
+```{r}
+sim_dfs$titv <- rep(etas, each = p * (p - 1) / 2)
+
+joy_10 <-
+  sim_dfs %>%
+  mutate(mafFct = fct_rev(as.factor(paste(
+    'Ti/Tv = ', format(titv, 3)
+  )))) %>%
+  ggplot(aes(x = Value, y = mafFct, fill = ..x..)) +
+  # geom_density(alpha = 0.5) +
+  ggridges::geom_density_ridges_gradient(
+    aes(),
+    gradient_lwd = 1.,
+    scale = 2,
+    alpha = .8,
+    color = "white"
+  ) +
+  ggridges::theme_ridges() +
+  scale_fill_viridis_c() +
+  labs(x = NULL, y = NULL) +
+  theme(legend.position = 'None',
+        legend.title = element_blank()) +
+  scale_x_continuous(labels = NULL, limits = c(5, 30)) +
+  scale_y_discrete(expand = c(0.01, 0))
+
+joy_10
+cowplot::plot_grid(joy_9, joy_10, labels = 'AUTO') %>%
+  ggsave(filename = 'code/Figures/R/re_fig_9_10b.pdf',
+       width = 7, height = 3)
+```
+
+
+
+
