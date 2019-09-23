@@ -1,0 +1,38 @@
+\documentclass[hidelinks,12pt,dvipsnames,border=2pt]{standalone}
+%\usepackage[top=0.7in, bottom=0.8in, left=1in, right=1in]{geometry}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usetikzlibrary{arrows}
+\usetikzlibrary{shapes}
+\usepackage{enumitem}
+\usepackage{bm}
+\usepackage{mathdots}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usetikzlibrary{shadings}
+\usetikzlibrary{decorations.pathreplacing}
+\usepackage{helvet}
+\usepackage{url}
+\usepackage{graphicx}
+\usetikzlibrary{arrows.meta,positioning,fit,calc}
+\renewcommand{\familydefault}{\sfdefault}
+
+
+\usetikzlibrary{arrows,decorations.pathmorphing,backgrounds,fit,positioning,shapes.symbols,chains}
+
+\begin{document}
+	
+% trim=left botm right top
+\begin{tikzpicture}
+
+\node[xscale=1.2,yscale=1.2] at (0,5.9) {Correlated and Uncorrelated Distances};
+
+\node at (0,0) {\includegraphics[width=\textwidth]{re_fig_8b.pdf}};
+
+\node[rotate=90,xscale=1.2,yscale=1.2] at (-7.2,0) {Density};
+
+\node[xscale=1.2,yscale=1.2] at (0,-5.9) {rs-fMRI Distance};
+
+\end{tikzpicture}
+
+\end{document}

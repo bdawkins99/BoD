@@ -759,7 +759,7 @@ For the case in which the number of attributes $p$ is small, an improved estimat
 
 This concludes our analysis with continuous data distributions and the standard $L_q$ metric. In the next section, we will use extreme value theory to derive the distribution of the sample maximum and minimum for standard normal and standard uniform data. This will lead us to asymptotics for the max-min normalized $L_q$ metric used frequently in Relief-based algorithms \cite{urbanowicz17,robnik2003,urbanowiczReliefReview2018} for scoring features.
 
-\subsection{Distribution of attribute extremes}\label{sec:extremes}
+\subsection{Distribution of max-min normalized \texorpdfstring{$L_q$}{} metric}\label{sec:extremes}
 
 For Relief-based methods \cite{robnik2003,urbanowiczReliefReview2018,urbanowicz17}, the standard numeric diff metric is given by
 %
@@ -769,7 +769,7 @@ d^{\text{num}}_{ij}(a) = \text{diff}(a,(i,j)) = \frac{|X_{ia} - X_{ja}|}{\text{m
 %
 where $\text{max}(a) = \displaystyle \max_{k \in \mathcal{I}}\{X_{ka}\}$, $\text{min}(a) = \displaystyle \min_{k \in \mathcal{I}}\{X_{ka}\}$, and $\mathcal{I} = \{1,2,\dots,m\}$. 
 
-In order to determine moments of asymptotic distance distributions induced by Eq. \ref{eq:normDiff}, we must first derive the asymptotic extreme value distributions of the attribute maximum and minimum. Although the exact distribution of the maximum or minimum requires an assumption about the data distribution, the Fisher-Tippett-Gnedenko Theorem allows us to generally categorize the extreme value distribution for a collection of independent and identically distributed random variables into one of three distributional families. Before stating the theorem, we first need the following definition.
+In order to determine moments of asymptotic distance distributions induced by Eq. \ref{eq:normDiff}, we must first derive the asymptotic extreme value distributions of the attribute maximum and minimum. Although the exact distribution of the maximum or minimum requires an assumption about the data distribution, the Fisher-Tippett-Gnedenko Theorem allows us to generally categorize the extreme value distribution for a collection of independent and identically distributed random variables into one of three distributional families. Before stating the theorem, we first need the following definition
 %
 \begin{definition}
 A distribution $\mathcal{F}_X$ is said to be \textbf{degenerate} if its density function $f_X$ is the Dirac delta $\delta(x - c_0)$ centered at a constant $c_0 \in \mathbb{R}$, with corresponding distribution function $F_X$ defined as
@@ -1234,7 +1234,31 @@ Similarly, the variance of $D^{(2*)}_{ij}$ is given by
 \end{aligned}
 \end{equation}
 
-\subsection{GWAS distance distributions}\label{sec:gwas_distances}
+\begin{table}[H]
+	\caption{Summary of distance distribution derivations for standard normal and standard uniform data. Asymptotic estimates are given for both standard and max-min normalized q-metrics. These estimates are relevant for all $q \in \mathbb{N}$ and $p \geq 100$.}
+	\label{tab:dist_distr_general1}
+	\centering
+	% trim=left botm right top
+	\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.05cm,width=\textwidth]{updated_distributions_table(5-23-2019).pdf}
+\end{table}
+
+\begin{table}[H]
+	\caption{Asymptotic estimates for means and variances for the standard $L_1$ and $L_2$ distance distributions. Estimates for both standard normal and standard uniform data are given.}
+	\label{tab:dist_distr_standardL1L2}
+	\centering
+	% trim=left botm right top
+	\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.05cm,width=0.7\textwidth]{updated_typical_metrics_table.pdf}
+\end{table}
+
+\begin{table}[H]
+	\caption{Asymptotic estimates for means and variances for the max-min normalized $L_1$ and $L_2$ distance distributions. Estimates for both standard normal and standard uniform data are given.}
+	\label{tab:dist_distr_normalizedL1L2}
+	\centering
+	% trim=left botm right top
+	\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.05cm,width=0.85\textwidth]{updated_typical_metrics_table(normalized).pdf}
+\end{table}
+
+\section{GWAS distance distributions}\label{sec:gwas_distances}
 
 Consider a GWAS data set, which has the following encoding based on minor allele frequency
 %
@@ -1275,7 +1299,7 @@ d^\text{TiTv}_{ij}(a) = \begin{cases}
 
 With any of the three metrics given by Eqs. \ref{eq:diff_GM} - \ref{eq:diff_TiTv}, we compute the pairwise distance between two instances $i$ and $j$ using Eq. \ref{eq:D} with $q=1$. Assuming that all data entries $X_{ia}$ are independent and identically distributed, we have already shown that the distribution of pairwise distances is asymptotically normal regardless of data distribution and value of $q$. Therefore, the distance distributions induced by each of the GWAS metrics given by Eqs. \ref{eq:diff_GM} - \ref{eq:diff_TiTv} are asymptotically normal. Thus, we will proceed by deriving the mean and variance for each distance distribution induced by these three GWAS metrics. 
 
-\subsubsection{GM distance distribution}
+\subsection{GM distance distribution}
 
 The expected value of the GM metric is given by the following
 %
@@ -1334,7 +1358,7 @@ D^\text{GM}_{ij} \overset{.}{\sim} \mathcal{N}\left(2\sum_{a \in \mathcal{A}} F(
 \end{equation}
 where $F(a) = 2(1 - f_a)^3f_a + 2(1 - f_a)f^3_a + (1 - f_a)^2f^2_a$. 
 
-\subsubsection{AM distance distribution}
+\subsection{AM distance distribution}
 
 The expected value of the AM metric is given by the following
 %
@@ -1394,7 +1418,7 @@ D^\text{AM}_{ij} \overset{.}{\sim} \mathcal{N}\left(2\sum_{a \in \mathcal{A}} F(
 \end{equation}
 where $G(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a) + 2 (1 - f_a)^2 f^2_a$ and $F(\lambda) = (1 - f_\lambda)^3 f_\lambda + f^3_\lambda (1 - f_\lambda) + (1 - f_\lambda)^2 f^2_\lambda$.
 
-\subsubsection{TiTv distance distribution}\label{sec:TiTv_distances}
+\subsection{TiTv distance distribution}\label{sec:TiTv_distances}
 
 The TiTv metric allows for one to account for both genotype mismatch, allele mismatch, transition, and transversion. However, this added dimension of information requires knowledge of the nucleotide makeup at a particular locus. A sufficient condition to compute the TiTv metric between instances $i$ an $j$ is that we know whether the nucleotides associated with a particular locus $a$ are both purines (PuPu), purine and pyrimidine (PuPy), or both pyrimidines (PyPy). A diagram showing possible transitions and transversions that may occur is given by Fig.~\ref{fig:TiTv_diagram}. Purines (A and G) and pyrimidines (C and T) are shown at the top and bottom, respectively. Transitions occur in the cases of PuPu and PyPy, while transversion occur only with PuPy encoding.
 
@@ -1587,8 +1611,16 @@ The maximum distance occurs at $\bar{f}_a=0.5$, which is the inflection point ab
 
 \bigskip
 
+\begin{table}[H]
+	\caption{Summary of distance distribution derivations for GWAS data.}
+	\label{tab:dist_distr_gwas}
+	\centering
+	% trim=left botm right top
+	\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.05cm,width=\textwidth]{updated_distributions_table-gwas(5-23-2019).pdf}
+\end{table}
+
 %\subsection{Resting-State fMRI Distance Distribution}
-\subsection{Time series correlation-based distance distribution}\label{sec:rs-fMRI_distances}
+\section{Time series correlation-based distance distribution}\label{sec:rs-fMRI_distances}
 
 For time series correlation-based data, we consider the case where there are $m$ correlation matrices $A^{(p \times p)}$. In particular, we are focusing on resting-state fMRI (rs-fMRI) data, which falls into this category. The derivations that follow, however, are relevant to all correlation-based data fitting the assumptions we have adopted. The features in rs-fMRI are commonly Regions of Interest (ROIs), which are collections of highly correlated and spatially proximal voxels \cite{lee2013}. These correlations are between different ROIs for a particular brain atlas \cite{dickie2017}. Because the features are the ROIs themselves, this leads us to the following metric
 %
@@ -1730,6 +1762,14 @@ Similarly, the variance of $D^\text{fMRI*}_{ij}$ is given by
 \end{equation}
 where $\mu^{(1)}_\text{max}(m,p)$ is given in Eq.~\ref{eq:mean_max_rs-fMRI}.
 
+\begin{table}[H]
+	\caption{Summary of distance distribution derivations for rs-fMRI data.}
+	\label{tab:dist_distr_rs-fMRI}
+	\centering
+	% trim=left botm right top
+	\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.05cm,width=\textwidth]{updated_distributions_table-rs-fMRI.pdf}
+\end{table}
+
 \section{Effects of correlation on distances}\label{sec:correlation}
 
 All of the derivations presented in previous sections are for the cases where there is no correlation between instances or features. We assumed that any pair $(X_{ia},X_{ja})$ of data points for instances $i$ and $j$ and fixed feature $a$ were independent and identically distributed. This was done in order to determine asymptotic estimates in null data. That is, data with no main effects, interaction effects, or pairwise correlations between features. Within this highly simplified context, our asymptotic formulas for distributional moments are reliable. However, correlations do exist between features and instances in real data. There are a multitude of different statistical effects that impact distance distributional properties. Ultimately, divergence from normality is caused primarily by large magnitude pairwise correlation between features. Pairwise feature correlation can be the result of main effects, where features have different within-group means. On the other hand, there could be an underlying interaction network in which there are strong associations between features. If features are differentially correlated between phenotype groups, then interactions exist that change affect the distance distribution. In the following few sections, we consider particular cases of the $L_q$ metric for continuous and discrete data under the effects of pairwise feature correlation.
@@ -1754,8 +1794,8 @@ The new data matrix given by Eq.~\ref{eq:cholesky} has approximately the same co
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.98\textwidth]{null_vs_correlated_normal_euclidean_standard.pdf}
-	\caption{Density curves of distance distributions generated from correlated and uncorrelated data from standard normal distribution. Each plot has the theoretical density curve for the uncorrelated Euclidean distance distribution (\textcolor{orange}{orange}) and a density curve for Euclidean distances from correlated data (\textcolor{blue}{blue}) with some average magnitude pairwise correlation (\textcolor{blue}{$\bar{r}_\text{abs}$}) between features. (\textbf{Upper left}) With little correlation, distances begin to diverge from the predicted normal distribution. (\textbf{Upper Right}) Low to moderate correlation causes a large positive skew and increased variability in distances. (\textbf{Lower Left}) Moderate to high correlation increases skewness and variability in distances. (\textbf{Lower Right}) Extreme correlation produces maximal skewness and variability in distances. In each case, the null and correlated distance means are approximately the same.}\label{fig:null-vs-corr-normal}
+	\framebox{\includegraphics[width=0.98\textwidth]{null_vs_correlated_normal_euclidean_standard_TrangEdit.pdf}}
+	\caption{Density curves of Euclidean distances computed on data with correlated vs uncorrelated features. The average absolute pairwise correlation, given by $r$ (Eq.~\ref{eq:abs_corr}), is a measure of the deviation from normality in distances. When $r=0.103$, correlated distances closely approximate uncorrelated distances. With $r=0.246$, the increased correlation causes significant positive skewness in distances. In the cases of $r=0.436$ and $r=0.597$, the positive skewness becomes more extreme and correlated distances diverge maximally from the uncorrelated distance distribution. The average correlated and uncorrelated distances are approximately the same for each value of $r$, however, the standard deviation of correlated distances are far larger than that of uncorrelated distances.}\label{fig:null-vs-corr-normal}
 \end{figure}
 
 \subsection{GWAS data}
@@ -1764,8 +1804,8 @@ In analogy to the previous section, we explore the effects of pairwise feature c
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.98\textwidth]{null_vs_correlated_gwas_TiTv.pdf}
-	\caption{Density curves of distance distributions generated from correlated and uncorrelated data from a binomial distribution with $n=2$ trials and uniformly distributed success probabilities. Each plot has the theoretical density curve for the uncorrelated TiTv distance distribution (\textcolor{orange}{orange}) and a density curve for TiTv distances from correlated data (\textcolor{blue}{blue}) with some average magnitude pairwise correlation (\textcolor{blue}{$\bar{r}_\text{abs}$}) between features. (\textbf{Upper left}) With little correlation, distances begin to diverge from the predicted normal distribution. (\textbf{Upper Right}) Low to moderate correlation causes a large positive skew and increased variability in distances. (\textbf{Lower Left}) Moderate to high correlation increases skewness and variability in distances. (\textbf{Lower Right}) Extreme correlation produces maximal skewness and variability in distances. In each case, the null and correlated distance means are approximately the same.}\label{fig:null-vs-corr-titv}
+	\framebox{\includegraphics[width=0.98\textwidth]{null_vs_correlated_gwas_TiTv_TrangEdit.pdf}}
+	\caption{Density curves of TiTv distances computed on data with correlated vs uncorrelated features. The average absolute pairwise correlation, given by $r$ (Eq.~\ref{eq:abs_corr}), is a measure of the deviation from normality in distances. There is very little difference between correlated vs uncorrelated distances when $r=0.086$. When $r=0.147$, correlated distances begin to show positive skewness. Increasing to $r=0.227$ and $r=0.299$, correlated distances show extreme skewness. Compared to Fig.~\ref{fig:null-vs-corr-normal}, it appears that correlation more drastically affects distances in discrete GWAS data than $L_q$ distances in continuous data. This could have important implications for the choice of neighborhood parameters in nearest-neighbor distance-based feature selection. As in continuous data, the average correlated and uncorrelated TiTv distances are approximately the same with clear differences in standard deviations.}\label{fig:null-vs-corr-titv}
 \end{figure}
 
 \subsection{Correlation-based data}
@@ -1774,21 +1814,27 @@ For our correlation data-based metric given by Eqs.~\ref{eq:diff_rs-fMRI} and \r
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.98\textwidth]{null_vs_correlated_rsfMRI.pdf}
-	\caption{Density curves of distance distributions generated from correlated and uncorrelated transformed correlation data (see Fig.~\ref{fig:rs-fMRI_matrix}). Each plot has the theoretical density curve for the uncorrelated distance distribution (\textcolor{orange}{orange}) and a density curve for distances from correlated data (\textcolor{blue}{blue}) with some average magnitude pairwise correlation (\textcolor{blue}{$\bar{r}_\text{abs}$}) between features. (\textbf{Upper left}) With little correlation, distances begin to diverge from the predicted normal distribution. (\textbf{Upper Right}) Low to moderate correlation causes a large positive skew and increased variability in distances. (\textbf{Lower Left}) Moderate to high correlation increases skewness and variability in distances. (\textbf{Lower Right}) Extreme correlation produces maximal skewness and variability in distances. In each case, the null and correlated distance means are approximately the same.}\label{fig:null-vs-corr-rsfMRI}
+	\framebox{\includegraphics[width=0.98\textwidth]{null_vs_correlated_rsfMRI_TrangEdit.pdf}}
+	\caption{Density curves of rs-fMRI distances on data with correlated vs uncorrelated features. The average absolute pairwise correlation, given by $r$ (Eq.~\ref{eq:abs_corr}), is a measure of the deviation from normality in distances. Even with the relatively small $r=0.09$, there is significant deviation from uncorrelated distances with increased variance and some positive skewness. A small increase to $r=0.118$ causes rather extreme positive skewness to develop in correlated distances. As we increase to $r=0.163$ and $r=0.218$, the differences between correlated and uncorrelated rs-fMRI distances become much more pronounced. It appears that the feature-feature dependencies have the largest impact on time series correlation-based data like rs-fMRI. The data already consists of pairwise correlations between ROIs, which are transformed into a single $m \times p(p-1)$ data set. Correlation is then added on top of these transformed ROI-ROI correlations to give what is shown in this figure. The average distances in uncorrelated and correlated distances are still approximately the same for this data type, with obvious differences in variance.}\label{fig:null-vs-corr-rsfMRI}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.98\textwidth]{TiTv_distance_histograms_MAFs.pdf}
-	\caption{Histograms of simulated TiTv distance distributions for different average MAFs. The Ti/Tv ratio was fixed to be 2 in all simulations. Average MAF is computed as the expected value of the uniform distribution from which minor allele success probabilities ($f_a$) are drawn. The upper bounds for each success probability uniform distribution are $\{0.1,0.2,0.3,0.4\}$, which are the maximum possible MAF for a given locus $a$. The corresponding lower bounds were $\{0.01,0.1,0.2,0.3\}$. Sample and predicted means, as well as standard deviations, are overlaid on each histogram. Each distance distribution comes from a simulated data set with $m=100$ instances and $p=100$ features.}\label{fig:TiTv_hist}
+	\framebox{\includegraphics[width=0.98\textwidth]{TiTv_distance_ridges_maf_eta.pdf}}
+	\caption{Density curves of TiTv distance as a function of average MAF $\bar{f}_a$, given by Eq.~\ref{eq:avg_maf}, and Ti/Tv ratio $\eta$, given by Eq.~\ref{eq:TiTv_constraints2}. (\textbf{A}) For fixed $\eta=2$, TiTv distance density is plotted as a function of increasing $\bar{f}_a = 0.055, 0.150, 0.250, \text{ and } 0.350$. TiTv distance increases as $\bar{f}_a$ approaches a maximum of 0.5, which means that there is about the same frequency of minor alleles as primary alleles at locus $a$. (\textbf{B}) For fixed $\bar{f}_a=0.055$, TiTv distance density is plotted as a function of increasing $\eta = 0.5, 1, 1.5, \text{ and } 2$. TiTv distance decreases as $\eta$, the Ti/Tv ratio, increases. For $\eta=\text{Ti/Tv}=0.5$, there are twice as many transversions as there are transitions. On the other hand, $\eta=\text{Ti/Tv}=2$ indicates that there are half as many transversions as there are transitions. Since transversions encode a larger magnitude distance than transitions in Eq.~\ref{eq:diff_TiTv}, this behavior is expected.}\label{fig:TiTv_hist}
 \end{figure}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.98\textwidth]{TiTv_distance_histogram_TiTvs.pdf}
-	\caption{Histograms of simulated TiTv distance distributions for different Ti/Tv ratios. Average MAF was fixed to be 0.055. The Ti/Tv ratio was taken to be 2, 1.5, 1, and 0.5. The average distance increases as the Ti/Tv ratio decreases, which is intuitive because the TiTv distance is greater for transversions than transitions. Sample and predicted means, as well as standard deviations, are overlaid on each histogram. Each distance distribution comes from a simulated data set with $m=100$ instances and $p=100$ features.}\label{fig:TiTv_hist2}
-\end{figure}
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=0.98\textwidth]{TiTv_distance_histograms_MAFs.pdf}
+%	\caption{Histograms of simulated TiTv distance distributions for different average MAFs. The Ti/Tv ratio was fixed to be 2 in all simulations. Average MAF is computed as the expected value of the uniform distribution from which minor allele success probabilities ($f_a$) are drawn. The upper bounds for each success probability uniform distribution are $\{0.1,0.2,0.3,0.4\}$, which are the maximum possible MAF for a given locus $a$. The corresponding lower bounds were $\{0.01,0.1,0.2,0.3\}$. Sample and predicted means, as well as standard deviations, are overlaid on each histogram. Each distance distribution comes from a simulated data set with $m=100$ instances and $p=100$ features.}\label{fig:TiTv_hist}
+%\end{figure}
+
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=0.98\textwidth]{TiTv_distance_histogram_TiTvs.pdf}
+%	\caption{Histograms of simulated TiTv distance distributions for different Ti/Tv ratios. Average MAF was fixed to be 0.055. The Ti/Tv ratio was taken to be 2, 1.5, 1, and 0.5. The average distance increases as the Ti/Tv ratio decreases, which is intuitive because the TiTv distance is greater for transversions than transitions. Sample and predicted means, as well as standard deviations, are overlaid on each histogram. Each distance distribution comes from a simulated data set with $m=100$ instances and $p=100$ features.}\label{fig:TiTv_hist2}
+%\end{figure}
 
 \section{Discussion}\label{sec:discussion}
 
@@ -1821,46 +1867,6 @@ There are many different distance metrics that can be used in place of those we 
 % trim=left botm right top
 %\includegraphics[width=\textwidth]{bioinformaticsy_tab.pdf}
 %\end{table}
-
-\begin{table}[H]
-\caption{Summary of distance distribution derivations for standard normal and standard uniform data. Asymptotic estimates are given for both standard and max-min normalized q-metrics. These estimates are relevant for all $q \in \mathbb{N}$ and $p \geq 100$.}
-\label{tab:dist_distr_general1}
-\centering
-% trim=left botm right top
-\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.05cm,width=\textwidth]{updated_distributions_table(5-23-2019).pdf}
-\end{table}
-
-\begin{table}[H]
-	\caption{Asymptotic estimates for means and variances for the standard $L_1$ and $L_2$ distance distributions. Estimates for both standard normal and standard uniform data are given.}
-	\label{tab:dist_distr_standardL1L2}
-	\centering
-	% trim=left botm right top
-	\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.05cm,width=0.7\textwidth]{updated_typical_metrics_table.pdf}
-\end{table}
-
-\begin{table}[H]
-	\caption{Asymptotic estimates for means and variances for the max-min normalized $L_1$ and $L_2$ distance distributions. Estimates for both standard normal and standard uniform data are given.}
-	\label{tab:dist_distr_normalizedL1L2}
-	\centering
-	% trim=left botm right top
-	\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.05cm,width=0.85\textwidth]{updated_typical_metrics_table(normalized).pdf}
-\end{table}
-
-\begin{table}[H]
-\caption{Summary of distance distribution derivations for GWAS data.}
-\label{tab:dist_distr_gwas}
-\centering
-% trim=left botm right top
-\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.05cm,width=\textwidth]{updated_distributions_table-gwas(5-23-2019).pdf}
-\end{table}
-
-\begin{table}[H]
-\caption{Summary of distance distribution derivations for rs-fMRI data.}
-\label{tab:dist_distr_rs-fMRI}
-\centering
-% trim=left botm right top
-\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.05cm,width=\textwidth]{updated_distributions_table-rs-fMRI.pdf}
-\end{table}
 
 \bibliographystyle{unsrt}
 \bibliography{BoD}   % name of bib file
