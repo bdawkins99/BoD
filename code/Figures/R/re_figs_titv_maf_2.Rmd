@@ -150,9 +150,15 @@ joy_10 <-
   scale_y_discrete(expand = c(0.01, 0))
 
 joy_10
-cowplot::plot_grid(joy_10, joy_9, labels = 'AUTO') %>%
+maf_titv_plot <- cowplot::plot_grid(joy_10, joy_9, labels = 'AUTO') 
+my_title <- cowplot::ggdraw() + 
+  cowplot::draw_label("Ti/Tv Distance as a Function of Average MAF and Ti/Tv Ratio") 
+
+my_title %>%
+  cowplot::plot_grid(maf_titv_plot, ncol = 1, rel_heights=c(0.1, 1)) %>%
   ggsave(filename = 'code/Figures/R/re_fig_9_10b.pdf',
        width = 7, height = 3)
+
 ```
 
 
