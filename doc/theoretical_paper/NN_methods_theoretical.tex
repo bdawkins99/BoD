@@ -1824,6 +1824,12 @@ For our correlation data-based metric given by Eqs.~\ref{eq:diff_rs-fMRI} and \r
 	\caption{Density curves of TiTv distance as a function of average MAF $\bar{f}_a$, given by Eq.~\ref{eq:avg_maf}, and Ti/Tv ratio $\eta$, given by Eq.~\ref{eq:TiTv_constraints2}. (\textbf{A}) For fixed $\eta=2$, TiTv distance density is plotted as a function of increasing $\bar{f}_a = 0.055, 0.150, 0.250, \text{ and } 0.350$. TiTv distance increases as $\bar{f}_a$ approaches a maximum of 0.5, which means that there is about the same frequency of minor alleles as primary alleles at locus $a$. (\textbf{B}) For fixed $\bar{f}_a=0.055$, TiTv distance density is plotted as a function of increasing $\eta = 0.5, 1, 1.5, \text{ and } 2$. TiTv distance decreases as $\eta$, the Ti/Tv ratio, increases. For $\eta=\text{Ti/Tv}=0.5$, there are twice as many transversions as there are transitions. On the other hand, $\eta=\text{Ti/Tv}=2$ indicates that there are half as many transversions as there are transitions. Since transversions encode a larger magnitude distance than transitions in Eq.~\ref{eq:diff_TiTv}, this behavior is expected.}\label{fig:TiTv_hist}
 \end{figure}
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.98\textwidth]{TiTv_distance_meanSD_vs_MAF_eta.pdf}
+	\caption{TiTv distance predicted and simulated moments as a function of Ti/Tv ratio $\eta$ and average MAF $\bar{f}_a$ given by Eqs.~\ref{eq:TiTv_constraints2} and \ref{eq:avg_maf}, respectively. (\textbf{A}) Simulated and predicted mean $\pm$ SD are shown as a function of increasing Ti/Tv ratio $\eta$. Distance decreases as Tv becomes more frequent than Ti. Theoretical standard deviation is slightly larger than simulated, but the means are approximately the same. (\textbf{B}) Simulated and predicted mean $\pm$ SD are shown as a function of increasing average MAF $\bar{f}_a$. Distance increases as the number of minor alleles increases at each locus $a$. Theoretical and simulated moments are approximately the same.}\label{fig:TiTv_meanSD}
+\end{figure}
+
 %\begin{figure}[H]
 %	\centering
 %	\includegraphics[width=0.98\textwidth]{TiTv_distance_histograms_MAFs.pdf}
