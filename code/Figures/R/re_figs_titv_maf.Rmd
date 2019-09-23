@@ -3,10 +3,12 @@ title: "re_figs_titv"
 output: html_document
 ---
 
+Setup:
+
 ```{r}
 library(tidyverse)
 rm(list = ls())
-# setup
+
 lowers <- c(0.01, 0.1, 0.2, 0.3)
 uppers <- c(0.1, 0.2, 0.3, 0.4)
 etas <- c(2, 1.5, 1, 0.5)
@@ -14,6 +16,9 @@ etas <- c(2, 1.5, 1, 0.5)
 n_iters <- 100
 m <- 100
 p <- 100
+
+source('code/Figures/R/util_funcs.R') # assumes the working directory is the main project folder
+
 ```
 
 Vary MAF:
@@ -53,7 +58,7 @@ fig_9 <- deltas_df %>%
   geom_line() +
   geom_line(aes(y = Means - SDs), linetype = 2) +
   geom_line(aes(y = Means + SDs), linetype = 2) +
-  labs(x = 'Minor allele frequency', y = 'Means') +
+  labs(x = 'Minor allele frequency', y = 'Mean ± SD') +
   theme_bw() +
   theme(legend.position = c(0.8, 0.2),
         legend.title = element_blank()) +
@@ -104,7 +109,7 @@ fig_10 <- deltas_df %>%
   geom_line() +
   geom_line(aes(y = Means - SDs), linetype = 2) +
   geom_line(aes(y = Means + SDs), linetype = 2) +
-  labs(x = 'Ti/Tv', y = 'Means') +
+  labs(x = 'Ti/Tv', y = 'Mean ± SD') +
   theme_bw() +
   theme(legend.position = 'None',
         legend.title = element_blank()) +
