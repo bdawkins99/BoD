@@ -150,7 +150,7 @@ joy_10 <-
   scale_y_discrete(expand = c(0.01, 0))
 
 joy_10
-cowplot::plot_grid(joy_9, joy_10, labels = 'AUTO') %>%
+cowplot::plot_grid(joy_10, joy_9, labels = 'AUTO') %>%
   ggsave(filename = 'code/Figures/R/re_fig_9_10b.pdf',
        width = 7, height = 3)
 ```
