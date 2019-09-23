@@ -310,24 +310,31 @@ When $p$ is small, however, we observe empirically that a closer estimate of the
 \end{aligned}
 \end{equation}
 %
-One can readily verify the normality of distances between independent instances through sampling from any data distribution and plotting the histogram of pairwise distances. Histograms of distance distributions for standard uniform data for Euclidean ($q=2$) and Manhattan ($q=1$) metrics are shown in Fig.~\ref{fig:central_limit_convergence}. For these simulated distances, we fixed $m=100$ and let $p=10,100,10000$ to see the convergence for different combinations of $m$ and $p$. Normality was assessed using the Shapiro-Wilk test. 
+We estimate rate of convergence to normality for Euclidean ($q=2$) and Manhattan ($q=1$)  metrics by comparing the distribution of pairwise distances in simulated data to a Gaussian (Fig.~\ref{fig:central_limit_convergence}). We compute the distance between all pairs of instances in simulated datasets of uniformly distributed random data. We simulate data with fixed $m=100$ instances, and, by varying the number of attributes ($p=10,100,10000$), we observe rapid convergence to Gaussian. For $p$ as low as $10$ attributes, Gaussian is a good approximation. The number of attributes in bioinformatics data is typically quite large, at least on the order of $10^3$. The Euclidean metric has stronger convergence to a Gaussian than Manhattan. This may be due to Euclidian’s use of the square root, which is a common transformation of data in statistics. Normality was assessed using the Shapiro-Wilk test.  
 %
 %The null hypothesis of this test is that the distribution is normally distributed. In each case, the $W$-statistics is approximately equal to 1. In the case of the Manhattan metric, convergence does not occur as rapidly as Euclidean. The $W$-statistic is significant at the 0.05 level for both $p=10$ and $p=100$ attributes, which would seem to indicate that there is sufficient evidence to conclude that the distribution is not normal. However, it is still safe to assume normality for most purposes despite the significant P values. In certain circumstances it may be better to use the Euclidean metric due to the apparently increased rate of convergence.
 %
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.98\textwidth]{central_limit_distances_uniform.pdf}
-	\caption{Convergence to normality of Manhattan and Euclidean distances. For each simulated distance distribution, we fixed the number of instances $m=100$ and vary the number of attributes $p=10,100,10000$. W and P represent the Shapiro-Wilk test statistic and its corresponding P values, respectively. Small P values (e.g., $<0.01$) indicate that the data may not be normally distributed. It is clear that convergence is rapid, and approximate normality can be safely assumed for even $p=10$ (Euclidean).}
+	\includegraphics[width=0.98\textwidth]{central_limit_hist_uniform-data.pdf}
+	\caption{Convergence to Gaussian for Manhattan and Euclidean distances for simulated standard uniform data with $m=100$ instances and $p=10, 100,$ and $10000$ attributes. Convergence to Gaussian occurs rapidly with increasing $p$, and Gaussian is a good approximation for $p$ as low as $10$ attributes. The number of attributes in bioinformatics data is typically much larger, at least on the order of $10^3$. The Euclidean metric has stronger convergence to normal than Manhattan.  P values from Shapiro-Wilk test, where the null hypothesis is a Gaussian distribution.}
 	\label{fig:central_limit_convergence}
 \end{figure}
 
-Although some P values are significant at the 0.05 level for Manhattan ($q=1$), a visual inspection of the corresponding QQ-plots shown in Fig.~\ref{fig:qq-plots} indicate the normality assumption holds reasonably well.
-
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.98\textwidth]{qq-plots.pdf}
-	\caption{QQ-plots corresponding to the simulated distances in Fig.~\ref{fig:central_limit_convergence}. Although there are significant P values for the case of Manhattan for $p=10,100$, it is clear that the assumption of normality is safe due to strong relationship between sample and theoretical quantiles.}\label{fig:qq-plots}
+	\includegraphics[width=0.98\textwidth]{central_limit_hist_normal-data.pdf}
+	\caption{Convergence to Gaussian for Manhattan and Euclidean distances for simulated standard normal data with $m=100$ instances and $p=10, 100,$ and $10000$ attributes. Convergence to Gaussian occurs rapidly with increasing $p$, and Gaussian is a good approximation for $p$ as low as $10$ attributes. The number of attributes in bioinformatics data is typically much larger, at least on the order of $10^3$. The Euclidean metric has stronger convergence to normal than Manhattan.  P values from Shapiro-Wilk test, where the null hypothesis is a Gaussian distribution.}
+	\label{fig:central_limit_convergence_normal}
 \end{figure}
+
+%Although some P values are significant at the 0.05 level for Manhattan ($q=1$), a visual inspection of the corresponding QQ-plots shown in Fig.~\ref{fig:qq-plots} indicate the normality assumption holds reasonably well.
+
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=0.98\textwidth]{qq-plots.pdf}
+%	\caption{QQ-plots corresponding to the simulated distances in Fig.~\ref{fig:central_limit_convergence}. Although there are significant P values for the case of Manhattan for $p=10,100$, it is clear that the assumption of normality is safe due to strong relationship between sample and theoretical quantiles.}\label{fig:qq-plots}
+%\end{figure}
 
 %\begin{figure}[ht!]
 %\centering
