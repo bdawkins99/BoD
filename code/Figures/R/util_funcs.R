@@ -13,7 +13,7 @@ draw_intervals <- function(intervals_df, x_limits){
     scale_y_continuous(limits = x_limits)
 }
 
-draw_densities <- function(sim_df){
+draw_densities <- function(sim_df, x_limits){
   sim_df %>%
     ggplot(aes(Value, fill = Type)) +
     geom_density(alpha = 0.5) +
@@ -22,7 +22,7 @@ draw_densities <- function(sim_df){
     labs(x = NULL, y = NULL) +
     theme(legend.position = 'None',
           legend.title = element_blank()) +
-    scale_x_continuous(label = NULL)
+    scale_x_continuous(label = NULL, limits = x_limits)
 }
 
 compute_dmat <- function(m, data.mat, PuPy.samp) {

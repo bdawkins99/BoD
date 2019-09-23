@@ -102,10 +102,13 @@ for(iter in 1:n_iters){
     Type = c(rep('Correlated', length(dist.corr)),
              rep('Uncorrelated', length(dist.null))))
   
-  x_limits <- c(min(sim_df$Value), max(sim_df$Value))
+  # x_limits <- c(min(sim_df$Value), max(sim_df$Value))
+  # print(x_limits)
+  x_limits <- c(6, 45)
   x_pos <- x_limits[1] + (x_limits[2]-x_limits[1])*5/6
   
-  histo <- draw_densities(sim_df) +
+  histo <- sim_df %>%
+    draw_densities(x_limits) +
       annotate("text", x = x_pos, y = 0.35, 
                label = paste('r =', round(mean.cor.corr,4)))
   
@@ -229,13 +232,18 @@ for(iter in 1:n_iters){
     Type = c(rep('Correlated', length(dist.vec.corr)),
              rep('Uncorrelated', length(dist.vec.null))))
   
-  x_limits <- c(min(sim_df$Value), max(sim_df$Value))
+  # x_limits <- c(min(sim_df$Value), max(sim_df$Value))
+  # print(x_limits)
+  x_limits <- c(5, 65)
   x_pos <- x_limits[1] + (x_limits[2]-x_limits[1])*5/6
   
-  histo <- draw_densities(sim_df) +
+  # histo <- draw_densities(sim_df) +
+  #     annotate("text", x = x_pos, y = 0.14, 
+  #              label = paste('r =', round(mean.cor.corr,4)))
+  histo <- sim_df %>%
+    draw_densities(x_limits) +
       annotate("text", x = x_pos, y = 0.14, 
                label = paste('r =', round(mean.cor.corr,4)))
-  
   error_bars <- tibble(
     Means = c(mean(dist.vec.corr), mean(dist.vec.null)),
     SD = c(sd(dist.vec.corr), sd(dist.vec.null)),
@@ -342,13 +350,14 @@ for(iter in 1:n_iters){
     Type = c(rep('Correlated', length(dist_tmp)),
              rep('Uncorrelated', length(dist_dmat2))))
   
-  x_limits <- c(min(sim_df$Value), max(sim_df$Value))
+  # x_limits <- c(min(sim_df$Value), max(sim_df$Value))
+  # print(x_limits)
+  x_limits <- c(740, 2050)
   x_pos <- x_limits[1] + (x_limits[2]-x_limits[1])*5/6
-  
-  histo <- draw_densities(sim_df) +
+  histo <- sim_df %>%
+    draw_densities(x_limits) +
       annotate("text", x = x_pos, y = 0.014, 
                label = paste('r =', round(mean.cor.corr,4)))
-  
   error_bars <- tibble(
     Means = c(mean(dist_tmp), mean(dist_dmat2)),
     SD = c(sd(dist_tmp), sd(dist_dmat2)),
