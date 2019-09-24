@@ -20,6 +20,13 @@ Marko {R}obnik \v{S}ikonja and {I}gor {K}ononenko.
   {R}{R}elief{F}.
 \newblock {\em Machine {L}earning}, 53:23 -- 69, February 2003.
 
+\bibitem{arabnejad2018}
+M.~{A}rabnejad, {B}.~{A}. {D}awkins, {W}.~{S}. {B}ush, {B}.~{C}. {W}hite,
+  {A}.~{R}. {H}arkness, and {B}.~{A}. {M}c{K}inney.
+\newblock {Transition-transversion encoding and genetic relationship metfic in
+  ReliefF feature selection improves pathway enrichment in GWAS}.
+\newblock {\em {BioData Mining}}, 11(23), 2018.
+
 \bibitem{venkataraman2010}
 Archana {V}enkataraman, {M}arek {K}ubicki, {C}arl-{F}redrik {W}estin, and
   {P}olina {G}olland.
@@ -51,17 +58,25 @@ Svyatoslav {V}ergun, {A}lok {S}.~{D}eshpande, {T}imothy {B}.~{M}eier, {J}ie
   using machine learning on resting state fMRI data}.
 \newblock {\em {Frontiers in Computational Neuroscience}}, April 2013.
 
+\bibitem{gotts2012}
+Stephen~{J}. {G}otts, {W}. {K}yle {S}immons, {L}ydia {A}.~{M}ilbury, {G}regory
+  {L}.~{W}allace, {R}obert {W}.~{C}ox, and {A}lex {M}artin.
+\newblock {Fractionation of social brain circuits in autism spectrum
+  disorders}.
+\newblock {\em {Brain}}, 135:2711--2725, 2012.
+
 \bibitem{stir}
 Trang~T Le, Ryan~J Urbanowicz, Jason~H Moore, and Brett~A McKinney.
 \newblock Statistical inference relief (stir) feature selection.
 \newblock {\em Bioinformatics}, page bty788, 2018.
 
-\bibitem{arabnejad2018}
-M.~{A}rabnejad, {B}.~{A}. {D}awkins, {W}.~{S}. {B}ush, {B}.~{C}. {W}hite,
-  {A}.~{R}. {H}arkness, and {B}.~{A}. {M}c{K}inney.
-\newblock {Transition-transversion encoding and genetic relationship metfic in
-  ReliefF feature selection improves pathway enrichment in GWAS}.
-\newblock {\em {BioData Mining}}, 11(23), 2018.
+\bibitem{mckinney13}
+{B}rett~{A} McKinney, {B}ill~{C} {W}hite, {D}iane~{E} {G}rill, {P}eter~{W}
+  {Li}, {R}ichard~{B} {K}ennedy, {G}regory~{A} {P}oland, and {A}nn~{L} {O}berg.
+\newblock {ReliefSeq: a gene-wise adaptive-K nearest-neighbor feature selection
+  tool for finding gene-gene interactions and main effects in mRNA-Seq gene
+  expression data}.
+\newblock {\em {PloS one}}, 8(12):e81527, 2013.
 
 \bibitem{allStats}
 Larry {W}asserman.
@@ -85,12 +100,6 @@ Dongfang {W}ang and {J}in {G}u.
   Data by Deep Variational Autoencoder}.
 \newblock {\em {Genomics Proteomics Bioinformatics}}, 16:320--331, December
   2018.
-
-\bibitem{urbanowiczReliefReview2018}
-Ryan~{J}. {U}rbanowicz, {M}elissa {M}eeker, {W}illiam {L}a{C}ava, {R}andal
-  {S}.~{O}lson, and {J}ason {H}.~{M}oore.
-\newblock Relief-{B}ased {F}eature {S}election: {I}ntroduction and {R}eview.
-\newblock {\em arXiv:1711.08421 [cs.DS]}, 2018.
 
 \bibitem{gumbel1947}
 E.~{J}. {G}umbel.

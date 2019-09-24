@@ -167,16 +167,15 @@ doi = {10.1038/nature11510}
 	file = {Full Text PDF:/Users/ttle/Zotero/storage/X3TGVSFT/Greene et al. - 2009 - Spatially Uniform ReliefF (SURF) for computational.pdf:application/pdf;Snapshot:/Users/ttle/Zotero/storage/6FZPK639/1756-0381-2-5.html:text/html}
 }
 
-
-@article{mckinney13,
-  title={ReliefSeq: a gene-wise adaptive-K nearest-neighbor feature selection tool for finding gene-gene interactions and main effects in mRNA-Seq gene expression data},
-  author={McKinney, Brett A and White, Bill C and Grill, Diane E and Li, Peter W and Kennedy, Richard B and Poland, Gregory A and Oberg, Ann L},
-  journal={PloS one},
-  volume={8},
-  number={12},
-  pages={e81527},
-  year={2013},
-  publisher={Public Library of Science}
+@Article{mckinney13,
+  author    = {McKinney, {B}rett {A} and {W}hite, {B}ill {C} and {G}rill, {D}iane {E} and {Li}, {P}eter {W} and {K}ennedy, {R}ichard {B} and {P}oland, {G}regory {A} and {O}berg, {A}nn {L}},
+  title     = {{ReliefSeq: a gene-wise adaptive-K nearest-neighbor feature selection tool for finding gene-gene interactions and main effects in mRNA-Seq gene expression data}},
+  journal   = {{PloS one}},
+  year      = {2013},
+  volume    = {8},
+  number    = {12},
+  pages     = {e81527},
+  publisher = {Public Library of Science},
 }
 
 @article{glmnet05,
@@ -417,14 +416,6 @@ year={2018}
   month   = feb,
 }
 
-@Article{urbanowiczReliefReview2018,
-  author  = {Ryan {J}. {U}rbanowicz and {M}elissa {M}eeker and {W}illiam {L}a{C}ava and {R}andal {S}. {O}lson and {J}ason {H}. {M}oore},
-  title   = {Relief-{B}ased {F}eature {S}election: {I}ntroduction and {R}eview},
-  journal = {arXiv:1711.08421 [cs.DS]},
-  year    = {2018},
-  url     = {https://arxiv.org/abs/1711.08421},
-}
-
 @Book{freund2004,
   title     = {{John E. Freund's Mathematical Statistics with Applications}},
   publisher = {{Pearson Prentice Hall}},
@@ -598,6 +589,27 @@ year={2018}
   volume  = {480},
   pages   = {17-24},
   month   = jun,
+}
+
+@Article{wang2018,
+  author  = {Dongfang {W}ang and {J}in {G}u},
+  title   = {{VASC: Dimension Reduction and Visualization of Single-cell RNA-seq Data by Deep Variational Autoencoder}},
+  journal = {{Genomics Proteomics Bioinformatics}},
+  year    = {2018},
+  volume  = {16},
+  pages   = {320-331},
+  month   = dec,
+  url     = {https://doi.org/10.1016/j.gpb.2018.08.003},
+}
+
+@Article{gotts2012,
+  author  = {Stephen {J}. {G}otts and {W}. {K}yle {S}immons and {L}ydia {A}. {M}ilbury and {G}regory {L}. {W}allace and {R}obert {W}. {C}ox and {A}lex {M}artin},
+  title   = {{Fractionation of social brain circuits in autism spectrum disorders}},
+  journal = {{Brain}},
+  year    = {2012},
+  volume  = {135},
+  pages   = {2711-2725},
+  doi     = {10.1093/brain/aws160},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}

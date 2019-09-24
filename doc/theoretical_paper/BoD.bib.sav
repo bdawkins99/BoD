@@ -167,15 +167,16 @@ doi = {10.1038/nature11510}
 	file = {Full Text PDF:/Users/ttle/Zotero/storage/X3TGVSFT/Greene et al. - 2009 - Spatially Uniform ReliefF (SURF) for computational.pdf:application/pdf;Snapshot:/Users/ttle/Zotero/storage/6FZPK639/1756-0381-2-5.html:text/html}
 }
 
-@Article{mckinney13,
-  author    = {McKinney, {B}rett {A} and {W}hite, {B}ill {C} and {G}rill, {D}iane {E} and {Li}, {P}eter {W} and {K}ennedy, {R}ichard {B} and {P}oland, {G}regory {A} and {O}berg, {A}nn {L}},
-  title     = {{ReliefSeq: a gene-wise adaptive-K nearest-neighbor feature selection tool for finding gene-gene interactions and main effects in mRNA-Seq gene expression data}},
-  journal   = {{PloS one}},
-  year      = {2013},
-  volume    = {8},
-  number    = {12},
-  pages     = {e81527},
-  publisher = {Public Library of Science},
+
+@article{mckinney13,
+  title={ReliefSeq: a gene-wise adaptive-K nearest-neighbor feature selection tool for finding gene-gene interactions and main effects in mRNA-Seq gene expression data},
+  author={McKinney, Brett A and White, Bill C and Grill, Diane E and Li, Peter W and Kennedy, Richard B and Poland, Gregory A and Oberg, Ann L},
+  journal={PloS one},
+  volume={8},
+  number={12},
+  pages={e81527},
+  year={2013},
+  publisher={Public Library of Science}
 }
 
 @article{glmnet05,
@@ -609,7 +610,7 @@ year={2018}
   year    = {2012},
   volume  = {135},
   pages   = {2711-2725},
-  doi     = {10.1093/brain/aws160},
+  doi     = {doi:10.1093/brain/aws160},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
