@@ -1814,31 +1814,31 @@ X^\text{corr} = X U^\text{T}.
 
 The new data matrix given by Eq.~\ref{eq:cholesky} has approximately the same correlation structure as the randomly generated correlation matrix created from a random graph. The cholesky method is a standard approach in creating correlated data sets.
 %
-\begin{figure}[H]
-	\centering
-	\framebox{\includegraphics[width=0.98\textwidth]{null_vs_correlated_normal_euclidean_standard_TrangEdit.pdf}}
-	\caption{Density curves of Euclidean distances computed on data with correlated vs uncorrelated features. The average absolute pairwise correlation, given by $r$ (Eq.~\ref{eq:abs_corr}), is a measure of the deviation from normality in distances. When $r=0.103$, correlated distances closely approximate uncorrelated distances. With $r=0.246$, the increased correlation causes significant positive skewness in distances. In the cases of $r=0.436$ and $r=0.597$, the positive skewness becomes more extreme and correlated distances diverge maximally from the uncorrelated distance distribution. The average correlated and uncorrelated distances are approximately the same for each value of $r$, however, the standard deviation of correlated distances are far larger than that of uncorrelated distances.}\label{fig:null-vs-corr-normal}
-\end{figure}
+%\begin{figure}[H]
+%	\centering
+%	\framebox{\includegraphics[width=0.98\textwidth]{null_vs_correlated_normal_euclidean_standard_TrangEdit.pdf}}
+%	\caption{Density curves of Euclidean distances computed on data with correlated vs uncorrelated features. The average absolute pairwise correlation, given by $r$ (Eq.~\ref{eq:abs_corr}), is a measure of the deviation from normality in distances. When $r=0.103$, correlated distances closely approximate uncorrelated distances. With $r=0.246$, the increased correlation causes significant positive skewness in distances. In the cases of $r=0.436$ and $r=0.597$, the positive skewness becomes more extreme and correlated distances diverge maximally from the uncorrelated distance distribution. The average correlated and uncorrelated distances are approximately the same for each value of $r$, however, the standard deviation of correlated distances are far larger than that of uncorrelated distances.}\label{fig:null-vs-corr-normal}
+%\end{figure}
 
 \subsection{GWAS data}
 
 In analogy to the previous section, we explore the effects of pairwise feature correlation in the context of GWAS data. Without loss of generality, we let $m=p=100$ and consider the TiTv metric, which is given by combining Eqs.~\ref{eq:diff_TiTv} and \ref{eq:D} with $q=1$. To create correlated GWAS data, we first generated standard normal data with random correlation structure. We then applied the standard normal cumulative distribution function (CDF) to this correlated data, which was subsequently followed by the application of the inverse binomial CDF with random success probabilities for each feature (or SNP). The resulting GWAS data set is binomial with $n=2$ trials and has roughly the same correlation matrix as the correlated standard normal data.
 %
-\begin{figure}[H]
-	\centering
-	\framebox{\includegraphics[width=0.98\textwidth]{null_vs_correlated_gwas_TiTv_TrangEdit.pdf}}
-	\caption{Density curves of TiTv distances computed on data with correlated vs uncorrelated features. The average absolute pairwise correlation, given by $r$ (Eq.~\ref{eq:abs_corr}), is a measure of the deviation from normality in distances. There is very little difference between correlated vs uncorrelated distances when $r=0.086$. When $r=0.147$, correlated distances begin to show positive skewness. Increasing to $r=0.227$ and $r=0.299$, correlated distances show extreme skewness. Compared to Fig.~\ref{fig:null-vs-corr-normal}, it appears that correlation more drastically affects distances in discrete GWAS data than $L_q$ distances in continuous data. This could have important implications for the choice of neighborhood parameters in nearest-neighbor distance-based feature selection. As in continuous data, the average correlated and uncorrelated TiTv distances are approximately the same with clear differences in standard deviations.}\label{fig:null-vs-corr-titv}
-\end{figure}
+%\begin{figure}[H]
+%	\centering
+%	\framebox{\includegraphics[width=0.98\textwidth]{null_vs_correlated_gwas_TiTv_TrangEdit.pdf}}
+%	\caption{Density curves of TiTv distances computed on data with correlated vs uncorrelated features. The average absolute pairwise correlation, given by $r$ (Eq.~\ref{eq:abs_corr}), is a measure of the deviation from normality in distances. There is very little difference between correlated vs uncorrelated distances when $r=0.086$. When $r=0.147$, correlated distances begin to show positive skewness. Increasing to $r=0.227$ and $r=0.299$, correlated distances show extreme skewness. Compared to Fig.~\ref{fig:null-vs-corr-normal}, it appears that correlation more drastically affects distances in discrete GWAS data than $L_q$ distances in continuous data. This could have important implications for the choice of neighborhood parameters in nearest-neighbor distance-based feature selection. As in continuous data, the average correlated and uncorrelated TiTv distances are approximately the same with clear differences in standard deviations.}\label{fig:null-vs-corr-titv}
+%\end{figure}
 
 \subsection{Correlation-based data}
 
 For our correlation data-based metric given by Eqs.~\ref{eq:diff_rs-fMRI} and \ref{eq:D} with $q=1$, we consider additional effects of correlation between features. Without loss of generality, we let $m=100$ and $p=30$. As in the previous subsections, an illustration of the effects of correlated features in this context is shown in Fig.~\ref{fig:null-vs-corr-rsfMRI}. Based on the correlated distance densities (\textcolor{blue}{blue}), it appears that correlation between features introduces positive skewness at lower values of $\bar{r}_\text{abs}$. We introduced correlation to the transformed data matrix given by Fig.~\ref{fig:rs-fMRI_matrix} with the cholesky method used previously.
 %
-\begin{figure}[H]
-	\centering
-	\framebox{\includegraphics[width=0.98\textwidth]{null_vs_correlated_rsfMRI_TrangEdit.pdf}}
-	\caption{Density curves of rs-fMRI distances on data with correlated vs uncorrelated features. The average absolute pairwise correlation, given by $r$ (Eq.~\ref{eq:abs_corr}), is a measure of the deviation from normality in distances. Even with the relatively small $r=0.09$, there is significant deviation from uncorrelated distances with increased variance and some positive skewness. A small increase to $r=0.118$ causes rather extreme positive skewness to develop in correlated distances. As we increase to $r=0.163$ and $r=0.218$, the differences between correlated and uncorrelated rs-fMRI distances become much more pronounced. It appears that the feature-feature dependencies have the largest impact on time series correlation-based data like rs-fMRI. The data already consists of pairwise correlations between ROIs, which are transformed into a single $m \times p(p-1)$ data set. Correlation is then added on top of these transformed ROI-ROI correlations to give what is shown in this figure. The average distances in uncorrelated and correlated distances are still approximately the same for this data type, with obvious differences in variance.}\label{fig:null-vs-corr-rsfMRI}
-\end{figure}
+%\begin{figure}[H]
+%	\centering
+%	\framebox{\includegraphics[width=0.98\textwidth]{null_vs_correlated_rsfMRI_TrangEdit.pdf}}
+%	\caption{Density curves of rs-fMRI distances on data with correlated vs uncorrelated features. The average absolute pairwise correlation, given by $r$ (Eq.~\ref{eq:abs_corr}), is a measure of the deviation from normality in distances. Even with the relatively small $r=0.09$, there is significant deviation from uncorrelated distances with increased variance and some positive skewness. A small increase to $r=0.118$ causes rather extreme positive skewness to develop in correlated distances. As we increase to $r=0.163$ and $r=0.218$, the differences between correlated and uncorrelated rs-fMRI distances become much more pronounced. It appears that the feature-feature dependencies have the largest impact on time series correlation-based data like rs-fMRI. The data already consists of pairwise correlations between ROIs, which are transformed into a single $m \times p(p-1)$ data set. Correlation is then added on top of these transformed ROI-ROI correlations to give what is shown in this figure. The average distances in uncorrelated and correlated distances are still approximately the same for this data type, with obvious differences in variance.}\label{fig:null-vs-corr-rsfMRI}
+%\end{figure}
 
 %\begin{figure}[H]
 %	\centering
@@ -1851,6 +1851,14 @@ For our correlation data-based metric given by Eqs.~\ref{eq:diff_rs-fMRI} and \r
 %	\includegraphics[width=0.98\textwidth]{TiTv_distance_histogram_TiTvs.pdf}
 %	\caption{Histograms of simulated TiTv distance distributions for different Ti/Tv ratios. Average MAF was fixed to be 0.055. The Ti/Tv ratio was taken to be 2, 1.5, 1, and 0.5. The average distance increases as the Ti/Tv ratio decreases, which is intuitive because the TiTv distance is greater for transversions than transitions. Sample and predicted means, as well as standard deviations, are overlaid on each histogram. Each distance distribution comes from a simulated data set with $m=100$ instances and $p=100$ features.}\label{fig:TiTv_hist2}
 %\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\framebox{\includegraphics[width=0.98\textwidth]{null_corr.pdf}}
+	\caption{Ridgeline plots of uncorrelated vs correlated densities in bioinformatics data. (\textbf{A}) }\label{fig:null_vs_correlated_ridge}
+\end{figure}
+
+
 
 \section{Discussion}\label{sec:discussion}
 
