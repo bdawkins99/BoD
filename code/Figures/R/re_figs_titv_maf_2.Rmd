@@ -61,12 +61,12 @@ joy_9 <-
     alpha = .8,
     color = "white"
   ) +
-  ggridges::theme_ridges() +
+  ggridges::theme_ridges(grid = F) +
   scale_fill_viridis_c() +
   labs(x = NULL, y = NULL) +
   theme(legend.position = 'None',
         legend.title = element_blank()) +
-  scale_x_continuous(labels = NULL, limits = c(0, 35)) +
+  scale_x_continuous(limits = c(0, 35)) +
   scale_y_discrete(expand = c(0.01, 0))
 
 joy_9
@@ -141,23 +141,25 @@ joy_10 <-
     alpha = .8,
     color = "white"
   ) +
-  ggridges::theme_ridges() +
+  ggridges::theme_ridges(grid = F) +
   scale_fill_viridis_c() +
   labs(x = NULL, y = NULL) +
   theme(legend.position = 'None',
         legend.title = element_blank()) +
-  scale_x_continuous(labels = NULL, limits = c(5, 30)) +
+  scale_x_continuous(limits = c(5, 30)) +
   scale_y_discrete(expand = c(0.01, 0))
 
 joy_10
 maf_titv_plot <- cowplot::plot_grid(joy_10, joy_9, labels = 'AUTO') 
 my_title <- cowplot::ggdraw() + 
-  cowplot::draw_label("Ti/Tv Distance as a Function of Average MAF and Ti/Tv Ratio") 
+  cowplot::draw_label("Ti/Tv distance as a function of Ti/Tv ratio and average MAF") 
 
-my_title %>%
-  cowplot::plot_grid(maf_titv_plot, ncol = 1, rel_heights=c(0.1, 1)) %>%
-  ggsave(filename = 'code/Figures/R/re_fig_9_10b.pdf',
-       width = 7, height = 3)
+final_ab <- cowplot::plot_grid(my_title, maf_titv_plot, ncol = 1, rel_heights=c(0.1, 1))
+save(my_title, joy_10, joy_9, file = 'code/Figures/R/titv_maf.Rdata')
+
+# final_ab %>%
+#   ggsave(filename = 'code/Figures/R/re_fig_9_10b.pdf',
+#        width = 7, height = 3)
 
 ```
 
