@@ -1859,11 +1859,9 @@ For our correlation data-based metric given by Eqs.~\ref{eq:diff_rs-fMRI} and \r
 
 \begin{figure}[H]
 	\centering
-	\framebox{\includegraphics[width=0.98\textwidth]{null_corr.pdf}}
-	\caption{Ridgeline plots of uncorrelated vs correlated densities in bioinformatics data. (\textbf{A}) }\label{fig:null_vs_correlated_ridge}
+	\framebox{\includegraphics[width=0.98\textwidth]{null_corr_BryanEdit.pdf}}
+	\caption{Ridgeline plots of distance densities from uncorrelated vs correlated bioinformatics data. (\textbf{A}) Euclidean distance densities for random normal data with and without correlation. Correlated data was created by multiplying random normal data by upper-triangular cholesky factor from randomly generated correlation matrix. We created correlated data for average absolute pairwise correlation (Eq.~\ref{eq:abs_corr}) $\bar{r}_\text{abs} = 0.105, 0.263, 0.458, \text{ and } 0.612$. (\textbf{B}) TiTv distance densities for random binomial data with and without correlation. Correlated data was created by first generating correlated standard normal data using the cholesky method from (A). Then we applied the standard normal CDF to create correlated uniformly distributed data, which was then transformed by the inverse binomial CDF with $n=2$ trials and success probabilites $f_a \text{ for all } a \in \mathcal{A}$. The result is correlated random binomial data with correlation matrix approximately the same as the original correlated standard normal data. (\textbf{C}) Time series correlation-based distance densities for random rs-fMRI data (Fig.~\ref{fig:rs-fMRI_matrix}) with and without additional pairwise feature correlation. Correlation was added to the transformed rs-fMRI data matrix (Fig.~\ref{fig:rs-fMRI_matrix}) using the cholesky algorithm from (A).}\label{fig:null_vs_correlated_ridge}
 \end{figure}
-
-
 
 \section{Discussion}\label{sec:discussion}
 
