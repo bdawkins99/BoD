@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  25 SEP 2019 08:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  25 SEP 2019 12:37
 entering extended mode
 **./NN_methods_theoretical.tex
 (NN_methods_theoretical.tex
@@ -1082,7 +1082,7 @@ Package pdftex.def Info: updated_distributions_table-rs-fMRI.pdf  used on input
  line 1798.
 (pdftex.def)             Requested size: 379.4175pt x 248.46384pt.
  [41] [42 <./updated_distributions_table-rs-fMRI.pdf>]
-<null_corr_BryanEdit.pdf, id=1078, 722.7pt x 252.945pt>
+<null_corr_BryanEdit.pdf, id=1080, 722.7pt x 252.945pt>
 File: null_corr_BryanEdit.pdf Graphic file (type pdf)
 <use null_corr_BryanEdit.pdf>
 Package pdftex.def Info: null_corr_BryanEdit.pdf  used on input line 1863.
@@ -1109,7 +1109,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1901.
 Here is how much of TeX's memory you used:
  21805 strings out of 492946
  394555 string characters out of 3135528
- 531733 words of memory out of 3000000
+ 531967 words of memory out of 3000000
  24889 multiletter control sequences out of 15000+200000
  25462 words of font info for 135 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1141,9 +1141,9 @@ nts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
 amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
 symbols/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a
 .pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on NN_methods_theoretical.pdf (47 pages, 1381603 bytes).
+Output written on NN_methods_theoretical.pdf (47 pages, 1382607 bytes).
 PDF statistics:
- 1258 PDF objects out of 1440 (max. 8388607)
+ 1260 PDF objects out of 1440 (max. 8388607)
  266 named destinations out of 1000 (max. 500000)
  17250 words of extra memory for PDF output out of 17280 (max. 10000000)
 
