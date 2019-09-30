@@ -381,11 +381,11 @@ g^{(1)}(x_{ia},z_a) &= f_X(x_{ia},x_{ja})\biggl|\frac{\partial x_{ja}}{\partial 
 \end{aligned}
 \end{equation}
 
-The density function $f^{(1)}_{Z^q}$ of $Z^q_a$ is then defined as
+The density function $f^{(1)}_{Z^q_a}$ of $Z^q_a$ is then defined as
 %
 \begin{equation}
 \begin{aligned}
-f^{(1)}_{Z^q}(z^q_a) &= \int_{-\infty}^{\infty} g^{(1)}(x_{ia},z^q_a)\text{d}x_{ia} \\
+f^{(1)}_{Z^q_a}(z^q_a) &= \int_{-\infty}^{\infty} g^{(1)}(x_{ia},z^q_a)\text{d}x_{ia} \\
 &= \frac{1}{q \left(z^q_a\right)^{1 - \frac{1}{q}}}\int_{-\infty}^{\infty} f_X(x_{ia})f_X\left(x_{ia}-\left(z^q_a\right)^{1/q}\right)\text{d}x_{ia}, \quad z_a > 0.
 \end{aligned}
 \end{equation}
@@ -400,17 +400,17 @@ g^{(2)}(x_{ia},z_a) &= f_X(x_{ia},x_{ja})\biggl|\frac{\partial x_{ja}}{\partial 
 \end{aligned}
 \end{equation}
 
-The density function $f^{(2)}_{Z^q}$ of $Z^q_a$ is then defined as
+The density function $f^{(2)}_{Z^q_a}$ of $Z^q_a$ is then defined as
 %
 \begin{equation}
 \begin{aligned}
-f^{(2)}_{Z^q}(z^q_a) &= \int_{-\infty}^{\infty} g^{(2)}(x_{ia},z^q_a)\text{d}x_{ia} \\
+f^{(2)}_{Z^q_a}(z^q_a) &= \int_{-\infty}^{\infty} g^{(2)}(x_{ia},z^q_a)\text{d}x_{ia} \\
 &= \frac{1}{q \left(z^q_a\right)^{1 - \frac{1}{q}}}\int_{-\infty}^{\infty} f_X(x_{ia})f_X\left(x_{ia}+\left(z^q_a\right)^{1/q}\right)\text{d}x_{ia}, \quad z_a > 0.
 \end{aligned}
 \end{equation}
 \end{itemize}
 
-Let $F_{Z^q}$ denote the distribution function of the random variable $Z^q_a$. Furthermore, we define the events $E^{(1)}$ and $E^{(2)}$ as
+Let $F_{Z^q_a}$ denote the distribution function of the random variable $Z^q_a$. Furthermore, we define the events $E^{(1)}$ and $E^{(2)}$ as
 %
 \begin{equation}\label{eq:E(1)}
 E^{(1)} = \bigl\{|X_{ia}-X_{ja}|^q \leq z^q_a | X_{ja} = X_{ia} - \left(Z^q_a\right)^{1/q}\bigr\}
@@ -426,13 +426,13 @@ Then it follows from fundamental rules of probability that
 %
 \begin{equation}\label{eq:DqCDF}
 \begin{aligned}
-F_{Z^q}(z^q_a) &= \text{P}\left[Z^q_a \leq z^q_a\right] \\
+F_{Z^q_a}(z^q_a) &= \text{P}\left[Z^q_a \leq z^q_a\right] \\
 &= \text{P}\left[|X_{ia} - X_{ja}|^q \leq z^q_a\right] \\
 &= \text{P}\left[E^{(1)} \cup E^{(2)}\right] \\
 &= \text{P}\bigl[E^{(1)}\bigr] + \text{P}\bigl[E^{(2)}\bigr] - \text{P}\bigl[E^{(1)} \cap E^{(2)}\bigr] \\
 &= \text{P}\bigl[E^{(1)}\bigr] + \text{P}\bigl[E^{(2)}\bigr] \\
-&= \int_{-\infty}^{z^q_a} f^{(1)}_{Z^q}(t) \text{d}t + \int_{-\infty}^{z^q_a} f^{(2)}_{Z^q}(t) \text{d}t \\
-&= \int_{-\infty}^{z^q_a} \left(f^{(1)}_{Z^q}(t) + f^{(2)}_{Z^q}(t)\right) \text{d}t \\
+&= \int_{-\infty}^{z^q_a} f^{(1)}_{Z^q_a}(t) \text{d}t + \int_{-\infty}^{z^q_a} f^{(2)}_{Z^q_a}(t) \text{d}t \\
+&= \int_{-\infty}^{z^q_a} \left(f^{(1)}_{Z^q_a}(t) + f^{(2)}_{Z^q_a}(t)\right) \text{d}t \\
 &= \frac{1}{q \left(z^q_a\right)^{1 - \frac{1}{q}}}\int_{-\infty}^{z^q_a} \left(\int_{-\infty}^{\infty}f_X(x_{ia})\left[f_X(x_{ia} - t) + f_X(x_{ia} + t)\right] \text{d}x_{ia}\right)\text{d}t, \quad z_a > 0.
 \end{aligned}
 \end{equation}
@@ -441,7 +441,7 @@ It follows directly from the result in Eq. \ref{eq:DqCDF} that the density funct
 %
 \begin{equation}\label{eq:DqPDF}
 \begin{aligned}
-f_{Z^q}(z^q_a) &= \frac{\partial}{\partial z^q_a} F_{Z^q}(z^q_a) \\
+f_{Z^q_a}(z^q_a) &= \frac{\partial}{\partial z^q_a} F_{Z^q_a}(z^q_a) \\
 &= \frac{1}{q \left(z^q_a\right)^{1 - \frac{1}{q}}}\int_{-\infty}^{\infty} f_X(x_{ia})\left[f_X\left(x_{ia} - \left(z^q_a\right)^{1/q}\right) + f_X\left(x_{ia} + \left(z^q_a\right)^{1/q}\right)\right] \text{d}x_{ia},
 \end{aligned}
 \end{equation}
@@ -451,13 +451,13 @@ where $z_a > 0$.
 Using Eq. \ref{eq:DqPDF}, we can compute the mean and variance of the random variable $Z^q_a$ as
 %
 \begin{equation}\label{eq:1DDqMean}
-\mu_{z^q} = \int_{-\infty}^{\infty} z^q_a f_{Z^q}(z^q_a) \text{d}z^q_a
+\mu_{z^q_a} = \int_{-\infty}^{\infty} z^q_a f_{Z^q_a}(z^q_a) \text{d}z^q_a
 \end{equation}
 %
 and 
 %
 \begin{equation}\label{eq:1DDqVar}
-\sigma^2_{z^q} = \int_{-\infty}^{\infty} \left(z^q_a\right)^2 f_{Z^q}(z^q_a) \text{d}z^q_a - \mu^2_{z^q}.
+\sigma^2_{z^q_a} = \int_{-\infty}^{\infty} \left(z^q_a\right)^2 f_{Z^q_a}(z^q_a) \text{d}z^q_a - \mu^2_{z^q_a}.
 \end{equation}
 
 It follows immediately from Eqs. \ref{eq:1DDqMean} and \ref{eq:1DDqVar} and the Classical Central Limit Theorem (CCLT) that
@@ -469,7 +469,7 @@ It follows immediately from Eqs. \ref{eq:1DDqMean} and \ref{eq:1DDqVar} and the 
 Applying the result given in Eq. \ref{eq:DqDeltaMethod}, the distribution of $D^{(q)}_{ij}$ is given by
 %
 \begin{equation}\label{eq:DDistr}
-D^{(q)}_{ij} \overset{.}{\sim} \mathcal{N}\left(\left(\mu_{z^q}p\right)^{1/q},\frac{\sigma^2_{z^q}p}{q^2\left(\mu_{z^q}p\right)^{2\left(1 - \frac{1}{q}\right)}}\right), \quad \mu_{z^q} > 0
+D^{(q)}_{ij} \overset{.}{\sim} \mathcal{N}\left(\left(\mu_{z^q_a}p\right)^{1/q},\frac{\sigma^2_{z^q_a}p}{q^2\left(\mu_{z^q_a}p\right)^{2\left(1 - \frac{1}{q}\right)}}\right), \quad \mu_{z^q_a} > 0
 \end{equation}
 %
 with improved estimate of the mean for $q=2$ given by Eq. \ref{eq:DqImprovedExplained}.
@@ -494,7 +494,7 @@ Substituting the results given by Eqs. \ref{eq:normalXmarg}-\ref{eq:normalXPlusZ
 %
 \begin{equation}\label{eq:normalPDF}
 \begin{aligned}
-  f_{Z^q}(z^q_a) &= \frac{1}{2 q \pi \left(z^q_a\right)^{1 - \frac{1}{q}}} e^{-\frac{1}{4}\left(z^q_a\right)^{2    /q}}\int_{-\infty}^{\infty} \biggl(e^{-\frac{1}{2}\left[\sqrt{2}x_{ia} - \frac{\sqrt{2}}{2}\left(z^q_a\right)^{1/q}\right]^2} \\
+  f_{Z^q_a}(z^q_a) &= \frac{1}{2 q \pi \left(z^q_a\right)^{1 - \frac{1}{q}}} e^{-\frac{1}{4}\left(z^q_a\right)^{2    /q}}\int_{-\infty}^{\infty} \biggl(e^{-\frac{1}{2}\left[\sqrt{2}x_{ia} - \frac{\sqrt{2}}{2}\left(z^q_a\right)^{1/q}\right]^2} \\
 &\hspace{2in} + e^{-\frac{1}{2}\left[\sqrt{2}x_{ia} + \frac{\sqrt{2}}{2}\left(z^q_a\right)^{1/q}\right]^2}\biggr) \text{d}x_{ia} \\
 &= \frac{1}{2 q \sqrt{\pi} \left(z^q_a\right)^{1 - \frac{1}{q}}} e^{-\frac{1}{4}\left(z^q_a\right)^{2/q}} \int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi}} \left(e^{-\frac{1}{2}u^2} + e^{-\frac{1}{2}u^2}\right) \text{d}u \\
 &= \frac{1}{2 q \sqrt{\pi} \left(z^q_a\right)^{1 - \frac{1}{q}}} e^{-\frac{1}{4}\left(z^q_a\right)^{2/q}} (1 + 1) \\
@@ -507,7 +507,7 @@ The density function given by Eq. \ref{eq:normalPDF} is a Generalized Gamma dens
 %
 \begin{equation}\label{eq:1DnormalDqMean}
 \begin{aligned}
-\mu_{z^q} &= \frac{c\Gamma\left(\frac{d+1}{b}\right)}{\Gamma\left(\frac{d}{b}\right)} \\
+\mu_{z^q_a} &= \frac{c\Gamma\left(\frac{d+1}{b}\right)}{\Gamma\left(\frac{d}{b}\right)} \\
 &= \frac{2^q \Gamma\left(\frac{q + 1}{2}\right)}{\sqrt{\pi}}
 \end{aligned}
 \end{equation}
@@ -516,7 +516,7 @@ and
 %
 \begin{equation}\label{eq:1DnormalDqVar}
 \begin{aligned}
-\sigma^2_{z^q} &= c^2\left[\frac{\Gamma\left(\frac{d+2}{b}\right)}{\Gamma\left(\frac{d}{b}\right)} - \left(\frac{\Gamma\left(\frac{d+1}{b}\right)}{\Gamma\left(\frac{d}{b}\right)}\right)^2\right] \\
+\sigma^2_{z^q_a} &= c^2\left[\frac{\Gamma\left(\frac{d+2}{b}\right)}{\Gamma\left(\frac{d}{b}\right)} - \left(\frac{\Gamma\left(\frac{d+1}{b}\right)}{\Gamma\left(\frac{d}{b}\right)}\right)^2\right] \\
 &= 4^{q}\left[\frac{\Gamma\left(q + \frac{1}{2}\right)}{\sqrt{\pi}} - \frac{\Gamma^2\left(\frac{1}{2}q + \frac{1}{2}\right)}{\pi}\right].
 \end{aligned}
 \end{equation}
@@ -565,9 +565,9 @@ Substituting the results given by Eqs. \ref{eq:uniformXmarg}-\ref{eq:uniformXPlu
 %
 \begin{equation}\label{eq:uniformDqPDF}
 \begin{aligned}
-f_{Z^q}(z^q_a) &= \frac{1}{q\left(z^q_a\right)^{1 - \frac{1}{q}}}\int_{-\infty}^{\infty}f_X(x_{ia})\left[f_X\left(x_{ia} - \left(z^q_a\right)^{1/q}\right) + f_X\left(x_{ia} + \left(z^q_a\right)^{1/q}\right)\right]\text{d}x_{ia},\\
+f_{Z^q_a}(z^q_a) &= \frac{1}{q\left(z^q_a\right)^{1 - \frac{1}{q}}}\int_{-\infty}^{\infty}f_X(x_{ia})\left[f_X\left(x_{ia} - \left(z^q_a\right)^{1/q}\right) + f_X\left(x_{ia} + \left(z^q_a\right)^{1/q}\right)\right]\text{d}x_{ia},\\
 & \hspace{4in} 0 < z_a \leq 1\\
-&= \frac{1}{q\left(z^q_a\right)^{1 - \frac{1}{q}}}\int_{0}^{1}[f_X(x_{ia} - \left(z^q_a\right) + f_X\left(x_{ia} + \left(z^q_a\right)^{1/q}\right)]\text{d}x_{ia}, \quad 0 < z_a \leq 1 \\
+&= \frac{1}{q\left(z^q_a\right)^{1 - \frac{1}{q}}}\int_{0}^{1}\left[f_X(x_{ia} - \left(z^q_a\right) + f_X\left(x_{ia} + \left(z^q_a\right)^{1/q}\right)\right]\text{d}x_{ia}, \quad 0 < z_a \leq 1 \\
 &= \frac{1}{q\left(z^q_a\right)^{1 - \frac{1}{q}}}\int_{\left(z^q_a\right)}^{1}1\text{d}x_{ia} + \int_{0}^{1 - \left(z^q_a\right)}1\text{d}x_{ia}, \quad 0 < z_a \leq 1 \\
 &= \frac{1}{q\left(z^q_a\right)^{1 - \frac{1}{q}}}\left[\left(1 - \left(z^q_a\right)\right) + \left(1 - \left(z^q_a\right)\right)\right], \quad 0 < z_a \leq 1 \\
 &= \frac{1}{q} \cdot 2 \left(z^q_a\right)^{\frac{1}{q} - 1}\left[1 - \left(z^q_a\right)^{1/q}\right]^{2 - 1}, \quad 0 < z_a \leq 1.
@@ -586,13 +586,13 @@ M_n &=  \frac{c\Gamma\left(1 + \frac{n}{b}\right) \Gamma(c)}{\Gamma\left(1 + c +
 Using the MGF given by Eq. \ref{eq:uniformDqMGF}, the mean and variance of $Z^q_a$ are computed as
 %
 \begin{equation}\label{eq:1DuniformDqMean}
-\mu_{z^q} = \frac{2}{(q + 2)(q + 1)}
+\mu_{z^q_a} = \frac{2}{(q + 2)(q + 1)}
 \end{equation}
 %
 and
 %
 \begin{equation}\label{eq:1DuniformDqVar}
-\sigma^2_{z^q} = \frac{1}{(q + 1)(2q + 1)} - \left(\frac{2}{(q + 2)(q + 1)}\right)^2.
+\sigma^2_{z^q_a} = \frac{1}{(q + 1)(2q + 1)} - \left(\frac{2}{(q + 2)(q + 1)}\right)^2.
 \end{equation}
 
 By linearity of the expected value and variance operators under the iid assumption, Eqs. \ref{eq:uniformDqMean} and \ref{eq:uniformDqVar} allow the $p \text{-dimensional}$ mean and variance of the $\left(D^{(q)}_{ij}\right)^q$ distribution to be computed directly as
@@ -693,7 +693,7 @@ Assuming data is standard normal, we substitute $q=1$ into Eq.~\ref{eq:normalPDF
 %
 \begin{equation}\label{eq:projected_distance_density_normal1}
 \begin{aligned}
-f_{Z^q}\left(z^q_a\right) &= \frac{\frac{2}{1}}{\left(2^1\right)^{1/1}\Gamma\left(\frac{\frac{1}{1}}{\frac{2}{1}}\right)}\left(z^1_a\right)^{1/1 - 1} e^{-\left(\frac{z^1_a}{2^1}\right)^{2/1}}, \quad z_a > 0\\
+f_{Z^1_a}\left(z^1_a\right) &= \frac{\frac{2}{1}}{\left(2^1\right)^{1/1}\Gamma\left(\frac{\frac{1}{1}}{\frac{2}{1}}\right)}\left(z^1_a\right)^{1/1 - 1} e^{-\left(\frac{z^1_a}{2^1}\right)^{2/1}}, \quad z_a > 0\\
 &= \frac{1}{\sqrt{\pi}} z_a e^{-\frac{1}{4}z^2_a}, \quad z_a > 0.
 \end{aligned}
 \end{equation}
@@ -702,7 +702,7 @@ The mean corresponding to this Generalized Gamma density is computed by substitu
 %
 \begin{equation}\label{eq:1DnormalD1Mean}
 \begin{aligned}
-\mu_{Z^1} &= \frac{2^1 \Gamma\left(\frac{1 + 1}{2}\right)}{\sqrt{\pi}} \\
+\mu_{Z^1_a} &= \frac{2^1 \Gamma\left(\frac{1 + 1}{2}\right)}{\sqrt{\pi}} \\
 &= \frac{2}{\sqrt{\pi}}.
 \end{aligned}
 \end{equation}
@@ -711,12 +711,41 @@ Substituting $q=1$ into Eq.~\ref{eq:1DnormalDqVar} for the variance, we have the
 %
 \begin{equation}\label{eq:1DnormalD1Var}
 \begin{aligned}
-\sigma^2_{Z^1} &= 4^1\left[\frac{\Gamma\left(1 + \frac{1}{2}\right)}{\sqrt{\pi}} - \frac{\Gamma^2\left(\frac{1}{2}\cdot 1 + \frac{1}{2}\right)}{\pi}\right] \\
+\sigma^2_{Z^1_a} &= 4^1\left[\frac{\Gamma\left(1 + \frac{1}{2}\right)}{\sqrt{\pi}} - \frac{\Gamma^2\left(\frac{1}{2}\cdot 1 + \frac{1}{2}\right)}{\pi}\right] \\
 &= \frac{2(\pi-2)}{\pi}.
 \end{aligned}
 \end{equation}
 
-These last few results (Eqs.~\ref{eq:projected_distance_density_normal1}-\ref{eq:1DnormalD1Var}) provide us with the null distribution for NPDR predictors when the data is from the standard normal distribution. This assumption is reasonable in the context of real data because we typically transform $X^{(m \times p)}$ so that each row has zero mean and unit variance. In addition to standardizing, simple log-transformations make gene expression data approximately satisfy the normality assumption.
+These last few results (Eqs.~\ref{eq:projected_distance_density_normal1}-\ref{eq:1DnormalD1Var}) provide us with the distribution for NPDR predictors when the data is from the standard normal distribution. 
+
+If we have standard uniform data, we substitute $q=1$ into Eq.~\ref{eq:uniformDqPDF} to obtain the following density function
+%
+\begin{equation}\label{eq:projected_distance_density_uniform1}
+\begin{aligned}
+f_{Z^1_a} &= \frac{1}{1}\cdot 2\left(z^1_a\right)^{1/1 - 1}\left[1 - \left(z^1_a\right)^{1/1}\right]^{2-1}, \quad 0 < z_a \leq 1 \\
+&= 2z_a(1 - z_a), \quad 0 < z_a \leq 1.
+\end{aligned}
+\end{equation}
+
+The mean corresponding to this Kumaraswamy density is computed by substituting $q=1$ into Eq.~\ref{eq:1DuniformDqMean}. After substitution, we have the following result
+%
+\begin{equation}\label{eq:1DuniformD1Mean}
+\begin{aligned}
+\mu_{Z^1_a} &= \frac{2}{(1 + 2)(1 + 1)} \\
+&= \frac{1}{3}.
+\end{aligned}
+\end{equation}
+
+Substituting $q=1$ into Eq.~\ref{eq:1DuniformDqVar} for the variance, we have the following
+%
+\begin{equation}\label{eq:1DuniformD1Var}
+\begin{aligned}
+\sigma^2_{Z^1_a} &= \frac{1}{(1 + 1)(2\cdot 1 + 1)} - \left(\frac{2}{(1 + 2)(1 + 1)}\right)^2 \\
+&= \frac{1}{18}.
+\end{aligned}
+\end{equation}
+
+In the event that the data distribution is standard uniform, Eqs.~\ref{eq:projected_distance_density_uniform1}-\ref{eq:1DuniformD1Var} provide the distribution for NPDR predictors. The means (Eqs.~\ref{eq:1DnormalD1Mean} and \ref{eq:1DuniformD1Mean}) and variances (Eqs.\ref{eq:1DnormalD1Var} and \ref{eq:1DuniformD1Var}) come from the exact distribution of pairwise distances with respect to a single attribute $a \in \mathcal{A}$. This is the distribution of the so-called ``projection" of the pairwise distance onto a single attribute to which we have been referring, which is a direct implication from our more general derivations. In a similar manner, one can substitute any value of $q \geq 2$ into Eqs.~\ref{eq:normalPDF} and \ref{eq:uniformDqPDF} to derive the associated density of $Z^q_a = |X_{ia} - X_{ja}|^q$ for the given data type.
 
 \subsection{Euclidean \texorpdfstring{($L_2$)}{}}
 
@@ -797,11 +826,11 @@ For the case in which the number of attributes $p$ is small, an improved estimat
 \end{aligned}
 \end{equation}
 
-This concludes our analysis with continuous data distributions and the standard $L_q$ metric. In the next section, we will use extreme value theory to derive the distribution of the sample maximum and minimum for standard normal and standard uniform data. This will lead us to asymptotics for the max-min normalized $L_q$ metric used frequently in Relief-based algorithms \cite{urbanowicz17,robnik2003,urbanowiczReliefReview2018} for scoring features.
+This concludes our analysis with continuous data distributions and the standard $L_q$ metric. In the next section, we will use extreme value theory to derive the distribution of the sample maximum and minimum for standard normal and standard uniform data. This will lead us to asymptotics for the max-min normalized $L_q$ metric used frequently in Relief-based algorithms \cite{urbanowicz17,robnik2003} for scoring features.
 
 \subsection{Distribution of max-min normalized \texorpdfstring{$L_q$}{} metric}\label{sec:extremes}
 
-For Relief-based methods \cite{robnik2003,urbanowiczReliefReview2018,urbanowicz17}, the standard numeric diff metric is given by
+For Relief-based methods \cite{robnik2003,urbanowicz17}, the standard numeric diff metric is given by
 %
 \begin{equation}\label{eq:normDiff}
 \text{d}^{\text{num}}_{ij}(a) = \text{diff}(a,(i,j)) = \frac{|X_{ia} - X_{ja}|}{\text{max}(a) - \text{min}(a)},
