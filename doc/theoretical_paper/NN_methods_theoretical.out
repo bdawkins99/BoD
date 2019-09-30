@@ -7,26 +7,27 @@
 \BOOKMARK [2][-]{subsection.2.2}{Manhattan }{section.2}% 7
 \BOOKMARK [3][-]{subsubsection.2.2.1}{Standard normal data}{subsection.2.2}% 8
 \BOOKMARK [3][-]{subsubsection.2.2.2}{Standard uniform data}{subsection.2.2}% 9
-\BOOKMARK [2][-]{subsection.2.3}{Euclidean }{section.2}% 10
-\BOOKMARK [3][-]{subsubsection.2.3.1}{Standard normal data}{subsection.2.3}% 11
-\BOOKMARK [3][-]{subsubsection.2.3.2}{Standard uniform data}{subsection.2.3}% 12
-\BOOKMARK [2][-]{subsection.2.4}{Distribution of max-min normalized \040metric}{section.2}% 13
-\BOOKMARK [3][-]{subsubsection.2.4.1}{Standard normal data}{subsection.2.4}% 14
-\BOOKMARK [3][-]{subsubsection.2.4.2}{Standard uniform data}{subsection.2.4}% 15
-\BOOKMARK [2][-]{subsection.2.5}{Normalized Manhattan }{section.2}% 16
-\BOOKMARK [3][-]{subsubsection.2.5.1}{Standard normal data}{subsection.2.5}% 17
-\BOOKMARK [3][-]{subsubsection.2.5.2}{Standard uniform data}{subsection.2.5}% 18
-\BOOKMARK [2][-]{subsection.2.6}{Normalized Euclidean }{section.2}% 19
-\BOOKMARK [3][-]{subsubsection.2.6.1}{Standard normal data}{subsection.2.6}% 20
-\BOOKMARK [3][-]{subsubsection.2.6.2}{Standard uniform data}{subsection.2.6}% 21
-\BOOKMARK [1][-]{section.3}{GWAS distance distributions}{}% 22
-\BOOKMARK [2][-]{subsection.3.1}{GM distance distribution}{section.3}% 23
-\BOOKMARK [2][-]{subsection.3.2}{AM distance distribution}{section.3}% 24
-\BOOKMARK [2][-]{subsection.3.3}{TiTv distance distribution}{section.3}% 25
-\BOOKMARK [1][-]{section.4}{Time series correlation-based distance distribution}{}% 26
-\BOOKMARK [2][-]{subsection.4.1}{Normalized Manhattan \040for rs-fMRI}{section.4}% 27
-\BOOKMARK [1][-]{section.5}{Effects of correlation on distances}{}% 28
-\BOOKMARK [2][-]{subsection.5.1}{Continuous data}{section.5}% 29
-\BOOKMARK [2][-]{subsection.5.2}{GWAS data}{section.5}% 30
-\BOOKMARK [2][-]{subsection.5.3}{Correlation-based data}{section.5}% 31
-\BOOKMARK [1][-]{section.6}{Discussion}{}% 32
+\BOOKMARK [3][-]{subsubsection.2.2.3}{Distribution of attribute diff}{subsection.2.2}% 10
+\BOOKMARK [2][-]{subsection.2.3}{Euclidean }{section.2}% 11
+\BOOKMARK [3][-]{subsubsection.2.3.1}{Standard normal data}{subsection.2.3}% 12
+\BOOKMARK [3][-]{subsubsection.2.3.2}{Standard uniform data}{subsection.2.3}% 13
+\BOOKMARK [2][-]{subsection.2.4}{Distribution of max-min normalized \040metric}{section.2}% 14
+\BOOKMARK [3][-]{subsubsection.2.4.1}{Standard normal data}{subsection.2.4}% 15
+\BOOKMARK [3][-]{subsubsection.2.4.2}{Standard uniform data}{subsection.2.4}% 16
+\BOOKMARK [2][-]{subsection.2.5}{Normalized Manhattan }{section.2}% 17
+\BOOKMARK [3][-]{subsubsection.2.5.1}{Standard normal data}{subsection.2.5}% 18
+\BOOKMARK [3][-]{subsubsection.2.5.2}{Standard uniform data}{subsection.2.5}% 19
+\BOOKMARK [2][-]{subsection.2.6}{Normalized Euclidean }{section.2}% 20
+\BOOKMARK [3][-]{subsubsection.2.6.1}{Standard normal data}{subsection.2.6}% 21
+\BOOKMARK [3][-]{subsubsection.2.6.2}{Standard uniform data}{subsection.2.6}% 22
+\BOOKMARK [1][-]{section.3}{GWAS distance distributions}{}% 23
+\BOOKMARK [2][-]{subsection.3.1}{GM distance distribution}{section.3}% 24
+\BOOKMARK [2][-]{subsection.3.2}{AM distance distribution}{section.3}% 25
+\BOOKMARK [2][-]{subsection.3.3}{TiTv distance distribution}{section.3}% 26
+\BOOKMARK [1][-]{section.4}{Time series correlation-based distance distribution}{}% 27
+\BOOKMARK [2][-]{subsection.4.1}{Normalized Manhattan \040for rs-fMRI}{section.4}% 28
+\BOOKMARK [1][-]{section.5}{Effects of correlation on distances}{}% 29
+\BOOKMARK [2][-]{subsection.5.1}{Continuous data}{section.5}% 30
+\BOOKMARK [2][-]{subsection.5.2}{GWAS data}{section.5}% 31
+\BOOKMARK [2][-]{subsection.5.3}{Correlation-based data}{section.5}% 32
+\BOOKMARK [1][-]{section.6}{Discussion}{}% 33
