@@ -683,7 +683,40 @@ Substituting $q=1$ into the formula given by Eq.~\ref{eq:uniformDistr} of the as
 
 As in the case of the $L_1$ metric on standard normal data, we have a variance given by Eq.~\ref{eq:uniformManVar} that grows on the order of $p$. The distances between points in high-dimensional uniform data become more widely dispersed with this metric.
 
-\subsubsection{Distribution of attribute diff}
+\subsubsection{Distribution of one-dimensional projection of pairwise distance onto an attribute}
+
+In nearest-neighbor distance-based feature selection like NPDR and Relief-based algorithms, the one-dimensional projection of the pairwise distance onto an attribute (Eq.~\ref{eq:diff}) is particularly fundamental to feature quality. For instance, this distance projection is the predictor used to determine beta coefficients for features in NPDR. In particular, understanding distributional properties of the projected distances is necessary for defining P values for NPDR. Up to this point, the distribution of NPDR beta coefficients under the null hypothesis is an unsolved problem. It is crucial to solve this problem in order to have realistic P values from computed beta coefficients in NPDR. In this section, we summarize the exact distribution of the one-dimensional projected distance onto an attribute $a \in \mathcal{A}$. These results apply to continuous data, such as, gene expression. 
+
+In previous sections, we derived the exact density function (Eq.~\ref{eq:DqPDF}) and moments (Eqs.~\ref{eq:1DDqMean} and \ref{eq:1DDqVar}) for the distribution of $Z^q_a=|X_{ia}-X_{ja}|^q$. We then derived the exact density (Eq.~\ref{eq:normalPDF}) and moments (Eqs.~\ref{eq:1DnormalDqMean} and \ref{eq:1DnormalDqVar}) for standard normal data. Analogously, we formulated the exact density (Eq.~\ref{eq:uniformDqPDF}) and moments (Eqs.~\ref{eq:1DuniformDqMean} and \ref{eq:1DuniformDqVar}) for standard uniform data. From these exact densities and moments, we simply substitute $q=1$ to define the distribution of the one-dimensional projected distance onto an attribute $a \in \mathcal{A}$.
+
+Assuming data is standard normal, we substitute $q=1$ into Eq.~\ref{eq:normalPDF} to arrive at the following density function
+%
+\begin{equation}\label{eq:projected_distance_density_normal1}
+\begin{aligned}
+f_{Z^q}\left(z^q_a\right) &= \frac{\frac{2}{1}}{\left(2^1\right)^{1/1}\Gamma\left(\frac{\frac{1}{1}}{\frac{2}{1}}\right)}\left(z^1_a\right)^{1/1 - 1} e^{-\left(\frac{z^1_a}{2^1}\right)^{2/1}}, \quad z_a > 0\\
+&= \frac{1}{\sqrt{\pi}} z_a e^{-\frac{1}{4}z^2_a}, \quad z_a > 0.
+\end{aligned}
+\end{equation}
+
+The mean corresponding to this Generalized Gamma density is computed by substituting $q=1$ into Eq.~\ref{eq:1DnormalDqMean}. This result is given by
+%
+\begin{equation}\label{eq:1DnormalD1Mean}
+\begin{aligned}
+\mu_{Z^1} &= \frac{2^1 \Gamma\left(\frac{1 + 1}{2}\right)}{\sqrt{\pi}} \\
+&= \frac{2}{\sqrt{\pi}}.
+\end{aligned}
+\end{equation}
+
+Substituting $q=1$ into Eq.~\ref{eq:1DnormalDqVar} for the variance, we have the following
+%
+\begin{equation}\label{eq:1DnormalD1Var}
+\begin{aligned}
+\sigma^2_{Z^1} &= 4^1\left[\frac{\Gamma\left(1 + \frac{1}{2}\right)}{\sqrt{\pi}} - \frac{\Gamma^2\left(\frac{1}{2}\cdot 1 + \frac{1}{2}\right)}{\pi}\right] \\
+&= \frac{2(\pi-2)}{\pi}.
+\end{aligned}
+\end{equation}
+
+These last few results (Eqs.~\ref{eq:projected_distance_density_normal1}-\ref{eq:1DnormalD1Var}) provide us with the null distribution for NPDR predictors when the data is from the standard normal distribution. This assumption is reasonable in the context of real data because we typically transform $X^{(m \times p)}$ so that each row has zero mean and unit variance. In addition to standardizing, simple log-transformations make gene expression data approximately satisfy the normality assumption.
 
 \subsection{Euclidean \texorpdfstring{($L_2$)}{}}
 
