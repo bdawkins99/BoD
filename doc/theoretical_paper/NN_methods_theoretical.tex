@@ -683,7 +683,7 @@ Substituting $q=1$ into the formula given by Eq.~\ref{eq:uniformDistr} of the as
 
 As in the case of the $L_1$ metric on standard normal data, we have a variance given by Eq.~\ref{eq:uniformManVar} that grows on the order of $p$. The distances between points in high-dimensional uniform data become more widely dispersed with this metric.
 
-\subsubsection{Distribution of one-dimensional projection of pairwise distance onto an attribute}
+\subsubsection{Distribution of one-dimensional projection of pairwise distance onto an attribute}\label{sec:continuous_diff}
 
 In nearest-neighbor distance-based feature selection like NPDR and Relief-based algorithms, the one-dimensional projection of the pairwise distance onto an attribute (Eq.~\ref{eq:diff}) is particularly fundamental to feature quality. For instance, this distance projection is the predictor used to determine beta coefficients for features in NPDR. In particular, understanding distributional properties of the projected distances is necessary for defining P values for NPDR. Up to this point, the distribution of NPDR beta coefficients under the null hypothesis is an unsolved problem. It is crucial to solve this problem in order to have realistic P values from computed beta coefficients in NPDR. In this section, we summarize the exact distribution of the one-dimensional projected distance onto an attribute $a \in \mathcal{A}$. These results apply to continuous data, such as, gene expression. 
 
@@ -1425,7 +1425,7 @@ With the mean and variance estimates given by Eqs. \ref{eq:mu_DDistr_GM} and \re
 \begin{equation}\label{eq:DDistr_GM}
 D^\text{GM}_{ij} \overset{.}{\sim} \mathcal{N}\left(2\sum_{a \in \mathcal{A}} F(a), 2\sum_{a \in \mathcal{A}} F(a)[1 - 2F(a)]\right),
 \end{equation}
-where $F(a) = 2(1 - f_a)^3f_a + 2(1 - f_a)f^3_a + (1 - f_a)^2f^2_a$. 
+where $F(a) = 2(1 - f_a)^3f_a + 2(1 - f_a)f^3_a + (1 - f_a)^2f^2_a$.  
 
 \subsection{AM distance distribution}
 
@@ -1708,6 +1708,161 @@ We also compared theoretical and sample moments as a function of $\eta = \text{T
 	\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.05cm,width=\textwidth]{updated_distributions_table-gwas(5-23-2019).pdf}
 \end{table}
 
+\subsection{Distribution of one-dimensional projection of GWAS distance onto a SNP}
+
+We previously derived the exact distribution of the one-dimensional projected distance onto an attribute in continuous data (Sec.~\ref{sec:continuous_diff}), which is used as the predictor in NPDR to calculate relative feature importance in the form of standardized beta coefficients. GWAS data and the metrics we have considered are discrete. Therefore, we derive the density function for each diff metric (Eqs.~\ref{eq:diff_GM}-\ref{eq:diff_TiTv}), which also serves as the probability distribution for each metric, respectively.
+
+The support of the GM metric (Eq.~\ref{eq:diff_GM}) is simply $\{0,1\}$, so we derive the probability, $\text{P}\left[\text{d}^\text{GM}_{ij}(a) = k\right]$, of this diff taking on each of these two possible values. First, the probability that the GM diff is equal to zero is given by
+%
+\begin{equation}\label{eq:probGM0}
+\begin{aligned}
+f_\text{GM}(0;f_a) = \text{P}\left[\text{d}^\text{GM}_{ij}(a) = 0\right] &= \text{P}\left(X_{ia}=0,X_{ja}=0\right) + \text{P}\left(X_{ia}=1,X_{ja}=1\right) \\
+& \hspace{3.64cm} + \text{P}\left(X_{ia}=2,X_{ja}=2\right) \\
+&= \left(1 - f_a\right)^4 + 4 f^2_a \left(1 - f_a\right)^2 + f^4_a,
+\end{aligned}
+\end{equation}
+%
+where $f_a$ is the probability of a minor allele occurring at locus $a$.
+
+Similarly, the probability that the GM diff is equal to 1 is derived as follows
+%
+\begin{equation}\label{eq:probGM1}
+\begin{aligned}
+f_\text{GM}(1;f_a) = \text{P}\left[\text{d}^\text{GM}_{ij}(a) = 1\right] &= 2\text{P}\left(X_{ia}=0,X_{ja}=1\right) + 2\text{P}\left(X_{ia}=1,X_{ia}=2\right) \\
+& \hspace{3.81cm} + 2\text{P}\left(X_{ia}=0,X_{ja}=2\right) \\
+&= 4\left(1 - f_a\right)^3 f_a + 4 f^3_a \left(1 - f_a\right) + 2 f^2_a \left(1 - f_a\right)^2,
+\end{aligned}
+\end{equation}
+%
+where $f_a$ is the probability of a minor allele occurring at locus $a$.
+
+This leads us to the probability distribution of the GM diff metric, which is the distribution of the one-dimensional GM distance projected onto a single SNP. This distribution is given by
+%
+\begin{equation}\label{eq:GMdiffPDF}
+f_\text{GM}(d;f_a) = \begin{cases}
+\left(1 - f_a\right)^4 + 4 f^2_a \left(1 - f_a\right)^2 + f^4_a & d=0, \\
+4\left(1 - f_a\right)^3 f_a + 4 f^3_a \left(1 - f_a\right) + 2 f^2_a \left(1 - f_a\right)^2 & d=1,
+\end{cases}
+\end{equation}
+%
+where $f_a$ is the probability of a minor allele occurring at locus $a$. 
+
+The mean and variance of this GM diff distribution can easily be derived using this newly determined density function (Eq.~\ref{eq:GMdiffPDF}). The average GM diff is given by the following
+%
+\begin{equation}\label{eq:GMdiffMean}
+\text{E}\left[\text{d}^\text{GM}_{ij}(a)\right] = 2 F^\text{GM}(a),
+\end{equation}
+%
+where $F^\text{GM} = 2 \left(1 - f_a\right)^3 f_a + 2 f^3_a \left(1 - f_a\right) + f^2_a \left(1 - f_a\right)^2$ and $f_a$ is the probability of a minor allele occurring at locus $a$.
+
+The variance of the GM diff metric is given by
+%
+\begin{equation}\label{eq:GMdiffVar}
+\text{Var}\left[\text{d}^\text{GM}_{ij}(a)\right] = 2 F^\text{GM}(a)\left[1 - 2 F^\text{GM}(a)\right],
+\end{equation}
+%
+where $F^\text{GM} = 2 \left(1 - f_a\right)^3 f_a + 2 f^3_a \left(1 - f_a\right) + f^2_a \left(1 - f_a\right)^2$ and $f_a$ is the probability of a minor allele occurring at locus $a$.
+
+The support of the AM metric (Eq.~\ref{eq:diff_AM}) is $\{0,1/2,1\}$. Beginning with the probability of the AM diff being equal to 0, we have the following probability
+%
+\begin{equation}\label{eq:probAM0}
+\begin{aligned}
+f_\text{AM}(0;f_a) = \text{P}\left[\text{d}^\text{AM}_{ij}(a) = 0\right] &= 
+\text{P}\left(X_{ia}=0,X_{ja}=0\right) + \text{P}\left(X_{ia}=1,X_{ja}=1\right) \\
+& \hspace{3.64cm} + \text{P}\left(X_{ia}=2,X_{ja}=2\right) \\
+&= \left(1 - f_a\right)^4 + 4 f^2_a \left(1 - f_a\right)^2 + f^4_a,
+\end{aligned}
+\end{equation}
+%
+where $f_a$ is the probability of a minor allele occurring at locus $a$.
+
+The probability of the AM diff metric being equal to 1/2 is computed similarly as follows
+%
+\begin{equation}\label{eq:probAM0.5}
+\begin{aligned}
+f_\text{AM}\left(1/2;f_a\right) = \text{P}\left[\text{d}^\text{AM}_{ij}(a) = 1/2\right] &= 2\text{P}\left(X_{ia}=0,X_{ja}=1\right) + 2\text{P}\left(X_{ia}=1,X_{ia}=2\right) \\
+&= 4 \left(1 - f_a\right)^3 f_a + 4 f^3_a \left(1 - f_a\right),
+\end{aligned}
+\end{equation}
+%
+where $f_a$ the probability of a minor allele occurring at locus $a$.
+
+Finally, the probability of the AM diff metric being equal to 1 is given by the following
+%
+\begin{equation}\label{eq:probAM1}
+\begin{aligned}
+f_\text{AM}(1;f_a) = \text{P}\left[\text{d}^\text{AM}_{ij}(a) = 1\right] &= 2 \text{P}\left(X_{ia}=0,X_{ja}=2\right) \\
+&= 2 f^2_a \left(1 - f_a\right)^2,
+\end{aligned}
+\end{equation}
+%
+where $f_a$ is the probability of a minor allele occuring at locus $a$.
+
+As in the case of the GM diff metric, we now have the probability distribution of the AM diff metric. This also serves as the distribution of the one-dimensional AM distance projected onto a single SNP, and is given by the following
+%
+\begin{equation}\label{eq:AMdiffPDF}
+f_\text{AM}(d;f_a) = \begin{cases}
+\left(1 - f_a\right)^4 + 4 f^2_a \left(1 - f_a\right)^2 + f^4_a & d=0, \\
+4 \left(1 - f_a\right)^3 f_a + 4 f^3_a \left(1 - f_a\right) & d=1/2, \\
+2 f^2_a \left(1 - f_a\right)^2 & d=1,
+\end{cases}
+\end{equation}
+%
+where $f_a$ is the probability of a minor allele occurring at locus $a$.
+
+The mean and variance of this AM diff distribution is derived using the corresponding density function (Eq.~\ref{eq:AMdiffPDF}). The average AM diff is given by
+%
+\begin{equation}\label{eq:AMdiffMean}
+\text{E}\left[\text{d}^\text{AM}_{ij}(a)\right] = 2 F^\text{AM}(a),
+\end{equation}
+%
+where $F^\text{AM}(a) = \left(1 - f_a\right)^3 f_a + f^3_a \left(1 - f_a\right) + f^2_a \left(1 - f_a\right)^2$ and $f_a$ is the probability of a minor allele occurring at locus $a$.
+
+The variance of the AM diff metric is given by
+%
+\begin{equation}\label{eq:AMdiffVar}
+\text{Var}\left[\text{d}^\text{AM}_{ij}(a)\right] = G^\text{AM}(a) - 4 \left[F^\text{AM}(a)\right]^2,
+\end{equation}
+%
+where $G^\text{AM}(a) = \left(1 - f_a\right)^3 f_a + f^3_a \left(1 - f_a\right) + 2\left(1 - f_a\right)^2 f^2_a$, $F^\text{AM}(a) = \left(1 - f_a\right)^3 f_a + f^3_a \left(1 - f_a\right) + f^2_a \left(1 - f_a\right)$, $f_a$ is the probability of a minor allele occurring at locus $a$.
+
+For the TiTv diff metric (Eq.~\ref{eq:diff_TiTv}), the support is $\{0,1/4,1/2,3/4,1\}$. We have already derived the probability that the TiTv diff assumes each of the values of its support (Eqs.~\ref{eq:prob_TiTv_0}-\ref{eq:prob_TiTv_1}). Therefore, we have the following distribution of the TiTv diff metric
+%
+\begin{equation}\label{eq:TiTvdiffPDF}
+f_\text{TiTv}(d;f_a,\gamma_0,\gamma_1,\gamma_2,\eta) = \begin{cases}
+\left(1 - f_a\right)^4 + 4 f^2_a \left(1 - f_a\right)^2 + f^4_a & d=0, \\
+4(\gamma_0 + \gamma_2)\left[\left(1 - f_a\right)^3 f_a + f^3_a \left(1 - f_a\right)\right] & d=1/4, \\
+4 \gamma_1 \left[\left(1 - f_a\right)^3 f_a + f^3_a \left(1 - f_a\right)\right] & d=1/2, \\
+2(\gamma_0 + \gamma_2)\left(1 - f_a\right)^2 f^2_a & d=3/4, \\
+2\gamma_1\left(1 - f_a\right)^2 f^2_a & d=1,
+\end{cases}
+\end{equation}
+%
+where $f_a$ is the probability of a minor allele occurring at locus $a$, $\gamma_0$ is the probability of PuPu at locus $a$, $\gamma_1$ is the probability of PuPy at locus $a$, $\gamma_2$ is the probability of PyPy at locus $a$, and $\eta$ is the Ti/Tv ratio (Eq.~\ref{eq:TiTv_constraints2}).
+
+The mean and variance of this TiTv diff distribution is derived using the corresponding density function (Eq.~\ref{eq:TiTvdiffPDF}). The average TiTv diff is given by
+%
+\begin{equation}\label{eq:TiTvdiffMean}
+\begin{aligned}
+\text{E}\left[\text{d}^\text{TiTv}_{ij}(a)\right] &= (\gamma_0 + \gamma_2 + 2\gamma_1)F^\text{TiTv}(a) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] G^\text{TiTv}(a),
+\end{aligned}
+\end{equation}
+%
+where $F^\text{TiTv}(a) = \left(1 - f_a\right)^3 f_a + f^3_a \left(1 - f_a\right)$, $G^\text{TiTv}(a) = f^2_a \left(1 - f_a\right)^2$, $f_a$ is the probability of a minor allele occurring at locus $a$, $\gamma_0$ is the probability of PuPu at locus $a$, $\gamma_1$ is the probability of PuPy at locus $a$, and $\gamma_2$ is the probability of PyPy at locus $a$.
+
+The variance of the TiTv diff metric is given by
+%
+\begin{equation}\label{eq:TiTvdiffVar}
+\begin{aligned}
+\text{Var}\left[\text{d}^\text{TiTv}_{ij}(a)\right] &= \left[\frac{1}{4}(\gamma_0 + \gamma_2) + \gamma_1\right] F^\text{TiTv}(a) + \left[\frac{9}{8}(\gamma_0 + \gamma_2) + 2\gamma_1\right] G^\text{TiTv}(a) \\
+&- \left((\gamma_0 + \gamma_2 + 2\gamma_1)F^\text{TiTv}(a) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] G^\text{TiTv}(a)\right)^2,
+\end{aligned}
+\end{equation}
+%
+where $F^\text{TiTv}(a) = \left(1 - f_a\right)^3 f_a + f^3_a \left(1 - f_a\right)$, $G^\text{TiTv}(a) = f^2_a \left(1 - f_a\right)^2$, $f_a$ is the probability of a minor allele occurring at locus $a$, $\gamma_0$ is the probability of PuPu at locus $a$, $\gamma_1$ is the probability of PuPy at locus $a$, and $\gamma_2$ is the probability of PyPy at locus $a$.
+
+We now have the distribution of the projection of pairwise GWAS distances onto a single SNP. These distributions and their respective moments can inform NPDR, as well as other nearest-neighbor distance-based feature selection algorithms. Similar to the distribution of the TiTv pairwise distance, the TiTv diff distribution we have just derived is a novel result. In the next section, we introduce our new diff metric for time series correlation-based data, with a particular application to resting-state fMRI.
+
 %\subsection{Resting-State fMRI Distance Distribution}
 \section{Time series correlation-based distance distribution}\label{sec:rs-fMRI_distances}
 
@@ -1765,7 +1920,19 @@ We further transform the data matrix $X$ by standardizing so that each of the $m
 \end{aligned}
 \end{equation}
 
-Due to the dependencies that exist between terms in the double sum when computing the rs-fMRI distance, linearity no longer applies to the variance operator. We proceed by writing the form of the variance as follows
+We first derive the variance of the rs-fMRI distance by making an independence assumption with respect to the magnitude differences $|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}|$ for all $k \neq a \in \mathcal{A}$. We proceed as follows
+%
+\begin{equation}\label{eq:var_DDistr_rs-fMRI_standard}
+\begin{aligned}
+\text{Var}(D^\text{fMRI}_{ij}) &= \text{Var}\left(\sum_{a \in \mathcal{A}} \text{d}^\text{ROI}_{ij}(a)\right) \\
+&= \text{Var}\left(\sum_{a \in \mathcal{A}} \sum_{k \neq a} \bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|\right) \\
+&= \sum_{a \in \mathcal{A}} \sum_{k \neq a} \text{Var}\left(\bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|\right) \\
+&= \sum_{a \in \mathcal{A}} \sum_{k \neq a} \frac{2(\pi - 2)}{\pi} \\
+&= \frac{2(\pi - 2)(p-1)p}{\pi}.
+\end{aligned}
+\end{equation}
+
+The independence assumption we made to derive the variance of our rs-fMRI distance metric (Eq.~\ref{eq:var_DDistr_rs-fMRI_standard}) is not actually satisfied due to the fact that a single value of the diff (Eq.~\ref{eq:diff_rs-fMRI}) includes the same fixed ROI $a$ for each term in the sum for all $k \neq a$. However, the theoretical variance of the distance we computed for the rs-fMRI distance metric (Eq.~\ref{eq:var_DDistr_rs-fMRI_standard}) still reasonably approximates the sample variance. There is a slight discrepancy between our theoretical rs-fMRI distance metric variance (Eq.~\ref{eq:var_DDistr_rs-fMRI_standard}) and the sample variance. Because of this discrepancy, we determine a corrected formula by assuming that there is dependence between the terms of the rs-fMRI diff. We start the derivation of our corrected formula by writing the variance as a two-part sum, where the first term in the sum involves the variance of the magnitude difference $|\hat{A}^{(i)}_{ka} - \hat{A}^{(j)}_{ka}|$ and then second term involves the covariance of different pairs of magnitude differences. This begins as follows
 %
 \begin{equation}\label{eq:var_DDistr_rs-fMRI}
 \begin{aligned}
