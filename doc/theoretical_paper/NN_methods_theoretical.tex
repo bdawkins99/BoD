@@ -2034,7 +2034,13 @@ Using the corrected rs-fMRI distance variance formula (Eq.~\ref{eq:var_DDistr_rs
 %
 where $a$ is a single fixed ROI.
 
-Empirically, the first estimate (Eq.~\ref{eq:rs-fMRI_diffVar1}) of the variance of our rs-fMRI diff is closer to the sample variance than the second estimate (Eq.~\ref{eq:rs-fMRI_diffVar2}). This is due to fact that we are considering only a fixed ROI $a \in mathcal{A}$, so the cross-covariance between the magnitude differences $\left|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\right|$ for different pairs of ROIs ($a$ and $k \neq a$) is negligible here. When considering all ROIs $a \in \mathcal{A}$, these cross-covariances are no longer negligible.
+Empirically, the first estimate (Eq.~\ref{eq:rs-fMRI_diffVar1}) of the variance of our rs-fMRI diff is closer to the sample variance than the second estimate (Eq.~\ref{eq:rs-fMRI_diffVar2}). This is due to fact that we are considering only a fixed ROI $a \in mathcal{A}$, so the cross-covariance between the magnitude differences $\left|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\right|$ for different pairs of ROIs ($a$ and $k \neq a$) is negligible here. When considering all ROIs $a \in \mathcal{A}$, these cross-covariances are no longer negligible. Using the first variance estimate (Eq.~\ref{eq:rs-fMRI_diffVar1}) and the estimate of the mean (Eq.~\ref{eq:rs-fMRI_diffMean}), we have the following asymptotic distribution of the rs-fMRI diff
+%
+\begin{equation}
+\text{d}^\text{ROI}_{ij}(a) \overset{.}{\sim} \mathcal{N}\left(\frac{2(p-1)}{\sqrt{\pi}},\frac{2(\pi - 2)(p-1)}{\pi}\right),
+\end{equation}
+%
+where $a$ is a single fixed ROI.
 
 \subsection{Normalized Manhattan \texorpdfstring{($q=1$)}{} for rs-fMRI}
 
