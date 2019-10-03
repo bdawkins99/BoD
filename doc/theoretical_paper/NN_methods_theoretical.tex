@@ -1374,8 +1374,40 @@ Similarly, the variance of $D^{(2*)}_{ij}$ is given by
 	\caption{Asymptotic estimates for means and variances for the standard $L_1$ and $L_2$ distance distributions. Estimates for both standard normal and standard uniform data are given.}
 	\label{tab:dist_distr_standardL1L2}
 	\centering
+	\begin{tikzpicture}
 	% trim=left botm right top
-	\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.05cm,width=0.7\textwidth]{updated_typical_metrics_table.pdf}
+	\node at (0,0) {\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.05cm,width=0.7\textwidth]{updated_typical_metrics_table.pdf}};
+	
+	% standard  Lq metric (column 1 - row 1)
+	\node[fill=white,xscale=0.83,yscale=0.83] at (-3.57,1.93) {\bm{$L_1$} (\textbf{Eq.}~\textbf{\ref{eq:D}})};
+	
+	% standard Lq metric (column 1 - row 2)
+	\node[fill=white,xscale=0.83,yscale=0.83] at (-3.57,-3.25) {\bm{$L_2$} (\textbf{Eq.}~\textbf{\ref{eq:D}})};
+	
+	% mean (row 1)
+	\node[fill=white,xscale=0.8,yscale=0.8] at (3.4,4) {(\textbf{\ref{eq:normalManMean}})};
+	
+	% var (row 2)
+	\node[fill=white,xscale=0.8,yscale=0.8] at (3.78,2.705) {(\textbf{\ref{eq:normalManVar}})};
+	
+	% mean (row 3)
+	\node[fill=white,xscale=0.8,yscale=0.8] at (3.26,1.413) {(\textbf{\ref{eq:uniformManMean}})};
+	
+    % var (row 4)
+	\node[fill=white,xscale=0.8,yscale=0.8] at (3.33,0.123) {(\textbf{\ref{eq:uniformManVar}})};
+	
+	% mean (row 5)
+	\node[fill=white,xscale=0.8,yscale=0.8] at (3.66,-1.15) {(\textbf{\ref{eq:normalEucMean}})};
+	
+    % var (row 6)
+	\node[fill=white,xscale=0.8,yscale=0.8] at (3.2,-2.46) {(\textbf{\ref{eq:normalEucVar}})};
+	
+	% mean (row 7)
+	\node[fill=white,xscale=0.8,yscale=0.8] at (3.96,-3.76) {(\textbf{\ref{eq:uniformEucMean}})};
+	
+	% var (row 8)
+	\node[fill=white,xscale=0.8,yscale=0.8] at (3.4,-5.05) {(\textbf{\ref{eq:uniformEucVar}})};
+	\end{tikzpicture}
 \end{table}
 
 \begin{table}[H]
