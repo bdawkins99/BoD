@@ -838,6 +838,15 @@ For Relief-based methods \cite{robnik2003,urbanowicz17}, the standard numeric di
 %
 where $\text{max}(a) = \displaystyle \max_{k \in \mathcal{I}}\{X_{ka}\}$, $\text{min}(a) = \displaystyle \min_{k \in \mathcal{I}}\{X_{ka}\}$, and $\mathcal{I} = \{1,2,\dots,m\}$. 
 
+The pairwise distance using this max-min normalized diff metric is then computed as
+%
+\begin{equation}\label{eq:D*}
+\begin{aligned}
+D^{(q*)}_{ij} &= \left(\sum_{a\in \mathcal{A}}|\text{d}_{ij}(a)|^q\right)^{1/q} \\
+&= \left(\sum_{a\in \mathcal{A}}\left(\frac{|X_{ia} - X_{ja}|}{\text{max}(a) - \text{min}(a)}\right)^q\right)^{1/q}.
+\end{aligned}
+\end{equation}
+
 In order to determine moments of asymptotic distance distributions induced by Eq. \ref{eq:normDiff}, we must first derive the asymptotic extreme value distributions of the attribute maximum and minimum. Although the exact distribution of the maximum or minimum requires an assumption about the data distribution, the Fisher-Tippett-Gnedenko Theorem allows us to generally categorize the extreme value distribution for a collection of independent and identically distributed random variables into one of three distributional families. Before stating the theorem, we first need the following definition
 %
 \begin{definition}
@@ -1307,8 +1316,58 @@ Similarly, the variance of $D^{(2*)}_{ij}$ is given by
 	\caption{Summary of distance distribution derivations for standard normal and standard uniform data. Asymptotic estimates are given for both standard and max-min normalized q-metrics. These estimates are relevant for all $q \in \mathbb{N}$ and $p \geq 100$.}
 	\label{tab:dist_distr_general1}
 	\centering
+	\begin{tikzpicture}
 	% trim=left botm right top
-	\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.05cm,width=\textwidth]{updated_distributions_table(5-23-2019).pdf}
+	\node at (0,0) {\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.05cm,width=\textwidth]{updated_distributions_table(5-23-2019).pdf}};
+	
+	% standard Lq metric (column 1 - row 1)
+	\node[fill=white,xscale=0.83,yscale=0.83] at (-5.79,3.9) {(\textbf{Eq.}~\textbf{\ref{eq:D}})};
+	
+	% max-min normalized Lq metric (column 1 - row 2)
+	\node[fill=white,xscale=0.83,yscale=0.83] at (-5.79,-3.6) {(\textbf{Eq.}~\textbf{\ref{eq:D*}})};
+	
+	% mean (row 1)
+	\node[fill=white,xscale=0.8,yscale=0.8] at (4.05,6) {(\textbf{\ref{eq:normalDqMean}})};
+	
+	% var (row 2)
+	\node[fill=white,xscale=0.8,yscale=0.8] at (5.73,4.8) {(\textbf{\ref{eq:normalVar}})};
+	
+	% mean (row 3)
+	\node[fill=white,xscale=0.8,yscale=0.8] at (4.03,3.15) {(\textbf{\ref{eq:uniformDqMean}})};
+	
+	% var (row 4)
+	\node[fill=white,xscale=0.8,yscale=0.8] at (5.98,2) {(\textbf{\ref{eq:uniformDqVar}})};
+	
+	% mean (row 5)
+	\node[fill=white,xscale=0.8,yscale=0.8] at (3.5,0.5) {(\textbf{\ref{eq:max-min_DDistr_normal}})};
+	
+	% numerator mean (row 5)
+	\node[fill=white,xscale=0.81,yscale=0.81] at (3.6,-0.55) {\ref{eq:normalDqMean}};
+	
+	% denominator mean (row 5)
+	\node[fill=white,xscale=0.81,yscale=0.81] at (4.55,-0.55) {\ref{eq:med_max_normal}};
+	
+	% var (row 6)
+	\node[fill=white,xscale=0.8,yscale=0.8] at (4.4,-1.9) {(\textbf{\ref{eq:max-min_DDistr_normal}})};
+	
+	% numerator mean (row 6)
+	\node[fill=white,xscale=0.81,yscale=0.81] at (3.6,-3.035) {\ref{eq:normalDqMean}};
+	
+	% denominator mean (row 6)
+	\node[fill=white,xscale=0.81,yscale=0.81] at (4.55,-3.035) {\ref{eq:med_max_normal}};
+	
+	% mean (row 7)
+	\node[fill=white,xscale=0.8,yscale=0.8] at (3.58,-4.33) {(\textbf{\ref{eq:max-min_DDistr_uniform}})};
+	
+    % numerator mean (row 7)
+	\node[fill=white,xscale=0.81,yscale=0.81] at (3.8,-5.05) {\ref{eq:uniformDqMean}};
+	
+	% var (row 8)
+	\node[fill=white,xscale=0.8,yscale=0.8] at (4.05,-6.384) {(\textbf{\ref{eq:max-min_DDistr_uniform}})};
+	
+	% numerator var (row 8)
+	\node[fill=white,xscale=0.81,yscale=0.81] at (3.8,-7.1) {\ref{eq:uniformDqVar}};
+	\end{tikzpicture}
 \end{table}
 
 \begin{table}[H]
@@ -1913,8 +1972,8 @@ We further transform the data matrix $X$ by standardizing so that each of the $m
 \begin{equation}\label{eq:mu_DDistr_rs-fMRI}
 \begin{aligned}
 \text{E}(D^\text{fMRI}_{ij}) &= \text{E}\left(\sum_{a \in \mathcal{A}} \text{d}^\text{ROI}_{ij}(a)\right) \\
-&= \text{E}\left(\sum_{a \in \mathcal{A}} \sum_{k \neq a} \bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|\right) \\
-&= \sum_{a \in \mathcal{A}} \sum_{k \neq a} \text{E}\left(\bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|\right) \\
+&= \text{E}\left(\sum_{a \in \mathcal{A}} \sum_{k \neq a} \left|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\right|\right) \\
+&= \sum_{a \in \mathcal{A}} \sum_{k \neq a} \text{E}\left(\left|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\right|\right) \\
 &= \sum_{a \in \mathcal{A}} \sum_{k \neq a} \frac{2}{\sqrt{\pi}} \\
 &= \frac{2p(p-1)}{\sqrt{\pi}}.
 \end{aligned}
@@ -1925,8 +1984,8 @@ We first derive the variance of the rs-fMRI distance by making an independence a
 \begin{equation}\label{eq:var_DDistr_rs-fMRI_standard}
 \begin{aligned}
 \text{Var}(D^\text{fMRI}_{ij}) &= \text{Var}\left(\sum_{a \in \mathcal{A}} \text{d}^\text{ROI}_{ij}(a)\right) \\
-&= \text{Var}\left(\sum_{a \in \mathcal{A}} \sum_{k \neq a} \bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|\right) \\
-&= \sum_{a \in \mathcal{A}} \sum_{k \neq a} \text{Var}\left(\bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|\right) \\
+&= \text{Var}\left(\sum_{a \in \mathcal{A}} \sum_{k \neq a} \left|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\right|\right) \\
+&= \sum_{a \in \mathcal{A}} \sum_{k \neq a} \text{Var}\left(\left|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\right|\right) \\
 &= \sum_{a \in \mathcal{A}} \sum_{k \neq a} \frac{2(\pi - 2)}{\pi} \\
 &= \frac{2(\pi - 2)(p-1)p}{\pi}.
 \end{aligned}
@@ -1936,15 +1995,15 @@ The independence assumption we made to derive the variance of our rs-fMRI distan
 %
 \begin{equation}\label{eq:var_DDistr_rs-fMRI}
 \begin{aligned}
-\text{Var}(D^\text{fMRI}_{ij}) &= \text{Var}\left(\sum_{a \in \mathcal{A}} \sum_{k \neq a} \bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|\right) \\
-&= \sum_{a = 1}^{p-1} \text{Var}\left(\sum_{k=a+1}^{p} 2\bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|\right) \\
-&+ 2\sum_{a = 1}^{p-1} \sum_{r=a+1}^{p-1} \text{Cov}\left(\sum_{k=a+1}^{p} 2\bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|, \sum_{s=r+1}^{p} 2\bigl|\hat{A}^{(i)}_{rs} - \hat{A}^{(j)}_{rs}\bigr|\right) \\
-&= \sum_{a=1}^{p-1} \sum_{k=a+1}^{p} \text{Var}\left(2\bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|\right) \\
-&+ 2\sum_{a = 1}^{p-1} \sum_{r=a+1}^{p-1} \text{Cov}\left(\sum_{k=a+1}^{p} 2\bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|, \sum_{s=r+1}^{p} 2\bigl|\hat{A}^{(i)}_{rs} - \hat{A}^{(j)}_{rs}\bigr|\right) \\
+\text{Var}(D^\text{fMRI}_{ij}) &= \text{Var}\left(\sum_{a \in \mathcal{A}} \sum_{k \neq a} \left|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\right|\right) \\
+&= \sum_{a = 1}^{p-1} \text{Var}\left(\sum_{k=a+1}^{p} 2\left|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\right|\right) \\
+&+ 2\sum_{a = 1}^{p-1} \sum_{r=a+1}^{p-1} \text{Cov}\left(\sum_{k=a+1}^{p} 2\left|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\right|, \sum_{s=r+1}^{p} 2\left|\hat{A}^{(i)}_{rs} - \hat{A}^{(j)}_{rs}\right|\right) \\
+&= \sum_{a=1}^{p-1} \sum_{k=a+1}^{p} \text{Var}\left(2\left|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\right|\right) \\
+&+ 2\sum_{a = 1}^{p-1} \sum_{r=a+1}^{p-1} \text{Cov}\left(\sum_{k=a+1}^{p} 2\left|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\right|, \sum_{s=r+1}^{p} 2\left|\hat{A}^{(i)}_{rs} - \hat{A}^{(j)}_{rs}\right|\right) \\
 &= \sum_{a = 1}^{p-1} \sum_{k=a+1}^{p-1}\frac{4(\pi-2)}{\pi} \\
-&+ 2\sum_{a = 1}^{p-1} \sum_{r=a+1}^{p-1} \text{Cov}\left(\sum_{k=a+1}^{p} 2\bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|, \sum_{s=r+1}^{p} 2\bigl|\hat{A}^{(i)}_{rs} - \hat{A}^{(j)}_{rs}\bigr|\right) \\
+&+ 2\sum_{a = 1}^{p-1} \sum_{r=a+1}^{p-1} \text{Cov}\left(\sum_{k=a+1}^{p} 2\left|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\right|, \sum_{s=r+1}^{p} 2\left|\hat{A}^{(i)}_{rs} - \hat{A}^{(j)}_{rs}\right|\right) \\
 &= \frac{2p(\pi-2)(p-1)}{\pi} \\
-&+ 2\sum_{a = 1}^{p-1} \sum_{r=a+1}^{p-1} \text{Cov}\left(\sum_{k=a+1}^{p} 2\bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|, \sum_{s=r+1}^{p} 2\bigl|\hat{A}^{(i)}_{rs} - \hat{A}^{(j)}_{rs}\bigr|\right).
+&+ 2\sum_{a = 1}^{p-1} \sum_{r=a+1}^{p-1} \text{Cov}\left(\sum_{k=a+1}^{p} 2\left|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\right|, \sum_{s=r+1}^{p} 2\left|\hat{A}^{(i)}_{rs} - \hat{A}^{(j)}_{rs}\right|\right).
 \end{aligned}
 \end{equation}
 
@@ -1957,7 +2016,7 @@ S^2_{D^\text{fMRI}_{ij}} - \frac{2p(\pi-2)(p-1)}{\pi} = \beta_1 p^2 + \beta_0 p.
 The coefficient estimates found through least squares fitting are $\beta_0 = - \beta_1 \approx 0.08$. These estimates allow us to arrive at a functional form for the double sum in the right-hand side of Eq. \ref{eq:var_DDistr_rs-fMRI} that is proportional to $\frac{2p(\pi-2)(p-1)}{\pi}$. That is, we have the following formula for approximating the double sum
 %
 \begin{equation}\label{eq:estimate_cov_form}
-2\sum_{a = 1}^{p-1} \sum_{r=a+1}^{p-1} \text{Cov}\left(\sum_{k=a+1}^{p} 2\bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|, \sum_{s=r+1}^{p} 2\bigl|\hat{A}^{(i)}_{rs} - \hat{A}^{(j)}_{rs}\bigr|\right) = \frac{p(\pi - 2)(p - 1)}{4\pi}.
+2\sum_{a = 1}^{p-1} \sum_{r=a+1}^{p-1} \text{Cov}\left(\sum_{k=a+1}^{p} 2\left|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\right|, \sum_{s=r+1}^{p} 2\left|\hat{A}^{(i)}_{rs} - \hat{A}^{(j)}_{rs}\right|\right) = \frac{p(\pi - 2)(p - 1)}{4\pi}.
 \end{equation}
 
 Therefore, the variance of the rs-fMRI distances is approximated well by the following
@@ -1975,7 +2034,7 @@ D^\text{fMRI}_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{2p(p-1)}{\sqrt{\pi}}
 Consider the max-min normalized rs-fMRI distance given by the following equation
 %
 \begin{equation}\label{eq:max-min_diff_rs-fMRI}
-D^\text{fMRI*}_{ij} = \sum_{a \in \mathcal{A}} \sum_{k \neq a} \frac{\bigl|A^{(i)}_{ak} - A^{(j)}_{ak}\bigr|}{\max(a) - \min(a)}.
+D^\text{fMRI*}_{ij} = \sum_{a \in \mathcal{A}} \sum_{k \neq a} \frac{\left|A^{(i)}_{ak} - A^{(j)}_{ak}\right|}{\max(a) - \min(a)}.
 \end{equation}
 
 Assuming that the data $X$ has been r-to-z transformed and standardized, we can easily compute the expected attribute range and variance of the attribute range. The expected maximum of a given attribute in data matrix $X$ is estimated by the following
