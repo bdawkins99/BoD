@@ -1708,7 +1708,7 @@ We also compared theoretical and sample moments as a function of $\eta = \text{T
 	\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.05cm,width=\textwidth]{updated_distributions_table-gwas(5-23-2019).pdf}
 \end{table}
 
-\subsection{Distribution of one-dimensional projection of GWAS distance onto a SNP}
+\subsection{Distribution of one-dimensional projection of GWAS distance onto a SNP}\label{sec:GWAS_diff}
 
 We previously derived the exact distribution of the one-dimensional projected distance onto an attribute in continuous data (Sec.~\ref{sec:continuous_diff}), which is used as the predictor in NPDR to calculate relative feature importance in the form of standardized beta coefficients. GWAS data and the metrics we have considered are discrete. Therefore, we derive the density function for each diff metric (Eqs.~\ref{eq:diff_GM}-\ref{eq:diff_TiTv}), which also serves as the probability distribution for each metric, respectively.
 
@@ -1932,7 +1932,7 @@ We first derive the variance of the rs-fMRI distance by making an independence a
 \end{aligned}
 \end{equation}
 
-The independence assumption we made to derive the variance of our rs-fMRI distance metric (Eq.~\ref{eq:var_DDistr_rs-fMRI_standard}) is not actually satisfied due to the fact that a single value of the diff (Eq.~\ref{eq:diff_rs-fMRI}) includes the same fixed ROI $a$ for each term in the sum for all $k \neq a$. However, the theoretical variance of the distance we computed for the rs-fMRI distance metric (Eq.~\ref{eq:var_DDistr_rs-fMRI_standard}) still reasonably approximates the sample variance. There is a slight discrepancy between our theoretical rs-fMRI distance metric variance (Eq.~\ref{eq:var_DDistr_rs-fMRI_standard}) and the sample variance. Because of this discrepancy, we determine a corrected formula by assuming that there is dependence between the terms of the rs-fMRI diff. We start the derivation of our corrected formula by writing the variance as a two-part sum, where the first term in the sum involves the variance of the magnitude difference $|\hat{A}^{(i)}_{ka} - \hat{A}^{(j)}_{ka}|$ and then second term involves the covariance of different pairs of magnitude differences. This begins as follows
+The independence assumption we made to derive the variance of our rs-fMRI distance metric (Eq.~\ref{eq:var_DDistr_rs-fMRI_standard}) is not actually satisfied due to the fact that a single value of the diff (Eq.~\ref{eq:diff_rs-fMRI}) includes the same fixed ROI $a$ for each term in the sum for all $k \neq a$. Therefore, the linear application of the variance operator we have previously employed does not account for the additional cross-covariance that exists. Although the theoretical variance of the distance we computed for the rs-fMRI distance metric (Eq.~\ref{eq:var_DDistr_rs-fMRI_standard}) still reasonably approximates the sample variance, there is a slight discrepancy between our theoretical rs-fMRI distance metric variance (Eq.~\ref{eq:var_DDistr_rs-fMRI_standard}) and the sample variance. More precisely, the formula we have given for the variance (Eq.~\ref{eq:var_DDistr_rs-fMRI_standard}) under-approximates the sample variance of the rs-fMRI distance. Because of this discrepancy, we determine a corrected formula by assuming that there is dependence between the terms of the rs-fMRI diff. We start the derivation of our corrected formula by writing the variance as a two-part sum, where the first term in the sum involves the variance of the magnitude difference $|\hat{A}^{(i)}_{ka} - \hat{A}^{(j)}_{ka}|$ and then second term involves the cross-covariance of the rs-fMRI diff for distinct pairwise ROI-ROI associations. This begins as follows
 %
 \begin{equation}\label{eq:var_DDistr_rs-fMRI}
 \begin{aligned}
@@ -1954,7 +1954,7 @@ In order to have a formula in terms of the number of ROIs $p$ only, we must esti
 S^2_{D^\text{fMRI}_{ij}} - \frac{2p(\pi-2)(p-1)}{\pi} = \beta_1 p^2 + \beta_0 p.
 \end{equation}
 
-The coefficient estimates found through least squares fitting are $\beta_0 = - \beta_1 \approx 0.08$. These estimates allow one to infer a functional form for the double sum in the right-hand side of Eq. \ref{eq:var_DDistr_rs-fMRI} that is actually proportional to $\frac{2p(\pi-2)(p-1)}{\pi}$. That is, we have the following formula for approximating the double sum
+The coefficient estimates found through least squares fitting are $\beta_0 = - \beta_1 \approx 0.08$. These estimates allow us to arrive at a functional form for the double sum in the right-hand side of Eq. \ref{eq:var_DDistr_rs-fMRI} that is proportional to $\frac{2p(\pi-2)(p-1)}{\pi}$. That is, we have the following formula for approximating the double sum
 %
 \begin{equation}\label{eq:estimate_cov_form}
 2\sum_{a = 1}^{p-1} \sum_{r=a+1}^{p-1} \text{Cov}\left(\sum_{k=a+1}^{p} 2\bigl|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\bigr|, \sum_{s=r+1}^{p} 2\bigl|\hat{A}^{(i)}_{rs} - \hat{A}^{(j)}_{rs}\bigr|\right) = \frac{p(\pi - 2)(p - 1)}{4\pi}.
@@ -1995,6 +1995,46 @@ Let $\mu_{D^\text{fMRI}_{ij}}$ and $\sigma^2_{D^\text{fMRI}_{ij}}$ denote the me
 \begin{equation}\label{eq:max-min_DDistr_normal_rs-fMRI}
 D^\text{fMRI*}_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{\mu_{D^\text{fMRI}_{ij}}}{2\mu^{(1)}_\text{max}(m,p)}, \frac{6\sigma^2_{D^\text{fMRI}_{ij}}\text{log}[m(p-1)]}{\pi^2 + 24\left[\mu^{(1)}_\text{max}(m,p)\right]^2\text{log}[m(p-1)]}\right).
 \end{equation}
+
+\subsection{One-dimensional projection of rs-fMRI distance onto a single ROI}
+
+Just as in previous sections (Secs.~\ref{sec:continuous_diff} and \ref{sec:GWAS_diff}), we now derive the distribution of our rs-fMRI diff metric (Eq.~\ref{eq:diff_rs-fMRI}). Unlike what we have seen in previous sections, we do not derive the exact distribution for this diff metric. We have determined empirically that the rs-fMRI diff is approximately normal. Although the rs-fMRI diff is a sum of $p-1$ magnitude differences, the Classical Central Limit Theorem does not apply because of the dependencies that exist between the terms of the sum. Examination of histograms and quantile-quantile plots of simulated values of the rs-fMRI diff easily indicate that the normality assumption is safe. Therefore, we derive the mean and variance of the approximately normal distribution of the rs-fMRI diff. As we have seen previously, this normality assumption is reasonable even for small values of $p$. 
+
+The mean of the rs-fMRI diff is derived by fixing a single ROI $a$ and considering all pairwise associations with other ROIs $k \neq \mathcal{A}$. This is done as follows
+%
+\begin{equation}\label{eq:rs-fMRI_diffMean}
+\begin{aligned}
+\text{E}\left[\text{d}^\text{ROI}_{ij}(a)\right] &= \text{E}\left(\sum_{k \neq a} \left|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\right|\right) \\
+&= \sum_{k \neq a} \text{E}\left(\left|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\right|\right) \\
+&= \sum_{k \neq a} \frac{2}{\sqrt{\pi}} \\
+&= \frac{2(p-1)}{\sqrt{\pi}},
+\end{aligned}
+\end{equation}
+% 
+where $a$ is a single fixed ROI.
+
+Considering the variance of the rs-fMRI diff metric, we have two estimates. The first estimate uses the variance operator in a linear fashion, while the second will simply be a direct implication of the corrected formula of the variance of rs-fMRI pairwise distances (Eq.~\ref{eq:var_DDistr_rs-fMRI2}). Our first estimate is derived as follows
+%
+\begin{equation}\label{eq:rs-fMRI_diffVar1}
+\begin{aligned}
+\text{Var}\left[\text{d}^\text{ROI}_{ij}(a)\right] &= \text{Var}\left(\sum_{k \neq a} \left|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\right|\right) \\
+&= \sum_{k \neq a} \text{Var}\left(\left|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\right|\right) \\
+&= \sum_{k \neq a} \frac{2(\pi - 2)}{\pi} \\
+&= \frac{2(\pi - 2)(p-1)}{\pi},
+\end{aligned}
+\end{equation}
+%
+where $a$ is a single fixed ROI.
+
+Using the corrected rs-fMRI distance variance formula (Eq.~\ref{eq:var_DDistr_rs-fMRI2}), our second estimate of the rs-fMRI diff variance is given directly by the following
+%
+\begin{equation}\label{eq:rs-fMRI_diffVar2}
+\text{Var}\left[\text{d}^\text{ROI}_{ij}(a)\right] = \frac{9(\pi - 2)(p - 1)}{4\pi},
+\end{equation}
+%
+where $a$ is a single fixed ROI.
+
+Empirically, the first estimate (Eq.~\ref{eq:rs-fMRI_diffVar1}) of the variance of our rs-fMRI diff is closer to the sample variance than the second estimate (Eq.~\ref{eq:rs-fMRI_diffVar2}). This is due to fact that we are considering only a fixed ROI $a \in mathcal{A}$, so the cross-covariance between the magnitude differences $\left|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\right|$ for different pairs of ROIs ($a$ and $k \neq a$) is negligible here. When considering all ROIs $a \in \mathcal{A}$, these cross-covariances are no longer negligible.
 
 \subsection{Normalized Manhattan \texorpdfstring{($q=1$)}{} for rs-fMRI}
 
