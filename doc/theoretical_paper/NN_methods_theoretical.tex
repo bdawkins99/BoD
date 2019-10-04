@@ -640,7 +640,6 @@ Using the mean given by Eq.~\ref{eq:normalDistr} and substituting $q=1$, we have
 \begin{equation}\label{eq:normalManMean}
 \begin{aligned}
 \text{E}\left(D^{(1)}_{ij}\right) &= \left(2\frac{\Gamma\left(\frac{1 + 1}{2}\right)}{\sqrt{\pi}}p\right)^{1/1} \\
-&= \frac{2p}{\sqrt{\pi}}\Gamma(1) \\
 &= \frac{2p}{\sqrt{\pi}}.
 \end{aligned}
 \end{equation}
@@ -652,8 +651,6 @@ Substituting $q=1$ into the formula for the asymptotic variance of $D^{(1)}_{ij}
 \begin{equation}\label{eq:normalManVar}
 \begin{aligned}
 \text{Var}\left(D^{(1)}_{ij}\right) &= \frac{4^1p}{1^2\left(\frac{2^1\Gamma\left(\frac{1}{2}(1) + \frac{1}{2}\right)}{\sqrt{\pi}}p\right)^{2\left(1 - \frac{1}{1}\right)}}\left[\frac{\Gamma\left(1 + \frac{1}{2}\right)}{\sqrt{\pi}} - \frac{\Gamma^2\left(\frac{1}{2}(1) + \frac{1}{2}\right)}{\pi}\right] \\
-&= \frac{4p}{1}\left[\frac{\frac{1}{2}\Gamma\left(\frac{1}{2}\right)}{\sqrt{\pi}} - \frac{\Gamma^2(1)}{\pi}\right] \\
-&= 4p\left[\frac{1}{2} - \frac{1}{\pi}\right] \\
 &= \frac{2(\pi - 2)p}{\pi}.
 \end{aligned}
 \end{equation}
@@ -667,7 +664,6 @@ Using the mean given by Eq.~\ref{eq:uniformDistr} and substituting $q=1$, we hav
 \begin{equation}\label{eq:uniformManMean}
 \begin{aligned}
 \text{E}\left(D^{(1)}_{ij}\right) &= \left(\frac{2p}{(1+2)(1+1)}\right)^{1/1} \\
-&= \frac{2p}{6} \\
 &= \frac{p}{3}.
 \end{aligned}
 \end{equation}
@@ -679,7 +675,6 @@ Substituting $q=1$ into the formula given by Eq.~\ref{eq:uniformDistr} of the as
 \begin{equation}\label{eq:uniformManVar}
 \begin{aligned}
 \text{Var}\left(D^{(1)}_{ij}\right) &= \frac{p}{1^2\left(\frac{2p}{(1 + 2)(1 + 1)}\right)^{2\left(1 - \frac{1}{1}\right)}}\left[\frac{1}{(1 + 1)(2(1) + 1)} - \left(\frac{2}{(1 + 2)(1 + 1)}\right)^2\right] \\
-&= p\left[\frac{1}{6} - \frac{1}{9}\right] \\
 &= \frac{p}{18}.
 \end{aligned}
 \end{equation}
@@ -761,7 +756,6 @@ Using the mean given by Eq. \ref{eq:normalDistr} and substituting $q=2$, we have
 \begin{equation}\label{eq:normalEucMean}
 \begin{aligned}
 \text{E}\left(D^{(2)}_{ij}\right) &= \left(2\frac{\Gamma\left(\frac{2 + 1}{2}\right)}{\sqrt{\pi}}p\right)^{1/2} \\
-&= \left(\frac{2p}{\sqrt{\pi}}\Gamma\left(\frac{3}{2}\right)\right)^{1/2} \\
 &= \sqrt{2p}.
 \end{aligned}
 \end{equation}
@@ -773,8 +767,6 @@ Substituting $q=2$ into the formula for the asymptotic variance of $D^{(2)}_{ij}
 \begin{equation}\label{eq:normalEucVar}
 \begin{aligned}
 \text{Var}\left(D^{(2)}_{ij}\right) &= \frac{4^2p}{2^2\left(\frac{2^2\Gamma\left(\frac{1}{2}(2) + \frac{1}{2}\right)}{\sqrt{\pi}}p\right)^{2\left(1 - \frac{1}{2}\right)}}\left[\frac{\Gamma\left(2 + \frac{1}{2}\right)}{\sqrt{\pi}} - \frac{\Gamma^2\left(\frac{1}{2}(2) + \frac{1}{2}\right)}{\pi}\right] \\
-&= \frac{16p}{4\left(\frac{4\Gamma\left(\frac{3}{2}\right)}{\sqrt{\pi}}p\right)}\left[\frac{\Gamma\left(\frac{5}{2}\right)}{\sqrt{\pi}} - \frac{\Gamma^2\left(\frac{3}{2}\right)}{\pi}\right] \\
-&= 2\left[\frac{3}{4} - \frac{1}{4}\right] \\
 &= 1.
 \end{aligned}
 \end{equation}
@@ -786,7 +778,6 @@ For the case in which the number of attributes $p$ is small, an improved estimat
 \begin{equation}\label{eq:normalEucMeanImproved}
 \begin{aligned}
 \text{E}\left(D^{(2)}_{ij}\right) &= \left(2\frac{\Gamma\left(\frac{2 + 1}{2}\right)}{\sqrt{\pi}}p - 1\right)^{1/2} \\
-&= \left(\frac{2p}{\sqrt{\pi}}\Gamma\left(\frac{3}{2}\right) - 1\right)^{1/2} \\
 &= \sqrt{2p - 1}.
 \end{aligned}
 \end{equation}
@@ -800,7 +791,6 @@ Using the mean given by Eq. \ref{eq:uniformDistr} and substituting $q=2$, we hav
 \begin{equation}\label{eq:uniformEucMean}
 \begin{aligned}
 \text{E}\left(D^{(2)}_{ij}\right) &= \left(\frac{2p}{(2+2)(2+1)}\right)^{1/2} \\
-&= \left(\frac{2p}{12}\right)^{1/2} \\
 &= \sqrt{\frac{p}{6}}.
 \end{aligned}
 \end{equation}
@@ -812,7 +802,6 @@ Substituting $q=2$ into the formula for the asymptotic variance of $D^{(2)}_{ij}
 \begin{equation}\label{eq:uniformEucVar}
 \begin{aligned}
 \text{Var}\left(D^{(2)}_{ij}\right) &= \frac{p}{2^2\left(\frac{2p}{(2 + 2)(2 + 1)}\right)^{2\left(1 - \frac{1}{2}\right)}}\left[\frac{1}{(2 + 1)(2(2) + 1)} - \left(\frac{2}{(2 + 2)(2 + 1)}\right)^2\right] \\
-&= \frac{3}{2}\left[\frac{1}{15} - \frac{1}{36}\right] \\
 &= \frac{7}{120}.
 \end{aligned}
 \end{equation}
@@ -824,7 +813,6 @@ For the case in which the number of attributes $p$ is small, an improved estimat
 \begin{equation}\label{eq:uniformEucMeanImproved}
 \begin{aligned}
 \text{E}\left(D^{(2)}_{ij}\right) &= \left(\frac{2p}{(2+2)(2+1)} - \frac{7}{120}\right)^{1/2} \\
-&= \left(\frac{2p}{12} - \frac{7}{120}\right)^{1/2} \\
 &= \sqrt{\frac{p}{6} - \frac{7}{120}}.
 \end{aligned}
 \end{equation}
@@ -1140,7 +1128,7 @@ It is well known that the sample extremes from the standard normal distribution 
 \text{Var}(X^\text{max}_a - X^\text{min}_a) &\approx \text{Var}(X^\text{max}_a) + \text{Var}(X^\text{min}_a) \\
 &= \sigma^2_\text{max}(m) + \sigma^2_\text{min}(m) \\
 &= 2\sigma^2_\text{max}(m) \\
-&\approx 2\left(\frac{\pi^2}{2\text{log}(m)}\right) \\
+&\approx 2\left(\frac{\pi^2}{12\text{log}(m)}\right) \\
 &= \frac{\pi^2}{6\text{log}(m)}.
 \end{aligned}
 \end{equation}
@@ -2289,6 +2277,16 @@ where $\mu^{(1)}_\text{max}(m,p)$ is given in Eq.~\ref{eq:mean_max_rs-fMRI}.
 	\end{tikzpicture}
 	\end{adjustbox}
 \end{table}
+
+\section{Comparison of theoretical and sample moments}
+
+It is important that our asymptotic estimates of sample moments for distances in high-dimensional data are accurate and precise enough to be useful when considering either simulated or real data that satisfy the appropriate assumptions. We compared our asymptotic estimates of sample moments of pairwise distances by generating random data for various dimensions $m$ and $p$ (Fig.~\ref{fig:compare_theoretical_sample_moments}). For each combination of $m$ and $p$, we generated 20 random data sets, computed an $m \times m$ distance matrix $D$, computed the average pairwise distance, and computed the standard deviation of the pairwise distances. The estimates of sample moments we show are the averages of these moments from the 20 different data sets generated for each value of $m$ and $p$. Regardless of the distance metric or data type we have considered, we see a reasonably close approximation of sample moments. We explicitly show the case of Euclidean distances in standard normal data, where we fixed $m=100$ and varied the number of features $p$. Ranging from low (Fig.~\ref{fig:compare_theoretical_sample_moments}A) to relatively high (Fig.~\ref{fig:compare_theoretical_sample_moments}D) feature dimension, we see that sample moments are well approximated by asymptotic formulas of the mean (Eq.~\ref{eq:normalEucMean}) and variance (Eq.~\ref{eq:normalEucVar}). Although the mean seems to be approximately linear with respect to attribute dimension $p$ on narrow horizontal scales, the average Euclidean distance in standard normal data grows like $\sqrt{2p}$ when $p$ is sufficiently large (Eqs.~\ref{eq:normalEucMean}). This growth is immediately apparent on wider scales of the attribute dimension $p$, but the difference between sample and theoretical moments is difficult to visualize on these larger scales. Therefore, we have chosen to limit the attribute scale to be able to see how moments differ for various numbers of attributes $p$. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{compared_moments_normal_euclidean.pdf}
+	\caption{Comparison of theoretical and sample moments of Euclidean distances in standard normal data.}\label{fig:compare_theoretical_sample_moments}
+\end{figure}
 
 \section{Effects of correlation on distances}\label{sec:correlation}
 
