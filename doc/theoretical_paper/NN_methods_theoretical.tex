@@ -82,6 +82,9 @@
 % array package and thick rules for tables
 \usepackage{array}
 
+% adjust width of tikz tables or figures
+\usepackage{adjustbox}
+
 % bold math symbols package
 \usepackage{bm}
 
@@ -1316,7 +1319,9 @@ Similarly, the variance of $D^{(2*)}_{ij}$ is given by
 	\caption{Summary of distance distribution derivations for standard normal and standard uniform data. Asymptotic estimates are given for both standard and max-min normalized q-metrics. These estimates are relevant for all $q \in \mathbb{N}$ and $p \geq 100$.}
 	\label{tab:dist_distr_general1}
 	\centering
+	\begin{adjustbox}{center}
 	\begin{tikzpicture}
+
 	% trim=left botm right top
 	\node at (0,0) {\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.05cm,width=\textwidth]{updated_distributions_table(5-23-2019).pdf}};
 	
@@ -1368,12 +1373,14 @@ Similarly, the variance of $D^{(2*)}_{ij}$ is given by
 	% numerator var (row 8)
 	\node[fill=white,xscale=0.81,yscale=0.81] at (3.8,-7.1) {\ref{eq:uniformDqVar}};
 	\end{tikzpicture}
+	\end{adjustbox}
 \end{table}
 
 \begin{table}[H]
 	\caption{Asymptotic estimates for means and variances for the standard $L_1$ and $L_2$ distance distributions. Estimates for both standard normal and standard uniform data are given.}
 	\label{tab:dist_distr_standardL1L2}
 	\centering
+	\begin{adjustbox}{center}
 	\begin{tikzpicture}
 	% trim=left botm right top
 	\node at (0,0) {\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.05cm,width=0.7\textwidth]{updated_typical_metrics_table.pdf}};
@@ -1408,12 +1415,14 @@ Similarly, the variance of $D^{(2*)}_{ij}$ is given by
 	% var (row 8)
 	\node[fill=white,xscale=0.8,yscale=0.8] at (3.4,-5.05) {(\textbf{\ref{eq:uniformEucVar}})};
 	\end{tikzpicture}
+	\end{adjustbox}
 \end{table}
 
 \begin{table}[H]
 	\caption{Asymptotic estimates for means and variances for the max-min normalized $L_1$ and $L_2$ distance distributions. Estimates for both standard normal and standard uniform data are given.}
 	\label{tab:dist_distr_normalizedL1L2}
 	\centering
+	\begin{adjustbox}{center}
 	\begin{tikzpicture}
 	% trim=left botm right top
 	\node at (0,0) {\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.05cm,width=0.85\textwidth]{updated_typical_metrics_table(normalized).pdf}};
@@ -1448,6 +1457,7 @@ Similarly, the variance of $D^{(2*)}_{ij}$ is given by
 	% var (row 8)
 	\node[fill=white,xscale=0.8,yscale=0.8] at (4.245,-7.985) {(\textbf{\ref{eq:max-min_var_uniform_euclidean}})};
 	\end{tikzpicture}
+	\end{adjustbox}
 \end{table}
 
 \section{GWAS distance distributions}\label{sec:gwas_distances}
@@ -1634,7 +1644,7 @@ The TiTv metric allows for one to account for both genotype mismatch, allele mis
 	\framebox{\includegraphics[width=0.95\textwidth]{TiTv_diagram.pdf}}
 \end{minipage}\hspace{-0.3cm}
 \begin{minipage}[c]{0.35\textwidth}
-    \captionof{figure}{Purines (A and G) and pyrimidines (C and T) are shown. Transitions occur when a mutation involves purine-to-purine or pyrimidine-to-pyrimidine insertion. Transversions occur when a purine-to-pyrimidine or pyrimidine-to-purine insertion happens, which is a more extreme case. There are visibly more possibilities for transversions to occur than there are transitions, but there are about twice as many transitions in real data.}\label{fig:TiTv_diagram}
+    \captionsetup{type=figure}\captionof{figure}{Purines (A and G) and pyrimidines (C and T) are shown. Transitions occur when a mutation involves purine-to-purine or pyrimidine-to-pyrimidine insertion. Transversions occur when a purine-to-pyrimidine or pyrimidine-to-purine insertion happens, which is a more extreme case. There are visibly more possibilities for transversions to occur than there are transitions, but there are about twice as many transitions in real data.}\label{fig:TiTv_diagram}
 \end{minipage}
 
 \bigskip
@@ -1814,7 +1824,7 @@ We also compared theoretical and sample moments as a function of $\eta = \text{T
 	\includegraphics[width=0.98\textwidth]{TiTv_distance-vs-maf.pdf}
 \end{minipage}\hspace{-0.8cm}
 \begin{minipage}[c]{0.35\textwidth}
-	\captionof{figure}{Predicted average TiTv distance as a function of average minor allele frequency $\bar{f}_a$ (see Eq.~\ref{eq:avg_maf}). Success probabilities $f_a$ were drawn from a sliding window interval from 0.01 to 0.9 in increments of about 0.009. With $\eta=0.1$, where $\eta$ is the Ti/Tv ratio given by Eq.~\ref{eq:TiTv_constraints1}, Tv is ten times more likely than Ti so the distance is large. Increasing to $\eta=1$, Tv and Ti are equally likely so the distance is moderate.  In line with real data for $\eta=2$, Tv is half as likely as Ti so the distance is relatively small.}\label{fig:TiTv-vs-maf}
+	\captionsetup{type=figure}\captionof{figure}{Predicted average TiTv distance as a function of average minor allele frequency $\bar{f}_a$ (see Eq.~\ref{eq:avg_maf}). Success probabilities $f_a$ were drawn from a sliding window interval from 0.01 to 0.9 in increments of about 0.009. With $\eta=0.1$, where $\eta$ is the Ti/Tv ratio given by Eq.~\ref{eq:TiTv_constraints1}, Tv is ten times more likely than Ti so the distance is large. Increasing to $\eta=1$, Tv and Ti are equally likely so the distance is moderate.  In line with real data for $\eta=2$, Tv is half as likely as Ti so the distance is relatively small.}\label{fig:TiTv-vs-maf}
 \end{minipage}
 
 \bigskip
@@ -1841,9 +1851,10 @@ We also compared theoretical and sample moments as a function of $\eta = \text{T
 	\caption{Summary of distance distribution derivations for GWAS data.}
 	\label{tab:dist_distr_gwas}
 	\centering
+	\begin{adjustbox}{center}
 	\begin{tikzpicture}
 	% trim=left botm right top
-	\node at (0,0) {\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.05cm,width=\textwidth]{updated_distributions_table-gwas(5-23-2019).pdf}};
+	\node at (0,0) {\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.05cm,width=0.99\textwidth]{updated_distributions_table-gwas(5-23-2019).pdf}};
 	
 	% GM metric (column 1 - row 1)
 	\node[fill=white,xscale=0.81,yscale=0.81] at (-5.44,3.73) {(\textbf{Eq.}~\textbf{\ref{eq:D_GM}})};
@@ -1867,11 +1878,12 @@ We also compared theoretical and sample moments as a function of $\eta = \text{T
 	\node[fill=white,xscale=0.78,yscale=0.78] at (4.45,0.28) {(\textbf{\ref{eq:var_DDistr_AM}})};
 	
 	% mean (row 5)
-	\node[fill=white,xscale=0.78,yscale=0.78,text width=0.7cm] at (6.14,-2) {(\textbf{\ref{eq:mu_DDistr_TiTv}})};
+	\node[fill=white,xscale=0.78,yscale=0.78] at (6.04,-2) {(\textbf{\ref{eq:mu_DDistr_TiTv}})};
 	
 	% var (row 6)
-	\node[fill=white,xscale=0.78,yscale=0.78,text width=0.7cm] at (6.18,-4.313) {(\textbf{\ref{eq:var_DDistr_TiTv}})};
+	\node[fill=white,xscale=0.78,yscale=0.78] at (6.08,-4.313) {(\textbf{\ref{eq:var_DDistr_TiTv}})};
 	\end{tikzpicture}
+	\end{adjustbox}
 \end{table}
 
 \subsection{Distribution of one-dimensional projection of GWAS distance onto a SNP}\label{sec:GWAS_diff}
@@ -2037,7 +2049,13 @@ For time series correlation-based data, we consider the case where there are $m$
 \begin{equation}\label{eq:diff_rs-fMRI}
 \text{d}^\text{ROI}_{ij}(a) = \sum_{k \neq a}\bigl|A^{(i)}_{ka} - A^{(j)}_{ka}\bigr|.
 \end{equation}
-where $A^{(i)}_{ka}$ and $A^{(j)}_{ka}$ are the correlations between ROI $a$ and ROI $k$ for instances $i$ and $j$, respectively. In order for comparisons between different correlations to be possible, we first perform a Fisher r-to-z transform on the correlations. We then load all of the transformed correlations into a $p(p-1) \times m$ matrix $X$ (see Fig.~\ref{fig:rs-fMRI_matrix}).
+where $A^{(i)}_{ka}$ and $A^{(j)}_{ka}$ are the correlations between ROI $a$ and ROI $k$ for instances $i$ and $j$, respectively. With this rs-fMRI diff, the pairwise distance between two instances $i,j \in \mathcal{I}$ is computed as follows
+%
+\begin{equation}\label{eq:D_rs-fMRI}
+D^\text{fMRI}_{ij} = \sum_{a \in \mathcal{A}} \text{d}^\text{ROI}_{ij}(a).
+\end{equation}
+
+In order for comparisons between different correlations to be possible, we first perform a Fisher r-to-z transform on the correlations. We then load all of the transformed correlations into a $p(p-1) \times m$ matrix $X$ (see Fig.~\ref{fig:rs-fMRI_matrix}).
 
 \bigskip
 
@@ -2045,7 +2063,7 @@ where $A^{(i)}_{ka}$ and $A^{(j)}_{ka}$ are the correlations between ROI $a$ and
 	\includegraphics[width=0.95\textwidth]{rs_fmri_all_instance_matrix.pdf}
 \end{minipage}\hspace{-0.8cm}
 \begin{minipage}[c]{0.3\textwidth}
-	\captionof{figure}{Resting-state fMRI transformed subject correlation matrices. Each column corresponds to an instance (or subject) $I_j$ and each column corresponds to an ROI (or feature). The notation $\hat{A}^{(j)}_{ka}$ represents the r-to-z transformed correlation between ROIs $a$ and $k \neq a$ for instance $j$.}\label{fig:rs-fMRI_matrix}
+	\captionsetup{type=figure}\captionof{figure}{Resting-state fMRI transformed subject correlation matrices. Each column corresponds to an instance (or subject) $I_j$ and each column corresponds to an ROI (or feature). The notation $\hat{A}^{(j)}_{ka}$ represents the r-to-z transformed correlation between ROIs $a$ and $k \neq a$ for instance $j$.}\label{fig:rs-fMRI_matrix}
 \end{minipage}
 
 \bigskip
@@ -2212,7 +2230,7 @@ where $a$ is a single fixed ROI.
 
 Substituting the non-normalized mean given by Eq.~\ref{eq:mu_DDistr_rs-fMRI} into Eq.~\ref{eq:max-min_DDistr_normal_rs-fMRI} for the mean of the max-min normalized rs-fMRI metric, we have the following
 %
-\begin{equation}
+\begin{equation}\label{eq:mu_max-min_rs-fMRI}
 \begin{aligned}
 \text{E}\left(D^\text{fMRI*}_{ij}\right) &= \frac{\mu_{D^\text{fMRI}_{ij}}}{2\mu^{(1)}_\text{max}(m,p)} \\
 &= \frac{p(p-1)}{\sqrt{\pi}\mu^{(1)}_\text{max}(m,p)},
@@ -2222,7 +2240,7 @@ where $\mu^{(1)}_\text{max}(m,p)$ is given in Eq.~\ref{eq:mean_max_rs-fMRI}.
 
 Similarly, the variance of $D^\text{fMRI*}_{ij}$ is given by
 %
-\begin{equation}
+\begin{equation}\label{eq:var_max-min_rs-fMRI}
 \begin{aligned}
 \text{Var}\left(D^\text{fMRI*}_{ij}\right) &= \frac{6\sigma^2_{D^\text{fMRI}_{ij}}\text{log}[m(p-1)]}{\pi^2 + 24\left[\mu^{(1)}_\text{max}(m,p)\right]^2\text{log}[m(p-1)]} \\
 &= \frac{27(\pi-2)\text{log}[m(p-1)](p-1)p}{2\pi\left(\pi^2 + 24\left[\mu^{(1)}_\text{max}(m,p)\right]^2\text{log}[m(p-1)]\right)},
@@ -2234,6 +2252,7 @@ where $\mu^{(1)}_\text{max}(m,p)$ is given in Eq.~\ref{eq:mean_max_rs-fMRI}.
 	\caption{Summary of distance distribution derivations for rs-fMRI data.}
 	\label{tab:dist_distr_rs-fMRI}
 	\centering
+	\begin{adjustbox}{center}
 	\begin{tikzpicture}
 	% trim=left botm right top
 	\node at (0,0) {\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.05cm,width=\textwidth]{updated_distributions_table-rs-fMRI.pdf}};
@@ -2242,20 +2261,33 @@ where $\mu^{(1)}_\text{max}(m,p)$ is given in Eq.~\ref{eq:mean_max_rs-fMRI}.
 	\node[fill=white,xscale=0.91,yscale=0.91] at (-5.025,1.58) {(\textbf{Eq.}~\textbf{\ref{eq:D_rs-fMRI}})};
 	
 	% max-min normalized rs-fMRI metric (column 1 - row 3)
-	\node[fill=white,xscale=0.91,yscale=0.91] at (-5.025,-2.48) {(\textbf{Eq.}~\textbf{\ref{eq:var_DDistr_rs-fMRI2}})};
+	\node[fill=white,xscale=0.91,yscale=0.91] at (-5.025,-2.48) {(\textbf{Eq.}~\textbf{\ref{eq:max-min_diff_rs-fMRI}})};
 	
 	% mean (row 1)
-	%\node[fill=white,xscale=0.83,yscale=0.83] at (3.86,2.48) {(\textbf{\ref{eq:mu_DDistr_rs-fMRI}})};
+	\node[fill=white,xscale=0.83,yscale=0.83] at (3.86,2.48) {(\textbf{\ref{eq:mu_DDistr_rs-fMRI}})};
 	
 	% var (row 2)
-	%\node[draw,xscale=0.83,yscale=0.83] at (4.35,3.57) {(\textbf{\ref{eq:var_DDistr_rs-fMRI}})};
+	\node[fill=white,xscale=0.83,yscale=0.83] at (4.35,1.07) {(\textbf{\ref{eq:var_DDistr_rs-fMRI}})};
 	
 	% mean (row 3)
-	%\node[fill=white,xscale=0.78,yscale=0.78] at (3.5,1.94) {(\textbf{\ref{eq:mu_DDistr_AM}})};
+	\node[fill=white,xscale=0.83,yscale=0.83] at (4.13,-0.22) {(\textbf{\ref{eq:mu_max-min_rs-fMRI}})};
+	
+	% numerator equation (row 3)
+	\node[fill=white,xscale=0.88,yscale=0.88] at (4.93,-1.32) {\ref{eq:mu_DDistr_rs-fMRI}};
+	
+	% denominator equation (row 3)
+	\node[fill=white,xscale=0.88,yscale=0.88] at (6.13,-1.32) {\ref{eq:mean_max_rs-fMRI}};
 	
 	% var (row 4)
-	%\node[fill=white,xscale=0.78,yscale=0.78] at (4.45,0.28) {(\textbf{\ref{eq:var_DDistr_AM}})};
+	\node[fill=white,xscale=0.83,yscale=0.83] at (5.74,-2.555) {(\textbf{\ref{eq:var_max-min_rs-fMRI}})};
+	
+	% numerator equation (row 4)
+	\node[fill=white,xscale=0.88,yscale=0.88] at (4.93,-3.873) {\ref{eq:mu_DDistr_rs-fMRI}};
+	
+	% denominator equation (row 5)
+	\node[fill=white,xscale=0.88,yscale=0.88] at (6.13,-3.873) {\ref{eq:mean_max_rs-fMRI}};
 	\end{tikzpicture}
+	\end{adjustbox}
 \end{table}
 
 \section{Effects of correlation on distances}\label{sec:correlation}
