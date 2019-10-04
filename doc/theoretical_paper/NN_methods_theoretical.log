@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  3 OCT 2019 15:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  3 OCT 2019 20:04
 entering extended mode
 **./NN_methods_theoretical.tex
 (NN_methods_theoretical.tex
@@ -1018,97 +1018,126 @@ t>
 File: updated_typical_metrics_table(normalized).pdf Graphic file (type pdf)
 <use updated_typical_metrics_table(normalized).pdf>
 Package pdftex.def Info: updated_typical_metrics_table(normalized).pdf  used on
- input line 1418.
+ input line 1419.
 (pdftex.def)             Requested size: 322.50719pt x 491.13496pt.
  [28 <./updated_typical_metrics_table.pdf>] [29 <./updated_typical_metrics_tabl
 e(normalized).pdf>]
 [30] [31] [32]
-<TiTv_diagram.pdf, id=864, 278.1602pt x 227.42767pt>
+<TiTv_diagram.pdf, id=877, 278.1602pt x 227.42767pt>
 File: TiTv_diagram.pdf Graphic file (type pdf)
 <use TiTv_diagram.pdf>
-Package pdftex.def Info: TiTv_diagram.pdf  used on input line 1588.
+Package pdftex.def Info: TiTv_diagram.pdf  used on input line 1634.
 (pdftex.def)             Requested size: 223.47441pt x 182.71625pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1591.
+(caption)                particular \caption on input line 1637.
 See the caption package documentation for explanation.
 
 [33] [34 <./TiTv_diagram.pdf>] [35] [36] [37]
-<TiTv_distance-vs-maf.pdf, id=941, 401.99887pt x 402.0069pt>
+<TiTv_distance-vs-maf.pdf, id=954, 401.99887pt x 402.0069pt>
 File: TiTv_distance-vs-maf.pdf Graphic file (type pdf)
 <use TiTv_distance-vs-maf.pdf>
-Package pdftex.def Info: TiTv_distance-vs-maf.pdf  used on input line 1768.
+Package pdftex.def Info: TiTv_distance-vs-maf.pdf  used on input line 1814.
 (pdftex.def)             Requested size: 241.68561pt x 241.69672pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1771.
+(caption)                particular \caption on input line 1817.
 See the caption package documentation for explanation.
 
-<re_fig_5.pdf, id=944, 505.89pt x 433.62pt>
+<re_fig_5.pdf, id=957, 505.89pt x 433.62pt>
 File: re_fig_5.pdf Graphic file (type pdf)
 <use re_fig_5.pdf>
-Package pdftex.def Info: re_fig_5.pdf  used on input line 1778.
+Package pdftex.def Info: re_fig_5.pdf  used on input line 1824.
 (pdftex.def)             Requested size: 371.82751pt x 318.7168pt.
 [38 <./TiTv_distance-vs-maf.pdf>]
-<updated_distributions_table-gwas(5-23-2019).pdf, id=980, 461.41383pt x 483.965
-1pt>
+<updated_distributions_table-gwas(5-23-2019).pdf, id=993, 498.1772pt x 483.9651
+pt>
 File: updated_distributions_table-gwas(5-23-2019).pdf Graphic file (type pdf)
 <use updated_distributions_table-gwas(5-23-2019).pdf>
 Package pdftex.def Info: updated_distributions_table-gwas(5-23-2019).pdf  used 
-on input line 1799.
-(pdftex.def)             Requested size: 379.4175pt x 403.51419pt.
- [39 <./re_fig_5.pdf>] [40 <./updated_distributions_table-gwas(5-23-2019).pdf>]
- [41] [42]
-<rs_fmri_all_instance_matrix.pdf, id=1067, 394.1375pt x 397.6988pt>
+on input line 1846.
+(pdftex.def)             Requested size: 379.4175pt x 373.28172pt.
+
+Overfull \hbox (2.61533pt too wide) in paragraph at lines 1870--1870
+[][]\OT1/cmr/m/n/10 (-20) ([]\OT1/cmr/bx/n/10 135[]\OT1/cmr/m/n/10 (-20) )  
+ []
+
+
+Overfull \hbox (2.61533pt too wide) in paragraph at lines 1873--1873
+[][]\OT1/cmr/m/n/10 (-20) ([]\OT1/cmr/bx/n/10 137[]\OT1/cmr/m/n/10 (-20) )  
+ []
+
+
+Overfull \hbox (6.66594pt too wide) in paragraph at lines 1874--1875
+ [][] 
+ []
+
+[39 <./re_fig_5.pdf>] [40 <./updated_distributions_table-gwas(5-23-2019).pdf>]
+[41] [42]
+<rs_fmri_all_instance_matrix.pdf, id=1089, 394.1375pt x 397.6988pt>
 File: rs_fmri_all_instance_matrix.pdf Graphic file (type pdf)
 <use rs_fmri_all_instance_matrix.pdf>
-Package pdftex.def Info: rs_fmri_all_instance_matrix.pdf  used on input line 19
-70.
+Package pdftex.def Info: rs_fmri_all_instance_matrix.pdf  used on input line 20
+45.
 (pdftex.def)             Requested size: 252.31071pt x 254.59311pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1973.
+(caption)                particular \caption on input line 2048.
 See the caption package documentation for explanation.
 
 [43 <./rs_fmri_all_instance_matrix.pdf>] [44] [45] [46] [47]
-<updated_distributions_table-rs-fMRI.pdf, id=1174, 427.55835pt x 276.36348pt>
+<updated_distributions_table-rs-fMRI.pdf, id=1196, 427.55835pt x 276.36348pt>
 File: updated_distributions_table-rs-fMRI.pdf Graphic file (type pdf)
 <use updated_distributions_table-rs-fMRI.pdf>
 Package pdftex.def Info: updated_distributions_table-rs-fMRI.pdf  used on input
- line 2163.
+ line 2239.
 (pdftex.def)             Requested size: 379.4175pt x 248.46384pt.
- [48 <./updated_distributions_table-rs-fMRI.pdf>] [49]
-<null_corr_BryanEdit.pdf, id=1233, 722.7pt x 252.945pt>
+
+
+LaTeX Warning: Reference `eq:D_rs-fMRI' on page 48 undefined on input line 2242
+.
+
+
+Overfull \hbox (6.66594pt too wide) in paragraph at lines 2258--2259
+ [][] 
+ []
+
+[48 <./updated_distributions_table-rs-fMRI.pdf>] [49]
+<null_corr_BryanEdit.pdf, id=1256, 722.7pt x 252.945pt>
 File: null_corr_BryanEdit.pdf Graphic file (type pdf)
 <use null_corr_BryanEdit.pdf>
-Package pdftex.def Info: null_corr_BryanEdit.pdf  used on input line 2228.
+Package pdftex.def Info: null_corr_BryanEdit.pdf  used on input line 2323.
 (pdftex.def)             Requested size: 371.82751pt x 130.13882pt.
- [50 <./null_corr_BryanEdit.pdf>] [51]
-(NN_methods_theoretical.bbl [52]) 
+ [50 <./null_corr_BryanEdit.pdf>] [51] (NN_methods_theoretical.bbl [52])
+
 AED: lastpage setting LastPage
 [53]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2266.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2266.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2361.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2361.
  (NN_methods_theoretical.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2266.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2266.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2361.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2361.
 
 Package rerunfilecheck Info: File `NN_methods_theoretical.out' has not changed.
 
 (rerunfilecheck)             Checksum: 971B5C68EAD3D4B0FA2DB4383D55038F;2815.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2266.
+
+
+LaTeX Warning: There were undefined references.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2361.
  ) 
 Here is how much of TeX's memory you used:
- 21934 strings out of 492946
- 397082 string characters out of 3135528
- 532496 words of memory out of 3000000
- 24986 multiletter control sequences out of 15000+200000
+ 21957 strings out of 492946
+ 397569 string characters out of 3135528
+ 532949 words of memory out of 3000000
+ 25007 multiletter control sequences out of 15000+200000
  25462 words of font info for 135 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,24n,48p,2436b,726s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,24n,48p,2436b,729s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb><
 C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Progr
 am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files
@@ -1136,9 +1165,9 @@ nts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
 amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
 symbols/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a
 .pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on NN_methods_theoretical.pdf (53 pages, 1431151 bytes).
+Output written on NN_methods_theoretical.pdf (53 pages, 1438295 bytes).
 PDF statistics:
- 1414 PDF objects out of 1440 (max. 8388607)
- 298 named destinations out of 1000 (max. 500000)
+ 1436 PDF objects out of 1440 (max. 8388607)
+ 300 named destinations out of 1000 (max. 500000)
  17274 words of extra memory for PDF output out of 17280 (max. 10000000)
 
