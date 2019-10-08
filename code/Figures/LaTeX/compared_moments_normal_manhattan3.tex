@@ -1,0 +1,86 @@
+\documentclass[hidelinks,12pt,dvipsnames,border=2pt]{standalone}
+%\usepackage[top=0.7in, bottom=0.8in, left=1in, right=1in]{geometry}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usetikzlibrary{arrows}
+\usetikzlibrary{shapes}
+\usepackage{enumitem}
+\usepackage{bm}
+\usepackage{mathdots}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usetikzlibrary{shadings}
+\usetikzlibrary{decorations.pathreplacing}
+\usepackage{helvet}
+\usepackage{url}
+\usepackage{graphicx}
+\usetikzlibrary{arrows.meta,positioning,fit,calc}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{p1}{HTML}{440154}
+\definecolor{p2}{HTML}{482576}
+\definecolor{p3}{HTML}{414487}
+\definecolor{p4}{HTML}{35608D}
+\definecolor{p5}{HTML}{2A788E}
+\definecolor{p6}{HTML}{21908C}
+\definecolor{p7}{HTML}{22A884}
+\definecolor{p8}{HTML}{43BF71}
+\definecolor{p9}{HTML}{7AD151}
+\usetikzlibrary{arrows,decorations.pathmorphing,backgrounds,fit,positioning,shapes.symbols,chains}
+
+\begin{document}
+	
+% trim=left botm right top
+\begin{tikzpicture}
+
+\node at (0,0) {\includegraphics[width=\textwidth]{standard_normal_manhattan_sample-mean_vs_theoretical-mean2.pdf}};
+\node at (13.75,0) {\includegraphics[width=\textwidth]{standard_normal_manhattan_sample-SD_vs_theoretical-SD2.pdf}};
+
+\node[rotate=90,xscale=1.9,yscale=1.9] at (-6.6,0.8) {Theoretical Mean};
+\node[xscale=1.9,yscale=1.9] at (0.9,-6.3) {Simulated Mean};
+
+\node[rotate=90,xscale=1.9,yscale=1.9] at (7.15,0.8) {Theoretical SD};
+\node[xscale=1.9,yscale=1.9] at (14.65,-6.3) {Simulated SD};
+
+%\node[rotate=90,xscale=1.9,yscale=1.9] at (-6.5,-11.6) {Distance (Mean $\pm$ SD)};
+
+%\node[rotate=90,xscale=2.1,yscale=2.1] at (-7.5,-5.1) {Distance (Mean $\pm$ SD)};
+
+%\node[xscale=1.9,yscale=1.9] at (7.95,-6.3) {Number of Attributes ($p$)};
+
+\node[xscale=1.9,yscale=1.9] at (7.95,7.5) {Moments of Manhattan Distances in Standard Normal Data};
+
+%\node[xscale=1.65,yscale=1.65] at (21.3,4.5) {\textcolor{p1}{$\bullet$}};
+%\node[xscale=1.65,yscale=1.65] at (23.2,4.5) {$p=1000$};
+
+%\node[xscale=1.65,yscale=1.65] at (21.3,3.8) {\textcolor{p2}{$\bullet$}};
+%\node[xscale=1.65,yscale=1.65] at (23.2,3.8) {$p=1500$};
+
+%\node[xscale=1.65,yscale=1.65] at (21.3,3.1) {\textcolor{p3}{$\bullet$}};
+%\node[xscale=1.65,yscale=1.65] at (23.2,3.1) {$p=2000$};
+
+%\node[xscale=1.65,yscale=1.65] at (21.3,2.4) {\textcolor{p4}{$\bullet$}};
+%\node[xscale=1.65,yscale=1.65] at (23.2,2.4) {$p=2500$};
+
+%\node[xscale=1.65,yscale=1.65] at (21.3,1.7) {\textcolor{p5}{$\bullet$}};
+%\node[xscale=1.65,yscale=1.65] at (23.2,1.7) {$p=3000$};
+
+%\node[xscale=1.65,yscale=1.65] at (21.3,1) {\textcolor{p6}{$\bullet$}};
+%\node[xscale=1.65,yscale=1.65] at (23.2,1) {$p=3500$};
+
+%\node[xscale=1.65,yscale=1.65] at (21.3,0.3) {\textcolor{p7}{$\bullet$}};
+%\node[xscale=1.65,yscale=1.65] at (23.2,0.3) {$p=4000$};
+
+%\node[xscale=1.65,yscale=1.65] at (21.3,-0.4) {\textcolor{p8}{$\bullet$}};
+%\node[xscale=1.65,yscale=1.65] at (23.2,-0.4) {$p=4500$};
+
+%\node[xscale=1.65,yscale=1.65] at (21.3,-1.1) {\textcolor{p9}{$\bullet$}};
+%\node[xscale=1.65,yscale=1.65] at (23.2,-1.1) {$p=5000$};
+
+%\node[draw,line width=0.3mm,text width=4cm,text height=7.6cm] at (22.8,2.31) {};
+
+%\node[xscale=1.65,yscale=1.65] at (22.8,5.6) {\# Attributes};
+
+\end{tikzpicture}
+
+\end{document}
