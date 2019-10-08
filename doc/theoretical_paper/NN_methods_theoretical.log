@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  7 OCT 2019 19:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  8 OCT 2019 11:00
 entering extended mode
 **./NN_methods_theoretical.tex
 (NN_methods_theoretical.tex
@@ -1112,15 +1112,15 @@ File: updated_distributions_table-rs-fMRI.pdf Graphic file (type pdf)
 Package pdftex.def Info: updated_distributions_table-rs-fMRI.pdf  used on input
  line 2246.
 (pdftex.def)             Requested size: 379.4175pt x 248.46384pt.
-<compared_moments_normal_manhattan3.pdf, id=1215, 798.03645pt x 432.58614pt>
-File: compared_moments_normal_manhattan3.pdf Graphic file (type pdf)
-<use compared_moments_normal_manhattan3.pdf>
-Package pdftex.def Info: compared_moments_normal_manhattan3.pdf  used on input 
+<compared_moments_normal_manhattan5.pdf, id=1217, 798.03645pt x 432.58614pt>
+File: compared_moments_normal_manhattan5.pdf Graphic file (type pdf)
+<use compared_moments_normal_manhattan5.pdf>
+Package pdftex.def Info: compared_moments_normal_manhattan5.pdf  used on input 
 line 2287.
 (pdftex.def)             Requested size: 379.4175pt x 205.66536pt.
  [48 <./updated_distributions_table-rs-fMRI.pdf>] [49 <./compared_moments_norma
-l_manhattan3.pdf>] [50]
-<null_corr_BryanEdit.pdf, id=1303, 722.7pt x 252.945pt>
+l_manhattan5.pdf>] [50]
+<null_corr_BryanEdit.pdf, id=1305, 722.7pt x 252.945pt>
 File: null_corr_BryanEdit.pdf Graphic file (type pdf)
 <use null_corr_BryanEdit.pdf>
 Package pdftex.def Info: null_corr_BryanEdit.pdf  used on input line 2353.
@@ -1175,9 +1175,9 @@ nts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
 amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
 symbols/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a
 .pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on NN_methods_theoretical.pdf (54 pages, 1544244 bytes).
+Output written on NN_methods_theoretical.pdf (54 pages, 1531330 bytes).
 PDF statistics:
- 1484 PDF objects out of 1728 (max. 8388607)
+ 1486 PDF objects out of 1728 (max. 8388607)
  304 named destinations out of 1000 (max. 500000)
  17287 words of extra memory for PDF output out of 20736 (max. 10000000)
 
