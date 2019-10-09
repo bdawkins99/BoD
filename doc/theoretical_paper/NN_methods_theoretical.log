@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  8 OCT 2019 11:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  9 OCT 2019 18:36
 entering extended mode
 **./NN_methods_theoretical.tex
 (NN_methods_theoretical.tex
@@ -1083,10 +1083,10 @@ File: TiTv_distance-vs-maf.pdf Graphic file (type pdf)
 <use TiTv_distance-vs-maf.pdf>
 Package pdftex.def Info: TiTv_distance-vs-maf.pdf  used on input line 1812.
 (pdftex.def)             Requested size: 241.68561pt x 241.69672pt.
-<re_fig_5.pdf, id=955, 505.89pt x 433.62pt>
-File: re_fig_5.pdf Graphic file (type pdf)
-<use re_fig_5.pdf>
-Package pdftex.def Info: re_fig_5.pdf  used on input line 1822.
+<re_fig_5_BDedit.pdf, id=955, 505.89pt x 433.62pt>
+File: re_fig_5_BDedit.pdf Graphic file (type pdf)
+<use re_fig_5_BDedit.pdf>
+Package pdftex.def Info: re_fig_5_BDedit.pdf  used on input line 1822.
 (pdftex.def)             Requested size: 371.82751pt x 318.7168pt.
  [37 <./TiTv_distance-vs-maf.pdf>]
 <updated_distributions_table-gwas(5-23-2019).pdf, id=992, 498.1772pt x 483.9651
@@ -1096,16 +1096,16 @@ File: updated_distributions_table-gwas(5-23-2019).pdf Graphic file (type pdf)
 Package pdftex.def Info: updated_distributions_table-gwas(5-23-2019).pdf  used 
 on input line 1845.
 (pdftex.def)             Requested size: 375.6254pt x 369.54869pt.
- [38 <./re_fig_5.pdf>] [39 <./updated_distributions_table-gwas(5-23-2019).pdf>]
- [40] [41]
+ [38 <./re_fig_5_BDedit.pdf>] [39 <./updated_distributions_table-gwas(5-23-2019
+).pdf>] [40]
+[41]
 <rs_fmri_all_instance_matrix.pdf, id=1088, 394.1375pt x 397.6988pt>
 File: rs_fmri_all_instance_matrix.pdf Graphic file (type pdf)
 <use rs_fmri_all_instance_matrix.pdf>
 Package pdftex.def Info: rs_fmri_all_instance_matrix.pdf  used on input line 20
 51.
 (pdftex.def)             Requested size: 252.31071pt x 254.59311pt.
-
-[42] [43 <./rs_fmri_all_instance_matrix.pdf>] [44] [45] [46] [47]
+ [42] [43 <./rs_fmri_all_instance_matrix.pdf>] [44] [45] [46] [47]
 <updated_distributions_table-rs-fMRI.pdf, id=1201, 427.55835pt x 276.36348pt>
 File: updated_distributions_table-rs-fMRI.pdf Graphic file (type pdf)
 <use updated_distributions_table-rs-fMRI.pdf>
@@ -1125,8 +1125,8 @@ File: null_corr_BryanEdit.pdf Graphic file (type pdf)
 <use null_corr_BryanEdit.pdf>
 Package pdftex.def Info: null_corr_BryanEdit.pdf  used on input line 2353.
 (pdftex.def)             Requested size: 371.82751pt x 130.13882pt.
- [51 <./null_corr_BryanEdit.pdf>] [52] (NN_methods_theoretical.bbl
-[53]) 
+ [51 <./null_corr_BryanEdit.pdf>] [52]
+(NN_methods_theoretical.bbl [53]) 
 AED: lastpage setting LastPage
 [54]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2391.
@@ -1142,7 +1142,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2391.
  ) 
 Here is how much of TeX's memory you used:
  22974 strings out of 492946
- 414738 string characters out of 3135528
+ 414773 string characters out of 3135528
  552015 words of memory out of 3000000
  25985 multiletter control sequences out of 15000+200000
  25462 words of font info for 135 fonts, out of 3000000 for 9000
@@ -1175,7 +1175,7 @@ nts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
 amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
 symbols/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a
 .pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on NN_methods_theoretical.pdf (54 pages, 1531330 bytes).
+Output written on NN_methods_theoretical.pdf (54 pages, 1531676 bytes).
 PDF statistics:
  1486 PDF objects out of 1728 (max. 8388607)
  304 named destinations out of 1000 (max. 500000)
