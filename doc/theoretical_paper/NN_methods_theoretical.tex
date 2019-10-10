@@ -838,7 +838,7 @@ D^{(q*)}_{ij} &= \left(\sum_{a\in \mathcal{A}}|\text{d}_{ij}(a)|^q\right)^{1/q} 
 \end{aligned}
 \end{equation}
 
-In order to determine moments of asymptotic distance distributions induced by Eq. \ref{eq:normDiff}, we must first derive the asymptotic extreme value distributions of the attribute maximum and minimum. Although the exact distribution of the maximum or minimum requires an assumption about the data distribution, the Fisher-Tippett-Gnedenko Theorem allows us to generally categorize the extreme value distribution for a collection of independent and identically distributed random variables into one of three distributional families. Before stating the theorem, we first need the following definition
+In order to determine moments of asymptotic distance distributions induced by Eq.~\ref{eq:normDiff}, we must first derive the asymptotic extreme value distributions of the attribute maximum and minimum. Although the exact distribution of the maximum or minimum requires an assumption about the data distribution, the Fisher-Tippett-Gnedenko Theorem is an important result that allows one to generally categorize the extreme value distribution for a collection of independent and identically distributed random variables into one of three distributional families. This theorem does not, however, tell us the exact distribution of the maximum that we require in order to determine asymptotic results for the max-min normalized distance (Eq.~\ref{eq:D*}). We mention this theorem simply to provide some background on convergence of extreme values. Before stating the theorem, we first need the following definition
 %
 \begin{definition}
 A distribution $\mathcal{F}_X$ is said to be \textbf{degenerate} if its density function $f_X$ is the Dirac delta $\delta(x - c_0)$ centered at a constant $c_0 \in \mathbb{R}$, with corresponding distribution function $F_X$ defined as
@@ -858,7 +858,7 @@ Let $X_{1a},X_{2a},\dots,X_{ma} \overset{iid}{\sim} \mathcal{F}_X\left(\mu_x,\si
 \noindent where $G_X$ is a non-degenerate distribution function, then the limiting distribution $\mathcal{G}_X$ is in the Gumbel, Fr\'{e}chet, or Wiebull family.
 \end{theorem}
 
-The three distribution families given in Thm.~\ref{thm:EVT} are actually special cases of the Generalized Extreme Value Distribution. In the context of extreme values, Thm.~\ref{thm:EVT} is analogous to the Central Limit Theorem for the distribution of sample mean.  Although we will not explicitly invoke this theorem, it does tell us something very important about the asymptotic behavior of sample extremes under certain necessary conditions. For illustration of this general phenomenon of sample extremes, we derive the distribution of the maximum for standard normal data to show that the limiting distribution is in the Gumbel family, which is a well known result. In the case of standard uniform data, we will derive the distribution of the maximum and minimum directly. Regardless of data type, the distribution of the sample maximum is derived as follows
+The three distribution families given in Thm.~\ref{thm:EVT} are actually special cases of the Generalized Extreme Value Distribution. In the context of extreme values, Thm.~\ref{thm:EVT} is analogous to the Central Limit Theorem for the distribution of sample mean.  Although we will not explicitly invoke this theorem, it does tell us something very important about the asymptotic behavior of sample extremes under certain necessary conditions. For illustration of this general phenomenon of sample extremes, we derive the distribution of the maximum for standard normal data to show that the limiting distribution is in the Gumbel family, which is a well known result. In the case of standard uniform data, we will derive the distribution of the maximum and minimum directly. Regardless of data type, the distribution of the sample maximum can be derived as follows
 %
 \begin{equation}\label{eq:exact_max}
 \begin{aligned}
@@ -870,23 +870,27 @@ The three distribution families given in Thm.~\ref{thm:EVT} are actually special
 \end{aligned}
 \end{equation}
 
-Therefore, we have the following expression for the distribution function of the maximum
+Using more precise notation, the distribution function of the sample maximum in standard normal data is
 %
 \begin{equation}\label{eq:exact_max_distr_fn}
-F_\text{max}(x) = [F_X(x)]^m.
+F_\text{max}(x) = [F_X(x)]^m,
 \end{equation}
+%
+where $m$ is the size of the sample from which the maximum is derived and $F_X$ is the distribution function corresponding to the data sample. This means that the distribution of the sample maximum relies only on the distribution function of the data from which extremes are drawn $F_X$ and the size of the sample $m$.
 
-Differentiating the distribution function given by Eq. \ref{eq:exact_max_distr_fn} gives us the following density function for the distribution of the maximum
+Differentiating the distribution function (Eq.~\ref{eq:exact_max_distr_fn}) gives us the following density function for the distribution of the maximum
 %
 \begin{equation}\label{eq:exact_max_dens_fn}
 \begin{aligned}
 f_\text{max}(x) &= \frac{\text{d}}{\text{d}x} F_\text{max}(x) \\
 &= \frac{\text{d}}{\text{d}x} [F_X(x)]^m \\
-&= m [F_X(x)]^{m-1} f_X(x).
+&= m [F_X(x)]^{m-1} f_X(x),
 \end{aligned}
 \end{equation}
+%
+where $m$ is the size of the sample from which the maximum is derived, $F_X$ is the distribution function corresponding to the data sample, and $f_X$ is the density function corresponding to the data sample. Similar to the distribution function for the sample maximum (Eq.~\ref{eq:exact_max_distr_fn}), the density function (Eq~\ref{eq:exact_max_dens_fn}) relies only on the distribution and density function of the data from which extremes are derived.
 
-The distribution of the sample minimum, $X^\text{min}_a$, is derived as follows
+The distribution of the sample minimum, $X^\text{min}_a$, can be derived as follows
 %
 \begin{equation}\label{eq:exact_min}
 \begin{aligned}
@@ -896,35 +900,45 @@ The distribution of the sample minimum, $X^\text{min}_a$, is derived as follows
 &= 1 - \prod_{k=1}^{m}\text{P}[X_{ka} \geq x] \\
 &= 1 - \left[\text{P}[X_{1a} \geq x]\right]^m \\
 &= 1 - \left[1 - \text{P}[X_{1a} \leq x]\right]^m \\
-&= 1 - \left[1 - F_X(x)\right]^m.
+&= 1 - \left[1 - F_X(x)\right]^m,
 \end{aligned}
 \end{equation}
+%
+where $m$ is the size of the sample from which the maximum is derived and $F_X$ is the distribution function corresponding to the data sample. Therefore, the distribution of sample minimum also relies only on the distribution function of the data from which extremes are derived.
 
-Therefore, we have the following expression for the distribution function of the minimum
+With more precise notation, we have the following expression for the distribution function of the minimum
 %
 \begin{equation}\label{eq:exact_min_distr_fn}
 F_\text{min}(x) = 1 - [1 - F_X(x)]^m.
 \end{equation}
+%
+where $m$ is the size of the sample from which the minimum is derived and $F_X$ is the distribution function corresponding to the data sample.
 
-Differentiating the distribution function given by Eq. \ref{eq:exact_min_distr_fn} gives us the following density function for the distribution of the minimum
+Differentiating the distribution function (Eq.~\ref{eq:exact_min_distr_fn}) gives us the following density function for the distribution of sample minimum
 %
 \begin{equation}\label{eq:exact_min_dens_fn}
 \begin{aligned}
 f_\text{min}(x) &= \frac{\text{d}}{\text{d}x} F_\text{min}(x) \\
 &= \frac{\text{d}}{\text{d}x} \left(1 - [1 - F_X(x)]^m\right) \\
-&= m\left[1 - F_X(x)\right]^{m-1}f_X(x).
+&= m\left[1 - F_X(x)\right]^{m-1}f_X(x),
 \end{aligned}
 \end{equation}
+%
+where $m$ is the size of the sample from which the minimum is derived, $F_X$ is the distribution function corresponding to the data sample, and $f_X$ is the density function corresponding to the data sample. As in the case of the density function for sample maximum (Eq.~\ref{eq:exact_max_dens_fn}), the density function for sample minimum relies only on the distribution $F_X$ and density $f_X$ functions of the data from which extremes are derived and the sample size $m$.
 
-Given the densities of the distribution of sample maximum and minimum, we can easily compute moments and the variance. The first and second moment about the origin and the variance of the distribution of the maximum are given by the following
+Given the densities of the distribution of sample maximum and minimum, we can easily compute the raw moments and variance. The first moment about the origin of the distribution of sample maximum is given by the following
 %
 \begin{equation}\label{eq:mu_max}
 \begin{aligned}
 \mu^{(1)}_\text{max}(m) = \text{E}(X^\text{max}_a) &= \int_{-\infty}^{\infty}x f_\text{max}(x)\text{d}x \\
 &= \int_{-\infty}^{\infty}x \left(m [F_X(x)]^{m-1} f_X(x)\right)\text{d}x \\
-&= m \int_{-\infty}^{\infty}x f_X(x) [F_X(x)]^{m-1}\text{d}x.
+&= m \int_{-\infty}^{\infty}x f_X(x) [F_X(x)]^{m-1}\text{d}x,
 \end{aligned}
 \end{equation}
+%
+where $m$ is the sample size, $F_X$ is the distribution function, and $f_X$ is the density function of the data from which the maximum is derived.
+
+The second raw moment of the distribution of sample maximum is derived similarly as follows
 %
 \begin{equation}\label{eq:mu2_max}
 \begin{aligned}
@@ -934,11 +948,16 @@ Given the densities of the distribution of sample maximum and minimum, we can ea
 \end{aligned}
 \end{equation}
 %
-\begin{equation}\label{eq:sig_max}
-\sigma^2_\text{max}(m) = \mu^{(2)}_\text{max}(m) - \left[\mu^{(1)}_\text{max}(m)\right]^2
-\end{equation}
+where $m$ is the sample size, $F_X$ is the distribution function, and $f_X$ is the density function of the data from which the maximum is derived.
 
-Similarly, we have the first and second moment about the origin and variance of the distribution of sample minimum given by the following
+Using the first (Eq.~\ref{eq:mu_max}) and second (Eq.~\ref{eq:mu2_max}) of the distribution of sample maximum, the variance is given by
+\begin{equation}\label{eq:sig_max}
+\sigma^2_\text{max}(m) = \mu^{(2)}_\text{max}(m) - \left[\mu^{(1)}_\text{max}(m)\right]^2,
+\end{equation}
+%
+where $m$ is the sample size of the data from which the maximum is derived and $\mu^{(1)}_\text{max}(m)$ and $\mu^{(2)}_\text{max}$ are the first and second raw moments, respectively, of the distribution of sample maximum.
+
+Moving on to the distribution of sample minimum, the first raw moment is given by the following
 %
 \begin{equation}\label{eq:mu_min}
 \begin{aligned}
@@ -948,6 +967,10 @@ Similarly, we have the first and second moment about the origin and variance of 
 \end{aligned}
 \end{equation}
 %
+where $m$ is the sample size, $F_X$ is the distribution function, and $f_X$ is the density function of the data from which the minimum is derived.
+
+Similarly, the second raw moment of the distribution of sample minimum is given by the following
+%
 \begin{equation}\label{eq:mu2_min}
 \begin{aligned}
 \mu^{(2)}_\text{min}(m) = \text{E}[(X^\text{min}_a)^2] &= \int_{-\infty}^{\infty}x^2 f_\text{min}(x)\text{d}x \\
@@ -956,13 +979,17 @@ Similarly, we have the first and second moment about the origin and variance of 
 \end{aligned}
 \end{equation}
 %
-and
+where $m$ is the sample size, $F_X$ is the distribution function, and $f_X$ is the density function of the data from which the minimum is derived.
+
+Using the first (Eq.~\ref{eq:mu_min}) and second (Eq.~\ref{eq:mu2_min}) of the distribution of sample minimum, the variance is given by
 %
 \begin{equation}\label{eq:sig_min}
-\sigma^2_\text{min}(m) = \mu^{(2)}_\text{min}(m) - \left[\mu^{(1)}_\text{min}(m)\right]^2.
+\sigma^2_\text{min}(m) = \mu^{(2)}_\text{min}(m) - \left[\mu^{(1)}_\text{min}(m)\right]^2,
 \end{equation}
+%
+where $m$ is the sample size of the data from which the maximum is derived and $\mu^{(1)}_\text{min}(m)$ and $\mu^{(2)}_\text{min}$ are the first and second raw moments, respectively, of the distribution of sample maximum.
 
-With the densities of attribute maximum and minimum for sample size $m$, the expected range is given by the following
+With the densities of attribute maximum (Eq.~\ref{eq:mu_max}) and minimum (Eq.~\ref{eq:mu_min}) for sample size $m$, the expected range is given by the following
 %
 \begin{equation}\label{eq:exp_rng}
 \begin{aligned}
@@ -971,13 +998,15 @@ With the densities of attribute maximum and minimum for sample size $m$, the exp
 \end{aligned}
 \end{equation}
 
-For a data distribution that has zero skewness and has support that is symmetric about 0, the result given by Eq. \ref{eq:exp_rng} can be simplified to the following expression
+For a data distribution that has zero skewness and support that is symmetric about 0, the expected attribute range (Eq.~\ref{eq:exp_rng}) can be simplified to the following expression
 %
 \begin{equation}\label{eq:exp_rng_symm}
-\text{E}(X^\text{max}_a - X^\text{min}_a) = 2 \mu^{(1)}_\text{max}(m).
+\text{E}(X^\text{max}_a - X^\text{min}_a) = 2 \mu^{(1)}_\text{max}(m),
 \end{equation}
+%
+where $m$ is the size of the sample from which the maximum is derived. Hence, the expected attribute range is simply twice the expected attribute maximum (Eq.~\ref{eq:mu_max}). This result naturally applies to standard normal data, which is symmetric about its mean at 0 and without any skewness.  
 
-For large samples ($m >> 1$), the covariance between the sample maximum and minimum is approximately zero \cite{gumbel1947}. Therefore, the variance of the attribute range of a sample of size $m$ is given by the following
+For large samples ($m >> 1$) from an exponential type distribution that has infinite support and all moments, the covariance between the sample maximum and minimum is approximately zero \cite{gumbel1947}. In this case, the variance of the attribute range of a sample of size $m$ is given by the following
 %
 \begin{equation}\label{eq:var_rng}
 \begin{aligned}
@@ -986,27 +1015,31 @@ For large samples ($m >> 1$), the covariance between the sample maximum and mini
 \end{aligned}
 \end{equation}
 
-Under the assumption of zero skewness and support that is symmetric about 0, the result given by Eq. \ref{eq:var_rng} becomes the following
+Under the assumption of zero skewness, infinite support that is symmetric about 0, sufficiently large sample size $m$, and distribution of an exponential type with all moments, the variance of attribute range (Eq.~\ref{eq:var_rng}) simplifies to become the following
 %
 \begin{equation}\label{eq:var_rng_symm}
 \begin{aligned}
 \text{Var}(X^\text{max}_a - X^\text{min}_a) &= 2 \text{Var}(X^\text{max}_a) \\
-&= 2 \sigma^2_\text{max}.
+&= 2 \sigma^2_\text{max},
 \end{aligned}
 \end{equation}
+%
+where $m$ is the size of the sample from which extremes are derived. 
 
-Let $\mu_{D^{(q)}_{ij}}$ and $\sigma^2_{D^{(q)}_{ij}}$ denote the mean and variance given by Eq. \ref{eq:DDistr}. Furthermore, let $D^{(q*)}_{ij}$ denote the max-min normalized distance between instances $i$ and $j$ that is induced by the metric given by Eq. \ref{eq:normDiff}. Then the mean of the max-min normalized distance distribution is given by the following
+Let $\mu_{D^{(q)}_{ij}}$ and $\sigma^2_{D^{(q)}_{ij}}$ denote the mean and variance (Eq.~\ref{eq:DDistr}) of the standard $L_q$ distance metric (Eq.~\ref{eq:D}). Then the expected value of the max-min normalized distance (Eq.~\ref{eq:D*}) distribution is given by the following
 %
 \begin{equation}\label{eq:max-min_D_mean}
 \begin{aligned}
 \mu_{D^{(q*)}_{ij}} &= \text{E}\left[\left(\sum_{a \in \mathcal{A}}\left(\frac{|X_{ia} - X_{ja}|}{X^\text{max}_a - X^\text{min}_a}\right)^q\right)^{1/q}\right] \\
 &\approx \frac{1}{\text{E}(X^\text{max}_a - X^\text{min}_a)}\text{E}\left[\left(\sum_{a \in \mathcal{A}}|X_{ia} - X_{ja}|^q\right)^{1/q}\right] \\
 &= \frac{\mu_{D^{(q)}_{ij}}}{\text{E}(X^\text{max}_a) - \text{E}(X^\text{min}_a)} \\
-&= \frac{\mu_{D^{(q)}_{ij}}}{\mu^{(1)}_\text{max} - \mu^{(1)}_\text{min}}.
+&= \frac{\mu_{D^{(q)}_{ij}}}{\mu^{(1)}_\text{max}(m) - \mu^{(1)}_\text{min}(m)},
 \end{aligned}
 \end{equation}
+%
+where $m$ is the size of the sample from which extremes are derived, $\mu^{(1)}_\text{max}(m)$ is the expected value of the sample maximum (Eq.~\ref{eq:mu_max}), and $\mu^{(1)}_\text{min}$ is the expected value of the sample minimum. 
 
-The variance of the max-min normalized distance distribution is given by the following
+The variance of the max-min normalized distance (Eq.~\ref{eq:D*}) distribution is given by the following
 %
 \begin{equation}\label{eq:max-min_D_var}
 \begin{aligned}
@@ -1016,65 +1049,83 @@ The variance of the max-min normalized distance distribution is given by the fol
 &= \frac{\sigma^2_{D^{(q)}_{ij}} + \mu^2_{D^{(q)}_{ij}}}{\text{E}[(X^\text{max}_a - X^\text{min}_a)^2]} - \frac{\mu^2_{D^{(q)}_{ij}}}{\text{E}[(X^\text{max}_a - X^\text{min}_a)^2]} \\
 &= \frac{\sigma^2_{D^{(q)}_{ij}}}{\text{E}[(X^\text{max}_a - X^\text{min}_a)^2]} \\
 &= \frac{\sigma^2_{D^{(q)}_{ij}}}{\text{E}[(X^\text{max}_a)^2] - 2\text{E}(X^\text{max}_a)\text{E}(X^\text{min}_a) + \text{E}(X^\text{min}_a)} \\
-&= \frac{\sigma^2_{D^{(q)}_{ij}}}{\mu^{(2)}_\text{max}(m) - 2\mu^{(1)}_\text{max}(m)\mu^{(1)}_\text{min}(m) + \mu^{(2)}_\text{min}(m)}.
+&= \frac{\sigma^2_{D^{(q)}_{ij}}}{\mu^{(2)}_\text{max}(m) - 2\mu^{(1)}_\text{max}(m)\mu^{(1)}_\text{min}(m) + \mu^{(2)}_\text{min}(m)},
 \end{aligned}
 \end{equation}
+%
+where $m$ is the size of the sample from which extremes are derived, $\mu^{(1)}_\text{max}(m)$ is the expected value of the sample maximum (Eq.~\ref{eq:mu_max}), and $\mu^{(1)}_\text{min}$ is the expected value of the sample minimum.  
 
-With the results given by Eqs. \ref{eq:max-min_D_mean} and \ref{eq:max-min_D_var}, we have the following generalized estimate for the asymptotic distribution of the max-min normalized distance distribution
+With the mean (Eq.~\ref{eq:max-min_D_mean}) and variance (Eq.~\ref{eq:max-min_D_var}) of the max-min normalized distance  (Eq.~\ref{eq:D*}), we have the following generalized estimate for the asymptotic distribution of the max-min normalized distance distribution
 %
 \begin{equation}\label{eq:max-min-DDistr-general}
-D^{(q*)}_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{\mu_{D^{(q)}_{ij}}}{\mu^{(1)}_\text{max}(m) - \mu^{(1)}_\text{min}(m)}, \frac{\sigma^2_{D^{(q)}_{ij}}}{\mu^{(2)}_\text{max}(m) - 2 \mu^{(1)}_\text{max}(m) \mu^{(1)}_\text{min}(m) + \mu^{(2)}_\text{min}(m)}\right).
+D^{(q*)}_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{\mu_{D^{(q)}_{ij}}}{\mu^{(1)}_\text{max}(m) - \mu^{(1)}_\text{min}(m)}, \frac{\sigma^2_{D^{(q)}_{ij}}}{\mu^{(2)}_\text{max}(m) - 2 \mu^{(1)}_\text{max}(m) \mu^{(1)}_\text{min}(m) + \mu^{(2)}_\text{min}(m)}\right),
 \end{equation}
+%
+where $m$ is the size of the sample from which extremes are derived, $\mu^{(1)}_\text{max}(m)$ is the expected value of the sample maximum (Eq.~\ref{eq:mu_max}), $\mu^{(1)}_\text{min}$ is the expected value of the sample minimum, $\mu_{D^{(q)}_{ij}}$ is the expected value of the standard $L_q$ distance metric (Eq.~\ref{eq:DDistr}), and $\sigma^2_{D^{(q)}_{ij}}$ is the variance of the standard $L_q$ distance metric (Eq.~\ref{eq:DDistr}).
 
-For data with zero skewness and support that is symmetric about 0, the expected sample maximum is the additive inverse of the expected sample minimum. This allows us to express the formula given by Eq. \ref{eq:max-min_D_mean} exclusively in terms of the expected maximum. This result is given by the following
+For data with zero skewness and support that is symmetric about 0, the expected sample maximum is the additive inverse of the expected sample minimum. This allows us to express the expected max-min normalized pairwise distance (Eq.~\ref{eq:max-min_D_mean}) exclusively in terms of the expected sample maximum. This result is given by the following
 %
 \begin{equation}\label{eq:max-min_D_mean_symm}
-\mu_{D^{(q*)}_{ij}} \approx \frac{\mu_{D^{(q)}_{ij}}}{2\mu^{(1)}_\text{max}(m)}.
+\mu_{D^{(q*)}_{ij}} \approx \frac{\mu_{D^{(q)}_{ij}}}{2\mu^{(1)}_\text{max}(m)},
 \end{equation}
+%
+where $m$ is the size of the sample from which the maximum is derived, $\mu_{D^{(q)}_{ij}}$ is the expected value of the standard $L_q$ distance metric (Eq.~\ref{eq:DDistr}), and $\mu^{(1)}_\text{max}(m)$ is the expected value of the sample maximum (Eq.~\ref{eq:mu_max}).
 
 A similar substitution gives us the following expression for the variance of the max-min normalized distance distribution
 %
 \begin{equation}\label{eq:max-min_D_var_symm}
 \begin{aligned}
 \sigma^2_{D^{(q*)}_{ij}} &\approx \frac{\sigma^2_{D^{(q)}_{ij}}}{2\mu^{(2)}_\text{max}(m) + 2\left[\mu^{(1)}_\text{max}(m)\right]^2} \\
-&= \frac{\sigma^2_{D^{(q)}_{ij}}}{2\left(\sigma^2_\text{max}(m) + \left[\mu^{(1)}_\text{max}(m)\right]^2\right)}.
+&= \frac{\sigma^2_{D^{(q)}_{ij}}}{2\left(\sigma^2_\text{max}(m) + \left[\mu^{(1)}_\text{max}(m)\right]^2\right)},
 \end{aligned}
 \end{equation}
+%
+where $m$ is the size of the sample from which extremes are derived, $\mu^{(1)}_\text{max}(m)$ is the expected value of the sample maximum (Eq.~\ref{eq:mu_max}), $\sigma^2_\text{max}(m)$ is the variance of the sample maximum (Eq.~\ref{eq:sig_max}), and $\sigma^2_{D^{(q)}_{ij}}$ is the variance of the standard $L_q$ distance metric (Eq.~\ref{eq:DDistr}).
 
-Therefore, the asymptotic distribution of the max-min normalized distance distribution is given by the following
+Therefore, the asymptotic distribution of the max-min normalized distance distribution (Eq.~\ref{eq:max-min-DDistr-general}) becomes
 %
 \begin{equation}\label{eq:max-min_DDistr}
-D^{(q*)}_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{\mu_{D^{(q)}_{ij}}}{2\mu^{(1)}_\text{max}(m)}, \frac{\sigma^2_{D^{(q)}_{ij}}}{2\left(\sigma^2_\text{max}(m) + \left[\mu^{(1)}_\text{max}(m)\right]^2\right)}\right).
+D^{(q*)}_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{\mu_{D^{(q)}_{ij}}}{2\mu^{(1)}_\text{max}(m)}, \frac{\sigma^2_{D^{(q)}_{ij}}}{2\left(\sigma^2_\text{max}(m) + \left[\mu^{(1)}_\text{max}(m)\right]^2\right)}\right),
 \end{equation}
+%
+where $m$ is the size of the sample from which extremes are derived, $\mu^{(1)}_\text{max}(m)$ is the expected value of the sample maximum (Eq.~\ref{eq:mu_max}), $\sigma^2_\text{max}(m)$ is the variance of the sample maximum (Eq.~\ref{eq:sig_max}),  $\mu_{D^{(q)}_{ij}}$ is the expected value of the standard $L_q$ distance metric (Eq.~\ref{eq:DDistr}), and $\sigma^2_{D^{(q)}_{ij}}$ is the variance of the standard $L_q$ distance metric (Eq.~\ref{eq:DDistr}). 
+
+We have now derived asymptotic estimates of the moments of the max-min normalized $L_q$ distance metric (Eq.~\ref{eq:D*}) for any continuous data distribution. In the next two sections, we examine the max-min normalized $L_q$ distance on standard normal and standard uniform data. As in previous sections in which we analyzed the standard $L_q$ metric (Eq.~\ref{eq:D}), we will use the more general results for the max-min $L_q$ metric to derive asymptotic estimates for normalized Manhattan ($q=1$) and Euclidean ($q=2$).
 
 \subsubsection{Standard normal data}
 
-Standard normal data has zero skewness and has support that is symmetric about 0. This implies that the mean and variance of the distribution of sample range can be expressed exclusively in terms of the sample maximum. Given the nature of the density function of the sample maximum for sample size $m$, the integration required to determine the moments given by Eqs. \ref{eq:mu_max} and \ref{eq:mu2_max} is not possible. These moments can either be approximated numerically or we can use extreme value theory to determine the form of the asymptotic distribution of the sample maximum. Using the latter method, we will show that the asymptotic distribution of the sample maximum for standard normal data is in the Gumbel family. Let $c_m = -\Phi^{-1}\left(\frac{1}{m}\right)$ and $b_m = \frac{1}{c_m}$. Using Taylor's Theorem, we have the following expansion
+The standard normal distribution has zero skewness, infinite support that is symmetric about 0, and all moments. This implies that the corresponding mean and variance of the distribution of sample range can be expressed exclusively in terms of the sample maximum. Given the nature of the density function of the sample maximum for sample size $m$, the integration required to determine the moments (Eqs.~\ref{eq:mu_max} and \ref{eq:mu2_max}) is not possible. These moments can either be approximated numerically or we can use extreme value theory to determine the form of the asymptotic distribution of the sample maximum. Using the latter method, we will show that the asymptotic distribution of the sample maximum for standard normal data is in the Gumbel family. Let $c_m = -\Phi^{-1}\left(\frac{1}{m}\right)$ and $b_m = \frac{1}{c_m}$, where $\Phi$ is the standard normal cumulative distribution function. Using Taylor's Theorem, we have the following expansion
 %
 \begin{equation}\label{eq:log_expand}
 \begin{aligned}
 \text{log}\Phi(-c_m - b_m x) &= \text{log}\Phi(-c_m) - b_m x \frac{\phi(-c_m)}{\Phi(-c_m)} + \mathcal{O}(b^2_m x^2) \\
-&= \text{log}\left(\frac{1}{m}\right) - x \frac{\phi(-c_m)}{c_m \Phi(-c_m)} + \mathcal{O}(b^2_m x^2).
+&= \text{log}\left(\frac{1}{m}\right) - x \frac{\phi(-c_m)}{c_m \Phi(-c_m)} + \mathcal{O}(b^2_m x^2),
 \end{aligned}
 \end{equation}
+%
+where $m$ is the size of the sample from which the maximum is derived.
 
-In order to simplify the right-hand side of Eq. \ref{eq:log_expand}, we will use the well known Mills Ratio Bounds \cite{chatterjee2014} given by the following
+In order to simplify the right-hand side of this expansion (Eq.~\ref{eq:log_expand}), we will use the well known Mills Ratio Bounds \cite{chatterjee2014} given by the following
 %
 \begin{equation}\label{eq:mills}
-1 \leq \frac{\phi(x)}{x \Phi(-x)} \leq 1 + \frac{1}{x^2} \quad , x > 0.
+1 \leq \frac{\phi(x)}{x \Phi(-x)} \leq 1 + \frac{1}{x^2} \quad , x > 0,
 \end{equation}
+%
+where $\Phi$ and $\phi$ are the cumulative distribution function and density function, respecively, of the standard normal distribution.
 
-The inequalities given by Eq. \ref{eq:mills} show that $\frac{\phi(x)}{x \Phi(-x)} \rightarrow 1$ as $x \rightarrow \infty$. This implies that $\frac{\phi(c_m)}{c_m \Phi(-c_m)} \rightarrow 1$ as $m \rightarrow \infty$ since $c_m = -\Phi^{-1}\left(\frac{1}{m}\right) \rightarrow \infty$ as $m \rightarrow \infty$. This gives us the following approximation of the right-hand side of Eq. \ref{eq:log_expand}
+The inequalities given above (Eq.~\ref{eq:mills}) show that $\frac{\phi(x)}{x \Phi(-x)} \rightarrow 1$ as $x \rightarrow \infty$. This implies that $\frac{\phi(c_m)}{c_m \Phi(-c_m)} \rightarrow 1$ as $m \rightarrow \infty$ since $c_m = -\Phi^{-1}\left(\frac{1}{m}\right) \rightarrow \infty$ as $m \rightarrow \infty$. This gives us the following approximation of the right-hand side of the expansion (Eq.~\ref{eq:log_expand}) given previously
 %
 \begin{equation}\label{eq:approx_log_expand}
 \begin{aligned}
 \text{log}\Phi(-c_m - b_m x) &\approx \text{log}\left(\frac{1}{m}\right) - x + \mathcal{O}(b^2_m x^2) \\
 \Rightarrow \Phi(-c_m - b_m x) &\approx \frac{1}{m}e^{-x + \mathcal{O}(b^2_m x^2)} \\
-\Rightarrow \Phi(c_m + b_m x) &\approx 1 - \frac{1}{m}e^{-x + \mathcal{O}(b^2_m x^2)}.
+\Rightarrow \Phi(c_m + b_m x) &\approx 1 - \frac{1}{m}e^{-x + \mathcal{O}(b^2_m x^2)},
 \end{aligned}
 \end{equation}
+%
+where $m$ is the size of the sample from which the maximum is derived.
 
-Using the result given by Eq. \ref{eq:approx_log_expand}, we have the following
+Using the approximation of expansion given previously (Eq.~\ref{eq:approx_log_expand}), we now derive the limit distribution for the sample maximum in standard normal data as
 %
 \begin{equation}\label{eq:prob_normal_max}
 \begin{aligned}
@@ -1084,29 +1135,45 @@ Using the result given by Eq. \ref{eq:approx_log_expand}, we have the following
 &= \left(1 - \frac{1}{m}e^{-x + \mathcal{O}\left(\frac{1}{c^2_m} x^2\right)}\right)^m \\
 &\approx \left(1 - \frac{1}{m}e^{-x}\right)^m \\
 \Rightarrow \lim_{m \to \infty} \text{P}\left(\frac{X^\text{max}_a - c_m}{b_m} \leq x\right) &= \lim_{m \to \infty} \left(1 - \frac{1}{m}e^{-x}\right)^m \\
-&= e^{-e^{-x}}.
+&= e^{-e^{-x}},
 \end{aligned}
 \end{equation}
-
-The right-hand side of Eq. \ref{eq:prob_normal_max} is the cumulative distribution function of the standard Gumbel distribution. The mean of the asymptotic distribution is given by the following
+%
+which is the cumulative distribution function of the standard Gumbel distribution. The mean of this distribution is given by the following
 %
 \begin{equation}\label{eq:mu_max_normal}
-\text{E}(X^\text{max}_a) = \mu^{(1)}_\text{max} = -\Phi^{-1} \left(\frac{1}{m}\right) - \frac{\gamma}{\Phi^{-1}\left(\frac{1}{m}\right)}.
+\text{E}(X^\text{max}_a) = \mu^{(1)}_\text{max} = -\Phi^{-1} \left(\frac{1}{m}\right) - \frac{\gamma}{\Phi^{-1}\left(\frac{1}{m}\right)},
 \end{equation}
-
-\noindent where $\gamma$ is the Euler-Mascheroni constant. The median of this distribution is given by the following
+%
+where $m$ is the size of the sample from which the maximum is derived and $\gamma$ is the Euler-Mascheroni constant. The median of this distribution is given by
 %
 \begin{equation}\label{eq:med_max_normal}
-\overset{\sim}{\mu}_\text{max} = \frac{\text{log}(\text{log}(2))}{\Phi^{-1}\left(\frac{1}{m}\right)} - \Phi^{-1}\left(\frac{1}{m}\right).
+\overset{\sim}{\mu}_\text{max} = \frac{\text{log}(\text{log}(2))}{\Phi^{-1}\left(\frac{1}{m}\right)} - \Phi^{-1}\left(\frac{1}{m}\right),
 \end{equation}
+%
+where $m$ is the size of the sample from which the maximum is derived.
 
-Finally, the variance of the asymptotic distribution of the sample maximum is given by the following
+Finally, the variance of the asymptotic distribution of the sample maximum is given by
 %
 \begin{equation}\label{eq:var_max_normal}
-\text{Var}(X^\text{max}_a) = \frac{\pi^2}{6}\left(\frac{1}{-\Phi^{-1}\left(\frac{1}{m}\right)}\right)^2.
+\text{Var}(X^\text{max}_a) = \frac{\pi^2}{6}\left(\frac{1}{-\Phi^{-1}\left(\frac{1}{m}\right)}\right)^2,
 \end{equation}
+%
+where $m$ is the size of the sample from which the maximum is derived.
 
-For typical sample sizes $m$ in high-dimensional spaces, the variance estimate given by Eq. \ref{eq:var_max_normal} exceeds the variance of the sample maximum significantly. Using the fact that $-\Phi^{-1}\left(\frac{1}{m}\right) \overset{.}{\sim} \sqrt{2 \text{log}(m)}$ \cite{cramer1999} and $\frac{1}{2 \text{log}(m)} \leq \left(\frac{1}{-\Phi^{-1}\left(\frac{1}{m}\right)}\right)^2$ for $m \geq 2$, we can get a more accurate approximation of the variance with the following
+For typical sample sizes $m$ in high-dimensional spaces, the variance estimate (Eq.~\ref{eq:var_max_normal}) exceeds the variance of the sample maximum significantly. Using the fact that
+%
+\[
+-\Phi^{-1}\left(\frac{1}{m}\right) \overset{.}{\sim} \sqrt{2 \text{log}(m)} \text{\cite{cramer1999}}
+\] 
+%
+and 
+%
+\[
+\frac{1}{2 \text{log}(m)} \leq \left(\frac{1}{-\Phi^{-1}\left(\frac{1}{m}\right)}\right)^2, \quad m \geq 2,
+\] 
+%
+we can get a more accurate approximation of the variance with the following
 %
 \begin{equation}\label{eq:var_max_normal_improved}
 \begin{aligned}
@@ -1115,11 +1182,13 @@ For typical sample sizes $m$ in high-dimensional spaces, the variance estimate g
 \end{aligned}
 \end{equation}
 
-Then the mean of the range of $m$ iid standard normal random variables are given by the following
+Therefore, the mean of the range of $m$ iid standard normal random variables is given by
 %
 \begin{equation}\label{eq:mu_rng_normal}
-\text{E}(X^\text{max}_a - X^\text{min}_a) = 2\mu^{(1)}_\text{max}(m) = 2\left[-\Phi^{-1} \left(\frac{1}{m}\right) - \frac{\gamma}{\Phi^{-1}\left(\frac{1}{m}\right)}\right].
+\text{E}(X^\text{max}_a - X^\text{min}_a) = 2\mu^{(1)}_\text{max}(m) = 2\left[-\Phi^{-1} \left(\frac{1}{m}\right) - \frac{\gamma}{\Phi^{-1}\left(\frac{1}{m}\right)}\right],
 \end{equation}
+%
+where $m$ is the size of the sample from which th maximum is derived and $\gamma$ is the Euler-Mascheroni constant.
 
 It is well known that the sample extremes from the standard normal distribution are approximately uncorrelated for large sample size $m$ \cite{gumbel1947}. This implies that we can approximate the variance of the range of $m$ iid standard normal random variables with the following result
 %
@@ -1129,25 +1198,31 @@ It is well known that the sample extremes from the standard normal distribution 
 &= \sigma^2_\text{max}(m) + \sigma^2_\text{min}(m) \\
 &= 2\sigma^2_\text{max}(m) \\
 &\approx 2\left(\frac{\pi^2}{12\text{log}(m)}\right) \\
-&= \frac{\pi^2}{6\text{log}(m)}.
+&= \frac{\pi^2}{6\text{log}(m)},
 \end{aligned}
 \end{equation}
+%
+where $m$ is the size of the sample from which extremes are derived.
 
-For the purpose of approximating the mean and variance of the max-min normalized distance distribution, the formula for the median of the distribution of the attribute maximum yields more accurate results. That is, the approximation of the expected maximum given by Eq. \ref{eq:mu_max_normal} overestimates the sample maximum. The formula for the median of the sample maximum, given by Eq. \ref{eq:med_max_normal}, provides a more accurate estimate of this sample extreme. Therefore, the following estimate for the mean of the attribute range will be used instead
+For the purpose of approximating the mean and variance of the max-min normalized distance distribution, we observe empirically that the formula for the median of the distribution of the attribute maximum (Eq.~\ref{eq:med_max_normal}) yields more accurate results. More precisely, the approximation of the expected maximum (Eq.~\ref{eq:mu_max_normal}) overestimates the sample maximum slightly. The formula for the median of the sample maximum (Eq.~\ref{eq:med_max_normal}) provides a more accurate estimate of this sample extreme. Therefore, the following estimate for the mean of the attribute range will be used instead
 %
 \begin{equation}\label{eq:mu_rng_normal_improved}
-\text{E}(X^\text{max}_a - X^\text{min}_a) = 2\mu^{(1)}_\text{max}(m) \approx 2\left[\frac{\text{log}(\text{log}(2))}{\Phi^{-1}\left(\frac{1}{m}\right)} - \Phi^{-1}\left(\frac{1}{m}\right)\right].
+\text{E}(X^\text{max}_a - X^\text{min}_a) = 2\mu^{(1)}_\text{max}(m) \approx 2\left[\frac{\text{log}(\text{log}(2))}{\Phi^{-1}\left(\frac{1}{m}\right)} - \Phi^{-1}\left(\frac{1}{m}\right)\right],
 \end{equation}
+%
+where $m$ is the size of the sample from which extremes are derived.
 
-  We have already determined that $\mu_{D^{(q)}_{ij}}$ and $\sigma^2_{D^{(q)}_{ij}}$ are given by Eq. \ref{eq:normalDistr}. Using the results given by Eqs. \ref{eq:mu_rng_normal_improved} and \ref{eq:var_rng_normal} and the general formulas for the mean and variance of the max-min normalized distance distribution given in Eq. \ref{eq:max-min_DDistr}, this leads us to the following asymptotic estimate for the distribution of the max-min normalized distances for standard normal data
+We have already determined the mean and variance (Eq.~\ref{eq:normalDistr}) for the $L_q$ metric (Eq.~\ref{eq:D}) on standard normal data. Using the expected value of the sample maximum (Eq.~\ref{eq:mu_rng_normal_improved}), the variance of the sample maximum (Eq.~\ref{eq:var_rng_normal}), and the general formulas for the mean and variance of the max-min normalized distance distribution (Eq.~\ref{eq:max-min_DDistr}), this leads us to the following asymptotic estimate for the distribution of the max-min normalized distances for standard normal data
 %
 \begin{equation}\label{eq:max-min_DDistr_normal}
 D^{(q*)}_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{\mu_{D^{(q)}_{ij}}}{2\mu^{(1)}_\text{max}(m)}, \frac{6 \text{log}(m) \sigma^2_{D^{(q)}_{ij}}}{\pi^2 + 24 \left[\mu^{(1)}_\text{max}(m)\right]^2 \text{log}(m)}\right).
 \end{equation}
+%
+where $m$ is the size of the sample from which the maximum is derived, $\mu^{(1)}_\text{max}$ is the median of the sample maximum (Eq.~\ref{eq:med_max_normal}), $\mu_{D^{(q)}_{ij}}$ is the expected $L_q$ pairwise distance (Eq.~\ref{eq:normalDqMean}), and $\sigma^2_{D^{(q)}_{ij}}$ is the variance of the $L_q$ pairwise distance (Eq.~\ref{eq:normalVar}).
 
 \subsubsection{Standard uniform data}
 
-Standard uniform data does not have support that is symmetric about 0. Due to the simplicity of the density function, however, we can derive the distribution of the maximum and minimum of a sample of size $m$ explicitly. Using the general forms of the distribution functions of the maximum and minimum given by Eqs. \ref{eq:exact_max_distr_fn} and \ref{eq:exact_min_distr_fn}, we have the following distribution functions for standard uniform data
+Standard uniform data does not have support that is symmetric about 0. Due to the simplicity of the density function, however, we can derive the distribution of the maximum and minimum of a sample of size $m$ explicitly. Using the general forms of the distribution functions of the maximum (Eq.~\ref{eq:exact_max_distr_fn}) and minimum (Eq.~\ref{eq:exact_min_distr_fn}), we have the following distribution functions for standard uniform data
 %
 \begin{equation}\label{eq:uniform_max_distr}
 F_\text{max}(x) = x^m
@@ -1156,10 +1231,12 @@ F_\text{max}(x) = x^m
 and
 %
 \begin{equation}\label{eq:uniform_min_distr}
-F_\text{min}(x) = 1 - (1 - x)^m.
+F_\text{min}(x) = 1 - (1 - x)^m,
 \end{equation}
+%
+where $m$ is the size of the sample from which extremes are derived.
 
-Using the general forms of the density functions of the maximum and minimum given by Eqs. \ref{eq:exact_max_dens_fn} and \ref{eq:exact_min_dens_fn}, we have the following density functions for standard uniform data
+Using the general forms of the density functions of the maximum (Eq.~\ref{eq:exact_max_dens_fn}) and minimum (Eq.~\ref{eq:exact_min_dens_fn}), we have the following density functions for standard uniform data
 %
 \begin{equation}\label{eq:uniform_max_dens}
 f_\text{max}(x) = m x^{m-1}
@@ -1168,8 +1245,10 @@ f_\text{max}(x) = m x^{m-1}
 and
 %
 \begin{equation}\label{eq:uniform_min_dens}
-f_\text{min}(x) = m(1 - x)^{m-1}
+f_\text{min}(x) = m(1 - x)^{m-1},
 \end{equation}
+%
+where $m$ is the size of the sample from which extremes are derived.
 
 Then the expected maximum and minimum are computed through straightforward integration as follows
 %
@@ -1187,9 +1266,11 @@ and
 \begin{aligned}
 \text{E}(X^\text{min}_a) = \mu^{(1)}_\text{min}(m) &= \int_{0}^{1} x f_\text{min}(x) \text{d}x \\
 &= \int_{0}^{1} x [m (1 - x)^{m-1}] \text{d}x \\
-&= \frac{1}{m+1}.
+&= \frac{1}{m+1},
 \end{aligned}
 \end{equation}
+%
+where $m$ is the size of the sample from which extremes are derived.
 
 We can compute the second moment about the origin of the sample range as follows
 %
@@ -1201,23 +1282,27 @@ We can compute the second moment about the origin of the sample range as follows
 &= \int_{0}^{1} x^2 [m x^{m-1}] \text{d}x - 2 \left(\frac{m}{m+1}\right) \left(\frac{1}{m+1}\right) \\
 & \hspace{3.12cm} + \int_{0}^{1} x^2 [m (1 - x)^{m-1}] \text{d}x \\
 &= \frac{m}{m+2} - \frac{2m}{(m+1)^2} + \frac{2}{(m+1)(m+2)} \\
-&= \frac{m^3 - m + 2}{(m+2)(m+1)^2}.
+&= \frac{m^3 - m + 2}{(m+2)(m+1)^2},
 \end{aligned}
 \end{equation}
+%
+where $m$ is the size of the sample from which extremes are derived.
 
-Using the general formulas given in Eq. \ref{eq:max-min-DDistr-general} and the mean ($\mu_{D^{(q)}_{ij}}$) and variance ($\sigma^2_{D^{(q)}_{ij}}$) given by Eq. \ref{eq:uniformDistr}, we have the following asymptotic estimate for the max-min normalized distance distribution for standard uniform data
+Using the general asymptotic distribution of max-min normalized distances for any data type (Eq.~\ref{eq:max-min-DDistr-general}) and the mean and variance (Eq.~\ref{eq:uniformDistr}) of the standard $L_q$ distance metric (Eq.~\ref{eq:D}), we have the following asymptotic estimate for the max-min normalized distance distribution for standard uniform data
 %
 \begin{equation}\label{eq:max-min_DDistr_uniform}
-D^{(q*)}_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{(m+1)\mu_{D^{(q)}_{ij}}}{m-1}, \frac{(m+2)(m+1)^2 \sigma^2_{D^{(q)}_{ij}}}{m^3 - m + 2}\right).
+D^{(q*)}_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{(m+1)\mu_{D^{(q)}_{ij}}}{m-1}, \frac{(m+2)(m+1)^2 \sigma^2_{D^{(q)}_{ij}}}{m^3 - m + 2}\right),
 \end{equation}
+%
+where $m$ is the size of the sample from which extremes are derived, $\mu_{D^{(q)}_{ij}}$ is the expected value (Eq.~\ref{eq:uniformDqMean}) of the $L_q$ metric (Eq.~\ref{eq:D}) in standard uniform data, and $\sigma^2_{D^{(q)}_{ij}}$ is the variance (Eq.~\ref{eq:uniformDqVar}) of the $L_q$ metric (Eq.~\ref{eq:D}) in standard uniform data.
 
 \subsection{Normalized Manhattan \texorpdfstring{($q=1$)}{}}
 
-Using the general asymptotic results for mean and variance given by Eqs.~\ref{eq:max-min_DDistr_normal} and \ref{eq:max-min_DDistr_uniform} for any value of $q \in \mathbb{N}$, we can substitute a particular value of $q$ in order to determine a more specified asymptotic distance distribution for $D^{(q*)}_{ij}$. The following results are for the max-min normalized Manhattan ($q = 1$) metric for both standard normal and standard uniform data.
+Using the general asymptotic results for mean and variance of max-min normalized distances in standard normal and standard uniform data (Eqs.~\ref{eq:max-min_DDistr_normal} and \ref{eq:max-min_DDistr_uniform}) for any value of $q \in \mathbb{N}$, we can substitute a particular value of $q$ in order to determine a more specified distribution for the normalized distance (Eq.~\ref{eq:D*}). The following results are for the max-min normalized Manhattan ($q = 1$) metric for both standard normal and standard uniform data.
 
 \subsubsection{Standard normal data}
 
-Substituting $q=1$ into Eq.~\ref{eq:max-min_DDistr_normal}, we have the following for standard normal data
+Substituting $q=1$ into the asymptotic formula for the expected max-min normalized distance (Eq.~\ref{eq:max-min_DDistr_normal}), we derive the expected normalized Manhattan distance in standard normal data as follows
 %
 \begin{equation}\label{eq:max-min_mean_normal_manhattan}
 \begin{aligned}
@@ -1225,7 +1310,8 @@ Substituting $q=1$ into Eq.~\ref{eq:max-min_DDistr_normal}, we have the followin
 &= \frac{p}{\sqrt{\pi}\mu^{(1)}_\text{max}(m)},
 \end{aligned}
 \end{equation}
-where $\mu^{(1)}_\text{max}(m)$ is given by Eq.~\ref{eq:med_max_normal}.
+%
+where $\mu^{(1)}_\text{max}(m)$ is the expected attribute maximum (Eq.~\ref{eq:med_max_normal}),$m$ is the size of the sample from which the maximum is derived, and $p$ is the total number of attributes.
 
 Similarly, the variance of $D^{(1*)}_{ij}$ is given by
 %
@@ -1235,35 +1321,40 @@ Similarly, the variance of $D^{(1*)}_{ij}$ is given by
 &= \frac{12p(\pi-2)\text{log}(m)}{\pi\left(\pi^2 + 24\left[\mu^{(1)}_\text{max}\right]^2\text{log}(m)\right)},
 \end{aligned}
 \end{equation}
-where $\mu^{(1)}_\text{max}(m)$ is given by Eq.~\ref{eq:med_max_normal}.
+%
+where $\mu^{(1)}_\text{max}(m)$ is the expected attribute maximum (Eq.~\ref{eq:med_max_normal}), $m$ is the size of the sample from which the maximum is derived, and $p$ is the total number of attributes. Similar to the variance of the standard Manhattan distance, the variance of the max-min normalized Manhattan distance is on the order of $p$ for fixed instance dimension $m$. For fixed $p$, the variance (Eq.~\ref{eq:max-min_var_normal_manhattan}) vanishes as $m$ grows without bound. If we fix $m$, the same variance increases monotonically with increasing $p$.
 
 \subsubsection{Standard uniform data}
 
-Substituting $q=1$ into Eq.~\ref{eq:max-min_DDistr_uniform}, we have the following for standard uniform data
+Substituting $q=1$ into the asymptotic formula for the expected max-min pairwise distance (Eq.~\ref{eq:max-min_DDistr_uniform}), we derive the expected normalized Manhattan distance in standard uniform data as
 %
 \begin{equation}\label{eq:max-min_mean_uniform_manhattan}
 \begin{aligned}
 \text{E}\left(D^{(1*)}_{ij}\right) &= \frac{(m+1)\mu_{D^{(1)}_{ij}}}{m-1} \\
-&= \frac{(m+1)p}{3(m-1)}.
+&= \frac{(m+1)p}{3(m-1)},
 \end{aligned}
 \end{equation}
+%
+where $m$ is the size of the sample from which extremes are derived and $p$ is the total number attributes.
 
 Similarly, the variance of $D^{(1*)}_{ij}$ is given by
 %
 \begin{equation}\label{eq:max-min_var_uniform_manhattan}
 \begin{aligned}
 \text{Var}\left(D^{(1*)}_{ij}\right) &= \frac{(m+2)(m+1)^2\sigma^2_{D^{(1)}_{ij}}}{m^3-m+2} \\
-&= \frac{(m+2)(m+1)^2p}{18(m^3 - m + 2)}.
+&= \frac{(m+2)(m+1)^2p}{18(m^3 - m + 2)},
 \end{aligned}
 \end{equation}
+%
+where $m$ is the size of the sample from which extremes are derived and $p$ is the total number of attributes. Interestingly, the variance of the max-min normalized Manhattan distance in standard uniform data approaches $p/18$ as $m$ increases without bound for a fixed number of features $p$. This is the same asymptotic value to which the variance of the standard Manhattan distance (Eq.~\ref{eq:uniformManMean}) converges. Therefore, large sample sizes make the variance of the normalized Manhattan distance approach the variance of the standard Manhattan distance in standard uniform data.
 
 \subsection{Normalized Euclidean \texorpdfstring{($q=2$)}{}}
 
-Analogous to the previous section, we demonstrate the usage of Eqs.~\ref{eq:max-min_DDistr_normal} and \ref{eq:max-min_DDistr_uniform} for the max-min normalized Euclidean ($q=2$) metric for both standard normal and standard uniform data.
+Analogous to the previous section, we demonstrate the use the asymptotic moment estimates for max-min normalized distances (Eq.~\ref{eq:max-min_DDistr_normal} and \ref{eq:max-min_DDistr_uniform}) for the max-min normalized Euclidean ($q=2$) metric (Eq.~\ref{eq:D*}) for both standard normal and standard uniform data.
 
 \subsubsection{Standard normal data}
 
-Substituting $q=2$ into Eq.~\ref{eq:max-min_DDistr_normal}, we have the following for standard normal data
+Substituting $q=2$ into the asymptotic formula for the expected max-min normalized pairwise distance (Eq.~\ref{eq:max-min_DDistr_normal}), we derive the expected normalized Euclidean distance in standard normal data as
 %
 \begin{equation}\label{eq:max-min_mean_normal_euclidean}
 \begin{aligned}
@@ -1271,7 +1362,8 @@ Substituting $q=2$ into Eq.~\ref{eq:max-min_DDistr_normal}, we have the followin
 &= \frac{\sqrt{2p - 1}}{2\mu^{(1)}_\text{max}(m)},
 \end{aligned}
 \end{equation}
-where $\mu^{(1)}_\text{max}(m)$ is given by Eq.~\ref{eq:med_max_normal}.
+%
+where $\mu^{(1)}_\text{max}(m)$ is the expected attribute maximum (Eq.~\ref{eq:med_max_normal}), $m$ is the size of the sample from which the maximum is derived, and $p$ is the total number of attributes.
 
 Similarly, the variance of $D^{(2*)}_{ij}$ is given by
 %
@@ -1281,11 +1373,12 @@ Similarly, the variance of $D^{(2*)}_{ij}$ is given by
 &= \frac{6\text{log}(m)}{\pi^2 + 24\left[\mu^{(1)}_\text{max}(m)\right]^2\text{log}(m)},
 \end{aligned}
 \end{equation}
-where $\mu^{(1)}_\text{max}(m)$ is given by Eq.~\ref{eq:med_max_normal}.
+%
+where $\mu^{(1)}_\text{max}(m)$ is the expected attribute maximum (Eq.~\ref{eq:med_max_normal}) and $m$ is the size of the sample from which the maximum is derived. It is interesting to note that the variance (Eq.~\ref{eq:max-min_var_normal_euclidean}) vanishes as the sample size $m$ increases without bound, which means that all distances will be tightly clustered about the mean (Eq.~\ref{eq:max-min_mean_normal_euclidean}). This is different than the variance of the standard $L_2$ metric (Eq.~\ref{eq:normalEucVar}), which is asymptotically equal to 1. This could imply that any two pairwise distances computed with the max-min normalized Euclidean metric in a large sample space $m$ may be indistinguishable, which is another curse of dimensionality.
 
 \subsubsection{Standard uniform data}
 
-Substituting $q=2$ into Eq.~\ref{eq:max-min_DDistr_uniform}, we have the following for standard uniform data
+Substituting $q=2$ into the asymptotic formula for the expected max-min normalized pairwise distance (Eq.~\ref{eq:max-min_DDistr_uniform}), we derive the expected normalized Euclidean distance in standard uniform data as
 %
 \begin{equation}\label{eq:max-min_mean_uniform_euclidean}
 \begin{aligned}
@@ -1293,6 +1386,8 @@ Substituting $q=2$ into Eq.~\ref{eq:max-min_DDistr_uniform}, we have the followi
 &= \sqrt{\frac{p}{6} - \frac{7}{120}}\left(\frac{m+1}{m-1}\right).
 \end{aligned}
 \end{equation}
+%
+where $m$ is the size of the sample from which extremes are derived and $p$ is the total number of attributes.
 
 Similarly, the variance of $D^{(2*)}_{ij}$ is given by
 %
@@ -1302,9 +1397,11 @@ Similarly, the variance of $D^{(2*)}_{ij}$ is given by
 &= \frac{7(m+2)(m+1)^2}{120(m^3 - m + 2)}.
 \end{aligned}
 \end{equation}
+%
+where $m$ is the size of the sample from which extremes are derived. Similar to the variance of max-min normalized Manhattan distances in standard uniform data (Eq.~\ref{eq:max-min_var_uniform_manhattan}), the variance of normalized Euclidean distances approaches the variance of the standard Euclidean distances in uniform data (Eq.~\ref{eq:uniformEucVar}) as $m$ increases without bound. That is, the variance of the max-min normalized Euclidean distance (Eq.~\ref{eq:max-min_var_uniform_euclidean}) approaches $7/120$ as $m$ grows larger.
 
 \begin{table}[H]
-	\caption{Summary of distance distribution derivations for standard normal and standard uniform data. Asymptotic estimates are given for both standard and max-min normalized q-metrics. These estimates are relevant for all $q \in \mathbb{N}$ and $p \geq 100$.}
+	\caption{Summary of distance distribution derivations for standard normal and standard uniform data. Asymptotic estimates are given for both standard (Eq.~\ref{eq:D}) and max-min normalized (Eq.~\ref{eq:D*}) q-metrics. These estimates are relevant for all $q \in \mathbb{N}$ and $p$ for which the normality assumption of distances holds.}
 	\label{tab:dist_distr_general1}
 	\centering
 	\begin{adjustbox}{center}
@@ -1365,7 +1462,7 @@ Similarly, the variance of $D^{(2*)}_{ij}$ is given by
 \end{table}
 
 \begin{table}[H]
-	\caption{Asymptotic estimates for means and variances for the standard $L_1$ and $L_2$ distance distributions. Estimates for both standard normal and standard uniform data are given.}
+	\caption{Asymptotic estimates of means and variances for the standard $L_1$ and $L_2$ distance distributions. Estimates for both standard normal and standard uniform data are given.}
 	\label{tab:dist_distr_standardL1L2}
 	\centering
 	\begin{adjustbox}{center}
@@ -1407,7 +1504,7 @@ Similarly, the variance of $D^{(2*)}_{ij}$ is given by
 \end{table}
 
 \begin{table}[H]
-	\caption{Asymptotic estimates for means and variances for the max-min normalized $L_1$ and $L_2$ distance distributions. Estimates for both standard normal and standard uniform data are given.}
+	\caption{Asymptotic estimates of means and variances for the max-min normalized $L_1$ and $L_2$ distance distributions. Estimates for both standard normal and standard uniform data are given. The cumulative distribution function of the standard normal distribution is represented by $\Phi$. Furthermore, $\mu^{(1)}_\text{max}(m)$ (Eq.~\ref{eq:med_max_normal}) is the asymptotic median of the sample maximum from $m$ standard normal random samples.}
 	\label{tab:dist_distr_normalizedL1L2}
 	\centering
 	\begin{adjustbox}{center}
@@ -1416,10 +1513,12 @@ Similarly, the variance of $D^{(2*)}_{ij}$ is given by
 	\node at (0,0) {\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.05cm,width=0.85\textwidth]{updated_typical_metrics_table(normalized).pdf}};
 	
 	% max-min normalized L1 metric (column 1 - row 1)
-	\node[fill=white,xscale=0.81,yscale=0.81] at (-4.755,3.3) {\bm{$L_1$} (\textbf{Eq.}~\textbf{\ref{eq:D*}})};
+	\node[fill=white,text width=1.5cm,text height=0.5cm] at (-4.755,3.3) {};
+	\node[xscale=0.81,yscale=0.81] at (-4.73,3.3) {\bm{$L_1$} (\textbf{Eq.}~\textbf{\ref{eq:D*}})};
 	
 	% max-min normalized L2 metric (column 1 - row 1)
-	\node[fill=white,xscale=0.81,yscale=0.81] at (-4.755,-4.83) {\bm{$L_2$} (\textbf{Eq.}~\textbf{\ref{eq:D*}})};
+	\node[fill=white,text width=1.5cm,text height=0.5cm] at (-4.755,-4.83) {};
+	\node[xscale=0.81,yscale=0.81] at (-4.73,-4.83) {\bm{$L_2$} (\textbf{Eq.}~\textbf{\ref{eq:D*}})};
 	
 	% mean (row 1)
 	\node[fill=white,xscale=0.78,yscale=0.78] at (3.95,7.08) {(\textbf{\ref{eq:max-min_mean_normal_manhattan}})};
@@ -1820,8 +1919,10 @@ We also compared theoretical and sample moments as a function of $\eta = \text{T
 \begin{figure}[H]
 	\centering
 	\framebox{\includegraphics[width=0.98\textwidth]{re_fig_5_BDedit.pdf}}
-	\caption{Density curves and moments of TiTv distance as a function of average MAF $\bar{f}_a$, given by Eq.~\ref{eq:avg_maf}, and Ti/Tv ratio $\eta$, given by Eq.~\ref{eq:TiTv_constraints2}. (\textbf{A}) For fixed $\eta=2$, TiTv distance density is plotted as a function of increasing $\bar{f}_a = 0.055, 0.150, 0.250, \text{ and } 0.350$. TiTv distance increases as $\bar{f}_a$ approaches a maximum of 0.5, which means that there is about the same frequency of minor alleles as primary alleles at locus $a$. (\textbf{B}) Simulated and predicted mean $\pm$ SD are shown as a function of increasing Ti/Tv ratio $\eta$. Distance decreases as Tv becomes more frequent than Ti. Theoretical standard deviation is slightly larger than simulated, but the means are approximately the same. (\textbf{C}) For fixed $\bar{f}_a=0.055$, TiTv distance density is plotted as a function of increasing $\eta = 0.5, 1, 1.5, \text{ and } 2$. TiTv distance decreases as $\eta$, the Ti/Tv ratio, increases. For $\eta=\text{Ti/Tv}=0.5$, there are twice as many transversions as there are transitions. On the other hand, $\eta=\text{Ti/Tv}=2$ indicates that there are half as many transversions as there are transitions. Since transversions encode a larger magnitude distance than transitions in Eq.~\ref{eq:diff_TiTv}, this behavior is expected. (\textbf{D}) Simulated and predicted mean $\pm$ SD are shown as a function of increasing average MAF $\bar{f}_a$. Distance increases as the number of minor alleles increases at each locus $a$. Theoretical and simulated moments are approximately the same.}\label{fig:TiTv_ridge}
+	\caption{Density curves and moments of TiTv distance as a function of average MAF $\bar{f}_a$, given by Eq.~\ref{eq:avg_maf}, and Ti/Tv ratio $\eta$, given by Eq.~\ref{eq:TiTv_constraints2}. (\textbf{A}) For fixed $\bar{f}_a=0.055$, TiTv distance density is plotted as a function of increasing $\eta = 0.5, 1, 1.5, \text{ and } 2$. TiTv distance decreases as $\eta$, the Ti/Tv ratio, increases. For $\eta=\text{Ti/Tv}=0.5$, there are twice as many transversions as there are transitions. On the other hand, $\eta=\text{Ti/Tv}=2$ indicates that there are half as many transversions as there are transitions. Since transversions encode a larger magnitude distance than transitions in Eq.~\ref{eq:diff_TiTv}, this behavior is expected. (\textbf{B}) Simulated and predicted mean $\pm$ SD are shown as a function of increasing Ti/Tv ratio $\eta$. Distance decreases as Tv becomes more frequent than Ti. Theoretical and simulated moments are approximately the same. (\textbf{C}) For fixed $\eta=2$, TiTv distance density is plotted as a function of increasing $\bar{f}_a = 0.055, 0.150, 0.250, \text{ and } 0.350$. TiTv distance increases as $\bar{f}_a$ approaches a maximum of 0.5, which means that there is about the same frequency of minor alleles as primary alleles at locus $a$. (\textbf{D}) Simulated and predicted mean $\pm$ SD are shown as a function of increasing average MAF $\bar{f}_a$. Distance increases as the number of minor alleles increases at each locus $a$. Theoretical and simulated moments are approximately the same.}\label{fig:TiTv_ridge}
 \end{figure}
+
+
 
 %\begin{figure}[H]
 %	\centering
@@ -2280,7 +2381,7 @@ where $\mu^{(1)}_\text{max}(m,p)$ is given in Eq.~\ref{eq:mean_max_rs-fMRI}.
 
 \section{Comparison of theoretical and sample moments}
 
-It is important that our asymptotic estimates of sample moments for distances in high-dimensional data are accurate and precise enough to be useful when considering either simulated or real data that satisfy the appropriate assumptions. We compared our asymptotic estimates of sample moments of pairwise distances by generating random data for various dimensions $m$ and $p$ (Fig.~\ref{fig:compare_theoretical_sample_moments}). We fixed $m=100$ and generated random Manhattan (Eq.~\ref{eq:D}) distance matrices for $p=1000,2000,3000,4000, \text{ and } 5000$. For each value of $p$, we generated 20 random distance matrices, computed the average distance, and computed the standard deviation of distances. We then computed the average of these 20 different means and standard deviations, respectively, to allow for significant convergence. The theoretical moments were simply computed for each value of $p$ and fixed $m=100$ in order to determine how closely our formulas approximate simulated moments. We generated scatter plots of theoretical vs simulated mean (Fig.~\ref{fig:compare_theoretical_sample_moments}A) and theoretical vs simulated standard deviation (Fig.~\ref{fig:compare_theoretical_sample_moments}B). All points lie approximately on the dashed identity lines, which means our estimates of simulated moments perform rather well for relatively small to larger numbers of attributes $p$. 
+It is important that our asymptotic estimates of sample moments for distances in high-dimensional data are accurate and precise enough to be useful when considering either simulated or real data that satisfy the appropriate assumptions. We compared our asymptotic estimates of sample moments of pairwise distances by generating random data for various dimensions $m$ and $p$ (Fig.~\ref{fig:compare_theoretical_sample_moments}). We fixed $m=100$ and generated random Manhattan (Eq.~\ref{eq:D}) distance matrices on standard normal data for $p=1000,2000,3000,4000, \text{ and } 5000$. For each value of $p$, we generated 20 random distance matrices, computed the average distance, and computed the standard deviation of distances. We then computed the average of these 20 different means and standard deviations, respectively. The theoretical moments were simply computed for each value of $p$ and fixed $m=100$ in order to determine how closely our formulas approximate simulated moments. We generated scatter plots of theoretical vs simulated mean (Fig.~\ref{fig:compare_theoretical_sample_moments}A) and theoretical vs simulated standard deviation (Fig.~\ref{fig:compare_theoretical_sample_moments}B). All points lie approximately on the dashed identity lines, which implies that our asymptotic formulas for sample moments are reliable for both large and relatively small numbers of features. Although we do not show these results for every combination of data type, distance metric, sample size $m$, and number of features $p$, all theoretical formulas of sample moments we have derived similarly approximate their corresponding simulated moments.
 
 \begin{figure}[H]
 	\centering
