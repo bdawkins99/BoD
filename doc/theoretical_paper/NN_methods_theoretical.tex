@@ -1747,7 +1747,7 @@ Using the expected AM attribute diff (Eq.~\ref{eq:mean_diff_AM}), the expected p
 \end{aligned}
 \end{equation}
 %
-where $F^\text{AM}(a) = (1 - f_a)^3f_a + (1 - f_a)f^3_a + (1 - f_a)^2 f^2_a$ and $f_a$ is the probability of a minor allele occurring at locus $a$.
+where $F^\text{AM}(a) = (1 - f_a)^3f_a + (1 - f_a)f^3_a + (1 - f_a)^2 f^2_a$ and $f_a$ is the probability of a minor allele occurring at locus $a$. Similar to GM distances, the expected AM distance (Eq.~\ref{eq:mu_DDistr_AM}) depends only on the minor allele probabilities $f_a$ for all $a \in \mathcal{A}$. This is to be expected because, although the AM metric is more informative, it still only accounts for simple differences between nucleotides of two instances $i,j \in \mathcal{I}$ at some locus $a$.
 
 The second moment about the origin for the AM distance is computed as follows
 %
@@ -1774,7 +1774,7 @@ Using the first (Eq.~\ref{eq:mu_DDistr_AM}) and second (Eq.~\ref{eq:mu2_DDistr_A
 \end{aligned}
 \end{equation}
 %
-where $G^\text{AM}(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a) + 2 (1 - f_a)^2 f^2_a$, $F^\text{AM}(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a) + (1 - f_a)^2 f^2_a$, and $f_a$ is the probability of a minor allele occurring at locus $a$.
+where $G^\text{AM}(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a) + 2 (1 - f_a)^2 f^2_a$, $F^\text{AM}(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a) + (1 - f_a)^2 f^2_a$, and $f_a$ is the probability of a minor allele occurring at locus $a$. Similar to the mean (Eq.~\ref{eq:mu_DDistr_AM}), the variance just depends on minor allele probabilities $f_a$ for all $a \in \mathcal{A}$.
 
 With the mean (Eq.~\ref{eq:mu_DDistr_AM}) and variance (Eq.~\ref{eq:var_DDistr_AM}) estimates of AM distances, the asymptotic AM distance distribution is given by the following
 %
@@ -1783,6 +1783,8 @@ D^\text{AM}_{ij} \overset{.}{\sim} \mathcal{N}\left(2\sum_{a \in \mathcal{A}} F^
 \end{equation}
 %
 where $G^\text{AM}(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a) + 2 (1 - f_a)^2 f^2_a$, $F(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a) + (1 - f_a)^2 f^2_a$, and $f_a$ is the probability of a minor allele occurring at locus $a$.
+
+This concludes our analysis of the AM metric in GWAS data when the independence assumption holds for minor allele probabilities $f_a$ and binomial samples $\mathcal{B}(2,f_a)$ for all $a \in \mathcal{A}$. In the next section, we derive more complex asymptotic results for the TiTv distance metric (Eq.~\ref{eq:D_TiTv}).
 
 \subsection{TiTv distance distribution}\label{sec:TiTv_distances}
 
