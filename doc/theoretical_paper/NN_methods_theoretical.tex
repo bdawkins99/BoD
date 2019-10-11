@@ -1788,7 +1788,7 @@ This concludes our analysis of the AM metric in GWAS data when the independence 
 
 \subsection{TiTv distance distribution}\label{sec:TiTv_distances}
 
-The TiTv metric allows for one to account for both genotype mismatch, allele mismatch, transition, and transversion. However, this added dimension of information requires knowledge of the nucleotide makeup at a particular locus. A sufficient condition to compute the TiTv metric between instances $i$ an $j$ is that we know whether the nucleotides associated with a particular locus $a$ are both purines (PuPu), purine and pyrimidine (PuPy), or both pyrimidines (PyPy). A diagram showing possible transitions and transversions that may occur is given by Fig.~\ref{fig:TiTv_diagram}. Purines (A and G) and pyrimidines (C and T) are shown at the top and bottom, respectively. Transitions occur in the cases of PuPu and PyPy, while transversion occur only with PuPy encoding.
+The TiTv metric allows for one to account for both genotype mismatch, allele mismatch, transition, and transversion. However, this added dimension of information requires knowledge of the nucleotide makeup at a particular locus. A sufficient condition to compute the TiTv metric between instances $i,j \in \mathcal{I}$ is that we know whether the nucleotides associated with a particular locus $a$ are both purines (PuPu), purine and pyrimidine (PuPy), or both pyrimidines (PyPy). We illustrate all possibilities for transitions and transversions in a diagram (Fig.~\ref{fig:TiTv_diagram}). Purines (A and G) and pyrimidines (C and T) are shown at the top and bottom, respectively. Transitions occur in the cases of PuPu and PyPy, while transversion occurs only with PuPy encoding.
 
 \bigskip
 
@@ -1801,12 +1801,20 @@ The TiTv metric allows for one to account for both genotype mismatch, allele mis
 
 \bigskip
 
-This information is always given in a particular data set. Let $\gamma_0$, $\gamma_1$, and $\gamma_2$ denote the probabilities of PuPu, PuPy, and PyPy, respectively, for the $p$ loci of data matrix $X$. In real data, there are approximately twice as many transitions as there are transversions. That is, the probability of a transition $\text{P}(\text{Ti})$ is approximately twice the probability of transversion $\text{P}(\text{Tv})$. It is likely that any particular data set will not satisfy this criterion exactly. In this general case, we have $\text{P}(\text{Ti})$ being equal to some multiple $\eta$ times $\text{P}(\text{Tv})$. In order to enforce this general constraint in simulated data, we define the following set of equalities
+This additional encoding is always given in a particular GWAS data set, which leads us to consider the probabilities of PuPu, PuPy, and PyPy. These will be necessary to determine asymptotics for the TiTv distance metric. Let $\gamma_0$, $\gamma_1$, and $\gamma_2$ denote the probabilities of PuPu, PuPy, and PyPy, respectively, for the $p$ loci of data matrix $X$. In real data, there are approximately twice as many transitions as there are transversions. That is, the probability of a transition $\text{P}(\text{Ti})$ is approximately twice the probability of transversion $\text{P}(\text{Tv})$. It is likely that any particular data set will not satisfy this criterion exactly. In this general case, we have $\text{P}(\text{Ti})$ being equal to some multiple $\eta$ times $\text{P}(\text{Tv})$. In order to enforce this general constraint in simulated data, we define the following set of equalities
 %
 \begin{alignat}{2}\label{eq:TiTv_constraints1}
 \gamma_0 + \gamma_1 + \gamma_2 &= 1, \\ \label{eq:TiTv_constraints2}
 \text{P}(\text{Ti}) - \eta \text{P}(\text{Tv}) &= 0.
 \end{alignat}
+
+The sum-to-one constraint (Eq.~\ref{eq:TiTv_constraints1}) is natural in this context because there are only three possible genotype encodings at a particular locus, which are PuPu, PuPy, and PyPy. Solving the Ti/Tv ratio constraint (Eq.~\ref{eq:TiTv_constraints2}) for $\eta$ gives
+%
+\[
+\eta = \frac{\text{P}(\text{Ti})}{\text{P}(\text{Tv})},
+\]
+%
+which is easily computed in a real data set by dividing the fraction of Ti out of the total $p$ loci by the fraction of Tv out of the total $p$ loci. We will use the simplified notation $\eta=\text{Ti}/\text{Tv}$ to represent this factor for the remainder of this work.
 
 Using this PuPu, PuPy, and PyPy encoding, the probability of a transversion occuring at any fixed locus $a$ is given by the following
 %
@@ -1816,7 +1824,7 @@ Using this PuPu, PuPy, and PyPy encoding, the probability of a transversion occu
 \end{aligned}
 \end{equation}
 
-Using the constraints given by Eqs.~\ref{eq:TiTv_constraints1} and \ref{eq:TiTv_constraints2}, the probability of a transition occuring at locus $a$ is computed as follows
+Using the sum-to-one constraint (Eqs.~\ref{eq:TiTv_constraints1}) and the probability of transversion (Eq.~\ref{eq:TiTv_constraints2}), the probability of a transition occuring at locus $a$ is computed as follows
 %
 \begin{equation}\label{eq:prob_Ti}
 \begin{aligned}
@@ -1824,11 +1832,12 @@ Using the constraints given by Eqs.~\ref{eq:TiTv_constraints1} and \ref{eq:TiTv_
 \end{aligned}
 \end{equation}
 
-Also based on the constraints given by Eqs.~\ref{eq:TiTv_constraints1} and \ref{eq:TiTv_constraints2}, it is clear that we have $\text{P}(\text{Tv}) = \frac{1}{\eta + 1}$ and $\text{P}(\text{Ti}) = \frac{\eta}{\eta + 1}$. Without loss of generality, we then sample 
+Also using the sum-to-one constraint (Eq.~\ref{eq:TiTv_constraints1}) and the Ti/Tv ratio constraint (Eq.~\ref{eq:TiTv_constraints2}), it is clear that we have $\text{P}(\text{Tv}) = \frac{1}{\eta + 1}$ and $\text{P}(\text{Ti}) = \frac{\eta}{\eta + 1}$. Without loss of generality, we then sample 
 %
 \begin{equation}\label{eq:gamma0}
 \gamma_0 \sim \mathcal{U}\left(\varepsilon,\frac{\eta}{\eta + 1} - \varepsilon\right),
 \end{equation}
+%
 where $\varepsilon$ is some small positive real number.
 
 Then it immediately follows that we have 
@@ -1858,9 +1867,11 @@ We derive $\text{P}\left[\text{d}^\text{TiTv}_{ij}(a) = 0\right]$ as follows
 &+ \gamma_1 \left[(1 - f_a)^2 + 4 f_a (1 - f_a) + f^2_a\right] \\
 &+ \gamma_2 \left[(1 - f_a)^2 + 4 f_a (1 - f_a) + f^2_a\right] \\
 &= (\gamma_0 + \gamma_1 + \gamma_2)\left[(1 - f_a)^2 + 4 f_a (1 - f_a) + f^2_a\right] \\
-&= (1 - f_a)^2 + 4 f_a (1 - f_a) + f^2_a.
+&= (1 - f_a)^2 + 4 f_a (1 - f_a) + f^2_a,
 \end{aligned}
 \end{equation}
+%
+where $f_a$ is the probability of a minor allele occurring at locus $a$.
 
 We derive $\text{P}\left[\text{d}^\text{TiTv}_{ij}(a) = \frac{1}{4}\right]$ as follows
 %
@@ -1874,9 +1885,11 @@ We derive $\text{P}\left[\text{d}^\text{TiTv}_{ij}(a) = \frac{1}{4}\right]$ as f
 &+ 4 \gamma_2 f^3_a (1 - f_a) \\
 &= 4 \gamma_0 \left[(1 - f_a)^3 f_a + f^3_a (1 - f_a)\right] \\
 &+ 4 \gamma_2 \left[(1 - f_a)^3 f_a + f^3_a (1 - f_a)\right] \\
-&= 4(\gamma_0 + \gamma_2)\left[(1 - f_a)^3 f_a + f^3_a (1 - f_a)\right].
+&= 4(\gamma_0 + \gamma_2)\left[(1 - f_a)^3 f_a + f^3_a (1 - f_a)\right],
 \end{aligned}
 \end{equation}
+%
+where $f_a$ is the probability of a minor allele occurring at locus $a$, $\gamma_0$ is the probability of PuPu occurring at any locus $a$,  and $\gamma_2$ is the probability of PyPy occurring at any locus $a$.
 
 We derive $\text{P}\left[\text{d}^\text{TiTv}_{ij}(a) = \frac{1}{2}\right]$ as follows
 %
@@ -1885,9 +1898,11 @@ We derive $\text{P}\left[\text{d}^\text{TiTv}_{ij}(a) = \frac{1}{2}\right]$ as f
 \text{P}\left[\text{d}^\text{TiTv}_{ij}(a) = \frac{1}{2}\right] &= 2 \text{P}\left[y_a = 1, X_{ia} = 0, X_{ja} = 1\right] \\
 &+ 2 \text{P}\left[y_a = 1, X_{ia} = 1, X_{ja} = 2\right] \\
 &= 4 \gamma_1 (1 - f_a)^3 f_a + 4 \gamma_1 f^3_a (1 - f_a) \\
-&= 4 \gamma_1 \left[(1 - f_a)^3 f_a + f^3_a (1 - f_a)\right].
+&= 4 \gamma_1 \left[(1 - f_a)^3 f_a + f^3_a (1 - f_a)\right],
 \end{aligned}
 \end{equation}
+%
+where $f_a$ is the probability of a minor allele occurring at locus $a$ and $\gamma_1$ is the probability of PuPy occurring at any locus $a$.
 
 We derive $\text{P}\left[\text{d}^\text{TiTv}_{ij}(a) = \frac{3}{4}\right]$ as follows
 %
@@ -1896,69 +1911,83 @@ We derive $\text{P}\left[\text{d}^\text{TiTv}_{ij}(a) = \frac{3}{4}\right]$ as f
 \text{P}\left[\text{d}^\text{TiTv}_{ij}(a) = \frac{3}{4}\right] &= 2 \text{P}\left[y_a = 0, X_{ia} = 0, X_{ja} = 2\right] \\
 &+ 2 \text{P}\left[y_a = 2, X_{ia} = 0, X_{ja} = 2\right] \\
 &= 2 \gamma_0 (1 - f_a)^2 f^2_a + 2 \gamma_2 (1 - f_a)^2 f^2_a \\
-&= 2(\gamma_0 + \gamma_2)(1 - f_a)^2 f^2_a.
+&= 2(\gamma_0 + \gamma_2)(1 - f_a)^2 f^2_a,
 \end{aligned}
 \end{equation}
+%
+where $f_a$ is the probability of a minor allele occurring at locus $a$, $\gamma_0$ is the probability of PuPu occurring at any locus $a$, and $\gamma_2$ is the probability of PyPy occurring at any locus $a$.
 
 We derive $\text{P}\left[\text{d}^\text{TiTv}_{ij}(a) = 1\right]$ as follows
 %
 \begin{equation}\label{eq:prob_TiTv_1}
 \begin{aligned}
 \text{P}\left[\text{d}^\text{TiTv}_{ij}(a) = 1\right] &= 2 \text{P}\left[y_a = 1, X_{ia} = 0, X_{ja} = 2\right] \\
-&= 2 \gamma_1 (1 - f_a)^2 f^2_a.
+&= 2 \gamma_1 (1 - f_a)^2 f^2_a,
 \end{aligned}
 \end{equation}
+%
+where $f_a$ is the probability of a minor allele occurring at locus $a$ and $\gamma_1$ is the probability of PuPy occurring at any locus $a$.
 
-Using Eqs. \ref{eq:prob_TiTv_0} - \ref{eq:prob_TiTv_1}, we compute the expected TiTv distance between instances $i$ and $j$ as follows
+Using the TiTv diff probabilities (Eqs.~\ref{eq:prob_TiTv_0}-\ref{eq:prob_TiTv_1}), we compute the expected TiTv distance between instances $i,j \in \mathcal{I}$ as follows
 %
 \begin{equation}\label{eq:mu_DDistr_TiTv}
 \begin{aligned}
 \text{E}\left(D^\text{TiTv}_{ij}\right) &= \sum_{a \in \mathcal{A}} \left(\sum_{k \in \mathcal{D}} k \cdot \text{P}\left[\text{d}^\text{TiTv}_{ij}(a) = k\right]\right) \\
 &= (\gamma_0 + \gamma_2 + 2\gamma_1) \sum_{a \in \mathcal{A}} \left[(1 - f_a)^3 f_a + f^3_a (1 - f_a)\right] \\
 &+ \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} (1 - f_a)^2 f^2_a \\
-&= (\gamma_0 + \gamma_2 + 2\gamma_1) \sum_{a \in \mathcal{A}} F(a) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G(a),
+&= (\gamma_0 + \gamma_2 + 2\gamma_1) \sum_{a \in \mathcal{A}} F^\text{TiTv}(a) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G^\text{TiTv}(a),
 \end{aligned}
 \end{equation}
-where $F(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a)$ and $G(a) = (1 - f_a)^2 f^2_a$.
+%
+where $F^\text{TiTv}(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a)$, $G^\text{TiTv}(a) = (1 - f_a)^2 f^2_a$, $f_a$ is the probability of a minor allele occurring at locus $a$, $\gamma_0$ is the probability of PuPu occurring at any locus $a$, $\gamma_1$ is the probability of PuPy occurring at any locus $a$, and $\gamma_2$ is the probability of PyPy occurring at any locus $a$. In contrast to the expected GM and AM distances (Eqs.~\ref{eq:mu_DDistr_GM} and \ref{eq:mu_DDistr_AM}), the expected TiTv distance (Eq.~\ref{eq:mu_DDistr_TiTv}) depends on minor allele probabilities $f_a$ for all $a \in \mathcal{A}$ and the genotype encoding probabilities $\gamma_0, \gamma_1, \text{ and } \gamma_2$. 
 
 The second moment about the origin for the TiTv distance is computed as follows
 %
 \begin{equation}\label{eq:mu2_DDistr_TiTv}
+\begin{split}
 \begin{aligned}
 \text{E}\left[\left(D^\text{TiTv}_{ij}\right)^2\right] &= \text{E}\left[\left(\sum_{a \in \mathcal{A}} \text{d}^\text{TiTv}_{ij}(a)\right)^2\right] \\
 &= \text{E}\left[\sum_{a \in \mathcal{A}} \left(\text{d}^\text{TiTv}_{ij}(a)\right)^2\right] + 2 \text{E}\left[\sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} \text{d}^\text{TiTv}_{ij}(r) \cdot \text{d}^\text{TiTv}_{ij}(s)\right] \\
 &= \sum_{a \in \mathcal{A}} \left(\sum_{k \in \mathcal{D}} k^2 \cdot \text{P}\left[\text{d}^\text{TiTv}_{ij}(a) = k\right]\right) \\
 &+ 2\sum_{a \in \mathcal{A}} \sum_{s \leq r - 1} \left(\sum_{k \in \mathcal{D}} k \cdot \text{P}\left[\text{d}^\text{TiTv}_{ij}(r) = k\right]\right) \cdot \left(\sum_{k \in \mathcal{D}} k \cdot \text{P}\left[\text{d}^\text{TiTv}_{ij}(s) = k\right]\right) \\
-&= \left[\frac{1}{4}(\gamma_0 + \gamma_2) + \gamma_1\right] \sum_{a \in \mathcal{A}} F(a) + \left[\frac{9}{8}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G(a) \\
-&+ 2 \sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} \prod_{\lambda \in \{r,s\}} \left([\gamma_0 + \gamma_2 + 2\gamma_1] F(\lambda) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] G(\lambda)\right),
-\end{aligned}
+&= \left[\frac{1}{4}(\gamma_0 + \gamma_2) + \gamma_1\right] \sum_{a \in \mathcal{A}} F^\text{TiTv}(a) + \left[\frac{9}{8}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G^\text{TiTv}(a) \\
+\end{aligned} \\
++ 2 \sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} \prod_{\lambda \in \{r,s\}} \left([\gamma_0 + \gamma_2 + 2\gamma_1] F^\text{TiTv}(\lambda) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] G^\text{TiTv}(\lambda)\right),
+\end{split}
 \end{equation}
-where $F(\lambda) = (1 - f_\lambda)^3 f_\lambda + f^3_\lambda (1 - f_\lambda)$ and $G(\lambda) = (1 - f_\lambda)^2 f^2_\lambda$.
+%
+where $F^\text{TiTv}(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a)$, $G^\text{TiTv}(a) = (1 - f_a)^2 f^2_a$, $f_a$ is the probability of a minor allele occurring at locus $a$, $\gamma_0$ is the probability of PuPu occurring at any locus $a$, $\gamma_1$ is the probability of PuPy occurring at any locus $a$, and $\gamma_2$ is the probability of PyPy occurring at any locus $a$.
 
-Using the moments given by Eqs. \ref{eq:mu_DDistr_TiTv} and \ref{eq:mu2_DDistr_TiTv}, the variance is computed as follows
+Using the first (Eq.~\ref{eq:mu_DDistr_TiTv}) and second (Eq.~\ref{eq:mu2_DDistr_TiTv}) raw moments of the TiTv distance, the variance is given by
 %
 \begin{equation}\label{eq:var_DDistr_TiTv}
+\begin{split}
 \begin{aligned}
 \text{Var}\left(D^\text{TiTv}_{ij}\right) &= \text{E}\left[\left(D^\text{TiTv}_{ij}\right)^2\right] - \left[\text{E}\left(D^\text{TiTv}_{ij}\right)\right]^2 \\
-&=\left[\frac{1}{4}(\gamma_0 + \gamma_2) + \gamma_1\right] \sum_{a \in \mathcal{A}} F(a) + \left[\frac{9}{8}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G(a) \\
-&+ 2 \sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} \prod_{\lambda \in \{r,s\}} \left([\gamma_0 + \gamma_2 + 2\gamma_1] F(\lambda) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] G(\lambda)\right) \\
-&- \left([\gamma_0 + \gamma_2 + 2\gamma_1] \sum_{a \in \mathcal{A}} F(a) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G(a)\right)^2 \\
-&=\left[\frac{1}{4}(\gamma_0 + \gamma_2) + \gamma_1\right] \sum_{a \in \mathcal{A}} F(a) + \left[\frac{9}{8}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G(a) \\
-&- \sum_{a \in \mathcal{A}} \left([\gamma_0 + \gamma_2 + 2\gamma_1] F(a) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] G(a)\right)^2,
+&=\left[\frac{1}{4}(\gamma_0 + \gamma_2) + \gamma_1\right] \sum_{a \in \mathcal{A}} F^\text{TiTv}(a) + \left[\frac{9}{8}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G^\text{TiTv}(a)
+\end{aligned} \\
++ 2 \sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} \prod_{\lambda \in \{r,s\}} \left([\gamma_0 + \gamma_2 + 2\gamma_1] F^\text{TiTv}(\lambda) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] G^\text{TiTv}(\lambda)\right) \\
+\begin{aligned}
+&- \left([\gamma_0 + \gamma_2 + 2\gamma_1] \sum_{a \in \mathcal{A}} F^\text{TiTv}(a) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G^\text{TiTv}(a)\right)^2 \\
+&=\left[\frac{1}{4}(\gamma_0 + \gamma_2) + \gamma_1\right] \sum_{a \in \mathcal{A}} F^\text{TiTv}(a) + \left[\frac{9}{8}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G^\text{TiTv}(a) \\
+&- \sum_{a \in \mathcal{A}} \left([\gamma_0 + \gamma_2 + 2\gamma_1] F^\text{TiTv}(a) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] G^\text{TiTv}(a)\right)^2,
 \end{aligned}
+\end{split}
 \end{equation}
-where $F(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a)$ and $G(a) = (1 - f_a)^2 f^2_a$.
+%
+where $F^\text{TiTv}(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a)$, $G^\text{TiTv}(a) = (1 - f_a)^2 f^2_a$, $f_a$ is the probability of a minor allele occurring at locus $a$, $\gamma_0$ is the probability of PuPu occurring at any locus $a$, $\gamma_1$ is the probability of PuPy occurring at any locus $a$, and $\gamma_2$ is the probability of PyPy occurring at any locus $a$.
 
-With the mean and variance estimates given by Eqs. \ref{eq:mu_DDistr_TiTv} and \ref{eq:var_DDistr_TiTv}, the asymptotic TiTv distance distribution is given by the following
+With the mean (Eq.~\ref{eq:mu_DDistr_TiTv}) and variance (Eq.~\ref{eq:var_DDistr_TiTv}) estimates, the asymptotic TiTv distance distribution is given by the following
 %
 \begin{equation}\label{eq:DDistr_TiTv}
 \begin{aligned}
-D^\text{TiTv}_{ij} \overset{.}{\sim} \mathcal{N}\Biggl(& (\gamma_0 + \gamma_2 + 2\gamma_1) \sum_{a \in \mathcal{A}} F(a) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G(a), \\
-&\left[\frac{1}{4}(\gamma_0 + \gamma_2) + \gamma_1\right] \sum_{a \in \mathcal{A}} F(a) + \left[\frac{9}{8}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G(a) \\
-&- \sum_{a \in \mathcal{A}} \left([\gamma_0 + \gamma_2 + 2\gamma_1] F(a) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] G(a)\right)^2\Biggr),
+D^\text{TiTv}_{ij} \overset{.}{\sim} \mathcal{N}\Biggl(& (\gamma_0 + \gamma_2 + 2\gamma_1) \sum_{a \in \mathcal{A}} F^\text{TiTv}(a) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G^\text{TiTv}(a), \\
+&\left[\frac{1}{4}(\gamma_0 + \gamma_2) + \gamma_1\right] \sum_{a \in \mathcal{A}} F^\text{TiTv}(a) + \left[\frac{9}{8}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G^\text{TiTv}(a) \\
+&- \sum_{a \in \mathcal{A}} \left([\gamma_0 + \gamma_2 + 2\gamma_1] F^\text{TiTv}(a) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] G^\text{TiTv}(a)\right)^2\Biggr),
 \end{aligned}
 \end{equation}
-where $F(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a)$ and $G(a) = (1 - f_a)^2 f^2_a$.
+%
+where $F^\text{TiTv}(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a)$, $G^\text{TiTv}(a) = (1 - f_a)^2 f^2_a$, $f_a$ is the probability of a minor allele occurring at locus $a$, $\gamma_0$ is the probability of PuPu occurring at any locus $a$, $\gamma_1$ is the probability of PuPy occurring at any locus $a$, and $\gamma_2$ is the probability of PyPy occurring at any locus $a$.
 
 Given upper and lower bounds $l$ and $u$, respectively, of the success probability sampling interval, the average success probability (or average MAF) is computed as follows
 %
@@ -1966,11 +1995,9 @@ Given upper and lower bounds $l$ and $u$, respectively, of the success probabili
 \bar{f}_a = \frac{1}{2}(l + u).
 \end{equation}
 
-The maximum TiTv distance occurs at $\bar{f}_a=0.5$ for any fixed Ti/Tv ratio $\eta$ (Eq.~\ref{eq:TiTv_constraints2}), which is the inflection point about which the minor allele changes at locus $a$ (Fig.~\ref{fig:TiTv-vs-maf}). If few minor alleles are present ($\bar{f}_a \to 0$), the predicted TiTv distance approaches 0. The same is true after the minor allele switches ($\bar{f}_a \to 1$). We fixed the Ti/Tv ratio $\eta$ and generated simulated TiTv distances for $\bar{f}_a = 0.055, 0.150, 0.250, \text{ and } 0.350$ (Fig.~\ref{fig:TiTv_ridge}A). For fixed $\eta$, TiTv distance increases significantly with increased $\bar{f}_a$. We similarly fixed the average minor allele frequency $\bar{f}_a$ and generated simulated TiTv distances for $\eta = \text{Ti/Tv} = 0.5, 1, 1.5, \text{ and } 2$ (Fig.~\ref{fig:TiTv_ridge}C). The TiTv distance decreases slightly with increased $\eta = \text{Ti/Tv}$. As $\eta \to 0^+$, the data is approaching all Tv and no Ti, which means the TiTv distance is larger by definition. On the other hand, the TiTv distance decreases as $\eta \to 2^-$ because the data is approaching approximately twice as many Ti as there are Tv, which is typical for GWAS data in humans.
+The maximum TiTv distance occurs at $\bar{f}_a=0.5$ for any fixed Ti/Tv ratio $\eta$ (Eq.~\ref{eq:TiTv_constraints2}), which is the inflection point about which the minor allele changes at locus $a$ (Fig.~\ref{fig:TiTv-vs-maf}). If few minor alleles are present ($\bar{f}_a \to 0$), the predicted TiTv distance approaches 0. The same is true after the minor allele switches ($\bar{f}_a \to 1$). To explore how TiTv distance changes with increased minor allele frequency, we fixed the Ti/Tv ratio $\eta$ and generated simulated TiTv distances for $\bar{f}_a = 0.055, 0.150, 0.250, \text{ and } 0.350$ (Fig.~\ref{fig:TiTv_ridge}A). For fixed $\eta$, TiTv distance increases significantly with increased $\bar{f}_a$. We similarly fixed the average minor allele frequency $\bar{f}_a$ and generated simulated TiTv distances for $\eta = \text{Ti/Tv} = 0.5, 1, 1.5, \text{ and } 2$ (Fig.~\ref{fig:TiTv_ridge}C). The TiTv distance decreases slightly with increased $\eta = \text{Ti/Tv}$. As $\eta \to 0^+$, the data is approaching all Tv and no Ti, which means the TiTv distance is larger by definition. On the other hand, the TiTv distance decreases as $\eta \to 2^-$ because the data is approaching approximately twice as many Ti as there are Tv, which is typical for GWAS data in humans.
 
-We also compared theoretical and sample moments as a function of $\eta = \text{Ti/Tv}$ and $\bar{f}_a$ for the TiTv distance metric (Fig.~\ref{fig:TiTv_ridge}B and D). We fixed $\bar{f}_a$ and computed the theoretical and simulated moments as a function of $\eta$ (Fig.~\ref{fig:TiTv_ridge}B). Theoretical average TiTv distance, given by Eq.~\ref{eq:mu_DDistr_TiTv}, and simulated TiTv average distance are approximately equal as $\eta$ increases. Theoretical standard deviation, given by Eq.~\ref{eq:var_DDistr_TiTv}, and simulated TiTv standard deviation differ slightly. We also fixed $\eta$ and computed theoretical and sample moments as a function of $\bar{f}_a$ (Fig.~\ref{fig:TiTv_ridge}D). In this case, there is approximate agreement with simulated and theoretical moments as $\bar{f}_a$ increases.
-
-\bigskip
+\vspace{0.22cm}
 
 \begin{minipage}[c]{0.65\textwidth}\hspace{-0.6cm}
 	\includegraphics[width=0.98\textwidth]{TiTv_distance-vs-maf.pdf}
@@ -1979,12 +2006,12 @@ We also compared theoretical and sample moments as a function of $\eta = \text{T
 	\captionsetup{type=figure}\captionof{figure}{Predicted average TiTv distance as a function of average minor allele frequency $\bar{f}_a$ (see Eq.~\ref{eq:avg_maf}). Success probabilities $f_a$ were drawn from a sliding window interval from 0.01 to 0.9 in increments of about 0.009. With $\eta=0.1$, where $\eta$ is the Ti/Tv ratio given by Eq.~\ref{eq:TiTv_constraints1}, Tv is ten times more likely than Ti so the distance is large. Increasing to $\eta=1$, Tv and Ti are equally likely so the distance is moderate.  In line with real data for $\eta=2$, Tv is half as likely as Ti so the distance is relatively small.}\label{fig:TiTv-vs-maf}
 \end{minipage}
 
-\bigskip
+We also compared theoretical and sample moments as a function of $\eta = \text{Ti/Tv}$ and $\bar{f}_a$ for the TiTv distance metric (Fig.~\ref{fig:TiTv_ridge}B and D). We fixed $\bar{f}_a$ and computed the theoretical and simulated moments as a function of $\eta$ (Fig.~\ref{fig:TiTv_ridge}B). Theoretical average TiTv distance, given by Eq.~\ref{eq:mu_DDistr_TiTv}, and simulated TiTv average distance are approximately equal as $\eta$ increases. Theoretical standard deviation, given by Eq.~\ref{eq:var_DDistr_TiTv}, and simulated TiTv standard deviation differ slightly. We also fixed $\eta$ and computed theoretical and sample moments as a function of $\bar{f}_a$ (Fig.~\ref{fig:TiTv_ridge}D). In this case, there is approximate agreement with simulated and theoretical moments as $\bar{f}_a$ increases.
 
 \begin{figure}[H]
 	\centering
 	\framebox{\includegraphics[width=0.98\textwidth]{re_fig_5_BDedit.pdf}}
-	\caption{Density curves and moments of TiTv distance as a function of average MAF $\bar{f}_a$, given by Eq.~\ref{eq:avg_maf}, and Ti/Tv ratio $\eta$, given by Eq.~\ref{eq:TiTv_constraints2}. (\textbf{A}) For fixed $\bar{f}_a=0.055$, TiTv distance density is plotted as a function of increasing $\eta = 0.5, 1, 1.5, \text{ and } 2$. TiTv distance decreases as $\eta$, the Ti/Tv ratio, increases. For $\eta=\text{Ti/Tv}=0.5$, there are twice as many transversions as there are transitions. On the other hand, $\eta=\text{Ti/Tv}=2$ indicates that there are half as many transversions as there are transitions. Since transversions encode a larger magnitude distance than transitions in Eq.~\ref{eq:diff_TiTv}, this behavior is expected. (\textbf{B}) Simulated and predicted mean $\pm$ SD are shown as a function of increasing Ti/Tv ratio $\eta$. Distance decreases as Tv becomes more frequent than Ti. Theoretical and simulated moments are approximately the same. (\textbf{C}) For fixed $\eta=2$, TiTv distance density is plotted as a function of increasing $\bar{f}_a = 0.055, 0.150, 0.250, \text{ and } 0.350$. TiTv distance increases as $\bar{f}_a$ approaches a maximum of 0.5, which means that there is about the same frequency of minor alleles as primary alleles at locus $a$. (\textbf{D}) Simulated and predicted mean $\pm$ SD are shown as a function of increasing average MAF $\bar{f}_a$. Distance increases as the number of minor alleles increases at each locus $a$. Theoretical and simulated moments are approximately the same.}\label{fig:TiTv_ridge}
+	\caption{Density curves and moments of TiTv distance as a function of average MAF $\bar{f}_a$, given by Eq.~\ref{eq:avg_maf}, and Ti/Tv ratio $\eta$, given by Eq.~\ref{eq:TiTv_constraints2}. (\textbf{A}) For fixed $\bar{f}_a=0.055$, TiTv distance density is plotted as a function of increasing $\eta$. TiTv distance decreases as $\eta$ increases. For $\eta=\text{Ti/Tv}=0.5$, there are twice as many transversions as there are transitions. On the other hand, $\eta=\text{Ti/Tv}=2$ indicates that there are half as many transversions as transitions. Since transversions encode a larger magnitude distance than transitions, this behavior is expected. (\textbf{B}) Simulated and predicted mean $\pm$ SD are shown as a function of increasing Ti/Tv ratio $\eta$. Distance decreases as Ti/Tv increases. Theoretical and simulated moments are approximately the same. (\textbf{C}) For fixed $\eta=2$, TiTv distance density is plotted as a function of increasing $\bar{f}_a$. TiTv distance increases as $\bar{f}_a$ approaches maximum of 0.5, which means that there is about the same frequency of minor alleles as major alleles. (\textbf{D}) Simulated and predicted mean $\pm$ SD as a function of increasing average MAF $\bar{f}_a$. Distance increases as the number of minor alleles increases. Theoretical and simulated moments are approximately the same.}\label{fig:TiTv_ridge}
 \end{figure}
 
 
