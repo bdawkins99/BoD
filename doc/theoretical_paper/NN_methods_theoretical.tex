@@ -1743,12 +1743,11 @@ Using the expected AM attribute diff (Eq.~\ref{eq:mean_diff_AM}), the expected p
 \begin{aligned}
 \text{E}\left(D^\text{AM}_{ij}\right) &= \text{E}\left(\sum_{a \in \mathcal{A}} \text{d}^\text{AM}_{ij}(a)\right) \\
 &= \sum_{a \in \mathcal{A}} \text{E}\left[\text{d}^\text{AM}_{ij}(a)\right] \\
-&= 2 \sum_{a \in \mathcal{A}} F(a).
+&= 2 \sum_{a \in \mathcal{A}} F^\text{AM}(a).
 \end{aligned}
 \end{equation}
 %
 where $F^\text{AM}(a) = (1 - f_a)^3f_a + (1 - f_a)f^3_a + (1 - f_a)^2 f^2_a$ and $f_a$ is the probability of a minor allele occurring at locus $a$.
-
 
 The second moment about the origin for the AM distance is computed as follows
 %
@@ -1758,29 +1757,32 @@ The second moment about the origin for the AM distance is computed as follows
 &= \text{E}\left[\sum_{a \in \mathcal{A}} \left(\text{d}^\text{AM}_{ij}(a)\right)^2\right] + 2 \text{E}\left[\sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} \text{d}^\text{AM}_{ij}(r) \cdot \text{d}^\text{AM}_{ij}(s)\right] \\
 &= \sum_{a \in \mathcal{A}} \left(\sum_{k \in \mathcal{D}} k^2 \cdot \text{P}\left[\text{d}^\text{AM}_{ij}(a) = k\right]\right) \\
 &+ 2\sum_{a \in \mathcal{A}} \sum_{s \leq r - 1} \left(\sum_{k \in \mathcal{D}} k \cdot \text{P}\left[\text{d}^\text{AM}_{ij}(r) = k\right]\right) \cdot \left(\sum_{k \in \mathcal{D}} k \cdot \text{P}\left[\text{d}^\text{AM}_{ij}(s) = k\right]\right) \\
-&= \sum_{a \in \mathcal{A}} G(a) + 8 \sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} \prod_{\lambda \in \{r,s\}} F(\lambda),
+&= \sum_{a \in \mathcal{A}} G^\text{AM}(a) + 8 \sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} \prod_{\lambda \in \{r,s\}} F^\text{AM}(\lambda),
 \end{aligned}
 \end{equation}
-where $G(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a) + 2 (1 - f_a)^2 f^2_a$ and $F(\lambda) = (1 - f_\lambda)^3 f_\lambda + f^3_\lambda (1 - f_\lambda) + (1 - f_\lambda)^2 f^2_\lambda$.
+%
+where $G^\text{AM}(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a) + 2 (1 - f_a)^2 f^2_a$, $F^\text{AM}(\lambda) = (1 - f_\lambda)^3 f_\lambda + f^3_\lambda (1 - f_\lambda) + (1 - f_\lambda)^2 f^2_\lambda$, and $f_a$ is the probability of a minor allele occurring at locus $a$.
 
-Using the moments given by Eqs. \ref{eq:mu_DDistr_AM} and \ref{eq:mu2_DDistr_AM}, the variance is computed as follows
+Using the first (Eq.~\ref{eq:mu_DDistr_AM}) and second (Eq.~\ref{eq:mu2_DDistr_AM}) raw moments of the asymptotic AM distance distribution, the variance is given by
 %
 \begin{equation}\label{eq:var_DDistr_AM}
 \begin{aligned}
 \text{Var}\left(D^\text{AM}_{ij}\right) &= \text{E}\left[\left(D^\text{AM}_{ij}\right)^2\right] - \left[\text{E}\left(D^\text{AM}_{ij}\right)\right]^2 \\
-&= \sum_{a \in \mathcal{A}} G(a) + 8\sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} \prod_{\lambda \in \{r,s\}} F(\lambda) - 4\left(\sum_{a \in \mathcal{A}}F(a)\right)^2 \\
-&= \sum_{a \in \mathcal{A}} G(a) - 4\sum_{a \in \mathcal{A}}F^2(a) \\
-&= \sum_{a \in \mathcal{A}} \left[G(a)- 4F^2(a)\right],
+&= \sum_{a \in \mathcal{A}} G^\text{AM}(a) + 8\sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} \prod_{\lambda \in \{r,s\}} F^\text{AM}(\lambda) - 4\left(\sum_{a \in \mathcal{A}}F^\text{AM}(a)\right)^2 \\
+&= \sum_{a \in \mathcal{A}} G^\text{AM}(a) - 4\sum_{a \in \mathcal{A}}\left[F^\text{AM}(a)\right]^2 \\
+&= \sum_{a \in \mathcal{A}} \left(G^\text{AM}(a)- 4\left[F^\text{AM}(a)\right]^2\right),
 \end{aligned}
 \end{equation}
-where $G(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a) + 2 (1 - f_a)^2 f^2_a$ and $F(\lambda) = (1 - f_\lambda)^3 f_\lambda + f^3_\lambda (1 - f_\lambda) + (1 - f_\lambda)^2 f^2_\lambda$.
+%
+where $G^\text{AM}(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a) + 2 (1 - f_a)^2 f^2_a$, $F^\text{AM}(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a) + (1 - f_a)^2 f^2_a$, and $f_a$ is the probability of a minor allele occurring at locus $a$.
 
-With the mean and variance estimates given by Eqs. \ref{eq:mu_DDistr_AM} and \ref{eq:var_DDistr_AM}, the asymptotic AM distance distribution is given by the following
+With the mean (Eq.~\ref{eq:mu_DDistr_AM}) and variance (Eq.~\ref{eq:var_DDistr_AM}) estimates of AM distances, the asymptotic AM distance distribution is given by the following
 %
 \begin{equation}\label{eq:DDistr_AM}
-D^\text{AM}_{ij} \overset{.}{\sim} \mathcal{N}\left(2\sum_{a \in \mathcal{A}} F(a), \sum_{a \in \mathcal{A}} \left[G(a)- 4F^2(a)\right]\right),
+D^\text{AM}_{ij} \overset{.}{\sim} \mathcal{N}\left(2\sum_{a \in \mathcal{A}} F^\text{AM}(a), \sum_{a \in \mathcal{A}} \left(G^\text{AM}(a)- 4\left[F^\text{AM}(a)\right]^2\right)\right),
 \end{equation}
-where $G(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a) + 2 (1 - f_a)^2 f^2_a$ and $F(\lambda) = (1 - f_\lambda)^3 f_\lambda + f^3_\lambda (1 - f_\lambda) + (1 - f_\lambda)^2 f^2_\lambda$.
+%
+where $G^\text{AM}(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a) + 2 (1 - f_a)^2 f^2_a$, $F(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a) + (1 - f_a)^2 f^2_a$, and $f_a$ is the probability of a minor allele occurring at locus $a$.
 
 \subsection{TiTv distance distribution}\label{sec:TiTv_distances}
 
