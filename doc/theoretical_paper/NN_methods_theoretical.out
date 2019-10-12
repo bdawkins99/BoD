@@ -26,11 +26,12 @@
 \BOOKMARK [2][-]{subsection.3.3}{TiTv distance distribution}{section.3}% 26
 \BOOKMARK [2][-]{subsection.3.4}{Distribution of one-dimensional projection of GWAS distance onto a SNP}{section.3}% 27
 \BOOKMARK [1][-]{section.4}{Time series correlation-based distance distribution}{}% 28
-\BOOKMARK [2][-]{subsection.4.1}{One-dimensional projection of rs-fMRI distance onto a single ROI}{section.4}% 29
-\BOOKMARK [2][-]{subsection.4.2}{Normalized Manhattan \040for rs-fMRI}{section.4}% 30
-\BOOKMARK [1][-]{section.5}{Comparison of theoretical and sample moments}{}% 31
-\BOOKMARK [1][-]{section.6}{Effects of correlation on distances}{}% 32
-\BOOKMARK [2][-]{subsection.6.1}{Continuous data}{section.6}% 33
-\BOOKMARK [2][-]{subsection.6.2}{GWAS data}{section.6}% 34
-\BOOKMARK [2][-]{subsection.6.3}{Correlation-based data}{section.6}% 35
-\BOOKMARK [1][-]{section.7}{Discussion}{}% 36
+\BOOKMARK [2][-]{subsection.4.1}{Max-min normalized time series correlation-based distance distribution}{section.4}% 29
+\BOOKMARK [2][-]{subsection.4.2}{One-dimensional projection of rs-fMRI distance onto a single ROI}{section.4}% 30
+\BOOKMARK [2][-]{subsection.4.3}{Normalized Manhattan \040for rs-fMRI}{section.4}% 31
+\BOOKMARK [1][-]{section.5}{Comparison of theoretical and sample moments}{}% 32
+\BOOKMARK [1][-]{section.6}{Effects of correlation on distances}{}% 33
+\BOOKMARK [2][-]{subsection.6.1}{Continuous data}{section.6}% 34
+\BOOKMARK [2][-]{subsection.6.2}{GWAS data}{section.6}% 35
+\BOOKMARK [2][-]{subsection.6.3}{Correlation-based data}{section.6}% 36
+\BOOKMARK [1][-]{section.7}{Discussion}{}% 37

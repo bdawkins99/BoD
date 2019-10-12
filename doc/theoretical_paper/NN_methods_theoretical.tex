@@ -2014,6 +2014,7 @@ We also compared theoretical and sample moments as a function of $\eta = \text{T
 	\caption{Density curves and moments of TiTv distance as a function of average MAF $\bar{f}_a$, given by Eq.~\ref{eq:avg_maf}, and Ti/Tv ratio $\eta$, given by Eq.~\ref{eq:TiTv_constraints2}. (\textbf{A}) For fixed $\bar{f}_a=0.055$, TiTv distance density is plotted as a function of increasing $\eta$. TiTv distance decreases as $\eta$ increases. For $\eta=\text{Ti/Tv}=0.5$, there are twice as many transversions as there are transitions. On the other hand, $\eta=\text{Ti/Tv}=2$ indicates that there are half as many transversions as transitions. Since transversions encode a larger magnitude distance than transitions, this behavior is expected. (\textbf{B}) Simulated and predicted mean $\pm$ SD are shown as a function of increasing Ti/Tv ratio $\eta$. Distance decreases as Ti/Tv increases. Theoretical and simulated moments are approximately the same. (\textbf{C}) For fixed $\eta=2$, TiTv distance density is plotted as a function of increasing $\bar{f}_a$. TiTv distance increases as $\bar{f}_a$ approaches maximum of 0.5, which means that there is about the same frequency of minor alleles as major alleles. (\textbf{D}) Simulated and predicted mean $\pm$ SD as a function of increasing average MAF $\bar{f}_a$. Distance increases as the number of minor alleles increases. Theoretical and simulated moments are approximately the same.}\label{fig:TiTv_ridge}
 \end{figure}
 
+We conclude our treatment of GWAS distance metrics (Eqs.~\ref{eq:D_GM}-\ref{eq:D_TiTv}) by summarizing moment estimates in a table (Tab.~\ref{tab:dist_distr_gwas}) that is organized by metric, statistic (mean or variance), and asymptotic formula. In the next section, we focus on the distributions of GWAS attribute diff metrics (Eqs.~\ref{eq:diff_GM}-\ref{eq:diff_TiTv}).
 
 
 %\begin{figure}[H]
@@ -2029,7 +2030,7 @@ We also compared theoretical and sample moments as a function of $\eta = \text{T
 %\end{figure}
 
 \begin{table}[H]
-	\caption{Summary of distance distribution derivations for GWAS data.}
+	\caption{Asymptotic estimates of means and variances of GM, AM, and TiTv distance metrics in GWAS data. GWAS data $X_{ia} \sim \mathcal{B}(2,f_a)$, where $f_a$ for all $a \in \mathcal{A}$ are the probabilities of a minor allele occurring at locus $a$.}
 	\label{tab:dist_distr_gwas}
 	\centering
 	\begin{adjustbox}{center}
@@ -2230,13 +2231,26 @@ For time series correlation-based data, we consider the case where there are $m$
 \begin{equation}\label{eq:diff_rs-fMRI}
 \text{d}^\text{ROI}_{ij}(a) = \sum_{k \neq a}\bigl|A^{(i)}_{ka} - A^{(j)}_{ka}\bigr|.
 \end{equation}
-where $A^{(i)}_{ka}$ and $A^{(j)}_{ka}$ are the correlations between ROI $a$ and ROI $k$ for instances $i$ and $j$, respectively. With this rs-fMRI diff, the pairwise distance between two instances $i,j \in \mathcal{I}$ is computed as follows
+%
+where $A^{(i)}_{ka}$ and $A^{(j)}_{ka}$ are the correlations between ROI $a$ and ROI $k$ for instances $i,j \in \mathcal{I}$, respectively. With this rs-fMRI diff, the pairwise distance between two instances $i,j \in \mathcal{I}$ is computed as follows
 %
 \begin{equation}\label{eq:D_rs-fMRI}
 D^\text{fMRI}_{ij} = \sum_{a \in \mathcal{A}} \text{d}^\text{ROI}_{ij}(a).
 \end{equation}
 
-In order for comparisons between different correlations to be possible, we first perform a Fisher r-to-z transform on the correlations. We then load all of the transformed correlations into a $p(p-1) \times m$ matrix $X$ (see Fig.~\ref{fig:rs-fMRI_matrix}).
+In order for comparisons between different correlations to be possible, we first perform a Fisher r-to-z transform on the correlations. This transformation makes the data approximately normally distributed with stabilized variance across different samples. After this transformation, we then load all of the transformed correlations into a $p(p-1) \times m$ matrix $X$ (Fig.~\ref{fig:rs-fMRI_matrix}). Each column of $X$ represents a single instance (or subject) in rs-fMRI data. Contrary to a typical $p \times m$ data set, each row does not represent a single feature. Rather, each feature (or ROI) is represented by $p - 1$ consecutive rows. The first $p - 1$ rows represents $\text{ROI}_1$, the next $p - 1$ rows represents $\text{ROI}_2$, and so on until the last $p - 1$ rows that represents $\text{ROI}_p$. For a given column of $X$, we exclude pairwise correlations between an ROI and itself. Therefore, the matrix does not contain $\hat{A}^{(i)}_{aa}$ for any $i \in \mathcal{I}$ or $a \in \mathcal{A}$. Furthermore, symmetry of correlation matrices means that each column contains exactly two of each element of the upper triangle of an instance's transformed correlation matrix. For example, $\hat{A}^{(i)}_{ka} = \hat{A}^{(i)}_{ak}$ for $k \neq a$ and both will be contained in a given column of $X$ for each $a \in \mathcal{A}$. Based on our rs-fMRI diff (Eq.~\ref{eq:diff_rs-fMRI}), the organization of $X$ makes computation of each value of the diff very simple. In order to compute each value of the rs-fMRI diff, we just need to know the starting and ending row indices for a given ROI. Starting indices are given by
+%
+\[
+\text{start}_k = (k - 1)(p - 1) + 1, \quad \text{ for } k = 1,2,\dots,p
+\]
+%
+and ending indices are given by
+%
+\[
+\text{end}_k = k(p - 1), \quad \text{ for } k = 1,2,\dots,p.
+\]
+
+These indices allow use to extract just the rows necessary to compute the rs-fMRI diff for a fixed ROI. 
 
 \bigskip
 
@@ -2273,7 +2287,7 @@ In order for comparisons between different correlations to be possible, we first
 %\right],
 %\end{equation}
 
-We further transform the data matrix $X$ by standardizing so that each of the $m$ columns has zero mean and unit variance. Therefore, the data in matrix $X$ are standard normal. Recall from Eqs.~\ref{eq:normalManMean} and \ref{eq:normalManVar}, that the mean and variance of the Manhattan ($q=1$) distance distribution for standard normal data are $\frac{2p}{\sqrt{\pi}}$ and $\frac{2(\pi - 2)p}{\pi}$, respectively. This allows us to easily derive the expected pairwise distance between instances $i$ and $j$ in rs-fMRI data as follows
+We further transform the data matrix $X$ by standardizing so that each of the $m$ columns has zero mean and unit variance. Therefore, the data in matrix $X$ are approximately standard normal. Recall that the mean (Eq.~\ref{eq:normalManMean}) and variance (Eq.~\ref{eq:normalManVar}) of the Manhattan ($L_1$) distance distribution for standard normal data are $\frac{2p}{\sqrt{\pi}}$ and $\frac{2(\pi - 2)p}{\pi}$, respectively. This allows us to easily derive the expected pairwise distance between instances $i,j \in \mathcal{I}$ in rs-fMRI data as follows
 %
 \begin{equation}\label{eq:mu_DDistr_rs-fMRI}
 \begin{aligned}
@@ -2285,7 +2299,9 @@ We further transform the data matrix $X$ by standardizing so that each of the $m
 \end{aligned}
 \end{equation}
 
-We first derive the variance of the rs-fMRI distance by making an independence assumption with respect to the magnitude differences $|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}|$ for all $k \neq a \in \mathcal{A}$. We proceed as follows
+The expected pairwise rs-fMRI distance (Eq.~\ref{eq:mu_DDistr_rs-fMRI}) grows on the order of $p(p-1)$, which is the total number of transformed pairwise correlations in each column of $X$ (Fig.~\ref{fig:rs-fMRI_matrix}). This is similar to the case of a typical $m \times p$ data matrix in which the data is standard normal and Manhattan distances are computed between instances. 
+
+We first derive the variance of the rs-fMRI distance by making an independence assumption with respect to the magnitude differences $|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}|$ for all $k \neq a \in \mathcal{A}$. We observe empirically that this assumption gives us a reasonable estimate of the actual variance of rs-fMRI distances in simulated data, but there is a consistent discrepancy between predicted and simulated variances. We begin our derivation of the variance of rs-fMRI distances by assuming that cross-covariances between the diffs of different pairs of ROIs are negligible. This will allow us to determine the relationship between the predicted variance under the independence assumption and the simulated variance. We proceed by applying the variance operator linearly as follows
 %
 \begin{equation}\label{eq:var_DDistr_rs-fMRI_standard}
 \begin{aligned}
@@ -2297,7 +2313,11 @@ We first derive the variance of the rs-fMRI distance by making an independence a
 \end{aligned}
 \end{equation}
 
-The independence assumption we made to derive the variance of our rs-fMRI distance metric (Eq.~\ref{eq:var_DDistr_rs-fMRI_standard}) is not actually satisfied due to the fact that a single value of the diff (Eq.~\ref{eq:diff_rs-fMRI}) includes the same fixed ROI $a$ for each term in the sum for all $k \neq a$. Therefore, the linear application of the variance operator we have previously employed does not account for the additional cross-covariance that exists. Although the theoretical variance of the distance we computed for the rs-fMRI distance metric (Eq.~\ref{eq:var_DDistr_rs-fMRI_standard}) still reasonably approximates the sample variance, there is a slight discrepancy between our theoretical rs-fMRI distance metric variance (Eq.~\ref{eq:var_DDistr_rs-fMRI_standard}) and the sample variance. More precisely, the formula we have given for the variance (Eq.~\ref{eq:var_DDistr_rs-fMRI_standard}) under-approximates the sample variance of the rs-fMRI distance. Because of this discrepancy, we determine a corrected formula by assuming that there is dependence between the terms of the rs-fMRI diff. We start the derivation of our corrected formula by writing the variance as a two-part sum, where the first term in the sum involves the variance of the magnitude difference $|\hat{A}^{(i)}_{ka} - \hat{A}^{(j)}_{ka}|$ and then second term involves the cross-covariance of the rs-fMRI diff for distinct pairwise ROI-ROI associations. This begins as follows
+Similar to the case of a standard $m \times p$ data matrix containing standard normal data, we have a rs-fMRI distance variance that grows on the order of $p(p - 1)$, which is the total number of pairwise associations in a column of data matrix $X$ (Fig.~\ref{fig:rs-fMRI_matrix}). Therefore, the expected rs-fMRI distance (Eq.~\ref{eq:mu_DDistr_rs-fMRI}) and the variance of the rs-fMRI distance (Eq.~\ref{eq:var_DDistr_rs-fMRI_standard}) increase on the same order.
+
+The independence assumption we made to derive the variance of our rs-fMRI distance metric (Eq.~\ref{eq:var_DDistr_rs-fMRI_standard}) is not actually satisfied due to the fact that a single value of the diff (Eq.~\ref{eq:diff_rs-fMRI}) includes the same fixed ROI $a$ for each term in the sum for all $k \neq a$. Therefore, the linear application of the variance operator we have previously employed does not account for the additional cross-covariance that exists. Although we have seen empirically that the theoretical variance of the distance we computed for the rs-fMRI distance metric (Eq.~\ref{eq:var_DDistr_rs-fMRI_standard}) still reasonably approximates the sample variance, there is a slight discrepancy between our theoretical rs-fMRI distance metric variance (Eq.~\ref{eq:var_DDistr_rs-fMRI_standard}) and the sample variance. More precisely, the formula we have given for the variance (Eq.~\ref{eq:var_DDistr_rs-fMRI_standard}) consistently under-approximates the sample variance of the rs-fMRI distance. Because of this discrepancy, we determine a corrected formula by assuming that there is dependence between the terms of the rs-fMRI diff and estimate the cross-covariance between rs-fMRI diffs of different pairs of ROIs. 
+
+We begin the derivation of our corrected formula by writing the variance as a two-part sum, where the first term in the sum involves the variance of the magnitude difference $|\hat{A}^{(i)}_{ka} - \hat{A}^{(j)}_{ka}|$ and then second term involves the cross-covariance of the rs-fMRI diff for distinct pairwise ROI-ROI associations. This formulation is implied in our previous derivation of the variance, but our independence assumption allowed us to assume that all terms in the second part of the two-part sum were zero. Our formulation of the variance is given by the following
 %
 \begin{equation}\label{eq:var_DDistr_rs-fMRI}
 \begin{aligned}
@@ -2313,29 +2333,35 @@ The independence assumption we made to derive the variance of our rs-fMRI distan
 \end{aligned}
 \end{equation}
 
-In order to have a formula in terms of the number of ROIs $p$ only, we must estimate the double sum on the right-hand side of Eq. \ref{eq:var_DDistr_rs-fMRI}. Through simulation, it can be seen that the difference between the sample variance $S^2_{D_{ij}}$ and $\frac{2p(\pi-2)(p-1)}{\pi}$ has a quadratic relationship with $p$. More explicitly, we have the following relationship
+In order to have a formula in terms of the number of ROIs $p$ only, we must estimate the double sum on the right-hand side of the equation of rs-fMRI distance variance (Eq.~\ref{eq:var_DDistr_rs-fMRI}). Through simulation, it can be seen that the difference between sample variance $S^2_{D_{ij}}$ and $\frac{2p(\pi-2)(p-1)}{\pi}$ has a quadratic relationship with $p$. More explicitly, we have the following relationship
 %
 \begin{equation}\label{eq:estimate_cov}
 S^2_{D^\text{fMRI}_{ij}} - \frac{2p(\pi-2)(p-1)}{\pi} = \beta_1 p^2 + \beta_0 p.
 \end{equation}
+%
+where $\beta_0$ and $\beta_1$ are the coefficients we must estimate in order to approximate the cross-covariance term in the right-hand side of the rs-fMRI distance variance equation (Eq.~\ref{eq:var_DDistr_rs-fMRI}).
 
-The coefficient estimates found through least squares fitting are $\beta_0 = - \beta_1 \approx 0.08$. These estimates allow us to arrive at a functional form for the double sum in the right-hand side of Eq. \ref{eq:var_DDistr_rs-fMRI} that is proportional to $\frac{2p(\pi-2)(p-1)}{\pi}$. That is, we have the following formula for approximating the double sum
+The coefficient estimates found through least squares fitting are $\beta_0 = - \beta_1 \approx 0.08$. These estimates allow us to arrive at a functional form for the double sum in the right-hand side of the rs-fMRI distance variance equation (Eq.~\ref{eq:var_DDistr_rs-fMRI}) that is proportional to $\frac{2p(\pi-2)(p-1)}{\pi}$. That is, we have the following formula for approximating the double sum
 %
 \begin{equation}\label{eq:estimate_cov_form}
-2\sum_{a = 1}^{p-1} \sum_{r=a+1}^{p-1} \text{Cov}\left(\sum_{k=a+1}^{p} 2\left|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\right|, \sum_{s=r+1}^{p} 2\left|\hat{A}^{(i)}_{rs} - \hat{A}^{(j)}_{rs}\right|\right) = \frac{p(\pi - 2)(p - 1)}{4\pi}.
+2\sum_{a = 1}^{p-1} \sum_{r=a+1}^{p-1} \text{Cov}\left(\sum_{k=a+1}^{p} 2\left|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\right|, \sum_{s=r+1}^{p} 2\left|\hat{A}^{(i)}_{rs} - \hat{A}^{(j)}_{rs}\right|\right) \approx \frac{p(\pi - 2)(p - 1)}{4\pi}.
 \end{equation}
 
 Therefore, the variance of the rs-fMRI distances is approximated well by the following
 %
 \begin{equation}\label{eq:var_DDistr_rs-fMRI2}
-\text{Var}(D^\text{fMRI}_{ij}) = \frac{9p(\pi - 2)(p-1)}{4\pi}.
+\text{Var}(D^\text{fMRI}_{ij}) \approx \frac{9p(\pi - 2)(p-1)}{4\pi}.
 \end{equation}
 
-With the mean and variance estimates given by Eqs. \ref{eq:mu_DDistr_rs-fMRI} and \ref{eq:var_DDistr_rs-fMRI2}, we have the following asymptotic distribution for rs-fMRI distances
+With the mean (Eq.~\ref{eq:mu_DDistr_rs-fMRI}) and variance (Eq.~\ref{eq:var_DDistr_rs-fMRI2}) estimates, we have the following asymptotic distribution for rs-fMRI distances
 %
 \begin{equation}\label{eq:DDistr_rs-fMRI}
 D^\text{fMRI}_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{2p(p-1)}{\sqrt{\pi}}, \frac{9p(\pi - 2)(p-1)}{4\pi}\right).
 \end{equation}
+
+\subsection{Max-min normalized time series correlation-based distance distribution}
+
+We have determined in a previous section (Sec.~\ref{sec:extremes}) the asymptotic distribution of the sample maximum of size $m$ from a standard normal distribution. We can naturally extend these results to our transformed rs-fMRI data because $X$ (Fig.~\ref{fig:rs-fMRI_matrix}) is approximately standard normal. We proceed with the definition of the max-min normalized rs-fMRI pairwise distance.
 
 Consider the max-min normalized rs-fMRI distance given by the following equation
 %
@@ -2409,7 +2435,7 @@ where $a$ is a single fixed ROI.
 
 \subsection{Normalized Manhattan \texorpdfstring{($q=1$)}{} for rs-fMRI}
 
-Substituting the non-normalized mean given by Eq.~\ref{eq:mu_DDistr_rs-fMRI} into Eq.~\ref{eq:max-min_DDistr_normal_rs-fMRI} for the mean of the max-min normalized rs-fMRI metric, we have the following
+Substituting the non-normalized mean (Eq.~\ref{eq:mu_DDistr_rs-fMRI}) into the equation for the mean of the max-min normalized rs-fMRI metric (Eq.~\ref{eq:max-min_DDistr_normal_rs-fMRI}), we have the following
 %
 \begin{equation}\label{eq:mu_max-min_rs-fMRI}
 \begin{aligned}
@@ -2417,7 +2443,8 @@ Substituting the non-normalized mean given by Eq.~\ref{eq:mu_DDistr_rs-fMRI} int
 &= \frac{p(p-1)}{\sqrt{\pi}\mu^{(1)}_\text{max}(m,p)},
 \end{aligned}
 \end{equation}
-where $\mu^{(1)}_\text{max}(m,p)$ is given in Eq.~\ref{eq:mean_max_rs-fMRI}.
+%
+where $\mu^{(1)}_\text{max}(m,p)$ (Eq.~\ref{eq:mean_max_rs-fMRI}) is the expected maximum of a single ROI in a data set with $m$ instances and $p$ ROIs.
 
 Similarly, the variance of $D^\text{fMRI*}_{ij}$ is given by
 %
@@ -2427,10 +2454,13 @@ Similarly, the variance of $D^\text{fMRI*}_{ij}$ is given by
 &= \frac{27(\pi-2)\text{log}[m(p-1)](p-1)p}{2\pi\left(\pi^2 + 24\left[\mu^{(1)}_\text{max}(m,p)\right]^2\text{log}[m(p-1)]\right)},
 \end{aligned}
 \end{equation}
-where $\mu^{(1)}_\text{max}(m,p)$ is given in Eq.~\ref{eq:mean_max_rs-fMRI}.
+%
+where $\mu^{(1)}_\text{max}(m,p)$ (Eq.~\ref{eq:mean_max_rs-fMRI}) is the expected maximum of a single ROI in a data set with $m$ instances and $p$ ROIs.
+
+This concludes our analysis of rs-fMRI distances in random time series correlation-based data. We summarize the moment estimates for the standard and max-min normalized rs-fMRI distance metrics in a table (Tab.~\ref{tab:dist_distr_rs-fMRI}) that is organized by metric, statistic (mean or variance), and asymptotic formula.
 
 \begin{table}[H]
-	\caption{Summary of distance distribution derivations for rs-fMRI data.}
+	\caption{Aymptotic means and variances for standard and max-min normalized rs-fMRI distance metrics.}
 	\label{tab:dist_distr_rs-fMRI}
 	\centering
 	\begin{adjustbox}{center}
@@ -2521,7 +2551,7 @@ In analogy to the previous section, we explore the effects of pairwise feature c
 
 \subsection{Correlation-based data}
 
-For our correlation data-based metric given by Eqs.~\ref{eq:diff_rs-fMRI} and \ref{eq:D} with $q=1$, we consider additional effects of correlation between features. Without loss of generality, we let $m=100$ and $p=30$. We show an illustration of the effects of correlated features in this context (Fig.~\ref{fig:null_vs_correlated_ridge}C). Based on the correlated distance densities, it appears that correlation between features introduces positive skewness at lower values of $\bar{r}_\text{abs}$. We introduced correlation to the transformed data matrix (Fig.~\ref{fig:rs-fMRI_matrix}) with the cholesky method used previously.
+For our correlation data-based metric (Eq.~\ref{eq:D_rs-fMRI}), we consider additional effects of correlation between features. Without loss of generality, we let $m=100$ and $p=30$. We show an illustration of the effects of correlated features in this context (Fig.~\ref{fig:null_vs_correlated_ridge}C). Based on the density estimates, it appears that correlation between features introduces positive skewness at low values of $\bar{r}_\text{abs}$. We introduced correlation to the transformed data matrix (Fig.~\ref{fig:rs-fMRI_matrix}) with the cholesky method used previously.
 %
 %\begin{figure}[H]
 %	\centering
@@ -2544,7 +2574,7 @@ For our correlation data-based metric given by Eqs.~\ref{eq:diff_rs-fMRI} and \r
 \begin{figure}[H]
 	\centering
 	\framebox{\includegraphics[width=0.98\textwidth]{null_corr_BryanEdit.pdf}}
-	\caption{Ridgeline plots of distance densities from uncorrelated vs correlated bioinformatics data. (\textbf{A}) Euclidean distance densities for random normal data with and without correlation. Correlated data was created by multiplying random normal data by upper-triangular cholesky factor from randomly generated correlation matrix. We created correlated data for average absolute pairwise correlation (Eq.~\ref{eq:abs_corr}) $\bar{r}_\text{abs} = 0.105, 0.263, 0.458, \text{ and } 0.612$. (\textbf{B}) TiTv distance densities for random binomial data with and without correlation. Correlated data was created by first generating correlated standard normal data using the cholesky method from (A). Then we applied the standard normal CDF to create correlated uniformly distributed data, which was then transformed by the inverse binomial CDF with $n=2$ trials and success probabilites $f_a \text{ for all } a \in \mathcal{A}$. The result is correlated random binomial data with correlation matrix approximately the same as the original correlated standard normal data. (\textbf{C}) Time series correlation-based distance densities for random rs-fMRI data (Fig.~\ref{fig:rs-fMRI_matrix}) with and without additional pairwise feature correlation. Correlation was added to the transformed rs-fMRI data matrix (Fig.~\ref{fig:rs-fMRI_matrix}) using the cholesky algorithm from (A).}\label{fig:null_vs_correlated_ridge}
+	\caption{Distance densities from uncorrelated vs correlated bioinformatics data. (\textbf{A}) Euclidean distance densities for random normal data with and without correlation. Correlated data was created by multiplying random normal data by upper-triangular cholesky factor from randomly generated correlation matrix. We created correlated data for average absolute pairwise correlation (Eq.~\ref{eq:abs_corr}) $\bar{r}_\text{abs} = 0.105, 0.263, 0.458, \text{ and } 0.612$. (\textbf{B}) TiTv distance densities for random binomial data with and without correlation. Correlated data was created by first generating correlated standard normal data using the cholesky method from (A). Then we applied the standard normal CDF to create correlated uniformly distributed data, which was then transformed by the inverse binomial CDF with $n=2$ trials and success probabilites $f_a \text{ for all } a \in \mathcal{A}$. (\textbf{C}) Time series correlation-based distance densities for random rs-fMRI data (Fig.~\ref{fig:rs-fMRI_matrix}) with and without additional pairwise feature correlation. Correlation was added to the transformed rs-fMRI data matrix (Fig.~\ref{fig:rs-fMRI_matrix}) using the cholesky algorithm from (A).}\label{fig:null_vs_correlated_ridge}
 \end{figure}
 
 \section{Discussion}\label{sec:discussion}
