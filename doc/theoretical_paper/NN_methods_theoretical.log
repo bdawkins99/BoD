@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  12 OCT 2019 11:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  12 OCT 2019 15:15
 entering extended mode
 **./NN_methods_theoretical.tex
 (NN_methods_theoretical.tex
@@ -1074,12 +1074,12 @@ Package pdftex.def Info: updated_typical_metrics_table(normalized).pdf  used on
  [31 <./updated_typical_metrics_table.pdf>] [32 <./updated_typical_metrics_tabl
 e(normalized).pdf>] [33]
 [34] [35] [36] [37]
-<TiTv_diagram.pdf, id=1017, 278.1602pt x 227.42767pt>
-File: TiTv_diagram.pdf Graphic file (type pdf)
-<use TiTv_diagram.pdf>
-Package pdftex.def Info: TiTv_diagram.pdf  used on input line 1796.
+<TiTv_diagram2.pdf, id=1017, 278.1602pt x 227.42767pt>
+File: TiTv_diagram2.pdf Graphic file (type pdf)
+<use TiTv_diagram2.pdf>
+Package pdftex.def Info: TiTv_diagram2.pdf  used on input line 1796.
 (pdftex.def)             Requested size: 223.47441pt x 182.71625pt.
- [38 <./TiTv_diagram.pdf>] [39] [40] [41]
+ [38 <./TiTv_diagram2.pdf>] [39] [40] [41]
 <TiTv_distance-vs-maf.pdf, id=1081, 401.99887pt x 402.0069pt>
 File: TiTv_distance-vs-maf.pdf Graphic file (type pdf)
 <use TiTv_distance-vs-maf.pdf>
@@ -1106,8 +1106,7 @@ File: rs_fmri_all_instance_matrix.pdf Graphic file (type pdf)
 Package pdftex.def Info: rs_fmri_all_instance_matrix.pdf  used on input line 22
 58.
 (pdftex.def)             Requested size: 252.31071pt x 254.59311pt.
- [48 <./rs_fmri_all_instance_matrix.pdf>]
-[49] [50] [51] [52]
+ [48 <./rs_fmri_all_instance_matrix.pdf>] [49] [50] [51] [52]
 <updated_distributions_table-rs-fMRI.pdf, id=1352, 427.55835pt x 276.36348pt>
 File: updated_distributions_table-rs-fMRI.pdf Graphic file (type pdf)
 <use updated_distributions_table-rs-fMRI.pdf>
@@ -1144,7 +1143,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2614.
  ) 
 Here is how much of TeX's memory you used:
  22987 strings out of 492946
- 414898 string characters out of 3135528
+ 414903 string characters out of 3135528
  553249 words of memory out of 3000000
  25988 multiletter control sequences out of 15000+200000
  25570 words of font info for 136 fonts, out of 3000000 for 9000
@@ -1177,7 +1176,7 @@ nts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
 amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
 symbols/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a
 .pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on NN_methods_theoretical.pdf (60 pages, 1592095 bytes).
+Output written on NN_methods_theoretical.pdf (60 pages, 1592318 bytes).
 PDF statistics:
  1643 PDF objects out of 1728 (max. 8388607)
  312 named destinations out of 1000 (max. 500000)
