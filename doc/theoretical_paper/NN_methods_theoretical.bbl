@@ -58,6 +58,13 @@ Svyatoslav {V}ergun, {A}lok {S}.~{D}eshpande, {T}imothy {B}.~{M}eier, {J}ie
   using machine learning on resting state fMRI data}.
 \newblock {\em {Frontiers in Computational Neuroscience}}, April 2013.
 
+\bibitem{le17}
+Trang~T Le, W~Kyle Simmons, Masaya Misaki, Jerzy Bodurka, Bill~C White,
+  Jonathan Savitz, and Brett~A McKinney.
+\newblock Differential privacy-based evaporative cooling feature selection and
+  classification with relief-f and random forests.
+\newblock {\em Bioinformatics}, 33(18):2906--2913, 2017.
+
 \bibitem{gotts2012}
 Stephen~{J}. {G}otts, {W}. {K}yle {S}immons, {L}ydia {A}.~{M}ilbury, {G}regory
   {L}.~{W}allace, {R}obert {W}.~{C}ox, and {A}lex {M}artin.
