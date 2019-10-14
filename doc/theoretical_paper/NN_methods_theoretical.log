@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  12 OCT 2019 19:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  14 OCT 2019 09:55
 entering extended mode
 **./NN_methods_theoretical.tex
 (NN_methods_theoretical.tex
@@ -1119,7 +1119,7 @@ File: compared_moments_normal_manhattan5.pdf Graphic file (type pdf)
 <use compared_moments_normal_manhattan5.pdf>
 Package pdftex.def Info: compared_moments_normal_manhattan5.pdf  used on input 
 line 2508.
-(pdftex.def)             Requested size: 379.4175pt x 205.66536pt.
+(pdftex.def)             Requested size: 319.20892pt x 173.03137pt.
  [54 <./compared_moments_normal_manhattan5.pdf>] [55]
 <null_corr_BryanEdit.pdf, id=1457, 722.7pt x 252.945pt>
 File: null_corr_BryanEdit.pdf Graphic file (type pdf)
@@ -1176,7 +1176,7 @@ nts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
 amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
 symbols/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a
 .pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on NN_methods_theoretical.pdf (60 pages, 1594934 bytes).
+Output written on NN_methods_theoretical.pdf (60 pages, 1594989 bytes).
 PDF statistics:
  1648 PDF objects out of 1728 (max. 8388607)
  313 named destinations out of 1000 (max. 500000)
