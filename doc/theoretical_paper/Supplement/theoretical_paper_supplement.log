@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  14 OCT 2019 09:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  15 OCT 2019 14:06
 entering extended mode
 **./theoretical_paper_supplement.tex
 (theoretical_paper_supplement.tex
@@ -1075,35 +1075,121 @@ File: central_limit_hist_rs-fMRI_max-min.pdf Graphic file (type pdf)
 Package pdftex.def Info: central_limit_hist_rs-fMRI_max-min.pdf  used on input 
 line 242.
 (pdftex.def)             Requested size: 379.4175pt x 268.94945pt.
- [7 <./central_limit_hist_rs-fMRI_standard.pdf>] 
-AED: lastpage setting LastPage
-[8 <./central_limit_hist_rs-fMRI_max-min.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 248.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 248.
+ [7 <./central_limit_hist_rs-fMRI_standard.pdf>]
+<compared_moments_normal_manhattan_standard.pdf, id=330, 798.03645pt x 432.5861
+4pt>
+File: compared_moments_normal_manhattan_standard.pdf Graphic file (type pdf)
+<use compared_moments_normal_manhattan_standard.pdf>
+Package pdftex.def Info: compared_moments_normal_manhattan_standard.pdf  used o
+n input line 249.
+(pdftex.def)             Requested size: 379.4175pt x 205.66536pt.
+ [8 <./central_limit_hist_rs-fMRI_max-min.pdf>]
+<compared_moments_normal_manhattan_max-min.pdf, id=369, 848.09346pt x 432.58614
+pt>
+File: compared_moments_normal_manhattan_max-min.pdf Graphic file (type pdf)
+<use compared_moments_normal_manhattan_max-min.pdf>
+Package pdftex.def Info: compared_moments_normal_manhattan_max-min.pdf  used on
+ input line 254.
+(pdftex.def)             Requested size: 379.4175pt x 193.53323pt.
+ [9 <./compared_moments_normal_manhattan_standard.pdf>]
+<compared_moments_normal_euclidean_standard.pdf, id=396, 798.03645pt x 432.5861
+4pt>
+File: compared_moments_normal_euclidean_standard.pdf Graphic file (type pdf)
+<use compared_moments_normal_euclidean_standard.pdf>
+Package pdftex.def Info: compared_moments_normal_euclidean_standard.pdf  used o
+n input line 259.
+(pdftex.def)             Requested size: 379.4175pt x 205.66536pt.
+ [10 <./compared_moments_normal_manhattan_max-min.pdf>]
+<compared_moments_normal_euclidean_max-min.pdf, id=423, 844.28627pt x 432.58614
+pt>
+File: compared_moments_normal_euclidean_max-min.pdf Graphic file (type pdf)
+<use compared_moments_normal_euclidean_max-min.pdf>
+Package pdftex.def Info: compared_moments_normal_euclidean_max-min.pdf  used on
+ input line 264.
+(pdftex.def)             Requested size: 379.4175pt x 194.39792pt.
+ [11 <./compared_moments_normal_euclidean_standard.pdf>]
+<compared_moments_uniform_manhattan_standard.pdf, id=450, 798.03645pt x 432.586
+14pt>
+File: compared_moments_uniform_manhattan_standard.pdf Graphic file (type pdf)
+<use compared_moments_uniform_manhattan_standard.pdf>
+Package pdftex.def Info: compared_moments_uniform_manhattan_standard.pdf  used 
+on input line 269.
+(pdftex.def)             Requested size: 379.4175pt x 205.66536pt.
 
-(theoretical_paper_supplement.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 248.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 248.
+[12 <./compared_moments_normal_euclidean_max-min.pdf>]
+File: compared_moments_normal_euclidean_standard.pdf Graphic file (type pdf)
+<use compared_moments_normal_euclidean_standard.pdf>
+Package pdftex.def Info: compared_moments_normal_euclidean_standard.pdf  used o
+n input line 274.
+(pdftex.def)             Requested size: 379.4175pt x 205.66536pt.
+ [13 <./compared_moments_uniform_manhattan_standard.pdf>]
+File: compared_moments_normal_euclidean_max-min.pdf Graphic file (type pdf)
+<use compared_moments_normal_euclidean_max-min.pdf>
+Package pdftex.def Info: compared_moments_normal_euclidean_max-min.pdf  used on
+ input line 279.
+(pdftex.def)             Requested size: 379.4175pt x 194.39792pt.
+ [14]
+<compared_moments_gwas_gm.pdf, id=510, 798.03645pt x 432.58614pt>
+File: compared_moments_gwas_gm.pdf Graphic file (type pdf)
+<use compared_moments_gwas_gm.pdf>
+Package pdftex.def Info: compared_moments_gwas_gm.pdf  used on input line 284.
+(pdftex.def)             Requested size: 379.4175pt x 205.66536pt.
+ [15]
+<compared_moments_gwas_am.pdf, id=517, 798.03645pt x 432.58614pt>
+File: compared_moments_gwas_am.pdf Graphic file (type pdf)
+<use compared_moments_gwas_am.pdf>
+Package pdftex.def Info: compared_moments_gwas_am.pdf  used on input line 289.
+(pdftex.def)             Requested size: 379.4175pt x 205.66536pt.
+ [16 <./compared_moments_gwas_gm.pdf>]
+<compared_moments_gwas_titv2.pdf, id=544, 798.03645pt x 432.58614pt>
+File: compared_moments_gwas_titv2.pdf Graphic file (type pdf)
+<use compared_moments_gwas_titv2.pdf>
+Package pdftex.def Info: compared_moments_gwas_titv2.pdf  used on input line 29
+4.
+(pdftex.def)             Requested size: 379.4175pt x 205.66536pt.
+ [17 <./compared_moments_gwas_am.pdf>]
+<compared_moments_rs-fMRI_standard.pdf, id=571, 798.03645pt x 432.51186pt>
+File: compared_moments_rs-fMRI_standard.pdf Graphic file (type pdf)
+<use compared_moments_rs-fMRI_standard.pdf>
+Package pdftex.def Info: compared_moments_rs-fMRI_standard.pdf  used on input l
+ine 299.
+(pdftex.def)             Requested size: 379.4175pt x 205.63005pt.
+ [18 <./compared_moments_gwas_titv2.pdf>]
+<compared_moments_rs-fMRI_max-min.pdf, id=598, 798.03645pt x 432.51186pt>
+File: compared_moments_rs-fMRI_max-min.pdf Graphic file (type pdf)
+<use compared_moments_rs-fMRI_max-min.pdf>
+Package pdftex.def Info: compared_moments_rs-fMRI_max-min.pdf  used on input li
+ne 304.
+(pdftex.def)             Requested size: 379.4175pt x 205.63005pt.
+ [19 <./compared_moments_rs-fMRI_standard.pdf>]
+
+AED: lastpage setting LastPage
+[20 <./compared_moments_rs-fMRI_max-min.pdf>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 310.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 310.
+ (theoretical_paper_supplement.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 310.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 310.
 Package rerunfilecheck Info: File `theoretical_paper_supplement.out' has not ch
 anged.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 248.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 310.
  ) 
 Here is how much of TeX's memory you used:
- 22020 strings out of 492946
- 399686 string characters out of 3135528
- 517362 words of memory out of 3000000
- 25478 multiletter control sequences out of 15000+200000
+ 22094 strings out of 492946
+ 402251 string characters out of 3135528
+ 517366 words of memory out of 3000000
+ 25518 multiletter control sequences out of 15000+200000
  4706 words of font info for 20 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,11n,92p,1088b,360s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,11n,92p,1091b,360s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Fil
 es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX
  2.9/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on theoretical_paper_supplement.pdf (8 pages, 1896611 bytes).
+Output written on theoretical_paper_supplement.pdf (20 pages, 2562440 bytes).
 PDF statistics:
- 384 PDF objects out of 1000 (max. 8388607)
- 17 named destinations out of 1000 (max. 500000)
- 3637 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 674 PDF objects out of 1000 (max. 8388607)
+ 41 named destinations out of 1000 (max. 500000)
+ 3687 words of extra memory for PDF output out of 10000 (max. 10000000)
 
