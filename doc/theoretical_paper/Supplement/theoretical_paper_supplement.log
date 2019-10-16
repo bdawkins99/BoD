@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  16 OCT 2019 09:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  16 OCT 2019 18:47
 entering extended mode
 **./theoretical_paper_supplement.tex
 (theoretical_paper_supplement.tex
@@ -1181,37 +1181,70 @@ File: compared_moments_rs-fMRI_max-min.pdf Graphic file (type pdf)
 Package pdftex.def Info: compared_moments_rs-fMRI_max-min.pdf  used on input li
 ne 304.
 (pdftex.def)             Requested size: 379.4175pt x 205.63005pt.
- [19 <./compared_moments_rs-fMRI_standard.pdf>] 
+ [19 <./compared_moments_rs-fMRI_standard.pdf>]
+<compared_moments_rs-fMRI_diff.pdf, id=671, 798.03645pt x 432.58614pt>
+File: compared_moments_rs-fMRI_diff.pdf Graphic file (type pdf)
+<use compared_moments_rs-fMRI_diff.pdf>
+Package pdftex.def Info: compared_moments_rs-fMRI_diff.pdf  used on input line 
+309.
+(pdftex.def)             Requested size: 379.4175pt x 205.66536pt.
+ [20 <./compared_moments_rs-fMRI_max-min.pdf>]
+<standard_normal_and_uniform_diffs.pdf, id=698, 770.18239pt x 418.35999pt>
+File: standard_normal_and_uniform_diffs.pdf Graphic file (type pdf)
+<use standard_normal_and_uniform_diffs.pdf>
+Package pdftex.def Info: standard_normal_and_uniform_diffs.pdf  used on input l
+ine 314.
+(pdftex.def)             Requested size: 379.4175pt x 206.10254pt.
+ [21 <./compared_moments_rs-fMRI_diff.pdf>]
+<GM_density-vs-MAF.pdf, id=725, 361.35pt x 361.35pt>
+File: GM_density-vs-MAF.pdf Graphic file (type pdf)
+<use GM_density-vs-MAF.pdf>
+Package pdftex.def Info: GM_density-vs-MAF.pdf  used on input line 320.
+(pdftex.def)             Requested size: 189.70874pt x 189.70607pt.
+<AM_density-vs-MAF.pdf, id=726, 361.35pt x 361.35pt>
+File: AM_density-vs-MAF.pdf Graphic file (type pdf)
+<use AM_density-vs-MAF.pdf>
+Package pdftex.def Info: AM_density-vs-MAF.pdf  used on input line 329.
+(pdftex.def)             Requested size: 189.70874pt x 189.70607pt.
+ [22 <./standard_normal_and_uniform_diffs.pdf> <./GM_density-vs-MAF.pdf>]
+<TiTv_density-vs-MAF.pdf, id=761, 361.35pt x 361.35pt>
+File: TiTv_density-vs-MAF.pdf Graphic file (type pdf)
+<use TiTv_density-vs-MAF.pdf>
+Package pdftex.def Info: TiTv_density-vs-MAF.pdf  used on input line 338.
+(pdftex.def)             Requested size: 189.70874pt x 189.70607pt.
+ 
 AED: lastpage setting LastPage
-[20 <./compared_moments_rs-fMRI_max-min.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 310.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 310.
- (theoretical_paper_supplement.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 310.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 310.
+[23 <./AM_density-vs-MAF.pdf> <./TiTv_density-vs-MAF.pdf>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 347.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 347.
+
+(theoretical_paper_supplement.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 347.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 347.
 Package rerunfilecheck Info: File `theoretical_paper_supplement.out' has not ch
 anged.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 310.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 347.
  ) 
 Here is how much of TeX's memory you used:
- 22218 strings out of 492946
- 404551 string characters out of 3135528
+ 22253 strings out of 492946
+ 405544 string characters out of 3135528
  518366 words of memory out of 3000000
- 25579 multiletter control sequences out of 15000+200000
- 9619 words of font info for 51 fonts, out of 3000000 for 9000
+ 25599 multiletter control sequences out of 15000+200000
+ 9670 words of font info for 52 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,11n,92p,1521b,427s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,12n,92p,1521b,427s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fon
 ts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
 ublic/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helve
-tic/uhvr8a.pfb>
-Output written on theoretical_paper_supplement.pdf (20 pages, 2635592 bytes).
+tic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb
+>
+Output written on theoretical_paper_supplement.pdf (23 pages, 2779934 bytes).
 PDF statistics:
- 728 PDF objects out of 1000 (max. 8388607)
- 41 named destinations out of 1000 (max. 500000)
- 5745 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 815 PDF objects out of 1000 (max. 8388607)
+ 49 named destinations out of 1000 (max. 500000)
+ 5770 words of extra memory for PDF output out of 10000 (max. 10000000)
 

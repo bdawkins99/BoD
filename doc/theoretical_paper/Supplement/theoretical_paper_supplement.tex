@@ -305,6 +305,43 @@
 	\caption{Comparison of theoretical and simulated moments of max-min normalized rs-fMRI distances from random correlation matrices. For each instance, we generated a $p \times p$ correlation matrix from a random $m \times p$ standard normal data set. We then stretched out each correlation matrix into a long vector, Fisher r-to-z transformed the correlations, stored the vector in a column of a large $p(p-1) \times m$ matrix, and then standardized columns to be mean 0 and unit variance. (\textbf{A}) Scatter plot of theoretical vs simulated mean max-min normalized rs-fMRI distance. Each point represents a different number of attributes $p$. For each value of $p$ we fixed $m=100$ and generated 20 distance matrices from rs-fMRI data and computed the average simulated pairwise distance from the 20 iterations. The corresponding theoretical mean was then computed for each value of $p$ for comparison. The dashed line represents the identity (or $y=x$) line for reference. (\textbf{B}) Scatter plot of theoretical vs simulated standard deviation of max-min normalized rs-fMRI distance. These standard deviations come from the same random distance matrices for which mean distance was computed for \textbf{A}. Both theoretical mean and standard deviation approximate the simulated moments quite well.}
 \end{figure}
 
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{compared_moments_rs-fMRI_diff.pdf}
+	\caption{Comparison of theoretical and simulated moments of rs-fMRI diff metric from random correlation matrices. For each instance, we generated a $p \times p$ correlation matrix from a random $m \times p$ standard normal data set. We then stretched out each correlation matrix into a long vector, Fisher r-to-z transformed the correlations, stored the vector in a column of a large $p(p-1) \times m$ matrix, and then standardized columns to be mean 0 and unit variance. (\textbf{A}) Scatter plot of theoretical vs simulated mean rs-fMRI diff. Each point represents a different number of attributes $p$. For each value of $p$ we fixed $m=100$ and generated 20 diff metric values from the rs-fMRI data and computed the average simulated diff from the 20 iterations. The corresponding theoretical mean was then computed for each value of $p$ for comparison. The dashed line represents the identity (or $y=x$) line for reference. (\textbf{B}) Scatter plot of theoretical vs simulated standard deviation of rs-fMRI diff. These standard deviations come from the same random diff values from which mean diffs were computed for \textbf{A}. Both theoretical mean and standard deviation approximate the simulated moments quite well.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{standard_normal_and_uniform_diffs.pdf}
+	\caption{Density curves for one-dimensional projected distances (diffs) onto a fixed attribute $a$ for standard normal and standard uniform data. (\textbf{A}) Density curves for the distribution of attribute diff in standard normal data for $q=1,2,3,4,$ and $5$. This density is that of a Generalized Gamma distribution. For $q=1$, this is also known as a half-normal distribution. (\textbf{B}) Density curves for the distribution of attribute diff in standard uniform data for $q=1,2,3,4,$ and $5$. This density is that of a Kumaraswamy distribution. For $q=1$, this is also known as a triangular distribution.}
+\end{figure}
+
+%\begin{figure}[H]
+\begin{minipage}[c]{0.5\textwidth}\hspace{-0.5cm}
+	\includegraphics[width=1\textwidth]{GM_density-vs-MAF.pdf}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.45\textwidth}
+	\captionsetup{type=figure}\captionof{figure}{This will be a caption for this figure. This will be a caption for this figure. This will be a caption for this figure. This will be a caption for this figure. This will be a caption for this figure. This will be a caption for this figure. This will be a caption for this figure. This will be a caption for this figure. This will be a caption for this figure. This will be a caption for this figure. This will be a caption for this figure. This will be a caption for this figure.}
+\end{minipage}
+%\end{figure}
+
+%\begin{figure}[H]
+\begin{minipage}[c]{0.5\textwidth}\hspace{-0.5cm}
+	\includegraphics[width=1\textwidth]{AM_density-vs-MAF.pdf}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.45\textwidth}
+	\captionsetup{type=figure}\captionof{figure}{This will be a caption for this figure. This will be a caption for this figure. This will be a caption for this figure. This will be a caption for this figure. This will be a caption for this figure. This will be a caption for this figure. This will be a caption for this figure. This will be a caption for this figure. This will be a caption for this figure. This will be a caption for this figure. This will be a caption for this figure. This will be a caption for this figure.}
+\end{minipage}
+%\end{figure}
+
+%\begin{figure}[H]
+\begin{minipage}[c]{0.5\textwidth}\hspace{-0.5cm}
+	\includegraphics[width=1\textwidth]{TiTv_density-vs-MAF.pdf}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.45\textwidth}
+	\captionsetup{type=figure}\captionof{figure}{This will be a caption for this figure. This will be a caption for this figure. This will be a caption for this figure. This will be a caption for this figure. This will be a caption for this figure. This will be a caption for this figure. This will be a caption for this figure. This will be a caption for this figure. This will be a caption for this figure. This will be a caption for this figure. This will be a caption for this figure. This will be a caption for this figure.}
+\end{minipage}
+%\end{figure}
+
 %\bibliographystyle{unsrt}
 %\bibliography{BoD}   % name of bib file
 \end{document}
