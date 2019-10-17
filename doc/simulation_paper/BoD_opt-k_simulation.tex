@@ -214,7 +214,7 @@
 % \end{flushleft}
 % Please keep the abstract below 300 words
 \section*{Abstract}
-It is commonly known that high-throughput data has many inherent statistical challenges, such as multiple testing, sparsity and over fitting. Collectively, these challenges are known as the Curse of Dimensionality. Here we highlight an important Blessing of Dimensionality: the ability to identify interactions with neighborhoods of instances. We review the nearest-neighbor concept for finding interactions among attributes and derive important distribution moments for distance metrics in high dimensional spaces. We use these theoretical results and simulated data to offer recommendations for computational approaches to find nearest neighbors in high dimension. We discuss ways to maximize the blessings and minimize the curses of dimensionality to reliably identify interactions.  
+It is commonly known that high-throughput data has many inherent statistical challenges, such as multiple testing, sparsity and over fitting. Collectively, these challenges are known as the Curse of Dimensionality. Here we highlight an important Blessing of Dimensionality: the ability to identify interactions with neighborhoods of instances. We review the nearest-neighbor concept for finding interactions among attributes. We present a novel simulation method for generating interactions from random networks with fine-tuned control over interaction effect size. Using our new simulation strategy, we determine optimal fixed-$k$ for neighborhood computation in nearest-neighbor distance-based feature selection for different combinations of data dimensions $m$ (number of instances) and $p$ (number of attributes), different ratios of main/interaction effect among functional attributes, and different combinations of main and interaction effect sizes. We discuss ways to maximize the blessings and minimize the curses of dimensionality to reliably identify interactions. Our results will show how optimal fixed-$k$ changes under a variety of conditions that we see in real data, which will serve as a guide for other researchers using nearest-neighbor distance-based feature selection. 
 
 \section*{Author summary}
 
@@ -222,8 +222,13 @@ It is commonly known that high-throughput data has many inherent statistical cha
 
 \section*{Introduction}
 
-Relief-based methods identify interacting attributes as important by using nearest-neighbor information in higher dimensions (the ``blessings of dimensionality''). Myopic methods that do not account for information from higher dimensions such as univariate tests are susceptible to false negatives when there are interactions. For example, in the plot of variable A versus C in a three-variable simulation (Fig.~\ref{fig:2dAvC}a), variable A appears to show no difference between cases and controls (the marginal group means are the same). However, A is actually simulated to have a strong differential correlation with B, conditioned on the outcome variable (Fig.~\ref{fig:2dAvB}b). Current Relief-based methods determine the importance of an attribute by computing the average difference of attribute $A$ value between a target instance (X) and its nearest instance from the opposite class (Miss), $d_{\text{X,M}}(A)$, subtracted from the similarly projected difference of target X and its nearest instance from the same class (Hit), $d_{\text{X,H}}(A)$. A positive value from this calculation, i.e., $d_{\text{X,M}}(A)-d_{\text{X,H}}(A) > 0$, suggests that attribute A is useful for discriminating between cases and controls.  
+Relief-based methods identify interacting attributes as important by using nearest-neighbor information in higher dimensions (the ``blessings of dimensionality''). Myopic methods that do not account for information from higher dimensions such as univariate tests are susceptible to false negatives when there are interactions. For example, in the plot of variable A versus C in a three-variable simulation (Fig.~\ref{fig:ABC}-I), variable A appears to show no difference between cases and controls (the marginal group means are the same). However, A is actually simulated to have a strong differential correlation with B, conditioned on the outcome variable (Fig.~\ref{fig:ABC}-II). Current Relief-based methods determine the importance of an attribute by computing the average difference of attribute $A$ value between a target instance (X) and its nearest instance from the opposite class (Miss), $d_{\text{X,M}}(A)$, subtracted from the similarly projected difference of target X and its nearest instance from the same class (Hit), $d_{\text{X,H}}(A)$. A positive value from this calculation, i.e., $d_{\text{X,M}}(A)-d_{\text{X,H}}(A) > 0$, suggests that attribute A is useful for discriminating between cases and controls.  
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{2by2_arrangementABC.pdf}
+	\caption{{\bf Imposters vs true neighbors in the presence of interactions with three variables}. Attributes A, B, and C have no main effect. (\textbf{\fontfamily{ptm}\selectfont I}) Scatter plot of simulated irrelevant Attribute C with a functional Attribute A. (\textbf{\fontfamily{ptm}\selectfont II}) Scatter plot of Attributes A and B, which interact through differential correlation. Computing nearest neighbors with irrelevant attributes (\textbf{\fontfamily{ptm}\selectfont I}) or lower dimensions leads to imposter nearest neighbors and degrades the ability of Relief-based methods to identify interaction effects. Computing distances in only these two dimensions leads to an imposter false miss (FM) for the nearest neighbor from the opposite outcome class for target instance X. This imposter leads to Attribute A predicting closer projected distances for misses than hits (H), which incorrectly indicates that A is a poor discriminator (yellow boxes in \textbf{\fontfamily{ptm}\selectfont I}). (\textbf{\fontfamily{ptm}\selectfont III-IV}) Computing nearest neighbors in higher dimensions or with the correct interaction partner leads to imposter nearest neighbor (FM) being replaced by the true nearest miss neighbor (TM) for target instance X, which correctly leads to Attribute A predicting closer projected distances for hits (H) than misses, which is an indication that Attribute A is a good discriminator (yellow boxes \textbf{\fontfamily{ptm}\selectfont II}).}\label{fig:ABC}
+\end{figure}
 %\begin{figure}[h!]
 %%\begin{center}
 %\begin{minipage}[c]{0.4\textheight}
@@ -239,73 +244,73 @@ Relief-based methods identify interacting attributes as important by using neare
 
 \newpage
 
-\begin{figure}[ht!]
-\begin{wrapfigure}{l}{0.6\textwidth}
-    \vspace{-12pt}
-	\centering
-	\framebox{\includegraphics[width=0.55\textwidth]{glmSTIR_figure_2D_final_CvsA.pdf}}
-\end{wrapfigure}
-\noindent\refstepcounter{figure}\textbf{Fig \thefigure \label{fig:2dAvC}.} \textbf{Imposters vs true neighbors in the presence of interactions with three variables}. Scatter plot of simulated irrelevant Attribute C with a functional Attribute A \textbf{(a)}. None of the attributes has a main effect, but Attribute B and C interact through differential correlation \textbf{(b)}. Computing nearest neighbors with irrelevant attributes \textbf{(a)} or lower dimensions leads to imposter nearest neighbors and degrades the ability of Relief-based methods to identify interaction effects. Computing distances in only these two dimensions leads to an imposter false miss (FM) for the nearest neighbor from the opposite outcome class for target instance X. This imposter leads to attribute A predicting closer projected distances for misses than hits (H), which incorrectly indicates that A is a poor discriminator (yellow boxes in \textbf{(a)}). Computing nearest neighbors in higher dimensions \textbf{(c-d)} or with the correct interaction partner leads to imposter nearest neighbor (FM) being replaced by the true nearest miss neighbor (TM) for target instance X, which correctly leads to attribute A predicting closer projected distances for hits (H) than misses, which is an indication that attribute A is a good discriminator (yellow boxes \textbf{(b)}).
-\end{figure}
+%\begin{figure}[ht!]
+%\begin{wrapfigure}{l}{0.6\textwidth}
+%    \vspace{-12pt}
+%	\centering
+%	\framebox{\includegraphics[width=0.55\textwidth]{glmSTIR_figure_2D_final_CvsA.pdf}}
+%\end{wrapfigure}
+%\noindent\refstepcounter{figure}\textbf{Fig \thefigure \label{fig:2dAvC}.} \textbf{Imposters vs true neighbors in the presence of interactions with three variables}. Scatter plot of simulated irrelevant Attribute C with a functional Attribute A \textbf{(a)}. None of the attributes has a main effect, but Attribute B and C interact through differential correlation \textbf{(b)}. Computing nearest neighbors with irrelevant attributes \textbf{(a)} or lower dimensions leads to imposter nearest neighbors and degrades the ability of Relief-based methods to identify interaction effects. Computing distances in only these two dimensions leads to an imposter false miss (FM) for the nearest neighbor from the opposite outcome class for target instance X. This imposter leads to attribute A predicting closer projected distances for misses than hits (H), which incorrectly indicates that A is a poor discriminator (yellow boxes in \textbf{(a)}). Computing nearest neighbors in higher dimensions \textbf{(c-d)} or with the correct interaction partner leads to imposter nearest neighbor (FM) being replaced by the true nearest miss neighbor (TM) for target instance X, which correctly leads to attribute A predicting closer projected distances for hits (H) than misses, which is an indication that attribute A is a good discriminator (yellow boxes \textbf{(b)}).
+%\end{figure}
 
-Relief-based methods use information from all available attributes (omnigenic) to estimate an attribute's importance. However, if relevant higher-dimensional information is not used to establish the neighborhoods of instances, these methods will miss the effect of A because ``imposter'' neighbors will be used in the attribute estimate (False Miss (FM) in Fig.~\ref{fig:2dAvC}, where $d_{\text{X,FM}}(A)<d_{\text{X,H}}(A)$).  If one were to compute nearest neighbors in the A-C plane (ignoring the B dimension), the nearest miss would be an imposter (FM), which leads to a negative contribution to the importance score for A. One might call this C attribute a type-I confounding attribute because it increases the chances of interacting attributes to be false negatives. When nearest neighbors are calculated based on higher dimensions with relevant information (Fig.~\ref{fig:2dAvB}c), it is clear that TM is closer to X than FM. The imposter (FM) is replaced by the true nearest miss (TM) and attribute A correctly shows a greater projected difference between misses than hits (Fig.~\ref{fig:2dAvB}d $d_{\text{X,TM}}(A)>d_{\text{X,H}}(A)$), which is the signature of an important attribute. Univariate methods still cannot find the importance of A unless the interaction is explicitly modeled, but as long as functional variables A and B are in the space for nearest neighbor calculations (Fig.~\ref{fig:2dAvB}c-d), imposters can be excluded and Relief-based methods will find that A (and B) are important discriminators. 
+Relief-based methods use information from all available attributes (omnigenic) to estimate an attribute's importance. However, if relevant higher-dimensional information is not used to establish the neighborhoods of instances, these methods will miss the effect of A because ``imposter'' neighbors will be used in the attribute estimate (False Miss (FM) in Fig.~\ref{fig:ABC}-I, where $d_{\text{X,FM}}(A)<d_{\text{X,H}}(A)$).  If one were to compute nearest neighbors in the A-C plane (ignoring the B dimension), the nearest miss would be an imposter (FM), which leads to a negative contribution to the importance score for A. One might call this C attribute a type-I confounding attribute because it increases the chances of interacting attributes to be false negatives. When nearest neighbors are calculated based on higher dimensions with relevant information (Fig.~\ref{fig:ABC}-III), it is clear that TM is closer to X than FM. The imposter (FM) is replaced by the true nearest miss (TM) and attribute A correctly shows a greater projected difference between misses than hits (Fig.~\ref{fig:ABC}-II $d_{\text{X,TM}}(A)>d_{\text{X,H}}(A)$), which is the signature of an important attribute. Univariate methods still cannot find the importance of A unless the interaction is explicitly modeled, but as long as functional variables A and B are in the space for nearest neighbor calculations (Fig.~\ref{fig:ABC}-III - IV), imposters can be excluded and Relief-based methods will find that A (and B) are important discriminators. 
 
 
 
-\begin{figure}[ht!]
+%\begin{figure}[ht!]
 %%\begin{center}
-\begin{minipage}[c]{0.4\textheight}
-\centering 
-		\framebox{\includegraphics[width=0.8\textwidth]{glmSTIR_figure_2D_final_BvsA.pdf}}
-\end{minipage} \hspace{-0.4cm}
-\begin{minipage}[c]{0.5\textwidth}
-\centering
-\caption{{\bf True neighbors}}\label{fig:2dAvB}
-\end{minipage}
+%\begin{minipage}[c]{0.4\textheight}
+%\centering 
+%		\framebox{\includegraphics[width=0.8\textwidth]{glmSTIR_figure_2D_final_BvsA.pdf}}
+%\end{minipage} \hspace{-0.4cm}
+%\begin{minipage}[c]{0.5\textwidth}
+%\centering
+%\caption{{\bf True neighbors}}\label{fig:2dAvB}
+%\end{minipage}
 %%\end{center}
-\end{figure}  
+%\end{figure}  
 
-\begin{figure}[ht!]
+%\begin{figure}[ht!]
 %%\begin{center}
-\begin{minipage}[c]{0.4\textheight}
-\centering
-		\framebox{\includegraphics[width=0.8\textwidth]{nice_box_2D_points.pdf}}
-\end{minipage} \hspace{-0.4cm}
-\begin{minipage}[c]{0.5\textwidth}
-\centering
-\caption{{\bf 3D AB view}. Still working on this. }\label{fig:3d_c}
-\end{minipage}
+%\begin{minipage}[c]{0.4\textheight}
+%\centering
+%		\framebox{\includegraphics[width=0.8\textwidth]{nice_box_2D_points.pdf}}
+%\end{minipage} \hspace{-0.4cm}
+%\begin{minipage}[c]{0.5\textwidth}
+%\centering
+%\caption{{\bf 3D AB view}. Still working on this. }\label{fig:3d_c}
+%\end{minipage}
 %%\end{center}
-\end{figure}  
+%\end{figure}  
 
-\begin{figure}[ht!]
+%\begin{figure}[ht!]
 %%\begin{center}
-\begin{minipage}[c]{0.4\textheight}
-\centering
-		\framebox{\includegraphics[width=0.8\textwidth]{nice_box_2D_points2.pdf}}
-\end{minipage} \hspace{-0.4cm}
-\begin{minipage}[c]{0.5\textwidth}
-\centering
-\caption{{\bf 3D AC view}. Still working on this. }\label{fig:3d_d}
-\end{minipage}
+%%\begin{minipage}[c]{0.4\textheight}
+%\centering
+%		\framebox{\includegraphics[width=0.8\textwidth]{nice_box_2D_points2.pdf}}
+%\end{minipage} \hspace{-0.4cm}
+%\begin{minipage}[c]{0.5\textwidth}
+%\centering
+%\caption{{\bf 3D AC view}. Still working on this. }\label{fig:3d_d}
+%\end{minipage}
 %%\end{center}
-\end{figure}  
+%\end{figure}  
 Using same interaction, increase background noise genes to see degrading of A and B Relief importance because of curse of dimensionality (sparseness). 
 
 \section{Neighborhood methods}
-NPD methods rely on a neighborhood algorithm for feature selection. One may specify a fixed-$k$ number of neighbors, an average radius SURF, a multiSURF radius that adapts for each instance~\cite{urbanowicz17}, or a gene-wise adaptive-$k$. 
+Nearest-neighbor projected distance (NPD) methods rely on a neighborhood algorithm for feature selection. One may specify a fixed-$k$ number of neighbors, a fixed radius, an average radius SURF, a MultiSURF radius that adapts for each instance~\cite{urbanowicz17}, or a gene-wise adaptive-$k$~\cite{mckinney13}. The definitive difference between fixed-$k$ and either fixed or adaptive radius methods is that there is always a deterministic number of neighbors in fixed-$k$ neighborhoods, but there is a variable neighborhood order in each fixed or adaptive radius method. In nearest-neighbor feature selection, neighborhood order is directly related to selected feature quality. Correlation and interaction effects change the distribution of pairwise distances between instances, which ultimately changes the probability of neighborhood inclusion for fixed or adaptive radius methods. In order to select the best set of features from data, it is important to know how pairwise feature correlation changes the optimal neighborhood order. We approach this problem by first determining the functional relationship between fixed-$k$ and MultiSURF radius in null data with no effects.
 
 \section{Derivation of expected $k$ for multiSURF neighborhoods}
-The multiSURF radius for an instance is the mean of its distances to all other instances subtracted by $\alpha=1/2$ of the standard deviation of this mean. Previously we showed empirically for balanced case-control datasets that a good constant-$k$ approximation to the expected number of neighbors within the multiSURF radii is $k=m/6$~\cite{stir}, where $m$ is the number of samples. Here we derive a more exact theoretical mean that shows the mathematical connection between neighbor-finding methods. This fixed-$k$ approximation to multi-SURF is independent of the type of data and the particular radii of each instance in the data.
+The MultiSURF radius for an instance is the mean of its distances to all other instances subtracted by $\alpha=1/2$ of the standard deviation of this mean. Previously we showed empirically for balanced case-control datasets that a good constant-$k$ approximation to the expected number of neighbors within the multiSURF radii is $k=m/6$~\cite{stir}, where $m$ is the number of samples. Here we derive a more exact theoretical mean that shows the mathematical connection between neighbor-finding methods. This fixed-$k$ approximation to MultiSURF is independent of the type of data and the particular radii of each instance in the data.
 %
 
-The distance between instances $i$ and $j$ in the data set $X^{m \times p}$ of $m$ instances and $p$ attributes is calculated in the space of all attributes ($a \in \mathcal{A}$, $|\mathcal{A}|=p$) using a metric such as
+The distance between instances ($i,j \in \mathcal{I}$, $|\mathcal{I}|=m$) in the data set $X^{m \times p}$ of $m$ instances and $p$ attributes is calculated in the space of all attributes ($a \in \mathcal{A}$, $|\mathcal{A}|=p$) using a metric such as
 \begin{equation}\label{eq:D}
 % D^{(q)}_{ij}=\left(\sum_{a\in A}|\text{d}^{\text{type}}_{ij}(a)|^q\right)^{1/q},
 D^{(q)}_{ij}=\left(\sum_{a\in \mathcal{A}}|\text{d}_{ij}(a)|^q\right)^{1/q},
 \end{equation}
+%
 which is typically Manhattan ($q=1$) but may also be Euclidean ($q=2$). The quantity 
-% $\text{d}^{\text{type}}_{ij}(a)$, 
 $\text{d}_{ij}(a)$,
 known as a ``$\text{diff}$'' in Relief literature, is the projection of the distance between instances $i$ and $j$ onto the attribute $a$ dimension. The 
 % ``type'' refers to the data type of the attribute
@@ -334,7 +339,7 @@ We define the NPDR neighborhood set $\mathcal{N}$ of ordered pair indices as fol
 \end{equation}
 The cardinality of the set $\{j \ne i : j \in N_{i}\}$ is $k_i$, the number of nearest neighbors for subject $i$. 
 
-\subsection{Predicted number of neighbors in the multiSURF alpha neighborhood}
+\subsection{Predicted number of neighbors in the MultiSURF alpha neighborhood}
 
 Regardless of the predictor data type (numeric or categorical), the distribution of the $p$ predictors (uniform, Gaussian, or binomial), or the metric used to compute distances (Manhattan or Euclidean), the $m(m-1)/2$ pairwise distances in the $p$-dimensional space are well approximated by a normal distribution. An instance $j$ is in the adaptive $\alpha$-radius neighborhood of $i$ ($j \in N^{\alpha}_{i}$) under the condition
 %\begin{equation}
@@ -400,7 +405,7 @@ Each simulated data set $X^{(m \times p)}$ contains $m$ instances and $p$ featur
 m \in \{100, 250, 500\} \text{ and }
 \end{equation}
 \begin{equation}\label{eq:feature_dims}
-p \in \{1000,2000,3000,4000,5000\}.
+p \in \{1000,2500,5000\}.
 \end{equation}
 
 All combinations of $m$ and $p$ were explored in order to determine how neighborhood selection parameters change with dimensionality. We considered a balanced binary outcome only so that there were exactly $m/2$ cases and $m/2$ controls. In each simulation, 10\% of the total number of features $p$ were functionally related to the outcome variable while the remaining 90\% were simply background features with no effect. Functional features were given either main or interaction effect in order to create a random mixed effects data set for which optimal neighborhood method parameters could be calculated. 
@@ -460,7 +465,7 @@ The full data set, given previously by Eq.~\ref{eq:full_interaction_data}, concl
 \begin{figure}[H]
 \centering
 \begin{minipage}[h]{1\textwidth}
-\framebox{\includegraphics[width=1.0\textwidth]{interaction_simulation_method_diagram2.pdf}}
+\framebox{\includegraphics[width=0.98\textwidth]{interaction_simulation_method_diagram2.pdf}}
 \end{minipage}
 
 \begin{minipage}[h]{1\textwidth}
@@ -473,7 +478,7 @@ The full data set, given previously by Eq.~\ref{eq:full_interaction_data}, concl
 \begin{figure}[H]
 	\centering
 	\begin{minipage}[h]{1\textwidth}
-		\framebox{\includegraphics[width=1.0\textwidth]{main_plus_correlation_diagram.pdf}}
+		\framebox{\includegraphics[width=0.98\textwidth]{main_plus_correlation_diagram.pdf}}
 	\end{minipage}
 	
 	\begin{minipage}[h]{1\textwidth}

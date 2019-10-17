@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  26 AUG 2019 11:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  17 OCT 2019 15:27
 entering extended mode
 **./BoD_opt-k_simulation.tex
 (BoD_opt-k_simulation.tex
@@ -982,115 +982,95 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmss' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [1
+<2by2_arrangementABC.pdf, id=40, 703.36679pt x 803.92747pt>
+File: 2by2_arrangementABC.pdf Graphic file (type pdf)
+<use 2by2_arrangementABC.pdf>
+Package pdftex.def Info: 2by2_arrangementABC.pdf  used on input line 229.
+(pdftex.def)             Requested size: 379.4175pt x 433.67276pt.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 230.
 
-{C:/Users/bdawk/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-<glmSTIR_figure_2D_final_CvsA.pdf, id=60, 369.37198pt x 366.18909pt>
-File: glmSTIR_figure_2D_final_CvsA.pdf Graphic file (type pdf)
-<use glmSTIR_figure_2D_final_CvsA.pdf>
-Package pdftex.def Info: glmSTIR_figure_2D_final_CvsA.pdf  used on input line 2
-46.
-(pdftex.def)             Requested size: 208.68077pt x 206.88603pt.
-<glmSTIR_figure_2D_final_BvsA.pdf, id=65, 369.17725pt x 366.18909pt>
-File: glmSTIR_figure_2D_final_BvsA.pdf Graphic file (type pdf)
-<use glmSTIR_figure_2D_final_BvsA.pdf>
-Package pdftex.def Info: glmSTIR_figure_2D_final_BvsA.pdf  used on input line 2
-59.
-(pdftex.def)             Requested size: 202.35367pt x 200.71735pt.
-<nice_box_2D_points.pdf, id=66, 351.00034pt x 360.49481pt>
-File: nice_box_2D_points.pdf Graphic file (type pdf)
-<use nice_box_2D_points.pdf>
-Package pdftex.def Info: nice_box_2D_points.pdf  used on input line 272.
-(pdftex.def)             Requested size: 202.35367pt x 207.83296pt.
-<nice_box_2D_points2.pdf, id=67, 351.00034pt x 360.49481pt>
-File: nice_box_2D_points2.pdf Graphic file (type pdf)
-<use nice_box_2D_points2.pdf>
-Package pdftex.def Info: nice_box_2D_points2.pdf  used on input line 285.
-(pdftex.def)             Requested size: 202.35367pt x 207.83296pt.
- [2 <./glmSTIR_figure_2D_final_CvsA.pdf>]
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/psnfss\ot1ptm.fd"
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 230.
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/microtype\mt-ptm.cfg"
+File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
+) [1
+
+{C:/Users/bdawk/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2 <./2by2_
+arrangementABC.pdf>]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 298.
+(hyperref)                removing `math shift' on input line 303.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 298.
+(hyperref)                removing `math shift' on input line 303.
 
-[3 <./glmSTIR_figure_2D_final_BvsA.pdf> <./nice_box_2D_points.pdf>] [4 <./nice_
-box_2D_points2.pdf>] [5]
-<shaded_bell_curve.pdf, id=268, 334.22667pt x 149.06891pt>
+[3] [4]
+<shaded_bell_curve.pdf, id=277, 334.22667pt x 149.06891pt>
 File: shaded_bell_curve.pdf Graphic file (type pdf)
 <use shaded_bell_curve.pdf>
-Package pdftex.def Info: shaded_bell_curve.pdf  used on input line 380.
+Package pdftex.def Info: shaded_bell_curve.pdf  used on input line 385.
 (pdftex.def)             Requested size: 252.31071pt x 112.53383pt.
- [6 <./shaded_bell_curve.pdf>] [7]
-<interaction_simulation_method_diagram2.pdf, id=341, 480.00632pt x 466.15154pt>
+ [5 <./shaded_bell_curve.pdf>] [6]
+<interaction_simulation_method_diagram2.pdf, id=349, 480.00632pt x 466.15154pt>
 
 File: interaction_simulation_method_diagram2.pdf Graphic file (type pdf)
 <use interaction_simulation_method_diagram2.pdf>
 Package pdftex.def Info: interaction_simulation_method_diagram2.pdf  used on in
-put line 463.
-(pdftex.def)             Requested size: 379.4175pt x 368.46906pt.
-
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 463--464
-[][] 
- []
-
-[8]
-<main_plus_correlation_diagram.pdf, id=351, 480.00632pt x 543.68422pt>
+put line 468.
+(pdftex.def)             Requested size: 371.82751pt x 361.09299pt.
+ [7]
+<main_plus_correlation_diagram.pdf, id=364, 480.00632pt x 543.68422pt>
 File: main_plus_correlation_diagram.pdf Graphic file (type pdf)
 <use main_plus_correlation_diagram.pdf>
 Package pdftex.def Info: main_plus_correlation_diagram.pdf  used on input line 
-476.
-(pdftex.def)             Requested size: 379.4175pt x 429.7547pt.
-
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 476--477
-[][] 
- []
-
-[9 <./interaction_simulation_method_diagram2.pdf>] (BoD_opt-k_simulation.bbl
-[10 <./main_plus_correlation_diagram.pdf>]) 
+481.
+(pdftex.def)             Requested size: 371.82751pt x 421.15181pt.
+ [8 <./interaction_simulation_method_diagram2.pdf>] (BoD_opt-k_simulation.bbl [
+9 <./main_plus_correlation_diagram.pdf>]) 
 AED: lastpage setting LastPage
-[11]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 486.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 486.
+[10]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 491.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 491.
  (BoD_opt-k_simulation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 486.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 486.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 491.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 491.
 Package rerunfilecheck Info: File `BoD_opt-k_simulation.out' has not changed.
-(rerunfilecheck)             Checksum: 33AC8DBD39F24E6646335352D9A9054E;588.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 486.
+(rerunfilecheck)             Checksum: D8F44C0169486A971ED7361814BA5289;588.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 491.
  ) 
 Here is how much of TeX's memory you used:
- 21306 strings out of 492946
- 386361 string characters out of 3135528
- 507986 words of memory out of 3000000
- 24637 multiletter control sequences out of 15000+200000
- 14286 words of font info for 87 fonts, out of 3000000 for 9000
+ 21358 strings out of 492946
+ 387221 string characters out of 3135528
+ 510529 words of memory out of 3000000
+ 24700 multiletter control sequences out of 15000+200000
+ 15645 words of font info for 86 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,12n,48p,1577b,466s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Program Files/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7
-.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmmib7.pf
-b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb><
-C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Progra
-m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/M
-iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/
-fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmt
-t10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on BoD_opt-k_simulation.pdf (11 pages, 1326077 bytes).
+ 55i,12n,48p,1667b,466s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
+cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+mtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/
+Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb>
+Output written on BoD_opt-k_simulation.pdf (10 pages, 1373597 bytes).
 PDF statistics:
- 713 PDF objects out of 1000 (max. 8388607)
- 61 named destinations out of 1000 (max. 500000)
- 10864 words of extra memory for PDF output out of 12000 (max. 10000000)
+ 716 PDF objects out of 1000 (max. 8388607)
+ 50 named destinations out of 1000 (max. 500000)
+ 11361 words of extra memory for PDF output out of 12000 (max. 10000000)
 
