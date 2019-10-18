@@ -474,26 +474,27 @@ The full data set, given previously by Eq.~\ref{eq:full_interaction_data}, concl
 
 \begin{figure}[H]
 \centering
-\begin{minipage}[h]{1\textwidth}
-\framebox{\includegraphics[width=0.98\textwidth]{interaction_simulation_method_diagram2.pdf}}
-\end{minipage}
 
-\begin{minipage}[h]{1\textwidth}
-	\noindent\refstepcounter{figure}\textbf{Fig \thefigure \label{fig:interaction_simulation_diagram}.} Algorithm for interaction simulations from a random undirected network with seven nodes (or features). \textbf{Box 1:} A random network is generated, whose degree distribution is either Erd\H{o}s-R\'{e}nyi or Scale-free. \textbf{Box 2:} Adjacency matrix ($A$) and degree vector ($v_d$) corresponding to the random network are computed and functional features ($F$) are randomly selected from those with positive degree. \textbf{Box 3:} Two correlation matrices are generated for cases and controls. In the control group, high ($\rho^\text{hi}$) and low ($\rho^\text{lo}$) correlations are assigned to connected ($A_{ij}=1$) and non-connected ($A_{ij}=0$) feature pairs, respectively. In the case group, differential correlation ($b^\text{int}$) is applied to functional connections. \textbf{Box 4:} Upper triangular Cholesky factors are computed for case/control correlation matrices. \textbf{Box 5:} Standard normal random data matrices ($X^\text{ctrl}$ and $X^\text{case}$) are given correlation structure associated with case and control groups and combined into full data matrix with interaction effects ($X$).
-\end{minipage}
+ \framebox{\includegraphics[width=0.98\textwidth]{interaction_simulation_method_diagram2.pdf}}
+ \caption{Algorithm for interaction simulations from a random undirected network with seven nodes (or features). \textbf{Box 1:} A random network is generated, whose degree distribution is either Erd\H{o}s-R\'{e}nyi or Scale-free. \textbf{Box 2:} Adjacency matrix ($A$) and degree vector ($v_d$) corresponding to the random network are computed and functional features ($F$) are randomly selected from those with positive degree. \textbf{Box 3:} Two correlation matrices are generated for cases and controls. In the control group, high ($\rho^\text{hi}$) and low ($\rho^\text{lo}$) correlations are assigned to connected ($A_{ij}=1$) and non-connected ($A_{ij}=0$) feature pairs, respectively. In the case group, differential correlation ($b^\text{int}$) is applied to functional connections. \textbf{Box 4:} Upper triangular Cholesky factors are computed for case/control correlation matrices. \textbf{Box 5:} Standard normal random data matrices ($X^\text{ctrl}$ and $X^\text{case}$) are given correlation structure associated with case and control groups and combined into full data matrix with interaction effects ($X$).}\label{fig:interaction_simulation_diagram}
 \end{figure}
 
 \subsection{Main effects with correlation}
 
 \begin{figure}[H]
 	\centering
-	\begin{minipage}[h]{1\textwidth}
-		\framebox{\includegraphics[width=0.98\textwidth]{main_plus_correlation_diagram.pdf}}
-	\end{minipage}
 	
-	\begin{minipage}[h]{1\textwidth}
-		\noindent\refstepcounter{figure}\textbf{Fig \thefigure \label{fig:main_plus_correlation_diagram}.} Algorithm for simulating main effects with correlation from a random undirected network with seven nodes (or features). \textbf{Box 1:} A random network is generated, whose degree distribution is either Erd\H{o}s-R\'{e}nyi or Scale-free. \textbf{Box 2:} Adjacency matrix ($A$) and degree vector ($v_d$) corresponding to the random network are computed and functional features ($F$) are randomly selected from those with positive degree. \textbf{Box 3:} Correlation matrix generated with high ($\rho^\text{hi}$) and low ($\rho^\text{lo}$) correlations assigned to connected ($A_{ij}=1$) and non-connected ($A_{ij}=0$) features, respectively. \textbf{Box 4:} Upper triangular Cholesky factors are computed for correlation matrix. \textbf{Box 5:} Main effects are simulated for functional variables ($F$) with effect sizes determined by $b^\text{main}$. Data is given correlation by multiplying main effects ($Z$) by Cholesky factor ($U$).
-	\end{minipage}
+ \framebox{\includegraphics[width=0.98\textwidth]{main_plus_correlation_diagram.pdf}}
+ \caption{Algorithm for simulating main effects with correlation from a random undirected network with seven nodes (or features). \textbf{Box 1:} A random network is generated, whose degree distribution is either Erd\H{o}s-R\'{e}nyi or Scale-free. \textbf{Box 2:} Adjacency matrix ($A$) and degree vector ($v_d$) corresponding to the random network are computed and functional features ($F$) are randomly selected from those with positive degree. \textbf{Box 3:} Correlation matrix generated with high ($\rho^\text{hi}$) and low ($\rho^\text{lo}$) correlations assigned to connected ($A_{ij}=1$) and non-connected ($A_{ij}=0$) features, respectively. \textbf{Box 4:} Upper triangular Cholesky factors are computed for correlation matrix. \textbf{Box 5:} Main effects are simulated for functional variables ($F$) with effect sizes determined by $b^\text{main}$. Data is given correlation by multiplying main effects ($Z$) by Cholesky factor ($U$).z}\label{fig:main_plus_correlation_diagram}
+\end{figure}
+
+\subsection{Mixed effects: interactions and main effects}
+
+\begin{figure}[H]
+ \centering
+	
+ \framebox{\includegraphics[width=0.98\textwidth]{mixed_simulation_diagram2.pdf}}	
+ \caption{Algorithm for simulating mixed effects data with interactions and main effects. \textbf{Box 1:} A random network is generated, whose degree distribution is either Erd\H{o}s-R\'{e}nyi or Scale-free. \textbf{Box 2:} Adjacency matrix ($A$) and degree vector ($v_d$) corresponding to the random network are computed and functional features ($F$) are randomly selected from those with positive degree. \textbf{Box 3:} Two correlation matrices are generated for cases and controls. In the control group, high ($\rho^\text{hi}$) and low ($\rho^\text{lo}$) correlations are assigned to connected ($A_{ij}=1$) and non-connected ($A_{ij}=0$) feature pairs, respectively. In the case group, differential correlation ($b^\text{int}$) is applied to functional connections. \textbf{Box 4:} Upper triangular Cholesky factors are computed for case/control correlation matrices. \textbf{Box 5:} Standard normal random data matrices ($X^\text{ctrl}$ and $X^\text{case}$) are given correlation structure associated with case and control groups and combined into full data matrix with interaction effects ($X$). \textbf{Box 6:} Main effects a simulated with effect sizes randomly sampled from $\mathcal{N}(0,b^\text{main})$. \textbf{Box 7:} Interactions ($X^\text{int}$) and main effects ($X^\text{main}$) combined into a single mixed effects data matrix $X$.}\label{fig:mixed_sim}
 \end{figure}
 
 \section{Discussion}

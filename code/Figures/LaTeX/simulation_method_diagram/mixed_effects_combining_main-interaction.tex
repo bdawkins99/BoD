@@ -31,7 +31,7 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% box 7 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
-    \node[draw, rounded corners=4, line width=0.3mm, text width=6.38cm, text height=3.5cm] at (9.5,-9.15) {};
+    \node[draw, rounded corners=4, line width=0.3mm, text width=4.38cm, text height=1.6cm] at (9.2,-9.75) {};
     %\node[circle,draw,line width=0.2mm,xscale=1.2,yscale=1.2,fill=GreenYellow] at (7,-7.6) {};
     %\node at (7,-7.6) {\textbf{5}};
     
@@ -45,24 +45,21 @@
     %\node[draw,rounded corners=2,line width=0.2mm,fill=gray!50,text height=0.3cm, text width=2.57cm,shading angle=45] at (9.5,-7.65) {}; % random graph
     %\node at (9.5,-7.65) {\textbf{Correlated Data}};
     
-    \node[xscale=0.9,yscale=0.9] at (9.5,-8.43) {\bm{$Y^\textbf{ctrl}$} \bm{$= X^\textbf{ctrl} \left(U^\textbf{ctrl}\right)^\textbf{T}$} \hspace{0.1cm} \bm{$,$} \hspace{0.1cm} \bm{$x^\textbf{ctrl}_{ij} \sim \mathcal{N}(0,1)$}};
     
-    \node[xscale=0.9,yscale=0.9] at (9.5,-9.23) {\bm{$Y^\textbf{case}$} \bm{$= X^\textbf{case} \left(U^\textbf{case}\right)^\textbf{T}$} \hspace{0.1cm} \bm{$,$} \hspace{0.1cm} \bm{$x^\textbf{case}_{ij} \sim \mathcal{N}(0,1)$}};
+    \node[xscale=0.9,yscale=0.9] at (8.05,-10.1) {\bm{$X =$}};
+    \draw[line width=0.2mm] (8.55,-10.5) -- (8.55,-9.7);
+    \draw[line width=0.2mm] (10.45,-10.5) -- (10.45,-9.7);
     
-    \node[xscale=0.9,yscale=0.9] at (8.4,-10.3) {\bm{$X^\text{int} =$}};
-    \draw[line width=0.2mm] (9,-10.9) -- (9,-9.7);
-    \draw[line width=0.2mm] (9.9,-10.9) -- (9.9,-9.7);
+    \draw[line width=0.2mm] (8.55,-10.5) -- (8.6,-10.5);
+    \draw[line width=0.2mm] (8.55,-9.7) -- (8.6,-9.7);
     
-    \draw[line width=0.2mm] (9,-10.9) -- (9.05,-10.9);
-    \draw[line width=0.2mm] (9,-9.7) -- (9.05,-9.7);
+    \draw[line width=0.2mm] (10.45,-10.5) -- (10.4,-10.5);
+    \draw[line width=0.2mm] (10.45,-9.7) -- (10.4,-9.7);
     
-    \draw[line width=0.2mm] (9.9,-10.9) -- (9.85,-10.9);
-    \draw[line width=0.2mm] (9.9,-9.7) -- (9.85,-9.7);
+    \draw[line width=0.2mm,dashed] (9.45,-10.48) -- (9.45,-9.7);
     
-    \draw[line width=0.2mm,dashed] (9.05,-10.3) -- (9.85,-10.3);
-    
-    \node[xscale=0.9,yscale=0.9] at (9.45,-10) {\bm{$Y^\textbf{ctrl}$}};
-    \node[xscale=0.9,yscale=0.9] at (9.45,-10.6) {\bm{$Y^\textbf{case}$}};
+    \node[xscale=0.9,yscale=0.9] at (8.95,-10.1) {\bm{$X^\textbf{int}$}};
+    \node[xscale=0.9,yscale=0.9] at (9.95,-10.1) {\bm{$X^\textbf{main}$}};
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% correlated data %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  17 OCT 2019 18:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  18 OCT 2019 15:57
 entering extended mode
 **./BoD_opt-k_simulation.tex
 (BoD_opt-k_simulation.tex
@@ -982,7 +982,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmss' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<2by2_arrangementABC.pdf, id=44, 703.36679pt x 803.92747pt>
+<2by2_arrangementABC.pdf, id=48, 703.36679pt x 803.92747pt>
 File: 2by2_arrangementABC.pdf Graphic file (type pdf)
 <use 2by2_arrangementABC.pdf>
 Package pdftex.def Info: 2by2_arrangementABC.pdf  used on input line 229.
@@ -1002,19 +1002,19 @@ File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
 
 {C:/Users/bdawk/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2 <./2by2_
 arrangementABC.pdf>]
-<betas_and_pvals_vs_p_ABC.pdf, id=250, 794.23924pt x 402.00288pt>
+<betas_and_pvals_vs_p_ABC.pdf, id=254, 794.23924pt x 402.00288pt>
 File: betas_and_pvals_vs_p_ABC.pdf Graphic file (type pdf)
 <use betas_and_pvals_vs_p_ABC.pdf>
 Package pdftex.def Info: betas_and_pvals_vs_p_ABC.pdf  used on input line 303.
 (pdftex.def)             Requested size: 379.4175pt x 192.04521pt.
  [3 <./betas_and_pvals_vs_p_ABC.pdf>] [4] [5]
-<shaded_bell_curve.pdf, id=324, 334.22667pt x 149.06891pt>
+<shaded_bell_curve.pdf, id=328, 334.22667pt x 149.06891pt>
 File: shaded_bell_curve.pdf Graphic file (type pdf)
 <use shaded_bell_curve.pdf>
 Package pdftex.def Info: shaded_bell_curve.pdf  used on input line 395.
 (pdftex.def)             Requested size: 252.31071pt x 112.53383pt.
  [6 <./shaded_bell_curve.pdf>] [7]
-<interaction_simulation_method_diagram2.pdf, id=397, 480.00632pt x 466.15154pt>
+<interaction_simulation_method_diagram2.pdf, id=401, 480.00632pt x 466.15154pt>
 
 File: interaction_simulation_method_diagram2.pdf Graphic file (type pdf)
 <use interaction_simulation_method_diagram2.pdf>
@@ -1022,34 +1022,41 @@ Package pdftex.def Info: interaction_simulation_method_diagram2.pdf  used on in
 put line 478.
 (pdftex.def)             Requested size: 371.82751pt x 361.09299pt.
  [8]
-<main_plus_correlation_diagram.pdf, id=408, 480.00632pt x 543.68422pt>
+<main_plus_correlation_diagram.pdf, id=412, 480.00632pt x 543.68422pt>
 File: main_plus_correlation_diagram.pdf Graphic file (type pdf)
 <use main_plus_correlation_diagram.pdf>
 Package pdftex.def Info: main_plus_correlation_diagram.pdf  used on input line 
-491.
+487.
 (pdftex.def)             Requested size: 371.82751pt x 421.15181pt.
  [9 <./interaction_simulation_method_diagram2.pdf>]
-(BoD_opt-k_simulation.bbl [10 <./main_plus_correlation_diagram.pdf>])
+<mixed_simulation_diagram2.pdf, id=569, 484.14978pt x 545.6465pt>
+File: mixed_simulation_diagram2.pdf Graphic file (type pdf)
+<use mixed_simulation_diagram2.pdf>
+Package pdftex.def Info: mixed_simulation_diagram2.pdf  used on input line 496.
 
+(pdftex.def)             Requested size: 371.82751pt x 419.07506pt.
+ [10 <./main_plus_correlation_diagram.pdf>] [11 <./mixed_simulation_diagram2.pd
+f>]
+(BoD_opt-k_simulation.bbl) 
 AED: lastpage setting LastPage
-[11]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 503.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 503.
+[12]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 504.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 504.
  (BoD_opt-k_simulation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 503.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 503.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 504.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 504.
 Package rerunfilecheck Info: File `BoD_opt-k_simulation.out' has not changed.
-(rerunfilecheck)             Checksum: 884CB98B1FDB71752C6CB951F28F21C5;634.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 503.
+(rerunfilecheck)             Checksum: 9F8ECCA153959147576E94ABB21F2F92;729.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 504.
  ) 
 Here is how much of TeX's memory you used:
- 21438 strings out of 492946
- 388499 string characters out of 3135528
- 510408 words of memory out of 3000000
- 24759 multiletter control sequences out of 15000+200000
- 22554 words of font info for 113 fonts, out of 3000000 for 9000
+ 21446 strings out of 492946
+ 388731 string characters out of 3135528
+ 513855 words of memory out of 3000000
+ 24765 multiletter control sequences out of 15000+200000
+ 22503 words of font info for 112 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,12n,48p,1667b,466s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,12n,48p,1667b,424s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/Mi
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9
 /fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
@@ -1067,9 +1074,9 @@ nts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
 mtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/
 Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files/
 MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb>
-Output written on BoD_opt-k_simulation.pdf (11 pages, 1462309 bytes).
+Output written on BoD_opt-k_simulation.pdf (12 pages, 1817278 bytes).
 PDF statistics:
- 760 PDF objects out of 1000 (max. 8388607)
- 53 named destinations out of 1000 (max. 500000)
- 14958 words of extra memory for PDF output out of 17280 (max. 10000000)
+ 971 PDF objects out of 1000 (max. 8388607)
+ 56 named destinations out of 1000 (max. 500000)
+ 14971 words of extra memory for PDF output out of 17280 (max. 10000000)
 
