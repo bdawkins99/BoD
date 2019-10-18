@@ -1,0 +1,360 @@
+\documentclass[dvipsnames,border=3pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{shapes}
+\usepackage{enumitem}
+\usepackage{bm}
+\usepackage{mathdots}
+\usepackage{amsmath}
+\usetikzlibrary{shadings}
+\usetikzlibrary{decorations.pathreplacing}
+\usepackage{helvet}
+\usetikzlibrary{arrows.meta}
+\usepackage{graphicx}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{filecontents}
+\usetikzlibrary{plotmarks}
+\pgfplotsset{compat=newest}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{mylightgray}{cmyk}{0,0,0,0.1}
+\usetikzlibrary{arrows,decorations.pathmorphing,backgrounds,fit,positioning,shapes.symbols,chains}
+
+\begin{document}
+
+\begin{tikzpicture}
+    % trim=left botm right top
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% box 5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    \node[draw, rounded corners=4, line width=0.32mm, text width=14cm, text height=5cm] at (9.5,-2.35) {};
+    %\node[circle,draw,line width=0.2mm,xscale=1.2,yscale=1.2,fill=GreenYellow] at (3.7,0.05) {};
+    %\node at (3.7,0.05) {\textbf{3}};
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% box 5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% correlation matrices %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    %\node[draw,rounded corners=2,line width=0.2mm,fill=gray!50,text height=0.35cm, text width=3.65cm,shading angle=45] at (9.5,-0.05) {}; % random graph
+    %\node[xscale=1.1,yscale=1.1] at (9.5,-0.05) {\textbf{Correlation Matrices}};
+    
+    \node[xscale=0.85,yscale=0.85] at (5.75,-1) {\bm{$P^{\text{ctrl}}_{ij}$} $\bm{=}
+    	\begin{cases}
+    	\bm{\rho^\textbf{hi} + \varepsilon_{ij}} & \bm{A_{ij}=1} \\
+    	\bm{\rho^\textbf{lo} + \varepsilon_{ij}} & \bm{A_{ij}=0}
+    	\end{cases}$
+    };
+    
+    \node[xscale=0.85,yscale=0.85] at (13.18,-1) {\bm{$P^{\text{case}}_{ij}$} $\bm{=}
+    	\begin{cases}
+    	\bm{b^\textbf{int} + \varepsilon_{ij}} & \bm{A_{ij}=1} \hspace{0.1cm} \bm{\&} \hspace{0.1cm} \bm{\left(i \in F \text{ or } j \in F\right)} \\
+    	\bm{P^\text{ctrl}_{ij}} & \text{otherwise}
+    	\end{cases}$
+    };
+    
+    % control matrix
+    
+    \node[xscale=1.5,yscale=1.5] at (5.65,-3.3) {\includegraphics[clip,trim=0.1cm 0.1cm 0.1cm 0.1cm]{control_matrix.pdf}};
+    \node[xscale=1.5,yscale=1.5] at (13.12,-3.3) {\includegraphics{case_matrix.pdf}};
+    
+    %%%%%%%%%%%%%%%%%%%% hi correlations %%%%%%%%%%%%%%%%%%%%%%
+    %\node[fill=red,xscale=1.05,yscale=1.05] at (7.125,-2.63) {}; % p17
+    %\node[fill=red,xscale=1.05,yscale=1.05] at (7.125,-2.88) {}; % p27
+    %\node[fill=red,xscale=1.05,yscale=1.05] at (6.625,-3.13) {}; % p35
+    %\node[fill=red,xscale=1.05,yscale=1.05] at (6.625,-3.38) {}; % p45
+    %\node[fill=red,xscale=1.05,yscale=1.05] at (6.375,-3.63) {}; % p54
+    %\node[fill=red,xscale=1.05,yscale=1.05] at (6.125,-3.63) {}; % p53
+    %\node[fill=red,xscale=1.05,yscale=1.05] at (5.875,-4.13) {}; % p72
+    %\node[fill=red,xscale=1.05,yscale=1.05] at (5.625,-4.13) {}; % p71
+    %\node[fill=red,xscale=1.05,yscale=1.05] at (6.625,-4.13) {}; % p75
+    %\node[fill=red,xscale=1.05,yscale=1.05] at (6.875,-4.13) {}; % p76
+    %\node[fill=red,xscale=1.05,yscale=1.05] at (7.125,-3.88) {}; % p67
+    %\node[fill=red,xscale=1.05,yscale=1.05] at (7.125,-3.63) {}; % p57
+    %%%%%%%%%%%%%%%%%%%% hi correlations %%%%%%%%%%%%%%%%%%%%%%
+    
+    %%%%%%%%%%%%%%%%%%%% base correlations %%%%%%%%%%%%%%%%%%%%
+    %\node[fill=gray!40,xscale=1.05,yscale=1.05] at (5.625,-2.63) {}; % p11
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (5.875,-2.63) {}; % p12
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (6.125,-2.63) {}; % p13
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (6.375,-2.63) {}; % p14
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (6.625,-2.63) {}; % p15
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (6.875,-2.63) {}; % p16
+    
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (5.625,-2.88) {}; % p21
+    %\node[fill=gray!40,xscale=1.05,yscale=1.05] at (5.875,-2.88) {}; % p22
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (6.125,-2.88) {}; % p23
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (6.375,-2.88) {}; % p24
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (6.625,-2.88) {}; % p25
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (6.875,-2.88) {}; % p26
+    
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (5.625,-3.13) {}; % p31
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (5.875,-3.13) {}; % p32
+    %\node[fill=gray!40,xscale=1.05,yscale=1.05] at (6.125,-3.13) {}; % p33
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (6.375,-3.13) {}; % p34
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (6.875,-3.13) {}; % p36
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (7.125,-3.13) {}; % p37
+    
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (5.625,-3.38) {}; % p41
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (5.875,-3.38) {}; % p42
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (6.125,-3.38) {}; % p43
+    %\node[fill=gray!40,xscale=1.05,yscale=1.05] at (6.375,-3.38) {}; % p44
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (6.875,-3.38) {}; % p46
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (7.125,-3.38) {}; % p47
+    
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (5.625,-3.63) {}; % p51
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (5.875,-3.63) {}; % p52
+    %\node[fill=gray!40,xscale=1.05,yscale=1.05] at (6.625,-3.63) {}; % p55
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (6.875,-3.63) {}; % p56
+    
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (5.625,-3.88) {}; % p61
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (5.875,-3.88) {}; % p62
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (6.125,-3.88) {}; % p63
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (6.375,-3.88) {}; % p64
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (6.625,-3.88) {}; % p65
+    %\node[fill=gray!40,xscale=1.05,yscale=1.05] at (6.875,-3.88) {}; % p66
+    
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (6.125,-4.13) {}; % p63
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (6.375,-4.13) {}; % p64
+    %\node[fill=gray!40,xscale=1.05,yscale=1.05] at (7.125,-4.13) {}; % p77
+    
+    %\node[fill=red,xscale=1.05,yscale=1.05,draw] at (7.7,-3.13) {};
+    %\node[fill=red!20,xscale=1.05,yscale=1.05,draw] at (7.7,-3.38) {};
+    %\node[fill=gray!40,xscale=1.05,yscale=1.05,draw] at (7.7,-3.63) {};
+    
+    %\draw[line width=0.2mm] (7.9,-3.13) -- (8,-3.13);
+    %\draw[line width=0.2mm] (7.9,-3.38) -- (8,-3.38);
+    %\draw[line width=0.2mm] (7.9,-3.63) -- (8,-3.63);
+    
+    %\node[xscale=0.5,yscale=0.5] at (8.265,-3.15) {\textbf{High}};
+    %\node[xscale=0.5,yscale=0.5] at (8.233,-3.4) {\textbf{Null}};
+    %\node[xscale=0.5,yscale=0.5] at (8.435,-3.65) {\textbf{Diagonal}};
+    
+    %%%%%%%%%%%%%%%%%%%% base correlations %%%%%%%%%%%%%%%%%%%%
+    
+    %\draw[step=0.25cm,black,line width=0.15mm] (5.495,-4.25) grid (7.25,-2.5);
+    
+    % row 1
+    %\node[xscale=0.5,yscale=0.5] at (5.625,-2.63) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (5.875,-2.63) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (6.125,-2.63) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (6.375,-2.63) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (6.625,-2.63) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (6.875,-2.63) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (7.125,-2.63) {\textbf{1}};
+    
+    % row 2
+    %\node[xscale=0.5,yscale=0.5] at (5.625,-2.88) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (5.875,-2.88) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (6.125,-2.88) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (6.375,-2.88) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (6.625,-2.88) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (6.875,-2.88) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (7.125,-2.88) {\textbf{1}};
+    
+    % row 3
+    %\node[xscale=0.5,yscale=0.5] at (5.625,-3.13) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (5.875,-3.13) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (6.125,-3.13) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (6.375,-3.13) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (6.625,-3.13) {\textbf{1}};
+    %\node[xscale=0.5,yscale=0.5] at (6.875,-3.13) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (7.125,-3.13) {\textbf{0}};
+    
+    % row 4
+    %\node[xscale=0.5,yscale=0.5] at (5.625,-3.38) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (5.875,-3.38) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (6.125,-3.38) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (6.375,-3.38) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (6.625,-3.38) {\textbf{1}};
+    %\node[xscale=0.5,yscale=0.5] at (6.875,-3.38) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (7.125,-3.38) {\textbf{0}};
+    
+    % row 5
+    %\node[xscale=0.5,yscale=0.5] at (5.625,-3.63) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (5.875,-3.63) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (6.125,-3.63) {\textbf{1}};
+    %\node[xscale=0.5,yscale=0.5] at (6.375,-3.63) {\textbf{1}};
+    %\node[xscale=0.5,yscale=0.5] at (6.625,-3.63) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (6.875,-3.63) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (7.125,-3.63) {\textbf{1}};
+    
+    % row 6
+    %\node[xscale=0.5,yscale=0.5] at (5.625,-3.88) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (5.875,-3.88) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (6.125,-3.88) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (6.375,-3.88) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (6.625,-3.88) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (6.875,-3.88) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (7.125,-3.88) {\textbf{1}};
+    
+    % row 7
+    %\node[xscale=0.5,yscale=0.5] at (5.625,-4.13) {\textbf{1}};
+    %\node[xscale=0.5,yscale=0.5] at (5.875,-4.13) {\textbf{1}};
+    %\node[xscale=0.5,yscale=0.5] at (6.125,-4.13) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (6.375,-4.13) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (6.625,-4.13) {\textbf{1}};
+    %\node[xscale=0.5,yscale=0.5] at (6.875,-4.13) {\textbf{1}};
+    %\node[xscale=0.5,yscale=0.5] at (7.125,-4.13) {\textbf{0}};
+    
+    %\node[xscale=0.7,yscale=0.7] at (5,-3.38) {\bm{$P^\text{ctrl}$} \bm{$= $}};
+    
+    % case matrix
+    
+    %%%%%%%%%%%%%%%%%%%% hi correlations %%%%%%%%%%%%%%%%%%%%%%
+    %\node[fill=blue!70,xscale=1.05,yscale=1.05] at (12.875,-2.63) {}; % p17
+    %\node[fill=blue!70,xscale=1.05,yscale=1.05] at (12.875,-2.88) {}; % p27
+    %\node[fill=blue!70,xscale=1.05,yscale=1.05] at (12.375,-3.13) {}; % p35
+    %\node[fill=blue!70,xscale=1.05,yscale=1.05] at (12.375,-3.38) {}; % p45
+    %\node[fill=blue!70,xscale=1.05,yscale=1.05] at (12.125,-3.63) {}; % p54
+    %\node[fill=blue!70,xscale=1.05,yscale=1.05] at (11.875,-3.63) {}; % p53
+    %\node[fill=blue!70,xscale=1.05,yscale=1.05] at (11.625,-4.13) {}; % p72
+    %\node[fill=blue!70,xscale=1.05,yscale=1.05] at (11.375,-4.13) {}; % p71
+    %\node[fill=blue!70,xscale=1.05,yscale=1.05] at (12.375,-4.13) {}; % p75
+    %\node[fill=blue!70,xscale=1.05,yscale=1.05] at (12.625,-4.13) {}; % p76
+    %\node[fill=blue!70,xscale=1.05,yscale=1.05] at (12.875,-3.88) {}; % p67
+    %\node[fill=blue!70,xscale=1.05,yscale=1.05] at (12.875,-3.63) {}; % p57
+    %%%%%%%%%%%%%%%%%%%% hi correlations %%%%%%%%%%%%%%%%%%%%%%
+    
+    %%%%%%%%%%%%%%%%%%%% base correlations %%%%%%%%%%%%%%%%%%%%
+    %\node[fill=gray!40,xscale=1.05,yscale=1.05] at (11.375,-2.63) {}; % p11
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (11.625,-2.63) {}; % p12
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (11.875,-2.63) {}; % p13
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (12.125,-2.63) {}; % p14
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (12.375,-2.63) {}; % p15
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (12.625,-2.63) {}; % p16
+    
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (11.375,-2.88) {}; % p21
+    %\node[fill=gray!40,xscale=1.05,yscale=1.05] at (11.625,-2.88) {}; % p22
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (11.875,-2.88) {}; % p23
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (12.125,-2.88) {}; % p24
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (12.375,-2.88) {}; % p25
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (12.625,-2.88) {}; % p26
+    
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (11.375,-3.13) {}; % p31
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (11.625,-3.13) {}; % p32
+    %\node[fill=gray!40,xscale=1.05,yscale=1.05] at (11.875,-3.13) {}; % p33
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (12.125,-3.13) {}; % p34
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (12.625,-3.13) {}; % p36
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (12.875,-3.13) {}; % p37
+    
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (11.375,-3.38) {}; % p41
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (11.625,-3.38) {}; % p42
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (11.875,-3.38) {}; % p43
+    %\node[fill=gray!40,xscale=1.05,yscale=1.05] at (12.125,-3.38) {}; % p44
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (12.625,-3.38) {}; % p46
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (12.875,-3.38) {}; % p47
+    
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (11.375,-3.63) {}; % p51
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (11.625,-3.63) {}; % p52
+    %\node[fill=gray!40,xscale=1.05,yscale=1.05] at (12.375,-3.63) {}; % p55
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (12.625,-3.63) {}; % p56
+    
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (11.375,-3.88) {}; % p61
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (11.625,-3.88) {}; % p62
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (11.875,-3.88) {}; % p63
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (12.125,-3.88) {}; % p64
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (12.375,-3.88) {}; % p65
+    %\node[fill=gray!40,xscale=1.05,yscale=1.05] at (12.625,-3.88) {}; % p66
+    
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (11.875,-4.13) {}; % p63
+    %\node[fill=red!20,xscale=1.05,yscale=1.05] at (12.125,-4.13) {}; % p64
+    %\node[fill=gray!40,xscale=1.05,yscale=1.05] at (12.875,-4.13) {}; % p77
+    
+    %\node[fill=blue!70,xscale=1.05,yscale=1.05,draw] at (13.75,-3.13) {};
+    %\node[fill=red!20,xscale=1.05,yscale=1.05,draw] at (13.75,-3.38) {};
+    %\node[fill=gray!40,xscale=1.05,yscale=1.05,draw] at (13.75,-3.63) {};
+    
+    %\draw[line width=0.2mm] (13.95,-3.13) -- (14.05,-3.13);
+    %\draw[line width=0.2mm] (13.95,-3.38) -- (14.05,-3.38);
+    %\draw[line width=0.2mm] (13.95,-3.63) -- (14.05,-3.63);
+    
+    %\node[xscale=0.5,yscale=0.5] at (14.29,-3.15) {\textbf{Low}};
+    %\node[xscale=0.5,yscale=0.5] at (14.283,-3.4) {\textbf{Null}};
+    %\node[xscale=0.5,yscale=0.5] at (14.485,-3.65) {\textbf{Diagonal}};
+    %%%%%%%%%%%%%%%%%%%%%%% base correlations %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    %\draw[step=0.25cm,black,line width=0.15mm] (11.245,-4.25) grid (13,-2.5);
+    
+    % row 1
+    %\node[xscale=0.5,yscale=0.5] at (11.375,-2.63) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (11.625,-2.63) {\textbf{1}};
+    %\node[xscale=0.5,yscale=0.5] at (11.875,-2.63) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (12.125,-2.63) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (12.375,-2.63) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (12.625,-2.63) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (12.875,-2.63) {\textbf{1}};
+    
+    % row 2
+    %\node[xscale=0.5,yscale=0.5] at (11.375,-2.88) {\textbf{1}};
+    %\node[xscale=0.5,yscale=0.5] at (11.625,-2.88) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (11.875,-2.88) {\textbf{1}};
+    %\node[xscale=0.5,yscale=0.5] at (12.125,-2.88) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (12.375,-2.88) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (12.625,-2.88) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (12.875,-2.88) {\textbf{0}};
+    
+    % row 3
+    %\node[xscale=0.5,yscale=0.5] at (11.375,-3.13) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (11.625,-3.13) {\textbf{1}};
+    %\node[xscale=0.5,yscale=0.5] at (11.875,-3.13) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (12.125,-3.13) {\textbf{1}};
+    %\node[xscale=0.5,yscale=0.5] at (12.375,-3.13) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (12.625,-3.13) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (12.875,-3.13) {\textbf{1}};
+    
+    % row 4
+    %\node[xscale=0.5,yscale=0.5] at (11.375,-3.38) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (11.625,-3.38) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (11.875,-3.38) {\textbf{1}};
+    %\node[xscale=0.5,yscale=0.5] at (12.125,-3.38) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (12.375,-3.38) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (12.625,-3.38) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (12.875,-3.38) {\textbf{0}};
+    
+    % row 5
+    %\node[xscale=0.5,yscale=0.5] at (11.375,-3.63) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (11.625,-3.63) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (11.875,-3.63) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (12.125,-3.63) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (12.375,-3.63) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (12.625,-3.63) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (12.875,-3.63) {\textbf{0}};
+    
+    % row 6
+    %\node[xscale=0.5,yscale=0.5] at (11.375,-3.88) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (11.625,-3.88) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (11.875,-3.88) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (12.125,-3.88) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (12.375,-3.88) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (12.625,-3.88) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (12.875,-3.88) {\textbf{1}};
+    
+    % row 7
+    %\node[xscale=0.5,yscale=0.5] at (11.375,-4.13) {\textbf{1}};
+    %\node[xscale=0.5,yscale=0.5] at (11.625,-4.13) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (11.875,-4.13) {\textbf{1}};
+    %\node[xscale=0.5,yscale=0.5] at (12.125,-4.13) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (12.375,-4.13) {\textbf{0}};
+    %\node[xscale=0.5,yscale=0.5] at (12.625,-4.13) {\textbf{1}};
+    %\node[xscale=0.5,yscale=0.5] at (12.875,-4.13) {\textbf{0}};
+    
+    %\node[xscale=0.7,yscale=0.7] at (10.68,-3.38) {\bm{$P^\text{case}$} \bm{$= $}};
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% correlation matrices %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    %\node[xscale=0.7,yscale=0.7] at (6.375,-2.3) {\textbf{Controls}};
+    %\node[xscale=0.7,yscale=0.7] at (12.125,-2.3) {\textbf{Cases}};
+    
+    \end{tikzpicture}
+    
+\end{document}
