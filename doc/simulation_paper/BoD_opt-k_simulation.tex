@@ -410,15 +410,7 @@ Using same interaction, increase background noise genes to see degrading of A an
 
 \section{Data simulations}\label{sec:sim_methods}
 
-Each simulated data set $X^{(m \times p)}$ contains $m$ instances and $p$ features, where
-\begin{equation}\label{eq:instance_dims}
-m \in \{100, 250, 500\} \text{ and }
-\end{equation}
-\begin{equation}\label{eq:feature_dims}
-p \in \{1000,2500,5000\}.
-\end{equation}
-
-All combinations of $m$ and $p$ were explored in order to determine how neighborhood selection parameters change with dimensionality. We considered a balanced binary outcome only so that there were exactly $m/2$ cases and $m/2$ controls. In each simulation, 10\% of the total number of features $p$ were functionally related to the outcome variable while the remaining 90\% were simply background features with no effect. Functional features were given either main or interaction effect in order to create a random mixed effects data set for which optimal neighborhood method parameters could be calculated. 
+Each simulated data set $X^{(m \times p)}$ generated contained $m$ instances and $p$ features, where $m \in \{100, 250, 500\} \text{ and } p \in \{1000,2500,5000\}$. All combinations of $m$ and $p$ were explored in order to determine how neighborhood selection parameters change with dimensionality. We considered a balanced binary outcome only so that there were exactly $m/2$ cases and $m/2$ controls. In each simulation, 10\% of the total number of features $p$ were functionally related to the outcome variable while the remaining 90\% were simply background features with no effect. Functional features were given either main or interaction effect in order to create a random mixed effects data set for which optimal neighborhood method parameters could be calculated. In the next few sections, we describe our methods of generating interactions, main effects, and mixed effects consisting of a combination of main effects and interactions.
 
 \subsection{Interaction effects}
 
@@ -472,21 +464,21 @@ Y^\text{case} &= X^\text{case} \left(U^\text{case}\right)^\text{T}, \quad x^\tex
 \end{equation}
 The full data set, given previously by Eq.~\ref{eq:full_interaction_data}, concludes the generation of the full $m \times p$ data set $X$ with interaction effects.
 
-\begin{figure}[H]
-\centering
+%\begin{figure}[H]
+%\centering
 
- \framebox{\includegraphics[width=0.98\textwidth]{interaction_simulation_method_diagram2.pdf}}
- \caption{Algorithm for interaction simulations from a random undirected network with seven nodes (or features). \textbf{Box 1:} A random network is generated, whose degree distribution is either Erd\H{o}s-R\'{e}nyi or Scale-free. \textbf{Box 2:} Adjacency matrix ($A$) and degree vector ($v_d$) corresponding to the random network are computed and functional features ($F$) are randomly selected from those with positive degree. \textbf{Box 3:} Two correlation matrices are generated for cases and controls. In the control group, high ($\rho^\text{hi}$) and low ($\rho^\text{lo}$) correlations are assigned to connected ($A_{ij}=1$) and non-connected ($A_{ij}=0$) feature pairs, respectively. In the case group, differential correlation ($b^\text{int}$) is applied to functional connections. \textbf{Box 4:} Upper triangular Cholesky factors are computed for case/control correlation matrices. \textbf{Box 5:} Standard normal random data matrices ($X^\text{ctrl}$ and $X^\text{case}$) are given correlation structure associated with case and control groups and combined into full data matrix with interaction effects ($X$).}\label{fig:interaction_simulation_diagram}
-\end{figure}
+% \framebox{\includegraphics[width=0.98\textwidth]{interaction_simulation_method_diagram2.pdf}}
+% \caption{Algorithm for interaction simulations from a random undirected network with seven nodes (or features). \textbf{Box 1:} A random network is generated, whose degree distribution is either Erd\H{o}s-R\'{e}nyi or Scale-free. \textbf{Box 2:} Adjacency matrix ($A$) and degree vector ($v_d$) corresponding to the random network are computed and functional features ($F$) are randomly selected from those with positive degree. \textbf{Box 3:} Two correlation matrices are generated for cases and controls. In the control group, high ($\rho^\text{hi}$) and low ($\rho^\text{lo}$) correlations are assigned to connected ($A_{ij}=1$) and non-connected ($A_{ij}=0$) feature pairs, respectively. In the case group, differential correlation ($b^\text{int}$) is applied to functional connections. \textbf{Box 4:} Upper triangular Cholesky factors are computed for case/control correlation matrices. \textbf{Box 5:} Standard normal random data matrices ($X^\text{ctrl}$ and $X^\text{case}$) are given correlation structure associated with case and control groups and combined into full data matrix with interaction effects ($X$).}\label{fig:interaction_simulation_diagram}
+%\end{figure}
 
 \subsection{Main effects with correlation}
 
-\begin{figure}[H]
-	\centering
+%\begin{figure}[H]
+%	\centering
 	
- \framebox{\includegraphics[width=0.98\textwidth]{main_plus_correlation_diagram.pdf}}
- \caption{Algorithm for simulating main effects with correlation from a random undirected network with seven nodes (or features). \textbf{Box 1:} A random network is generated, whose degree distribution is either Erd\H{o}s-R\'{e}nyi or Scale-free. \textbf{Box 2:} Adjacency matrix ($A$) and degree vector ($v_d$) corresponding to the random network are computed and functional features ($F$) are randomly selected from those with positive degree. \textbf{Box 3:} Correlation matrix generated with high ($\rho^\text{hi}$) and low ($\rho^\text{lo}$) correlations assigned to connected ($A_{ij}=1$) and non-connected ($A_{ij}=0$) features, respectively. \textbf{Box 4:} Upper triangular Cholesky factors are computed for correlation matrix. \textbf{Box 5:} Main effects are simulated for functional variables ($F$) with effect sizes determined by $b^\text{main}$. Data is given correlation by multiplying main effects ($Z$) by Cholesky factor ($U$).z}\label{fig:main_plus_correlation_diagram}
-\end{figure}
+% \framebox{\includegraphics[width=0.98\textwidth]{main_plus_correlation_diagram.pdf}}
+% \caption{Algorithm for simulating main effects with correlation from a random undirected network with seven nodes (or features). \textbf{Box 1:} A random network is generated, whose degree distribution is either Erd\H{o}s-R\'{e}nyi or Scale-free. \textbf{Box 2:} Adjacency matrix ($A$) and degree vector ($v_d$) corresponding to the random network are computed and functional features ($F$) are randomly selected from those with positive degree. \textbf{Box 3:} Correlation matrix generated with high ($\rho^\text{hi}$) and low ($\rho^\text{lo}$) correlations assigned to connected ($A_{ij}=1$) and non-connected ($A_{ij}=0$) features, respectively. \textbf{Box 4:} Upper triangular Cholesky factors are computed for correlation matrix. \textbf{Box 5:} Main effects are simulated for functional variables ($F$) with effect sizes determined by $b^\text{main}$. Data is given correlation by multiplying main effects ($Z$) by Cholesky factor ($U$).z}\label{fig:main_plus_correlation_diagram}
+%\end{figure}
 
 \subsection{Mixed effects: interactions and main effects}
 
