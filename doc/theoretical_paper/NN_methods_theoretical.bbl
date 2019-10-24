@@ -20,6 +20,12 @@ Marko {R}obnik \v{S}ikonja and {I}gor {K}ononenko.
   {R}{R}elief{F}.
 \newblock {\em Machine {L}earning}, 53:23 -- 69, February 2003.
 
+\bibitem{npdr}
+Trang~{T}. {L}e, {B}ryan {A}.~{D}awkins, and {B}rett {A}.~{M}c{K}inney.
+\newblock {Nearest-neighbor Projected-Distance Regression (NPDR) detects
+  network interactions and controls for confounding and multiple testing}.
+\newblock {\em Under Review}, 2019.
+
 \bibitem{arabnejad2018}
 M.~{A}rabnejad, {B}.~{A}. {D}awkins, {W}.~{S}. {B}ush, {B}.~{C}. {W}hite,
   {A}.~{R}. {H}arkness, and {B}.~{A}. {M}c{K}inney.
