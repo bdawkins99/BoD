@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  24 OCT 2019 14:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  24 OCT 2019 14:24
 entering extended mode
 **./NN_methods_theoretical.tex
 (NN_methods_theoretical.tex
@@ -1143,7 +1143,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2615.
  ) 
 Here is how much of TeX's memory you used:
  22992 strings out of 492946
- 414957 string characters out of 3135528
+ 414956 string characters out of 3135528
  553975 words of memory out of 3000000
  25992 multiletter control sequences out of 15000+200000
  25570 words of font info for 136 fonts, out of 3000000 for 9000
