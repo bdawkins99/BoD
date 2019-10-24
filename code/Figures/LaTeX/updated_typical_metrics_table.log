@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  24 OCT 2019 14:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  24 OCT 2019 13:54
 entering extended mode
-**./updated_distributions_table-gwas(5-23-2019).tex
-(updated_distributions_table-gwas(5-23-2019).tex
+**./updated_typical_metrics_table.tex
+(updated_typical_metrics_table.tex
 LaTeX2e <2018-12-01>
 ("C:\Program Files\MiKTeX 2.9\tex/latex/url\url.sty"
 \Urlmuskip=\muskip10
@@ -970,8 +970,8 @@ Package: booktabs 2005/04/14 v1.61803 publication quality tables
 \@lastruleclass=\count308
 \@thisrulewidth=\dimen287
 )
-(updated_distributions_table-gwas(5-23-2019).aux)
-\openout1 = `updated_distributions_table-gwas(5-23-2019).aux'.
+(updated_typical_metrics_table.aux)
+\openout1 = `updated_typical_metrics_table.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
 LaTeX Font Info:    ... okay on input line 44.
@@ -1029,10 +1029,9 @@ LaTeX Info: Redefining \ref on input line 44.
 LaTeX Info: Redefining \pageref on input line 44.
 LaTeX Info: Redefining \nameref on input line 44.
 
-(updated_distributions_table-gwas(5-23-2019).out)
-(updated_distributions_table-gwas(5-23-2019).out)
+(updated_typical_metrics_table.out) (updated_typical_metrics_table.out)
 \@outlinefile=\write6
-\openout6 = `updated_distributions_table-gwas(5-23-2019).out'.
+\openout6 = `updated_typical_metrics_table.out'.
 
 
 ABD: EveryShipout initializing macros
@@ -1045,40 +1044,48 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 49.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+)
+Overfull \hbox (1.09084pt too wide) in paragraph at lines 52--52
+ []|[]| 
+ []
+
+
+Overfull \hbox (1.09084pt too wide) in paragraph at lines 60--60
+ []|[]| 
+ []
+
+[1
 
 {C:/Users/bdawk/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 102.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 102.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 75.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 75.
 
-(updated_distributions_table-gwas(5-23-2019).aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 102.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 102.
-Package rerunfilecheck Info: File `updated_distributions_table-gwas(5-23-2019).
-out' has not changed.
+(updated_typical_metrics_table.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 75.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 75.
+Package rerunfilecheck Info: File `updated_typical_metrics_table.out' has not c
+hanged.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 33137 strings out of 492946
- 679567 string characters out of 3135528
- 794933 words of memory out of 3000000
- 36590 multiletter control sequences out of 15000+200000
- 537401 words of font info for 43 fonts, out of 3000000 for 9000
+ 33149 strings out of 492946
+ 679534 string characters out of 3135528
+ 791751 words of memory out of 3000000
+ 36599 multiletter control sequences out of 15000+200000
+ 539866 words of font info for 52 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 58i,23n,93p,891b,325s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 58i,15n,93p,877b,325s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
-/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.p
-fb>
-Output written on updated_distributions_table-gwas(5-23-2019).pdf (1 page, 9213
-2 bytes).
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmmib10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmsy10.pfb>
+Output written on updated_typical_metrics_table.pdf (1 page, 77201 bytes).
 PDF statistics:
- 50 PDF objects out of 1000 (max. 8388607)
+ 46 PDF objects out of 1000 (max. 8388607)
  2 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
