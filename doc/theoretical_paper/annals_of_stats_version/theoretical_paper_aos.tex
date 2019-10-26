@@ -323,9 +323,11 @@ F_{Z^q_a}(z^q_a) &= \text{P}\left[Z^q_a \leq z^q_a\right] \\
 &= \text{P}\bigl[E^{(1)}\bigr] + \text{P}\bigl[E^{(2)}\bigr] \\
 &= \int_{-\infty}^{z^q_a} f^{(1)}_{Z^q_a}(t) \text{d}t + \int_{-\infty}^{z^q_a} f^{(2)}_{Z^q_a}(t) \text{d}t \\
 &= \int_{-\infty}^{z^q_a} \left(f^{(1)}_{Z^q_a}(t) + f^{(2)}_{Z^q_a}(t)\right) \text{d}t \\
-&= \frac{1}{q \left(z^q_a\right)^{1 - \frac{1}{q}}}\int_{-\infty}^{z^q_a} \left(\int_{-\infty}^{\infty}f_X(x_{ia})\left[f_X(x_{ia} - t) + f_X(x_{ia} + t)\right] \text{d}x_{ia}\right)\text{d}t, \quad z_a > 0.
+&= \frac{1}{q \left(z^q_a\right)^{1 - \frac{1}{q}}}\int_{-\infty}^{z^q_a} \left(\int_{-\infty}^{\infty}f_X(x_{ia})\left[f_X(x_{ia} - t) + f_X(x_{ia} + t)\right] \text{d}x_{ia}\right)\text{d}t, \\
 \end{aligned}
 \end{equation}
+%
+where $z_a > 0$.
 
 It follows directly from the previous result (Eq.~\ref{eq:DqCDF}) that the density function of the random variable $Z^q_a$ is given by
 %
@@ -414,7 +416,10 @@ and
 By linearity of the expected value and variance operators under the iid assumption, the mean (Eq.~\ref{eq:1DnormalDqMean}) and variance (Eq.~\ref{eq:1DnormalDqVar}) of the random variable $Z^q_a$ allow the $p\text{-dimensional}$ mean and variance of the $\left(D^{(q)}_{ij}\right)^q$ distribution to be computed directly as
 %
 \begin{equation}\label{eq:normalDqMean}
-\mu_{\left(D^{(q)}_{ij}\right)^q} = \text{E}\left[\left(D^{(q)}_{ij}\right)^q\right] = \text{E}\left(\sum_{a \in \mathcal{A}} Z^q_a\right) = \sum_{a \in \mathcal{A}} \text{E}\left(Z^q_a\right) = \sum_{a \in \mathcal{A}} \frac{2^q \Gamma\left(\frac{q + 1}{2}\right)}{\sqrt{\pi}} = \frac{2^q\Gamma\left(\frac{q + 1}{2}\right)}{\sqrt{\pi}}p
+\begin{aligned}
+\mu_{\left(D^{(q)}_{ij}\right)^q} = \text{E}\left[\left(D^{(q)}_{ij}\right)^q\right] = \text{E}\left(\sum_{a \in \mathcal{A}} Z^q_a\right) = \sum_{a \in \mathcal{A}} \text{E}\left(Z^q_a\right) &= \sum_{a \in \mathcal{A}} \frac{2^q \Gamma\left(\frac{q + 1}{2}\right)}{\sqrt{\pi}} \\
+&=  \frac{2^q\Gamma\left(\frac{q + 1}{2}\right)}{\sqrt{\pi}}p
+\end{aligned}
 \end{equation}
 %
 and
@@ -431,8 +436,10 @@ and
 Therefore, the asymptotic distribution of $D^{(q)}_{ij}$ for standard normal data is
 %
 \begin{equation}\label{eq:normalDistr}
-\mathcal{N}\left(\left(2^q\frac{\Gamma\left(\frac{q + 1}{2}\right)}{\sqrt{\pi}}p\right)^{1/q},
-\frac{4^q p}{q^2 \left(\frac{2^q \Gamma\left(\frac{1}{2}q + \frac{1}{2}\right)}{\sqrt{\pi}}p\right)^{2\left(1 - \frac{1}{q}\right)}}\left[\frac{\Gamma\left(q + \frac{1}{2}\right)}{\sqrt{\pi}} - \frac{\Gamma^2\left(\frac{1}{2}q + \frac{1}{2}\right)}{\pi}\right]\right).
+\begin{aligned}
+\mathcal{N}{\huge \Biggl(}&\left(2^q\frac{\Gamma\left(\frac{q + 1}{2}\right)}{\sqrt{\pi}}p\right)^{1/q}, \\
+&\frac{4^q p}{q^2 \left(\frac{2^q \Gamma\left(\frac{1}{2}q + \frac{1}{2}\right)}{\sqrt{\pi}}p\right)^{2\left(1 - \frac{1}{q}\right)}}\left[\frac{\Gamma\left(q + \frac{1}{2}\right)}{\sqrt{\pi}} - \frac{\Gamma^2\left(\frac{1}{2}q + \frac{1}{2}\right)}{\pi}\right]{\huge \Biggr)}.
+\end{aligned}
 \end{equation}
 
 We provide a summary table of the moment estimates (Eq.~\ref{eq:normalDistr}) for the $L_q$ metric on standard normal data (Tab.~\ref{tab:dist_distr_general1}). The summary is organized by data type, type of statistic (mean or variance), and corresponding asymptotic formula. In the next section, we derive the $L_q$ distance distribution on standard uniform data in a similar fashion.
@@ -457,14 +464,16 @@ Substituting these marginal densities (Eqs.~\ref{eq:uniformXmarg}-\ref{eq:unifor
 %
 \begin{equation}\label{eq:uniformDqPDF}
 \begin{aligned}
-f_{Z^q_a}(z^q_a) &= \frac{1}{q\left(z^q_a\right)^{1 - \frac{1}{q}}}\int_{-\infty}^{\infty}f_X(x_{ia})\left[f_X\left(x_{ia} - \left(z^q_a\right)^{1/q}\right) + f_X\left(x_{ia} + \left(z^q_a\right)^{1/q}\right)\right]\text{d}x_{ia},\\
-& \hspace{4in} 0 < z_a \leq 1\\
-&= \frac{1}{q\left(z^q_a\right)^{1 - \frac{1}{q}}}\int_{0}^{1}\left[f_X(x_{ia} - \left(z^q_a\right) + f_X\left(x_{ia} + \left(z^q_a\right)^{1/q}\right)\right]\text{d}x_{ia}, \quad 0 < z_a \leq 1 \\
-&= \frac{1}{q\left(z^q_a\right)^{1 - \frac{1}{q}}}\int_{\left(z^q_a\right)}^{1}1\text{d}x_{ia} + \int_{0}^{1 - \left(z^q_a\right)}1\text{d}x_{ia}, \quad 0 < z_a \leq 1 \\
-&= \frac{1}{q\left(z^q_a\right)^{1 - \frac{1}{q}}}\left[\left(1 - \left(z^q_a\right)\right) + \left(1 - \left(z^q_a\right)\right)\right], \quad 0 < z_a \leq 1 \\
-&= \frac{1}{q} \cdot 2 \left(z^q_a\right)^{\frac{1}{q} - 1}\left[1 - \left(z^q_a\right)^{1/q}\right]^{2 - 1}, \quad 0 < z_a \leq 1.
+f_{Z^q_a}(z^q_a) &= \frac{1}{q\left(z^q_a\right)^{1 - \frac{1}{q}}}\int_{-\infty}^{\infty}{\Biggl\{}f_X(x_{ia}){\biggl[}f_X\left(x_{ia} - \left(z^q_a\right)^{1/q}\right)\\ 
+&\hspace{3.7cm}+ f_X\left(x_{ia} + \left(z^q_a\right)^{1/q}\right){\biggr]}{\Biggl\}}\text{d}x_{ia}\\
+&= \frac{1}{q\left(z^q_a\right)^{1 - \frac{1}{q}}}\int_{0}^{1}\left[f_X(x_{ia} - \left(z^q_a\right) + f_X\left(x_{ia} + \left(z^q_a\right)^{1/q}\right)\right]\text{d}x_{ia} \\
+&= \frac{1}{q\left(z^q_a\right)^{1 - \frac{1}{q}}}\int_{\left(z^q_a\right)}^{1}1\text{d}x_{ia} + \int_{0}^{1 - \left(z^q_a\right)}1\text{d}x_{ia}\\
+&= \frac{1}{q\left(z^q_a\right)^{1 - \frac{1}{q}}}\left[\left(1 - \left(z^q_a\right)\right) + \left(1 - \left(z^q_a\right)\right)\right]\\
+&= \frac{1}{q} \cdot 2 \left(z^q_a\right)^{\frac{1}{q} - 1}\left[1 - \left(z^q_a\right)^{1/q}\right]^{2 - 1},
 \end{aligned}
 \end{equation}
+%
+where $0 < z_a \leq 1$.
 
 The previous density (Eq.~\ref{eq:uniformDqPDF}) is a Kumaraswamy density with parameters $b = \frac{1}{q}$ and $c = 2$ with moment generating function (MGF) given by
 %
@@ -565,7 +574,8 @@ Substituting $q=1$ into the formula of the asymptotic variance of $D^{(1)}_{ij}$
 %
 \begin{equation}\label{eq:uniformManVar}
 \begin{aligned}
-\text{Var}\left(D^{(1)}_{ij}\right) &= \frac{p}{1^2\left(\frac{2p}{(1 + 2)(1 + 1)}\right)^{2\left(1 - \frac{1}{1}\right)}}\left[\frac{1}{(1 + 1)(2(1) + 1)} - \left(\frac{2}{(1 + 2)(1 + 1)}\right)^2\right] \\
+\text{Var}\left(D^{(1)}_{ij}\right) &= \frac{p}{1^2\left(\frac{2p}{(1 + 2)(1 + 1)}\right)^{2\left(1 - \frac{1}{1}\right)}} {\Large \Biggr\{}{\Biggl[}\frac{1}{(1 + 1)(2(1) + 1)}\\
+&\hspace{4.5cm}- \left(\frac{2}{(1 + 2)(1 + 1)}\right)^2{\Biggr]}{\Large \Biggr\}} \\
 &= \frac{p}{18}.
 \end{aligned}
 \end{equation}
@@ -692,7 +702,8 @@ Substituting $q=2$ into the formula for the asymptotic variance of $D^{(2)}_{ij}
 %
 \begin{equation}\label{eq:uniformEucVar}
 \begin{aligned}
-\text{Var}\left(D^{(2)}_{ij}\right) &= \frac{p}{2^2\left(\frac{2p}{(2 + 2)(2 + 1)}\right)^{2\left(1 - \frac{1}{2}\right)}}\left[\frac{1}{(2 + 1)(2(2) + 1)} - \left(\frac{2}{(2 + 2)(2 + 1)}\right)^2\right] \\
+\text{Var}\left(D^{(2)}_{ij}\right) &= \frac{p}{2^2\left(\frac{2p}{(2 + 2)(2 + 1)}\right)^{2\left(1 - \frac{1}{2}\right)}} {\Large \Biggl\{}{\Biggl[}\frac{1}{(2 + 1)(2(2) + 1)} \\
+&\hspace{4.5cm}- \left(\frac{2}{(2 + 2)(2 + 1)}\right)^2{\Biggr]}{\Large \Biggr\}} \\
 &= \frac{7}{120}.
 \end{aligned}
 \end{equation}
@@ -742,10 +753,11 @@ In order to determine moments of asymptotic max-min normalized distance (Eq.~\re
 \end{definition}
 %
 \begin{theorem}[Fisher-Tippett-Gnedenko]\label{thm:EVT}
-	Let $X_{1a},X_{2a},\dots,X_{ma} \overset{iid}{\sim} \mathcal{F}_X\left(\mu_x,\sigma^2_x\right)$ and let $X^\text{max}_a = \displaystyle \max_{k \in \mathcal{I}}\{X_{ka}\}$. If there exists two non-random sequences $b_m>0$ and $c_m$ such that
 	
+	Let $X_{ia} \overset{iid}{\sim} \mathcal{F}_X\left(\mu_x,\sigma^2_x\right)$ for all $i \in \mathcal{I}$ and let $X^\text{max}_a = \displaystyle \max_{k \in \mathcal{I}}\{X_{ka}\}$. If there exists two non-random sequences $b_m>0$ and $c_m$ such that
+	%
 	\[\lim_{m \to \infty} \text{P}\left(\frac{X^\text{max}_a - c_m}{b_m} \leq x\right) = G_X(x),\]
-	
+	%
 	\noindent where $G_X$ is a non-degenerate distribution function, then the limiting distribution $\mathcal{G}_X$ is in the Gumbel, Fr\'{e}chet, or Wiebull family.
 \end{theorem}
 
@@ -2376,20 +2388,20 @@ This concludes our analysis of rs-fMRI distances in random time series correlati
 		\node[fill=white,xscale=0.94,yscale=0.94] at (5.83,-1.26) {\ref{eq:mean_max_rs-fMRI}};
 		
 		% var (row 4)
-		\node[fill=white,xscale=0.83,yscale=0.83] at (5.67,-2.555) {(\textbf{\ref{eq:var_max-min_rs-fMRI}})};
+		\node[fill=white,xscale=0.83,yscale=0.83] at (5.35,-2.445) {(\textbf{\ref{eq:var_max-min_rs-fMRI}})};
 		
 		% numerator equation (row 4)
-		\node[fill=white,xscale=0.88,yscale=0.88] at (4.93,-3.78) {\ref{eq:mu_DDistr_rs-fMRI}};
+		\node[fill=white,xscale=0.94,yscale=0.94] at (4.68,-3.575) {\ref{eq:mu_DDistr_rs-fMRI}};
 		
 		% denominator equation (row 5)
-		\node[fill=white,xscale=0.88,yscale=0.88] at (6.13,-3.78) {\ref{eq:mean_max_rs-fMRI}};
+		\node[fill=white,xscale=0.94,yscale=0.94] at (5.83,-3.575) {\ref{eq:mean_max_rs-fMRI}};
 		\end{tikzpicture}
 	\end{adjustbox}
 \end{table}
 
 \section{Comparison of theoretical and sample moments}
 
-It is important that our asymptotic estimates of sample moments for distances in high-dimensional data are accurate and precise enough to be useful when considering either simulated or real data that satisfy the appropriate assumptions. We compared our asymptotic estimates of sample moments of pairwise distances by generating random data for various dimensions $m$ and $p$ (Fig.~\ref{fig:compare_theoretical_sample_moments}). We fixed $m=100$ samples and generated random Manhattan (Eq.~\ref{eq:D}) distance matrices on standard normal data for $p=1000,2000,3000,4000, \text{ and } 5000$ attributes. For each value of $p$, we generated 20 random distance matrices, computed the average distance, and computed the standard deviation of distances. We then computed the average of these 20 different means and standard deviations. The theoretical moments were simply computed for each value of $p$ and fixed $m=100$ in order to determine how closely our formulas approximate simulated moments. We generated scatter plots of theoretical versus simulated mean (Fig.~\ref{fig:compare_theoretical_sample_moments}A) and theoretical vs simulated standard deviation (Fig.~\ref{fig:compare_theoretical_sample_moments}B). All points lie approximately on the dashed identity lines, indicating that our theoretical asymptotic formulas for sample moments are reliable for both large and relatively small numbers of features. Although we do not show these results for every combination of data type, distance metric, sample size $m$, and number of features $p$, all theoretical formulas of sample moments we have derived similarly approximate their corresponding simulated moments.
+It is important that our asymptotic estimates of sample moments for distances in high-dimensional data are accurate and precise enough to be useful when considering either simulated or real data that satisfy the appropriate assumptions. We compared our asymptotic estimates of sample moments of pairwise distances by generating random data for various dimensions $m$ and $p$ (Fig.~\ref{fig:compare_theoretical_sample_moments}). We fixed $m=100$ samples and generated random Manhattan (Eq.~\ref{eq:D}) distance matrices on standard normal data for $p=1000,2000,3000,4000,$ and $5000$ attributes. For each value of $p$, we generated 20 random distance matrices, computed the average distance, and computed the standard deviation of distances. We then computed the average of these 20 different means and standard deviations. The theoretical moments were simply computed for each value of $p$ and fixed $m=100$ in order to determine how closely our formulas approximate simulated moments. We generated scatter plots of theoretical versus simulated mean (Fig.~\ref{fig:compare_theoretical_sample_moments}A) and theoretical vs simulated standard deviation (Fig.~\ref{fig:compare_theoretical_sample_moments}B). All points lie approximately on the dashed identity lines, indicating that our theoretical asymptotic formulas for sample moments are reliable for both large and relatively small numbers of features. Although we do not show these results for every combination of data type, distance metric, sample size $m$, and number of features $p$, all theoretical formulas of sample moments we have derived similarly approximate their corresponding simulated moments.
 
 \begin{figure}[H]
 	\centering
@@ -2437,7 +2449,9 @@ In analogy to the previous section, we explore the effects of pairwise feature c
 
 \subsection{Correlation-based data}
 
-For our correlation data-based metric (Eq.~\ref{eq:D_rs-fMRI}), we consider additional effects of correlation between features. Without loss of generality, we let $m=100$ and $p=30$. We show an illustration of the effects of correlated features in this context (Fig.~\ref{fig:null_vs_correlated_ridge}C). Based on the density estimates, it appears that correlation between features introduces positive skewness at low values of $\bar{r}_\text{abs}$. We introduced correlation to the transformed data matrix (Fig.~\ref{fig:rs-fMRI_matrix}) with the cholesky method used previously.
+For our correlation data-based metric
+
+\noindent (Eq.~\ref{eq:D_rs-fMRI}), we consider additional effects of correlation between features. Without loss of generality, we let $m=100$ and $p=30$. We show an illustration of the effects of correlated features in this context (Fig.~\ref{fig:null_vs_correlated_ridge}C). Based on the density estimates, it appears that correlation between features introduces positive skewness at low values of $\bar{r}_\text{abs}$. We introduced correlation to the transformed data matrix (Fig.~\ref{fig:rs-fMRI_matrix}) with the cholesky method used previously.
 %
 %\begin{figure}[H]
 %	\centering

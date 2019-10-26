@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  26 OCT 2019 16:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  26 OCT 2019 17:23
 entering extended mode
 **./theoretical_paper_aos.tex
 (theoretical_paper_aos.tex
@@ -804,7 +804,7 @@ Overfull \hbox (22.72055pt too wide) has occurred while \output is active
  []
 
 [8]
-Overfull \hbox (49.29517pt too wide) detected at line 328
+Overfull \hbox (3.29642pt too wide) detected at line 328
 [][][]
  []
 
@@ -814,7 +814,7 @@ Overfull \hbox (22.72055pt too wide) has occurred while \output is active
  []
 
 [9]
-Overfull \hbox (22.74722pt too wide) detected at line 337
+Overfull \hbox (22.74722pt too wide) detected at line 339
 [][][]
  []
 
@@ -829,15 +829,11 @@ Overfull \hbox (22.72055pt too wide) has occurred while \output is active
  []
 
 [11]
-Overfull \hbox (44.46062pt too wide) detected at line 418
-[]\OML/cmm/m/it/10.95 [] \OT1/cmr/m/n/10.95 = [] [] = [] [] = [] [] [] = [] []
- = []\OML/cmm/m/it/10.95 p
- []
+
+LaTeX Font Warning: Command \huge invalid in math mode on input line 440.
 
 
-Overfull \hbox (19.8287pt too wide) detected at line 436
-[]\OMS/cmsy/m/n/10.95 N [] \OML/cmm/m/it/10.95 :
- []
+LaTeX Font Warning: Command \huge invalid in math mode on input line 441.
 
 
 Overfull \hbox (22.72055pt too wide) has occurred while \output is active
@@ -845,11 +841,6 @@ Overfull \hbox (22.72055pt too wide) has occurred while \output is active
  []
 
 [12]
-Overfull \hbox (22.74722pt too wide) detected at line 467
-[][][]
- []
-
-
 Overfull \hbox (22.72055pt too wide) has occurred while \output is active
  []
  []
@@ -860,7 +851,12 @@ Overfull \hbox (22.72055pt too wide) has occurred while \output is active
  []
 
 [14]
-Overfull \hbox (2.62907pt too wide) in paragraph at lines 525--526
+Overfull \hbox (22.72055pt too wide) has occurred while \output is active
+ []
+ []
+
+[15]
+Overfull \hbox (2.62907pt too wide) in paragraph at lines 534--535
  \OT1/cmr/m/n/10.95 2.2.\OT1/cmr/m/it/10.95 Manhattan ($\OML/cmm/m/it/10.95 L[]
 $\OT1/cmr/m/it/10.95 ).[][] \OT1/cmr/m/n/10.95 With our gen-eral for-mu-las for
  the asymp-totic mean
@@ -871,24 +867,21 @@ Overfull \hbox (22.72055pt too wide) has occurred while \output is active
  []
  []
 
-[15]
-Overfull \hbox (9.91365pt too wide) detected at line 571
-[][][]
- []
-
-
-Overfull \hbox (22.72055pt too wide) has occurred while \output is active
- []
- []
-
 [16]
-Overfull \hbox (0.64577pt too wide) in paragraph at lines 577--578
+
+LaTeX Font Warning: Command \Large invalid in math mode on input line 577.
+
+
+LaTeX Font Warning: Command \Large invalid in math mode on input line 578.
+
+
+Overfull \hbox (0.64577pt too wide) in paragraph at lines 587--588
  \OT1/cmr/m/n/10.95 2.2.3.\OT1/cmr/m/it/10.95 Distribution of one-dimensional p
 ro-jec-tion of pair-wise dis-tance onto
  []
 
 
-Overfull \hbox (4.17763pt too wide) in paragraph at lines 577--578
+Overfull \hbox (4.17763pt too wide) in paragraph at lines 587--588
 \OT1/cmr/m/it/10.95 an at-tribute.[][] \OT1/cmr/m/n/10.95 In nearest-neighbor d
 istance-based fea-ture se-lec-tion like NPDR
  []
@@ -909,28 +902,23 @@ Overfull \hbox (22.72055pt too wide) has occurred while \output is active
  []
 
 [19]
-Overfull \hbox (9.91365pt too wide) detected at line 698
-[][][]
- []
-
-
 Overfull \hbox (22.72055pt too wide) has occurred while \output is active
  []
  []
 
 [20]
+
+LaTeX Font Warning: Command \Large invalid in math mode on input line 705.
+
+
+LaTeX Font Warning: Command \Large invalid in math mode on input line 706.
+
+
 Overfull \hbox (22.72055pt too wide) has occurred while \output is active
  []
  []
 
 [21]
-Overfull \hbox (43.20825pt too wide) in paragraph at lines 745--746
-[][][]\OT1/cmr/m/sc/10.95 Theorem \OT1/cmr/m/n/10.95 2.2 (Fish-er-Tip-pet-t-Gne
--denko)\OT1/cmr/m/sc/10.95 . []\OT1/cmr/m/it/10.95 Let $\OML/cmm/m/it/10.95 X[]
-; X[]; [] ; X[] [] \OMS/cmsy/m/n/10.95 F[] []$
- []
-
-
 Overfull \hbox (22.72055pt too wide) has occurred while \output is active
  []
  []
@@ -956,17 +944,17 @@ Overfull \hbox (22.72055pt too wide) has occurred while \output is active
  []
 
 [26]
-Overfull \hbox (40.48033pt too wide) detected at line 945
-[][][]
- []
-
-
 Overfull \hbox (22.72055pt too wide) has occurred while \output is active
  []
  []
 
 [27]
-Overfull \hbox (12.4893pt too wide) detected at line 953
+Overfull \hbox (40.48033pt too wide) detected at line 957
+[][][]
+ []
+
+
+Overfull \hbox (12.4893pt too wide) detected at line 965
 []\OML/cmm/m/it/10.95 D[] [] \OMS/cmsy/m/n/10.95 N [] \OML/cmm/m/it/10.95 ;
  []
 
@@ -1001,7 +989,7 @@ Overfull \hbox (22.72055pt too wide) has occurred while \output is active
  []
 
 [33]
-Overfull \hbox (6.20256pt too wide) in paragraph at lines 1173--1175
+Overfull \hbox (6.20256pt too wide) in paragraph at lines 1185--1187
 []\OT1/cmr/m/n/10.95 Then the ex-pected max-i-mum and min-i-mum are com-puted t
 hrough straight-
  []
@@ -1036,7 +1024,7 @@ Overfull \hbox (22.72055pt too wide) has occurred while \output is active
 File: updated_distributions_table(5-23-2019).pdf Graphic file (type pdf)
 <use updated_distributions_table(5-23-2019).pdf>
 Package pdftex.def Info: updated_distributions_table(5-23-2019).pdf  used on in
-put line 1335.
+put line 1347.
 (pdftex.def)             Requested size: 360.0pt x 397.32228pt.
 
 Overfull \hbox (22.72055pt too wide) has occurred while \output is active
@@ -1048,7 +1036,7 @@ Overfull \hbox (22.72055pt too wide) has occurred while \output is active
 File: updated_typical_metrics_table.pdf Graphic file (type pdf)
 <use updated_typical_metrics_table.pdf>
 Package pdftex.def Info: updated_typical_metrics_table.pdf  used on input line 
-1395.
+1407.
 (pdftex.def)             Requested size: 251.9989pt x 306.47757pt.
 
 Overfull \hbox (22.72055pt too wide) has occurred while \output is active
@@ -1060,14 +1048,14 @@ has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1429 
+l.1441 
         <./updated_distributions_table(5-23-2019).pdf>]
 <updated_typical_metrics_table(normalized).pdf, id=914, 376.8248pt x 563.55441p
 t>
 File: updated_typical_metrics_table(normalized).pdf Graphic file (type pdf)
 <use updated_typical_metrics_table(normalized).pdf>
 Package pdftex.def Info: updated_typical_metrics_table(normalized).pdf  used on
- input line 1437.
+ input line 1449.
 (pdftex.def)             Requested size: 306.0022pt x 465.99452pt.
 
 Overfull \hbox (22.72055pt too wide) has occurred while \output is active
@@ -1079,7 +1067,7 @@ has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1473 
+l.1485 
         <./updated_typical_metrics_table.pdf>]
 Overfull \vbox (1.06044pt too high) has occurred while \output is active []
 
@@ -1093,20 +1081,20 @@ has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1473 
+l.1485 
         <./updated_typical_metrics_table(normalized).pdf>]
 Overfull \hbox (22.72055pt too wide) has occurred while \output is active
  []
  []
 
 [43]
-Overfull \hbox (2.83847pt too wide) in paragraph at lines 1533--1534
+Overfull \hbox (2.83847pt too wide) in paragraph at lines 1545--1546
 \OT1/cmr/m/n/10.95 neighbor fea-ture se-lec-tion in GWAS data is the GM dis-tan
 ce met-ric (Eq. [][]110[][]).
  []
 
 
-Overfull \hbox (32.08653pt too wide) detected at line 1547
+Overfull \hbox (32.08653pt too wide) detected at line 1559
 [][][]
  []
 
@@ -1116,7 +1104,7 @@ Overfull \hbox (22.72055pt too wide) has occurred while \output is active
  []
 
 [44]
-Overfull \hbox (18.862pt too wide) detected at line 1579
+Overfull \hbox (18.862pt too wide) detected at line 1591
 [][][]
  []
 
@@ -1126,7 +1114,7 @@ Overfull \hbox (22.72055pt too wide) has occurred while \output is active
  []
 
 [45]
-Overfull \hbox (6.7621pt too wide) detected at line 1592
+Overfull \hbox (6.7621pt too wide) detected at line 1604
 [][][]
  []
 
@@ -1136,7 +1124,7 @@ Overfull \hbox (22.72055pt too wide) has occurred while \output is active
  []
 
 [46]
-Overfull \hbox (26.31003pt too wide) detected at line 1623
+Overfull \hbox (26.31003pt too wide) detected at line 1635
 [][][]
  []
 
@@ -1146,7 +1134,7 @@ Overfull \hbox (22.72055pt too wide) has occurred while \output is active
  []
 
 [47]
-Overfull \hbox (20.55603pt too wide) detected at line 1649
+Overfull \hbox (20.55603pt too wide) detected at line 1661
 [][][]
  []
 
@@ -1159,50 +1147,50 @@ Overfull \hbox (22.72055pt too wide) has occurred while \output is active
 <TiTv_diagram2.pdf, id=1069, 278.1602pt x 227.42767pt>
 File: TiTv_diagram2.pdf Graphic file (type pdf)
 <use TiTv_diagram2.pdf>
-Package pdftex.def Info: TiTv_diagram2.pdf  used on input line 1682.
+Package pdftex.def Info: TiTv_diagram2.pdf  used on input line 1694.
 (pdftex.def)             Requested size: 212.03764pt x 173.36389pt.
 
-Underfull \hbox (badness 1888) in paragraph at lines 1685--1685
+Underfull \hbox (badness 1888) in paragraph at lines 1697--1697
 []\OT1/cmr/m/sc/9 Fig 2\OT1/cmr/m/it/9 . []Purines (A and G)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1685--1685
+Underfull \hbox (badness 10000) in paragraph at lines 1697--1697
 \OT1/cmr/m/it/9 and pyrim-idines (C and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1685--1685
+Underfull \hbox (badness 10000) in paragraph at lines 1697--1697
 \OT1/cmr/m/it/9 T) are shown. Tran-si-tions
  []
 
 
-Underfull \hbox (badness 3861) in paragraph at lines 1685--1685
+Underfull \hbox (badness 3861) in paragraph at lines 1697--1697
 \OT1/cmr/m/it/9 oc-cur when a mu-ta-tion in-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1685--1685
+Underfull \hbox (badness 10000) in paragraph at lines 1697--1697
 \OT1/cmr/m/it/9 volves purine-to-purine or
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1685--1685
+Underfull \hbox (badness 10000) in paragraph at lines 1697--1697
 \OT1/cmr/m/it/9 pyrimidine-to-pyrimidine in-
  []
 
 
-Underfull \hbox (badness 7504) in paragraph at lines 1685--1685
+Underfull \hbox (badness 7504) in paragraph at lines 1697--1697
 \OT1/cmr/m/it/9 ser-tion. Transver-sions oc-cur
  []
 
 
-Underfull \hbox (badness 1308) in paragraph at lines 1685--1685
+Underfull \hbox (badness 1308) in paragraph at lines 1697--1697
 \OT1/cmr/m/it/9 pyrimidine-to-purine in-ser-tion
  []
 
 
-Underfull \hbox (badness 7925) in paragraph at lines 1685--1685
+Underfull \hbox (badness 7925) in paragraph at lines 1697--1697
 \OT1/cmr/m/it/9 hap-pens, which is a more
  []
 
@@ -1221,9 +1209,9 @@ Overfull \hbox (22.72055pt too wide) has occurred while \output is active
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1710 \end{equation}
+l.1722 \end{equation}
                       <./TiTv_diagram2.pdf>]
-Overfull \hbox (1.76167pt too wide) in paragraph at lines 1712--1714
+Overfull \hbox (1.76167pt too wide) in paragraph at lines 1724--1726
 []\OT1/cmr/m/n/10.95 Using the sum-to-one con-straint (Eqs. [][]123[][]) and th
 e prob-a-bil-ity of transver-
  []
@@ -1239,17 +1227,17 @@ Overfull \hbox (22.72055pt too wide) has occurred while \output is active
  []
 
 [52]
-Overfull \hbox (9.0858pt too wide) detected at line 1825
+Overfull \hbox (9.0858pt too wide) detected at line 1837
 [][][]
  []
 
 
-Overfull \hbox (35.48123pt too wide) detected at line 1842
+Overfull \hbox (35.48123pt too wide) detected at line 1854
 []
  []
 
 
-Overfull \hbox (35.48123pt too wide) in alignment at lines 1841--1842
+Overfull \hbox (35.48123pt too wide) in alignment at lines 1853--1854
 [] [] 
  []
 
@@ -1259,12 +1247,12 @@ Overfull \hbox (22.72055pt too wide) has occurred while \output is active
  []
 
 [53]
-Overfull \hbox (29.61417pt too wide) detected at line 1861
+Overfull \hbox (29.61417pt too wide) detected at line 1873
 []
  []
 
 
-Overfull \hbox (29.61417pt too wide) in alignment at lines 1860--1861
+Overfull \hbox (29.61417pt too wide) in alignment at lines 1872--1873
 [] [] 
  []
 
@@ -1274,7 +1262,7 @@ Overfull \hbox (22.72055pt too wide) has occurred while \output is active
  []
 
 [54]
-Overfull \hbox (28.90039pt too wide) detected at line 1873
+Overfull \hbox (28.90039pt too wide) detected at line 1885
 [][][]
  []
 
@@ -1287,7 +1275,7 @@ Overfull \hbox (22.72055pt too wide) has occurred while \output is active
 <TiTv_distance-vs-maf.pdf, id=1146, 401.99887pt x 402.0069pt>
 File: TiTv_distance-vs-maf.pdf Graphic file (type pdf)
 <use TiTv_distance-vs-maf.pdf>
-Package pdftex.def Info: TiTv_distance-vs-maf.pdf  used on input line 1888.
+Package pdftex.def Info: TiTv_distance-vs-maf.pdf  used on input line 1900.
 (pdftex.def)             Requested size: 229.31683pt x 229.32419pt.
 
 Overfull \hbox (22.72055pt too wide) has occurred while \output is active
@@ -1299,12 +1287,12 @@ Overfull \hbox (22.72055pt too wide) has occurred while \output is active
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1896 
+l.1908 
         <./TiTv_distance-vs-maf.pdf>]
 <re_fig_5_BDedit.pdf, id=1190, 505.89pt x 433.62pt>
 File: re_fig_5_BDedit.pdf Graphic file (type pdf)
 <use re_fig_5_BDedit.pdf>
-Package pdftex.def Info: re_fig_5_BDedit.pdf  used on input line 1899.
+Package pdftex.def Info: re_fig_5_BDedit.pdf  used on input line 1911.
 (pdftex.def)             Requested size: 352.79846pt x 302.40051pt.
 
 Overfull \hbox (22.72055pt too wide) has occurred while \output is active
@@ -1317,7 +1305,7 @@ Overfull \hbox (22.72055pt too wide) has occurred while \output is active
 File: updated_distributions_table-gwas(5-23-2019).pdf Graphic file (type pdf)
 <use updated_distributions_table-gwas(5-23-2019).pdf>
 Package pdftex.def Info: updated_distributions_table-gwas(5-23-2019).pdf  used 
-on input line 1925.
+on input line 1937.
 (pdftex.def)             Requested size: 356.40198pt x 352.045pt.
 
 Overfull \hbox (22.72055pt too wide) has occurred while \output is active
@@ -1329,7 +1317,7 @@ Overfull \hbox (22.72055pt too wide) has occurred while \output is active
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1955 \end{table}
+l.1967 \end{table}
                    <./re_fig_5_BDedit.pdf>]
 Overfull \hbox (22.72055pt too wide) has occurred while \output is active
  []
@@ -1340,19 +1328,19 @@ has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1960 
+l.1972 
         <./updated_distributions_table-gwas(5-23-2019).pdf>]
-Overfull \hbox (1.49869pt too wide) detected at line 1969
+Overfull \hbox (1.49869pt too wide) detected at line 1981
 [][][]
  []
 
 
-Overfull \hbox (11.44406pt too wide) detected at line 1981
+Overfull \hbox (11.44406pt too wide) detected at line 1993
 [][][]
  []
 
 
-Overfull \hbox (0.8959pt too wide) detected at line 2021
+Overfull \hbox (0.8959pt too wide) detected at line 2033
 [][][]
  []
 
@@ -1362,12 +1350,12 @@ Overfull \hbox (22.72055pt too wide) has occurred while \output is active
  []
 
 [60]
-Overfull \hbox (34.56627pt too wide) detected at line 2032
+Overfull \hbox (34.56627pt too wide) detected at line 2044
 [][][]
  []
 
 
-Overfull \hbox (28.93794pt too wide) in paragraph at lines 2071--2074
+Overfull \hbox (28.93794pt too wide) in paragraph at lines 2083--2086
 \OT1/cmr/m/n/10.95 where $\OML/cmm/m/it/10.95 G[]\OT1/cmr/m/n/10.95 (\OML/cmm/m
 /it/10.95 a\OT1/cmr/m/n/10.95 ) = [][] \OML/cmm/m/it/10.95 f[] \OT1/cmr/m/n/10.
 95 + \OML/cmm/m/it/10.95 f[] [] \OT1/cmr/m/n/10.95 + 2 [][] \OML/cmm/m/it/10.95
@@ -1382,13 +1370,13 @@ Overfull \hbox (22.72055pt too wide) has occurred while \output is active
  []
 
 [61]
-Overfull \hbox (6.57845pt too wide) detected at line 2085
+Overfull \hbox (6.57845pt too wide) detected at line 2097
 []\OML/cmm/m/it/10.95 f[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 d\OT1/cmr/m/n/
 10.95 ; \OML/cmm/m/it/10.95 f[]; []; []; []; \OT1/cmr/m/n/10.95 ) = []
  []
 
 
-Overfull \hbox (10.85306pt too wide) detected at line 2106
+Overfull \hbox (10.85306pt too wide) detected at line 2118
 [][][]
  []
 
@@ -1407,15 +1395,15 @@ Overfull \hbox (22.72055pt too wide) has occurred while \output is active
 File: rs_fmri_all_instance_matrix.pdf Graphic file (type pdf)
 <use rs_fmri_all_instance_matrix.pdf>
 Package pdftex.def Info: rs_fmri_all_instance_matrix.pdf  used on input line 21
-45.
+57.
 (pdftex.def)             Requested size: 239.39818pt x 241.56429pt.
 
-Underfull \hbox (badness 5985) in paragraph at lines 2148--2148
+Underfull \hbox (badness 5985) in paragraph at lines 2160--2160
 \OT1/cmr/m/it/9 no-ta-tion $[]$ rep-re-sents
  []
 
 
-Underfull \hbox (badness 1838) in paragraph at lines 2148--2148
+Underfull \hbox (badness 1838) in paragraph at lines 2160--2160
 \OT1/cmr/m/it/9 re-la-tion be-tween ROIs $\OML/cmm/m/it/9 a$
  []
 
@@ -1429,7 +1417,7 @@ Overfull \hbox (22.72055pt too wide) has occurred while \output is active
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2186 \end{equation}
+l.2198 \end{equation}
                       <./rs_fmri_all_instance_matrix.pdf>]
 Overfull \hbox (22.72055pt too wide) has occurred while \output is active
  []
@@ -1446,13 +1434,13 @@ Overfull \hbox (22.72055pt too wide) has occurred while \output is active
  []
 
 [67]
-Overfull \hbox (16.58037pt too wide) detected at line 2234
+Overfull \hbox (16.58037pt too wide) detected at line 2246
 []\OT1/cmr/m/n/10.95 2 [] [] [] [] \OMS/cmsy/m/n/10.95  []\OML/cmm/m/it/10.95 
 :
  []
 
 
-Overfull \hbox (0.15308pt too wide) detected at line 2262
+Overfull \hbox (0.15308pt too wide) detected at line 2274
 [][] [] \OT1/cmr/m/n/10.95 = 2\OML/cmm/m/it/10.95 []\OT1/cmr/m/n/10.95 (\OML/c
 mm/m/it/10.95 m; p\OT1/cmr/m/n/10.95 ) = 2 [] \OML/cmm/m/it/10.95 :
  []
@@ -1477,7 +1465,7 @@ Overfull \hbox (22.72055pt too wide) has occurred while \output is active
 File: updated_distributions_table-rs-fMRI.pdf Graphic file (type pdf)
 <use updated_distributions_table-rs-fMRI.pdf>
 Package pdftex.def Info: updated_distributions_table-rs-fMRI.pdf  used on input
- line 2355.
+ line 2367.
 (pdftex.def)             Requested size: 360.0pt x 229.91702pt.
 
 Overfull \hbox (22.72055pt too wide) has occurred while \output is active
@@ -1485,14 +1473,6 @@ Overfull \hbox (22.72055pt too wide) has occurred while \output is active
  []
 
 [71]
-Overfull \hbox (18.35693pt too wide) in paragraph at lines 2392--2393
-\OT1/cmr/m/n/10.95 tance ma-tri-ces on stan-dard nor-mal data for $\OML/cmm/m/i
-t/10.95 p \OT1/cmr/m/n/10.95 = 1000\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 200
-0\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 3000\OML/cmm/m/it/10.95 ; \OT1/cmr/m/
-n/10.95 4000\OML/cmm/m/it/10.95 ; []\OT1/cmr/m/n/10.95 5000$
- []
-
-
 Overfull \hbox (22.72055pt too wide) has occurred while \output is active
  []
  []
@@ -1502,13 +1482,13 @@ has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2393 
+l.2405 
         <./updated_distributions_table-rs-fMRI.pdf>]
 <compared_moments_normal_manhattan5.pdf, id=1487, 798.03645pt x 432.58614pt>
 File: compared_moments_normal_manhattan5.pdf Graphic file (type pdf)
 <use compared_moments_normal_manhattan5.pdf>
 Package pdftex.def Info: compared_moments_normal_manhattan5.pdf  used on input 
-line 2396.
+line 2408.
 (pdftex.def)             Requested size: 319.20892pt x 173.03137pt.
 
 Overfull \hbox (22.72055pt too wide) has occurred while \output is active
@@ -1520,22 +1500,17 @@ Overfull \hbox (22.72055pt too wide) has occurred while \output is active
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2403 
+l.2415 
         <./compared_moments_normal_manhattan5.pdf>]
 Overfull \hbox (22.72055pt too wide) has occurred while \output is active
  []
  []
 
 [74]
-Overfull \hbox (18.00224pt too wide) in paragraph at lines 2440--2447
- \OT1/cmr/m/n/10.95 6.3.\OT1/cmr/m/it/10.95 Correlation-based data.[][] \OT1/cm
-r/m/n/10.95 For our cor-re-la-tion data-based met-ric (Eq. [][]155[][]),
- []
-
 <null_corr_BryanEdit.pdf, id=1537, 722.7pt x 252.945pt>
 File: null_corr_BryanEdit.pdf Graphic file (type pdf)
 <use null_corr_BryanEdit.pdf>
-Package pdftex.def Info: null_corr_BryanEdit.pdf  used on input line 2462.
+Package pdftex.def Info: null_corr_BryanEdit.pdf  used on input line 2476.
 (pdftex.def)             Requested size: 352.79846pt x 123.48097pt.
 
 Overfull \hbox (22.72055pt too wide) has occurred while \output is active
@@ -1552,7 +1527,7 @@ Overfull \hbox (22.72055pt too wide) has occurred while \output is active
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2469 
+l.2483 
         <./null_corr_BryanEdit.pdf>]
 Overfull \hbox (22.72055pt too wide) has occurred while \output is active
  []
@@ -1574,11 +1549,11 @@ Overfull \hbox (22.72055pt too wide) has occurred while \output is active
  []
 
 [80]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2514.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2514.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2528.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2528.
  (theoretical_paper_aos.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2514.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2514.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2528.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2528.
 
 Package rerunfilecheck Info: File `theoretical_paper_aos.out' has not changed.
 (rerunfilecheck)             Checksum: A4A6DFCE45403AA2132003B0D363EB09;3171.
@@ -1586,14 +1561,14 @@ Package rerunfilecheck Info: File `theoretical_paper_aos.out' has not changed.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2514.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2528.
  ) 
 Here is how much of TeX's memory you used:
- 19034 strings out of 492946
- 345839 string characters out of 3135528
+ 19061 strings out of 492946
+ 346236 string characters out of 3135528
  433990 words of memory out of 3000000
- 22217 multiletter control sequences out of 15000+200000
- 24874 words of font info for 90 fonts, out of 3000000 for 9000
+ 22241 multiletter control sequences out of 15000+200000
+ 31371 words of font info for 114 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,25n,48p,2665b,883s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb><
@@ -1633,7 +1608,7 @@ nts/cm/cmti9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
 tt9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10
 .pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Progr
 am Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on theoretical_paper_aos.pdf (80 pages, 1760797 bytes).
+Output written on theoretical_paper_aos.pdf (80 pages, 1760672 bytes).
 PDF statistics:
  1775 PDF objects out of 2073 (max. 8388607)
  345 named destinations out of 1000 (max. 500000)
