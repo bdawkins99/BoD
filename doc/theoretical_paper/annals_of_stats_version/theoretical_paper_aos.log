@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  26 OCT 2019 17:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  27 OCT 2019 10:35
 entering extended mode
 **./theoretical_paper_aos.tex
 (theoretical_paper_aos.tex
@@ -1391,12 +1391,12 @@ Overfull \hbox (22.72055pt too wide) has occurred while \output is active
  []
 
 [63]
-<rs_fmri_all_instance_matrix.pdf, id=1314, 394.1375pt x 397.6988pt>
+<rs_fmri_all_instance_matrix.pdf, id=1314, 413.33621pt x 397.6988pt>
 File: rs_fmri_all_instance_matrix.pdf Graphic file (type pdf)
 <use rs_fmri_all_instance_matrix.pdf>
 Package pdftex.def Info: rs_fmri_all_instance_matrix.pdf  used on input line 21
 57.
-(pdftex.def)             Requested size: 239.39818pt x 241.56429pt.
+(pdftex.def)             Requested size: 239.39818pt x 230.34384pt.
 
 Underfull \hbox (badness 5985) in paragraph at lines 2160--2160
 \OT1/cmr/m/it/9 no-ta-tion $[]$ rep-re-sents
@@ -1608,7 +1608,7 @@ nts/cm/cmti9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
 tt9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10
 .pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Progr
 am Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on theoretical_paper_aos.pdf (80 pages, 1760672 bytes).
+Output written on theoretical_paper_aos.pdf (80 pages, 1760552 bytes).
 PDF statistics:
  1775 PDF objects out of 2073 (max. 8388607)
  345 named destinations out of 1000 (max. 500000)
