@@ -159,7 +159,9 @@ All derivations in the following sections are applicable to nearest-neighbor dis
 \subsection{Asymptotic normality of pairwise distances}
 %Discuss Central Limit Theorem argument for the distribution being Gaussian. We can always say this is an assumption, but I think we can invoke the CLT. [I would be cautious here - TTL. We will be cautious invoking the CLT - BAM.]
 
-Suppose that $X_{ia}, X_{ja} \overset{iid}{\sim} \mathcal{F}_X\left(\mu_X,\sigma^2_X\right)$ for two fixed and distinct instances $i,j \in \mathcal{I}$ and a fixed attribute $a \in \mathcal{A}$.
+Suppose that 
+
+\noindent $X_{ia}, X_{ja} \overset{iid}{\sim} \mathcal{F}_X\left(\mu_X,\sigma^2_X\right)$ for two fixed and distinct instances $i,j \in \mathcal{I}$ and a fixed attribute $a \in \mathcal{A}$.
 $\mathcal{F}_X$ represents any data distribution with mean $\mu_X$ and variance $\sigma^2_X$.
 
 It is clear that $|X_{ia} - X_{ja}|^q = |\text{d}_{ij}(a)|^q$ is another random variable. Let $Z^q_a \sim \mathcal{F}_{Z^q_a}\left(\mu_{z^q_a},\sigma^2_{z^q_a}\right)$ be the random variable such that
@@ -323,7 +325,8 @@ F_{Z^q_a}(z^q_a) &= \text{P}\left[Z^q_a \leq z^q_a\right] \\
 &= \text{P}\bigl[E^{(1)}\bigr] + \text{P}\bigl[E^{(2)}\bigr] \\
 &= \int_{-\infty}^{z^q_a} f^{(1)}_{Z^q_a}(t) \text{d}t + \int_{-\infty}^{z^q_a} f^{(2)}_{Z^q_a}(t) \text{d}t \\
 &= \int_{-\infty}^{z^q_a} \left(f^{(1)}_{Z^q_a}(t) + f^{(2)}_{Z^q_a}(t)\right) \text{d}t \\
-&= \frac{1}{q \left(z^q_a\right)^{1 - \frac{1}{q}}}\int_{-\infty}^{z^q_a} \left(\int_{-\infty}^{\infty}f_X(x_{ia})\left[f_X(x_{ia} - t) + f_X(x_{ia} + t)\right] \text{d}x_{ia}\right)\text{d}t, \\
+&= \frac{1}{q \left(z^q_a\right)^{1 - \frac{1}{q}}} \int_{-\infty}^{z^q_a} {\Biggl \{}{\Biggl(}\int_{-\infty}^{\infty}f_X(x_{ia}){\bigl[}f_X(x_{ia} - t) \\
+&\hspace{4.5cm}+ f_X(x_{ia} + t){\bigr]} \text{d}x_{ia}{\Biggr)}{\Biggr\}}\text{d}t,
 \end{aligned}
 \end{equation}
 %
@@ -334,7 +337,8 @@ It follows directly from the previous result (Eq.~\ref{eq:DqCDF}) that the densi
 \begin{equation}\label{eq:DqPDF}
 \begin{aligned}
 f_{Z^q_a}(z^q_a) &= \frac{\partial}{\partial z^q_a} F_{Z^q_a}(z^q_a) \\
-&= \frac{1}{q \left(z^q_a\right)^{1 - \frac{1}{q}}}\int_{-\infty}^{\infty} f_X(x_{ia})\left[f_X\left(x_{ia} - \left(z^q_a\right)^{1/q}\right) + f_X\left(x_{ia} + \left(z^q_a\right)^{1/q}\right)\right] \text{d}x_{ia},
+&= \frac{1}{q \left(z^q_a\right)^{1 - \frac{1}{q}}}\int_{-\infty}^{\infty} {\Biggl\{}f_X(x_{ia}){\biggl[}f_X\left(x_{ia} - \left(z^q_a\right)^{1/q}\right) \\
+&\hspace{4.5cm}+ f_X\left(x_{ia} + \left(z^q_a\right)^{1/q}\right){\biggr]}{\Biggr\}} \text{d}x_{ia},
 \end{aligned}
 \end{equation}
 %
@@ -437,8 +441,8 @@ Therefore, the asymptotic distribution of $D^{(q)}_{ij}$ for standard normal dat
 %
 \begin{equation}\label{eq:normalDistr}
 \begin{aligned}
-\mathcal{N}{\huge \Biggl(}&\left(2^q\frac{\Gamma\left(\frac{q + 1}{2}\right)}{\sqrt{\pi}}p\right)^{1/q}, \\
-&\frac{4^q p}{q^2 \left(\frac{2^q \Gamma\left(\frac{1}{2}q + \frac{1}{2}\right)}{\sqrt{\pi}}p\right)^{2\left(1 - \frac{1}{q}\right)}}\left[\frac{\Gamma\left(q + \frac{1}{2}\right)}{\sqrt{\pi}} - \frac{\Gamma^2\left(\frac{1}{2}q + \frac{1}{2}\right)}{\pi}\right]{\huge \Biggr)}.
+\mathcal{N}{\fontsize{0.7cm}{1pt}\selectfont \Biggl(}&\left(2^q\frac{\Gamma\left(\frac{q + 1}{2}\right)}{\sqrt{\pi}}p\right)^{1/q}, \\
+&\frac{4^q p}{q^2 \left(\frac{2^q \Gamma\left(\frac{1}{2}q + \frac{1}{2}\right)}{\sqrt{\pi}}p\right)^{2\left(1 - \frac{1}{q}\right)}}\left[\frac{\Gamma\left(q + \frac{1}{2}\right)}{\sqrt{\pi}} - \frac{\Gamma^2\left(\frac{1}{2}q + \frac{1}{2}\right)}{\pi}\right]{\fontsize{0.7cm}{1pt}\selectfont \Biggr)}.
 \end{aligned}
 \end{equation}
 
@@ -531,7 +535,9 @@ We provide a summary table of the moment estimates (Eq.~\ref{eq:uniformDistr}) f
 
 \subsection{Manhattan \texorpdfstring{($L_1$)}{}}
 
-With our general formulas for the asymptotic mean and variance (Eqs.~\ref{eq:normalDistr} and \ref{eq:uniformDistr}) for any value of $q \in \mathbb{N}$, we can simply substitute a particular value of $q$ in order to determine the asymptotic distribution of the corresponding distance $L_q$ metric. We demonstrate this with the example of the Manhattan metric ($L_1$) for standard normal and standard uniform data (Eq.~\ref{eq:D}, $q=1$).
+With our general formulas for the asymptotic 
+
+\noindent mean and variance (Eqs.~\ref{eq:normalDistr} and \ref{eq:uniformDistr}) for any value of $q \in \mathbb{N}$, we can simply substitute a particular value of $q$ in order to determine the asymptotic distribution of the corresponding distance $L_q$ metric. We demonstrate this with the example of the Manhattan metric ($L_1$) for standard normal and standard uniform data (Eq.~\ref{eq:D}, $q=1$).
 
 \subsubsection{Standard normal data}
 
@@ -574,15 +580,15 @@ Substituting $q=1$ into the formula of the asymptotic variance of $D^{(1)}_{ij}$
 %
 \begin{equation}\label{eq:uniformManVar}
 \begin{aligned}
-\text{Var}\left(D^{(1)}_{ij}\right) &= \frac{p}{1^2\left(\frac{2p}{(1 + 2)(1 + 1)}\right)^{2\left(1 - \frac{1}{1}\right)}} {\Large \Biggr\{}{\Biggl[}\frac{1}{(1 + 1)(2(1) + 1)}\\
-&\hspace{4.5cm}- \left(\frac{2}{(1 + 2)(1 + 1)}\right)^2{\Biggr]}{\Large \Biggr\}} \\
+\text{Var}\left(D^{(1)}_{ij}\right) &= \frac{p}{1^2\left(\frac{2p}{(1 + 2)(1 + 1)}\right)^{2\left(1 - \frac{1}{1}\right)}} {\fontsize{0.5cm}{1pt}\selectfont \Biggr\{}{\Biggl[}\frac{1}{(1 + 1)(2(1) + 1)}\\
+&\hspace{4.5cm}- \left(\frac{2}{(1 + 2)(1 + 1)}\right)^2{\Biggr]}{\fontsize{0.5cm}{1pt}\selectfont \Biggr\}} \\
 &= \frac{p}{18}.
 \end{aligned}
 \end{equation}
 
 As in the case of the $L_1$ metric on standard normal data, we have a variance (Eq.~\ref{eq:uniformManVar}) that grows on the order of $p$. The distances between points in high-dimensional uniform data become more widely dispersed with this metric. The moment estimates given in this section (Eqs.~\ref{eq:uniformManMean} and \ref{eq:uniformManVar}) are summarized in a table that is organized by metric, data type, statistic (mean or variance), and asymptotic formula (Tab.~\ref{tab:dist_distr_standardL1L2}).
 
-\subsubsection{Distribution of one-dimensional projection of pairwise distance onto an attribute}\label{sec:continuous_diff}
+\subsubsection{Distribution of one-dimensional projected pairwise distance onto an attribute}\label{sec:continuous_diff}
 
 In nearest-neighbor distance-based feature selection like NPDR and Relief-based algorithms, the one-dimensional projection of the pairwise distance onto an attribute (Eq.~\ref{eq:diff}) is particularly fundamental to feature quality for association with an outcome. For instance, this distance projection is the predictor used to determine beta coefficients in NPDR. In particular, understanding distributional properties of the projected distances is necessary for defining pseudo P values for NPDR. In this section, we summarize the exact distribution of the one-dimensional projected distance onto an attribute $a \in \mathcal{A}$. These results apply to continuous data, such as gene expression. 
 
@@ -702,8 +708,8 @@ Substituting $q=2$ into the formula for the asymptotic variance of $D^{(2)}_{ij}
 %
 \begin{equation}\label{eq:uniformEucVar}
 \begin{aligned}
-\text{Var}\left(D^{(2)}_{ij}\right) &= \frac{p}{2^2\left(\frac{2p}{(2 + 2)(2 + 1)}\right)^{2\left(1 - \frac{1}{2}\right)}} {\Large \Biggl\{}{\Biggl[}\frac{1}{(2 + 1)(2(2) + 1)} \\
-&\hspace{4.5cm}- \left(\frac{2}{(2 + 2)(2 + 1)}\right)^2{\Biggr]}{\Large \Biggr\}} \\
+\text{Var}\left(D^{(2)}_{ij}\right) &= \frac{p}{2^2\left(\frac{2p}{(2 + 2)(2 + 1)}\right)^{2\left(1 - \frac{1}{2}\right)}} {\fontsize{0.5cm}{1pt}\selectfont \Biggl\{}{\Biggl[}\frac{1}{(2 + 1)(2(2) + 1)} \\
+&\hspace{4.5cm}- \left(\frac{2}{(2 + 2)(2 + 1)}\right)^2{\Biggr]}{\fontsize{0.5cm}{1pt}\selectfont \Biggr\}} \\
 &= \frac{7}{120}.
 \end{aligned}
 \end{equation}
@@ -947,7 +953,8 @@ The variance of the max-min normalized distance (Eq.~\ref{eq:D*}) distribution i
 \begin{equation}\label{eq:max-min_D_var}
 \begin{aligned}
 \sigma^2_{D^{(q*)}_{ij}} &= \text{Var}\left[\left(\sum_{a \in \mathcal{A}}\left(\frac{|X_{ia} - X_{ja}|}{X^\text{max}_a - X^\text{min}_a}\right)^q\right)^{1/q}\right] \\
-&= \text{E}\left[\left(\sum_{a \in \mathcal{A}}\left(\frac{|X_{ia} - X_{ja}|}{X^\text{max}_a - X^\text{min}_a}\right)^q\right)^{2/q}\right] - \left(\text{E}\left[\left(\sum_{a \in \mathcal{A}}\left(\frac{|X_{ia} - X_{ja}|}{X^\text{max}_a - X^\text{min}_a}\right)^q\right)^{1/q}\right]\right)^2 \\
+&= \text{E}\left[\left(\sum_{a \in \mathcal{A}}\left(\frac{|X_{ia} - X_{ja}|}{X^\text{max}_a - X^\text{min}_a}\right)^q\right)^{2/q}\right] \\
+&\hspace{3cm}- \left(\text{E}\left[\left(\sum_{a \in \mathcal{A}}\left(\frac{|X_{ia} - X_{ja}|}{X^\text{max}_a - X^\text{min}_a}\right)^q\right)^{1/q}\right]\right)^2 \\
 &\approx \frac{\text{E}\left[\left(\displaystyle \sum_{a \in \mathcal{A}}|X_{ia} - X_{ja}|^q\right)^{2/q}\right]}{\text{E}[(X^\text{max}_a - X^\text{min}_a)^2]} - \frac{\left(\text{E}\left[\left(\displaystyle \sum_{a \in \mathcal{A}}|X_{ia} - X_{ja}|^q\right)^{1/q}\right]\right)^2}{\text{E}[(X^\text{max}_a - X^\text{min}_a)^2]} \\
 &= \frac{\sigma^2_{D^{(q)}_{ij}} + \mu^2_{D^{(q)}_{ij}}}{\text{E}[(X^\text{max}_a - X^\text{min}_a)^2]} - \frac{\mu^2_{D^{(q)}_{ij}}}{\text{E}[(X^\text{max}_a - X^\text{min}_a)^2]} \\
 &= \frac{\sigma^2_{D^{(q)}_{ij}}}{\text{E}[(X^\text{max}_a - X^\text{min}_a)^2]} \\
@@ -961,7 +968,10 @@ where $m$ is the size of the sample from which extremes are derived, $\mu^{(1)}_
 With the mean (Eq.~\ref{eq:max-min_D_mean}) and variance (Eq.~\ref{eq:max-min_D_var}) of the max-min normalized distance (Eq.~\ref{eq:D*}), we have the following generalized estimate for the asymptotic distribution of the max-min normalized distance distribution
 %
 \begin{equation}\label{eq:max-min-DDistr-general}
-D^{(q*)}_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{\mu_{D^{(q)}_{ij}}}{\mu^{(1)}_\text{max}(m) - \mu^{(1)}_\text{min}(m)}, \frac{\sigma^2_{D^{(q)}_{ij}}}{\mu^{(2)}_\text{max}(m) - 2 \mu^{(1)}_\text{max}(m) \mu^{(1)}_\text{min}(m) + \mu^{(2)}_\text{min}(m)}\right),
+\begin{aligned}
+D^{(q*)}_{ij} \overset{.}{\sim} \mathcal{N}{\fontsize{0.5cm}{1pt}\selectfont \Biggl(}&\frac{\mu_{D^{(q)}_{ij}}}{\mu^{(1)}_\text{max}(m) - \mu^{(1)}_\text{min}(m)}, \\
+&\frac{\sigma^2_{D^{(q)}_{ij}}}{\mu^{(2)}_\text{max}(m) - 2 \mu^{(1)}_\text{max}(m) \mu^{(1)}_\text{min}(m) + \mu^{(2)}_\text{min}(m)}{\fontsize{0.5cm}{1pt}\selectfont \Biggr)},
+\end{aligned}
 \end{equation}
 %
 where $m$ is the size of the sample from which extremes are derived, $\mu^{(1)}_\text{max}(m)$ is the expected value of the sample maximum (Eq.~\ref{eq:mu_max}), and $\mu^{(1)}_\text{min}$ is the expected value of the sample minimum.
@@ -1182,7 +1192,9 @@ f_\text{min}(x) = m(1 - x)^{m-1},
 %
 where $m$ is the size of the sample from which extremes are derived.
 
-Then the expected maximum and minimum are computed through straightforward integration as follows
+Then the expected maximum and minimum are computed through 
+
+\noindent straightforward integration as follows
 %
 \begin{equation}\label{eq:mu_max_uniform}
 \begin{aligned}
@@ -1542,7 +1554,7 @@ Assuming that all data entries $X_{ia}$ are independent and identically distribu
 
 \subsection{GM distance distribution}
 
-The simplest distance metric in nearest-neighbor feature selection in GWAS data is the GM distance metric (Eq.~\ref{eq:D_GM}). The GM attribute diff (Eq.~\ref{eq:diff_GM}) indicates only whether two genotypes are the same or not. There are many ways two genotypes could differ, but this metric does not record this information. We will now derive the moments for the GM distance (Eq.~\ref{eq:D_GM}), which are sufficient for defining its corresponding asymptotic distribution.
+The simplest distance metric in nearest-neighbor feature selection in GWAS data is the genotype-mismatch (GM) distance metric (Eq.~\ref{eq:D_GM}). The GM attribute diff (Eq.~\ref{eq:diff_GM}) indicates only whether two genotypes are the same or not. There are many ways two genotypes could differ, but this metric does not record this information. We will now derive the moments for the GM distance (Eq.~\ref{eq:D_GM}), which are sufficient for defining its corresponding asymptotic distribution.
 
 The expected value of the GM attribute diff metric (Eq.~\ref{eq:diff_GM}) is given by the following
 %
@@ -1551,7 +1563,8 @@ The expected value of the GM attribute diff metric (Eq.~\ref{eq:diff_GM}) is giv
 \text{E}\left[\text{d}^\text{GM}_{ij}(a)\right] &= \sum_{k=0}^{1} k \cdot \text{P}\left[\text{d}^\text{GM}_{ij}(a) = k\right] \\
 &= 0 \cdot \text{P}\left[\text{d}^\text{GM}_{ij}(a) = 0\right] + 1 \cdot \text{P}\left[\text{d}^\text{GM}_{ij}(a) = 1\right] \\
 &= \text{P}\left[\text{d}^\text{GM}_{ij}(a) = 1\right] \\
-&= 2\text{P}[X_{ia} = 0, X_{ja} = 1] + 2\text{P}[X_{ia} = 1, X_{ja} = 2] + 2\text{P}[X_{ia} = 0, X_{ja} = 2] \\
+&= 2\text{P}[X_{ia} = 0, X_{ja} = 1] + 2\text{P}[X_{ia} = 1, X_{ja} = 2] \\
+&\hspace{4cm}+ 2\text{P}[X_{ia} = 0, X_{ja} = 2] \\
 &= 4(1 - f_a)^3f_a + 4(1 - f_a)f^3_a + 2(1 - f_a)^2f^2_a \\
 &= 2\left[2(1 - f_a)^3f_a + 2(1 - f_a)f^3_a + (1 - f_a)^2f^2_a\right] \\
 &= 2F^\text{GM}(a),
@@ -1581,13 +1594,17 @@ where $m$ is the number of instances (or sample size). This is because each inst
 The second moment about the origin for the GM distance is computed as follows
 %
 \begin{equation}\label{eq:mu2_DDistr_GM}
+\begin{split}
 \begin{aligned}
 \text{E}\left[\left(D^\text{GM}_{ij}\right)^2\right] &= \text{E}\left[\left(\sum_{a \in \mathcal{A}} \text{d}^\text{GM}_{ij}(a)\right)^2\right] \\
 &= \text{E}\left[\sum_{a \in \mathcal{A}} \left(\text{d}^\text{GM}_{ij}(a)\right)^2\right] + 2 \text{E}\left[\sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} \text{d}^\text{GM}_{ij}(r) \cdot \text{d}^\text{GM}_{ij}(s)\right] \\
-&= \sum_{a \in \mathcal{A}} \left(\sum_{k = 0}^{1} k^2 \cdot \text{P}\left[\text{d}^\text{GM}_{ij}(a) = k\right]\right) \\
-&+ 2\sum_{a \in \mathcal{A}} \sum_{s \leq r - 1} \left(\sum_{k = 0}^{1} k \cdot \text{P}\left[\text{d}^\text{GM}_{ij}(r) = k\right]\right) \cdot \left(\sum_{k = 0}^{1} k \cdot \text{P}\left[\text{d}^\text{GM}_{ij}(s) = k\right]\right) \\
+&= \sum_{a \in \mathcal{A}} \left(\sum_{k = 0}^{1} k^2 \cdot \text{P}\left[\text{d}^\text{GM}_{ij}(a) = k\right]\right)
+\end{aligned}\\
++ 2\sum_{a \in \mathcal{A}} \sum_{s \leq r - 1} \left(\sum_{k = 0}^{1} k \cdot \text{P}\left[\text{d}^\text{GM}_{ij}(r) = k\right]\right) \cdot \left(\sum_{k = 0}^{1} k \cdot \text{P}\left[\text{d}^\text{GM}_{ij}(s) = k\right]\right) \\
+\begin{aligned}
 &= 2\sum_{a \in \mathcal{A}} F^\text{GM}(a) + 8 \sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} \prod_{\lambda \in \{r,s\}} F^\text{GM}(\lambda),
 \end{aligned}
+\end{split}
 \end{equation}
 %
 where $F^\text{GM}(a) = 2(1 - f_a)^3f_a + 2(1 - f_a)f^3_a + (1 - f_a)^2f^2_a$ and $f_a$ is the probability of a minor allele occurring at locus $a$.
@@ -1597,7 +1614,8 @@ Using the first (Eq.~\ref{eq:mu_DDistr_GM}) and second (Eq.~\ref{eq:mu2_DDistr_G
 \begin{equation}\label{eq:var_DDistr_GM}
 \begin{aligned}
 \text{Var}\left(D^\text{GM}_{ij}\right) &= \text{E}\left[\left(D^\text{GM}_{ij}\right)^2\right] - \left[\text{E}\left(D^\text{GM}_{ij}\right)\right]^2 \\
-&= 2\sum_{a \in \mathcal{A}} F^\text{GM}(a) + 8\sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} \prod_{\lambda \in \{r,s\}} F^\text{GM}(\lambda) - 4\left(\sum_{a \in \mathcal{A}}F^\text{GM}(a)\right)^2 \\
+&= 2\sum_{a \in \mathcal{A}} F^\text{GM}(a) + 8\sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} \prod_{\lambda \in \{r,s\}} F^\text{GM}(\lambda) \\
+&\hspace{4cm}- 4\left(\sum_{a \in \mathcal{A}}F^\text{GM}(a)\right)^2 \\
 &= 2\sum_{a \in \mathcal{A}} F^\text{GM}(a) - 4\sum_{a \in \mathcal{A}}\left[F^\text{GM}(a)\right]^2 \\
 &= 2\sum_{a \in \mathcal{A}} F^\text{GM}(a)[1 - 2F^\text{GM}(a)],
 \end{aligned}
@@ -1624,10 +1642,12 @@ The expected value of the AM attribute diff metric (Eq.~\ref{eq:diff_AM}) is giv
 \begin{equation}\label{eq:mean_diff_AM}
 \begin{aligned}
 \text{E}\left[\text{d}^\text{AM}_{ij}(a)\right] &= \sum_{k \in \mathcal{D}} k \cdot \text{P}\left[\text{d}^\text{AM}_{ij}(a) = k\right] \\
-&= 0 \cdot \text{P}\left[\text{d}^\text{AM}_{ij}(a) = 0\right] + \frac{1}{2} \cdot \text{P}\left[\text{d}^\text{AM}_{ij}(a) = \frac{1}{2}\right] + 1 \cdot \text{P}\left[\text{d}^\text{AM}_{ij}(a) = 1\right] \\
+&= 0 \cdot \text{P}\left[\text{d}^\text{AM}_{ij}(a) = 0\right] + \frac{1}{2} \cdot \text{P}\left[\text{d}^\text{AM}_{ij}(a) = \frac{1}{2}\right] \\
+&\hspace{3.7cm}+ 1 \cdot \text{P}\left[\text{d}^\text{AM}_{ij}(a) = 1\right] \\
 &= \frac{1}{2}\left(2 \text{P}\left[X_{ia} = 0, X_{ja} = 1\right] + 2 \text{P}\left[X_{ia} = 1, X_{ja} = 2\right]\right) \\
-&+ 2 \text{P}\left[X_{ia} = 0, X_{ja} = 2\right] \\
-&= \text{P}\left[X_{ia} = 0, X_{ja} = 1\right] + \text{P}\left[X_{ia} = 1, X_{ja} = 2\right] + 2 \text{P}\left[X_{ia} = 0, X_{ja} = 2\right] \\
+&\hspace{4.8cm}+ 2 \text{P}\left[X_{ia} = 0, X_{ja} = 2\right] \\
+&= \text{P}\left[X_{ia} = 0, X_{ja} = 1\right] + \text{P}\left[X_{ia} = 1, X_{ja} = 2\right] \\
+&\hspace{4cm}+ 2 \text{P}\left[X_{ia} = 0, X_{ja} = 2\right] \\
 &= 2(1 - f_a)^3f_a + 2(1 - f_a)f^3_a + 2(1 - f_a)^2 f^2_a \\
 &= 2\left[(1 - f_a)^3f_a + (1 - f_a)f^3_a + (1 - f_a)^2 f^2_a\right] \\
 &= 2F^\text{AM}(a),
@@ -1651,13 +1671,17 @@ where $F^\text{AM}(a) = (1 - f_a)^3f_a + (1 - f_a)f^3_a + (1 - f_a)^2 f^2_a$ and
 The second moment about the origin for the AM distance is computed as follows
 %
 \begin{equation}\label{eq:mu2_DDistr_AM}
+\begin{split}
 \begin{aligned}
 \text{E}\left[\left(D^\text{AM}_{ij}\right)^2\right] &= \text{E}\left[\left(\sum_{a \in \mathcal{A}} \text{d}^\text{AM}_{ij}(a)\right)^2\right] \\
 &= \text{E}\left[\sum_{a \in \mathcal{A}} \left(\text{d}^\text{AM}_{ij}(a)\right)^2\right] + 2 \text{E}\left[\sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} \text{d}^\text{AM}_{ij}(r) \cdot \text{d}^\text{AM}_{ij}(s)\right] \\
-&= \sum_{a \in \mathcal{A}} \left(\sum_{k \in \mathcal{D}} k^2 \cdot \text{P}\left[\text{d}^\text{AM}_{ij}(a) = k\right]\right) \\
-&+ 2\sum_{a \in \mathcal{A}} \sum_{s \leq r - 1} \left(\sum_{k \in \mathcal{D}} k \cdot \text{P}\left[\text{d}^\text{AM}_{ij}(r) = k\right]\right) \cdot \left(\sum_{k \in \mathcal{D}} k \cdot \text{P}\left[\text{d}^\text{AM}_{ij}(s) = k\right]\right) \\
+&= \sum_{a \in \mathcal{A}} \left(\sum_{k \in \mathcal{D}} k^2 \cdot \text{P}\left[\text{d}^\text{AM}_{ij}(a) = k\right]\right)
+\end{aligned}\\
++ 2\sum_{a \in \mathcal{A}} \sum_{s \leq r - 1} \left(\sum_{k \in \mathcal{D}} k \cdot \text{P}\left[\text{d}^\text{AM}_{ij}(r) = k\right]\right) \cdot \left(\sum_{k \in \mathcal{D}} k \cdot \text{P}\left[\text{d}^\text{AM}_{ij}(s) = k\right]\right) \\
+\begin{aligned}
 &= \sum_{a \in \mathcal{A}} G^\text{AM}(a) + 8 \sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} \prod_{\lambda \in \{r,s\}} F^\text{AM}(\lambda),
 \end{aligned}
+\end{split}
 \end{equation}
 %
 where $G^\text{AM}(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a) + 2 (1 - f_a)^2 f^2_a$, $F^\text{AM}(\lambda) = (1 - f_\lambda)^3 f_\lambda + f^3_\lambda (1 - f_\lambda) + (1 - f_\lambda)^2 f^2_\lambda$, and $f_a$ is the probability of a minor allele occurring at locus $a$.
@@ -1690,10 +1714,10 @@ This concludes our analysis of the AM metric in GWAS data when the independence 
 The TiTv metric allows for one to account for both genotype mismatch, allele mismatch, transition, and transversion. However, this added dimension of information requires knowledge of the nucleotide makeup at a particular locus. A sufficient condition to compute the TiTv metric between instances $i,j \in \mathcal{I}$ is that we know whether the nucleotides associated with a particular locus $a$ are both purines (PuPu), purine and pyrimidine (PuPy), or both pyrimidines (PyPy). We illustrate all possibilities for transitions and transversions in a diagram (Fig.~\ref{fig:TiTv_diagram}). Purines (A and G) and pyrimidines (C and T) are shown at the top and bottom, respectively. Transitions occur in the cases of PuPu and PyPy, while transversion occurs only with PuPy encoding.
 
 \begin{figure}[H]
-\begin{minipage}[c]{0.62\textwidth}\hspace{-0.5cm}
-	\framebox{\includegraphics[width=0.95\textwidth]{TiTv_diagram2.pdf}}
-\end{minipage}\hspace{-0.3cm}
-\begin{minipage}[c]{0.35\textwidth}
+\begin{minipage}[c]{0.62\textwidth}
+	\framebox{\includegraphics[width=0.98\textwidth]{TiTv_diagram2.pdf}}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.34\textwidth}
 	\caption{Purines (A and G) and pyrimidines (C and T) are shown. Transitions occur when a mutation involves purine-to-purine or pyrimidine-to-pyrimidine insertion. Transversions occur when a purine-to-pyrimidine or pyrimidine-to-purine insertion happens, which is a more extreme case. There are visibly more possibilities for transversions to occur than there are transitions, but there are about twice as many transitions in real data.}\label{fig:TiTv_diagram}
 \end{minipage}
 \end{figure}
@@ -1721,7 +1745,9 @@ Using this PuPu, PuPy, and PyPy encoding, the probability of a transversion occu
 \end{aligned}
 \end{equation}
 
-Using the sum-to-one constraint (Eqs.~\ref{eq:TiTv_constraints1}) and the probability of transversion (Eq.~\ref{eq:TiTv_constraints2}), the probability of a transition occuring at locus $a$ is computed as follows
+Using the sum-to-one constraint (Eqs.~\ref{eq:TiTv_constraints1}) and the probability of
+
+\noindent transversion (Eq.~\ref{eq:TiTv_constraints2}), the probability of a transition occurring at locus $a$ is computed as follows
 %
 \begin{equation}\label{eq:prob_Ti}
 \begin{aligned}
@@ -1832,7 +1858,8 @@ Using the TiTv diff probabilities (Eqs.~\ref{eq:prob_TiTv_0}-\ref{eq:prob_TiTv_1
 \text{E}\left(D^\text{TiTv}_{ij}\right) &= \sum_{a \in \mathcal{A}} \left(\sum_{k \in \mathcal{D}} k \cdot \text{P}\left[\text{d}^\text{TiTv}_{ij}(a) = k\right]\right) \\
 &= (\gamma_0 + \gamma_2 + 2\gamma_1) \sum_{a \in \mathcal{A}} \left[(1 - f_a)^3 f_a + f^3_a (1 - f_a)\right] \\
 &+ \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} (1 - f_a)^2 f^2_a \\
-&= (\gamma_0 + \gamma_2 + 2\gamma_1) \sum_{a \in \mathcal{A}} F^\text{TiTv}(a) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G^\text{TiTv}(a),
+&= (\gamma_0 + \gamma_2 + 2\gamma_1) \sum_{a \in \mathcal{A}} F^\text{TiTv}(a)\\
+&\hspace{1.5cm} + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G^\text{TiTv}(a),
 \end{aligned}
 \end{equation}
 %
@@ -1845,11 +1872,14 @@ The second moment about the origin for the TiTv distance is computed as follows
 \begin{aligned}
 \text{E}\left[\left(D^\text{TiTv}_{ij}\right)^2\right] &= \text{E}\left[\left(\sum_{a \in \mathcal{A}} \text{d}^\text{TiTv}_{ij}(a)\right)^2\right] \\
 &= \text{E}\left[\sum_{a \in \mathcal{A}} \left(\text{d}^\text{TiTv}_{ij}(a)\right)^2\right] + 2 \text{E}\left[\sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} \text{d}^\text{TiTv}_{ij}(r) \cdot \text{d}^\text{TiTv}_{ij}(s)\right] \\
-&= \sum_{a \in \mathcal{A}} \left(\sum_{k \in \mathcal{D}} k^2 \cdot \text{P}\left[\text{d}^\text{TiTv}_{ij}(a) = k\right]\right) \\
-&+ 2\sum_{a \in \mathcal{A}} \sum_{s \leq r - 1} \left(\sum_{k \in \mathcal{D}} k \cdot \text{P}\left[\text{d}^\text{TiTv}_{ij}(r) = k\right]\right) \cdot \left(\sum_{k \in \mathcal{D}} k \cdot \text{P}\left[\text{d}^\text{TiTv}_{ij}(s) = k\right]\right) \\
+&= \sum_{a \in \mathcal{A}} \left(\sum_{k \in \mathcal{D}} k^2 \cdot \text{P}\left[\text{d}^\text{TiTv}_{ij}(a) = k\right]\right)
+\end{aligned}\\
++ 2\sum_{a \in \mathcal{A}} \sum_{s \leq r - 1} \left(\sum_{k \in \mathcal{D}} k \cdot \text{P}\left[\text{d}^\text{TiTv}_{ij}(r) = k\right]\right) \cdot \left(\sum_{k \in \mathcal{D}} k \cdot \text{P}\left[\text{d}^\text{TiTv}_{ij}(s) = k\right]\right) \\
+\begin{aligned}
 &= \left[\frac{1}{4}(\gamma_0 + \gamma_2) + \gamma_1\right] \sum_{a \in \mathcal{A}} F^\text{TiTv}(a) + \left[\frac{9}{8}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G^\text{TiTv}(a) \\
-\end{aligned} \\
-+ 2 \sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} \prod_{\lambda \in \{r,s\}} \left([\gamma_0 + \gamma_2 + 2\gamma_1] F^\text{TiTv}(\lambda) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] G^\text{TiTv}(\lambda)\right),
+&+ 2 \sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} \prod_{\lambda \in \{r,s\}} {\Biggl\{}{\biggl(}[\gamma_0 + \gamma_2 + 2\gamma_1] F^\text{TiTv}(\lambda) 
+\end{aligned}\\
++ \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] G^\text{TiTv}(\lambda){\biggr)}{\Biggr\}},
 \end{split}
 \end{equation}
 %
@@ -1861,11 +1891,14 @@ Using the first (Eq.~\ref{eq:mu_DDistr_TiTv}) and second (Eq.~\ref{eq:mu2_DDistr
 \begin{split}
 \begin{aligned}
 \text{Var}\left(D^\text{TiTv}_{ij}\right) &= \text{E}\left[\left(D^\text{TiTv}_{ij}\right)^2\right] - \left[\text{E}\left(D^\text{TiTv}_{ij}\right)\right]^2 \\
-&=\left[\frac{1}{4}(\gamma_0 + \gamma_2) + \gamma_1\right] \sum_{a \in \mathcal{A}} F^\text{TiTv}(a) + \left[\frac{9}{8}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G^\text{TiTv}(a)
-\end{aligned} \\
-+ 2 \sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} \prod_{\lambda \in \{r,s\}} \left([\gamma_0 + \gamma_2 + 2\gamma_1] F^\text{TiTv}(\lambda) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] G^\text{TiTv}(\lambda)\right) \\
+&=\left[\frac{1}{4}(\gamma_0 + \gamma_2) + \gamma_1\right] \sum_{a \in \mathcal{A}} F^\text{TiTv}(a) \\
+&+ \left[\frac{9}{8}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G^\text{TiTv}(a)\\
+&+ 2 \sum_{r \in \mathcal{A}} \sum_{s \leq r - 1} \prod_{\lambda \in \{r,s\}} {\Biggl\{}{\biggl(}[\gamma_0 + \gamma_2 + 2\gamma_1] F^\text{TiTv}(\lambda)\hphantom{space space spa}
+\end{aligned}\\
++ \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] G^\text{TiTv}(\lambda){\biggr)}{\Biggr\}} \\
 \begin{aligned}
-&- \left([\gamma_0 + \gamma_2 + 2\gamma_1] \sum_{a \in \mathcal{A}} F^\text{TiTv}(a) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G^\text{TiTv}(a)\right)^2 \\
+&- {\Biggl\{}{\biggl(}[\gamma_0 + \gamma_2 + 2\gamma_1] \sum_{a \in \mathcal{A}} F^\text{TiTv}(a) \\
+&\hspace{4cm}+ \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G^\text{TiTv}(a){\biggr)}{\Biggr\}}^2 \\
 &=\left[\frac{1}{4}(\gamma_0 + \gamma_2) + \gamma_1\right] \sum_{a \in \mathcal{A}} F^\text{TiTv}(a) + \left[\frac{9}{8}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G^\text{TiTv}(a) \\
 &- \sum_{a \in \mathcal{A}} \left([\gamma_0 + \gamma_2 + 2\gamma_1] F^\text{TiTv}(a) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] G^\text{TiTv}(a)\right)^2,
 \end{aligned}
@@ -1878,9 +1911,12 @@ With the mean (Eq.~\ref{eq:mu_DDistr_TiTv}) and variance (Eq.~\ref{eq:var_DDistr
 %
 \begin{equation}\label{eq:DDistr_TiTv}
 \begin{aligned}
-D^\text{TiTv}_{ij} \overset{.}{\sim} \mathcal{N}\Biggl(& (\gamma_0 + \gamma_2 + 2\gamma_1) \sum_{a \in \mathcal{A}} F^\text{TiTv}(a) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G^\text{TiTv}(a), \\
-&\left[\frac{1}{4}(\gamma_0 + \gamma_2) + \gamma_1\right] \sum_{a \in \mathcal{A}} F^\text{TiTv}(a) + \left[\frac{9}{8}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G^\text{TiTv}(a) \\
-&- \sum_{a \in \mathcal{A}} \left([\gamma_0 + \gamma_2 + 2\gamma_1] F^\text{TiTv}(a) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] G^\text{TiTv}(a)\right)^2\Biggr),
+D^\text{TiTv}_{ij} \overset{.}{\sim} \mathcal{N}{\fontsize{0.5cm}{1pt}\selectfont \Biggl(}& {\Biggl\{}(\gamma_0 + \gamma_2 + 2\gamma_1) \sum_{a \in \mathcal{A}} F^\text{TiTv}(a) \\
+&+ \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G^\text{TiTv}(a){\Biggr\}}, \\
+&{\Biggl\{}\left[\frac{1}{4}(\gamma_0 + \gamma_2) + \gamma_1\right] \sum_{a \in \mathcal{A}} F^\text{TiTv}(a) \\
+&+ \left[\frac{9}{8}(\gamma_0 + \gamma_2) + 2\gamma_1\right] \sum_{a \in \mathcal{A}} G^\text{TiTv}(a) \\
+&- \sum_{a \in \mathcal{A}} {\biggl(}[\gamma_0 + \gamma_2 + 2\gamma_1] F^\text{TiTv}(a) \\
+&+ \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] G^\text{TiTv}(a){\biggr)}^2{\Biggr\}}{\fontsize{0.5cm}{1pt}\selectfont \Biggr)},
 \end{aligned}
 \end{equation}
 %
@@ -1896,9 +1932,9 @@ The maximum TiTv distance occurs at $\bar{f}_a=0.5$ for any fixed Ti/Tv ratio $\
 
 % made with simulate_TiTv_distances.R and LaTeX
 \begin{figure}[H]
-\begin{minipage}[c]{0.65\textwidth}\hspace{-0.6cm}
+\begin{minipage}[c]{0.65\textwidth}
 	\includegraphics[width=0.98\textwidth]{TiTv_distance-vs-maf.pdf}
-\end{minipage}\hspace{-0.8cm}
+\end{minipage}\hfill
 \begin{minipage}[c]{0.35\textwidth}
 	\caption{Predicted average TiTv distance as a function of average minor allele frequency $\bar{f}_a$ (see Eq.~\ref{eq:avg_maf}). Success probabilities $f_a$ are drawn from a sliding window interval from 0.01 to 0.9 in increments of about 0.009 and $m=p=100$. For $\eta=0.1$, where $\eta$ is the Ti/Tv ratio given by Eq.~\ref{eq:TiTv_constraints1}, Tv is ten times more likely than Ti and results in larger distance. Increasing to $\eta=1$, Tv and Ti are equally likely and the distance is lower.  In line with real data for $\eta=2$, Tv is half as likely as Ti so the distances are relatively small.}\label{fig:TiTv-vs-maf}
 \end{minipage}
@@ -1966,7 +2002,7 @@ We conclude our treatment of GWAS distance metrics (Eqs.~\ref{eq:D_GM}-\ref{eq:D
 	\end{adjustbox}
 \end{table}
 
-\subsection{Distribution of one-dimensional projection of GWAS distance onto a SNP}\label{sec:GWAS_diff}
+\subsection{Distribution of one-dimensional projected GWAS distance onto a SNP}\label{sec:GWAS_diff}
 
 We previously derived the exact distribution of the one-dimensional projected distance onto an attribute in continuous data (Section~\ref{sec:continuous_diff}), which is used as the predictor in NPDR to calculate relative feature importance in the form of standardized beta coefficients. GWAS data and the metrics we have considered are discrete. Therefore, we derive the density function for each diff metric (Eqs.~\ref{eq:diff_GM}-\ref{eq:diff_TiTv}), which also serves as the probability distribution for each metric, respectively.
 
@@ -1974,7 +2010,8 @@ The support of the GM metric (Eq.~\ref{eq:diff_GM}) is simply $\{0,1\}$, so we d
 %
 \begin{equation}\label{eq:probGM0}
 \begin{aligned}
-f_\text{GM}(0;f_a) = \text{P}\left[\text{d}^\text{GM}_{ij}(a) = 0\right] &= \text{P}\left(X_{ia}=0,X_{ja}=0\right) + \text{P}\left(X_{ia}=1,X_{ja}=1\right) \\
+f_\text{GM}(0;f_a) &= \text{P}\left[\text{d}^\text{GM}_{ij}(a) = 0\right] \\
+&= \text{P}\left(X_{ia}=0,X_{ja}=0\right) + \text{P}\left(X_{ia}=1,X_{ja}=1\right) \\
 & \hspace{3.64cm} + \text{P}\left(X_{ia}=2,X_{ja}=2\right) \\
 &= \left(1 - f_a\right)^4 + 4 f^2_a \left(1 - f_a\right)^2 + f^4_a,
 \end{aligned}
@@ -1986,7 +2023,8 @@ Similarly, the probability that the GM diff is equal to 1 is derived as follows
 %
 \begin{equation}\label{eq:probGM1}
 \begin{aligned}
-f_\text{GM}(1;f_a) = \text{P}\left[\text{d}^\text{GM}_{ij}(a) = 1\right] &= 2\text{P}\left(X_{ia}=0,X_{ja}=1\right) + 2\text{P}\left(X_{ia}=1,X_{ia}=2\right) \\
+f_\text{GM}(1;f_a) &= \text{P}\left[\text{d}^\text{GM}_{ij}(a) = 1\right]\\
+&= 2\text{P}\left(X_{ia}=0,X_{ja}=1\right) + 2\text{P}\left(X_{ia}=1,X_{ia}=2\right) \\
 & \hspace{3.81cm} + 2\text{P}\left(X_{ia}=0,X_{ja}=2\right) \\
 &= 4\left(1 - f_a\right)^3 f_a + 4 f^3_a \left(1 - f_a\right) + 2 f^2_a \left(1 - f_a\right)^2,
 \end{aligned}
@@ -2025,8 +2063,8 @@ The support of the AM metric (Eq.~\ref{eq:diff_AM}) is $\{0,1/2,1\}$. Beginning 
 %
 \begin{equation}\label{eq:probAM0}
 \begin{aligned}
-f_\text{AM}(0;f_a) = \text{P}\left[\text{d}^\text{AM}_{ij}(a) = 0\right] &= 
-\text{P}\left(X_{ia}=0,X_{ja}=0\right) + \text{P}\left(X_{ia}=1,X_{ja}=1\right) \\
+f_\text{AM}(0;f_a) &= \text{P}\left[\text{d}^\text{AM}_{ij}(a) = 0\right] \\
+&= \text{P}\left(X_{ia}=0,X_{ja}=0\right) + \text{P}\left(X_{ia}=1,X_{ja}=1\right) \\
 & \hspace{3.64cm} + \text{P}\left(X_{ia}=2,X_{ja}=2\right) \\
 &= \left(1 - f_a\right)^4 + 4 f^2_a \left(1 - f_a\right)^2 + f^4_a,
 \end{aligned}
@@ -2038,7 +2076,8 @@ The probability of the AM diff metric being equal to 1/2 is computed similarly a
 %
 \begin{equation}\label{eq:probAM0.5}
 \begin{aligned}
-f_\text{AM}\left(1/2;f_a\right) = \text{P}\left[\text{d}^\text{AM}_{ij}(a) = 1/2\right] &= 2\text{P}\left(X_{ia}=0,X_{ja}=1\right) + 2\text{P}\left(X_{ia}=1,X_{ia}=2\right) \\
+f_\text{AM}\left(1/2;f_a\right) &= \text{P}\left[\text{d}^\text{AM}_{ij}(a) = 1/2\right] \\
+&= 2\text{P}\left(X_{ia}=0,X_{ja}=1\right) + 2\text{P}\left(X_{ia}=1,X_{ia}=2\right) \\
 &= 4 \left(1 - f_a\right)^3 f_a + 4 f^3_a \left(1 - f_a\right),
 \end{aligned}
 \end{equation}
@@ -2082,12 +2121,14 @@ The variance of the AM diff metric is given by
 \text{Var}\left[\text{d}^\text{AM}_{ij}(a)\right] = G^\text{AM}(a) - 4 \left[F^\text{AM}(a)\right]^2,
 \end{equation}
 %
-where $G^\text{AM}(a) = \left(1 - f_a\right)^3 f_a + f^3_a \left(1 - f_a\right) + 2\left(1 - f_a\right)^2 f^2_a$, $F^\text{AM}(a) = \left(1 - f_a\right)^3 f_a + f^3_a \left(1 - f_a\right) + f^2_a \left(1 - f_a\right)$, $f_a$ is the probability of a minor allele occurring at locus $a$.
+where $G^\text{AM}(a) = \left(1 - f_a\right)^3 f_a + f^3_a \left(1 - f_a\right) + 2\left(1 - f_a\right)^2 f^2_a$,
+
+\noindent $F^\text{AM}(a) = \left(1 - f_a\right)^3 f_a + f^3_a \left(1 - f_a\right) + f^2_a \left(1 - f_a\right)$, $f_a$ is the probability of a minor allele occurring at locus $a$.
 
 For the TiTv diff metric (Eq.~\ref{eq:diff_TiTv}), the support is $\{0,1/4,1/2,3/4,1\}$. We have already derived the probability that the TiTv diff assumes each of the values of its support (Eqs.~\ref{eq:prob_TiTv_0}-\ref{eq:prob_TiTv_1}). Therefore, we have the following distribution of the TiTv diff metric
 %
 \begin{equation}\label{eq:TiTvdiffPDF}
-f_\text{TiTv}(d;f_a,\gamma_0,\gamma_1,\gamma_2,\eta) = \begin{cases}
+f_\text{TiTv}(d;f_a,\gamma_0,\gamma_1,\gamma_2) = \begin{cases}
 \left(1 - f_a\right)^4 + 4 f^2_a \left(1 - f_a\right)^2 + f^4_a & d=0, \\
 4(\gamma_0 + \gamma_2)\left[\left(1 - f_a\right)^3 f_a + f^3_a \left(1 - f_a\right)\right] & d=1/4, \\
 4 \gamma_1 \left[\left(1 - f_a\right)^3 f_a + f^3_a \left(1 - f_a\right)\right] & d=1/2, \\
@@ -2112,8 +2153,10 @@ The variance of the TiTv diff metric is given by
 %
 \begin{equation}\label{eq:TiTvdiffVar}
 \begin{aligned}
-\text{Var}\left[\text{d}^\text{TiTv}_{ij}(a)\right] &= \left[\frac{1}{4}(\gamma_0 + \gamma_2) + \gamma_1\right] F^\text{TiTv}(a) + \left[\frac{9}{8}(\gamma_0 + \gamma_2) + 2\gamma_1\right] G^\text{TiTv}(a) \\
-&- \left((\gamma_0 + \gamma_2 + 2\gamma_1)F^\text{TiTv}(a) + \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] G^\text{TiTv}(a)\right)^2,
+\text{Var}\left[\text{d}^\text{TiTv}_{ij}(a)\right] &= \left[\frac{1}{4}(\gamma_0 + \gamma_2) + \gamma_1\right] F^\text{TiTv}(a) \\
+&\hspace{3cm}+ \left[\frac{9}{8}(\gamma_0 + \gamma_2) + 2\gamma_1\right] G^\text{TiTv}(a) \\
+&- {\Biggl\{}{\biggl(}(\gamma_0 + \gamma_2 + 2\gamma_1)F^\text{TiTv}(a) \\
+&\hspace{3cm}+ \left[\frac{3}{2}(\gamma_0 + \gamma_2) + 2\gamma_1\right] G^\text{TiTv}(a){\biggr)}{\Biggr\}}^2,
 \end{aligned}
 \end{equation}
 %
@@ -2153,10 +2196,10 @@ and ending indices are given by
 These indices allow use to extract just the rows necessary to compute the rs-fMRI diff for a fixed ROI. 
 
 \begin{figure}[H]
-\begin{minipage}[c]{0.7\textwidth}\hspace{-0.6cm}
+\begin{minipage}[c]{0.7\textwidth}
 	\includegraphics[width=0.95\textwidth]{rs_fmri_all_instance_matrix.pdf}
-\end{minipage}\hspace{-0.8cm}
-\begin{minipage}[c]{0.3\textwidth}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.29\textwidth}
 	\caption{Resting-state fMRI transformed subject correlation matrices. Each column corresponds to an instance (or subject) $I_j$ and each column corresponds to an ROI (or feature). The notation $\hat{A}^{(j)}_{ak}$ represents the r-to-z transformed correlation between ROIs $a$ and $k \neq a$ for instance $j$.}\label{fig:rs-fMRI_matrix}
 \end{minipage}
 \end{figure}
@@ -2242,7 +2285,9 @@ where $\beta_0$ and $\beta_1$ are the coefficients we must estimate in order to 
 The coefficient estimates found through least squares fitting are $\beta_0 = - \beta_1 \approx 0.08$. These estimates allow us to arrive at a functional form for the double sum in the right-hand side of the rs-fMRI distance variance equation (Eq.~\ref{eq:var_DDistr_rs-fMRI}) that is proportional to $\frac{2p(\pi-2)(p-1)}{\pi}$. That is, we have the following formula for approximating the double sum
 %
 \begin{equation}\label{eq:estimate_cov_form}
-2\sum_{a = 1}^{p-1} \sum_{r=a+1}^{p-1} \text{Cov}\left(\sum_{k=a+1}^{p} 2\left|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\right|, \sum_{s=r+1}^{p} 2\left|\hat{A}^{(i)}_{rs} - \hat{A}^{(j)}_{rs}\right|\right) \approx \frac{p(\pi - 2)(p - 1)}{4\pi}.
+\begin{aligned}
+&2\sum_{a = 1}^{p-1} \sum_{r=a+1}^{p-1} \text{Cov}\left(\sum_{k=a+1}^{p} 2\left|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\right|, \sum_{s=r+1}^{p} 2\left|\hat{A}^{(i)}_{rs} - \hat{A}^{(j)}_{rs}\right|\right) \\ &\hspace{3.5cm}\approx \frac{p(\pi - 2)(p - 1)}{4\pi}.
+\end{aligned}
 \end{equation}
 
 Therefore, the variance of the rs-fMRI distances is approximated well by the following
@@ -2270,7 +2315,10 @@ D^\text{fMRI*}_{ij} = \sum_{a \in \mathcal{A}} \sum_{k \neq a} \frac{\left|A^{(i
 Assuming that the data $X$ has been r-to-z transformed and standardized, we can easily compute the expected attribute range and variance of the attribute range. The expected maximum of a given attribute in data matrix $X$ is estimated by the following
 %
 \begin{equation}\label{eq:mean_max_rs-fMRI}
-\text{E}\left(X^\text{max}_a - X^\text{min}_a\right) = 2\mu^{(1)}_\text{max}(m,p) = 2 \left[\frac{\text{log}(\text{log}(2))}{\Phi^{-1}\left(\frac{1}{m(p-1)}\right)} - \Phi^{-1}\left(\frac{1}{m(p-1)}\right)\right].
+\begin{aligned}
+\text{E}\left(X^\text{max}_a - X^\text{min}_a\right) &= 2\mu^{(1)}_\text{max}(m,p) \\
+&= 2 \left[\frac{\text{log}(\text{log}(2))}{\Phi^{-1}\left(\frac{1}{m(p-1)}\right)} - \Phi^{-1}\left(\frac{1}{m(p-1)}\right)\right].
+\end{aligned}
 \end{equation}
 
 The variance can be esimated with the following
