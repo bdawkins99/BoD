@@ -62,10 +62,10 @@
 \runtitle{nearest-neighbor distances in high dimensions}
 
 \begin{aug}
-	\author{\fnms{Bryan} \snm{Dawkins}\thanksref{t1,t2,m1}\ead[label=e1]{bryan-dawkins@utulsa.edu}},
-	\author{\fnms{Trang} \snm{Le}\thanksref{t3,m1,m2}\ead[label=e2]{trang-le@utulsa.edu}}
-	\and
-	\author{\fnms{Brett} \snm{McKinney}\thanksref{t1,m2}
+	\author{\fnms{Bryan A.} \snm{Dawkins}\thanksref{t1,t2,m1}\ead[label=e1]{bryan-dawkins@utulsa.edu}},
+	\author{\fnms{Trang T.} \snm{Le}\thanksref{t3,m1,m2}\ead[label=e2]{trang-le@utulsa.edu}}
+	\\
+	\and \author{\fnms{Brett A.} \snm{McKinney}\thanksref{t1,m2}
 		\ead[label=e3]{brett-mckinney@utulsa.edu}
 		\ead[label=u1,url]{insilico.utulsa.edu}}
 	
@@ -2471,13 +2471,13 @@ Without loss of generality, suppose that we have $X^{(m \times p)}$ where $X_{ia
 %
 where $r_{ij}$ is the correlation between features $i,j \in \mathcal{I}$ across all instances $m$. Distances generated on data without correlation closely approximate a Gaussian. The mean (Eq.~\ref{eq:normalEucMeanImproved}) and variance (Eq.~\ref{eq:normalEucVar}) of the uncorrelated distance distribution are given by substituting $p=100$ for the mean. As $\bar{r}_\text{abs}$ increases, we very quickly see positive skewness and increased variability in distances. The predicted and sample means, however, are approximately the same between correlated and uncorrelated distances due to linearity of the expectation operator. Because of the dependencies between features, the predicted variance of 1 for $L_2$ on standard normal data obviously no longer holds. 
 
-In order to introduce a controlled level of correlation between features, we created correlation matrices based on a random graph with specified connection probability, where features correspond to the vertices in each graph. We assigned high correlations to connected features from the random graph and low correlations to all non-connections. Using the upper-triangular cholesky factor $U$ for uncorrelated data matrix $X$, we computed the following product to create correlated data matrix $X^\text{corr}$
+In order to introduce a controlled level of correlation between features, we created correlation matrices based on a random graph with specified connection probability, where features correspond to the vertices in each graph. We assigned high correlations to connected features from the random graph and low correlations to all non-connections. Using the upper-triangular Cholesky factor $U$ for uncorrelated data matrix $X$, we computed the following product to create correlated data matrix $X^\text{corr}$
 %
 \begin{equation}\label{eq:cholesky}
 X^\text{corr} = X U^\text{T}.
 \end{equation}
 
-The new data matrix $X^\text{corr}$ has approximately the same correlation structure as the randomly generated correlation matrix created from a random graph. The cholesky method is a standard approach in creating correlated data sets.
+The new data matrix $X^\text{corr}$ has approximately the same correlation structure as the randomly generated correlation matrix created from a random graph. The Cholesky method is a standard approach in creating correlated data sets.
 %
 %\begin{figure}[H]
 %	\centering
@@ -2499,7 +2499,7 @@ In analogy to the previous section, we explore the effects of pairwise feature c
 
 For our correlation data-based metric
 
-\noindent (Eq.~\ref{eq:D_rs-fMRI}), we consider additional effects of correlation between features. Without loss of generality, we let $m=100$ and $p=30$. We show an illustration of the effects of correlated features in this context (Fig.~\ref{fig:null_vs_correlated_ridge}C). Based on the density estimates, it appears that correlation between features introduces positive skewness at low values of $\bar{r}_\text{abs}$. We introduced correlation to the transformed data matrix (Fig.~\ref{fig:rs-fMRI_matrix}) with the cholesky method used previously.
+\noindent (Eq.~\ref{eq:D_rs-fMRI}), we consider additional effects of correlation between features. Without loss of generality, we let $m=100$ and $p=30$. We show an illustration of the effects of correlated features in this context (Fig.~\ref{fig:null_vs_correlated_ridge}C). Based on the density estimates, it appears that correlation between features introduces positive skewness at low values of $\bar{r}_\text{abs}$. We introduced correlation to the transformed data matrix (Fig.~\ref{fig:rs-fMRI_matrix}) with the Cholesky method used previously.
 %
 %\begin{figure}[H]
 %	\centering
