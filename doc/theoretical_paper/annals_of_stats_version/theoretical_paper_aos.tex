@@ -884,8 +884,8 @@ Moving on to the distribution of sample minimum, the first raw moment is given b
 \begin{equation}\label{eq:mu_min}
 \begin{aligned}
 \mu^{(1)}_\text{min}(m) = \text{E}(X^\text{min}_a) &= \int_{-\infty}^{\infty}x f_\text{min}(x)\text{d}x \\
-&= \int_{-\infty}^{\infty}x \left(m [F_X(x)]^{m-1} f_X(x)\right)\text{d}x \\
-&= m \int_{-\infty}^{\infty}x f_X(x) [F_X(x)]^{m-1}\text{d}x,
+&= \int_{-\infty}^{\infty}x \left(m [1 - F_X(x)]^{m-1} f_X(x)\right)\text{d}x \\
+&= m \int_{-\infty}^{\infty}x f_X(x) [1 - F_X(x)]^{m-1}\text{d}x,
 \end{aligned}
 \end{equation}
 %
@@ -896,8 +896,8 @@ Similarly, the second raw moment of the distribution of sample minimum is given 
 \begin{equation}\label{eq:mu2_min}
 \begin{aligned}
 \mu^{(2)}_\text{min}(m) = \text{E}[(X^\text{min}_a)^2] &= \int_{-\infty}^{\infty}x^2 f_\text{min}(x)\text{d}x \\
-&= \int_{-\infty}^{\infty}x^2 \left(m [F_X(x)]^{m-1} f_X(x)\right)\text{d}x \\
-&= m \int_{-\infty}^{\infty}x^2 f_X(x) [F_X(x)]^{m-1}\text{d}x,
+&= \int_{-\infty}^{\infty}x^2 \left(m [1 - F_X(x)]^{m-1} f_X(x)\right)\text{d}x \\
+&= m \int_{-\infty}^{\infty}x^2 f_X(x) [1 - F_X(x)]^{m-1}\text{d}x,
 \end{aligned}
 \end{equation}
 %
@@ -2295,7 +2295,7 @@ S^2_{D^\text{fMRI}_{ij}} - \frac{2p(\pi-2)(p-1)}{\pi} = \beta_1 p^2 + \beta_0 p.
 %
 where $\beta_0$ and $\beta_1$ are the coefficients we must estimate in order to approximate the cross-covariance term in the right-hand side of the rs-fMRI distance variance equation (Eq.~\ref{eq:var_DDistr_rs-fMRI}).
 
-The coefficient estimates found through least squares fitting are $\beta_0 = - \beta_1 \approx 0.08$. These estimates allow us to arrive at a functional form for the double sum in the right-hand side of the rs-fMRI distance variance equation (Eq.~\ref{eq:var_DDistr_rs-fMRI}) that is proportional to $\frac{2p(\pi-2)(p-1)}{\pi}$. That is, we have the following formula for approximating the double sum
+The coefficient estimates found through least squares fitting are $\beta_1 = - \beta_0 \approx 0.08$. These estimates allow us to arrive at a functional form for the double sum in the right-hand side of the rs-fMRI distance variance equation (Eq.~\ref{eq:var_DDistr_rs-fMRI}) that is proportional to $\frac{2p(\pi-2)(p-1)}{\pi}$. That is, we have the following formula for approximating the double sum
 %
 \begin{equation}\label{eq:estimate_cov_form}
 \begin{aligned}

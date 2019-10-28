@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  28 OCT 2019 16:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  28 OCT 2019 17:09
 entering extended mode
 **./theoretical_paper_aoas.tex
 (theoretical_paper_aoas.tex
@@ -790,8 +790,8 @@ has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.258 
-       <./central_limit_hist_uniform-data.pdf>]
+l.258 	
+        <./central_limit_hist_uniform-data.pdf>]
 Overfull \hbox (32.17044pt too wide) has occurred while \output is active
  []
  []
@@ -1033,8 +1033,8 @@ has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1466 
-        <./updated_distributions_table(5-23-2019).pdf>]
+l.1466 	
+         <./updated_distributions_table(5-23-2019).pdf>]
 <updated_typical_metrics_table(normalized).pdf, id=918, 376.8248pt x 563.55441p
 t>
 File: updated_typical_metrics_table(normalized).pdf Graphic file (type pdf)
@@ -1052,8 +1052,8 @@ has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1510 
-        <./updated_typical_metrics_table.pdf>]
+l.1510 	
+         <./updated_typical_metrics_table.pdf>]
 Overfull \vbox (1.06044pt too high) has occurred while \output is active []
 
 
@@ -1066,8 +1066,8 @@ has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1510 
-        <./updated_typical_metrics_table(normalized).pdf>]
+l.1510 	
+         <./updated_typical_metrics_table(normalized).pdf>]
 Overfull \hbox (32.17044pt too wide) has occurred while \output is active
  []
  []
@@ -1188,8 +1188,8 @@ Overfull \hbox (32.17044pt too wide) has occurred while \output is active
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1759 \end{equation}
-                      <./TiTv_diagram2.pdf>]
+l.1759 	\end{equation}
+                       <./TiTv_diagram2.pdf>]
 Overfull \hbox (32.17044pt too wide) has occurred while \output is active
  []
  []
@@ -1240,8 +1240,8 @@ Overfull \hbox (32.17044pt too wide) has occurred while \output is active
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1963 
-        <./TiTv_distance-vs-maf.pdf>]
+l.1963 	
+         <./TiTv_distance-vs-maf.pdf>]
 <updated_distributions_table-gwas(5-23-2019).pdf, id=1211, 492.77701pt x 480.56
 538pt>
 File: updated_distributions_table-gwas(5-23-2019).pdf Graphic file (type pdf)
@@ -1259,8 +1259,8 @@ Overfull \hbox (32.17044pt too wide) has occurred while \output is active
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2016 \end{table}
-                   <./re_fig_5_BDedit.pdf>]
+l.2016 	\end{table}
+                    <./re_fig_5_BDedit.pdf>]
 Overfull \hbox (32.17044pt too wide) has occurred while \output is active
  []
  []
@@ -1270,8 +1270,8 @@ has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2021 
-        <./updated_distributions_table-gwas(5-23-2019).pdf>]
+l.2021 	
+         <./updated_distributions_table-gwas(5-23-2019).pdf>]
 Overfull \hbox (32.17044pt too wide) has occurred while \output is active
  []
  []
@@ -1338,8 +1338,8 @@ Overfull \hbox (32.17044pt too wide) has occurred while \output is active
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2257 
-        <./rs_fmri_all_instance_matrix.pdf>]
+l.2257 	
+         <./rs_fmri_all_instance_matrix.pdf>]
 Overfull \hbox (32.17044pt too wide) has occurred while \output is active
  []
  []
@@ -1391,8 +1391,8 @@ has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2466 
-        <./updated_distributions_table-rs-fMRI.pdf>]
+l.2466 	
+         <./updated_distributions_table-rs-fMRI.pdf>]
 <compared_moments_normal_manhattan5.pdf, id=1496, 798.03645pt x 432.58614pt>
 File: compared_moments_normal_manhattan5.pdf Graphic file (type pdf)
 <use compared_moments_normal_manhattan5.pdf>
@@ -1409,8 +1409,8 @@ Overfull \hbox (32.17044pt too wide) has occurred while \output is active
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2476 
-        <./compared_moments_normal_manhattan5.pdf>]
+l.2476 	
+         <./compared_moments_normal_manhattan5.pdf>]
 Overfull \hbox (32.17044pt too wide) has occurred while \output is active
  []
  []
@@ -1436,8 +1436,8 @@ Overfull \hbox (32.17044pt too wide) has occurred while \output is active
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2544 
-        <./null_corr_BryanEdit.pdf>]
+l.2544 	
+         <./null_corr_BryanEdit.pdf>]
 Overfull \hbox (32.17044pt too wide) has occurred while \output is active
  []
  []
@@ -1484,7 +1484,7 @@ Here is how much of TeX's memory you used:
  22288 multiletter control sequences out of 15000+200000
  33267 words of font info for 123 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,26n,48p,2668b,883s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,26n,48p,2669b,883s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb><
 C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Progr
 am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files
@@ -1522,7 +1522,7 @@ nts/cm/cmti9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
 tt9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10
 .pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Progr
 am Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on theoretical_paper_aoas.pdf (82 pages, 1765727 bytes).
+Output written on theoretical_paper_aoas.pdf (82 pages, 1765754 bytes).
 PDF statistics:
  1783 PDF objects out of 2073 (max. 8388607)
  347 named destinations out of 1000 (max. 500000)
