@@ -1,0 +1,153 @@
+ \newcommand{\noop}[1]{}
+\begin{thebibliography}{10}
+
+\bibitem{urbanowicz17}
+Ryan~J. Urbanowicz, Randal~S. Olson, Peter Schmitt, Melissa Meeker, and
+  Jason~H. Moore.
+\newblock Benchmarking relief-based feature selection methods for
+  bioinformatics data mining.
+\newblock {\em Journal of Biomedical Informatics}, 85:168--188, 2018.
+
+\bibitem{urbanowicz17b}
+Ryan~J. Urbanowicz, Melissa Meeker, William~La Cava, Randal~S. Olson, and
+  Jason~H. Moore.
+\newblock Relief-based feature selection: Introduction and review.
+\newblock {\em Journal of Biomedical Informatics}, 2018.
+
+\bibitem{robnik2003}
+Marko {R}obnik \v{S}ikonja and {I}gor {K}ononenko.
+\newblock Theoretical and {E}mpirical {A}nalysis of {R}elief{F} and
+  {R}{R}elief{F}.
+\newblock {\em Machine {L}earning}, 53:23 -- 69, February 2003.
+
+\bibitem{npdr}
+Trang~{T}. {L}e, {B}ryan {A}.~{D}awkins, and {B}rett {A}.~{M}c{K}inney.
+\newblock {Nearest-neighbor Projected-Distance Regression (NPDR) detects
+  network interactions and controls for confounding and multiple testing}.
+\newblock {\em Under Review}, 2019.
+
+\bibitem{arabnejad2018}
+M.~{A}rabnejad, {B}.~{A}. {D}awkins, {W}.~{S}. {B}ush, {B}.~{C}. {W}hite,
+  {A}.~{R}. {H}arkness, and {B}.~{A}. {M}c{K}inney.
+\newblock {Transition-transversion encoding and genetic relationship metfic in
+  ReliefF feature selection improves pathway enrichment in GWAS}.
+\newblock {\em {BioData Mining}}, 11(23), 2018.
+
+\bibitem{venkataraman2010}
+Archana {V}enkataraman, {M}arek {K}ubicki, {C}arl-{F}redrik {W}estin, and
+  {P}olina {G}olland.
+\newblock {Robust Feature Selection in Resting-State fMRI Connectivity Based on
+  Population Studies}.
+\newblock {\em {Conf Comput Vis Pattern Recognit Workshops}}, pages 63--70,
+  2010.
+
+\bibitem{hay2017}
+Etay {H}ay, {P}etra {R}itter, {N}ancy {J}.~{L}obaugh, and {A}nthony
+  {R}.~McIntosh.
+\newblock {Multiregional integration in the brain during resting-state fMRI
+  activity}.
+\newblock {\em {PLOS Computational Biology}}, March 2017.
+
+\bibitem{sundermann2014}
+Benedikt {S}undermann, {M}ona {O}lde~l\"{u}tke {B}everborg, and {B}ettina
+  {P}fleiderer.
+\newblock {Toward literature-based feature selection for diagnostic
+  classification: a meta-analysis of resting-state fMRI in depression}.
+\newblock {\em {Frontiers in Human Neuroscience}}, September 2014.
+
+\bibitem{vergun2013}
+Svyatoslav {V}ergun, {A}lok {S}.~{D}eshpande, {T}imothy {B}.~{M}eier, {J}ie
+  {S}ong, {D}ana {L}.~{T}udorascu, {V}eena {A}.~{N}air, {V}ikas {S}ingh,
+  {B}harat {B}.~{B}iswal, {M}. {E}lizabeth {M}everand, {R}asmus {M}.~{B}irn,
+  and {V}ivek {P}rabhakaran.
+\newblock {Characterizing functional connectivity differences in aging adults
+  using machine learning on resting state fMRI data}.
+\newblock {\em {Frontiers in Computational Neuroscience}}, April 2013.
+
+\bibitem{le17}
+Trang~T Le, W~Kyle Simmons, Masaya Misaki, Jerzy Bodurka, Bill~C White,
+  Jonathan Savitz, and Brett~A McKinney.
+\newblock Differential privacy-based evaporative cooling feature selection and
+  classification with relief-f and random forests.
+\newblock {\em Bioinformatics}, 33(18):2906--2913, 2017.
+
+\bibitem{gotts2012}
+Stephen~{J}. {G}otts, {W}. {K}yle {S}immons, {L}ydia {A}.~{M}ilbury, {G}regory
+  {L}.~{W}allace, {R}obert {W}.~{C}ox, and {A}lex {M}artin.
+\newblock {Fractionation of social brain circuits in autism spectrum
+  disorders}.
+\newblock {\em {Brain}}, 135:2711--2725, 2012.
+
+\bibitem{stir}
+Trang~T Le, Ryan~J Urbanowicz, Jason~H Moore, and Brett~A McKinney.
+\newblock Statistical inference relief (stir) feature selection.
+\newblock {\em Bioinformatics}, page bty788, 2018.
+
+\bibitem{mckinney13}
+{B}rett~{A} McKinney, {B}ill~{C} {W}hite, {D}iane~{E} {G}rill, {P}eter~{W}
+  {Li}, {R}ichard~{B} {K}ennedy, {G}regory~{A} {P}oland, and {A}nn~{L} {O}berg.
+\newblock {ReliefSeq: a gene-wise adaptive-K nearest-neighbor feature selection
+  tool for finding gene-gene interactions and main effects in mRNA-Seq gene
+  expression data}.
+\newblock {\em {PloS one}}, 8(12):e81527, 2013.
+
+\bibitem{allStats}
+Larry {W}asserman.
+\newblock {\em All of {S}tatistics: {A} {C}oncise {C}ourse in {S}tatistical
+  {I}nference}.
+\newblock Springer, New York, NY, 2004.
+
+\bibitem{freund2004}
+Irwin {M}iller and {M}arylees {M}iller.
+\newblock {\em {John E. Freund's Mathematical Statistics with Applications}}.
+\newblock {Pearson Prentice Hall}, 7 edition, 2004.
+
+\bibitem{brazma2000}
+Alvis {B}razma and {J}aak {V}ilo.
+\newblock {Gene expression data analysis}.
+\newblock {\em {FEBS Letters}}, 480:17--24, June 2000.
+
+\bibitem{wang2018}
+Dongfang {W}ang and {J}in {G}u.
+\newblock {VASC: Dimension Reduction and Visualization of Single-cell RNA-seq
+  Data by Deep Variational Autoencoder}.
+\newblock {\em {Genomics Proteomics Bioinformatics}}, 16:320--331, December
+  2018.
+
+\bibitem{gumbel1947}
+E.~{J}. {G}umbel.
+\newblock {The Distribution of the Range}.
+\newblock {\em {The Annals of Mathematical Statistics}}, 18(3):384--412,
+  September 1947.
+
+\bibitem{chatterjee2014}
+Sourav {C}hatterjee.
+\newblock {\em {Superconcentration and Related Topics}}.
+\newblock 1439-7382. {Springer International Publishing}, 1 edition, 2014.
+
+\bibitem{cramer1999}
+Harald {C}ram\'{e}r.
+\newblock {\em {Mathematical Methods of Statistics}}, volume~1.
+\newblock Princeton University Press, reprint, revised edition, 1999.
+
+\bibitem{li2014}
+Pei {L}i, {M}aozu {G}uo, {C}hunyu {W}ang, {X}iaoyan {L}iu, and {Q}uan {Z}ou.
+\newblock {An overview of SNP interactions in genome-wide association studies}.
+\newblock {\em {Briefings in Functional Genomics}}, 14(2):143--155, September
+  2014.
+
+\bibitem{lee2013}
+Megan~{H}. {L}ee, {C}hristopher {D}.~{S}myser, and {J}oshua {S}.~{S}himony.
+\newblock {Resting state fMRI: A review of methods and clinical applications}.
+\newblock {\em {AJNR Am J Neuroradiol.}}, 34(10):1866--1872, October 2013.
+
+\bibitem{dickie2017}
+David {A}lexander {D}ickie, {S}usan {D}.~{S}henkin, {D}evasuda {A}nblagan,
+  {J}uyoung {L}ee, {M}anuel~{B}lesa {C}abez, {D}avid {R}odriguez, {J}ames
+  {P}.~{B}oardman, {A}dam {W}aldman, {D}ominic {E}.~{J}ob, and {J}oanna
+  {M}.~{W}ardlaw.
+\newblock {Whole Brain Magnetic Resonance Image Atlases: A Systematic Review of
+  Existing Atlases and Caveats for Use in Population Imaging}.
+\newblock {\em {Frontiers in Neuroinformatics}}, January 2017.
+
+\end{thebibliography}
