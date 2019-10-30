@@ -12,13 +12,13 @@
 \BOOKMARK [2][-]{subsection.2.3}{Euclidean }{section.2}% 12
 \BOOKMARK [3][-]{subsubsection.2.3.1}{Standard normal data}{subsection.2.3}% 13
 \BOOKMARK [3][-]{subsubsection.2.3.2}{Standard uniform data}{subsection.2.3}% 14
-\BOOKMARK [2][-]{subsection.2.4}{Distribution of max-min normalized \040metric}{section.2}% 15
+\BOOKMARK [2][-]{subsection.2.4}{Distributions of attribute range-normalized \040metric}{section.2}% 15
 \BOOKMARK [3][-]{subsubsection.2.4.1}{Standard normal data}{subsection.2.4}% 16
 \BOOKMARK [3][-]{subsubsection.2.4.2}{Standard uniform data}{subsection.2.4}% 17
-\BOOKMARK [2][-]{subsection.2.5}{Normalized Manhattan }{section.2}% 18
+\BOOKMARK [2][-]{subsection.2.5}{Range-Normalized Manhattan }{section.2}% 18
 \BOOKMARK [3][-]{subsubsection.2.5.1}{Standard normal data}{subsection.2.5}% 19
 \BOOKMARK [3][-]{subsubsection.2.5.2}{Standard uniform data}{subsection.2.5}% 20
-\BOOKMARK [2][-]{subsection.2.6}{Normalized Euclidean }{section.2}% 21
+\BOOKMARK [2][-]{subsection.2.6}{Range-Normalized Euclidean }{section.2}% 21
 \BOOKMARK [3][-]{subsubsection.2.6.1}{Standard normal data}{subsection.2.6}% 22
 \BOOKMARK [3][-]{subsubsection.2.6.2}{Standard uniform data}{subsection.2.6}% 23
 \BOOKMARK [1][-]{section.3}{GWAS distance distributions}{}% 24
@@ -34,7 +34,7 @@
 \BOOKMARK [1][-]{section.6}{Effects of correlation on distances}{}% 34
 \BOOKMARK [2][-]{subsection.6.1}{Continuous data}{section.6}% 35
 \BOOKMARK [2][-]{subsection.6.2}{GWAS data}{section.6}% 36
-\BOOKMARK [2][-]{subsection.6.3}{Correlation-based data}{section.6}% 37
+\BOOKMARK [2][-]{subsection.6.3}{Time-series derived correlation-based datasets}{section.6}% 37
 \BOOKMARK [1][-]{section.7}{Discussion}{}% 38
 \BOOKMARK [1][-]{section*.4}{References}{}% 39
 \BOOKMARK [1][-]{section*.5}{Author's addresses}{}% 40

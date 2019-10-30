@@ -26,6 +26,19 @@ Trang~{T}. {L}e, {B}ryan {A}.~{D}awkins, and {B}rett {A}.~{M}c{K}inney.
   network interactions and controls for confounding and multiple testing}.
 \newblock {\em Under Review}, 2019.
 
+\bibitem{stir}
+Trang~T Le, Ryan~J Urbanowicz, Jason~H Moore, and Brett~A McKinney.
+\newblock Statistical inference relief (stir) feature selection.
+\newblock {\em Bioinformatics}, page bty788, 2018.
+
+\bibitem{mckinney13}
+{B}rett~{A} McKinney, {B}ill~{C} {W}hite, {D}iane~{E} {G}rill, {P}eter~{W}
+  {Li}, {R}ichard~{B} {K}ennedy, {G}regory~{A} {P}oland, and {A}nn~{L} {O}berg.
+\newblock {ReliefSeq: a gene-wise adaptive-K nearest-neighbor feature selection
+  tool for finding gene-gene interactions and main effects in mRNA-Seq gene
+  expression data}.
+\newblock {\em {PloS one}}, 8(12):e81527, 2013.
+
 \bibitem{arabnejad2018}
 M.~{A}rabnejad, {B}.~{A}. {D}awkins, {W}.~{S}. {B}ush, {B}.~{C}. {W}hite,
   {A}.~{R}. {H}arkness, and {B}.~{A}. {M}c{K}inney.
@@ -77,19 +90,6 @@ Stephen~{J}. {G}otts, {W}. {K}yle {S}immons, {L}ydia {A}.~{M}ilbury, {G}regory
 \newblock {Fractionation of social brain circuits in autism spectrum
   disorders}.
 \newblock {\em {Brain}}, 135:2711--2725, 2012.
-
-\bibitem{stir}
-Trang~T Le, Ryan~J Urbanowicz, Jason~H Moore, and Brett~A McKinney.
-\newblock Statistical inference relief (stir) feature selection.
-\newblock {\em Bioinformatics}, page bty788, 2018.
-
-\bibitem{mckinney13}
-{B}rett~{A} McKinney, {B}ill~{C} {W}hite, {D}iane~{E} {G}rill, {P}eter~{W}
-  {Li}, {R}ichard~{B} {K}ennedy, {G}regory~{A} {P}oland, and {A}nn~{L} {O}berg.
-\newblock {ReliefSeq: a gene-wise adaptive-K nearest-neighbor feature selection
-  tool for finding gene-gene interactions and main effects in mRNA-Seq gene
-  expression data}.
-\newblock {\em {PloS one}}, 8(12):e81527, 2013.
 
 \bibitem{allStats}
 Larry {W}asserman.
