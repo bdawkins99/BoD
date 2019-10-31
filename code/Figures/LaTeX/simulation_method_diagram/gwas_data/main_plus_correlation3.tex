@@ -1,0 +1,74 @@
+\documentclass[dvipsnames,border=3pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{shapes}
+\usepackage{enumitem}
+\usepackage{bm}
+\usepackage{mathdots}
+\usepackage{amsmath}
+\usetikzlibrary{shadings}
+\usetikzlibrary{decorations.pathreplacing}
+\usepackage{helvet}
+\usetikzlibrary{arrows.meta}
+\usepackage{graphicx}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{filecontents}
+\usetikzlibrary{plotmarks}
+\pgfplotsset{compat=newest}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{mylightgray}{cmyk}{0,0,0,0.1}
+\usetikzlibrary{arrows,decorations.pathmorphing,backgrounds,fit,positioning,shapes.symbols,chains}
+
+\begin{document}
+
+\begin{tikzpicture}
+    % trim=left botm right top
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% box 5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    \node[draw, rounded corners=4, line width=0.3mm, text width=6.2cm, text height=4.7cm] at (7.1,-2.9) {};
+    %\node[circle,draw,line width=0.2mm,xscale=1.2,yscale=1.2,fill=GreenYellow] at (4.79,0.05) {};
+    %\node at (4.79,0.05) {\textbf{3}};
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% box 5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% correlation matrices %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    %\node[draw,rounded corners=2,line width=0.2mm,fill=gray!50,text height=0.35cm, text width=3.65cm,shading angle=45] at (7.2,-0.05) {}; % random graph
+    %\node[xscale=1.1,yscale=1.1] at (7.2,-0.05) {\textbf{Correlation Matrix}};
+    
+    \node[xscale=0.85,yscale=0.85] at (7,-1.7) {\bm{$P_{ij}$} $\bm{=}
+    	\begin{cases}
+    	\bm{\rho^\textbf{hi} + \varepsilon_{ij}} & \bm{A_{ij}=1} \\
+    	\bm{\rho^\textbf{lo} + \varepsilon_{ij}} & \bm{A_{ij}=0}
+    	\end{cases}$
+    };
+    
+    %\node[xscale=0.7,yscale=0.7] at (12.5,-1.5) {\bm{$P^{\text{case}}_{ij}$} $\bm{=}
+    %	\begin{cases}
+    %	\bm{b^\textbf{int} + \varepsilon_{ij}} & \bm{A_{ij}=1} \hspace{0.1cm} \bm{\&} \hspace{0.1cm} \bm{(i \in f \text{ or } j \in f)} \\
+    %	\bm{P^\text{ctrl}_{ij}} & \bm{A_{ij}=0}
+    %	\end{cases}$
+    %};
+    
+    % control matrix
+    
+    \node[xscale=1.5,yscale=1.5] at (7.1,-3.8) {\includegraphics[clip,trim=0.1cm 0.1cm 0.1cm 0.1cm]{correlation_matrix-main_plus_correlation.pdf}};
+    
+            
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% correlation matrices %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    \end{tikzpicture}
+    
+\end{document}
