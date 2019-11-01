@@ -16,6 +16,7 @@
 \usepackage{filecontents}
 \usetikzlibrary{plotmarks}
 \pgfplotsset{compat=newest}
+\usepackage{xcolor}
 
 \renewcommand{\familydefault}{\sfdefault}
 
@@ -32,12 +33,12 @@
     %\node at (7,-7.6) {\textbf{5}};
     
     % controls
-    \node[xscale=0.9,yscale=0.9] at (9,-8.2) {\bm{$p_\text{ctrl}=\frac{1 - \textcolor{black!5!purple}{b^\text{main}}}{2}$}};
+    \node[xscale=0.9,yscale=0.9] at (9,-8.2) {\bm{$p_\text{ctrl}=\frac{1 - \textcolor{violet}{b^\text{main}}}{2}$}};
     
     \node[xscale=0.9,yscale=0.9] at (8,-9.2) {For each \bm{$a \in \mathcal{A}$}};
     \node[xscale=0.9,yscale=0.9] at (9.235,-9.6) {For each \bm{$i=1,$}$\dots$\bm{$,m_\text{ctrl}$}};
     
-    \node[xscale=0.9,yscale=0.9] at (10,-10.2) {\bm{$\textcolor{black!5!purple}{X^\text{ctrl}_{ia}} \sim \mathcal{B}\left(n=2,p_\text{ctrl}\right)$}};
+    \node[xscale=0.9,yscale=0.9] at (10,-10.2) {\bm{$\textcolor{violet}{X^\text{ctrl}_{ia}} \sim \mathcal{B}\left(n=2,p_\text{ctrl}\right)$}};
     
     \draw[line width=0.2mm] (6.7,-9.2) -- (6.7,-11);
     \draw[line width=0.2mm] (6.7,-9.2) -- (6.8,-9.2);
@@ -48,12 +49,12 @@
     \draw[line width=0.2mm] (7.26,-10.7) -- (7.36,-10.7);
     
     % cases
-    \node[xscale=0.9,yscale=0.9] at (15,-8.2) {\bm{$p_\text{case}=\frac{1 + \textcolor{black!5!purple}{b^\text{main}}}{2}$}};
+    \node[xscale=0.9,yscale=0.9] at (15,-8.2) {\bm{$p_\text{case}=\frac{1 + \textcolor{violet}{b^\text{main}}}{2}$}};
     
     \node[xscale=0.9,yscale=0.9] at (14,-9.2) {For each \bm{$a \in \mathcal{A}$}};
     \node[xscale=0.9,yscale=0.9] at (15.235,-9.6) {For each \bm{$i=1,$}$\dots$\bm{$,m_\text{case}$}};
     
-    \node[xscale=0.9,yscale=0.9] at (16,-10.2) {\bm{$\textcolor{black!5!purple}{X^\text{case}_{ia}} \sim \mathcal{B}\left(n=2,p_\text{case}\right)$}};
+    \node[xscale=0.9,yscale=0.9] at (16,-10.2) {\bm{$\textcolor{violet}{X^\text{case}_{ia}} \sim \mathcal{B}\left(n=2,p_\text{case}\right)$}};
     
     \draw[line width=0.2mm] (12.7,-9.2) -- (12.7,-11);
     \draw[line width=0.2mm] (12.7,-9.2) -- (12.8,-9.2);
@@ -64,7 +65,7 @@
     \draw[line width=0.2mm] (13.26,-10.7) -- (13.36,-10.7);
     
     % combined main effect: case/control
-    \node[xscale=0.9,yscale=0.9] at (10.85,-12.1) {\bm{$\textcolor{black!5!purple}{X^\text{main}} =$}};
+    \node[xscale=0.9,yscale=0.9] at (10.85,-12.1) {\bm{$\textcolor{violet}{X^\text{main}} =$}};
     \draw[line width=0.2mm] (11.6,-11.5) -- (11.6,-12.7);
     \draw[line width=0.2mm] (12.6,-11.5) -- (12.6,-12.7);
     
@@ -76,8 +77,8 @@
     
     \draw[line width=0.2mm,dashed] (11.625,-12.1) -- (12.625,-12.1);
     
-    \node[xscale=0.9,yscale=0.9] at (12.1,-11.8) {\bm{$\textcolor{black!5!purple}{X^\textbf{ctrl}}$}};
-    \node[xscale=0.9,yscale=0.9] at (12.1,-12.4) {\bm{$\textcolor{black!5!purple}{X^\textbf{case}}$}};
+    \node[xscale=0.9,yscale=0.9] at (12.1,-11.8) {\bm{$\textcolor{violet}{X^\textbf{ctrl}}$}};
+    \node[xscale=0.9,yscale=0.9] at (12.1,-12.4) {\bm{$\textcolor{violet}{X^\textbf{case}}$}};
 
     \end{tikzpicture}
     

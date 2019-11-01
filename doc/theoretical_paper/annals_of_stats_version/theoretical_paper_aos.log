@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  31 OCT 2019 10:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  1 NOV 2019 11:37
 entering extended mode
 **./theoretical_paper_aos.tex
 (theoretical_paper_aos.tex
@@ -916,14 +916,6 @@ Overfull \hbox (22.72055pt too wide) has occurred while \output is active
  []
 
 [21]
-Overfull \hbox (4.40509pt too wide) in paragraph at lines 749--752
-\OT1/cmr/m/n/10.95 where $\OML/cmm/m/it/10.95 X$ \OT1/cmr/m/n/10.95 is the sub-
-ject x at-tribute nu-meric data ma-trix, $[](\OML/cmm/m/it/10.95 a\OT1/cmr/m/n/
-10.95 ) = []\OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 X[]\OMS/cmsy/m/n/10.95 g$\
-OT1/cmr/m/n/10.95 ,
- []
-
-
 Overfull \hbox (22.72055pt too wide) has occurred while \output is active
  []
  []
@@ -1318,28 +1310,23 @@ Package pdftex.def Info: rs_fmri_all_instance_matrix.pdf  used on input line 22
 11.
 (pdftex.def)             Requested size: 239.39818pt x 230.34384pt.
 
-Underfull \hbox (badness 3735) in paragraph at lines 2214--2214
-\OT1/cmr/m/it/9 cor-re-la-tion ma-tri-ces for
+Underfull \hbox (badness 2856) in paragraph at lines 2214--2214
+\OT1/cmr/m/it/9 fMRI cor-re-la-tion dataset
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2214--2214
-\OT1/cmr/m/it/9 cor-re-sponds to an in-
+Underfull \hbox (badness 1325) in paragraph at lines 2214--2214
+\OT1/cmr/m/it/9 con-sist-ing of trans-formed
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2214--2214
-\OT1/cmr/m/it/9 for an ROI at-tribute
+Underfull \hbox (badness 2460) in paragraph at lines 2214--2214
+\OT1/cmr/m/it/9 r-to-z trans-formed cor-re-
  []
 
 
-Underfull \hbox (badness 4805) in paragraph at lines 2214--2214
-\OT1/cmr/m/it/9 ($\OML/cmm/m/it/9 p$ \OT1/cmr/m/it/9 sets). The no-ta-tion
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2214--2214
-\OT1/cmr/m/it/9 trans-formed cor-re-la-tion
+Underfull \hbox (badness 4569) in paragraph at lines 2214--2214
+\OT1/cmr/m/it/9 la-tion be-tween at-tributes
  []
 
 
@@ -1510,7 +1497,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2589.
 Here is how much of TeX's memory you used:
  19110 strings out of 492946
  347197 string characters out of 3135528
- 437150 words of memory out of 3000000
+ 437156 words of memory out of 3000000
  22288 multiletter control sequences out of 15000+200000
  33267 words of font info for 123 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1552,7 +1539,7 @@ nts/cm/cmti9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
 tt9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10
 .pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Progr
 am Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on theoretical_paper_aos.pdf (82 pages, 1764319 bytes).
+Output written on theoretical_paper_aos.pdf (82 pages, 1764081 bytes).
 PDF statistics:
  1785 PDF objects out of 2073 (max. 8388607)
  347 named destinations out of 1000 (max. 500000)

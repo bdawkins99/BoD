@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  31 OCT 2019 19:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  1 NOV 2019 08:11
 entering extended mode
 **./mixed_simulation_diagram_gwas.tex
 (mixed_simulation_diagram_gwas.tex
@@ -777,48 +777,48 @@ LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <17.28> not available
 <interaction_simulation1.pdf, id=12, 212.6886pt x 107.4133pt>
 File: interaction_simulation1.pdf Graphic file (type pdf)
 <use interaction_simulation1.pdf>
-Package pdftex.def Info: interaction_simulation1.pdf  used on input line 50.
+Package pdftex.def Info: interaction_simulation1.pdf  used on input line 54.
 (pdftex.def)             Requested size: 206.99724pt x 101.72218pt.
 <interaction_simulation2.pdf, id=14, 221.22449pt x 107.4133pt>
 File: interaction_simulation2.pdf Graphic file (type pdf)
 <use interaction_simulation2.pdf>
-Package pdftex.def Info: interaction_simulation2.pdf  used on input line 52.
+Package pdftex.def Info: interaction_simulation2.pdf  used on input line 56.
 (pdftex.def)             Requested size: 215.53311pt x 101.72218pt.
 <interaction_simulation3.pdf, id=16, 416.69376pt x 155.84021pt>
 File: interaction_simulation3.pdf Graphic file (type pdf)
 <use interaction_simulation3.pdf>
-Package pdftex.def Info: interaction_simulation3.pdf  used on input line 54.
+Package pdftex.def Info: interaction_simulation3.pdf  used on input line 58.
 (pdftex.def)             Requested size: 411.0019pt x 150.14899pt.
 <interaction_simulation4.pdf, id=18, 164.3189pt x 77.53868pt>
 File: interaction_simulation4.pdf Graphic file (type pdf)
 <use interaction_simulation4.pdf>
-Package pdftex.def Info: interaction_simulation4.pdf  used on input line 56.
+Package pdftex.def Info: interaction_simulation4.pdf  used on input line 60.
 (pdftex.def)             Requested size: 158.62764pt x 71.84764pt.
 <interaction_simulation5_gwas.pdf, id=20, 195.0487pt x 141.55685pt>
 File: interaction_simulation5_gwas.pdf Graphic file (type pdf)
 <use interaction_simulation5_gwas.pdf>
-Package pdftex.def Info: interaction_simulation5_gwas.pdf  used on input line 5
-8.
+Package pdftex.def Info: interaction_simulation5_gwas.pdf  used on input line 6
+2.
 (pdftex.def)             Requested size: 189.35739pt x 135.86566pt.
 <interaction_simulation6_gwas.pdf, id=22, 189.35744pt x 118.79482pt>
 File: interaction_simulation6_gwas.pdf Graphic file (type pdf)
 <use interaction_simulation6_gwas.pdf>
 Package pdftex.def Info: interaction_simulation6_gwas.pdf  used on input line 6
-0.
+4.
 (pdftex.def)             Requested size: 183.66612pt x 113.10368pt.
 <main_effect_gwas.pdf, id=24, 337.3122pt x 184.23631pt>
 File: main_effect_gwas.pdf Graphic file (type pdf)
 <use main_effect_gwas.pdf>
-Package pdftex.def Info: main_effect_gwas.pdf  used on input line 62.
+Package pdftex.def Info: main_effect_gwas.pdf  used on input line 66.
 (pdftex.def)             Requested size: 331.62053pt x 178.54501pt.
 <mixed_effects_combining_main-interaction.pdf, id=26, 138.1431pt x 59.04459pt>
 File: mixed_effects_combining_main-interaction.pdf Graphic file (type pdf)
 <use mixed_effects_combining_main-interaction.pdf>
 Package pdftex.def Info: mixed_effects_combining_main-interaction.pdf  used on 
-input line 64.
+input line 68.
 (pdftex.def)             Requested size: 132.4519pt x 53.35359pt.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 68.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 72.
 [1
 
 {C:/Users/bdawk/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./interacti
@@ -827,10 +827,10 @@ pdf> <./interaction_simulation4.pdf> <./interaction_simulation5_gwas.pdf> <./in
 teraction_simulation6_gwas.pdf> <./main_effect_gwas.pdf> <./mixed_effects_combi
 ning_main-interaction.pdf>] (mixed_simulation_diagram_gwas.aux) ) 
 Here is how much of TeX's memory you used:
- 26561 strings out of 492946
- 698768 string characters out of 3135528
- 914034 words of memory out of 3000000
- 29974 multiletter control sequences out of 15000+200000
+ 26573 strings out of 492946
+ 699021 string characters out of 3135528
+ 914033 words of memory out of 3000000
+ 29986 multiletter control sequences out of 15000+200000
  8118 words of font info for 20 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  78i,8n,136p,754b,642s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -846,7 +846,7 @@ gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb><C:/Progra
 m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/M
 iKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/font
 s/type1/urw/helvetic/uhvr8a.pfb>
-Output written on mixed_simulation_diagram_gwas.pdf (1 page, 418925 bytes).
+Output written on mixed_simulation_diagram_gwas.pdf (1 page, 419064 bytes).
 PDF statistics:
  251 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

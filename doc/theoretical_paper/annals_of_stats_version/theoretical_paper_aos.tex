@@ -96,7 +96,7 @@
 \end{aug}
 
 \begin{abstract}
-	The performance of nearest-neighbor feature selection and prediction methods depends on the metric for computing neighborhoods and the distribution type of the underlying data. The effects of the distribution and metric, as well as the presence of correlation and interactions, are reflected in the expected moments of the distribution of pairwise distances. We derive general analytical expressions for the mean and variance of pairwise distances for $L_q$ metrics for Gaussian and uniform data with $p$ attributes and $m$ instances. We use extreme value theory to derive results for metrics that are normalized by the range of each attribute (max - min). In addition to these expressions applicable to the analysis of continuous data such as gene expression, we derive similar analytical expressions for a new metric for genetic variant (categorical) data in genome-wide association studies (GWAS). The diistance distributions account for minor allele frequency and transition/transversion ratio. We introduce a new metric for resting-state fMRI data that is applicable to correlation-based predictors derived from time series data. Derivations assume independent data, but empirically we also consider the effect of correlation.  
+	The performance of nearest-neighbor feature selection and prediction methods depends on the metric for computing neighborhoods and the distribution type of the underlying data. The effects of the distribution and metric, as well as the presence of correlation and interactions, are reflected in the expected moments of the distribution of pairwise distances. We derive general analytical expressions for the mean and variance of pairwise distances for $L_q$ metrics for Gaussian and uniform data with $p$ attributes and $m$ instances. We use extreme value theory to derive results for metrics that are normalized by the range of each attribute (max - min). In addition to these expressions applicable to the analysis of continuous data such as gene expression, we derive similar analytical expressions for a new metric for genetic variant (categorical) data in genome-wide association studies (GWAS). The distance distributions account for minor allele frequency and transition/transversion ratio. We introduce a new metric for resting-state fMRI data that is applicable to correlation-based predictors derived from time series data. Derivations assume independent data, but empirically we also consider the effect of correlation.  
 \end{abstract}
 
 \begin{keyword}[class=MSC]
@@ -554,7 +554,7 @@ With our general formulas for the asymptotic
 
 \subsubsection{Standard normal data}
 
-Substituting $q=1$ into the asymptotic formula for the mean $L_q$ distance (Eq.~\ref{eq:normalDistr}), we have the following for expected $L_1$ distance between two independently sample instances $i,j \in \mathcal{I}$ in standard normal data
+Substituting $q=1$ into the asymptotic formula for the mean $L_q$ distance (Eq.~\ref{eq:normalDistr}), we have the following for expected $L_1$ distance between two independently sampled instances $i,j \in \mathcal{I}$ in standard normal data
 %
 \begin{equation}\label{eq:normalManMean}
 \begin{aligned}
@@ -607,7 +607,7 @@ In nearest-neighbor distance-based feature selection like NPDR and Relief-based 
 
 In previous sections, we derived the exact density function (Eq.~\ref{eq:DqPDF}) and moments (Eqs.~\ref{eq:1DDqMean} and \ref{eq:1DDqVar}) for the distribution of $Z^q_a=|X_{ia}-X_{ja}|^q$. We then derived the exact density (Eq.~\ref{eq:normalPDF}) and moments (Eqs.~\ref{eq:1DnormalDqMean} and \ref{eq:1DnormalDqVar}) for standard normal data. Analogously, we formulated the exact density (Eq.~\ref{eq:uniformDqPDF}) and moments (Eqs.~\ref{eq:1DuniformDqMean} and \ref{eq:1DuniformDqVar}) for standard uniform data. From these exact densities and moments, we simply substitute $q=1$ to define the distribution of the one-dimensional projected distance onto an attribute $a \in \mathcal{A}$.
 
-Assuming data is standard normal, we substitute $q=1$ into the density function of $Z^q_a$ (Eq.~\ref{eq:normalPDF}) to arrive at the following density function
+Assuming data is standard normal, we substitute $q=1$ into the density function of $Z^q_a$ (Eq.~\ref{eq:normalPDF}) to arrive at the following
 %
 \begin{equation}\label{eq:projected_distance_density_normal1}
 \begin{aligned}
@@ -636,7 +636,7 @@ Substituting $q=1$ into Eq.~\ref{eq:1DnormalDqVar} for the variance, we have the
 
 These last few results (Eqs.~\ref{eq:projected_distance_density_normal1}-\ref{eq:1DnormalD1Var}) provide us with the distribution for NPDR predictors when the data is from the standard normal distribution. 
 
-If we have standard uniform data, we substitute $q=1$ into the density function of $Z^q_a$ (Eq.~\ref{eq:uniformDqPDF}) to obtain the following density function
+If we have standard uniform data, we substitute $q=1$ into the density function of $Z^q_a$ (Eq.~\ref{eq:uniformDqPDF}) to obtain the following
 %
 \begin{equation}\label{eq:projected_distance_density_uniform1}
 \begin{aligned}
@@ -663,7 +663,7 @@ Substituting $q=1$ into the formula for the variance of $Z^q_a$ (Eq.~\ref{eq:1Du
 \end{aligned}
 \end{equation}
 
-In the event that the data distribution is standard uniform, the density function (Eq.~\ref{eq:projected_distance_density_uniform1}), the mean (Eq.~\ref{eq:1DuniformD1Mean}, and the variance (Eq.~\ref{eq:1DuniformD1Var}) sufficiently define the distribution for NPDR predictors. The means (Eqs.~\ref{eq:1DnormalD1Mean} and \ref{eq:1DuniformD1Mean}) and variances (Eqs.\ref{eq:1DnormalD1Var} and \ref{eq:1DuniformD1Var}) come from the exact distribution of pairwise distances with respect to a single attribute $a \in \mathcal{A}$. This is the distribution of the so-called ``projection" of the pairwise distance onto a single attribute to which we have been referring, which is a direct implication from our more general derivations. In a similar manner, one can substitute any value of $q \geq 2$ into the general densities of $Z^q_a$ for standard normal (Eq.~\ref{eq:normalPDF}) and standard uniform (Eq.~\ref{eq:uniformDqPDF}) to derive the associated density of $Z^q_a = |X_{ia} - X_{ja}|^q$ for the given data type.
+In the event that the data distribution is standard uniform, the density function (Eq.~\ref{eq:projected_distance_density_uniform1}), the mean (Eq.~\ref{eq:1DuniformD1Mean}), and the variance (Eq.~\ref{eq:1DuniformD1Var}) sufficiently define the distribution for NPDR predictors. The means (Eqs.~\ref{eq:1DnormalD1Mean} and \ref{eq:1DuniformD1Mean}) and variances (Eqs.~\ref{eq:1DnormalD1Var} and \ref{eq:1DuniformD1Var}) come from the exact distribution of pairwise distances with respect to a single attribute $a \in \mathcal{A}$. This is the distribution of the so-called ``projection" of the pairwise distance onto a single attribute to which we have been referring, which is a direct implication from our more general derivations. In a similar manner, one can substitute any value of $q \geq 2$ into the general densities of $Z^q_a$ for standard normal (Eq.~\ref{eq:normalPDF}) and standard uniform (Eq.~\ref{eq:uniformDqPDF}) to derive the associated density of $Z^q_a = |X_{ia} - X_{ja}|^q$ for the given data type.
 
 \subsection{Euclidean \texorpdfstring{($L_2$)}{}}
 
@@ -748,7 +748,7 @@ For Relief-based methods \cite{robnik2003,urbanowicz17}, the standard numeric di
 \text{d}^{\text{num}}_{ij}(a) = \text{diff}(a,(i,j)) = \frac{|X_{ia} - X_{ja}|}{\text{max}(a) - \text{min}(a)},
 \end{equation}
 %
-where $X$ is the subject x attribute numeric data matrix, $\text{max}(a) = \displaystyle \max_{k \in \mathcal{I}}\{X_{ka}\}$, $\text{min}(a) = \displaystyle \min_{k \in \mathcal{I}}\{X_{ka}\}$, and $\mathcal{I} = \{1,2,\dots,m\}$. 
+where $X$ is the subject attribute numeric data matrix, $\text{max}(a) = \displaystyle \max_{k \in \mathcal{I}}\{X_{ka}\}$, $\text{min}(a) = \displaystyle \min_{k \in \mathcal{I}}\{X_{ka}\}$, and $\mathcal{I} = \{1,2,\dots,m\}$. 
 
 The pairwise distance using this max-min range-normalized diff metric is then computed as
 %
@@ -759,7 +759,7 @@ D^{(q*)}_{ij} &= \left(\sum_{a\in \mathcal{A}}|\text{d}_{ij}(a)|^q\right)^{1/q} 
 \end{aligned}
 \end{equation}
 
-In order to determine moments of asymptotic max-min normalized distance (Eq.~\ref{eq:normDiff}) distributions induced by, we must first derive the asymptotic extreme value distributions of the attribute maximum and minimum. Although the exact distribution of the maximum or minimum requires an assumption about the data distribution, the Fisher-Tippett-Gnedenko Theorem is an important result that allows one to generally categorize the extreme value distribution for a collection of independent and identically distributed random variables into one of three distributional families. This theorem does not, however, tell us the exact distribution of the maximum that we require in order to determine asymptotic results for the max-min normalized distance (Eq.~\ref{eq:D*}). We mention this theorem simply to provide some background on convergence of extreme values. Before stating the theorem, we first need the following definition
+In order to determine moments of asymptotic max-min normalized distance (Eq.~\ref{eq:normDiff}) distributions, we will first derive the asymptotic extreme value distributions of the attribute maximum and minimum. Although the exact distribution of the maximum or minimum requires an assumption about the data distribution, the Fisher-Tippett-Gnedenko Theorem is an important result that allows one to generally categorize the extreme value distribution for a collection of independent and identically distributed random variables into one of three distributional families. This theorem does not, however, tell us the exact distribution of the maximum that we require in order to determine asymptotic results for the max-min normalized distance (Eq.~\ref{eq:D*}). We mention this theorem simply to provide some background on convergence of extreme values. Before stating the theorem, we first need the following definition
 %
 \begin{definition}
 	A distribution $\mathcal{F}_X$ is said to be \textbf{degenerate} if its density function $f_X$ is the Dirac delta $\delta(x - c_0)$ centered at a constant $c_0 \in \mathbb{R}$, with corresponding distribution function $F_X$ defined as
@@ -777,7 +777,7 @@ In order to determine moments of asymptotic max-min normalized distance (Eq.~\re
 	%
 	\[\lim_{m \to \infty} \text{P}\left(\frac{X^\text{max}_a - c_m}{b_m} \leq x\right) = G_X(x),\]
 	%
-	\noindent where $G_X$ is a non-degenerate distribution function, then the limiting distribution $\mathcal{G}_X$ is in the Gumbel, Fr\'{e}chet, or Wiebull family.
+	\noindent where $G_X$ is a non-degenerate distribution function, then the limiting distribution $\mathcal{G}_X$ is in the Gumbel, Fr\'{e}chet, or Weibull family.
 \end{theorem}
 
 The three distribution families given in Theorem~\ref{thm:EVT} are actually special cases of the Generalized Extreme Value Distribution. In the context of extreme values, Theorem~\ref{thm:EVT} is analogous to the Central Limit Theorem for the distribution of sample mean.  Although we will not explicitly invoke this theorem, it does tell us something very important about the asymptotic behavior of sample extremes under certain necessary conditions. For illustration of this general phenomenon of sample extremes, we derive the distribution of the maximum for standard normal data to show that the limiting distribution is in the Gumbel family, which is a well known result. In the case of standard uniform data, we will derive the distribution of the maximum and minimum directly. Regardless of data type, the distribution of the sample maximum can be derived as follows
@@ -909,7 +909,7 @@ Using the first (Eq.~\ref{eq:mu_min}) and second (Eq.~\ref{eq:mu2_min}) raw mome
 \sigma^2_\text{min}(m) = \mu^{(2)}_\text{min}(m) - \left[\mu^{(1)}_\text{min}(m)\right]^2,
 \end{equation}
 %
-where $m$ is the sample size of the data from which the maximum is derived and $\mu^{(1)}_\text{min}(m)$ and $\mu^{(2)}_\text{min}$ are the first and second raw moments, respectively, of the distribution of sample maximum.
+where $m$ is the sample size of the data from which the maximum is derived and $\mu^{(1)}_\text{min}(m)$ and $\mu^{(2)}_\text{min}$ are the first and second raw moments, respectively, of the distribution of sample minimum.
 
 Using the expected attribute maximum (Eq.~\ref{eq:mu_max}) and minimum (Eq.~\ref{eq:mu_min}) for sample size $m$, the following expected attribute range results from linearity of the expectation operator
 %
@@ -922,7 +922,7 @@ Using the expected attribute maximum (Eq.~\ref{eq:mu_max}) and minimum (Eq.~\ref
 %
 where $\mu^{(1)}_\text{max}(m)$ is the expected sample maximum (Eq.~\ref{eq:mu_max}) and $\mu^{(1)}_\text{min}(m)$ is the expected sample minimum.
 
-For a data distribution that has zero skewness and support that is symmetric about 0, the expected attribute range (Eq.~\ref{eq:exp_rng}) can be simplified to the following expression
+For a data distribution whose density is an even function, the expected attribute range (Eq.~\ref{eq:exp_rng}) can be simplified to the following expression
 %
 \begin{equation}\label{eq:exp_rng_symm}
 \text{E}(X^\text{max}_a - X^\text{min}_a) = 2 \mu^{(1)}_\text{max}(m),
@@ -939,7 +939,7 @@ For large samples ($m >> 1$) from an exponential type distribution that has infi
 \end{aligned}
 \end{equation}
 
-Under the assumption of zero skewness, infinite support that is symmetric about 0, sufficiently large sample size $m$, and distribution of an exponential type for all moments, the variance of attribute range (Eq.~\ref{eq:var_rng}) simplifies to the following
+Under the assumption of zero skewness, infinite support and even density function, sufficiently large sample size $m$, and distribution of an exponential type for all moments, the variance of attribute range (Eq.~\ref{eq:var_rng}) simplifies to the following
 %
 \begin{equation}\label{eq:var_rng_symm}
 \begin{aligned}
@@ -989,7 +989,7 @@ D^{(q*)}_{ij} \overset{.}{\sim} \mathcal{N}{\fontsize{0.5cm}{1pt}\selectfont \Bi
 %
 where $m$ is the size of the sample from which extremes are derived, $\mu^{(1)}_\text{max}(m)$ is the expected value of the sample maximum (Eq.~\ref{eq:mu_max}), and $\mu^{(1)}_\text{min}$ is the expected value of the sample minimum.
 
-For data with zero skewness and support that is symmetric about 0, the expected sample maximum is the additive inverse of the expected sample minimum. This allows us to express the expected range-normalized pairwise distance (Eq.~\ref{eq:max-min_D_mean}) exclusively in terms of the expected sample maximum and results in the mean of Eq.~\ref{eq:max-min-DDistr-general} becoming
+For data with a density function that is even, the expected sample maximum is the additive inverse of the expected sample minimum. This allows us to express the expected range-normalized pairwise distance (Eq.~\ref{eq:max-min_D_mean}) exclusively in terms of the expected sample maximum and results in the mean of Eq.~\ref{eq:max-min-DDistr-general} becoming
 %
 \begin{equation}\label{eq:max-min_D_mean_symm}
 \mu_{D^{(q*)}_{ij}} \approx \frac{\mu_{D^{(q)}_{ij}}}{2\mu^{(1)}_\text{max}(m)},
@@ -1020,7 +1020,7 @@ We have now derived asymptotic estimates of the moments of the max-min normalize
 
 \subsubsection{Standard normal data}
 
-The standard normal distribution has zero skewness, infinite support that is symmetric about 0, and all moments. This implies that the corresponding mean and variance of the distribution of sample range can be expressed exclusively in terms of the sample maximum. Given the nature of the density function of the sample maximum for sample size $m$, the integration required to determine the moments (Eqs.~\ref{eq:mu_max} and \ref{eq:mu2_max}) is not possible. These moments can either be approximated numerically or we can use extreme value theory to determine the form of the asymptotic distribution of the sample maximum. Using the latter method, we will show that the asymptotic distribution of the sample maximum for standard normal data is in the Gumbel family. Let $c_m = -\Phi^{-1}\left(\frac{1}{m}\right)$ and $b_m = \frac{1}{c_m}$, where $\Phi$ is the standard normal cumulative distribution function. Using Taylor's Theorem, we have the following expansion
+The standard normal distribution has zero skewness, even density function, infinite support, and all moments. This implies that the corresponding mean and variance of the distribution of sample range can be expressed exclusively in terms of the sample maximum. Given the nature of the density function of the sample maximum for sample size $m$, the integration required to determine the moments (Eqs.~\ref{eq:mu_max} and \ref{eq:mu2_max}) is not possible. These moments can either be approximated numerically or we can use extreme value theory to determine the form of the asymptotic distribution of the sample maximum. Using the latter method, we will show that the asymptotic distribution of the sample maximum for standard normal data is in the Gumbel family. Let $c_m = -\Phi^{-1}\left(\frac{1}{m}\right)$ and $b_m = \frac{1}{c_m}$, where $\Phi$ is the standard normal cumulative distribution function. Using Taylor's Theorem, we have the following expansion
 %
 \begin{equation}\label{eq:log_expand}
 \begin{aligned}
@@ -1068,7 +1068,7 @@ This gives us the following approximation of the right-hand side of the expansio
 %
 where $m$ is the size of the sample from which the maximum is derived.
 
-Using the approximation of expansion given previously (Eq.~\ref{eq:approx_log_expand}), we now derive the limit distribution for the sample maximum in standard normal data as
+Using the approximation of the expansion given previously (Eq.~\ref{eq:approx_log_expand}), we now derive the limit distribution for the sample maximum in standard normal data as follows
 %
 \begin{equation}\label{eq:prob_normal_max}
 \begin{aligned}
@@ -1121,7 +1121,7 @@ where $m$ is the size of the sample from which the maximum is derived.
 For typical sample sizes $m$ in high-dimensional spaces, the variance estimate (Eq.~\ref{eq:var_max_normal}) exceeds the variance of the sample maximum significantly. Using the fact that
 %
 \[
--\Phi^{-1}\left(\frac{1}{m}\right) \overset{.}{\sim} \sqrt{2 \text{log}(m)} \text{\cite{cramer1999}}
+-\Phi^{-1}\left(\frac{1}{m}\right) \overset{.}{\sim} \sqrt{2 \text{log}(m)}~\text{\cite{cramer1999}}
 \] 
 %
 and 
@@ -1177,7 +1177,7 @@ where $m$ is the size of the sample from which the maximum is derived, $\mu^{(1)
 
 \subsubsection{Standard uniform data}
 
-Standard uniform data does not have support that is symmetric about 0. Due to the simplicity of the density function, however, we can derive the distribution of the maximum and minimum of a sample of size $m$ explicitly. Using the general forms of the distribution functions of the maximum (Eq.~\ref{eq:exact_max_distr_fn}) and minimum (Eq.~\ref{eq:exact_min_distr_fn}), we have the following distribution functions for standard uniform data
+Standard uniform data does not have an even density function. Due to the simplicity of the density function, however, we can derive the distribution of the maximum and minimum of a sample of size $m$ explicitly. Using the general forms of the distribution functions of the maximum (Eq.~\ref{eq:exact_max_distr_fn}) and minimum (Eq.~\ref{eq:exact_min_distr_fn}), we have the following distribution functions for standard uniform data
 %
 \begin{equation}\label{eq:uniform_max_distr}
 F_\text{max}(x) = x^m
@@ -1268,7 +1268,7 @@ Substituting $q=1$ into the asymptotic formula for the expected max-min normaliz
 \end{aligned}
 \end{equation}
 %
-where $\mu^{(1)}_\text{max}(m)$ is the expected attribute maximum (Eq.~\ref{eq:med_max_normal}),$m$ is the size of the sample from which the maximum is derived, and $p$ is the total number of attributes.
+where $\mu^{(1)}_\text{max}(m)$ is the expected attribute maximum (Eq.~\ref{eq:med_max_normal}), $m$ is the size of the sample from which the maximum is derived, and $p$ is the total number of attributes.
 
 Similarly, the variance of $D^{(1*)}_{ij}$ is given by
 %
@@ -1602,7 +1602,7 @@ where $F^\text{GM}(a) = 2(1 - f_a)^3f_a + 2(1 - f_a)f^3_a + (1 - f_a)^2f^2_a$ an
 f_a = \frac{1}{2m}\sum_{i \in \mathcal{I}} X_{ia},  \quad \text{ for all } a \in \mathcal{A},
 \]
 %
-where $m$ is the number of instances (or sample size). This is because each instance has two alleles, the minor major alleles, at each locus. Therefore, the total number of alleles at locus $a$ is $2m$.
+where $m$ is the number of instances (or sample size). This is because each instance has two alleles, the minor and major alleles, at each locus. Therefore, the total number of alleles at locus $a$ is $2m$.
 
 The second moment about the origin for the GM distance is computed as follows
 %
@@ -2184,7 +2184,7 @@ For time series correlation-based data, we consider the case where there are $m$
 \text{d}^\text{ROI}_{ij}(a) = \sum_{k \neq a}\bigl|A^{(i)}_{ka} - A^{(j)}_{ka}\bigr|,
 \end{equation}
 %
-where $A^{(i)}_{ka}$ and $A^{(j)}_{ka}$ are the correlations between ROI $a$ and ROI $k$ for instances $i,j \in \mathcal{I}$, respectively. With this rs-fMRI diff, we define the pairwise distance between two instances $i,j \in \mathcal{I}$ is computed as follows
+where $A^{(i)}_{ka}$ and $A^{(j)}_{ka}$ are the correlations between ROI $a$ and ROI $k$ for instances $i,j \in \mathcal{I}$, respectively. With this rs-fMRI diff, we define the pairwise distance between two instances $i,j \in \mathcal{I}$ as follows
 %
 \begin{equation}\label{eq:D_rs-fMRI}
 D^\text{fMRI}_{ij} = \sum_{a \in \mathcal{A}} \text{d}^\text{ROI}_{ij}(a),
@@ -2192,7 +2192,7 @@ D^\text{fMRI}_{ij} = \sum_{a \in \mathcal{A}} \text{d}^\text{ROI}_{ij}(a),
 %
 which is based on Manhattan ($q=1$). This metric may be expanded to general $q$, but we only consider $q=1$.
 
-In order for comparisons between different correlations to be possible, we first perform a Fisher r-to-z transform on the correlations. This transformation makes the data approximately normally distributed with stabilized variance across different samples. After this transformation, we then load all of the transformed correlations into a $p(p-1) \times m$ matrix $X$ (Fig.~\ref{fig:rs-fMRI_matrix}). Each column of $X$ represents a single instance (or subject) in rs-fMRI data. Contrary to a typical $p \times m$ data set, each row does not represent a single attribute. Rather, each attribute (or ROI) is represented by $p - 1$ consecutive rows. The first $p - 1$ rows represents $\text{ROI}_1$, the next $p - 1$ rows represents $\text{ROI}_2$, and so on until the last $p - 1$ rows that represents $\text{ROI}_p$. For a given column of $X$, we exclude pairwise correlations between an ROI and itself. Therefore, the matrix does not contain $\hat{A}^{(i)}_{aa}$ for any $i \in \mathcal{I}$ or $a \in \mathcal{A}$. Furthermore, symmetry of correlation matrices means that each column contains exactly two of each element of the upper triangle of an instance's transformed correlation matrix. For example, $\hat{A}^{(i)}_{ka} = \hat{A}^{(i)}_{ak}$ for $k \neq a$ and both will be contained in a given column of $X$ for each $a \in \mathcal{A}$. Based on our rs-fMRI diff (Eq.~\ref{eq:diff_rs-fMRI}), the organization of $X$ makes computation of each value of the diff very simple. In order to compute each value of the rs-fMRI diff, we just need to know the starting and ending row indices for a given ROI. Starting indices are given by
+In order for comparisons between different correlations to be possible, we first perform a Fisher r-to-z transform on the correlations. This transformation makes the data approximately normally distributed with stabilized variance across different samples. After this transformation, we then load all of the transformed correlations into a $p(p-1) \times m$ matrix $X$ (Fig.~\ref{fig:rs-fMRI_matrix}). Each column of $X$ represents a single instance (or subject) in rs-fMRI data. Contrary to a typical $p \times m$ data set, each row does not represent a single attribute. Rather, each attribute (or ROI) is represented by $p - 1$ consecutive rows. The first $p - 1$ rows represent $\text{ROI}_1$, the next $p - 1$ rows represent $\text{ROI}_2$, and so on until the last $p - 1$ rows that represent $\text{ROI}_p$. For a given column of $X$, we exclude pairwise correlations between an ROI and itself. Therefore, the matrix does not contain $\hat{A}^{(i)}_{aa}$ for any $i \in \mathcal{I}$ or $a \in \mathcal{A}$. Furthermore, symmetry of correlation matrices means that each column contains exactly two of each element of the upper triangle of an instance's transformed correlation matrix. For example, $\hat{A}^{(i)}_{ka} = \hat{A}^{(i)}_{ak}$ for $k \neq a$ and both will be contained in a given column of $X$ for each $a \in \mathcal{A}$. Based on our rs-fMRI diff (Eq.~\ref{eq:diff_rs-fMRI}), the organization of $X$ makes computation of each value of the diff very simple. In order to compute each value of the rs-fMRI diff, we just need to know the starting and ending row indices for a given ROI. Starting indices are given by
 %
 \[
 \text{start}_k = (k - 1)(p - 1) + 1, \quad \text{ for } k = 1,2,\dots,p
@@ -2210,7 +2210,7 @@ These indices allow us to extract just the rows necessary to compute the rs-fMRI
 \begin{minipage}[c]{0.7\textwidth}
 	\includegraphics[width=0.95\textwidth]{rs_fmri_all_instance_matrix.pdf}
 \end{minipage}\hfill
-\begin{minipage}[c]{0.29\textwidth}
+\begin{minipage}[c]{0.3\textwidth}
 	\caption{Organization based on brain regions of interest (ROIs) of resting-state fMRI correlation dataset consisting of transformed correlation matrices for $m$ subjects. Each column corresponds to an instance (or subject) $I_j$ and each subset of rows corresponds to the correlations for an ROI attribute ($p$ sets). The notation $\hat{A}^{(j)}_{ak}$ represents the r-to-z transformed correlation between attributes (ROIs) $a$ and $k \neq a$ for instance $j$.}\label{fig:rs-fMRI_matrix}
 \end{minipage}
 \end{figure}
@@ -2265,7 +2265,7 @@ We first derive the variance of the rs-fMRI distance by making an independence a
 \end{aligned}
 \end{equation}
 
-Similar to the case of an $m \times p$ data matrix containing standard normal data, we have an rs-fMRI distance variance that grows on the order of $p(p - 1)$, which is the total number of pairwise associations in a column of data matrix $X$ (Fig.~\ref{fig:rs-fMRI_matrix}). Therefore, the expected rs-fMRI distance (Eq.~\ref{eq:mu_DDistr_rs-fMRI}) and the variance of the rs-fMRI distance (Eq.~\ref{eq:var_DDistr_rs-fMRI_standard}) to increase on the same order.
+Similar to the case of an $m \times p$ data matrix containing standard normal data, we have an rs-fMRI distance variance that grows on the order of $p(p - 1)$, which is the total number of pairwise associations in a column of data matrix $X$ (Fig.~\ref{fig:rs-fMRI_matrix}). Therefore, the expected rs-fMRI distance (Eq.~\ref{eq:mu_DDistr_rs-fMRI}) and the variance of the rs-fMRI distance (Eq.~\ref{eq:var_DDistr_rs-fMRI_standard}) increase on the same order.
 
 The independence assumption used to derive the variance of our rs-fMRI distance metric (Eq.~\ref{eq:var_DDistr_rs-fMRI_standard}) is not satisfied because a single value of the diff (Eq.~\ref{eq:diff_rs-fMRI}) includes the same fixed ROI, $a$, for each term in the sum for all $k \neq a$. Therefore, the linear application of the variance operator we have previously employed does not account for the additional cross-covariance that exists. However, we have seen empirically that the theoretical variance of the distance we computed for the rs-fMRI distance metric (Eq.~\ref{eq:var_DDistr_rs-fMRI_standard}) still reasonably approximates the sample variance, there is a slight discrepancy between our theoretical rs-fMRI distance metric variance (Eq.~\ref{eq:var_DDistr_rs-fMRI_standard}) and the sample variance. More precisely, the formula we have given for the variance (Eq.~\ref{eq:var_DDistr_rs-fMRI_standard}) consistently underestimates the sample variance of the rs-fMRI distance. To adjust for this discrepancy, we determine a corrected formula by assuming that there is dependence between the terms of the rs-fMRI diff and estimate the cross-covariance between rs-fMRI diffs of different pairs of ROIs. 
 
@@ -2291,9 +2291,9 @@ In order to have a formula in terms of the number of ROIs $p$ only, we estimate 
 S^2_{D^\text{fMRI}_{ij}} - \frac{2p(\pi-2)(p-1)}{\pi} = \beta_1 p^2 + \beta_0 p.
 \end{equation}
 %
-where $\beta_0$ and $\beta_1$ are the coefficients we must estimate in order to approximate the cross-covariance term in the right-hand side of the rs-fMRI distance variance equation (Eq.~\ref{eq:var_DDistr_rs-fMRI}).
+where $\beta_0$ and $\beta_1$ are the coefficients we must estimate in order to approximate the cross-covariance term on the right-hand side of the rs-fMRI distance variance equation (Eq.~\ref{eq:var_DDistr_rs-fMRI}).
 
-The coefficient estimates found through least squares fitting are $\beta_1 = - \beta_0 \approx 0.08$. These estimates allow us to arrive at a functional form for the double sum in the right-hand side of the rs-fMRI distance variance equation (Eq.~\ref{eq:var_DDistr_rs-fMRI}) that is proportional to $\frac{2p(\pi-2)(p-1)}{\pi}$. That is, we have the following formula for approximating the double sum
+The coefficient estimates found through least squares fitting are $\beta_1 = - \beta_0 \approx 0.08$. These estimates allow us to arrive at a functional form for the double sum on the right-hand side of the rs-fMRI distance variance equation (Eq.~\ref{eq:var_DDistr_rs-fMRI}) that is proportional to $\frac{2p(\pi-2)(p-1)}{\pi}$. That is, we have the following formula for approximating the double sum
 %
 \begin{equation}\label{eq:estimate_cov_form}
 \begin{aligned}
@@ -2460,17 +2460,17 @@ We summarize the moment estimates for the rs-fMRI metrics for correlation-based 
 
 \section{Comparison of theoretical and sample moments}
 
-We compare our analytical asymptotic estimates of sample moments for distributions of pairwise distances in high attribute dimension by generating random data for various dimensions $m$ and $p$ (Fig.~\ref{fig:compare_theoretical_sample_moments}). We fix $m=100$ samples and compute Manhattan (Eq.~\ref{eq:D}) distance matrices from standard normal data for $p=1000,2000,3000,4000,$ and $5000$ attributes. For each value of $p$, we generate 20 random datasets and compute the mean and standard deviation of pairwise distances. We then average these 20 simulated means and standard deviations. For comparison, we compute the theoretical moments (Eqs.~\ref{eq:normalManMean} and \ref{eq:normalManVar}) for each value of $p$ and fixed $m=100$ from the theoretical formulas. Scatter plots of theoretical versus simulated mean (Fig.~\ref{fig:compare_theoretical_sample_moments}A) and theoretical vs simulated standard deviation (Fig.~\ref{fig:compare_theoretical_sample_moments}B) indicate that our theoretical asymptotic formulas for sample moments are reliable for both large and relatively small numbers of attributes. For other combinations of data type, distance metric, sample size $m$, and number of attributes $p$, we find similar agreement between theoretical formulas and simulated moments (not shown).
+We compare our analytical asymptotic estimates of sample moments for distributions of pairwise distances in high attribute dimension by generating random data for various dimensions $m$ and $p$ (Fig.~\ref{fig:compare_theoretical_sample_moments}). We fix $m=100$ samples and compute Manhattan (Eq.~\ref{eq:D}) distance matrices from standard normal data for $p=1000,2000,3000,4000,$ and $5000$ attributes. For each value of $p$, we generate 20 random datasets and compute the mean and standard deviation of pairwise distances. We then average these 20 simulated means and standard deviations. For comparison, we compute the theoretical moments (Eqs.~\ref{eq:normalManMean} and \ref{eq:normalManVar}) for each value of $p$ and fixed $m=100$ from the theoretical formulas. Scatter plots of theoretical versus simulated mean (Fig.~\ref{fig:compare_theoretical_sample_moments}A) and theoretical versus simulated standard deviation (Fig.~\ref{fig:compare_theoretical_sample_moments}B) indicate that our theoretical asymptotic formulas for sample moments are reliable for both large and relatively small numbers of attributes. For other combinations of data type, distance metric, sample size $m$, and number of attributes $p$, we find similar agreement between theoretical formulas and simulated moments (not shown).
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale = 0.4]{compared_moments_normal_manhattan5.pdf}
-	\caption{Comparison of theoretical and sample moments of Manhattan (Eq.~\ref{eq:D}) distances in standard normal data. (\textbf{A}) Scatter plot of theoretical vs simulated mean Manhattan distance (Eq.~\ref{eq:normalManMean}). Each point represents a different number of attributes $p$. For each value of $p$ we fixed $m=100$ and generated 20 distance matrices from standard normal data and computed the average simulated pairwise distance from the 20 iterations. The corresponding theoretical mean was then computed for each value of $p$ for comparison. The dashed line represents the identity (or $y=x$) line for reference, showing strong agreement between theoretical and simulation. (\textbf{B}) Scatter plot of theoretical vs simulated standard deviation of Manhattan (Eq.~\ref{eq:D}) distance (Eq.~\ref{eq:normalManVar}). These standard deviations come from the same random distance matrices for which mean distance was computed for \textbf{A}.}\label{fig:compare_theoretical_sample_moments}
+	\caption{Comparison of theoretical and sample moments of Manhattan (Eq.~\ref{eq:D}) distances in standard normal data. (\textbf{A}) Scatter plot of theoretical versus simulated mean Manhattan distance (Eq.~\ref{eq:normalManMean}). Each point represents a different number of attributes $p$. For each value of $p$ we fixed $m=100$ and generated 20 distance matrices from standard normal data and computed the average simulated pairwise distance from the 20 iterations. The corresponding theoretical mean was then computed for each value of $p$ for comparison. The dashed line represents the identity (or $y=x$) line for reference, showing strong agreement between theoretical and simulation. (\textbf{B}) Scatter plot of theoretical vs simulated standard deviation of Manhattan (Eq.~\ref{eq:D}) distance (Eq.~\ref{eq:normalManVar}). These standard deviations come from the same random distance matrices for which mean distance was computed for \textbf{A}.}\label{fig:compare_theoretical_sample_moments}
 \end{figure}
 
 \section{Effects of correlation on distances}\label{sec:correlation}
 
-All of the derivations presented in previous sections are for the cases where there is no correlation between instances or between attributes. We assumed that any pair $(X_{ia},X_{ja})$ of data points for instances $i$ and $j$ and fixed attribute $a$ were independent and identically distributed. This was assumed in order to determine asymptotic estimates in null data. That is, data with no main effects, interaction effects, or pairwise correlations between attributes. Within this simplified context, our asymptotic formulas for distributional moments are reliable. However, in real data are numerous statistical effects that impact distance distributional properties. We find that deviation from normality is caused primarily by large magnitude pairwise correlation between attributes. Pairwise attribute correlation can be the result of main effects, where attributes have different within-group means. On the other hand, there could be an underlying interaction network in which there are strong associations between attributes. If attributes are differentially correlated between phenotype groups, then interactions exist that change the distance distribution. In the following few sections, we consider particular cases of the $L_q$ metric for continuous and discrete data under the effects of pairwise attribute correlation.
+All of the derivations presented in previous sections were for the cases where there is no correlation between instances or between attributes. We assumed that any pair $(X_{ia},X_{ja})$ of data points for instances $i$ and $j$ and fixed attribute $a$ were independent and identically distributed. This was assumed in order to determine asymptotic estimates in null data. That is, data with no main effects, interaction effects, or pairwise correlations between attributes. Within this simplified context, our asymptotic formulas for distributional moments are reliable. However, in real data are numerous statistical effects that impact distance distributional properties. We find that deviation from normality is caused primarily by large magnitude pairwise correlation between attributes. Pairwise attribute correlation can be the result of main effects, where attributes have different within-group means. On the other hand, there could be an underlying interaction network in which there are strong associations between attributes. If attributes are differentially correlated between phenotype groups, then interactions exist that change the distance distribution. In the following few sections, we consider particular cases of the $L_q$ metric for continuous and discrete data under the effects of pairwise attribute correlation.
 
 \subsection{Continuous data}
 
@@ -2508,7 +2508,7 @@ Analogous to the previous section, we explore the effects of pairwise attribute 
 \subsection{Time-series derived correlation-based datasets}
 
 For our correlation-based metric
-
+%
 \noindent (Eq.~\ref{eq:D_rs-fMRI}), we consider additional effects of correlation between attributes. Without loss of generality, we let $m=100$ and $p=30$. We illustrate the effects of correlated attributes in this context (Fig.~\ref{fig:null_vs_correlated_ridge}C). Based on the density estimates, it appears that correlation between attributes introduces positive skewness at low values of $\bar{r}_\text{abs}$. We introduced correlation to the transformed data matrix (Fig.~\ref{fig:rs-fMRI_matrix}) with the Cholesky method discussed above.
 %
 %\begin{figure}[H]
@@ -2532,7 +2532,7 @@ For our correlation-based metric
 \begin{figure}[H]
 	\centering
 	\framebox{\includegraphics[width=0.98\textwidth]{null_corr_BryanEdit.pdf}}
-	\caption{Distance densities from uncorrelated vs correlated bioinformatics data. (\textbf{A}) Euclidean distance densities for random normal data with and without correlation. Correlated data was created by multiplying random normal data by upper-triangular Cholesky factor from randomly generated correlation matrix. We created correlated data for average absolute pairwise correlation (Eq.~\ref{eq:abs_corr}) $\bar{r}_\text{abs} = 0.105, 0.263, 0.458, \text{ and } 0.612$. (\textbf{B}) TiTv distance densities for random binomial data with and without correlation. Correlated data was created by first generating correlated standard normal data using the Cholesky method from (A). Then we applied the standard normal CDF to create correlated uniformly distributed data, which was then transformed by the inverse binomial CDF with $n=2$ trials and success probabilities $f_a \text{ for all } a \in \mathcal{A}$. (\textbf{C}) Time series correlation-based distance densities for random rs-fMRI data (dataset represented in Fig.~\ref{fig:rs-fMRI_matrix}) with and without additional pairwise attribute correlation. Correlation was added to the transformed rs-fMRI data matrix (Fig.~\ref{fig:rs-fMRI_matrix}) using the Cholesky algorithm from (A).}\label{fig:null_vs_correlated_ridge}
+	\caption{Distance densities from uncorrelated versus correlated bioinformatics data. (\textbf{A}) Euclidean distance densities for random normal data with and without correlation. Correlated data was created by multiplying random normal data by upper-triangular Cholesky factor from randomly generated correlation matrix. We created correlated data for average absolute pairwise correlation (Eq.~\ref{eq:abs_corr}) $\bar{r}_\text{abs} = 0.105, 0.263, 0.458, \text{ and } 0.612$. (\textbf{B}) TiTv distance densities for random binomial data with and without correlation. Correlated data was created by first generating correlated standard normal data using the Cholesky method from (A). Then we applied the standard normal CDF to create correlated uniformly distributed data, which was then transformed by the inverse binomial CDF with $n=2$ trials and success probabilities $f_a \text{ for all } a \in \mathcal{A}$. (\textbf{C}) Time series correlation-based distance densities for random rs-fMRI data (dataset represented in Fig.~\ref{fig:rs-fMRI_matrix}) with and without additional pairwise attribute correlation. Correlation was added to the transformed rs-fMRI data matrix (Fig.~\ref{fig:rs-fMRI_matrix}) using the Cholesky algorithm from (A).}\label{fig:null_vs_correlated_ridge}
 \end{figure}
 
 \section{Discussion}\label{sec:discussion}
