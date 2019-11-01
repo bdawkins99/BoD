@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  18 OCT 2019 13:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  31 OCT 2019 19:24
 entering extended mode
 **./mixed_effects_combining_main-interaction.tex
 (mixed_effects_combining_main-interaction.tex
@@ -774,23 +774,27 @@ s been generated with the most recent feature set (\pgfplotsset{compat=1.16}).
 
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 61.
+LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <7> not available
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 61.
+LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <5> not available
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 61.
 [1
 
 {C:/Users/bdawk/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 (mixed_effects_combining_main-interaction.aux) ) 
 Here is how much of TeX's memory you used:
- 26441 strings out of 492946
- 695909 string characters out of 3135528
+ 26443 strings out of 492946
+ 696000 string characters out of 3135528
  900034 words of memory out of 3000000
- 29853 multiletter control sequences out of 15000+200000
- 11374 words of font info for 32 fonts, out of 3000000 for 9000
+ 29855 multiletter control sequences out of 15000+200000
+ 10162 words of font info for 30 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 78i,11n,136p,765b,638s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 78i,7n,136p,765b,638s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fo
 nts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
 nts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
 mmib10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb>
-Output written on mixed_effects_combining_main-interaction.pdf (1 page, 23098 b
+Output written on mixed_effects_combining_main-interaction.pdf (1 page, 23129 b
 ytes).
 PDF statistics:
  30 PDF objects out of 1000 (max. 8388607)

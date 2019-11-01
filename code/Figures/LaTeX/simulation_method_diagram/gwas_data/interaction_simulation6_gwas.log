@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  31 OCT 2019 10:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  31 OCT 2019 19:27
 entering extended mode
-**./mixed_simulation_diagram2.tex
-(mixed_simulation_diagram2.tex
+**./interaction_simulation6_gwas.tex
+(interaction_simulation6_gwas.tex
 LaTeX2e <2018-12-01>
 ("C:\Program Files\MiKTeX 2.9\tex/latex/standalone\standalone.cls"
 Document Class: standalone 2018/03/26 v1.3a Class to compile TeX sub-files stan
@@ -696,22 +696,22 @@ File: tikzlibrarypositioning.code.tex 2019/02/02 v3.1.1 (3.1.1)
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/frontendlayer/tikz/libraries\tikz
 librarychains.code.tex"
 File: tikzlibrarychains.code.tex 2019/02/02 v3.1.1 (3.1.1)
-) (mixed_simulation_diagram2.aux)
-\openout1 = `mixed_simulation_diagram2.aux'.
+) (interaction_simulation6_gwas.aux)
+\openout1 = `interaction_simulation6_gwas.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 26.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 25.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/psnfss\ot1phv.fd"
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
@@ -772,76 +772,30 @@ G,.JBIG2,.JB2,.eps]
 Package pgfplots notification 'compat/show suggested version=true': document ha
 s been generated with the most recent feature set (\pgfplotsset{compat=1.16}).
 
-LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <17.28> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 31.
-<interaction_simulation1.pdf, id=12, 212.6886pt x 107.4133pt>
-File: interaction_simulation1.pdf Graphic file (type pdf)
-<use interaction_simulation1.pdf>
-Package pdftex.def Info: interaction_simulation1.pdf  used on input line 50.
-(pdftex.def)             Requested size: 206.99724pt x 101.72218pt.
-<interaction_simulation2.pdf, id=14, 221.22449pt x 107.4133pt>
-File: interaction_simulation2.pdf Graphic file (type pdf)
-<use interaction_simulation2.pdf>
-Package pdftex.def Info: interaction_simulation2.pdf  used on input line 52.
-(pdftex.def)             Requested size: 215.53311pt x 101.72218pt.
-<interaction_simulation3.pdf, id=16, 416.69376pt x 155.84021pt>
-File: interaction_simulation3.pdf Graphic file (type pdf)
-<use interaction_simulation3.pdf>
-Package pdftex.def Info: interaction_simulation3.pdf  used on input line 54.
-(pdftex.def)             Requested size: 411.0019pt x 150.14899pt.
-<interaction_simulation4.pdf, id=18, 164.3189pt x 77.53868pt>
-File: interaction_simulation4.pdf Graphic file (type pdf)
-<use interaction_simulation4.pdf>
-Package pdftex.def Info: interaction_simulation4.pdf  used on input line 56.
-(pdftex.def)             Requested size: 158.62764pt x 71.84764pt.
-<interaction_simulation5.pdf, id=20, 195.0487pt x 113.10455pt>
-File: interaction_simulation5.pdf Graphic file (type pdf)
-<use interaction_simulation5.pdf>
-Package pdftex.def Info: interaction_simulation5.pdf  used on input line 58.
-(pdftex.def)             Requested size: 189.35739pt x 107.41342pt.
-<main_effect_added_to_interaction.pdf, id=22, 251.13725pt x 154.36069pt>
-File: main_effect_added_to_interaction.pdf Graphic file (type pdf)
-<use main_effect_added_to_interaction.pdf>
-Package pdftex.def Info: main_effect_added_to_interaction.pdf  used on input li
-ne 60.
-(pdftex.def)             Requested size: 245.4458pt x 148.66946pt.
-<mixed_effects_combining_main-interaction.pdf, id=24, 138.1431pt x 59.04459pt>
-File: mixed_effects_combining_main-interaction.pdf Graphic file (type pdf)
-<use mixed_effects_combining_main-interaction.pdf>
-Package pdftex.def Info: mixed_effects_combining_main-interaction.pdf  used on 
-input line 62.
-(pdftex.def)             Requested size: 132.4519pt x 53.35359pt.
-LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 66.
 [1
 
-{C:/Users/bdawk/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./interacti
-on_simulation1.pdf> <./interaction_simulation2.pdf> <./interaction_simulation3.
-pdf> <./interaction_simulation4.pdf> <./interaction_simulation5.pdf> <./main_ef
-fect_added_to_interaction.pdf> <./mixed_effects_combining_main-interaction.pdf>
-] (mixed_simulation_diagram2.aux) ) 
+{C:/Users/bdawk/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+(interaction_simulation6_gwas.aux) ) 
 Here is how much of TeX's memory you used:
- 26557 strings out of 492946
- 698668 string characters out of 3135528
- 914034 words of memory out of 3000000
- 29971 multiletter control sequences out of 15000+200000
- 8118 words of font info for 20 fonts, out of 3000000 for 9000
+ 26441 strings out of 492946
+ 695868 string characters out of 3135528
+ 902034 words of memory out of 3000000
+ 29853 multiletter control sequences out of 15000+200000
+ 10977 words of font info for 30 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 78i,8n,136p,750b,642s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips
-/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbsy1
-0.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C
-:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Program
- Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/M
-iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Program Files/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cmextra/cmmib7.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/h
-elvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a
-.pfb>
-Output written on mixed_simulation_diagram2.pdf (1 page, 386436 bytes).
+ 78i,13n,136p,753b,638s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvip
+s/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbsy
+10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmbsy7.
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/
+Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Program F
+iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Program Files/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb><C:/Program Files/MiKTeX 2.9/fo
+nts/type1/urw/helvetic/uhvr8a.pfb>
+Output written on interaction_simulation6_gwas.pdf (1 page, 63427 bytes).
 PDF statistics:
- 217 PDF objects out of 1000 (max. 8388607)
+ 50 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 130 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 53 words of extra memory for PDF output out of 10000 (max. 10000000)
 

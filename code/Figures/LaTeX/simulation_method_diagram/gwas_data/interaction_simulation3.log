@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  17 AUG 2019 14:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  31 OCT 2019 19:22
 entering extended mode
 **./interaction_simulation3.tex
 (interaction_simulation3.tex
@@ -789,10 +789,10 @@ Package pdftex.def Info: case_matrix.pdf  used on input line 66.
 {C:/Users/bdawk/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./control_m
 atrix.pdf> <./case_matrix.pdf>] (interaction_simulation3.aux) ) 
 Here is how much of TeX's memory you used:
- 26448 strings out of 492946
- 695663 string characters out of 3135528
+ 26450 strings out of 492946
+ 695973 string characters out of 3135528
  903034 words of memory out of 3000000
- 29856 multiletter control sequences out of 15000+200000
+ 29858 multiletter control sequences out of 15000+200000
  13682 words of font info for 34 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  78i,18n,136p,748b,638s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -805,7 +805,7 @@ mmib10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmm
 ib7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><
 C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Fil
 es/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on interaction_simulation3.pdf (1 page, 192264 bytes).
+Output written on interaction_simulation3.pdf (1 page, 192284 bytes).
 PDF statistics:
  84 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
