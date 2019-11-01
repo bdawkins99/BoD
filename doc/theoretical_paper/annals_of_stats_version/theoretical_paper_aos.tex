@@ -2181,10 +2181,10 @@ These novel distribution results for the projection of pairwise GWAS distances o
 For time series correlation-based data, we consider the case where there are $m$ correlation matrices $A^{(p \times p)}$ (one matrix for each subject). In particular, we have in mind the application of resting-state fMRI (rs-fMRI) data. The derivations that follow, however, are relevant to all correlation-based data with the assumptions we note. The attributes in rs-fMRI are commonly Regions of Interest (ROIs), which are collections of spatially proximal voxels \cite{lee2013}. Correlation in their time-series activity arise between different ROIs at the voxel level or for a given brain atlas \cite{dickie2017}. Because the attributes of interest ($a$) are the ROIs themselves, we propose the following attribute projection (diff)
 %
 \begin{equation}\label{eq:diff_rs-fMRI}
-\text{d}^\text{ROI}_{ij}(a) = \sum_{k \neq a}\bigl|A^{(i)}_{ka} - A^{(j)}_{ka}\bigr|,
+\text{d}^\text{ROI}_{ij}(a) = \sum_{k \neq a}\bigl|A^{(i)}_{ak} - A^{(j)}_{ak}\bigr|,
 \end{equation}
 %
-where $A^{(i)}_{ka}$ and $A^{(j)}_{ka}$ are the correlations between ROI $a$ and ROI $k$ for instances $i,j \in \mathcal{I}$, respectively. With this rs-fMRI diff, we define the pairwise distance between two instances $i,j \in \mathcal{I}$ as follows
+where $A^{(i)}_{ak}$ and $A^{(j)}_{ak}$ are the correlations between ROI $a$ and ROI $k$ for instances $i,j \in \mathcal{I}$, respectively. With this rs-fMRI diff, we define the pairwise distance between two instances $i,j \in \mathcal{I}$ as follows
 %
 \begin{equation}\label{eq:D_rs-fMRI}
 D^\text{fMRI}_{ij} = \sum_{a \in \mathcal{A}} \text{d}^\text{ROI}_{ij}(a),
@@ -2269,7 +2269,7 @@ Similar to the case of an $m \times p$ data matrix containing standard normal da
 
 The independence assumption used to derive the variance of our rs-fMRI distance metric (Eq.~\ref{eq:var_DDistr_rs-fMRI_standard}) is not satisfied because a single value of the diff (Eq.~\ref{eq:diff_rs-fMRI}) includes the same fixed ROI, $a$, for each term in the sum for all $k \neq a$. Therefore, the linear application of the variance operator we have previously employed does not account for the additional cross-covariance that exists. However, we have seen empirically that the theoretical variance of the distance we computed for the rs-fMRI distance metric (Eq.~\ref{eq:var_DDistr_rs-fMRI_standard}) still reasonably approximates the sample variance, there is a slight discrepancy between our theoretical rs-fMRI distance metric variance (Eq.~\ref{eq:var_DDistr_rs-fMRI_standard}) and the sample variance. More precisely, the formula we have given for the variance (Eq.~\ref{eq:var_DDistr_rs-fMRI_standard}) consistently underestimates the sample variance of the rs-fMRI distance. To adjust for this discrepancy, we determine a corrected formula by assuming that there is dependence between the terms of the rs-fMRI diff and estimate the cross-covariance between rs-fMRI diffs of different pairs of ROIs. 
 
-We begin the derivation of our corrected formula by writing the variance as a two-part sum, where the first term in the sum involves the variance of the magnitude difference $|\hat{A}^{(i)}_{ka} - \hat{A}^{(j)}_{ka}|$ and then second term involves the cross-covariance of the rs-fMRI diff for distinct pairwise ROI-ROI associations. This formulation is implied in our previous derivation of the variance, but our independence assumption allowed us to assume that all terms in the second part of the two-part sum were zero. Our formulation of the variance is given by the following
+We begin the derivation of our corrected formula by writing the variance as a two-part sum, where the first term in the sum involves the variance of the magnitude difference $|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}|$ and then second term involves the cross-covariance of the rs-fMRI diff for distinct pairwise ROI-ROI associations. This formulation is implied in our previous derivation of the variance, but our independence assumption allowed us to assume that all terms in the second part of the two-part sum were zero. Our formulation of the variance is given by the following
 %
 \begin{equation}\label{eq:var_DDistr_rs-fMRI}
 \begin{aligned}
@@ -2382,7 +2382,7 @@ Using the corrected rs-fMRI distance variance formula (Eq.~\ref{eq:var_DDistr_rs
 %
 where $a$ is a single fixed ROI.
 
-Empirically, the first estimate (Eq.~\ref{eq:rs-fMRI_diffVar1}) of the variance of our rs-fMRI diff is closer to the sample variance than the second estimate (Eq.~\ref{eq:rs-fMRI_diffVar2}). This is due to fact that we are considering only a fixed ROI $a \in \mathcal{A}$, so the cross-covariance between the magnitude differences $\left|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}\right|$ for different pairs of ROIs ($a$ and $k \neq a$) is negligible here. When considering all ROIs $a \in \mathcal{A}$, these cross-covariances are no longer negligible. Using the first variance estimate (Eq.~\ref{eq:rs-fMRI_diffVar1}) and the estimate of the mean (Eq.~\ref{eq:rs-fMRI_diffMean}), we have the following asymptotic distribution of the rs-fMRI diff
+Empirically, the first estimate (Eq.~\ref{eq:rs-fMRI_diffVar1}) of the variance of our rs-fMRI diff is closer to the sample variance than the second estimate (Eq.~\ref{eq:rs-fMRI_diffVar2}). This is due to fact that we are considering only a fixed ROI $a \in \mathcal{A}$, so the cross-covariance between the magnitude differences $|\hat{A}^{(i)}_{ak} - \hat{A}^{(j)}_{ak}|$ for different pairs of ROIs ($a$ and $k \neq a$) is negligible here. When considering all ROIs $a \in \mathcal{A}$, these cross-covariances are no longer negligible. Using the first variance estimate (Eq.~\ref{eq:rs-fMRI_diffVar1}) and the estimate of the mean (Eq.~\ref{eq:rs-fMRI_diffMean}), we have the following asymptotic distribution of the rs-fMRI diff
 %
 \begin{equation}
 \text{d}^\text{ROI}_{ij}(a) \overset{.}{\sim} \mathcal{N}\left(\frac{2(p-1)}{\sqrt{\pi}},\frac{2(\pi - 2)(p-1)}{\pi}\right),

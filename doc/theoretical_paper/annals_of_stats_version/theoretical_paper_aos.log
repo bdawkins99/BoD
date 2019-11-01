@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  1 NOV 2019 11:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  1 NOV 2019 11:49
 entering extended mode
 **./theoretical_paper_aos.tex
 (theoretical_paper_aos.tex
@@ -1497,7 +1497,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2589.
 Here is how much of TeX's memory you used:
  19110 strings out of 492946
  347197 string characters out of 3135528
- 437156 words of memory out of 3000000
+ 437160 words of memory out of 3000000
  22288 multiletter control sequences out of 15000+200000
  33267 words of font info for 123 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1539,7 +1539,7 @@ nts/cm/cmti9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
 tt9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10
 .pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Progr
 am Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on theoretical_paper_aos.pdf (82 pages, 1764081 bytes).
+Output written on theoretical_paper_aos.pdf (82 pages, 1764079 bytes).
 PDF statistics:
  1785 PDF objects out of 2073 (max. 8388607)
  347 named destinations out of 1000 (max. 500000)
