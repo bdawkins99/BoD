@@ -266,8 +266,10 @@ doi:\doiurl{10.1093/brain/aws160}
 \bauthor{\bsnm{{W}asserman}, \binits{L.}}:
 \bbtitle{All of {S}tatistics: {A} {C}oncise {C}ourse in {S}tatistical
   {I}nference}.
-\bpublisher{Springer}, \blocation{???}
-(\byear{2004})
+\bpublisher{Springer},
+\blocation{New York}
+(\byear{2004}).
+doi:\doiurl{10.1007/978-0-387-21736-9}
 \end{bbook}
 \endbibitem
 
@@ -278,7 +280,8 @@ doi:\doiurl{10.1093/brain/aws160}
 \bauthor{\bparticle{{M}arylees} \bsnm{{M}iller}}:
 \bbtitle{{John E. Freund's Mathematical Statistics with Applications}},
 \bedition{7}th edn.
-\bpublisher{{Pearson Prentice Hall}}, \blocation{???}
+\bpublisher{{Pearson Prentice Hall}},
+\blocation{New Jersey}
 (\byear{2004})
 \end{bbook}
 \endbibitem
@@ -325,11 +328,12 @@ doi:\doiurl{10.1093/brain/aws160}
 %%% 19
 \bibitem{chatterjee2014}
 \begin{bbook}
-\bauthor{\bsnm{{C}hatterjee}, \binits{S.}}:
-\bbtitle{{Superconcentration and Related Topics}},
+\bauthor{\bparticle{{S}ourav} \bsnm{{C}hatterjee}}:
+\bbtitle{{S}uperconcentration and {R}elated {T}opics},
 \bedition{1}st edn.
 \bsertitle{1439-7382}.
-\bpublisher{{Springer International Publishing}}, \blocation{???}
+\bpublisher{{S}pringer {I}nternational {P}ublishing},
+\blocation{New York}
 (\byear{2014}).
 doi:\doiurl{10.1007/978-3-319-03886-5}
 \end{bbook}
@@ -342,7 +346,8 @@ doi:\doiurl{10.1007/978-3-319-03886-5}
 \bbtitle{{Mathematical Methods of Statistics}}
 vol. \bseriesno{1},
 \bedition{Reprint, revised} edn.
-\bpublisher{Princeton University Press}, \blocation{???}
+\bpublisher{Princeton University Press},
+\blocation{New Jersey}
 (\byear{1999})
 \end{bbook}
 \endbibitem
@@ -624,7 +629,9 @@ doi:\doiurl{10.3389/fninf.2017.00001}
   <aug>
     <au><snm>{W}asserman</snm><fnm>L</fnm></au>
   </aug>
-  <publisher>Springer, New York, NY</publisher>
+  <publisher>New York: Springer</publisher>
+  <editor>{G}eorge {C}asella and {S}tephen {F}ienberg and {I}ngram
+  {O}lkin</editor>
   <pubdate>2004</pubdate>
 </bibl>
 
@@ -635,7 +642,7 @@ doi:\doiurl{10.3389/fninf.2017.00001}
     <au><snm>{M}iller</snm><fnm>I</fnm></au>
     <au><cnm>{M}iller</cnm></au>
   </aug>
-  <publisher>{Pearson Prentice Hall}</publisher>
+  <publisher>New Jersey: {Pearson Prentice Hall}</publisher>
   <editor>Sally {Y}agan</editor>
   <edition>7</edition>
   <pubdate>2004</pubdate>
@@ -684,11 +691,11 @@ doi:\doiurl{10.3389/fninf.2017.00001}
 </bibl>
 
 <bibl id="B19">
-  <title><p>{Superconcentration and Related Topics}</p></title>
+  <title><p>{S}uperconcentration and {R}elated {T}opics</p></title>
   <aug>
-    <au><snm>{C}hatterjee</snm><fnm>S</fnm></au>
+    <au><cnm>{C}hatterjee</cnm></au>
   </aug>
-  <publisher>{Springer International Publishing}</publisher>
+  <publisher>New York: {S}pringer {I}nternational {P}ublishing</publisher>
   <edition>1</edition>
   <series><title><p>1439-7382</p></title></series>
   <pubdate>2014</pubdate>
@@ -699,7 +706,7 @@ doi:\doiurl{10.3389/fninf.2017.00001}
   <aug>
     <au><snm>{C}ram\'{e}r</snm><fnm>H</fnm></au>
   </aug>
-  <publisher>Princeton University Press</publisher>
+  <publisher>New Jersey: Princeton University Press</publisher>
   <edition>Reprint, revised</edition>
   <pubdate>1999</pubdate>
   <volume>1</volume>
