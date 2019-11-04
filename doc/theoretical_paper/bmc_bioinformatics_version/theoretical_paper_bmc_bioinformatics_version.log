@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  4 NOV 2019 13:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  4 NOV 2019 13:40
 entering extended mode
 **./theoretical_paper_bmc_bioinformatics_version.tex
 (theoretical_paper_bmc_bioinformatics_version.tex
@@ -764,7 +764,7 @@ Overfull \hbox (1.0pt too wide) has occurred while \output is active
 
 ] [2]
 [3] [4] [5]
-<central_limit_hist_uniform-data.pdf, id=261, 839.66095pt x 854.32774pt>
+<central_limit_hist_uniform-data.pdf, id=262, 839.66095pt x 854.32774pt>
 File: central_limit_hist_uniform-data.pdf Graphic file (type pdf)
 <use central_limit_hist_uniform-data.pdf>
 Package pdftex.def Info: central_limit_hist_uniform-data.pdf  used on input lin
@@ -837,7 +837,7 @@ LaTeX Font Info:    Calculating math sizes for size <14.22636> on input line 71
  [17] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27]
 [28] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38] [39] [40] [41] [42]
 [43] [44] [45] [46] [47]
-<TiTv_diagram2.pdf, id=917, 278.1602pt x 227.42767pt>
+<TiTv_diagram2.pdf, id=918, 278.1602pt x 227.42767pt>
 File: TiTv_diagram2.pdf Graphic file (type pdf)
 <use TiTv_diagram2.pdf>
 Package pdftex.def Info: TiTv_diagram2.pdf  used on input line 1702.
@@ -850,12 +850,12 @@ Package pdftex.def Info: TiTv_diagram2.pdf  used on input line 1702.
 l.1711 \begin{alignat}{2}
                          \label{eq:TiTv_constraints1} <./TiTv_diagram2.pdf>]
 [49] [50] [51] [52] [53] [54] [55]
-<TiTv_distance-vs-maf.pdf, id=1006, 401.99887pt x 402.0069pt>
+<TiTv_distance-vs-maf.pdf, id=1007, 401.99887pt x 402.0069pt>
 File: TiTv_distance-vs-maf.pdf Graphic file (type pdf)
 <use TiTv_distance-vs-maf.pdf>
 Package pdftex.def Info: TiTv_distance-vs-maf.pdf  used on input line 1920.
 (pdftex.def)             Requested size: 229.95383pt x 229.96214pt.
-<re_fig_5_BDedit.pdf, id=1014, 505.89pt x 433.62pt>
+<re_fig_5_BDedit.pdf, id=1015, 505.89pt x 433.62pt>
 File: re_fig_5_BDedit.pdf Graphic file (type pdf)
 <use re_fig_5_BDedit.pdf>
 Package pdftex.def Info: re_fig_5_BDedit.pdf  used on input line 1931.
@@ -879,7 +879,7 @@ h the same identifier (name{figure.4}) has been already used, duplicate ignored
 l.1954 T
         he support of the GM metric (Eq.~\ref{eq:diff_GM}) is simply $\{0,1\...
  <./re_fig_5_BDedit.pdf>] [58] [59] [60] [61] [62]
-<rs_fmri_all_instance_matrix.pdf, id=1132, 413.33621pt x 397.6988pt>
+<rs_fmri_all_instance_matrix.pdf, id=1133, 413.33621pt x 397.6988pt>
 File: rs_fmri_all_instance_matrix.pdf Graphic file (type pdf)
 <use rs_fmri_all_instance_matrix.pdf>
 Package pdftex.def Info: rs_fmri_all_instance_matrix.pdf  used on input line 21
@@ -893,7 +893,7 @@ Package pdftex.def Info: rs_fmri_all_instance_matrix.pdf  used on input line 21
 l.2186 \end{equation}
                       <./rs_fmri_all_instance_matrix.pdf>] [64] [65] [66]
 [67] [68] [69] [70]
-<compared_moments_normal_manhattan5.pdf, id=1272, 798.03645pt x 432.58614pt>
+<compared_moments_normal_manhattan5.pdf, id=1273, 798.03645pt x 432.58614pt>
 File: compared_moments_normal_manhattan5.pdf Graphic file (type pdf)
 <use compared_moments_normal_manhattan5.pdf>
 Package pdftex.def Info: compared_moments_normal_manhattan5.pdf  used on input 
@@ -906,7 +906,7 @@ line 2359.
                                                   \fi \fi 
 l.2366 
         <./compared_moments_normal_manhattan5.pdf>] [72]
-<null_corr_BryanEdit.pdf, id=1318, 722.7pt x 252.945pt>
+<null_corr_BryanEdit.pdf, id=1319, 722.7pt x 252.945pt>
 File: null_corr_BryanEdit.pdf Graphic file (type pdf)
 <use null_corr_BryanEdit.pdf>
 Package pdftex.def Info: null_corr_BryanEdit.pdf  used on input line 2426.
@@ -923,34 +923,34 @@ e.7}) has been already used, duplicate ignored
 l.2435 
         <./null_corr_BryanEdit.pdf>] [75] [76]
 (theoretical_paper_bmc_bioinformatics_version.bbl [77])
-<updated_distributions_table(5-23-2019).pdf, id=1409, 481.5611pt x 524.43027pt>
+<updated_distributions_table(5-23-2019).pdf, id=1410, 481.5611pt x 524.43027pt>
 
 File: updated_distributions_table(5-23-2019).pdf Graphic file (type pdf)
 <use updated_distributions_table(5-23-2019).pdf>
 Package pdftex.def Info: updated_distributions_table(5-23-2019).pdf  used on in
 put line 2550.
 (pdftex.def)             Requested size: 361.0pt x 398.42358pt.
-<updated_typical_metrics_table.pdf, id=1428, 314.27011pt x 374.28532pt>
+<updated_typical_metrics_table.pdf, id=1429, 314.27011pt x 374.28532pt>
 File: updated_typical_metrics_table.pdf Graphic file (type pdf)
 <use updated_typical_metrics_table.pdf>
 Package pdftex.def Info: updated_typical_metrics_table.pdf  used on input line 
 2612.
 (pdftex.def)             Requested size: 252.6989pt x 307.33098pt.
-<updated_typical_metrics_table(normalized).pdf, id=1441, 376.8248pt x 563.55441
+<updated_typical_metrics_table(normalized).pdf, id=1442, 376.8248pt x 563.55441
 pt>
 File: updated_typical_metrics_table(normalized).pdf Graphic file (type pdf)
 <use updated_typical_metrics_table(normalized).pdf>
 Package pdftex.def Info: updated_typical_metrics_table(normalized).pdf  used on
  input line 2654.
 (pdftex.def)             Requested size: 306.8522pt x 467.2897pt.
-<updated_distributions_table-gwas(5-23-2019).pdf, id=1456, 492.77701pt x 480.56
+<updated_distributions_table-gwas(5-23-2019).pdf, id=1457, 492.77701pt x 480.56
 538pt>
 File: updated_distributions_table-gwas(5-23-2019).pdf Graphic file (type pdf)
 <use updated_distributions_table-gwas(5-23-2019).pdf>
 Package pdftex.def Info: updated_distributions_table-gwas(5-23-2019).pdf  used 
 on input line 2698.
 (pdftex.def)             Requested size: 357.39198pt x 353.02469pt.
-<updated_distributions_table-rs-fMRI.pdf, id=1469, 427.55835pt x 269.56308pt>
+<updated_distributions_table-rs-fMRI.pdf, id=1470, 427.55835pt x 269.56308pt>
 File: updated_distributions_table-rs-fMRI.pdf Graphic file (type pdf)
 <use updated_distributions_table-rs-fMRI.pdf>
 Package pdftex.def Info: updated_distributions_table-rs-fMRI.pdf  used on input
@@ -1056,9 +1056,9 @@ amsfonts/cm/cmtt8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
 symbols/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a
 .pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb>
 Output written on theoretical_paper_bmc_bioinformatics_version.pdf (83 pages, 1
-741716 bytes).
+741813 bytes).
 PDF statistics:
- 1868 PDF objects out of 2073 (max. 8388607)
+ 1869 PDF objects out of 2073 (max. 8388607)
  350 named destinations out of 1000 (max. 500000)
  415 words of extra memory for PDF output out of 10000 (max. 10000000)
 
