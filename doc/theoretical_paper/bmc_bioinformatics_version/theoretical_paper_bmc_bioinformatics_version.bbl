@@ -1,0 +1,762 @@
+ \newcommand{\noop}[1]{}
+%% BioMed_Central_Bib_Style_v1.01
+
+\begin{thebibliography}{23}
+% BibTex style file: bmc-mathphys.bst (version 2.1), 2014-07-24
+\ifx \bisbn   \undefined \def \bisbn  #1{ISBN #1}\fi
+\ifx \binits  \undefined \def \binits#1{#1}\fi
+\ifx \bauthor  \undefined \def \bauthor#1{#1}\fi
+\ifx \batitle  \undefined \def \batitle#1{#1}\fi
+\ifx \bjtitle  \undefined \def \bjtitle#1{#1}\fi
+\ifx \bvolume  \undefined \def \bvolume#1{\textbf{#1}}\fi
+\ifx \byear  \undefined \def \byear#1{#1}\fi
+\ifx \bissue  \undefined \def \bissue#1{#1}\fi
+\ifx \bfpage  \undefined \def \bfpage#1{#1}\fi
+\ifx \blpage  \undefined \def \blpage #1{#1}\fi
+\ifx \burl  \undefined \def \burl#1{\textsf{#1}}\fi
+\ifx \doiurl  \undefined \def \doiurl#1{\textsf{#1}}\fi
+\ifx \betal  \undefined \def \betal{\textit{et al.}}\fi
+\ifx \binstitute  \undefined \def \binstitute#1{#1}\fi
+\ifx \binstitutionaled  \undefined \def \binstitutionaled#1{#1}\fi
+\ifx \bctitle  \undefined \def \bctitle#1{#1}\fi
+\ifx \beditor  \undefined \def \beditor#1{#1}\fi
+\ifx \bpublisher  \undefined \def \bpublisher#1{#1}\fi
+\ifx \bbtitle  \undefined \def \bbtitle#1{#1}\fi
+\ifx \bedition  \undefined \def \bedition#1{#1}\fi
+\ifx \bseriesno  \undefined \def \bseriesno#1{#1}\fi
+\ifx \blocation  \undefined \def \blocation#1{#1}\fi
+\ifx \bsertitle  \undefined \def \bsertitle#1{#1}\fi
+\ifx \bsnm \undefined \def \bsnm#1{#1}\fi
+\ifx \bsuffix \undefined \def \bsuffix#1{#1}\fi
+\ifx \bparticle \undefined \def \bparticle#1{#1}\fi
+\ifx \barticle \undefined \def \barticle#1{#1}\fi
+\ifx \bconfdate \undefined \def \bconfdate #1{#1}\fi
+\ifx \botherref \undefined \def \botherref #1{#1}\fi
+\ifx \url \undefined \def \url#1{\textsf{#1}}\fi
+\ifx \bchapter \undefined \def \bchapter#1{#1}\fi
+\ifx \bbook \undefined \def \bbook#1{#1}\fi
+\ifx \bcomment \undefined \def \bcomment#1{#1}\fi
+\ifx \oauthor \undefined \def \oauthor#1{#1}\fi
+\ifx \citeauthoryear \undefined \def \citeauthoryear#1{#1}\fi
+\ifx \endbibitem  \undefined \def \endbibitem {}\fi
+\ifx \bconflocation  \undefined \def \bconflocation#1{#1}\fi
+\ifx \arxivurl  \undefined \def \arxivurl#1{\textsf{#1}}\fi
+\csname PreBibitemsHook\endcsname
+
+%%% 1
+\bibitem{urbanowicz17}
+\begin{barticle}
+\bauthor{\bsnm{Urbanowicz}, \binits{R.J.}},
+\bauthor{\bsnm{Olson}, \binits{R.S.}},
+\bauthor{\bsnm{Schmitt}, \binits{P.}},
+\bauthor{\bsnm{Meeker}, \binits{M.}},
+\bauthor{\bsnm{Moore}, \binits{J.H.}}:
+\batitle{Benchmarking relief-based feature selection methods for bioinformatics
+  data mining}.
+\bjtitle{Journal of Biomedical Informatics}
+\bvolume{85},
+\bfpage{168}--\blpage{188}
+(\byear{2018}).
+doi:\doiurl{10.1016/j.jbi.2018.07.015}
+\end{barticle}
+\endbibitem
+
+%%% 2
+\bibitem{urbanowicz17b}
+\begin{barticle}
+\bauthor{\bsnm{Urbanowicz}, \binits{R.J.}},
+\bauthor{\bsnm{Meeker}, \binits{M.}},
+\bauthor{\bsnm{Cava}, \binits{W.L.}},
+\bauthor{\bsnm{Olson}, \binits{R.S.}},
+\bauthor{\bsnm{Moore}, \binits{J.H.}}:
+\batitle{Relief-based feature selection: Introduction and review}.
+\bjtitle{Journal of Biomedical Informatics}
+(\byear{2018}).
+doi:\doiurl{10.1016/j.jbi.2018.07.014}
+\end{barticle}
+\endbibitem
+
+%%% 3
+\bibitem{robnik2003}
+\begin{barticle}
+\bauthor{\bsnm{{R}obnik-\v{S}ikonja}, \binits{M.}},
+\bauthor{\bparticle{{I}gor} \bsnm{{K}ononenko}}:
+\batitle{Theoretical and {E}mpirical {A}nalysis of {R}elief{F} and
+  {R}{R}elief{F}}.
+\bjtitle{Machine {L}earning}
+\bvolume{53},
+\bfpage{23}--\blpage{69}
+(\byear{2003})
+\end{barticle}
+\endbibitem
+
+%%% 4
+\bibitem{npdr}
+\begin{botherref}
+\oauthor{\bsnm{{L}e}, \binits{T.T.}},
+\oauthor{\bparticle{{B}ryan} \bsnm{{A}.~{D}awkins}},
+\oauthor{\bparticle{{B}rett} \bsnm{{A}.~{M}c{K}inney}}:
+{Nearest-neighbor Projected-Distance Regression (NPDR) detects network
+  interactions and controls for confounding and multiple testing}.
+Under Review
+(2019)
+\end{botherref}
+\endbibitem
+
+%%% 5
+\bibitem{stir}
+\begin{botherref}
+\oauthor{\bsnm{Le}, \binits{T.T.}},
+\oauthor{\bsnm{Urbanowicz}, \binits{R.J.}},
+\oauthor{\bsnm{Moore}, \binits{J.H.}},
+\oauthor{\bsnm{McKinney}, \binits{B.A.}}:
+Statistical inference relief (stir) feature selection.
+Bioinformatics,
+788
+(2018).
+doi:\doiurl{10.1093/bioinformatics/bty788}
+\end{botherref}
+\endbibitem
+
+%%% 6
+\bibitem{mckinney13}
+\begin{barticle}
+\bauthor{\bsnm{McKinney}, \binits{B.A.}},
+\bauthor{\bsnm{{W}hite}, \binits{B.C.}},
+\bauthor{\bsnm{{G}rill}, \binits{D.E.}},
+\bauthor{\bsnm{{Li}}, \binits{P.W.}},
+\bauthor{\bsnm{{K}ennedy}, \binits{R.B.}},
+\bauthor{\bsnm{{P}oland}, \binits{G.A.}},
+\bauthor{\bsnm{{O}berg}, \binits{A.L.}}:
+\batitle{{ReliefSeq: a gene-wise adaptive-K nearest-neighbor feature selection
+  tool for finding gene-gene interactions and main effects in mRNA-Seq gene
+  expression data}}.
+\bjtitle{{PloS one}}
+\bvolume{8}(\bissue{12}),
+\bfpage{81527}
+(\byear{2013})
+\end{barticle}
+\endbibitem
+
+%%% 7
+\bibitem{arabnejad2018}
+\begin{botherref}
+\oauthor{\bsnm{{A}rabnejad}, \binits{M.}},
+\oauthor{\bsnm{{D}awkins}, \binits{B.A.}},
+\oauthor{\bsnm{{B}ush}, \binits{W.S.}},
+\oauthor{\bsnm{{W}hite}, \binits{B.C.}},
+\oauthor{\bsnm{{H}arkness}, \binits{A.R.}},
+\oauthor{\bsnm{{M}c{K}inney}, \binits{B.A.}}:
+{Transition-transversion encoding and genetic relationship metfic in ReliefF
+  feature selection improves pathway enrichment in GWAS}.
+{BioData Mining}
+\textbf{11}(23)
+(2018)
+\end{botherref}
+\endbibitem
+
+%%% 8
+\bibitem{venkataraman2010}
+\begin{botherref}
+\oauthor{\bsnm{{V}enkataraman}, \binits{A.}},
+\oauthor{\bparticle{{M}arek} \bsnm{{K}ubicki}},
+\oauthor{\bparticle{{C}arl{-}{F}redrik} \bsnm{{W}estin}},
+\oauthor{\bparticle{{P}olina} \bsnm{{G}olland}}:
+{Robust Feature Selection in Resting-State fMRI Connectivity Based on
+  Population Studies}.
+{Conf Comput Vis Pattern Recognit Workshops},
+63--70
+(2010).
+doi:\doiurl{10.1109/CVPRW.2010.5543446}
+\end{botherref}
+\endbibitem
+
+%%% 9
+\bibitem{hay2017}
+\begin{barticle}
+\bauthor{\bsnm{{H}ay}, \binits{E.}},
+\bauthor{\bparticle{{P}etra} \bsnm{{R}itter}},
+\bauthor{\bparticle{{N}ancy} \bsnm{{J}.~{L}obaugh}},
+\bauthor{\bparticle{{A}nthony} \bsnm{{R}.~McIntosh}}:
+\batitle{{Multiregional integration in the brain during resting-state fMRI
+  activity}}.
+\bjtitle{{PLOS Computational Biology}}
+(\byear{2017}).
+doi:\doiurl{10.1371/journal.pcbi.1005410}
+\end{barticle}
+\endbibitem
+
+%%% 10
+\bibitem{sundermann2014}
+\begin{barticle}
+\bauthor{\bsnm{{S}undermann}, \binits{B.}},
+\bauthor{\bparticle{{M}ona {O}lde~l\"{u}tke} \bsnm{{B}everborg}},
+\bauthor{\bparticle{{B}ettina} \bsnm{{P}fleiderer}}:
+\batitle{{Toward literature-based feature selection for diagnostic
+  classification: a meta-analysis of resting-state fMRI in depression}}.
+\bjtitle{{Frontiers in Human Neuroscience}}
+(\byear{2014}).
+doi:\doiurl{10.3389/fnhum.2014.00692}
+\end{barticle}
+\endbibitem
+
+%%% 11
+\bibitem{vergun2013}
+\begin{barticle}
+\bauthor{\bsnm{{V}ergun}, \binits{S.}},
+\bauthor{\bparticle{{A}lok} \bsnm{{S}.~{D}eshpande}},
+\bauthor{\bparticle{{T}imothy} \bsnm{{B}.~{M}eier}},
+\bauthor{\bparticle{{J}ie} \bsnm{{S}ong}},
+\bauthor{\bparticle{{D}ana} \bsnm{{L}.~{T}udorascu}},
+\bauthor{\bparticle{{V}eena} \bsnm{{A}.~{N}air}},
+\bauthor{\bparticle{{V}ikas} \bsnm{{S}ingh}},
+\bauthor{\bparticle{{B}harat} \bsnm{{B}.~{B}iswal}},
+\bauthor{\bparticle{{E}lizabeth} \bsnm{{M}everand}, \binits{M.}},
+\bauthor{\bparticle{{R}asmus} \bsnm{{M}.~{B}irn}},
+\bauthor{\bparticle{{V}ivek} \bsnm{{P}rabhakaran}}:
+\batitle{{Characterizing functional connectivity differences in aging adults
+  using machine learning on resting state fMRI data}}.
+\bjtitle{{Frontiers in Computational Neuroscience}}
+(\byear{2013}).
+doi:\doiurl{10.3389/fncom.2013.00038}
+\end{barticle}
+\endbibitem
+
+%%% 12
+\bibitem{le17}
+\begin{barticle}
+\bauthor{\bsnm{Le}, \binits{T.T.}},
+\bauthor{\bsnm{Simmons}, \binits{W.K.}},
+\bauthor{\bsnm{Misaki}, \binits{M.}},
+\bauthor{\bsnm{Bodurka}, \binits{J.}},
+\bauthor{\bsnm{White}, \binits{B.C.}},
+\bauthor{\bsnm{Savitz}, \binits{J.}},
+\bauthor{\bsnm{McKinney}, \binits{B.A.}}:
+\batitle{Differential privacy-based evaporative cooling feature selection and
+  classification with relief-f and random forests}.
+\bjtitle{Bioinformatics}
+\bvolume{33}(\bissue{18}),
+\bfpage{2906}--\blpage{2913}
+(\byear{2017})
+\end{barticle}
+\endbibitem
+
+%%% 13
+\bibitem{gotts2012}
+\begin{barticle}
+\bauthor{\bsnm{{G}otts}, \binits{S.J.}},
+\bauthor{\bparticle{{K}yle} \bsnm{{S}immons}, \binits{W.}},
+\bauthor{\bparticle{{L}ydia} \bsnm{{A}.~{M}ilbury}},
+\bauthor{\bparticle{{G}regory} \bsnm{{L}.~{W}allace}},
+\bauthor{\bparticle{{R}obert} \bsnm{{W}.~{C}ox}},
+\bauthor{\bparticle{{A}lex} \bsnm{{M}artin}}:
+\batitle{{Fractionation of social brain circuits in autism spectrum
+  disorders}}.
+\bjtitle{{Brain}}
+\bvolume{135},
+\bfpage{2711}--\blpage{2725}
+(\byear{2012}).
+doi:\doiurl{10.1093/brain/aws160}
+\end{barticle}
+\endbibitem
+
+%%% 14
+\bibitem{allStats}
+\begin{bbook}
+\bauthor{\bsnm{{W}asserman}, \binits{L.}}:
+\bbtitle{All of {S}tatistics: {A} {C}oncise {C}ourse in {S}tatistical
+  {I}nference}.
+\bpublisher{Springer}, \blocation{???}
+(\byear{2004})
+\end{bbook}
+\endbibitem
+
+%%% 15
+\bibitem{freund2004}
+\begin{bbook}
+\bauthor{\bsnm{{M}iller}, \binits{I.}},
+\bauthor{\bparticle{{M}arylees} \bsnm{{M}iller}}:
+\bbtitle{{John E. Freund's Mathematical Statistics with Applications}},
+\bedition{7}th edn.
+\bpublisher{{Pearson Prentice Hall}}, \blocation{???}
+(\byear{2004})
+\end{bbook}
+\endbibitem
+
+%%% 16
+\bibitem{brazma2000}
+\begin{barticle}
+\bauthor{\bsnm{{B}razma}, \binits{A.}},
+\bauthor{\bparticle{{J}aak} \bsnm{{V}ilo}}:
+\batitle{{Gene expression data analysis}}.
+\bjtitle{{FEBS Letters}}
+\bvolume{480},
+\bfpage{17}--\blpage{24}
+(\byear{2000})
+\end{barticle}
+\endbibitem
+
+%%% 17
+\bibitem{wang2018}
+\begin{barticle}
+\bauthor{\bsnm{{W}ang}, \binits{D.}},
+\bauthor{\bparticle{{J}in} \bsnm{{G}u}}:
+\batitle{{VASC: Dimension Reduction and Visualization of Single-cell RNA-seq
+  Data by Deep Variational Autoencoder}}.
+\bjtitle{{Genomics Proteomics Bioinformatics}}
+\bvolume{16},
+\bfpage{320}--\blpage{331}
+(\byear{2018})
+\end{barticle}
+\endbibitem
+
+%%% 18
+\bibitem{gumbel1947}
+\begin{barticle}
+\bauthor{\bsnm{{G}umbel}, \binits{E.J.}}:
+\batitle{{The Distribution of the Range}}.
+\bjtitle{{The Annals of Mathematical Statistics}}
+\bvolume{18}(\bissue{3}),
+\bfpage{384}--\blpage{412}
+(\byear{1947})
+\end{barticle}
+\endbibitem
+
+%%% 19
+\bibitem{chatterjee2014}
+\begin{bbook}
+\bauthor{\bsnm{{C}hatterjee}, \binits{S.}}:
+\bbtitle{{Superconcentration and Related Topics}},
+\bedition{1}st edn.
+\bsertitle{1439-7382}.
+\bpublisher{{Springer International Publishing}}, \blocation{???}
+(\byear{2014}).
+doi:\doiurl{10.1007/978-3-319-03886-5}
+\end{bbook}
+\endbibitem
+
+%%% 20
+\bibitem{cramer1999}
+\begin{bbook}
+\bauthor{\bsnm{{C}ram\'{e}r}, \binits{H.}}:
+\bbtitle{{Mathematical Methods of Statistics}}
+vol. \bseriesno{1},
+\bedition{Reprint, revised} edn.
+\bpublisher{Princeton University Press}, \blocation{???}
+(\byear{1999})
+\end{bbook}
+\endbibitem
+
+%%% 21
+\bibitem{li2014}
+\begin{barticle}
+\bauthor{\bsnm{{L}i}, \binits{P.}},
+\bauthor{\bparticle{{M}aozu} \bsnm{{G}uo}},
+\bauthor{\bparticle{{C}hunyu} \bsnm{{W}ang}},
+\bauthor{\bparticle{{X}iaoyan} \bsnm{{L}iu}},
+\bauthor{\bparticle{{Q}uan} \bsnm{{Z}ou}}:
+\batitle{{An overview of SNP interactions in genome-wide association studies}}.
+\bjtitle{{Briefings in Functional Genomics}}
+\bvolume{14}(\bissue{2}),
+\bfpage{143}--\blpage{155}
+(\byear{2014}).
+doi:\doiurl{10.1093/bfgp/elu036}
+\end{barticle}
+\endbibitem
+
+%%% 22
+\bibitem{lee2013}
+\begin{barticle}
+\bauthor{\bsnm{{L}ee}, \binits{M.H.}},
+\bauthor{\bparticle{{C}hristopher} \bsnm{{D}.~{S}myser}},
+\bauthor{\bparticle{{J}oshua} \bsnm{{S}.~{S}himony}}:
+\batitle{{Resting state fMRI: A review of methods and clinical applications}}.
+\bjtitle{{AJNR Am J Neuroradiol.}}
+\bvolume{34}(\bissue{10}),
+\bfpage{1866}--\blpage{1872}
+(\byear{2013}).
+doi:\doiurl{10.3174/ajnr.A3263}
+\end{barticle}
+\endbibitem
+
+%%% 23
+\bibitem{dickie2017}
+\begin{barticle}
+\bauthor{\bparticle{{A}lexander} \bsnm{{D}ickie}, \binits{D.}},
+\bauthor{\bparticle{{S}usan} \bsnm{{D}.~{S}henkin}},
+\bauthor{\bparticle{{D}evasuda} \bsnm{{A}nblagan}},
+\bauthor{\bparticle{{J}uyoung} \bsnm{{L}ee}},
+\bauthor{\bparticle{{M}anuel~{B}lesa} \bsnm{{C}abez}},
+\bauthor{\bparticle{{D}avid} \bsnm{{R}odriguez}},
+\bauthor{\bparticle{{J}ames} \bsnm{{P}.~{B}oardman}},
+\bauthor{\bparticle{{A}dam} \bsnm{{W}aldman}},
+\bauthor{\bparticle{{D}ominic} \bsnm{{E}.~{J}ob}},
+\bauthor{\bparticle{{J}oanna} \bsnm{{M}.~{W}ardlaw}}:
+\batitle{{Whole Brain Magnetic Resonance Image Atlases: A Systematic Review of
+  Existing Atlases and Caveats for Use in Population Imaging}}.
+\bjtitle{{Frontiers in Neuroinformatics}}
+(\byear{2017}).
+doi:\doiurl{10.3389/fninf.2017.00001}
+\end{barticle}
+\endbibitem
+
+\end{thebibliography}
+
+\newcommand{\BMCxmlcomment}[1]{}
+
+\BMCxmlcomment{
+
+<refgrp>
+
+<bibl id="B1">
+  <title><p>Benchmarking Relief-Based Feature Selection Methods for
+  Bioinformatics Data Mining</p></title>
+  <aug>
+    <au><snm>Urbanowicz</snm><fnm>RJ</fnm></au>
+    <au><snm>Olson</snm><fnm>RS</fnm></au>
+    <au><snm>Schmitt</snm><fnm>P</fnm></au>
+    <au><snm>Meeker</snm><fnm>M</fnm></au>
+    <au><snm>Moore</snm><fnm>JH</fnm></au>
+  </aug>
+  <source>Journal of Biomedical Informatics</source>
+  <pubdate>2018</pubdate>
+  <volume>85</volume>
+  <fpage>168</fpage>
+  <lpage>188</lpage>
+</bibl>
+
+<bibl id="B2">
+  <title><p>Relief-Based Feature Selection: Introduction and Review</p></title>
+  <aug>
+    <au><snm>Urbanowicz</snm><fnm>RJ</fnm></au>
+    <au><snm>Meeker</snm><fnm>M</fnm></au>
+    <au><snm>Cava</snm><fnm>WL</fnm></au>
+    <au><snm>Olson</snm><fnm>RS</fnm></au>
+    <au><snm>Moore</snm><fnm>JH</fnm></au>
+  </aug>
+  <source>Journal of Biomedical Informatics</source>
+  <pubdate>2018</pubdate>
+</bibl>
+
+<bibl id="B3">
+  <title><p>Theoretical and {E}mpirical {A}nalysis of {R}elief{F} and
+  {R}{R}elief{F}</p></title>
+  <aug>
+    <au><snm>\v{S}ikonja</snm><fnm>M</fnm></au>
+    <au><cnm>{K}ononenko</cnm></au>
+  </aug>
+  <source>Machine {L}earning</source>
+  <pubdate>2003</pubdate>
+  <volume>53</volume>
+  <fpage>23</fpage>
+  <lpage>69</lpage>
+</bibl>
+
+<bibl id="B4">
+  <title><p>{Nearest-neighbor Projected-Distance Regression (NPDR) detects
+  network interactions and controls for confounding and multiple
+  testing}</p></title>
+  <aug>
+    <au><snm>{L}e</snm><fnm>TT</fnm></au>
+    <au><cnm>{A}. {D}awkins</cnm></au>
+    <au><cnm>{A}. {M}c{K}inney</cnm></au>
+  </aug>
+  <source>Under Review</source>
+  <pubdate>2019</pubdate>
+</bibl>
+
+<bibl id="B5">
+  <title><p>STatistical Inference Relief (STIR) feature selection</p></title>
+  <aug>
+    <au><snm>Le</snm><fnm>TT</fnm></au>
+    <au><snm>Urbanowicz</snm><fnm>RJ</fnm></au>
+    <au><snm>Moore</snm><fnm>JH</fnm></au>
+    <au><snm>McKinney</snm><fnm>BA</fnm></au>
+  </aug>
+  <source>Bioinformatics</source>
+  <pubdate>2018</pubdate>
+  <fpage>bty788</fpage>
+  <url>http://dx.doi.org/10.1093/bioinformatics/bty788</url>
+</bibl>
+
+<bibl id="B6">
+  <title><p>{ReliefSeq: a gene-wise adaptive-K nearest-neighbor feature
+  selection tool for finding gene-gene interactions and main effects in
+  mRNA-Seq gene expression data}</p></title>
+  <aug>
+    <au><snm>McKinney</snm><fnm>BA</fnm></au>
+    <au><snm>{W}hite</snm><fnm>BC</fnm></au>
+    <au><snm>{G}rill</snm><fnm>DE</fnm></au>
+    <au><snm>{Li}</snm><fnm>PW</fnm></au>
+    <au><snm>{K}ennedy</snm><fnm>RB</fnm></au>
+    <au><snm>{P}oland</snm><fnm>GA</fnm></au>
+    <au><snm>{O}berg</snm><fnm>AL</fnm></au>
+  </aug>
+  <source>{PloS one}</source>
+  <publisher>Public Library of Science</publisher>
+  <pubdate>2013</pubdate>
+  <volume>8</volume>
+  <issue>12</issue>
+  <fpage>e81527</fpage>
+</bibl>
+
+<bibl id="B7">
+  <title><p>{Transition-transversion encoding and genetic relationship metfic
+  in ReliefF feature selection improves pathway enrichment in GWAS}</p></title>
+  <aug>
+    <au><snm>{A}rabnejad</snm><fnm>M.</fnm></au>
+    <au><snm>{D}awkins</snm><fnm>{B}. {A}.</fnm></au>
+    <au><snm>{B}ush</snm><fnm>{W}. {S}.</fnm></au>
+    <au><snm>{W}hite</snm><fnm>{B}. {C}.</fnm></au>
+    <au><snm>{H}arkness</snm><fnm>{A}. {R}.</fnm></au>
+    <au><snm>{M}c{K}inney</snm><fnm>{B}. {A}.</fnm></au>
+  </aug>
+  <source>{BioData Mining}</source>
+  <pubdate>2018</pubdate>
+  <volume>11</volume>
+  <issue>23</issue>
+  <url>https://doi.org/10.1186/s13040-018-0186-4</url>
+</bibl>
+
+<bibl id="B8">
+  <title><p>{Robust Feature Selection in Resting-State fMRI Connectivity Based
+  on Population Studies}</p></title>
+  <aug>
+    <au><snm>{V}enkataraman</snm><fnm>A</fnm></au>
+    <au><cnm>{K}ubicki</cnm></au>
+    <au><cnm>{W}estin</cnm></au>
+    <au><cnm>{G}olland</cnm></au>
+  </aug>
+  <source>{Conf Comput Vis Pattern Recognit Workshops}</source>
+  <pubdate>2010</pubdate>
+  <fpage>63</fpage>
+  <lpage>70</lpage>
+</bibl>
+
+<bibl id="B9">
+  <title><p>{Multiregional integration in the brain during resting-state fMRI
+  activity}</p></title>
+  <aug>
+    <au><snm>{H}ay</snm><fnm>E</fnm></au>
+    <au><cnm>{R}itter</cnm></au>
+    <au><cnm>{J}. {L}obaugh</cnm></au>
+    <au><cnm>{R}. McIntosh</cnm></au>
+  </aug>
+  <source>{PLOS Computational Biology}</source>
+  <pubdate>2017</pubdate>
+</bibl>
+
+<bibl id="B10">
+  <title><p>{Toward literature-based feature selection for diagnostic
+  classification: a meta-analysis of resting-state fMRI in
+  depression}</p></title>
+  <aug>
+    <au><snm>{S}undermann</snm><fnm>B</fnm></au>
+    <au><cnm>{B}everborg</cnm></au>
+    <au><cnm>{P}fleiderer</cnm></au>
+  </aug>
+  <source>{Frontiers in Human Neuroscience}</source>
+  <pubdate>2014</pubdate>
+</bibl>
+
+<bibl id="B11">
+  <title><p>{Characterizing functional connectivity differences in aging adults
+  using machine learning on resting state fMRI data}</p></title>
+  <aug>
+    <au><snm>{V}ergun</snm><fnm>S</fnm></au>
+    <au><cnm>{S}. {D}eshpande</cnm></au>
+    <au><cnm>{B}. {M}eier</cnm></au>
+    <au><cnm>{S}ong</cnm></au>
+    <au><cnm>{L}. {T}udorascu</cnm></au>
+    <au><cnm>{A}. {N}air</cnm></au>
+    <au><cnm>{S}ingh</cnm></au>
+    <au><cnm>{B}. {B}iswal</cnm></au>
+    <au><snm>{M}everand</snm><fnm>{M}.</fnm></au>
+    <au><cnm>{M}. {B}irn</cnm></au>
+    <au><cnm>{P}rabhakaran</cnm></au>
+  </aug>
+  <source>{Frontiers in Computational Neuroscience}</source>
+  <pubdate>2013</pubdate>
+</bibl>
+
+<bibl id="B12">
+  <title><p>Differential privacy-based evaporative cooling feature selection
+  and classification with relief-F and random forests</p></title>
+  <aug>
+    <au><snm>Le</snm><fnm>TT</fnm></au>
+    <au><snm>Simmons</snm><fnm>WK</fnm></au>
+    <au><snm>Misaki</snm><fnm>M</fnm></au>
+    <au><snm>Bodurka</snm><fnm>J</fnm></au>
+    <au><snm>White</snm><fnm>BC</fnm></au>
+    <au><snm>Savitz</snm><fnm>J</fnm></au>
+    <au><snm>McKinney</snm><fnm>BA</fnm></au>
+  </aug>
+  <source>Bioinformatics</source>
+  <publisher>Oxford University Press</publisher>
+  <pubdate>2017</pubdate>
+  <volume>33</volume>
+  <issue>18</issue>
+  <fpage>2906</fpage>
+  <lpage>-2913</lpage>
+</bibl>
+
+<bibl id="B13">
+  <title><p>{Fractionation of social brain circuits in autism spectrum
+  disorders}</p></title>
+  <aug>
+    <au><snm>{G}otts</snm><fnm>SJ</fnm></au>
+    <au><snm>{S}immons</snm><fnm>{W}.</fnm></au>
+    <au><cnm>{A}. {M}ilbury</cnm></au>
+    <au><cnm>{L}. {W}allace</cnm></au>
+    <au><cnm>{W}. {C}ox</cnm></au>
+    <au><cnm>{M}artin</cnm></au>
+  </aug>
+  <source>{Brain}</source>
+  <pubdate>2012</pubdate>
+  <volume>135</volume>
+  <fpage>2711</fpage>
+  <lpage>2725</lpage>
+</bibl>
+
+<bibl id="B14">
+  <title><p>All of {S}tatistics: {A} {C}oncise {C}ourse in {S}tatistical
+  {I}nference</p></title>
+  <aug>
+    <au><snm>{W}asserman</snm><fnm>L</fnm></au>
+  </aug>
+  <publisher>Springer, New York, NY</publisher>
+  <pubdate>2004</pubdate>
+</bibl>
+
+<bibl id="B15">
+  <title><p>{John E. Freund's Mathematical Statistics with
+  Applications}</p></title>
+  <aug>
+    <au><snm>{M}iller</snm><fnm>I</fnm></au>
+    <au><cnm>{M}iller</cnm></au>
+  </aug>
+  <publisher>{Pearson Prentice Hall}</publisher>
+  <editor>Sally {Y}agan</editor>
+  <edition>7</edition>
+  <pubdate>2004</pubdate>
+</bibl>
+
+<bibl id="B16">
+  <title><p>{Gene expression data analysis}</p></title>
+  <aug>
+    <au><snm>{B}razma</snm><fnm>A</fnm></au>
+    <au><cnm>{V}ilo</cnm></au>
+  </aug>
+  <source>{FEBS Letters}</source>
+  <pubdate>2000</pubdate>
+  <volume>480</volume>
+  <fpage>17</fpage>
+  <lpage>24</lpage>
+</bibl>
+
+<bibl id="B17">
+  <title><p>{VASC: Dimension Reduction and Visualization of Single-cell RNA-seq
+  Data by Deep Variational Autoencoder}</p></title>
+  <aug>
+    <au><snm>{W}ang</snm><fnm>D</fnm></au>
+    <au><cnm>{G}u</cnm></au>
+  </aug>
+  <source>{Genomics Proteomics Bioinformatics}</source>
+  <pubdate>2018</pubdate>
+  <volume>16</volume>
+  <fpage>320</fpage>
+  <lpage>331</lpage>
+  <url>https://doi.org/10.1016/j.gpb.2018.08.003</url>
+</bibl>
+
+<bibl id="B18">
+  <title><p>{The Distribution of the Range}</p></title>
+  <aug>
+    <au><snm>{G}umbel</snm><fnm>E. {J}.</fnm></au>
+  </aug>
+  <source>{The Annals of Mathematical Statistics}</source>
+  <pubdate>1947</pubdate>
+  <volume>18</volume>
+  <issue>3</issue>
+  <fpage>384</fpage>
+  <lpage>412</lpage>
+  <url>https://www.jstor.org/stable/2235736</url>
+</bibl>
+
+<bibl id="B19">
+  <title><p>{Superconcentration and Related Topics}</p></title>
+  <aug>
+    <au><snm>{C}hatterjee</snm><fnm>S</fnm></au>
+  </aug>
+  <publisher>{Springer International Publishing}</publisher>
+  <edition>1</edition>
+  <series><title><p>1439-7382</p></title></series>
+  <pubdate>2014</pubdate>
+</bibl>
+
+<bibl id="B20">
+  <title><p>{Mathematical Methods of Statistics}</p></title>
+  <aug>
+    <au><snm>{C}ram\'{e}r</snm><fnm>H</fnm></au>
+  </aug>
+  <publisher>Princeton University Press</publisher>
+  <edition>Reprint, revised</edition>
+  <pubdate>1999</pubdate>
+  <volume>1</volume>
+</bibl>
+
+<bibl id="B21">
+  <title><p>{An overview of SNP interactions in genome-wide association
+  studies}</p></title>
+  <aug>
+    <au><snm>{L}i</snm><fnm>P</fnm></au>
+    <au><cnm>{G}uo</cnm></au>
+    <au><cnm>{W}ang</cnm></au>
+    <au><cnm>{L}iu</cnm></au>
+    <au><cnm>{Z}ou</cnm></au>
+  </aug>
+  <source>{Briefings in Functional Genomics}</source>
+  <pubdate>2014</pubdate>
+  <volume>14</volume>
+  <issue>2</issue>
+  <fpage>143</fpage>
+  <lpage>155</lpage>
+</bibl>
+
+<bibl id="B22">
+  <title><p>{Resting state fMRI: A review of methods and clinical
+  applications}</p></title>
+  <aug>
+    <au><snm>{L}ee</snm><fnm>MH</fnm></au>
+    <au><cnm>{D}. {S}myser</cnm></au>
+    <au><cnm>{S}. {S}himony</cnm></au>
+  </aug>
+  <source>{AJNR Am J Neuroradiol.}</source>
+  <pubdate>2013</pubdate>
+  <volume>34</volume>
+  <issue>10</issue>
+  <fpage>1866</fpage>
+  <lpage>1872</lpage>
+</bibl>
+
+<bibl id="B23">
+  <title><p>{Whole Brain Magnetic Resonance Image Atlases: A Systematic Review
+  of Existing Atlases and Caveats for Use in Population Imaging}</p></title>
+  <aug>
+    <au><snm>{D}ickie</snm><fnm>D</fnm></au>
+    <au><cnm>{D}. {S}henkin</cnm></au>
+    <au><cnm>{A}nblagan</cnm></au>
+    <au><cnm>{L}ee</cnm></au>
+    <au><cnm>{C}abez</cnm></au>
+    <au><cnm>{R}odriguez</cnm></au>
+    <au><cnm>{P}. {B}oardman</cnm></au>
+    <au><cnm>{W}aldman</cnm></au>
+    <au><cnm>{E}. {J}ob</cnm></au>
+    <au><cnm>{M}. {W}ardlaw</cnm></au>
+  </aug>
+  <source>{Frontiers in Neuroinformatics}</source>
+  <pubdate>2017</pubdate>
+</bibl>
+
+</refgrp>
+} % end of \BMCxmlcomment
