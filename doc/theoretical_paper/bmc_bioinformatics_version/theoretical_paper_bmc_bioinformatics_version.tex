@@ -293,7 +293,10 @@ Resting-state fMRI (rs-fMRI) is a growing application area for machine learning 
 
 In Section~\ref{sec:notation_and_CLT}, we introduce preliminary notation and apply the Central Limit Theorem (CLT) and the Delta Method to derive asymptotics for pairwise distances. In Section~\ref{sec:moment_derivations}, we present general derivations for continuously distributed data sets with $m$ instances and $p$ attributes. We begin with the cases of standard normal ($\mathcal{N}(0,1)$) and standard uniform ($\mathcal{U}(0,1)$) data distributions, but we derive analytical expressions parameterized by $q$, $p$, and $m$. In Section~\ref{sec:extremes} we use Extreme Value Theory (EVT) to derive attribute range-normalized (max-min) versions of $L_q$ metrics. In Section~\ref{sec:gwas_distances}, we extend the derivations to categorical data with a binomial distribution for GWAS data with multiple metric types. In Section~\ref{sec:rs-fMRI_distances}, we present a new time series correlation-based distance metric, with a particular emphasis on rs-fMRI data, and we derive the corresponding asymptotic distance distribution results. Lastly, in Section~\ref{sec:correlation}, we demonstrate the effect of correlation in the attribute space on distance distributional properties. 
 
-\section{Limit distribution for \texorpdfstring{$L_q$}{} on null data}\label{sec:notation_and_CLT}
+\section{Methods}\label{sec:methods}
+In this section, we prove that pairwise distances converge to a normal distribution by the Central Limit Theorem under the appropriate independence assumptions. We then derive the asymptotic distributions of several distance metrics in continuous data, GWAS data, and resting-state fMRI data. Furthermore, we compare our theoretical moment estimates to sample moments in simulated distances.
+
+\subsection{Limit distribution for \texorpdfstring{$L_q$}{} on null data}\label{sec:notation_and_CLT}
 In the application of nearest-neighbor distance-based methods to continuous data, the distance between instances ($i,j \in \mathcal{I}, |\mathcal{I}|=m$) in the data set $X^{m \times p}$ of $m$ instances and $p$ attributes (or features) is calculated in the space of all attributes ($a \in \mathcal{A}$, $|\mathcal{A}|=p$) using a metric such as
 \begin{equation}\label{eq:D}
 % D^{(q)}_{ij}=\left(\sum_{a\in A}|\text{d}^{\text{type}}_{ij}(a)|^q\right)^{1/q},
@@ -322,7 +325,7 @@ In NPDR, we omit the division by $\max(a)-\min(a)$ used by Relief to constrain s
 
 All derivations in the following sections are applicable to nearest-neighbor distance-based methods in general, which includes not only NPDR, but also Relief-based algorithms. Each of these methods uses a distance metric (Eq.~\ref{eq:D}) to compute neighbors for each instance $i \in \mathcal{I}$. Therefore, our derivations of asymptotic distance distributions are applicable to all methods that compute neighbors in order to weight attributes. The predictors used by NPDR, however, are the one-dimensional projected distances between two instances $i,j \in \mathcal{I}$ (Eq.~\ref{eq:diff}). Hence, all asymptotic estimates we derive for diff metrics (Eq.~\ref{eq:diff}) are particularly relevant to NPDR. Since the standard distance metric (Eq.~\ref{eq:D}) is a function of the one-dimensional projection (Eq.~\ref{eq:diff}), asymptotic estimates derived for this projection (Eq.~\ref{eq:diff}) are implicitly relevant to older nearest-neighbor distance-based methods like Relief-based algorithms. We proceed in the following section by applying the Classical Central Limit Theorem and the Delta Method to derive the limit distribution of pairwise distances on any data distribution that is induced by the standard distance metric (Eq.~\ref{eq:D}).
 
-\subsection{Asymptotic normality of pairwise distances}
+\subsubsection{Asymptotic normality of pairwise distances}
 %Discuss Central Limit Theorem argument for the distribution being Gaussian. We can always say this is an assumption, but I think we can invoke the CLT. [I would be cautious here - TTL. We will be cautious invoking the CLT - BAM.]
 
 Suppose that 
@@ -370,21 +373,14 @@ When $p$ is small, however, we observe empirically that a closer estimate of the
 We estimate rate of convergence to normality for Euclidean ($q=2$) and Manhattan ($q=1$)  metrics by comparing the distribution of pairwise distances in simulated data to a Gaussian (Fig.~\ref{fig:central_limit_convergence}). We compute the distance between all pairs of instances in simulated datasets of uniformly distributed random data. We simulate data with fixed $m=100$ instances, and, by varying the number of attributes ($p=10,100,10000$), we observe rapid convergence to Gaussian. For $p$ as low as $10$ attributes, Gaussian is a good approximation. The number of attributes in bioinformatics data is typically quite large, at least on the order of $10^3$. The Euclidean metric has stronger convergence to a Gaussian than Manhattan. This may be due to Euclidean's use of the square root, which is a common transformation of data in statistics. Normality was assessed using the Shapiro-Wilk test. 
 
 To show asymptotic normality of distances, we did not specify whether the data distribution $\mathcal{F}_X$ was discrete or continuous. This is because asymptotic normality is a general phenomenon in high attribute dimension $p$ for any data distribution $\mathcal{F}_X$ satisfying the assumptions we have made. Therefore, the simulated distances we have shown (Fig.~\ref{fig:central_limit_convergence}) has an analogous representation for discrete data, as well as all other continuous data distributions.
-%
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.95\textwidth]{central_limit_hist_uniform-data.pdf}
-	\caption{\csentence{Convergence to Gaussian for Manhattan and Euclidean distances for simulated standard uniform data with $m=100$ instances and $p=10, 100,$ and $10000$ attributes.} Convergence to Gaussian occurs rapidly with increasing $p$, and Gaussian is a good approximation for $p$ as low as $10$ attributes. The number of attributes in bioinformatics data is typically much larger, at least on the order of $10^3$. The Euclidean metric has stronger convergence to normal than Manhattan.  P values from Shapiro-Wilk test, where the null hypothesis is a Gaussian distribution.}
-	\label{fig:central_limit_convergence}
-\end{figure}
 
 For distance based learning methods, all pairwise distances are used to determine relative importances for attributes. The collection of all distances above the diagonal in an $m \times m$ distance matrix does not satisfy the independence assumption used in the previous derivations. This is because of the redundancy that is inherent to the distance matrix calculation. However, this collection is still asymptotically normal with mean and variance approximately equal to those we have previously given (Eq.~\ref{eq:DqDeltaMethod}). In the next section, we assume actual data distributions in order to define more specific general formulas for standard $L_q$ and max-min normalized $L_q$ metrics. We also derive asymptotic moments for a new discrete metric in GWAS data and a new metric for time series correlation-based data, such as, resting-state fMRI.
 
-\section{\texorpdfstring{$L_q$}{} metric moments for continuous data distributions}\label{sec:moment_derivations}
+\subsection{\texorpdfstring{$L_q$}{} metric moments for continuous data distributions}\label{sec:moment_derivations}
 
 In this section, we begin by deriving general formulas for asymptotic means and variances of the $L_q$ distance (Eq.~\ref{eq:D}) for standard normal and standard uniform data. With our general formulas for continuous data, we compute moments associated with Manhattan ($L_1$) and Euclidean ($L_2$) metrics. We then consider the max-min normalized version of the $L_q$ distance, where the magnitude difference (Eq.~\ref{eq:diff}) is divided by the range of each attribute $a$. Using Extreme Value Theory (EVT), we derive formulas for the moments of attribute range in standard normal and standard uniform data. Transitioning into discrete data distributions relevant to GWAS, we derive asymptotic moments for two well known metrics and one new metric. In addition, we derive distance asymptotics for time series correlation-based data, such as, resting-state fMRI. 
 
-\subsection{Distribution of \texorpdfstring{$|\text{d}_{ij}(a)|^q = |X_{ia} - X_{ja}|^q$}{}}
+\subsubsection{Distribution of \texorpdfstring{$|\text{d}_{ij}(a)|^q = |X_{ia} - X_{ja}|^q$}{}}
 
 Suppose that $X_{ia}, X_{ja} \overset{iid}{\sim} \mathcal{F}_X(\mu_x,\sigma^2_x)$ and define $Z^q_a = |\text{d}_{ij}(a)|^q = |X_{ia} - X_{ja}|^q$, where $a \in \mathcal{A}$ and $|\mathcal{A}| = p$. In order to find the distribution of $Z^q_a$, we will use the following theorem given in \cite{freund2004}.
 
@@ -505,7 +501,7 @@ D^{(q)}_{ij} \overset{.}{\sim} \mathcal{N}\left(\left(\mu_{z^q_a}p\right)^{1/q},
 %
 where we have an improved estimate of the mean for $q=2$ (Eq.~\ref{eq:DqImprovedExplained}).
 
-\subsubsection{Standard normal data}
+\subsubsection*{Standard normal data}
 
 If $X_{ia},X_{ja} \overset{iid}{\sim} \mathcal{N}(0,1)$, then the marginal density functions with respect to $X$ for $X_{ia}$, $X_{ia} - \left(Z^q_a\right)^{1/q}$, and $X_{ia} + \left(Z^q_a\right)^{1/q}$ are defined as
 %
@@ -583,7 +579,7 @@ Therefore, the asymptotic distribution of $D^{(q)}_{ij}$ for standard normal dat
 
 We provide a summary table of the moment estimates (Eq.~\ref{eq:normalDistr}) for the $L_q$ metric on standard normal data (Table~\ref{tab:dist_distr_general1}). The summary is organized by data type, type of statistic (mean or variance), and corresponding asymptotic formula. In the next section, we derive the $L_q$ distance distribution on standard uniform data in a similar fashion.
 
-\subsubsection{Standard uniform data}
+\subsubsection*{Standard uniform data}
 
 If $X_{ia},X_{ja} \overset{iid}{\sim} \mathcal{U}(0,1)$, then the marginal density functions with respect to $X$ for $X_{ia}$, $X_{ia} - \left(Z^q_a\right)^{1/q}$, and $X_{ia} + \left(Z^q_a\right)^{1/q}$ are defined as
 %
@@ -668,13 +664,13 @@ Therefore, the asymptotic distribution of $D^{(q)}_{ij}$ for standard uniform da
 
 We provide a summary table of the moment estimates (Eq.~\ref{eq:uniformDistr}) for the $L_q$ metric on standard uniform data (Table~\ref{tab:dist_distr_general1}). The summary is organized by data type, type of statistic (mean or variance), and corresponding asymptotic formula. In the next section, we use our general $L_q$ distance distribution derivations to provide Manhattan ($q=1$) and Euclidean ($q=2$) asymptotic moments on both standard normal and standard uniform data. These are the most commonly applied metrics in the context of nearest-neighbor feature selection, so they are of particular interest.
 
-\subsection{Manhattan \texorpdfstring{($L_1$)}{}}
+\subsubsection{Manhattan \texorpdfstring{($L_1$)}{}}
 
 With our general formulas for the asymptotic 
 
 \noindent mean and variance (Eqs.~\ref{eq:normalDistr} and \ref{eq:uniformDistr}) for any value of $q \in \mathbb{N}$, we can simply substitute a particular value of $q$ in order to determine the asymptotic distribution of the corresponding distance $L_q$ metric. We demonstrate this with the example of the Manhattan metric ($L_1$) for standard normal and standard uniform data (Eq.~\ref{eq:D}, $q=1$).
 
-\subsubsection{Standard normal data}
+\subsubsection*{Standard normal data}
 
 Substituting $q=1$ into the asymptotic formula for the mean $L_q$ distance (Eq.~\ref{eq:normalDistr}), we have the following for expected $L_1$ distance between two independently sampled instances $i,j \in \mathcal{I}$ in standard normal data
 %
@@ -698,7 +694,7 @@ Substituting $q=1$ into the formula for the asymptotic variance of $D^{(1)}_{ij}
 
 Similar to the mean (Eq.~\ref{eq:normalManMean}), the limiting variance of $D^{(1)}_{ij}$ (Eq.~\ref{eq:normalManVar}) grows on the order of attribute dimension $p$, which implies that points become more dispersed as the dimension increases. The moment estimates given in this section (Eqs.~\ref{eq:normalManMean} and \ref{eq:normalManVar}) are summarized in a table that is organized by metric, data type, statistic (mean or variance), and asymptotic formula (Table~\ref{tab:dist_distr_standardL1L2}).
 
-\subsubsection{Standard uniform data}
+\subsubsection*{Standard uniform data}
 
 Substituting $q=1$ into the asymptotic formula of the mean (Eq.~\ref{eq:uniformDistr}), we have the following for the expected $L_1$ distance between two independently sampled instances $i,j \in \mathcal{I}$ in standard uniform data
 %
@@ -787,11 +783,11 @@ Substituting $q=1$ into the formula for the variance of $Z^q_a$ (Eq.~\ref{eq:1Du
 
 In the event that the data distribution is standard uniform, the density function (Eq.~\ref{eq:projected_distance_density_uniform1}), the mean (Eq.~\ref{eq:1DuniformD1Mean}), and the variance (Eq.~\ref{eq:1DuniformD1Var}) sufficiently define the distribution for NPDR predictors. The means (Eqs.~\ref{eq:1DnormalD1Mean} and \ref{eq:1DuniformD1Mean}) and variances (Eqs.~\ref{eq:1DnormalD1Var} and \ref{eq:1DuniformD1Var}) come from the exact distribution of pairwise distances with respect to a single attribute $a \in \mathcal{A}$. This is the distribution of the so-called ``projection" of the pairwise distance onto a single attribute to which we have been referring, which is a direct implication from our more general derivations. In a similar manner, one can substitute any value of $q \geq 2$ into the general densities of $Z^q_a$ for standard normal (Eq.~\ref{eq:normalPDF}) and standard uniform (Eq.~\ref{eq:uniformDqPDF}) to derive the associated density of $Z^q_a = |X_{ia} - X_{ja}|^q$ for the given data type.
 
-\subsection{Euclidean \texorpdfstring{($L_2$)}{}}
+\subsubsection{Euclidean \texorpdfstring{($L_2$)}{}}
 
 Moment estimates for the Euclidean metric are obtained by substituting $q=2$ into the asymptotic moment formulas for standard normal data (Eq.~\ref{eq:normalDistr}) and standard uniform data (Eq.~\ref{eq:uniformDistr}). As in the case of the Manhattan metric in the previous sections, we initially proceed by deriving Euclidean distance moments in standard normal data.
 
-\subsubsection{Standard normal data}
+\subsubsection*{Standard normal data}
 
 Substituting $q=2$ into the asymptotic formula of the mean (Eq. \ref{eq:normalDistr}), we have the following for expected $L_2$ distance between two independently sampled instances $i,j \in \mathcal{I}$ in standard normal data
 %
@@ -826,7 +822,7 @@ For the case in which the number of attributes $p$ is small, we have an improved
 
 For high dimensional data sets like gene expression \cite{brazma2000,wang2018}, which typically contain thousands of genes (or attributes), it is clear that the magnitude of $p$ will be sufficient to use the standard asymptotic estimate (Eq.~\ref{eq:normalEucMean}) since $\sqrt{2p} \approx \sqrt{2p - 1}$ in that case. The moment estimates given in this section (Eqs.~\ref{eq:normalEucMeanImproved} and \ref{eq:normalEucVar}) are summarized in a table that is organized by metric, data type, statistic (mean or variance), and asymptotic formula (Table~\ref{tab:dist_distr_standardL1L2}).
 
-\subsubsection{Standard uniform data}
+\subsubsection*{Standard uniform data}
 
 Substituting $q=2$ into the asymptotic formula of the mean (Eq.~\ref{eq:uniformDistr}), we have the following for expected $L_2$ distance between two independently sampled instances $i,j \in \mathcal{I}$ in standard uniform data
 %
@@ -862,7 +858,7 @@ For the case in which the number of attributes $p$ is small, we have an improved
 
 We summarize the moment estimates given in this section for standard $L_q$ metrics (Eqs.~\ref{eq:uniformEucMeanImproved} and \ref{eq:uniformEucVar}) organized by metric, data type, statistic (mean or variance), and asymptotic formula (Table~\ref{tab:dist_distr_standardL1L2}). In the next section, we extend these results for the standard $L_q$ metric to derive asymptotics for the attribute range-normalized (max-min) $L_q$ metric used frequently in Relief-based algorithms \cite{urbanowicz17,robnik2003} for scoring attributes. These derivations use extreme value theory to handle the maximum and minimum attributes for standard normal and standard uniform data.  
 
-\subsection{Distributions of attribute range-normalized \texorpdfstring{$L_q$}{} metric}\label{sec:extremes}
+\subsubsection{Distributions of attribute range-normalized \texorpdfstring{$L_q$}{} metric}\label{sec:extremes}
 
 For Relief-based methods \cite{robnik2003,urbanowicz17}, the standard numeric diff metric is normalized by the range of each attribute $a$:
 %
@@ -1140,7 +1136,7 @@ where $m$ is the size of the sample from which extremes are derived, $\mu^{(1)}_
 
 We have now derived asymptotic estimates of the moments of the max-min normalized $L_q$ distance metric (Eq.~\ref{eq:D*}) for any continuous data distribution. In the next two sections, we examine the max-min normalized $L_q$ distance on standard normal and standard uniform data. As in previous sections in which we analyzed the standard $L_q$ metric (Eq.~\ref{eq:D}), we will use the more general results for the max-min $L_q$ metric to derive asymptotic estimates for normalized Manhattan ($q=1$) and Euclidean ($q=2$).
 
-\subsubsection{Standard normal data}
+\subsubsection*{Standard normal data}
 
 The standard normal distribution has zero skewness, even density function, infinite support, and all moments. This implies that the corresponding mean and variance of the distribution of sample range can be expressed exclusively in terms of the sample maximum. Given the nature of the density function of the sample maximum for sample size $m$, the integration required to determine the moments (Eqs.~\ref{eq:mu_max} and \ref{eq:mu2_max}) is not possible. These moments can either be approximated numerically or we can use extreme value theory to determine the form of the asymptotic distribution of the sample maximum. Using the latter method, we will show that the asymptotic distribution of the sample maximum for standard normal data is in the Gumbel family. Let $c_m = -\Phi^{-1}\left(\frac{1}{m}\right)$ and $b_m = \frac{1}{c_m}$, where $\Phi$ is the standard normal cumulative distribution function. Using Taylor's Theorem, we have the following expansion
 %
@@ -1297,7 +1293,7 @@ D^{(q*)}_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{\mu_{D^{(q)}_{ij}}}{2\mu^
 %
 where $m$ is the size of the sample from which the maximum is derived, $\mu^{(1)}_\text{max}$ is the median of the sample maximum (Eq.~\ref{eq:med_max_normal}), $\mu_{D^{(q)}_{ij}}$ is the expected $L_q$ pairwise distance (Eq.~\ref{eq:normalDqMean}), and $\sigma^2_{D^{(q)}_{ij}}$ is the variance of the $L_q$ pairwise distance (Eq.~\ref{eq:normalVar}). The moments of the max-min normalized $L_q$ distance metric in standard normal data (Eq.~\ref{eq:max-min_DDistr_normal}) are summarized in a table that is organized by metric, data type, statistic (mean or variance), and asymptotic formula (Table~\ref{tab:dist_distr_general1}).
 
-\subsubsection{Standard uniform data}
+\subsubsection*{Standard uniform data}
 
 Standard uniform data does not have an even density function. Due to the simplicity of the density function, however, we can derive the distribution of the maximum and minimum of a sample of size $m$ explicitly. Using the general forms of the distribution functions of the maximum (Eq.~\ref{eq:exact_max_distr_fn}) and minimum (Eq.~\ref{eq:exact_min_distr_fn}), we have the following distribution functions for standard uniform data
 %
@@ -1375,11 +1371,11 @@ D^{(q*)}_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{(m+1)\mu_{D^{(q)}_{ij}}}{
 %
 where $m$ is the size of the sample from which extremes are derived, $\mu_{D^{(q)}_{ij}}$ is the expected value (Eq.~\ref{eq:uniformDqMean}) of the $L_q$ metric (Eq.~\ref{eq:D}) in standard uniform data, and $\sigma^2_{D^{(q)}_{ij}}$ is the variance (Eq.~\ref{eq:uniformDqVar}) of the $L_q$ metric (Eq.~\ref{eq:D}) in standard uniform data. The moments of the max-min normalized $L_q$ distance metric in standard uniform data (Eq.~\ref{eq:max-min_DDistr_normal}) are summarized in a table that is organized by metric, data type, statistic (mean or variance), and asymptotic formula (Table~\ref{tab:dist_distr_general1}).
 
-\subsection{Range-Normalized Manhattan \texorpdfstring{($q=1$)}{}}
+\subsubsection{Range-Normalized Manhattan \texorpdfstring{($q=1$)}{}}
 
 Using the general asymptotic results for mean and variance of max-min normalized distances in standard normal and standard uniform data (Eqs.~\ref{eq:max-min_DDistr_normal} and \ref{eq:max-min_DDistr_uniform}) for any value of $q \in \mathbb{N}$, we can substitute a particular value of $q$ in order to determine a more specified distribution for the normalized distance ($D^{(q*)}$, Eq.~\ref{eq:D*}). The following results are for the max-min normalized Manhattan ($q = 1$), $D^{(1*)}$, metric for both standard normal and standard uniform data.
 
-\subsubsection{Standard normal data}
+\subsubsection*{Standard normal data}
 
 Substituting $q=1$ into the asymptotic formula for the expected max-min normalized distance (Eq.~\ref{eq:max-min_DDistr_normal}), we derive the expected normalized Manhattan distance in standard normal data as follows
 %
@@ -1403,7 +1399,7 @@ Similarly, the variance of $D^{(1*)}_{ij}$ is given by
 %
 where $\mu^{(1)}_\text{max}(m)$ is the expected attribute maximum (Eq.~\ref{eq:med_max_normal}), $m$ is the size of the sample from which the maximum is derived, and $p$ is the total number of attributes. Similar to the variance of the standard Manhattan distance, the variance of the max-min normalized Manhattan distance is on the order of $p$ for fixed instance dimension $m$. For fixed $p$, the variance (Eq.~\ref{eq:max-min_var_normal_manhattan}) vanishes as $m$ grows without bound. If we fix $m$, the same variance increases monotonically with increasing $p$. The moments derived in this section (Eqs.~\ref{eq:max-min_mean_normal_manhattan} and \ref{eq:max-min_var_normal_manhattan}) are summarized in a table that is organized by metric, data type, statistic (mean or variance), and asymptotic formula (Table~\ref{tab:dist_distr_normalizedL1L2}).
 
-\subsubsection{Standard uniform data}
+\subsubsection*{Standard uniform data}
 
 Substituting $q=1$ into the asymptotic formula for the expected max-min pairwise distance (Eq.~\ref{eq:max-min_DDistr_uniform}), we derive the expected normalized Manhattan distance in standard uniform data as
 %
@@ -1427,11 +1423,11 @@ Similarly, the variance of $D^{(1*)}_{ij}$ is given by
 %
 where $m$ is the size of the sample from which extremes are derived and $p$ is the total number of attributes. Interestingly, the variance of the max-min normalized Manhattan distance in standard uniform data approaches $p/18$ as $m$ increases without bound for a fixed number of attributes $p$. This is the same asymptotic value to which the variance of the standard Manhattan distance (Eq.~\ref{eq:uniformManMean}) converges. Therefore, large sample sizes make the variance of the normalized Manhattan distance approach the variance of the standard Manhattan distance in standard uniform data. The moments derived in this section (Eqs.~\ref{eq:max-min_mean_uniform_manhattan} and \ref{eq:max-min_var_uniform_manhattan}) are summarized in a table that is organized by metric, data type, statistic (mean or variance), and asymptotic formula (Table~\ref{tab:dist_distr_normalizedL1L2}).
 
-\subsection{Range-Normalized Euclidean \texorpdfstring{($q=2$)}{}}
+\subsubsection{Range-Normalized Euclidean \texorpdfstring{($q=2$)}{}}
 
 Analogous to the previous section, we use the asymptotic moment estimates for the max-min normalized metric ($D^{(q*)}$, Eq.~\ref{eq:D*}) for standard normal (Eq.~\ref{eq:max-min_DDistr_normal}) and standard uniform (Eq.~\ref{eq:max-min_DDistr_uniform}) data but specific to a range-normalized Euclidean metric ($q=2$).
 
-\subsubsection{Standard normal data}
+\subsubsection*{Standard normal data}
 
 Substituting $q=2$ into the asymptotic formula for the expected max-min normalized pairwise distance (Eq.~\ref{eq:max-min_DDistr_normal}), we derive the expected normalized Euclidean distance in standard normal data as
 %
@@ -1455,7 +1451,7 @@ Similarly, the variance of $D^{(2*)}_{ij}$ is given by
 %
 where $\mu^{(1)}_\text{max}(m)$ is the expected attribute maximum (Eq.~\ref{eq:med_max_normal}) and $m$ is the size of the sample from which the maximum is derived. It is interesting to note that the variance (Eq.~\ref{eq:max-min_var_normal_euclidean}) vanishes as the sample size $m$ increases without bound, which means that all distances will be tightly clustered about the mean (Eq.~\ref{eq:max-min_mean_normal_euclidean}). This is different than the variance of the standard $L_2$ metric (Eq.~\ref{eq:normalEucVar}), which is asymptotically equal to 1. This could imply that any two pairwise distances computed with the max-min normalized Euclidean metric in a large sample space $m$ may be indistinguishable, which is another curse of dimensionality. The moments derived in this section (Eqs.~\ref{eq:max-min_mean_normal_euclidean} and \ref{eq:max-min_var_normal_euclidean}) are summarized in a table that is organized by metric, data type, statistic (mean or variance), and asymptotic formula (Table~\ref{tab:dist_distr_normalizedL1L2}).
 
-\subsubsection{Standard uniform data}
+\subsubsection*{Standard uniform data}
 
 Substituting $q=2$ into the asymptotic formula for the expected max-min normalized pairwise distance (Eq.~\ref{eq:max-min_DDistr_uniform}), we derive the expected normalized Euclidean distance in standard uniform data as
 %
@@ -1483,7 +1479,7 @@ We summarize moment estimates in tables (Tables~\ref{tab:dist_distr_general1}-\r
 
 In the next section, we make a transition into discrete GWAS data. We will discuss some commonly known metrics and then a relatively new metric, which will lead us into novel asymptotic results for this data type.
 
-\section{GWAS distance distributions}\label{sec:gwas_distances}
+\subsection{GWAS distance distributions}\label{sec:gwas_distances}
 
 In genome-wide association studies (GWAS), data is encoded by the minor allele at a particular locus $a$, which is just the second most common allele (adenine-A, thymine-T, cytosine-C, or guanine-G) associated with a given attribute $a$ in the data set. Attributes in GWAS data are single nucleotide polymorphisms (SNPs), or mutations involving the substitution, deletion, or insertion of one nucleotide at some point in the DNA sequence of an organism. These are common mutations that can affect how an individual reacts to certain pathogens or the susceptibility for certain diseases. Feature selection in GWAS is typically concerned with finding interacting SNPs that are associated with disease susceptibility \cite{li2014}.
 
@@ -1540,7 +1536,7 @@ D^\text{TiTv}_{ij}(a) = \sum_{a \in \mathcal{A}} \text{d}^\text{TiTv}_{ij}(a).
 
 Assuming that all data entries $X_{ia}$ are independent and identically distributed, we have already shown that the distribution of pairwise distances is asymptotically normal regardless of data distribution and value of $q$. Therefore, the distance distributions induced by each of the GWAS metrics (Eqs.~\ref{eq:diff_GM}-\ref{eq:diff_TiTv}) are asymptotically normal. With this Gaussian limiting behavior, we will proceed by deriving the mean and variance for each distance distribution induced by these three GWAS metrics. 
 
-\subsection{GM distance distribution}
+\subsubsection{GM distance distribution}
 
 The simplest distance metric in nearest-neighbor feature selection in GWAS data is the genotype-mismatch (GM) distance metric (Eq.~\ref{eq:D_GM}). The GM attribute diff (Eq.~\ref{eq:diff_GM}) indicates only whether two genotypes are the same or not. There are many ways two genotypes could differ, but this metric does not record this information. We will now derive the moments for the GM distance (Eq.~\ref{eq:D_GM}), which are sufficient for defining its corresponding asymptotic distribution.
 
@@ -1619,7 +1615,7 @@ D^\text{GM}_{ij} \overset{.}{\sim} \mathcal{N}\left(2\sum_{a \in \mathcal{A}} F^
 %
 where $F^\text{GM}(a) = 2(1 - f_a)^3f_a + 2(1 - f_a)f^3_a + (1 - f_a)^2f^2_a$ and $f_a$ is the probability of a minor allele occurring at locus $a$. This GM distribution holds for random independent GWAS data with minor allele probabilities $f_a$ and binomial samples $X_{ia} \sim \mathcal{B}(2,f_a)$ for all $a \in \mathcal{A}$. Next we consider the distance distribution for an AM metric, which incorporates differences at the allele level and contains more information than genotype differences.
 
-\subsection{AM distance distribution}
+\subsubsection{AM distance distribution}
 
 As we have mentioned previously, the AM attribute diff metric (Eq.~\ref{eq:diff_AM}) is slightly more dynamic than the GM metric because the AM metric accounts for differences between the alleles of two genotypes. In this section, we derive moments of the AM distance metric (Eq.~\ref{eq:D_AM}) that adequately define its corresponding asymptotic distribution.
 
@@ -1695,18 +1691,9 @@ where $G^\text{AM}(a) = (1 - f_a)^3 f_a + f^3_a (1 - f_a) + 2 (1 - f_a)^2 f^2_a$
 
 This concludes our analysis of the AM metric in GWAS data when the independence assumption holds for minor allele probabilities $f_a$ and binomial samples $\mathcal{B}(2,f_a)$ for all $a \in \mathcal{A}$. In the next section, we derive more complex asymptotic results for the TiTv distance metric (Eq.~\ref{eq:D_TiTv}).
 
-\subsection{TiTv distance distribution}\label{sec:TiTv_distances}
+\subsubsection{TiTv distance distribution}\label{sec:TiTv_distances}
 
 The TiTv metric allows for one to account for both genotype mismatch, allele mismatch, transition, and transversion. However, this added dimension of information requires knowledge of the nucleotide makeup at a particular locus. A sufficient condition to compute the TiTv metric between instances $i,j \in \mathcal{I}$ is that we know whether the nucleotides associated with a particular locus $a$ are both purines (PuPu), purine and pyrimidine (PuPy), or both pyrimidines (PyPy). We illustrate all possibilities for transitions and transversions in a diagram (Fig.~\ref{fig:TiTv_diagram}). Purines (A and G) and pyrimidines (C and T) are shown at the top and bottom, respectively. Transitions occur in the cases of PuPu and PyPy, while transversion occurs only with PuPy encoding.
-
-\begin{figure}[h!]
-	\begin{minipage}[c]{0.62\textwidth}
-		\includegraphics[width=0.98\textwidth]{TiTv_diagram2.pdf}
-	\end{minipage}\hfill
-	\begin{minipage}[c]{0.34\textwidth}
-		\caption{\csentence{Purines (A and G) and pyrimidines (C and T) are shown.} Transitions occur when a mutation involves purine-to-purine or pyrimidine-to-pyrimidine insertion. Transversions occur when a purine-to-pyrimidine or pyrimidine-to-purine insertion happens, which is a more extreme case. There are visibly more possibilities for transversions to occur than there are transitions, but there are about twice as many transitions in real data.}\label{fig:TiTv_diagram}
-	\end{minipage}
-\end{figure}
 
 This additional encoding is always given in a particular GWAS data set, which leads us to consider the probabilities of PuPu, PuPy, and PyPy. These will be necessary to determine asymptotics for the TiTv distance metric. Let $\gamma_0$, $\gamma_1$, and $\gamma_2$ denote the probabilities of PuPu, PuPy, and PyPy, respectively, for the $p$ loci of data matrix $X$. In real data, there are approximately twice as many transitions as there are transversions. That is, the probability of a transition $\text{P}(\text{Ti})$ is approximately twice the probability of transversion $\text{P}(\text{Tv})$. It is likely that any particular data set will not satisfy this criterion exactly. In this general case, we have $\text{P}(\text{Ti})$ being equal to some multiple $\eta$ times $\text{P}(\text{Tv})$. In order to enforce this general constraint in simulated data, we define the following set of equalities
 %
@@ -1916,23 +1903,7 @@ Given upper and lower bounds $l$ and $u$, respectively, of the success probabili
 
 The maximum TiTv distance occurs at $\bar{f}_a=0.5$ for any fixed Ti/Tv ratio $\eta$ (Eq.~\ref{eq:TiTv_constraints2}), which is the inflection point about which the minor allele changes at locus $a$ (Fig.~\ref{fig:TiTv-vs-maf}). If few minor alleles are present ($\bar{f}_a \to 0$), the predicted TiTv distance approaches 0. The same is true after the minor allele switches ($\bar{f}_a \to 1$). To explore how TiTv distance changes with increased minor allele frequency, we fixed the Ti/Tv ratio $\eta$ and generated simulated TiTv distances for $\bar{f}_a = 0.055, 0.150, 0.250, \text{ and } 0.350$ (Fig.~\ref{fig:TiTv_ridge}A). For fixed $\eta$, TiTv distance increases significantly with increased $\bar{f}_a$. We similarly fixed the average minor allele frequency $\bar{f}_a$ and generated simulated TiTv distances for $\eta = \text{Ti/Tv} = 0.5, 1, 1.5, \text{ and } 2$ (Fig.~\ref{fig:TiTv_ridge}C). The TiTv distance decreases slightly with increased $\eta = \text{Ti/Tv}$. As $\eta \to 0^+$, the data is approaching all Tv and no Ti, which means the TiTv distance is larger by definition. On the other hand, the TiTv distance decreases as $\eta \to 2^-$ because the data is approaching approximately twice as many Ti as there are Tv, which is typical for GWAS data in humans.
 
-% made with simulate_TiTv_distances.R and LaTeX
-\begin{figure}[h!]
-	\begin{minipage}[c]{0.65\textwidth}
-		\includegraphics[width=0.98\textwidth]{TiTv_distance-vs-maf.pdf}
-	\end{minipage}\hfill
-	\begin{minipage}[c]{0.31\textwidth}
-		\caption{\csentence{Predicted average TiTv distance as a function of average minor allele frequency $\bar{f}_a$ (see Eq.~\ref{eq:avg_maf}).} Success probabilities $f_a$ are drawn from a sliding window interval from 0.01 to 0.9 in increments of about 0.009 and $m=p=100$. For $\eta=0.1$, where $\eta$ is the Ti/Tv ratio given by Eq.~\ref{eq:TiTv_constraints1}, Tv is ten times more likely than Ti and results in larger distance. Increasing to $\eta=1$, Tv and Ti are equally likely and the distance is lower.  In line with real data for $\eta=2$, Tv is half as likely as Ti so the distances are relatively small.}\label{fig:TiTv-vs-maf}
-	\end{minipage}
-\end{figure}
-
 We also compared theoretical and sample moments as a function of $\eta = \text{Ti/Tv}$ and $\bar{f}_a$ for the TiTv distance metric (Fig.~\ref{fig:TiTv_ridge}B and D). We fixed $\bar{f}_a$ and computed the theoretical and simulated moments as a function of $\eta$ (Fig.~\ref{fig:TiTv_ridge}B). Theoretical average TiTv distance, given by Eq.~\ref{eq:mu_DDistr_TiTv}, and simulated TiTv average distance are approximately equal as $\eta$ increases. Theoretical standard deviation, given by Eq.~\ref{eq:var_DDistr_TiTv}, and simulated TiTv standard deviation differ slightly. We also fixed $\eta$ and computed theoretical and sample moments as a function of $\bar{f}_a$ (Fig.~\ref{fig:TiTv_ridge}D). In this case, there is approximate agreement with simulated and theoretical moments as $\bar{f}_a$ increases.
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.96\textwidth]{re_fig_5_BDedit.pdf}
-	\caption{\csentence{Density curves and moments of TiTv distance as a function of average MAF $\bar{f}_a$, given by Eq.~\ref{eq:avg_maf}, and Ti/Tv ratio $\eta$, given by Eq.~\ref{eq:TiTv_constraints2}.} We fix $m=p=100$ for all simulated TiTv distances. (\textbf{A}) For fixed $\bar{f}_a=0.055$, TiTv distance density is plotted as a function of increasing $\eta$. TiTv distance decreases as $\eta$ increases. For $\eta=\text{Ti/Tv}=0.5$, there are twice as many transversions as there are transitions. On the other hand, $\eta=\text{Ti/Tv}=2$ indicates that there are half as many transversions as transitions. Since transversions encode a larger magnitude distance than transitions, this behavior is expected. (\textbf{B}) Simulated and predicted mean $\pm$ SD are shown as a function of increasing Ti/Tv ratio $\eta$. Distance decreases as Ti/Tv increases. Theoretical and simulated moments are approximately the same. (\textbf{C}) For fixed $\eta=2$, TiTv distance density is plotted as a function of increasing $\bar{f}_a$. TiTv distance increases as $\bar{f}_a$ approaches maximum of 0.5, which means that there is about the same frequency of minor alleles as major alleles. (\textbf{D}) Simulated and predicted mean $\pm$ SD as a function of increasing average MAF $\bar{f}_a$. Distance increases as the number of minor alleles increases. Theoretical and simulated moments are approximately the same.}\label{fig:TiTv_ridge}
-\end{figure}
 
 We summarize our moment estimates for GWAS distance metrics (Eqs.~\ref{eq:D_GM}-\ref{eq:D_TiTv}) (Table~\ref{tab:dist_distr_gwas}) organized by metric, statistic (mean or variance), and asymptotic formula. Next we consider the important case of distributions of GWAS distances projected onto a single attribute (Eqs.~\ref{eq:diff_GM}-\ref{eq:diff_TiTv}).
 
@@ -1949,7 +1920,7 @@ We summarize our moment estimates for GWAS distance metrics (Eqs.~\ref{eq:D_GM}-
 %	\caption{TiTv distance predicted and simulated moments as a function of Ti/Tv ratio $\eta$ and average MAF $\bar{f}_a$ given by Eqs.~\ref{eq:TiTv_constraints2} and \ref{eq:avg_maf}, respectively. (\textbf{A}) Simulated and predicted mean $\pm$ SD are shown as a function of increasing Ti/Tv ratio $\eta$. Distance decreases as Tv becomes more frequent than Ti. Theoretical standard deviation is slightly larger than simulated, but the means are approximately the same. (\textbf{B}) Simulated and predicted mean $\pm$ SD are shown as a function of increasing average MAF $\bar{f}_a$. Distance increases as the number of minor alleles increases at each locus $a$. Theoretical and simulated moments are approximately the same.}\label{fig:TiTv_meanSD}
 %\end{figure}
 
-\subsection{Distribution of one-dimensional projected GWAS distance onto a SNP}\label{sec:GWAS_diff}
+\subsubsection{Distribution of one-dimensional projected GWAS distance onto a SNP}\label{sec:GWAS_diff}
 
 We previously derived the exact distribution of the one-dimensional projected distance onto an attribute in continuous data (Section~\ref{sec:continuous_diff}), which is used as the predictor in NPDR to calculate relative attribute importance in the form of standardized beta coefficients. GWAS data and the metrics we have considered are discrete. Therefore, we derive the density function for each diff metric (Eqs.~\ref{eq:diff_GM}-\ref{eq:diff_TiTv}), which also serves as the probability distribution for each metric, respectively.
 
@@ -2112,7 +2083,7 @@ where $F^\text{TiTv}(a) = \left(1 - f_a\right)^3 f_a + f^3_a \left(1 - f_a\right
 These novel distribution results for the projection of pairwise GWAS distances onto a single genetic variant, as well as results for the full space of $p$ variants, can inform NPDR and other nearest-neighbor distance-based feature selection algorithms. Next we introduce our new diff metric and distribution results for time series derived correlation-based data, with a particular application to resting-state fMRI.
 
 %\subsection{Resting-State fMRI Distance Distribution}
-\section{Time series correlation-based distance distribution}\label{sec:rs-fMRI_distances}
+\subsection{Time series correlation-based distance distribution}\label{sec:rs-fMRI_distances}
 
 For time series correlation-based data, we consider the case where there are $m$ correlation matrices $A^{(p \times p)}$ (one matrix for each subject). In particular, we have in mind the application of resting-state fMRI (rs-fMRI) data. The derivations that follow, however, are relevant to all correlation-based data with the assumptions we note. The attributes in rs-fMRI are commonly Regions of Interest (ROIs), which are collections of spatially proximal voxels \cite{lee2013}. Correlation in their time-series activity arise between different ROIs at the voxel level or for a given brain atlas \cite{dickie2017}. Because the attributes of interest ($a$) are the ROIs themselves, we propose the following attribute projection (diff)
 %
@@ -2141,15 +2112,6 @@ and ending indices are given by
 \]
 
 These indices allow us to extract just the rows necessary to compute the rs-fMRI diff for a fixed ROI. 
-
-\begin{figure}[h!]
-	\begin{minipage}[c]{0.7\textwidth}
-		\includegraphics[width=0.95\textwidth]{rs_fmri_all_instance_matrix.pdf}
-	\end{minipage}\hfill
-	\begin{minipage}[c]{0.26\textwidth}
-		\caption{\csentence{Organization based on brain regions of interest (ROIs) of resting-state fMRI correlation dataset consisting of transformed correlation matrices for $m$ subjects.} Each column corresponds to an instance (or subject) $I_j$ and each subset of rows corresponds to the correlations for an ROI attribute ($p$ sets). The notation $\hat{A}^{(j)}_{ak}$ represents the r-to-z transformed correlation between attributes (ROIs) $a$ and $k \neq a$ for instance $j$.}\label{fig:rs-fMRI_matrix}
-	\end{minipage}
-\end{figure}
 
 %
 %\begin{equation}\label{eq:rs-fMRI_matrix}
@@ -2249,7 +2211,7 @@ With the mean (Eq.~\ref{eq:mu_DDistr_rs-fMRI}) and variance (Eq.~\ref{eq:var_DDi
 D^\text{fMRI}_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{2p(p-1)}{\sqrt{\pi}}, \frac{9p(\pi - 2)(p-1)}{4\pi}\right).
 \end{equation}
 
-\subsection{Max-min normalized time series correlation-based distance distribution}
+\subsubsection{Max-min normalized time series correlation-based distance distribution}
 
 Previously (Section~\ref{sec:extremes}) we determined the asymptotic distribution of the sample maximum of size $m$ from a standard normal distribution. We can naturally extend these results to our transformed rs-fMRI data because $X$ (Fig.~\ref{fig:rs-fMRI_matrix}) is approximately standard normal. We proceed with the definition of the max-min normalized rs-fMRI pairwise distance.
 
@@ -2280,7 +2242,7 @@ Let $\mu_{D^\text{fMRI}_{ij}}$ and $\sigma^2_{D^\text{fMRI}_{ij}}$ denote the me
 D^\text{fMRI*}_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{\mu_{D^\text{fMRI}_{ij}}}{2\mu^{(1)}_\text{max}(m,p)}, \frac{6\sigma^2_{D^\text{fMRI}_{ij}}\text{log}[m(p-1)]}{\pi^2 + 24\left[\mu^{(1)}_\text{max}(m,p)\right]^2\text{log}[m(p-1)]}\right).
 \end{equation}
 
-\subsection{One-dimensional projection of rs-fMRI distance onto a single ROI}\label{sec:rs-fMRI_diff}
+\subsubsection{One-dimensional projection of rs-fMRI distance onto a single ROI}\label{sec:rs-fMRI_diff}
 
 Just as in previous sections (Sections.~\ref{sec:continuous_diff} and \ref{sec:GWAS_diff}), we now derive the distribution of our rs-fMRI diff metric (Eq.~\ref{eq:diff_rs-fMRI}). Unlike what we have seen in previous sections, we do not derive the exact distribution for this diff metric. We have determined empirically that the rs-fMRI diff is approximately normal. Although the rs-fMRI diff is a sum of $p-1$ magnitude differences, the Classical Central Limit Theorem does not apply because of the dependencies that exist between the terms of the sum. Examination of histograms and quantile-quantile plots of simulated values of the rs-fMRI diff easily indicate that the normality assumption is safe. Therefore, we derive the mean and variance of the approximately normal distribution of the rs-fMRI diff. As we have seen previously, this normality assumption is reasonable even for small values of $p$. 
 
@@ -2326,7 +2288,7 @@ Empirically, the first estimate (Eq.~\ref{eq:rs-fMRI_diffVar1}) of the variance 
 %
 where $a$ is a single fixed ROI.
 
-\subsection{Normalized Manhattan \texorpdfstring{($q=1$)}{} for rs-fMRI}
+\subsubsection{Normalized Manhattan \texorpdfstring{($q=1$)}{} for rs-fMRI}
 
 Substituting the non-normalized mean (Eq.~\ref{eq:mu_DDistr_rs-fMRI}) into the equation for the mean of the max-min normalized rs-fMRI metric (Eq.~\ref{eq:max-min_DDistr_normal_rs-fMRI}), we have the following
 %
@@ -2352,21 +2314,18 @@ where $\mu^{(1)}_\text{max}(m,p)$ (Eq.~\ref{eq:mean_max_rs-fMRI}) is the expecte
 
 We summarize the moment estimates for the rs-fMRI metrics for correlation-based data derived from time series (Table~\ref{tab:dist_distr_rs-fMRI}). We organize this summary by standard and attribute range-normalized rs-fMRI distance metric, statistic (mean or variance), and asymptotic formula.
 
-\section{Comparison of theoretical and sample moments}
+\subsection{Comparison of theoretical and sample moments}
 
 We compare our analytical asymptotic estimates of sample moments for distributions of pairwise distances in high attribute dimension by generating random data for various dimensions $m$ and $p$ (Fig.~\ref{fig:compare_theoretical_sample_moments}). We fix $m=100$ samples and compute Manhattan (Eq.~\ref{eq:D}) distance matrices from standard normal data for $p=1000,2000,3000,4000,$ and $5000$ attributes. For each value of $p$, we generate 20 random datasets and compute the mean and standard deviation of pairwise distances. We then average these 20 simulated means and standard deviations. For comparison, we compute the theoretical moments (Eqs.~\ref{eq:normalManMean} and \ref{eq:normalManVar}) for each value of $p$ and fixed $m=100$ from the theoretical formulas. Scatter plots of theoretical versus simulated mean (Fig.~\ref{fig:compare_theoretical_sample_moments}A) and theoretical versus simulated standard deviation (Fig.~\ref{fig:compare_theoretical_sample_moments}B) indicate that our theoretical asymptotic formulas for sample moments are reliable for both large and relatively small numbers of attributes. For other combinations of data type, distance metric, sample size $m$, and number of attributes $p$, we find similar agreement between theoretical formulas and simulated moments (not shown).
 
-\begin{figure}[h!]
-	\centering
-	\includegraphics[scale = 0.4]{compared_moments_normal_manhattan5.pdf}
-	\caption{\csentence{Comparison of theoretical and sample moments of Manhattan (Eq.~\ref{eq:D}) distances in standard normal data.} (\textbf{A}) Scatter plot of theoretical versus simulated mean Manhattan distance (Eq.~\ref{eq:normalManMean}). Each point represents a different number of attributes $p$. For each value of $p$ we fixed $m=100$ and generated 20 distance matrices from standard normal data and computed the average simulated pairwise distance from the 20 iterations. The corresponding theoretical mean was then computed for each value of $p$ for comparison. The dashed line represents the identity (or $y=x$) line for reference, showing strong agreement between theoretical and simulation. (\textbf{B}) Scatter plot of theoretical vs simulated standard deviation of Manhattan (Eq.~\ref{eq:D}) distance (Eq.~\ref{eq:normalManVar}). These standard deviations come from the same random distance matrices for which mean distance was computed for \textbf{A}.}\label{fig:compare_theoretical_sample_moments}
-\end{figure}
+\section{Results}
+In this section, we consider the effects of pairwise attribute correlation on the distance distributions we have considered previously. We consider Euclidean distances (Eq.~\ref{eq:D},$q=2$) on standard normal data ($\mathcal{N}(0,1)$), TiTv distances (Eq.~\ref{eq:D_TiTv}) on GWAS data, and time series correlation-based distances (Eq.~\ref{eq:D_rs-fMRI}) on rs-fMRI data. We show empirically that distance distributions become positively skewed as pairwise attribute correlation increases in magnitude and discuss potential implications for nearest-neighbor feature selection methods.
 
-\section{Effects of correlation on distances}\label{sec:correlation}
+\subsection{Effects of correlation on distances}\label{sec:correlation}
 
 All of the derivations presented in previous sections were for the cases where there is no correlation between instances or between attributes. We assumed that any pair $(X_{ia},X_{ja})$ of data points for instances $i$ and $j$ and fixed attribute $a$ were independent and identically distributed. This was assumed in order to determine asymptotic estimates in null data. That is, data with no main effects, interaction effects, or pairwise correlations between attributes. Within this simplified context, our asymptotic formulas for distributional moments are reliable. However, in real data are numerous statistical effects that impact distance distributional properties. We find that deviation from normality is caused primarily by large magnitude pairwise correlation between attributes. Pairwise attribute correlation can be the result of main effects, where attributes have different within-group means. On the other hand, there could be an underlying interaction network in which there are strong associations between attributes. If attributes are differentially correlated between phenotype groups, then interactions exist that change the distance distribution. In the following few sections, we consider particular cases of the $L_q$ metric for continuous and discrete data under the effects of pairwise attribute correlation.
 
-\subsection{Continuous data}
+\subsubsection{Continuous data}
 
 Without loss of generality, suppose we have $X^{(m \times p)}$ where $X_{ia} \sim \mathcal{N}(0,1)$ for all $i=1,2,\dots,m$ and $a=1,2,\dots,p$, and let $m=p=100$. We consider only the $L_2$ (Euclidean) metric (Eq.~\ref{eq:D}, $q=2$). We explore the effects of correlation on these distances by generating simulated data sets with increasing strength of pairwise attribute correlation and then plotting the density curve of the induced distances (Fig.~\ref{fig:null_vs_correlated_ridge}A). Deviation from normality in the distance distribution is directly related to the average absolute pairwise correlation that exists in the simulated data. This measure is given by
 %
@@ -2389,7 +2348,7 @@ The new data matrix $X^\text{corr}$ has approximately the same correlation struc
 %	\caption{Density curves of Euclidean distances computed on data with correlated vs uncorrelated features. The average absolute pairwise correlation, given by $r$ (Eq.~\ref{eq:abs_corr}), is a measure of the deviation from normality in distances. When $r=0.103$, correlated distances closely approximate uncorrelated distances. With $r=0.246$, the increased correlation causes significant positive skewness in distances. In the cases of $r=0.436$ and $r=0.597$, the positive skewness becomes more extreme and correlated distances diverge maximally from the uncorrelated distance distribution. The average correlated and uncorrelated distances are approximately the same for each value of $r$, however, the standard deviation of correlated distances are far larger than that of uncorrelated distances.}\label{fig:null-vs-corr-normal}
 %\end{figure}
 
-\subsection{GWAS data}
+\subsubsection{GWAS data}
 
 Analogous to the previous section, we explore the effects of pairwise attribute correlation in the context of GWAS data. Without loss of generality, we let $m=p=100$ and consider only the TiTv metric (Eq.~\ref{eq:D_TiTv}). To create correlated GWAS data, we first generated standard normal data with random correlation structure, just as in the previous section. We then applied the standard normal cumulative distribution function (CDF) to this correlated data in order transform the correlated standard normal variates into uniform data with preserved correlation structure. We then subsequently applied the inverse binomial CDF to the correlated uniform data with random success probabilities $f_a \text{ for all } a \in \mathcal{A}$. Each attribute $a \in \mathcal{A}$ corresponds to an individual SNP in the data matrix. The resulting GWAS data set is binomial with $n=2$ trials and has roughly the same correlation matrix as the original correlated standard normal data with which we started. Average absolute pairwise correlation $\bar{r}_\text{abs}$ induces positive skewness in GWAS data at lower levels than in correlated standard normal data (Fig.~\ref{fig:null_vs_correlated_ridge}B). This could have important implications in nearest neighborhoods in NPDR and similar methods.
 %
@@ -2399,7 +2358,7 @@ Analogous to the previous section, we explore the effects of pairwise attribute 
 %	\caption{Density curves of TiTv distances computed on data with correlated vs uncorrelated features. The average absolute pairwise correlation, given by $r$ (Eq.~\ref{eq:abs_corr}), is a measure of the deviation from normality in distances. There is very little difference between correlated vs uncorrelated distances when $r=0.086$. When $r=0.147$, correlated distances begin to show positive skewness. Increasing to $r=0.227$ and $r=0.299$, correlated distances show extreme skewness. Compared to Fig.~\ref{fig:null-vs-corr-normal}, it appears that correlation more drastically affects distances in discrete GWAS data than $L_q$ distances in continuous data. This could have important implications for the choice of neighborhood parameters in nearest-neighbor distance-based feature selection. As in continuous data, the average correlated and uncorrelated TiTv distances are approximately the same with clear differences in standard deviations.}\label{fig:null-vs-corr-titv}
 %\end{figure}
 
-\subsection{Time-series derived correlation-based datasets}
+\subsubsection{Time-series derived correlation-based datasets}
 
 For our correlation-based metric
 %
@@ -2423,13 +2382,7 @@ For our correlation-based metric
 %	\caption{Histograms of simulated TiTv distance distributions for different Ti/Tv ratios. Average MAF was fixed to be 0.055. The Ti/Tv ratio was taken to be 2, 1.5, 1, and 0.5. The average distance increases as the Ti/Tv ratio decreases, which is intuitive because the TiTv distance is greater for transversions than transitions. Sample and predicted means, as well as standard deviations, are overlaid on each histogram. Each distance distribution comes from a simulated data set with $m=100$ instances and $p=100$ features.}\label{fig:TiTv_hist2}
 %\end{figure}
 
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.95\textwidth]{null_corr_BryanEdit.pdf}
-	\caption{\csentence{Distance densities from uncorrelated versus correlated bioinformatics data.} (\textbf{A}) Euclidean distance densities for random normal data with and without correlation. Correlated data was created by multiplying random normal data by upper-triangular Cholesky factor from randomly generated correlation matrix. We created correlated data for average absolute pairwise correlation (Eq.~\ref{eq:abs_corr}) $\bar{r}_\text{abs} = 0.105, 0.263, 0.458, \text{ and } 0.612$. (\textbf{B}) TiTv distance densities for random binomial data with and without correlation. Correlated data was created by first generating correlated standard normal data using the Cholesky method from (A). Then we applied the standard normal CDF to create correlated uniformly distributed data, which was then transformed by the inverse binomial CDF with $n=2$ trials and success probabilities $f_a \text{ for all } a \in \mathcal{A}$. (\textbf{C}) Time series correlation-based distance densities for random rs-fMRI data (dataset represented in Fig.~\ref{fig:rs-fMRI_matrix}) with and without additional pairwise attribute correlation. Correlation was added to the transformed rs-fMRI data matrix (Fig.~\ref{fig:rs-fMRI_matrix}) using the Cholesky algorithm from (A).}\label{fig:null_vs_correlated_ridge}
-\end{figure}
-
-\section{Discussion}\label{sec:discussion}
+\subsection{Discussion}\label{sec:discussion}
 
 Nearest-neighbor distance-based feature selection is a class of methods that are relatively simple to implement, and they perform well at detecting interaction effects in high dimensional data. Theoretical analysis of the limiting behavior of distance distributions for various data types and dimensions may lead to improved hyperparameter estimates of these feature selection methods. Furthermore, these theoretical results may help guide the choice of distance metric for a given dataset. Most often, distance-based feature selection methods use the $L_q$ metric (Eq.~\ref{eq:D}) with $q=1$ or $q=2$. However, these two realizations of the $L_q$ metric have considerably different expressions for the mean and variance of their respective limiting distributions. For instance, the expected distance for $L_1$ and $L_2$ for standard normal data is on the order of $p$ (Eq.~\ref{eq:normalManMean} and Table~\ref{tab:dist_distr_standardL1L2}) and $\sqrt{p}$ (Eq.~\ref{eq:normalEucMean} and Table~\ref{tab:dist_distr_standardL1L2}), respectively. In addition, $L_1$ and $L_2$ on standard normal data have asymptotic variances on the order of $p$ and 1, respectively (Eqs.~\ref{eq:normalManVar} and \ref{eq:normalEucVar}). 
 
@@ -2461,10 +2414,13 @@ Correlations between attributes and instances can cause significant deviations f
 GWAS: genome-wide associations study; MRI:magnetic resonance imaging; rs-fMRI: resting-state functional magnetic resonance imaging; fMRI: functional magnetic resonance imaging; NPDR: nearest-neighbor projected distance regression; EVT: extreme value theory; ROI: region of interest; CLT: central limit theorem; CCLT: classical central limit theorem; MGF: moment generating function; SNP: single nucleotide polymorphism; GM: genotype mismatch; AM: allele mismatch; TiTv: transition-transversion; DNA: deoxyribonucleic acid; A: adenine; T: thymine; C: cytosine; G: guanine; MAF: minor allele frequency; Ti: transition; Tv: transversion; PuPu: purine-purine; PuPy: purine-pyrimidine; PyPy: pyrimidine-pyrimidine; SD: standard deviation; ts-corr: time series-correlation
 
 \subsection*{Ethics approval and consent to participate}
+  Not applicable.
 
 \subsection*{Consent for publication}
+  Not applicable.
 
 \subsection*{Availability of data and material}
+  Not applicable.
 
 \subsection*{Competing interests}
   The authors declare that they have no competing interests.
@@ -2476,8 +2432,8 @@ GWAS: genome-wide associations study; MRI:magnetic resonance imaging; rs-fMRI: r
   BAD, TTL, and BAM conceived the project. BAD carried out all mathematical derivations. All authors read and approved the final manuscript.
 
 \section*{Acknowledgements}
-%  This work was supported in part by the National Institute of Health Grant No. P20GM121312 (to BAM).
-  
+  Not applicable.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                  The Bibliography                       %%
 %%                                                         %%
@@ -2522,7 +2478,7 @@ GWAS: genome-wide associations study; MRI:magnetic resonance imaging; rs-fMRI: r
 %%
 %% Do not use \listoffigures as most will included as separate files
 
-%\section*{Figures}
+\section*{Figures}
 %  \begin{figure}[h!]
 %  \caption{\csentence{Sample figure title.}
 %      A short description of the figure content
@@ -2533,6 +2489,66 @@ GWAS: genome-wide associations study; MRI:magnetic resonance imaging; rs-fMRI: r
 %  \caption{\csentence{Sample figure title.}
 %      Figure legend text.}
 %      \end{figure}
+%
+\begin{figure}[h!]
+	%\centering
+	%\includegraphics[width=0.95\textwidth]{central_limit_hist_uniform-data.pdf}
+	\caption{\csentence{Gaussian convergence of Manhattan and Euclidean distances.} 
+		Convergence to Gaussian for Manhattan and Euclidean distances for simulated standard uniform data with $m=100$ instances and $p=10, 100,$ and $10000$ attributes. Convergence to Gaussian occurs rapidly with increasing $p$, and Gaussian is a good approximation for $p$ as low as $10$ attributes. The number of attributes in bioinformatics data is typically much larger, at least on the order of $10^3$. The Euclidean metric has stronger convergence to normal than Manhattan.  P values from Shapiro-Wilk test, where the null hypothesis is a Gaussian distribution.}
+	\label{fig:central_limit_convergence}
+\end{figure}
+
+\begin{figure}[h!]
+	%\begin{minipage}[c]{0.62\textwidth}
+	%	\includegraphics[width=0.98\textwidth]{TiTv_diagram2.pdf}
+	%\end{minipage}\hfill
+	%\begin{minipage}[c]{0.34\textwidth}
+		\caption{\csentence{Transitions and Transversions.} 
+			Purines (A and G) and pyrimidines (C and T) are shown. Transitions occur when a mutation involves purine-to-purine or pyrimidine-to-pyrimidine insertion. Transversions occur when a purine-to-pyrimidine or pyrimidine-to-purine insertion happens, which is a more extreme case. There are visibly more possibilities for transversions to occur than there are transitions, but there are about twice as many transitions in real data.}\label{fig:TiTv_diagram}
+	%\end{minipage}
+\end{figure}
+
+% made with simulate_TiTv_distances.R and LaTeX
+\begin{figure}[h!]
+	%\begin{minipage}[c]{0.65\textwidth}
+	%	\includegraphics[width=0.98\textwidth]{TiTv_distance-vs-maf.pdf}
+	%\end{minipage}\hfill
+	%\begin{minipage}[c]{0.31\textwidth}
+		\caption{\csentence{Predicted TiTv distance versus average MAF.} 
+			Predicted average TiTv distance as a function of average minor allele frequency $\bar{f}_a$ (see Eq.~\ref{eq:avg_maf}). Success probabilities $f_a$ are drawn from a sliding window interval from 0.01 to 0.9 in increments of about 0.009 and $m=p=100$. For $\eta=0.1$, where $\eta$ is the Ti/Tv ratio given by Eq.~\ref{eq:TiTv_constraints1}, Tv is ten times more likely than Ti and results in larger distance. Increasing to $\eta=1$, Tv and Ti are equally likely and the distance is lower.  In line with real data for $\eta=2$, Tv is half as likely as Ti so the distances are relatively small.}\label{fig:TiTv-vs-maf}
+	%\end{minipage}
+\end{figure}
+
+\begin{figure}[h!]
+	%\centering
+	%\includegraphics[width=0.96\textwidth]{re_fig_5_BDedit.pdf}
+	\caption{\csentence{TiTv distance as a function of Ti/Tv ratio and average MAF.}
+		Density curves and moments of TiTv distance as a function of average MAF $\bar{f}_a$, given by Eq.~\ref{eq:avg_maf}, and Ti/Tv ratio $\eta$, given by Eq.~\ref{eq:TiTv_constraints2}. We fix $m=p=100$ for all simulated TiTv distances. (\textbf{A}) For fixed $\bar{f}_a=0.055$, TiTv distance density is plotted as a function of increasing $\eta$. TiTv distance decreases as $\eta$ increases. For $\eta=\text{Ti/Tv}=0.5$, there are twice as many transversions as there are transitions. On the other hand, $\eta=\text{Ti/Tv}=2$ indicates that there are half as many transversions as transitions. Since transversions encode a larger magnitude distance than transitions, this behavior is expected. (\textbf{B}) Simulated and predicted mean $\pm$ SD are shown as a function of increasing Ti/Tv ratio $\eta$. Distance decreases as Ti/Tv increases. Theoretical and simulated moments are approximately the same. (\textbf{C}) For fixed $\eta=2$, TiTv distance density is plotted as a function of increasing $\bar{f}_a$. TiTv distance increases as $\bar{f}_a$ approaches maximum of 0.5, which means that there is about the same frequency of minor alleles as major alleles. (\textbf{D}) Simulated and predicted mean $\pm$ SD as a function of increasing average MAF $\bar{f}_a$. Distance increases as the number of minor alleles increases. Theoretical and simulated moments are approximately the same.}\label{fig:TiTv_ridge}
+\end{figure}
+
+\begin{figure}[h!]
+	%\begin{minipage}[c]{0.7\textwidth}
+	%	\includegraphics[width=0.95\textwidth]{rs_fmri_all_instance_matrix.pdf}
+	%\end{minipage}\hfill
+	%\begin{minipage}[c]{0.26\textwidth}
+		\caption{\csentence{Transformed rs-fMRI data.}
+			Organization based on brain regions of interest (ROIs) of resting-state fMRI correlation dataset consisting of transformed correlation matrices for $m$ subjects. Each column corresponds to an instance (or subject) $I_j$ and each subset of rows corresponds to the correlations for an ROI attribute ($p$ sets). The notation $\hat{A}^{(j)}_{ak}$ represents the r-to-z transformed correlation between attributes (ROIs) $a$ and $k \neq a$ for instance $j$.}\label{fig:rs-fMRI_matrix}
+	%\end{minipage}
+\end{figure}
+
+\begin{figure}[h!]
+	%\centering
+	%\includegraphics[scale = 0.4]{compared_moments_normal_manhattan5.pdf}
+	\caption{\csentence{Moments of Manhattan distances in standard normal data.}
+		Comparison of theoretical and sample moments of Manhattan (Eq.~\ref{eq:D}) distances in standard normal data. (\textbf{A}) Scatter plot of theoretical versus simulated mean Manhattan distance (Eq.~\ref{eq:normalManMean}). Each point represents a different number of attributes $p$. For each value of $p$ we fixed $m=100$ and generated 20 distance matrices from standard normal data and computed the average simulated pairwise distance from the 20 iterations. The corresponding theoretical mean was then computed for each value of $p$ for comparison. The dashed line represents the identity (or $y=x$) line for reference, showing strong agreement between theoretical and simulation. (\textbf{B}) Scatter plot of theoretical vs simulated standard deviation of Manhattan (Eq.~\ref{eq:D}) distance (Eq.~\ref{eq:normalManVar}). These standard deviations come from the same random distance matrices for which mean distance was computed for \textbf{A}.}\label{fig:compare_theoretical_sample_moments}
+\end{figure}
+
+\begin{figure}[h!]
+	%\centering
+	%\includegraphics[width=0.95\textwidth]{null_corr_BryanEdit.pdf}
+	\caption{\csentence{Correlated and uncorrelated distances.}
+		Distance densities from uncorrelated versus correlated bioinformatics data. (\textbf{A}) Euclidean distance densities for random normal data with and without correlation. Correlated data was created by multiplying random normal data by upper-triangular Cholesky factor from randomly generated correlation matrix. We created correlated data for average absolute pairwise correlation (Eq.~\ref{eq:abs_corr}) $\bar{r}_\text{abs} = 0.105, 0.263, 0.458, \text{ and } 0.612$. (\textbf{B}) TiTv distance densities for random binomial data with and without correlation. Correlated data was created by first generating correlated standard normal data using the Cholesky method from (A). Then we applied the standard normal CDF to create correlated uniformly distributed data, which was then transformed by the inverse binomial CDF with $n=2$ trials and success probabilities $f_a \text{ for all } a \in \mathcal{A}$. (\textbf{C}) Time series correlation-based distance densities for random rs-fMRI data (dataset represented in Fig.~\ref{fig:rs-fMRI_matrix}) with and without additional pairwise attribute correlation. Correlation was added to the transformed rs-fMRI data matrix (Fig.~\ref{fig:rs-fMRI_matrix}) using the Cholesky algorithm from (A).}\label{fig:null_vs_correlated_ridge}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                               %%
@@ -2553,7 +2569,7 @@ GWAS: genome-wide associations study; MRI:magnetic resonance imaging; rs-fMRI: r
 %        A3 & ..  & .   & .\\ \hline
 %      \end{tabular}
 %\end{table}
-\begin{table}[hbtp!]
+\begin{table}[h!]
 	\caption{Summary of distance distribution derivations for standard normal ($\mathcal{N}(0,1)$) and standard uniform ($\mathcal{U}(0,1)$) data. Asymptotic estimates are given for both standard (Eq.~\ref{eq:D}) and max-min normalized (Eq.~\ref{eq:D*}) q-metrics. These estimates are relevant for all $q \in \mathbb{N}$ and $p \gg 1$ for which the normality assumption of distances holds.}
 	\label{tab:dist_distr_general1}
 	\centering
@@ -2616,7 +2632,7 @@ GWAS: genome-wide associations study; MRI:magnetic resonance imaging; rs-fMRI: r
 	\end{adjustbox}
 \end{table}
 
-\begin{table}[hbtp!]
+\begin{table}[h!]
 	\caption{Asymptotic estimates of means and variances for the standard $L_1$ and $L_2$ ($q=1$ and $q=2$ in Table~\ref{tab:dist_distr_general1}) distance distributions. Estimates for both standard normal ($\mathcal{N}(0,1)$) and standard uniform ($\mathcal{U}(0,1)$) data are given.}
 	\label{tab:dist_distr_standardL1L2}
 	\centering
@@ -2658,7 +2674,7 @@ GWAS: genome-wide associations study; MRI:magnetic resonance imaging; rs-fMRI: r
 	\end{adjustbox}
 \end{table}
 
-\begin{table}[hbtp!]
+\begin{table}[h!]
 	\caption{Asymptotic estimates of means and variances for the max-min normalized $L_1$ and $L_2$ distance distributions commonly used in Relief-based algorithms. Estimates for both standard normal ($\mathcal{N}(0,1)$) and standard uniform ($\mathcal{U}(0,1)$) data are given. The cumulative distribution function of the standard normal distribution is represented by $\Phi$. Furthermore, $\mu^{(1)}_\text{max}(m)$ (Eq.~\ref{eq:med_max_normal}) is the asymptotic median of the sample maximum from $m$ standard normal random samples.}
 	\label{tab:dist_distr_normalizedL1L2}
 	\centering
@@ -2702,7 +2718,7 @@ GWAS: genome-wide associations study; MRI:magnetic resonance imaging; rs-fMRI: r
 	\end{adjustbox}
 \end{table}
 
-\begin{table}[hbtp!]
+\begin{table}[h!]
 	\caption{Asymptotic estimates of means and variances of genotype mismatch (GM) (Eq.~\ref{eq:D_GM}), allele mismatch (AM) (Eq.~\ref{eq:D_AM}), and transition-transversion (TiTv) (Eq.~\ref{eq:D_TiTv}) distance metrics in GWAS data ($p \gg 1$). GWAS data $X_{ia} \sim \mathcal{B}(2,f_a)$, where $f_a$ for all $a \in \mathcal{A}$ are the probabilities of a minor allele occurring at locus $a$. For the TiTv distance metric, we have the additional encoding that uses $\gamma_0=\text{P}(\text{PuPu})$, $\gamma_1=\text{P}(\text{PuPy})$, and $\gamma_2=\text{P}(\text{PyPy})$.}
 	\label{tab:dist_distr_gwas}
 	\centering
@@ -2744,7 +2760,7 @@ GWAS: genome-wide associations study; MRI:magnetic resonance imaging; rs-fMRI: r
 	\end{adjustbox}
 \end{table}
 
-\begin{table}[hbtp!]
+\begin{table}[h!]
 	\caption{Aymptotic means and variances for the new standard (Eq.~\ref{eq:D_rs-fMRI}) and max-min normalized (Eq.~\ref{eq:max-min_diff_rs-fMRI}) rs-fMRI distance metrics.}
 	\label{tab:dist_distr_rs-fMRI}
 	\centering
