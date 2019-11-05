@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  4 NOV 2019 14:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  5 NOV 2019 05:54
 entering extended mode
 **./theoretical_paper_bmc_bioinformatics_version.tex
 (theoretical_paper_bmc_bioinformatics_version.tex
@@ -750,7 +750,7 @@ LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <5.5> not available
 \address@aff3=\toks51
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <8> not available
-(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 285.
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 258.
 
 
 
@@ -761,243 +761,243 @@ Overfull \hbox (1.0pt too wide) has occurred while \output is active
 [1{C:/Users/bdawk/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 ] [2]
-[3] [4] [5]
-<central_limit_hist_uniform-data.pdf, id=261, 839.66095pt x 854.32774pt>
+[3] [4] [5] [6]
+<central_limit_hist_uniform-data.pdf, id=266, 839.66095pt x 854.32774pt>
 File: central_limit_hist_uniform-data.pdf Graphic file (type pdf)
 <use central_limit_hist_uniform-data.pdf>
 Package pdftex.def Info: central_limit_hist_uniform-data.pdf  used on input lin
-e 374.
+e 376.
 (pdftex.def)             Requested size: 342.9489pt x 348.93393pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[6] [7pdfTeX warning (ext4): destination with the same identifier (name{figure.
+[7] [8pdfTeX warning (ext4): destination with the same identifier (name{figure.
 1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.384 
-       <./central_limit_hist_uniform-data.pdf>] [8] [9] [10] [11] [12]
+l.386 
+       <./central_limit_hist_uniform-data.pdf>] [9] [10] [11] [12] [13]
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <19.91684> not available
-(Font)              size <20.74> substituted on input line 577.
+(Font)              size <20.74> substituted on input line 579.
 
 LaTeX Font Info:    Calculating math sizes for size <19.91684> on input line 57
-7.
+9.
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <13.94173> not available
-(Font)              size <14.4> substituted on input line 577.
+(Font)              size <14.4> substituted on input line 579.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <19.91684> not available
-(Font)              size <20.74> substituted on input line 577.
+(Font)              size <20.74> substituted on input line 579.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <13.94173> not available
-(Font)              size <14.4> substituted on input line 577.
+(Font)              size <14.4> substituted on input line 579.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <19.91684> not available
-(Font)              size <20.74> substituted on input line 577.
+(Font)              size <20.74> substituted on input line 579.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <13.94173> not available
-(Font)              size <14.4> substituted on input line 577.
+(Font)              size <14.4> substituted on input line 579.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <19.91684> not available
-(Font)              size <20.74> substituted on input line 577.
+(Font)              size <20.74> substituted on input line 579.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <13.94173> not available
-(Font)              size <14.4> substituted on input line 577.
+(Font)              size <14.4> substituted on input line 579.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <19.91684> not available
-(Font)              size <20.74> substituted on input line 577.
+(Font)              size <20.74> substituted on input line 579.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <13.94173> not available
-(Font)              size <14.4> substituted on input line 577.
+(Font)              size <14.4> substituted on input line 579.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <19.91684> not available
-(Font)              size <20.74> substituted on input line 577.
+(Font)              size <20.74> substituted on input line 579.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <13.94173> not available
-(Font)              size <14.4> substituted on input line 577.
+(Font)              size <14.4> substituted on input line 579.
 
-[13] [14] [15] [16]
+[14] [15] [16] [17]
 LaTeX Font Info:    Calculating math sizes for size <14.22636> on input line 71
-6.
- [17] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27]
-[28] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38] [39] [40] [41] [42]
-[43] [44] [45] [46] [47]
-<TiTv_diagram2.pdf, id=917, 278.1602pt x 227.42767pt>
+8.
+ [18] [19] [20] [21] [22] [23] [24] [25] [26] [27] [28]
+[29] [30] [31] [32] [33] [34] [35] [36] [37] [38] [39] [40] [41] [42] [43]
+[44] [45] [46] [47] [48]
+<TiTv_diagram2.pdf, id=922, 278.1602pt x 227.42767pt>
 File: TiTv_diagram2.pdf Graphic file (type pdf)
 <use TiTv_diagram2.pdf>
-Package pdftex.def Info: TiTv_diagram2.pdf  used on input line 1702.
+Package pdftex.def Info: TiTv_diagram2.pdf  used on input line 1704.
 (pdftex.def)             Requested size: 219.34091pt x 179.33621pt.
- [48pdfTeX warning (ext4): destination with the same identifier (name{figure.2}
+ [49pdfTeX warning (ext4): destination with the same identifier (name{figure.2}
 ) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1711 \begin{alignat}{2}
+l.1713 \begin{alignat}{2}
                          \label{eq:TiTv_constraints1} <./TiTv_diagram2.pdf>]
-[49] [50] [51] [52] [53] [54] [55]
-<TiTv_distance-vs-maf.pdf, id=1006, 401.99887pt x 402.0069pt>
+[50] [51] [52] [53] [54] [55] [56]
+<TiTv_distance-vs-maf.pdf, id=1011, 401.99887pt x 402.0069pt>
 File: TiTv_distance-vs-maf.pdf Graphic file (type pdf)
 <use TiTv_distance-vs-maf.pdf>
-Package pdftex.def Info: TiTv_distance-vs-maf.pdf  used on input line 1920.
+Package pdftex.def Info: TiTv_distance-vs-maf.pdf  used on input line 1922.
 (pdftex.def)             Requested size: 229.95383pt x 229.96214pt.
-<re_fig_5_BDedit.pdf, id=1014, 505.89pt x 433.62pt>
+<re_fig_5_BDedit.pdf, id=1019, 505.89pt x 433.62pt>
 File: re_fig_5_BDedit.pdf Graphic file (type pdf)
 <use re_fig_5_BDedit.pdf>
-Package pdftex.def Info: re_fig_5_BDedit.pdf  used on input line 1931.
+Package pdftex.def Info: re_fig_5_BDedit.pdf  used on input line 1933.
 (pdftex.def)             Requested size: 346.56242pt x 297.06099pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[56pdfTeX warning (ext4): destination with the same identifier (name{figure.3})
+[57pdfTeX warning (ext4): destination with the same identifier (name{figure.3})
  has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1953 
-        <./TiTv_distance-vs-maf.pdf>] [57pdfTeX warning (ext4): destination wit
+l.1955 
+        <./TiTv_distance-vs-maf.pdf>] [58pdfTeX warning (ext4): destination wit
 h the same identifier (name{figure.4}) has been already used, duplicate ignored
 
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1954 T
+l.1956 T
         he support of the GM metric (Eq.~\ref{eq:diff_GM}) is simply $\{0,1\...
- <./re_fig_5_BDedit.pdf>] [58] [59] [60] [61] [62]
-<rs_fmri_all_instance_matrix.pdf, id=1132, 413.33621pt x 397.6988pt>
+ <./re_fig_5_BDedit.pdf>] [59] [60] [61] [62] [63]
+<rs_fmri_all_instance_matrix.pdf, id=1137, 413.33621pt x 397.6988pt>
 File: rs_fmri_all_instance_matrix.pdf Graphic file (type pdf)
 <use rs_fmri_all_instance_matrix.pdf>
 Package pdftex.def Info: rs_fmri_all_instance_matrix.pdf  used on input line 21
-45.
+47.
 (pdftex.def)             Requested size: 240.06317pt x 230.98102pt.
- [63pdfTeX warning (ext4): destination with the same identifier (name{figure.5}
+ [64pdfTeX warning (ext4): destination with the same identifier (name{figure.5}
 ) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2186 \end{equation}
-                      <./rs_fmri_all_instance_matrix.pdf>] [64] [65] [66]
-[67] [68] [69] [70]
-<compared_moments_normal_manhattan5.pdf, id=1272, 798.03645pt x 432.58614pt>
+l.2188 \end{equation}
+                      <./rs_fmri_all_instance_matrix.pdf>] [65] [66] [67]
+[68] [69] [70] [71]
+<compared_moments_normal_manhattan5.pdf, id=1277, 798.03645pt x 432.58614pt>
 File: compared_moments_normal_manhattan5.pdf Graphic file (type pdf)
 <use compared_moments_normal_manhattan5.pdf>
 Package pdftex.def Info: compared_moments_normal_manhattan5.pdf  used on input 
-line 2359.
+line 2361.
 (pdftex.def)             Requested size: 319.20892pt x 173.03137pt.
- [71pdfTeX warning (ext4): destination with the same identifier (name{figure.6}
+ [72pdfTeX warning (ext4): destination with the same identifier (name{figure.6}
 ) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2366 
-        <./compared_moments_normal_manhattan5.pdf>] [72]
-<null_corr_BryanEdit.pdf, id=1318, 722.7pt x 252.945pt>
+l.2368 
+        <./compared_moments_normal_manhattan5.pdf>] [73]
+<null_corr_BryanEdit.pdf, id=1324, 722.7pt x 252.945pt>
 File: null_corr_BryanEdit.pdf Graphic file (type pdf)
 <use null_corr_BryanEdit.pdf>
-Package pdftex.def Info: null_corr_BryanEdit.pdf  used on input line 2426.
+Package pdftex.def Info: null_corr_BryanEdit.pdf  used on input line 2428.
 (pdftex.def)             Requested size: 342.9489pt x 120.03047pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[73] [74pdfTeX warning (ext4): destination with the same identifier (name{figur
+[74] [75pdfTeX warning (ext4): destination with the same identifier (name{figur
 e.7}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2435 
-        <./null_corr_BryanEdit.pdf>] [75] [76]
-(theoretical_paper_bmc_bioinformatics_version.bbl [77])
-<updated_distributions_table(5-23-2019).pdf, id=1410, 481.5611pt x 524.43027pt>
+l.2437 
+        <./null_corr_BryanEdit.pdf>] [76] [77]
+(theoretical_paper_bmc_bioinformatics_version.bbl [78])
+<updated_distributions_table(5-23-2019).pdf, id=1419, 481.5611pt x 524.43027pt>
 
 File: updated_distributions_table(5-23-2019).pdf Graphic file (type pdf)
 <use updated_distributions_table(5-23-2019).pdf>
 Package pdftex.def Info: updated_distributions_table(5-23-2019).pdf  used on in
-put line 2550.
+put line 2564.
 (pdftex.def)             Requested size: 361.0pt x 398.42358pt.
-<updated_typical_metrics_table.pdf, id=1429, 314.27011pt x 374.28532pt>
+<updated_typical_metrics_table.pdf, id=1438, 314.27011pt x 374.28532pt>
 File: updated_typical_metrics_table.pdf Graphic file (type pdf)
 <use updated_typical_metrics_table.pdf>
 Package pdftex.def Info: updated_typical_metrics_table.pdf  used on input line 
-2612.
+2626.
 (pdftex.def)             Requested size: 252.6989pt x 307.33098pt.
-<updated_typical_metrics_table(normalized).pdf, id=1442, 376.8248pt x 563.55441
+<updated_typical_metrics_table(normalized).pdf, id=1451, 376.8248pt x 563.55441
 pt>
 File: updated_typical_metrics_table(normalized).pdf Graphic file (type pdf)
 <use updated_typical_metrics_table(normalized).pdf>
 Package pdftex.def Info: updated_typical_metrics_table(normalized).pdf  used on
- input line 2654.
+ input line 2668.
 (pdftex.def)             Requested size: 306.8522pt x 467.2897pt.
-<updated_distributions_table-gwas(5-23-2019).pdf, id=1457, 492.77701pt x 480.56
+<updated_distributions_table-gwas(5-23-2019).pdf, id=1466, 492.77701pt x 480.56
 538pt>
 File: updated_distributions_table-gwas(5-23-2019).pdf Graphic file (type pdf)
 <use updated_distributions_table-gwas(5-23-2019).pdf>
 Package pdftex.def Info: updated_distributions_table-gwas(5-23-2019).pdf  used 
-on input line 2698.
+on input line 2712.
 (pdftex.def)             Requested size: 357.39198pt x 353.02469pt.
-<updated_distributions_table-rs-fMRI.pdf, id=1470, 427.55835pt x 269.56308pt>
+<updated_distributions_table-rs-fMRI.pdf, id=1479, 427.55835pt x 269.56308pt>
 File: updated_distributions_table-rs-fMRI.pdf Graphic file (type pdf)
 <use updated_distributions_table-rs-fMRI.pdf>
 Package pdftex.def Info: updated_distributions_table-rs-fMRI.pdf  used on input
- line 2740.
+ line 2754.
 (pdftex.def)             Requested size: 361.0pt x 230.5553pt.
 
 
 AED: lastpage setting LastPage
-[78] [79pdfTeX warning (ext4): destination with the same identifier (name{table
+[79] [80pdfTeX warning (ext4): destination with the same identifier (name{table
 .1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2788 \end{document}
-                      <./updated_distributions_table(5-23-2019).pdf>] [80pdfTeX
+l.2802 \end{document}
+                      <./updated_distributions_table(5-23-2019).pdf>] [81pdfTeX
  warning (ext4): destination with the same identifier (name{table.2}) has been 
 already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2788 \end{document}
-                      <./updated_typical_metrics_table.pdf>] [81pdfTeX warning 
+l.2802 \end{document}
+                      <./updated_typical_metrics_table.pdf>] [82pdfTeX warning 
 (ext4): destination with the same identifier (name{table.3}) has been already u
 sed, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2788 \end{document}
+l.2802 \end{document}
                       <./updated_typical_metrics_table(normalized).pdf>]
-[82pdfTeX warning (ext4): destination with the same identifier (name{table.4}) 
+[83pdfTeX warning (ext4): destination with the same identifier (name{table.4}) 
 has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2788 \end{document}
+l.2802 \end{document}
                       <./updated_distributions_table-gwas(5-23-2019).pdf>]
-[83pdfTeX warning (ext4): destination with the same identifier (name{table.5}) 
+[84pdfTeX warning (ext4): destination with the same identifier (name{table.5}) 
 has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2788 \end{document}
+l.2802 \end{document}
                       <./updated_distributions_table-rs-fMRI.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2788.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2788.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2802.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2802.
 
 (theoretical_paper_bmc_bioinformatics_version.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2788.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2788.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2802.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2802.
 
 Package rerunfilecheck Info: File `theoretical_paper_bmc_bioinformatics_version
 .out' has not changed.
@@ -1007,12 +1007,12 @@ Package rerunfilecheck Info: File `theoretical_paper_bmc_bioinformatics_version
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2788.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2802.
  ) 
 Here is how much of TeX's memory you used:
- 19008 strings out of 492946
- 346979 string characters out of 3135528
- 456002 words of memory out of 3000000
+ 19015 strings out of 492946
+ 347051 string characters out of 3135528
+ 461341 words of memory out of 3000000
  22195 multiletter control sequences out of 15000+200000
  34558 words of font info for 129 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1053,10 +1053,10 @@ nts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
 amsfonts/symbols/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvet
 ic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb>
 
-Output written on theoretical_paper_bmc_bioinformatics_version.pdf (83 pages, 1
-717779 bytes).
+Output written on theoretical_paper_bmc_bioinformatics_version.pdf (84 pages, 1
+720568 bytes).
 PDF statistics:
- 1866 PDF objects out of 2073 (max. 8388607)
- 350 named destinations out of 1000 (max. 500000)
+ 1878 PDF objects out of 2073 (max. 8388607)
+ 357 named destinations out of 1000 (max. 500000)
  415 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -115,7 +115,7 @@
 \begin{frontmatter}
 
 \begin{fmbox}
-\dochead{Research}
+\dochead{Methodology Article}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                          %%
@@ -151,7 +151,7 @@ email={trang-le@utulsa.edu}
    addressref={aff1,aff3},                   % id's of addresses, e.g. {aff1,aff2}
    corref={aff3},                       % id of corresponding address, if any
    %noteref={n1},                        % id's of article notes, if any
-   email={brett-mckinney@utulsa.edu}   % email address
+   email={brett.mckinney@gmail.com}   % email address
 ]{\inits{BM}\fnm{Brett A} \snm{McKinney}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -215,11 +215,13 @@ email={trang-le@utulsa.edu}
 \begin{abstractbox}
 
 \begin{abstract} % abstract
-%\parttitle{First part title} %if any
-%Text for this section.
-%\parttitle{Second part title} %if any
-%Text for this section.
-	The performance of nearest-neighbor feature selection and prediction methods depends on the metric for computing neighborhoods and the distribution type of the underlying data. The effects of the distribution and metric, as well as the presence of correlation and interactions, are reflected in the expected moments of the distribution of pairwise distances. We derive general analytical expressions for the mean and variance of pairwise distances for $L_q$ metrics for Gaussian and uniform data with $p$ attributes and $m$ instances. We use extreme value theory to derive results for metrics that are normalized by the range of each attribute (max - min). In addition to these expressions applicable to the analysis of continuous data such as gene expression, we derive similar analytical expressions for a new metric for genetic variant (categorical) data in genome-wide association studies (GWAS). The distance distributions account for minor allele frequency and transition/transversion ratio. We introduce a new metric for resting-state fMRI data that is applicable to correlation-based predictors derived from time series data. Derivations assume independent data, but empirically we also consider the effect of correlation.  
+\parttitle{Background} %if any
+The performance of nearest-neighbor feature selection and prediction methods depends on the metric for computing neighborhoods and the distribution properties of the underlying data. The effects of the distribution and metric, as well as the presence of correlation and interactions, are reflected in the expected moments of the distribution of pairwise distances.
+\parttitle{Results} %if any
+We derive general analytical expressions for the mean and variance of pairwise distances for $L_q$ metrics for normal and uniform random data with $p$ attributes and $m$ instances. We use extreme value theory to derive results for metrics that are normalized by the range of each attribute (max - min). In addition to these expressions for continuous data, we derive similar analytical formulas for a new metric for genetic variants (categorical data) in genome-wide association studies (GWAS). The genetic distance distributions account for minor allele frequency and transition/transversion ratio. We introduce a new metric for resting-state functional MRI data (rs-fMRI) and derive its distance properties. This metric is applicable to correlation-based predictors derived from time series data. Derivations assume independent data, but empirically we also consider the effect of correlation. 
+\parttitle{Conclusions}
+These analytical results and new metrics can be used to inform the optimization of nearest neighbor methods for a broad range of studies including gene expression, GWAS, and fMRI data. The summary of distribution moments and detailed derivations provide a resource for understanding the distance properties for various metrics and data types.
+%The performance of nearest-neighbor feature selection and prediction methods depends on the metric for computing neighborhoods and the distribution type of the underlying data. The effects of the distribution and metric, as well as the presence of correlation and interactions, are reflected in the expected moments of the distribution of pairwise distances. We derive general analytical expressions for the mean and variance of pairwise distances for $L_q$ metrics for Gaussian and uniform data with $p$ attributes and $m$ instances. We use extreme value theory to derive results for metrics that are normalized by the range of each attribute (max - min). In addition to these expressions applicable to the analysis of continuous data such as gene expression, we derive similar analytical expressions for a new metric for genetic variant (categorical) data in genome-wide association studies (GWAS). The distance distributions account for minor allele frequency and transition/transversion ratio. We introduce a new metric for resting-state fMRI data that is applicable to correlation-based predictors derived from time series data. Derivations assume independent data, but empirically we also consider the effect of correlation.  
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2453,17 +2455,29 @@ Correlations between attributes and instances can cause significant deviations f
 
 \begin{backmatter}
 
-\section*{Competing interests}
-  The authors declare that they have no competing interests.
+\section*{Declarations}
 
-\section*{Author's contributions}
+\subsection*{Abbreviations}
+GWAS: genome-wide associations study; MRI:magnetic resonance imaging; rs-fMRI: resting-state functional magnetic resonance imaging; fMRI: functional magnetic resonance imaging; NPDR: nearest-neighbor projected distance regression; EVT: extreme value theory; ROI: region of interest; CLT: central limit theorem; CCLT: classical central limit theorem; MGF: moment generating function; SNP: single nucleotide polymorphism; GM: genotype mismatch; AM: allele mismatch; TiTv: transition-transversion; DNA: deoxyribonucleic acid; A: adenine; T: thymine; C: cytosine; G: guanine; MAF: minor allele frequency; Ti: transition; Tv: transversion; PuPu: purine-purine; PuPy: purine-pyrimidine; PyPy: pyrimidine-pyrimidine; SD: standard deviation; ts-corr: time series-correlation
+
+\subsection*{Ethics approval and consent to participate}
+
+\subsection*{Consent for publication}
+
+\subsection*{Availability of data and material}
+
+\subsection*{Competing interests}
+  The authors declare that they have no competing interests.
+  
+\subsection*{Funding}
+  This work was supported in part by the National Institute of Health Grant No. P20GM121312 (to BAM). The funders had no role in study design, analysis, decision to publish, or preparation of the manuscript.
+
+\subsection*{Author's contributions}
   BAD, TTL, and BAM conceived the project. BAD carried out all mathematical derivations. All authors read and approved the final manuscript.
 
-%\section*{Acknowledgements}
+\section*{Acknowledgements}
 %  This work was supported in part by the National Institute of Health Grant No. P20GM121312 (to BAM).
   
-\section*{Funding}
-  This work was supported in part by the National Institute of Health Grant No. P20GM121312 (to BAM).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                  The Bibliography                       %%
 %%                                                         %%
