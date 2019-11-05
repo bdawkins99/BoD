@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  5 NOV 2019 10:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  5 NOV 2019 10:39
 entering extended mode
 **./theoretical_paper_bmc_bioinformatics_version.tex
 (theoretical_paper_bmc_bioinformatics_version.tex
@@ -977,7 +977,7 @@ Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2820.
 
 Package rerunfilecheck Info: File `theoretical_paper_bmc_bioinformatics_version
 .out' has not changed.
-(rerunfilecheck)             Checksum: F20D3BEC8C54540550D2718C1BFA27C0;2525.
+(rerunfilecheck)             Checksum: 3DF6ACC6ADA4463180299EE038257E3E;2511.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -987,8 +987,8 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2820.
  ) 
 Here is how much of TeX's memory you used:
  19008 strings out of 492946
- 346357 string characters out of 3135528
- 483842 words of memory out of 3000000
+ 346347 string characters out of 3135528
+ 483818 words of memory out of 3000000
  22187 multiletter control sequences out of 15000+200000
  34558 words of font info for 129 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1021,7 +1021,7 @@ m/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.
 pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/P
 rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
 Output written on theoretical_paper_bmc_bioinformatics_version.pdf (85 pages, 1
-063921 bytes).
+063925 bytes).
 PDF statistics:
  1688 PDF objects out of 1728 (max. 8388607)
  361 named destinations out of 1000 (max. 500000)
