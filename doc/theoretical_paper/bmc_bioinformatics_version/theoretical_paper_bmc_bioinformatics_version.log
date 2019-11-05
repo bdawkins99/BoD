@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  5 NOV 2019 10:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  5 NOV 2019 13:08
 entering extended mode
 **./theoretical_paper_bmc_bioinformatics_version.tex
 (theoretical_paper_bmc_bioinformatics_version.tex
@@ -837,50 +837,53 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<updated_distributions_table(5-23-2019).pdf, id=1223, 481.5611pt x 524.43027pt>
-
-File: updated_distributions_table(5-23-2019).pdf Graphic file (type pdf)
-<use updated_distributions_table(5-23-2019).pdf>
-Package pdftex.def Info: updated_distributions_table(5-23-2019).pdf  used on in
-put line 2582.
+<tab1_updated_distributions_table(5-23-2019).pdf, id=1223, 481.5611pt x 524.430
+27pt>
+File: tab1_updated_distributions_table(5-23-2019).pdf Graphic file (type pdf)
+<use tab1_updated_distributions_table(5-23-2019).pdf>
+Package pdftex.def Info: tab1_updated_distributions_table(5-23-2019).pdf  used 
+on input line 2582.
 (pdftex.def)             Requested size: 361.0pt x 398.42358pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<updated_typical_metrics_table.pdf, id=1242, 314.27011pt x 374.28532pt>
-File: updated_typical_metrics_table.pdf Graphic file (type pdf)
-<use updated_typical_metrics_table.pdf>
-Package pdftex.def Info: updated_typical_metrics_table.pdf  used on input line 
-2644.
+<tab2_updated_typical_metrics_table.pdf, id=1242, 314.27011pt x 374.28532pt>
+File: tab2_updated_typical_metrics_table.pdf Graphic file (type pdf)
+<use tab2_updated_typical_metrics_table.pdf>
+Package pdftex.def Info: tab2_updated_typical_metrics_table.pdf  used on input 
+line 2644.
 (pdftex.def)             Requested size: 252.6989pt x 307.33098pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<updated_typical_metrics_table(normalized).pdf, id=1255, 376.8248pt x 563.55441
-pt>
-File: updated_typical_metrics_table(normalized).pdf Graphic file (type pdf)
-<use updated_typical_metrics_table(normalized).pdf>
-Package pdftex.def Info: updated_typical_metrics_table(normalized).pdf  used on
- input line 2686.
+<tab3_updated_typical_metrics_table(normalized).pdf, id=1255, 376.8248pt x 563.
+55441pt>
+File: tab3_updated_typical_metrics_table(normalized).pdf Graphic file (type pdf
+)
+<use tab3_updated_typical_metrics_table(normalized).pdf>
+Package pdftex.def Info: tab3_updated_typical_metrics_table(normalized).pdf  us
+ed on input line 2686.
 (pdftex.def)             Requested size: 306.8522pt x 467.2897pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<updated_distributions_table-gwas(5-23-2019).pdf, id=1270, 492.77701pt x 480.56
-538pt>
-File: updated_distributions_table-gwas(5-23-2019).pdf Graphic file (type pdf)
-<use updated_distributions_table-gwas(5-23-2019).pdf>
-Package pdftex.def Info: updated_distributions_table-gwas(5-23-2019).pdf  used 
-on input line 2730.
+<tab4_updated_distributions_table-gwas(5-23-2019).pdf, id=1270, 492.77701pt x 4
+80.56538pt>
+File: tab4_updated_distributions_table-gwas(5-23-2019).pdf Graphic file (type p
+df)
+<use tab4_updated_distributions_table-gwas(5-23-2019).pdf>
+Package pdftex.def Info: tab4_updated_distributions_table-gwas(5-23-2019).pdf  
+used on input line 2730.
 (pdftex.def)             Requested size: 357.39198pt x 353.02469pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<updated_distributions_table-rs-fMRI.pdf, id=1283, 427.55835pt x 269.56308pt>
-File: updated_distributions_table-rs-fMRI.pdf Graphic file (type pdf)
-<use updated_distributions_table-rs-fMRI.pdf>
-Package pdftex.def Info: updated_distributions_table-rs-fMRI.pdf  used on input
- line 2772.
+<tab5_updated_distributions_table-rs-fMRI.pdf, id=1283, 427.55835pt x 269.56308
+pt>
+File: tab5_updated_distributions_table-rs-fMRI.pdf Graphic file (type pdf)
+<use tab5_updated_distributions_table-rs-fMRI.pdf>
+Package pdftex.def Info: tab5_updated_distributions_table-rs-fMRI.pdf  used on 
+input line 2772.
 (pdftex.def)             Requested size: 361.0pt x 230.5553pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -939,35 +942,35 @@ tifier (name{table.1}) has been already used, duplicate ignored
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.2820 \end{document}
-                      <./updated_distributions_table(5-23-2019).pdf>] [82pdfTeX
- warning (ext4): destination with the same identifier (name{table.2}) has been 
-already used, duplicate ignored
+                      <./tab1_updated_distributions_table(5-23-2019).pdf>]
+[82pdfTeX warning (ext4): destination with the same identifier (name{table.2}) 
+has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.2820 \end{document}
-                      <./updated_typical_metrics_table.pdf>] [83pdfTeX warning 
-(ext4): destination with the same identifier (name{table.3}) has been already u
-sed, duplicate ignored
+                      <./tab2_updated_typical_metrics_table.pdf>] [83pdfTeX war
+ning (ext4): destination with the same identifier (name{table.3}) has been alre
+ady used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.2820 \end{document}
-                      <./updated_typical_metrics_table(normalized).pdf>]
+                      <./tab3_updated_typical_metrics_table(normalized).pdf>]
 [84pdfTeX warning (ext4): destination with the same identifier (name{table.4}) 
 has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.2820 \end{document}
-                      <./updated_distributions_table-gwas(5-23-2019).pdf>]
+                      <./tab4_updated_distributions_table-gwas(5-23-2019).pdf>]
 [85pdfTeX warning (ext4): destination with the same identifier (name{table.5}) 
 has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.2820 \end{document}
-                      <./updated_distributions_table-rs-fMRI.pdf>]
+                      <./tab5_updated_distributions_table-rs-fMRI.pdf>]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2820.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 2820.
 
@@ -987,7 +990,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2820.
  ) 
 Here is how much of TeX's memory you used:
  19008 strings out of 492946
- 346347 string characters out of 3135528
+ 346472 string characters out of 3135528
  483818 words of memory out of 3000000
  22187 multiletter control sequences out of 15000+200000
  34558 words of font info for 129 fonts, out of 3000000 for 9000
@@ -1021,7 +1024,7 @@ m/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.
 pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/P
 rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
 Output written on theoretical_paper_bmc_bioinformatics_version.pdf (85 pages, 1
-063925 bytes).
+063950 bytes).
 PDF statistics:
  1688 PDF objects out of 1728 (max. 8388607)
  361 named destinations out of 1000 (max. 500000)
