@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  5 NOV 2019 09:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  5 NOV 2019 09:18
 entering extended mode
-**./compared_moments_normal_manhattan5.tex
-(compared_moments_normal_manhattan5.tex
+**./re_fig_5_BDedit.tex
+(re_fig_5_BDedit.tex
 LaTeX2e <2018-12-01>
 ("C:\Program Files\MiKTeX 2.9\tex/latex/standalone\standalone.cls"
 Document Class: standalone 2018/03/26 v1.3a Class to compile TeX sub-files stan
@@ -725,24 +725,24 @@ File: tikzlibrarybackgrounds.code.tex 2019/02/02 v3.1.1 (3.1.1)
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/frontendlayer/tikz/libraries\tikz
 librarychains.code.tex"
 File: tikzlibrarychains.code.tex 2019/02/02 v3.1.1 (3.1.1)
-) (compared_moments_normal_manhattan5.aux)
-\openout1 = `compared_moments_normal_manhattan5.aux'.
+) (re_fig_5_BDedit.aux)
+\openout1 = `re_fig_5_BDedit.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 31.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 23.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/psnfss\ot1phv.fd"
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
@@ -775,7 +775,7 @@ G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
 \AtBeginShipoutBox=\box74
-Package hyperref Info: Link coloring OFF on input line 31.
+Package hyperref Info: Link coloring OFF on input line 23.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -785,59 +785,43 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count146
 )
-LaTeX Info: Redefining \ref on input line 31.
-LaTeX Info: Redefining \pageref on input line 31.
-LaTeX Info: Redefining \nameref on input line 31.
+LaTeX Info: Redefining \ref on input line 23.
+LaTeX Info: Redefining \pageref on input line 23.
+LaTeX Info: Redefining \nameref on input line 23.
 
-(compared_moments_normal_manhattan5.out)
-(compared_moments_normal_manhattan5.out)
+(re_fig_5_BDedit.out) (re_fig_5_BDedit.out)
 \@outlinefile=\write6
-\openout6 = `compared_moments_normal_manhattan5.out'.
+\openout6 = `re_fig_5_BDedit.out'.
 
-<standard_normal_manhattan_sample-mean_vs_theoretical-mean4.pdf, id=14, 361.35p
-t x 361.35pt>
-File: standard_normal_manhattan_sample-mean_vs_theoretical-mean4.pdf Graphic fi
-le (type pdf)
-<use standard_normal_manhattan_sample-mean_vs_theoretical-mean4.pdf>
-Package pdftex.def Info: standard_normal_manhattan_sample-mean_vs_theoretical-m
-ean4.pdf  used on input line 36.
-(pdftex.def)             Requested size: 390.0pt x 390.00407pt.
-<standard_normal_manhattan_sample-SD_vs_theoretical-SD4.pdf, id=15, 361.35pt x 
-361.35pt>
-File: standard_normal_manhattan_sample-SD_vs_theoretical-SD4.pdf Graphic file (
-type pdf)
-<use standard_normal_manhattan_sample-SD_vs_theoretical-SD4.pdf>
-Package pdftex.def Info: standard_normal_manhattan_sample-SD_vs_theoretical-SD4
-.pdf  used on input line 37.
-(pdftex.def)             Requested size: 390.0pt x 390.00407pt.
+<re_fig_5_BDedit_new.pdf, id=14, 505.89pt x 433.62pt>
+File: re_fig_5_BDedit_new.pdf Graphic file (type pdf)
+<use re_fig_5_BDedit_new.pdf>
+Package pdftex.def Info: re_fig_5_BDedit_new.pdf  used on input line 26.
+(pdftex.def)             Requested size: 390.0pt x 312.35687pt.
  [1
 
-{C:/Users/bdawk/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./standard_
-normal_manhattan_sample-mean_vs_theoretical-mean4.pdf> <./standard_normal_manha
-ttan_sample-SD_vs_theoretical-SD4.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 86.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 86.
- (compared_moments_normal_manhattan5.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 86.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 86.
-Package rerunfilecheck Info: File `compared_moments_normal_manhattan5.out' has 
-not changed.
+ <./re_fig_5_BDedit_new.pdf>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 28.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 28.
+
+(re_fig_5_BDedit.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 28.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 28.
+Package rerunfilecheck Info: File `re_fig_5_BDedit.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 22107 strings out of 492946
- 464868 string characters out of 3135528
- 556143 words of memory out of 3000000
- 25617 multiletter control sequences out of 15000+200000
- 5698 words of font info for 17 fonts, out of 3000000 for 9000
+ 22052 strings out of 492946
+ 463006 string characters out of 3135528
+ 552345 words of memory out of 3000000
+ 25565 multiletter control sequences out of 15000+200000
+ 4544 words of font info for 16 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,7n,73p,888b,620s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/Mi
-KTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on compared_moments_normal_manhattan5.pdf (1 page, 90675 bytes).
+ 55i,5n,73p,869b,325s stack positions out of 5000i,500n,10000p,200000b,50000s
 
+Output written on re_fig_5_BDedit.pdf (1 page, 94371 bytes).
 PDF statistics:
- 43 PDF objects out of 1000 (max. 8388607)
+ 31 PDF objects out of 1000 (max. 8388607)
  2 named destinations out of 1000 (max. 500000)
- 63 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 64 words of extra memory for PDF output out of 10000 (max. 10000000)
 

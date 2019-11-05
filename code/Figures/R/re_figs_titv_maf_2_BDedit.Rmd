@@ -180,7 +180,8 @@ joy_10 <-
 joy_10
 maf_titv_plot <- cowplot::plot_grid(joy_10, joy_9, labels = 'AUTO') 
 my_title <- cowplot::ggdraw() + 
-  cowplot::draw_label("Ti/Tv distance as a function of Ti/Tv ratio and average MAF") 
+  cowplot::draw_label("") 
+  #cowplot::draw_label("Ti/Tv distance as a function of Ti/Tv ratio and average MAF") 
 
 final_ab <- cowplot::plot_grid(my_title, maf_titv_plot, ncol = 1, rel_heights=c(0.1, 1))
 save(my_title, joy_10, joy_9, file = 'C:/Users/bdawk/Documents/KNN_project_output/R_code_and_output/code/titv_maf.Rdata')
