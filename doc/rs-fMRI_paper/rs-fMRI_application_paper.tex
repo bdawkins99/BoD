@@ -217,8 +217,20 @@
 Resting-state functional connectivity MRI (rs-fMRI) data consists of correlation matrices, where correlations are computed between the time series from brain Regions of Interest (ROIs). There are many different parcellations of the human brain into collections of ROIs. These parcellations, or atlases, can be used in case-control studies in order to understand and accurately classify subject phenotypes. We present new metrics for nearest-neighbor distance-based feature selection at the ROI level. Using our new metrics, we apply a novel nearest-neighbor feature selection algorithm to calculate relative importance of ROIs in two existing brain atlases. We use integer programming to derive a mapping between brain atlases to determine spatially similar ROIs. With ROI importance scores and spatial similarity between atlases, we create a new brain parcellation that combines aspects of both brain atlases.
 \linenumbers
 
-\section*{Introduction}
+\section{Background}
+Resting-state fMRI data exists in high dimensions with a relatively low signal-to-noise ratio. Feature selection is typically done with the purpose of determining brain regions of interest (ROIs) that accurately discriminate between cases and controls in order to understand a particular phenotype. The data consists of pairwise ROI-ROI correlations, where each ROI is a time series measuring brain activity in a particular region or regions of the brain while a subject is not performing a task. A typical data set consists of $m$ subject-specific correlation matrices of dimension $p \times p$, where the pairwise correlations are computed between $p$ ROIs from a brain atlas.
 
+\section{Methods}
+
+\subsection{Real rs-fMRI data}
+
+\subsection{Spatial overlap between brain atlases}
+
+\subsection{Relative importance of ROIs}
+
+\section{Results}
+
+\subsection{New brain atlas}
 
 \section{Discussion}
 
