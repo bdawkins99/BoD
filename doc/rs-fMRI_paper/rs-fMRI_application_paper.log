@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  5 NOV 2019 14:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  5 NOV 2019 14:54
 entering extended mode
 **./rs-fMRI_application_paper.tex
 (rs-fMRI_application_paper.tex
@@ -986,9 +986,10 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmss' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-(rs-fMRI_application_paper.bbl [1
+[1
 
 {C:/Users/bdawk/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+(rs-fMRI_application_paper.bbl
 
 LaTeX Warning: Empty `thebibliography' environment on input line 4.
 
@@ -1006,13 +1007,13 @@ ed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 239.
  ) 
 Here is how much of TeX's memory you used:
- 21096 strings out of 492946
- 383104 string characters out of 3135528
- 502275 words of memory out of 3000000
+ 21100 strings out of 492946
+ 383134 string characters out of 3135528
+ 503275 words of memory out of 3000000
  24546 multiletter control sequences out of 15000+200000
- 10214 words of font info for 48 fonts, out of 3000000 for 9000
+ 10316 words of font info for 50 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,12n,48p,945b,420s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,12n,48p,1594b,396s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTe
@@ -1021,7 +1022,7 @@ ts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
 ublic/amsfonts/cm/cmss8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
 fonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
 /cmsy7.pfb>
-Output written on rs-fMRI_application_paper.pdf (2 pages, 95865 bytes).
+Output written on rs-fMRI_application_paper.pdf (2 pages, 96652 bytes).
 PDF statistics:
  90 PDF objects out of 1000 (max. 8388607)
  13 named destinations out of 1000 (max. 500000)
