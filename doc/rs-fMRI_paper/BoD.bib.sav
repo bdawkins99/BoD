@@ -649,7 +649,7 @@ year={2018}
   volume  = {176},
   pages   = {774-793},
   month   = nov,
-  doi     = {10.1016/j.ejor.2005.09.014},
+  doi     = {10.1016/j.ejor.2005.09.014?},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}

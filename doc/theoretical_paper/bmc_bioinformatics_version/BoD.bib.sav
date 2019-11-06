@@ -401,9 +401,13 @@ year={2018}
 
 @Book{allStats,
   title     = {All of {S}tatistics: {A} {C}oncise {C}ourse in {S}tatistical {I}nference},
-  publisher = {Springer, New York, NY},
+  publisher = {Springer},
   year      = {2004},
   author    = {Larry {W}asserman},
+  editor    = {{G}eorge {C}asella and {S}tephen {F}ienberg and {I}ngram {O}lkin},
+  address   = {New York},
+  isbn      = {978-1-4419-2322-6},
+  doi       = {https://doi.org/10.1007/978-0-387-21736-9},
 }
 
 @Article{robnik2003,
@@ -422,6 +426,7 @@ year={2018}
   year      = {2004},
   author    = {Irwin {M}iller and {M}arylees {M}iller},
   editor    = {Sally {Y}agan},
+  address   = {New Jersey},
   edition   = {7},
   isbn      = {0-13-142706-7},
 }
@@ -449,11 +454,12 @@ year={2018}
 }
 
 @Book{chatterjee2014,
-  title     = {{Superconcentration and Related Topics}},
-  publisher = {{Springer International Publishing}},
+  title     = {{S}uperconcentration and {R}elated {T}opics},
+  publisher = {{S}pringer {I}nternational {P}ublishing},
   year      = {2014},
-  author    = {Sourav {C}hatterjee},
+  author    = {{S}ourav {C}hatterjee},
   series    = {1439-7382},
+  address   = {New York},
   edition   = {1},
   isbn      = {978-3-319-03885-8},
   doi       = {10.1007/978-3-319-03886-5},
@@ -465,8 +471,9 @@ year={2018}
   year      = {1999},
   author    = {Harald {C}ram\'{e}r},
   volume    = {1},
+  address   = {New Jersey},
   edition   = {Reprint, revised},
-  isbn      = {0691005478, 9780691005478},
+  isbn      = {9780691005478},
 }
 
 @Article{arabnejad2018,
@@ -629,27 +636,6 @@ year={2018}
   title   = {{Nearest-neighbor Projected-Distance Regression (NPDR) detects network interactions and controls for confounding and multiple testing}},
   journal = {Under Review},
   year    = {2019},
-}
-
-@Article{caballero2017,
-  author  = {C\'{e}sar {C}aballero-{G}audes and {R}ichard {C}. {R}eynolds},
-  title   = {{Methods for cleaning the BOLD fMRI signal}},
-  journal = {NeuroImage},
-  year    = {2017},
-  volume  = {154},
-  pages   = {128-149},
-  month   = dec,
-}
-
-@Article{pentico2007,
-  author  = {David {W}. {P}entico},
-  title   = {{Assignment problems: A golden anniversary survey}},
-  journal = {{European Journal of Operational Research}},
-  year    = {2007},
-  volume  = {176},
-  pages   = {774-793},
-  month   = nov,
-  doi     = {10.1016/j.ejor.2005.09.014},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}

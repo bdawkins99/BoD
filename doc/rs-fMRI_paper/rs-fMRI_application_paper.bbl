@@ -1,4 +1,35 @@
  \newcommand{\noop}[1]{}
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
+
+\bibitem{caballero2017}
+C\'{e}sar {C}aballero {G}audes and {R}ichard {C}.~{R}eynolds.
+\newblock {Methods for cleaning the BOLD fMRI signal}.
+\newblock {\em NeuroImage}, 154:128--149, December 2017.
+
+\bibitem{npdr}
+Trang~{T}. {L}e, {B}ryan {A}.~{D}awkins, and {B}rett {A}.~{M}c{K}inney.
+\newblock {Nearest-neighbor Projected-Distance Regression (NPDR) detects
+  network interactions and controls for confounding and multiple testing}.
+\newblock {\em Under Review}, 2019.
+
+\bibitem{power2011}
+Jonathan~{D} {P}ower, {A}lexander {L}~{C}ohen, {S}tephen {M}~{N}elson, {G}agan
+  {S}~{W}ig, {K}elly~{A}nne {B}arnes, {J}essica {A}~{C}hurch, {A}lecia
+  {C}~{V}ogel, {T}imothy {O}~{L}aumann, {F}ran {M}~{M}iezin, {B}radley
+  {L}~{S}chlaggar, and {S}teven {E}~{P}eterson.
+\newblock {Functional network organization of the human brain}.
+\newblock {\em {Neuron}}, 72(4):665--678, November 2011.
+
+\bibitem{shen2013}
+{X}. {S}hen, {F}. {T}okoglu, {X}. {P}apademetris, and {R}.~{T}. {C}onstable.
+\newblock {Groupwise whole-brain parcellation from resting-state fMRI data for
+  network node identification}.
+\newblock {\em {Neuroimage}}, (0):403--415, November 2013.
+
+\bibitem{pentico2007}
+David~{W}. {P}entico.
+\newblock {Assignment problems: A golden anniversary survey}.
+\newblock {\em {European Journal of Operational Research}}, 176:774--793,
+  November 2007.
 
 \end{thebibliography}
