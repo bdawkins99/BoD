@@ -241,7 +241,22 @@ Let $R_A$ and $R_B$ represent regions of interest (ROIs) in atlases $A$ and $B$,
 \text{d}^\text{J}(R_A,R_B) = \frac{|R_A \cup R_B - R_A \cap R_B|}{|R_A \cup R_B|},
 \end{equation}
 %
-where the ($-$) sign denotes set complement and $|\cdot|$ represents set cardinality. If the intersection $R_A \cap R_B$ is empty, then the two ROIs do not share any voxels and the Jaccard distance (Eq.~\ref{eq:jaccard}) between them is 1. On the other hand, the Jaccard distance is 0 if the union $R_A \cup R_B$ and intersection $R_A \cap R_B$ are the same sets, which means the two ROIs have exactly the same voxels. All other possible Jaccard distances between $R_A$ and $R_B$ are strictly within $(0,1)$. Hence, the Jaccard metric is contained within $[0,1]$. The reason for division by $|R_A \cup R_B|$ in the denominator of the Jaccard metric (Eq.~\ref{eq:jaccard}) is specifically to normalized the distance to be within $[0,1]$. Otherwise, this distance between two ROIs would be affected by the cardinalities of $R_A$ and $R_B$, respectively. The Jaccard metric is intuitive in this context because ROIs are not just points in space, but rather they can have irregular three-dimensional shapes. Therefore, a Euclidean metric that gives the straight-line distance between two points does not necessarily indicate `closeness' between two ROIs. It is possible to compute the Euclidean distance between the centroids of two ROIs, but the ROIs may not share many voxels due to their potentially irregular shapes. Therefore, it is more informative to use a distance metric that uses set operations like the Jaccard metric (Eq.~\ref{eq:jaccard}).
+where the ($-$) sign denotes set complement and $|\cdot|$ represents set cardinality. If the intersection $R_A \cap R_B$ is empty, then the two ROIs do not share any voxels and the Jaccard distance (Eq.~\ref{eq:jaccard}) between them is 1. On the other hand, the Jaccard distance is 0 if the union $R_A \cup R_B$ and intersection $R_A \cap R_B$ are the same sets, which means the two ROIs have exactly the same voxels. All other possible Jaccard distances between $R_A$ and $R_B$ are strictly within $(0,1)$. Hence, the Jaccard metric is contained within $[0,1]$. The reason for division by $|R_A \cup R_B|$ in the denominator of the Jaccard metric (Eq.~\ref{eq:jaccard}) is specifically to normalized the distance to be within $[0,1]$. Otherwise, this distance between two ROIs would be affected by the cardinalities of $R_A$ and $R_B$, respectively. The Jaccard metric is intuitive in this context because ROIs are not just points in space, but rather they can have irregular three-dimensional shapes. Therefore, a Euclidean metric that gives the straight-line distance between two points does not necessarily indicate `closeness' between two ROIs. It is possible to compute the Euclidean distance between the centroids of two ROIs, but the ROIs may not share many voxels due to their potentially irregular shapes. Therefore, it is more informative to use a distance metric that uses set operations like the Jaccard metric (Eq.~\ref{eq:jaccard}). We show an example (Fig.~\ref{fig:jaccard}) of the Jaccard distance between ROIs $R_A$ and $R_B$ that contain $n_1$ and $n_2$ voxels, respectively. 
+
+\vspace{0.25cm}
+
+% trim=left botm right top
+%\begin{figure}[h!]\label{fig:jaccard}
+	{\centering
+	\begin{minipage}[c]{0.55\textwidth}
+	\includegraphics[width=1\textwidth,clip,trim=0cm 0cm 0cm 0.26cm]{venn_diagram.pdf}
+	\end{minipage}\hfill
+	\begin{minipage}[c]{0.43\textwidth}
+	\captionsetup{type=figure}\captionof{figure}{Example computation of Jaccard distance between ROIs $R_A$ and $R_B$ from two atlases $A$ and $B$, respectively. There are $n_1$, $n_2$, $n_3$ voxels in $R_A$ only, $R_B$ only, and both $R_A$ and $R_B$, respectively. The numerator gives the number of voxels unique to $R_A$ ($n_1$) plus the number of voxels unique to $R_B$ ($n_2$). The denominator contains the total number of voxels in $R_A$ or $R_B$.}\label{fig:jaccard}
+	\end{minipage}}
+%\end{figure}
+
+\vspace{0.25cm}
 
 \subsection{Relative importance of ROIs}
 

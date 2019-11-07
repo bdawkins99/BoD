@@ -1,19 +1,19 @@
-\documentclass[border=0.0pt]{standalone}
+\documentclass[border=0.5pt]{standalone}
 \usepackage{tikz}
 \usetikzlibrary{arrows}
 \usetikzlibrary{shapes}
 \usepackage{enumitem}
 \usepackage{bm}
 \usepackage{mathdots}
+\usepackage{amsmath}
 \usetikzlibrary{arrows,decorations.pathmorphing,backgrounds,fit,positioning,shapes.symbols,chains}
-\usepackage[top=1in, bottom=1.5in, left=1in, right=1in]{geometry}
+%\usepackage[top=1in, bottom=1.5in, left=1in, right=1in]{geometry}
 %\usepackage[active,tightpage]{preview}
 %\title{}
 %\author{}
 %\date{}
 \begin{document}
 	
-	\pagenumbering{gobble}
 
 \begin{tikzpicture}[fill=gray]
 % left hand
@@ -33,12 +33,13 @@
 \fill[green] (1,0) circle (1);
 \end{scope}
 % outline
-\draw (0,0) circle (1) (0,1)  node [text=black,above] {}
-(1,0) circle (1) (1,1)  node [text=black,above] {}
-(-3,-2.5) rectangle (4,2) node [text=black,above] {};
+%\draw (0,0) circle (1) (0,1)  node [text=black,above] {}
+%(1,0) circle (1) (1,1)  node [text=black,above] {}
+%(-3,-2.5) rectangle (4,2) node [text=black,above] {};
+\node[text width=7cm,text height=4cm,line width=0.3mm,draw] at (0.5,-0.4) {};
 \node [circle] (A) at (-0.5,1.15) {$R_A$};
 \node [circle] (B) at (1.5,1.15) {$R_B$};
-\node [text width=6.9cm] at (0.5,-1.8) (sets) {\scriptsize $\displaystyle d^J(R_A,R_B) = \frac{|R_A \cup R_B - R_A \cap R_B|}{|R_A \cup R_B|} = \displaystyle \frac{\textcolor{orange}{n_1} + \textcolor{cyan}{n_2}}{\textcolor{orange}{n_1} + \textcolor{cyan}{n_2} + \textcolor{green}{n_3}}$};
+\node [text width=6.9cm] at (0.5,-1.8) (sets) {\scriptsize $\displaystyle \text{d}^\text{J}(R_A,R_B) = \frac{|R_A \cup R_B - R_A \cap R_B|}{|R_A \cup R_B|} = \displaystyle \frac{\textcolor{orange}{n_1} + \textcolor{cyan}{n_2}}{\textcolor{orange}{n_1} + \textcolor{cyan}{n_2} + \textcolor{green}{n_3}}$};
 \node [text width=0.1cm] at (-0.3,0.7) (A1) {\huge $\cdot$};
 \node [text width=0.1cm] at (-0.2,0.8) (vA1) {\scriptsize $a_1$};
 \node [text width=0.1cm] at (-0.8,-0.1) (A2) {\huge $\cdot$};
