@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  8 NOV 2019 11:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  8 NOV 2019 12:31
 entering extended mode
 **./rs-fMRI_application_paper.tex
 (rs-fMRI_application_paper.tex
@@ -1006,27 +1006,32 @@ Overfull \hbox (6.79999pt too wide) in paragraph at lines 269--270
  []
 
 [3 <./venn_diagram.pdf> <./assignment_problem_equations.pdf>]
-(rs-fMRI_application_paper.bbl) 
+<assignment_diagram.pdf, id=168, 413.21977pt x 259.32384pt>
+File: assignment_diagram.pdf Graphic file (type pdf)
+<use assignment_diagram.pdf>
+Package pdftex.def Info: assignment_diagram.pdf  used on input line 291.
+(pdftex.def)             Requested size: 371.82751pt x 233.34576pt.
+ [4 <./assignment_diagram.pdf>] (rs-fMRI_application_paper.bbl) 
 AED: lastpage setting LastPage
-[4]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 299.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 299.
+[5]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 305.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 305.
  (rs-fMRI_application_paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 299.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 299.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 305.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 305.
 Package rerunfilecheck Info: File `rs-fMRI_application_paper.out' has not chang
 ed.
 (rerunfilecheck)             Checksum: 5FE30FC2D06A7C4195F8DE25420FE387;474.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 299.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 305.
  ) 
 Here is how much of TeX's memory you used:
- 21174 strings out of 492946
- 384129 string characters out of 3135528
- 507564 words of memory out of 3000000
- 24572 multiletter control sequences out of 15000+200000
- 11700 words of font info for 68 fonts, out of 3000000 for 9000
+ 21187 strings out of 492946
+ 384367 string characters out of 3135528
+ 507938 words of memory out of 3000000
+ 24578 multiletter control sequences out of 15000+200000
+ 11802 words of font info for 70 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,12n,48p,1695b,374s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,12n,48p,1695b,396s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKT
@@ -1036,17 +1041,18 @@ e1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
 /amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
 /cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10
 .pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/
-Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmss8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
-fonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
-cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:
-/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on rs-fMRI_application_paper.pdf (4 pages, 556026 bytes).
+Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program F
+iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmss8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
+cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pf
+b><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program 
+Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb>
+Output written on rs-fMRI_application_paper.pdf (5 pages, 576483 bytes).
 PDF statistics:
- 219 PDF objects out of 1000 (max. 8388607)
- 24 named destinations out of 1000 (max. 500000)
- 10851 words of extra memory for PDF output out of 12000 (max. 10000000)
+ 256 PDF objects out of 1000 (max. 8388607)
+ 26 named destinations out of 1000 (max. 500000)
+ 10856 words of extra memory for PDF output out of 12000 (max. 10000000)
 

@@ -284,7 +284,13 @@ y_{ij}=\begin{cases}
 \end{cases}
 \end{equation}
 
-Each row and each column of $Y$ has a sum-to-one constraint, which means that each node in one collection is connected to exactly one other node in another disjoint collection. This problem assumes that the order (or size) of each collection is equal ($M=N$ in Fig.~\ref{fig:assignment_problem}), so that a one-to-one assignment is possible. In the context of brain atlases, we will satisfy this requirement by adding artificial variables to our solution matrix $Y$. Pairwise distances between actual ROIs in a brain atlas and an artificial variable will be given a large constant value, so that ROIs in atlas $A$ will preferentially map to another ROI in $B$ if a mapping is possible. Absent the possibility of a mapping, an ROI will map to an artificial variable, which implies that this particular ROI goes unmapped in our unconstrained solution.
+Each row and each column of $Y$ has a sum-to-one constraint, which means that each node in one collection is connected to exactly one other node in another disjoint collection. This problem assumes that the order (or size) of each collection is equal ($M=N$ in Fig.~\ref{fig:assignment_problem}), so that a one-to-one assignment is possible. In the context of brain atlases, we will satisfy this requirement by adding artificial variables to our solution matrix $Y$. Pairwise distances between actual ROIs in a brain atlas and an artificial variable will be given a large constant value, so that ROIs in atlas $A$ will preferentially map to another ROI in $B$ if a mapping is possible. Absent the possibility of a mapping, an ROI will map to an artificial variable, which implies that this particular ROI goes unmapped in our unconstrained solution. We show a diagram of atlas-atlas mapping (Fig.~\ref{fig:assignment_atlases}) that depicts ROIs as nodes and possible mappings as dashed lines between nodes in atlases $A$ and $B$. Each possible mapping has a distance ($d_{ij}$) associated with its inclusion in the solution matrix $Y$. The solution is ultimately found by choosing connections (solid lines) between atlas ROIs so that each ROI in $A$ is connected to exactly one ROI in $B$, which simultaneously minimizes the sum of all distances in the mapping.
+
+\begin{figure}[h!]
+	\centering
+	\framebox{\includegraphics[width=0.98\textwidth]{assignment_diagram.pdf}}
+	\caption{Assignment problem for brain atlas ROI-ROI mapping. Before the minimum distance pairwise mapping is found, all possible pairwise mappings are possible (dashed lines). Each ROI in atlas $A$ must have exactly one partner in atlas $B$. After mapping, the minimum distance pairs are selected to give a one-to-one correspondence between ROIs (solid lines).}\label{fig:assignment_atlases}
+\end{figure}
 
 \subsection{Relative importance of ROIs}
 
