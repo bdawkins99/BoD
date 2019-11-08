@@ -233,6 +233,7 @@ In this section, we first describe real rs-fMRI data generated from healthy cont
 \subsection{Real rs-fMRI data}
 % need to get with Rayus to discuss the details on what the data is, how it was processed,
 % more demographics info for subjects, and anything else that might be important
+This is where we describe the LIBR data.
 
 \subsection{Spatial overlap between brain atlases}
 Let $R_A$ and $R_B$ represent regions of interest (ROIs) in atlases $A$ and $B$, respectively. We assume that atlases $A$ and $B$ are in the same coordinate space. Since $R_A$ and $R_B$ are just collections of voxels that have well defined three-dimensional coordinates within an atlas, the spatial overlap between $R_A$ and $R_B$ can be defined as the set intersection between the two ROIs. Spatial dissimilarity between $R_A$ and $R_B$ can be computed with the Jaccard metric, which is given by the following
@@ -257,6 +258,8 @@ where the ($-$) sign denotes set complement and $|\cdot|$ represents set cardina
 %\end{figure}
 
 \vspace{0.25cm}
+
+Each ROI in atlas $A$ may overlap many different ROIs in atlas $B$. On the other hand, some ROIs in $A$ may not overlap any ROIs in $B$. Furthermore, it is likely that $A$ and $B$ contain different numbers of ROIs. If we want to compute a minimum distance one-to-one mapping between the atlases, it is possible that some ROIs in $A$ will not have a mapped partner in $B$. 
 
 \subsection{Relative importance of ROIs}
 
