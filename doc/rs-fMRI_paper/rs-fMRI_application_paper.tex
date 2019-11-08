@@ -259,7 +259,32 @@ where the ($-$) sign denotes set complement and $|\cdot|$ represents set cardina
 
 \vspace{0.25cm}
 
-Each ROI in atlas $A$ may overlap many different ROIs in atlas $B$. On the other hand, some ROIs in $A$ may not overlap any ROIs in $B$. Furthermore, it is likely that $A$ and $B$ contain different numbers of ROIs. If we want to compute a minimum distance one-to-one mapping between the atlases, it is possible that some ROIs in $A$ will not have a mapped partner in $B$. 
+Each ROI in atlas $A$ may overlap many different ROIs in atlas $B$. On the other hand, some ROIs in $A$ may not overlap any ROIs in $B$. Furthermore, it is likely that $A$ and $B$ contain different numbers of ROIs. If we want to compute a minimum distance one-to-one mapping between the atlases, it is possible that some ROIs in $A$ will not have a mapped partner in $B$. In order to efficiently compute this atlas-atlas mapping, we formulate this task as a standard Assignment Problem~\cite{pentico2007}, which has a very concise definition (Fig.~\ref{fig:assignment_problem}).
+
+\vspace{0.25cm}
+
+%\begin{figure}[h!]\label{fig:jaccard}
+{\centering
+	\begin{minipage}[c]{0.55\textwidth}
+		\framebox{\includegraphics[width=1\textwidth,clip,trim=0cm 0cm 0cm 0.26cm]{assignment_problem_equations.pdf}}
+	\end{minipage}\hfill
+	\begin{minipage}[c]{0.4\textwidth}
+		\captionsetup{type=figure}\captionof{figure}{Assignment problem mathematical definition. The assignment matrix $Y$ is binary, where $y_{ij}=0$ if nodes $i$ and $j$ are assigned to each other and 0 otherwise. The distance matrix $D$ between all nodes is computed to assign costs to arcs (or edges) between nodes. The distance between nodes $i$ and $j$ is denoted by $d_{ij}$. Therefore, the objective function is the sum of all pairwise distances in the collection of assigned arcs. the column and row constraints dictate that each node is connected to exactly one and only one other node.}\label{fig:assignment_problem}
+\end{minipage}}
+%\end{figure}
+
+\vspace{0.25cm}
+
+The objective function is the sum over all pairwise distances between nodes included in the mapping, where inclusion is determined by the binary solution matrix $Y$ that has the following definition
+%
+\begin{equation}\label{eq:assignment_sol}
+y_{ij}=\begin{cases}
+1 & \text{nodes } i \text{ and } j \text{ connected,} \\
+0 & \text{otherwise.}
+\end{cases}
+\end{equation}
+
+Each row and each column of $Y$ has a sum-to-one constraint, which means that each node in one collection is connected to exactly one other node in another disjoint collection. This problem assumes that the order (or size) of each collection is equal ($M=N$ in Fig.~\ref{fig:assignment_problem}), so that a one-to-one assignment is possible. In the context of brain atlases, we will satisfy this requirement by adding artificial variables to our solution matrix $Y$. Pairwise distances between actual ROIs in a brain atlas and an artificial variable will be given a large constant value, so that ROIs in atlas $A$ will preferentially map to another ROI in $B$ if a mapping is possible. Absent the possibility of a mapping, an ROI will map to an artificial variable, which implies that this particular ROI goes unmapped in our unconstrained solution.
 
 \subsection{Relative importance of ROIs}
 
