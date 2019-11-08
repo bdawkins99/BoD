@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  8 NOV 2019 12:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  8 NOV 2019 13:22
 entering extended mode
 **./rs-fMRI_application_paper.tex
 (rs-fMRI_application_paper.tex
@@ -978,30 +978,26 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ("C:\Program Files\MiKTeX 2.9\tex/latex/microtype\mt-msb.cfg"
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-Overfull \hbox (26.11107pt too wide) in paragraph at lines 206--213
- [] 
- []
-
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmss' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-[1
+ [1
 
 {C:/Users/bdawk/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
 <venn_diagram.pdf, id=75, 207.68892pt x 129.9515pt>
 File: venn_diagram.pdf Graphic file (type pdf)
 <use venn_diagram.pdf>
-Package pdftex.def Info: venn_diagram.pdf  used on input line 253.
+Package pdftex.def Info: venn_diagram.pdf  used on input line 255.
 (pdftex.def)             Requested size: 208.68077pt x 123.13896pt.
 <assignment_problem_equations.pdf, id=79, 219.4298pt x 284.5581pt>
 File: assignment_problem_equations.pdf Graphic file (type pdf)
 <use assignment_problem_equations.pdf>
 Package pdftex.def Info: assignment_problem_equations.pdf  used on input line 2
-69.
+71.
 (pdftex.def)             Requested size: 208.68077pt x 263.58861pt.
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 269--270
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 271--272
 [][] 
  []
 
@@ -1009,20 +1005,20 @@ Overfull \hbox (6.79999pt too wide) in paragraph at lines 269--270
 <assignment_diagram.pdf, id=168, 413.21977pt x 259.32384pt>
 File: assignment_diagram.pdf Graphic file (type pdf)
 <use assignment_diagram.pdf>
-Package pdftex.def Info: assignment_diagram.pdf  used on input line 291.
+Package pdftex.def Info: assignment_diagram.pdf  used on input line 293.
 (pdftex.def)             Requested size: 371.82751pt x 233.34576pt.
  [4 <./assignment_diagram.pdf>] (rs-fMRI_application_paper.bbl) 
 AED: lastpage setting LastPage
 [5]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 305.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 305.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 307.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 307.
  (rs-fMRI_application_paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 305.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 305.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 307.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 307.
 Package rerunfilecheck Info: File `rs-fMRI_application_paper.out' has not chang
 ed.
 (rerunfilecheck)             Checksum: 5FE30FC2D06A7C4195F8DE25420FE387;474.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 305.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 307.
  ) 
 Here is how much of TeX's memory you used:
  21187 strings out of 492946
@@ -1050,7 +1046,7 @@ onts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
 cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pf
 b><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program 
 Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on rs-fMRI_application_paper.pdf (5 pages, 576483 bytes).
+Output written on rs-fMRI_application_paper.pdf (5 pages, 576573 bytes).
 PDF statistics:
  256 PDF objects out of 1000 (max. 8388607)
  26 named destinations out of 1000 (max. 500000)
