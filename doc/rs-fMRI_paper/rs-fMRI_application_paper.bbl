@@ -45,4 +45,15 @@ David~{W}. {P}entico.
 \newblock {\em {European Journal of Operational Research}}, 176:774--793,
   November 2007.
 
+\bibitem{R}
+{R Core Team}.
+\newblock {\em {R: A Language and Environment for Statistical Computing}}.
+\newblock R Foundation for Statistical Computing, Vienna, Austria, 2017.
+
+\bibitem{lpsolve}
+Michel Berkelaar and {others}.
+\newblock {\em {lpSolve: Interface to 'Lp\_solve' v. 5.5 to Solve Linear/Integer
+  Programs}}, 2015.
+\newblock R package version 5.6.13.
+
 \end{thebibliography}
