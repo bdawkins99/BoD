@@ -641,4 +641,26 @@ year={2018}
   month   = dec,
 }
 
+@Article{pentico2007,
+  author  = {David {W}. {P}entico},
+  title   = {{Assignment problems: A golden anniversary survey}},
+  journal = {{European Journal of Operational Research}},
+  year    = {2007},
+  volume  = {176},
+  pages   = {774-793},
+  month   = nov,
+  doi     = {10.1016/j.ejor.2005.09.014},
+}
+
+@Article{collins1994,
+  author  = {{DL} {C}ollins and {P} {N}eelin and {TM} {P}eters},
+  title   = {{Automatic 3D intersubject registration of MR volumetric data in standardized Talairach space}},
+  journal = {{Journal of Computer Assisted Tomography}},
+  year    = {1994},
+  volume  = {18},
+  number  = {2},
+  pages   = {192-205},
+  month   = apr,
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

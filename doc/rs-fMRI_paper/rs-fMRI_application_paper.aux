@@ -20,13 +20,16 @@
 \citation{npdr}
 \citation{power2011}
 \citation{shen2013}
+\citation{cox1996}
 \citation{power2011}
 \citation{shen2013}
+\citation{collins1994}
+\citation{power2011,shen2013}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Background}{1}{section.1}\protected@file@percent }
 \citation{pentico2007}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Two-dimensional slices trough brain atlases with spherical\nobreakspace  {}\cite  {power2011} and anatomically shaped\nobreakspace  {}\cite  {shen2013} ROIs. Slices are shown at the same locations in each atlas for the three different orientiations. Atlases are in MNI space so that voxel locations are comparable between them.\relax }}{2}{figure.caption.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Two-dimensional slices trough brain atlases with spherical\nobreakspace  {}\cite  {power2011} and anatomically shaped\nobreakspace  {}\cite  {shen2013} ROIs. Slices are shown at the same locations in each atlas for the three different orientiations. Atlases are in MNI space\nobreakspace  {}\cite  {collins1994} so that voxel and ROI locations are comparable between them. Each atlas is labeled by the first author of the manuscripts in which they were introduced\nobreakspace  {}\cite  {power2011,shen2013}.\relax }}{2}{figure.caption.2}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:power_shen_unmapped}{{1}{2}{Two-dimensional slices trough brain atlases with spherical~\cite {power2011} and anatomically shaped~\cite {shen2013} ROIs. Slices are shown at the same locations in each atlas for the three different orientiations. Atlases are in MNI space so that voxel locations are comparable between them.\relax }{figure.caption.2}{}}
+\newlabel{fig:power_shen_unmapped}{{1}{2}{Two-dimensional slices trough brain atlases with spherical~\cite {power2011} and anatomically shaped~\cite {shen2013} ROIs. Slices are shown at the same locations in each atlas for the three different orientiations. Atlases are in MNI space~\cite {collins1994} so that voxel and ROI locations are comparable between them. Each atlas is labeled by the first author of the manuscripts in which they were introduced~\cite {power2011,shen2013}.\relax }{figure.caption.2}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Methods}{2}{section.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Real rs-fMRI data}{2}{subsection.2.1}\protected@file@percent }
 \citation{pentico2007}
@@ -34,22 +37,29 @@
 \newlabel{eq:jaccard}{{1}{3}{Spatial overlap between brain atlases}{equation.2.1}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Example computation of Jaccard distance between ROIs $R_A$ and $R_B$ from two atlases $A$ and $B$, respectively. There are $n_1$, $n_2$, $n_3$ voxels in $R_A$ only, $R_B$ only, and both $R_A$ and $R_B$, respectively. The numerator gives the number of voxels unique to $R_A$ ($n_1$) plus the number of voxels unique to $R_B$ ($n_2$). The denominator contains the total number of voxels in $R_A$ or $R_B$.\relax }}{3}{figure.caption.3}\protected@file@percent }
 \newlabel{fig:jaccard}{{2}{3}{Example computation of Jaccard distance between ROIs $R_A$ and $R_B$ from two atlases $A$ and $B$, respectively. There are $n_1$, $n_2$, $n_3$ voxels in $R_A$ only, $R_B$ only, and both $R_A$ and $R_B$, respectively. The numerator gives the number of voxels unique to $R_A$ ($n_1$) plus the number of voxels unique to $R_B$ ($n_2$). The denominator contains the total number of voxels in $R_A$ or $R_B$.\relax }{figure.caption.3}{}}
+\citation{collins1994}
+\citation{power2011,shen2013}
+\citation{power2011}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Assignment problem mathematical definition. The assignment matrix $Y$ is binary, where $y_{ij}=0$ if nodes $i$ and $j$ are assigned to each other and 0 otherwise. The distance matrix $D$ between all nodes is computed to assign costs to arcs (or edges) between nodes. The distance between nodes $i$ and $j$ is denoted by $d_{ij}$. Therefore, the objective function is the sum of all pairwise distances in the collection of assigned arcs. the column and row constraints dictate that each node is connected to exactly one and only one other node.\relax }}{4}{figure.caption.4}\protected@file@percent }
 \newlabel{fig:assignment_problem}{{3}{4}{Assignment problem mathematical definition. The assignment matrix $Y$ is binary, where $y_{ij}=0$ if nodes $i$ and $j$ are assigned to each other and 0 otherwise. The distance matrix $D$ between all nodes is computed to assign costs to arcs (or edges) between nodes. The distance between nodes $i$ and $j$ is denoted by $d_{ij}$. Therefore, the objective function is the sum of all pairwise distances in the collection of assigned arcs. the column and row constraints dictate that each node is connected to exactly one and only one other node.\relax }{figure.caption.4}{}}
 \newlabel{eq:assignment_sol}{{2}{4}{Spatial overlap between brain atlases}{equation.2.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Assignment problem for brain atlas ROI-ROI mapping. Before the minimum distance pairwise mapping is found, all possible pairwise mappings are possible (dashed lines). Each ROI in atlas $A$ must have exactly one partner in atlas $B$. After mapping, the minimum distance pairs are selected to give a one-to-one correspondence between ROIs (solid lines).\relax }}{5}{figure.4}\protected@file@percent }
+\newlabel{fig:assignment_atlases}{{4}{5}{Assignment problem for brain atlas ROI-ROI mapping. Before the minimum distance pairwise mapping is found, all possible pairwise mappings are possible (dashed lines). Each ROI in atlas $A$ must have exactly one partner in atlas $B$. After mapping, the minimum distance pairs are selected to give a one-to-one correspondence between ROIs (solid lines).\relax }{figure.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Visualization of mapping between spherical and anatomically shaped ROIs in two brain atlases\nobreakspace  {}\cite  {power2011,shen2013}. ROIs that are in similar locations are potential partners in the resulting mapping from solving the assignment problem (Fig.\nobreakspace  {}\ref  {fig:assignment_problem}). The atlas with spherical ROIs\nobreakspace  {}\cite  {power2011} is labeled as atlas $A$, while the atlas with anatomically shapped ROIs is labeled as $B$.\relax }}{5}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:power_shen_mapped}{{5}{5}{Visualization of mapping between spherical and anatomically shaped ROIs in two brain atlases~\cite {power2011,shen2013}. ROIs that are in similar locations are potential partners in the resulting mapping from solving the assignment problem (Fig.~\ref {fig:assignment_problem}). The atlas with spherical ROIs~\cite {power2011} is labeled as atlas $A$, while the atlas with anatomically shapped ROIs is labeled as $B$.\relax }{figure.caption.5}{}}
 \bibstyle{unsrt}
 \bibdata{BoD}
 \bibcite{caballero2017}{1}
 \bibcite{npdr}{2}
 \bibcite{power2011}{3}
 \bibcite{shen2013}{4}
-\bibcite{pentico2007}{5}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Assignment problem for brain atlas ROI-ROI mapping. Before the minimum distance pairwise mapping is found, all possible pairwise mappings are possible (dashed lines). Each ROI in atlas $A$ must have exactly one partner in atlas $B$. After mapping, the minimum distance pairs are selected to give a one-to-one correspondence between ROIs (solid lines).\relax }}{5}{figure.4}\protected@file@percent }
-\newlabel{fig:assignment_atlases}{{4}{5}{Assignment problem for brain atlas ROI-ROI mapping. Before the minimum distance pairwise mapping is found, all possible pairwise mappings are possible (dashed lines). Each ROI in atlas $A$ must have exactly one partner in atlas $B$. After mapping, the minimum distance pairs are selected to give a one-to-one correspondence between ROIs (solid lines).\relax }{figure.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Relative importance of ROIs}{5}{subsection.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3}Results}{5}{section.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}New brain atlas}{5}{subsection.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4}Discussion}{5}{section.4}\protected@file@percent }
+\bibcite{cox1996}{5}
+\bibcite{collins1994}{6}
+\bibcite{pentico2007}{7}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Relative importance of ROIs}{6}{subsection.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Results}{6}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}New brain atlas}{6}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Discussion}{6}{section.4}\protected@file@percent }
 \newlabel{LastPage}{{}{6}{}{page.6}{}}
 \xdef\lastpage@lastpage{6}
 \xdef\lastpage@lastpageHy{6}

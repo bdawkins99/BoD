@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  8 NOV 2019 15:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  9 NOV 2019 15:16
 entering extended mode
 **./rs-fMRI_application_paper.tex
 (rs-fMRI_application_paper.tex
@@ -982,7 +982,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmss' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<power_shen_montage2.png, id=42, 347.49825pt x 263.18324pt>
+<power_shen_montage2.png, id=44, 347.49825pt x 263.18324pt>
 File: power_shen_montage2.png Graphic file (type png)
 <use power_shen_montage2.png>
 Package pdftex.def Info: power_shen_montage2.png  used on input line 234.
@@ -991,12 +991,12 @@ Package pdftex.def Info: power_shen_montage2.png  used on input line 234.
 
 {C:/Users/bdawk/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2 <./power
 _shen_montage2.png>]
-<venn_diagram.pdf, id=82, 207.68892pt x 129.9515pt>
+<venn_diagram.pdf, id=89, 207.68892pt x 129.9515pt>
 File: venn_diagram.pdf Graphic file (type pdf)
 <use venn_diagram.pdf>
 Package pdftex.def Info: venn_diagram.pdf  used on input line 270.
 (pdftex.def)             Requested size: 208.68077pt x 123.13896pt.
-<assignment_problem_equations.pdf, id=86, 219.4298pt x 284.5581pt>
+<assignment_problem_equations.pdf, id=93, 219.4298pt x 284.5581pt>
 File: assignment_problem_equations.pdf Graphic file (type pdf)
 <use assignment_problem_equations.pdf>
 Package pdftex.def Info: assignment_problem_equations.pdf  used on input line 2
@@ -1008,7 +1008,7 @@ Overfull \hbox (6.79999pt too wide) in paragraph at lines 286--287
  []
 
 [3 <./venn_diagram.pdf>]
-<assignment_diagram.pdf, id=136, 413.21977pt x 259.32384pt>
+<assignment_diagram.pdf, id=146, 413.21977pt x 259.32384pt>
 File: assignment_diagram.pdf Graphic file (type pdf)
 <use assignment_diagram.pdf>
 Package pdftex.def Info: assignment_diagram.pdf  used on input line 308.
@@ -1017,28 +1017,35 @@ Package pdftex.def Info: assignment_diagram.pdf  used on input line 308.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[4 <./assignment_problem_equations.pdf>] (rs-fMRI_application_paper.bbl
-[5 <./assignment_diagram.pdf>]) 
+<power_shen_montage_mapped.png, id=147, 348.1005pt x 263.7855pt>
+File: power_shen_montage_mapped.png Graphic file (type png)
+<use power_shen_montage_mapped.png>
+Package pdftex.def Info: power_shen_montage_mapped.png  used on input line 318.
+
+(pdftex.def)             Requested size: 208.68077pt x 158.13567pt.
+[4 <./assignment_problem_equations.pdf>] [5 <./power_shen_montage_mapped.png> <
+./assignment_diagram.pdf>] (rs-fMRI_application_paper.bbl)
+
 AED: lastpage setting LastPage
 [6]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 322.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 322.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 339.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 339.
  (rs-fMRI_application_paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 322.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 322.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 339.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 339.
 Package rerunfilecheck Info: File `rs-fMRI_application_paper.out' has not chang
 ed.
 (rerunfilecheck)             Checksum: 5FE30FC2D06A7C4195F8DE25420FE387;474.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 322.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 339.
  ) 
 Here is how much of TeX's memory you used:
- 21196 strings out of 492946
- 384552 string characters out of 3135528
- 508252 words of memory out of 3000000
- 24583 multiletter control sequences out of 15000+200000
- 11802 words of font info for 70 fonts, out of 3000000 for 9000
+ 21213 strings out of 492946
+ 384847 string characters out of 3135528
+ 508884 words of memory out of 3000000
+ 24590 multiletter control sequences out of 15000+200000
+ 12012 words of font info for 73 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,12n,48p,1780b,469s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,12n,48p,1917b,400s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKT
@@ -1057,9 +1064,9 @@ onts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
 cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pf
 b><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program 
 Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on rs-fMRI_application_paper.pdf (6 pages, 666079 bytes).
+Output written on rs-fMRI_application_paper.pdf (6 pages, 761725 bytes).
 PDF statistics:
- 269 PDF objects out of 1000 (max. 8388607)
- 28 named destinations out of 1000 (max. 500000)
- 10867 words of extra memory for PDF output out of 12000 (max. 10000000)
+ 290 PDF objects out of 1000 (max. 8388607)
+ 31 named destinations out of 1000 (max. 500000)
+ 10878 words of extra memory for PDF output out of 12000 (max. 10000000)
 

@@ -26,6 +26,19 @@ Jonathan~{D} {P}ower, {A}lexander {L}~{C}ohen, {S}tephen {M}~{N}elson, {G}agan
   network node identification}.
 \newblock {\em {Neuroimage}}, (0):403--415, November 2013.
 
+\bibitem{cox1996}
+{RW} {C}ox.
+\newblock {AFNI: software for analysis and visualization of functional magnetic
+  resonance neuroimages}.
+\newblock {\em {Computational Biomedical Research}}, 29(3):162--173, June 1996.
+
+\bibitem{collins1994}
+{DL} {C}ollins, {P} {N}eelin, and {TM} {P}eters.
+\newblock {Automatic 3D intersubject registration of MR volumetric data in
+  standardized Talairach space}.
+\newblock {\em {Journal of Computer Assisted Tomography}}, 18(2):192--205,
+  April 1994.
+
 \bibitem{pentico2007}
 David~{W}. {P}entico.
 \newblock {Assignment problems: A golden anniversary survey}.
