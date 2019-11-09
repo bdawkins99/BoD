@@ -324,7 +324,7 @@ Each row and each column of $Y$ has a sum-to-one constraint, which means that ea
 
 \vspace{0.25cm}
 
-Since there are 277 and 278 ROIs in the atlases with spherical and anatomically shaped ROIs, respectively, we first compute a distance matrix $D$ that contains all pairwise distances between atlas ROIs. This gives us a $278 \times 277$ distance matrix to which we add a column of large numeric entries to represent distances from ROIs to an artificial variable. This makes the distance matrix square, which allows us to satisfy the requirements of the Assignment Problem (Fig.~\ref{fig:assignment_problem}).
+Since there are 277 and 278 ROIs in the atlases with spherical and anatomically shaped ROIs, respectively, we first compute a distance matrix $D$ that contains all pairwise distances between atlas ROIs. This gives us a $278 \times 277$ distance matrix to which we add a column of large numeric entries to represent distances from ROIs to an artificial variable. This makes the distance matrix square, which allows us to satisfy the one-to-one constraint of the Assignment Problem (Fig.~\ref{fig:assignment_problem}). We used the open source statistical computing software \textbf{\textsf{R}}, which includes a package called \textsf{lpSolve} for solving a variety of linear and integer programs. The \textsf{lpSolve} package contains a function called \textsf{lp.assign()}, which simply takes a square distance matrix as input and produces solution matrix $Y$ and an objective function value as output. For distance matrices comparable in dimension to $D$, the function takes only a few seconds to run.
 
 \subsection{Relative importance of ROIs}
 
