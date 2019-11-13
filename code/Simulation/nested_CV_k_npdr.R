@@ -41,10 +41,10 @@ attrDetectStats <- function(functional, positives){
   return(list(TP=TP, FP=FP, FN=FN, TPR=TPR, FPR=FPR, precision=precision, recall=recall))
 }
 
-mixed.ratio <- seq(0.1,0.9,by=0.1)
+#mixed.ratio <- seq(0.1,0.9,by=0.1)
 #mixed.ratio <- seq(0.3,0.9,by=0.1)
 #mixed.ratio <- c(0.3)
-#mixed.ratio <- c(0.1)
+mixed.ratio <- c(0.1)
 my.chosen.k <- numeric()
 my.precision.list <- list()
 my.recall.list <- list()
@@ -52,7 +52,7 @@ all.k.list <- list()
 for(mixed.iter in 1:length(mixed.ratio)){
   cat("Mixed Percent = ",mixed.ratio[mixed.iter],"\n\n")
   chosen.k <- numeric()
-  num.iter <- 5
+  num.iter <- 1
   k.accu.list <- list()
   for(iter in 1:num.iter){
     if((iter/10) == floor(iter/10)){
@@ -120,7 +120,7 @@ for(mixed.iter in 1:length(mixed.ratio)){
     m <- n.samples
     
     # values of k to consider inside inner folds
-    ks <- seq(1,floor((m-1)/4),by=1)
+    ks <- seq(1,floor((m-1)/2),by=1)
     
     # relief method
     RF.method <- "relieff"
