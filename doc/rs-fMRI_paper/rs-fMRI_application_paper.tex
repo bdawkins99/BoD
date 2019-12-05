@@ -334,7 +334,33 @@ The solution matrix in the output from \textsf{lp.assign()} has a total of 230 a
 \end{figure}
 
 Mapped ROIs are an indication of informational and spatial similarity shared by both atlases. Subject data that is derived from the mapped ROIs are highly correlated because each ROI pair shares voxels from which ROI time series are created. Unmapped ROIs in a single atlas may or may not intersect one of the mapped ROIs in another atlas. These unmapped ROIs indicate the most unique aspects of each atlas relative to one another. Hence, unmapped ROIs should be considered for inclusion in a customized atlas if determined to be important for predicting the outcome.
+
 \subsection{Relative importance of ROIs}
+
+We load all subject-level resting-state fMRI (rs-fMRI) correlation matrices into a single matrix for our analysis (Fig.~\ref{fig:rs-fMRI_matrix}). Each column represents a single instance $i \in \mathcal{I}$ and each consecutive collection of $p-1$ rows represents a single ROI $a \in \mathcal{A}$. We apply a Fisher r-to-z transform to all pairwise correlations and then standardize so that each column is approximately standard normally distributed ($\mathcal{N}(0,1)$).
+
+\bigskip
+
+\begin{minipage}[c]{0.7\textwidth}\hspace{-0.6cm}
+	\includegraphics[width=0.95\textwidth]{fig5_rs_fmri_all_instance_matrix.pdf}
+\end{minipage}\hspace{-0.8cm}
+\begin{minipage}[c]{0.3\textwidth}
+	\captionsetup{type=figure}\captionof{figure}{Organization based on brain regions of interest (ROIs) of resting-state fMRI correlation dataset consisting of transformed correlation matrices for $m$ subjects. Each column corresponds to an instance (or subject) $I_j$ and each subset of rows corresponds to the correlations for an ROI attribute ($p$ sets). The notation $\hat{A}^{(j)}_{ak}$ represents the r-to-z transformed correlation between attributes (ROIs) $a$ and $k \neq a$ for instance $j$.}\label{fig:rs-fMRI_matrix}
+\end{minipage}
+
+\bigskip
+
+We determine attribute importance using Nearest-neighbor Projected Distance Regression (NPDR)~\cite{npdr}, which is a novel nearest-neighbor feature selection method that builds upon Relief-Based Algorithms (RBAs)~\cite{robnik2003,urbanowicz17}. In order to compute distances, we previously introduced a metric for time series-correlation based (ts-corr) data like rs-fMRI~(cite BoD theoretical). The one-dimensional projection (diff) onto a single ROI is define as follows
+%
+\begin{equation}\label{eq:diff_rs-fMRI}
+\text{d}^\text{ROI}_{ij}(a) = \sum_{k \neq a}\bigl|A^{(i)}_{ka} - A^{(j)}_{ka}\bigr|,
+\end{equation}
+%
+where $A^{(i)}_{ak}$ and $A^{(j)}_{ak}$ are the correlations between ROI $a$ and ROI $k$ for instances $i,j \in \mathcal{I}$, respectively. With this rs-fMRI diff, we define the pairwise distance between two instances $i,j \in \mathcal{I}$ as follows
+%
+\begin{equation}\label{eq:D_rs-fMRI}
+D^\text{fMRI}_{ij} = \sum_{a \in \mathcal{A}} \text{d}^\text{ROI}_{ij}(a).
+\end{equation}
 
 \section{Results}
 

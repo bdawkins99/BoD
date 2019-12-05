@@ -76,7 +76,8 @@ nestedCV_best_k <- function(train.ds=NULL,
   }
   
   if(is.null(k.grid)){
-    ks <- seq(1,floor((m-1)/2),by=1)
+    #ks <- seq(1,floor((m-1)/2),by=1)
+    ks <- seq(1,(m-1),by=1)
   }else{
     ks <- k.grid
   }
@@ -94,6 +95,8 @@ nestedCV_best_k <- function(train.ds=NULL,
     trn.pheno <- as.factor(train.ds[,label][outer.idx])
     tst.pheno <- as.factor(train.ds[,label][-outer.idx])
     
+    #print(dim(trn.data))
+    
     inner_folds <- caret::createFolds(trn.pheno, ncv_folds[2], list=FALSE)
     
     k.inner.best.vec <- numeric()
@@ -106,9 +109,13 @@ nestedCV_best_k <- function(train.ds=NULL,
       tst.data.inner <- trn.data[-inner.idx,]
       trn.pheno.inner <- as.factor(trn.pheno[inner.idx])
       tst.pheno.inner <- as.factor(trn.pheno[-inner.idx])
+      
+      n.k <- length(trn.pheno.inner)
+      #print(n.k)
+      
       k.accu.vec <- numeric()
       att.best.tmp <- list()
-      for(k.iter in 1:length(ks)){
+      for(k.iter in 1:(n.k-1)){
         cat("      k = ",k.iter,"\n")
         k <- ks[k.iter]
         
@@ -165,8 +172,8 @@ nestedCV_best_k <- function(train.ds=NULL,
       cat("                     k = ",idx.max,"\n")
       
       par(mfrow=c(1,1),mar=c(4.5,4.1,1.1,0.8))
-      plot(ks,k.accu.vec,type='l',lwd=2,col='black')
-      points(ks,k.accu.vec,pch=19,col='red',cex=1.3)
+      plot(c(1:length(k.accu.vec)),k.accu.vec,type='l',lwd=2,col='black')
+      points(c(1:length(k.accu.vec)),k.accu.vec,pch=19,col='red',cex=1.3)
       points(idx.max,k.accu.vec[idx.max],pch=19,col='blue',cex=1.5)
       
       #cat("Inner Best k's: ",idx.max,"\n")
@@ -235,7 +242,7 @@ nestedCV_best_k <- function(train.ds=NULL,
   idx.best.k <- idx.max
   best.k <- k.best.vec[idx.best.k]
   best.atts <- att.best.list[[idx.best.k]]
-  
+
   if(attr.diff.type=="correlation-data"){
     idx.positive <- numeric()
     new.attr.idx.list <- list()
@@ -262,16 +269,38 @@ nestedCV_best_k <- function(train.ds=NULL,
     
     if(attr.diff.type=="correlation-data"){
       test.data <- as.matrix(validation.ds[,col.idx.npdr.positives])
+      
+      npdr.results.tmp <- npdr(label, validation.ds, regression.type="binomial", attr.diff.type=attr.diff.type,
+                               nbd.method="relieff", nbd.metric = "manhattan", msurf.sd.frac=.5, knn=best.k,
+                               neighbor.sampling="none",
+                               padj.method="bonferroni", 
+                               corr.attr.names=corr.attr.names,
+                               verbose=verbose, dopar.nn=dopar.nn, dopar.reg=dopar.reg)
+      #npdr.results.df <- data.frame(att=npdr.results$att,
+      #                              betas=npdr.results$beta.Z.att,
+      #                              pval.att=npdr.results$pval.adj)
     }else{
       test.data <- as.matrix(validation.ds[,best.atts])
+      
+      npdr.results.tmp <- npdr(label, validation.ds, regression.type="binomial", attr.diff.type=attr.diff.type,
+                               nbd.method="relieff", nbd.metric = "manhattan", msurf.sd.frac=.5, knn=best.k,
+                               neighbor.sampling="none",
+                               padj.method="bonferroni", 
+                               corr.attr.names=corr.attr.names,
+                               verbose=verbose, dopar.nn=dopar.nn, dopar.reg=dopar.reg)
+      #npdr.results.df <- data.frame(att=npdr.results.tmp$att,
+      #                              betas=npdr.results.tmp$beta.Z.att,
+      #                              pval.att=npdr.results.tmp$pval.adj)
     }
     test.pheno <- as.factor(validation.ds[,label])
-    
+
     test.pred <- stats::predict(train.model, newdata=test.data, na.action=na.omit)
+
     test.accu <- 1 - mean(test.pred != test.pheno)
+
     #test.accu <- confusionMatrix(as.factor(test.pred), as.factor(test.pheno))$byClass["Balanced Accuracy"]
   }
-  
-  list(cv.acc=train.accu, Validation=test.accu, Features=best.atts, Train.model=train.model, best.k=best.k)
+
+  list(cv.acc=train.accu, Validation=test.accu, Features=best.atts, Train.model=train.model, best.k=best.k, AllFeatures.NPDR=npdr.results.tmp)
   
 }

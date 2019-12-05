@@ -1,5 +1,5 @@
  \newcommand{\noop}[1]{}
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{caballero2017}
 C\'{e}sar {C}aballero {G}audes and {R}ichard {C}.~{R}eynolds.
@@ -52,8 +52,21 @@ David~{W}. {P}entico.
 
 \bibitem{lpsolve}
 Michel Berkelaar and {others}.
-\newblock {\em {lpSolve: Interface to 'Lp\_solve' v. 5.5 to Solve Linear/Integer
-  Programs}}, 2015.
+\newblock {\em lpSolve: Interface to 'Lp\_solve' v. 5.5 to Solve Linear/Integer
+  Programs}, 2015.
 \newblock R package version 5.6.13.
+
+\bibitem{robnik2003}
+Marko {R}obnik \v{S}ikonja and {I}gor {K}ononenko.
+\newblock Theoretical and {E}mpirical {A}nalysis of {R}elief{F} and
+  {R}{R}elief{F}.
+\newblock {\em Machine {L}earning}, 53:23 -- 69, February 2003.
+
+\bibitem{urbanowicz17}
+Ryan~J. Urbanowicz, Randal~S. Olson, Peter Schmitt, Melissa Meeker, and
+  Jason~H. Moore.
+\newblock Benchmarking relief-based feature selection methods for
+  bioinformatics data mining.
+\newblock {\em Journal of Biomedical Informatics}, 85:168--188, 2018.
 
 \end{thebibliography}

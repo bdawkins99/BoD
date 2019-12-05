@@ -14,10 +14,10 @@
 \BOOKMARK [2][-]{subsection.2.4}{Distribution of max-min normalized \040metric}{section.2}% 14
 \BOOKMARK [3][-]{subsubsection.2.4.1}{Standard normal data}{subsection.2.4}% 15
 \BOOKMARK [3][-]{subsubsection.2.4.2}{Standard uniform data}{subsection.2.4}% 16
-\BOOKMARK [2][-]{subsection.2.5}{Normalized Manhattan }{section.2}% 17
+\BOOKMARK [2][-]{subsection.2.5}{Range-Normalized Manhattan }{section.2}% 17
 \BOOKMARK [3][-]{subsubsection.2.5.1}{Standard normal data}{subsection.2.5}% 18
 \BOOKMARK [3][-]{subsubsection.2.5.2}{Standard uniform data}{subsection.2.5}% 19
-\BOOKMARK [2][-]{subsection.2.6}{Normalized Euclidean }{section.2}% 20
+\BOOKMARK [2][-]{subsection.2.6}{Range-Normalized Euclidean }{section.2}% 20
 \BOOKMARK [3][-]{subsubsection.2.6.1}{Standard normal data}{subsection.2.6}% 21
 \BOOKMARK [3][-]{subsubsection.2.6.2}{Standard uniform data}{subsection.2.6}% 22
 \BOOKMARK [1][-]{section.3}{GWAS distance distributions}{}% 23
@@ -33,5 +33,5 @@
 \BOOKMARK [1][-]{section.6}{Effects of correlation on distances}{}% 33
 \BOOKMARK [2][-]{subsection.6.1}{Continuous data}{section.6}% 34
 \BOOKMARK [2][-]{subsection.6.2}{GWAS data}{section.6}% 35
-\BOOKMARK [2][-]{subsection.6.3}{Correlation-based data}{section.6}% 36
+\BOOKMARK [2][-]{subsection.6.3}{Time-series derived correlation-based datasets}{section.6}% 36
 \BOOKMARK [1][-]{section.7}{Discussion}{}% 37
