@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  5 DEC 2019 12:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  5 DEC 2019 13:53
 entering extended mode
 **./rs-fMRI_application_paper.tex
 (rs-fMRI_application_paper.tex
@@ -1063,7 +1063,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 379.
 Here is how much of TeX's memory you used:
  21273 strings out of 492946
  385912 string characters out of 3135528
- 510388 words of memory out of 3000000
+ 510411 words of memory out of 3000000
  24616 multiletter control sequences out of 15000+200000
  13083 words of font info for 84 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1092,7 +1092,7 @@ am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files
 .9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts
 /type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/hel
 vetic/uhvr8a.pfb>
-Output written on rs-fMRI_application_paper.pdf (8 pages, 1505542 bytes).
+Output written on rs-fMRI_application_paper.pdf (8 pages, 1505574 bytes).
 PDF statistics:
  457 PDF objects out of 1000 (max. 8388607)
  42 named destinations out of 1000 (max. 500000)
