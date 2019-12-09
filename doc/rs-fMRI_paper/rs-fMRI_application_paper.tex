@@ -101,6 +101,9 @@
 \usepackage{float}
 \usepackage{wrapfig}
 
+\usepackage{harpoon}
+\usepackage{fdsymbol}
+
 %\renewcommand{\arraystretch}{1.2}
 %\setlength{\tabcolsep}{12pt}
 
@@ -210,7 +213,8 @@
   $^{\text{2}}$Laureate Institute for Brain Research, Tulsa, OK 74136, USA \\
   $^{\text{3}}$Department of Biostatistics, Epidemiology and Informatics, University of \\
   \hphantom{2}Pennsylvania, Philadelphia, PA 19104 \\
-  $^{\text{4}}$Tandy School of Computer Science, University of Tulsa, Tulsa, OK 74104, USA.
+  $^{\text{4}}$Tandy School of Computer Science, University of Tulsa, Tulsa, OK 74104, USA\\
+  $*$Correspondence: brett.mckinney@gmail.com
   \end{tabular}
 \end{center}
 
@@ -350,7 +354,18 @@ We load all subject-level resting-state fMRI (rs-fMRI) correlation matrices into
 
 \bigskip
 
-We determine attribute importance using Nearest-neighbor Projected Distance Regression (NPDR)~\cite{npdr}, which is a novel nearest-neighbor feature selection method that builds upon Relief-Based Algorithms (RBAs)~\cite{robnik2003,urbanowicz17}. In order to compute distances, we previously introduced a metric for time series-correlation based (ts-corr) data like rs-fMRI~(cite BoD theoretical). The one-dimensional projection (diff) onto a single ROI is define as follows
+We determine attribute importance using Nearest-neighbor Projected Distance Regression (NPDR)~\cite{npdr}, which is a novel nearest-neighbor feature selection method that builds upon Relief-Based Algorithms (RBAs)~\cite{robnik2003,urbanowicz17}. For binary response variables, like case-control outcomes, NPDR computes a standardized beta coefficient for a generalized linear model (GLM) (Fig.~\ref{fig:npdr_finished}). The argument to the logit function is $\text{p}^\text{miss}_{ij}$, which is the probability that instances $i,j \in \mathcal{I}$ are in different phenotype classes. This argument models the binary outcome diff, which is given by the following
+%
+\begin{equation}\label{eq:diff_outcome}
+\text{d}^\text{miss}_{ij}(\overrightharpoon{y})=\begin{cases}
+0 & y_i = y_j, \\
+1 & \text{else}.
+\end{cases}
+\end{equation}
+
+For each coefficient $\beta_a$, a significant adjusted pseudo P value implies that the null hypothesis ($\beta_a \leq 0$) is rejected. The alternative hypothesis ($\beta_a > 0$) implies that the particular attribute $a \in \mathcal{A}$ may be important for classification.
+
+In order to compute distances, we previously introduced a metric for time series-correlation based (ts-corr) data like rs-fMRI~(cite BoD theoretical). The one-dimensional projection (diff) onto a single ROI is define as follows
 %
 \begin{equation}\label{eq:diff_rs-fMRI}
 \text{d}^\text{ROI}_{ij}(a) = \sum_{k \neq a}\bigl|A^{(i)}_{ka} - A^{(j)}_{ka}\bigr|,
@@ -362,10 +377,18 @@ where $A^{(i)}_{ak}$ and $A^{(j)}_{ak}$ are the correlations between ROI $a$ and
 D^\text{fMRI}_{ij} = \sum_{a \in \mathcal{A}} \text{d}^\text{ROI}_{ij}(a).
 \end{equation}
 
+Using our attribute diff (Eq.~\ref{eq:diff_rs-fMRI}), we compute standardized beta coefficients of the generalized linear model given by
+%
+\begin{equation}\label{eq:glm_roi}
+\text{logit}\left(\text{p}^\text{miss}_{ij}\right) = \beta_0 + \beta_a \text{d}^\text{ROI}_{ij}(a) + \epsilon_{ij}, \quad \forall(i,j) \in \mathcal{N}(k),
+\end{equation}
+%
+which is the standard GLM that NPDR uses to compute standardized beta coefficients for binary outcomes with $\text{d}_{ij}(a)$ (Fig.~\ref{fig:npdr_finished}) replaced by our diff for ROIs $\text{d}^\text{ROI}_{ij}(a)$ (Eq.~\ref{eq:diff_rs-fMRI}).
+
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.92\textwidth]{npdr_finished_diagram.pdf}
-	\caption{Nearest-neighbor Projected Distance Regression for binary response (case-control). For each attribute $a \in \mathcal{A}$, we estimate beta coefficients for a generalized linear model, where the predictors ($\text{d}_{ij}(a) = |X_{ia} - X_{ja}|$) are one-dimensional projected distances (diffs) with respect to a particular attribute. The argument $\text{p}^\text{miss}_{ij}$ is the probability that instances $i,j \in \mathcal{I}$ are in a different phenotype classes.}\label{fig:npdr_finished}
+	\includegraphics[width=0.85\textwidth]{npdr_finished_diagram.pdf}
+	\caption{Nearest-neighbor Projected Distance Regression for binary response (case-control)~\cite{npdr}. For each attribute $a \in \mathcal{A}$, we compute standardized beta coefficients for a generalized linear model, where the predictors ($\text{d}_{ij}(a) = |X_{ia} - X_{ja}|$) are one-dimensional projected distances (diffs) with respect to a particular attribute. The argument $\text{p}^\text{miss}_{ij}$ is the probability that instances $i,j \in \mathcal{I}$ are in different phenotype classes. The logit function models the binary hit-miss phenotype projection (Eq.~\ref{eq:diff_outcome}). Significant adjusted pseudo P values ($p_\text{adj}$) lead to the rejection of the null hypothesis $\beta_a \leq 0$. The set $\mathcal{N}(k)$ is the collection of all neighbor ordered pairs such that each target instances neighborhood as exactly $k$ nearest neighbors.}\label{fig:npdr_finished}
 \end{figure}
 
 \section{Results}

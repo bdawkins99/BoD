@@ -21,11 +21,11 @@
 \citation{power2011}
 \citation{shen2013}
 \citation{cox1996}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Background}{1}{section.1}\protected@file@percent }
 \citation{power2011}
 \citation{shen2013}
 \citation{collins1994}
 \citation{power2011,shen2013}
-\@writefile{toc}{\contentsline {section}{\numberline {1}Background}{1}{section.1}\protected@file@percent }
 \citation{pentico2007}
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Two-dimensional slices trough brain atlases with spherical\nobreakspace  {}\cite  {power2011} and anatomically shaped\nobreakspace  {}\cite  {shen2013} ROIs. Slices are shown at the same locations in each atlas for the three different orientiations. Atlases are in MNI space\nobreakspace  {}\cite  {collins1994} so that voxel and ROI locations are comparable between them. Each atlas is labeled by the first author of the manuscripts in which they were introduced\nobreakspace  {}\cite  {power2011,shen2013}.\relax }}{2}{figure.caption.2}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
@@ -54,28 +54,31 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Relative importance of ROIs}{6}{subsection.2.3}\protected@file@percent }
 \citation{npdr}
 \citation{robnik2003,urbanowicz17}
+\citation{npdr}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Organization based on brain regions of interest (ROIs) of resting-state fMRI correlation dataset consisting of transformed correlation matrices for $m$ subjects. Each column corresponds to an instance (or subject) $I_j$ and each subset of rows corresponds to the correlations for an ROI attribute ($p$ sets). The notation $\mathaccentV {hat}05E{A}^{(j)}_{ak}$ represents the r-to-z transformed correlation between attributes (ROIs) $a$ and $k \neq a$ for instance $j$.\relax }}{7}{figure.caption.6}\protected@file@percent }
+\newlabel{fig:rs-fMRI_matrix}{{7}{7}{Organization based on brain regions of interest (ROIs) of resting-state fMRI correlation dataset consisting of transformed correlation matrices for $m$ subjects. Each column corresponds to an instance (or subject) $I_j$ and each subset of rows corresponds to the correlations for an ROI attribute ($p$ sets). The notation $\hat {A}^{(j)}_{ak}$ represents the r-to-z transformed correlation between attributes (ROIs) $a$ and $k \neq a$ for instance $j$.\relax }{figure.caption.6}{}}
+\newlabel{eq:diff_outcome}{{3}{7}{Relative importance of ROIs}{equation.2.3}{}}
+\newlabel{eq:diff_rs-fMRI}{{4}{7}{Relative importance of ROIs}{equation.2.4}{}}
+\newlabel{eq:D_rs-fMRI}{{5}{7}{Relative importance of ROIs}{equation.2.5}{}}
+\newlabel{eq:glm_roi}{{6}{7}{Relative importance of ROIs}{equation.2.6}{}}
 \bibstyle{unsrt}
 \bibdata{BoD}
 \bibcite{caballero2017}{1}
 \bibcite{npdr}{2}
 \bibcite{power2011}{3}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Organization based on brain regions of interest (ROIs) of resting-state fMRI correlation dataset consisting of transformed correlation matrices for $m$ subjects. Each column corresponds to an instance (or subject) $I_j$ and each subset of rows corresponds to the correlations for an ROI attribute ($p$ sets). The notation $\mathaccentV {hat}05E{A}^{(j)}_{ak}$ represents the r-to-z transformed correlation between attributes (ROIs) $a$ and $k \not =a$ for instance $j$.\relax }}{7}{figure.caption.6}\protected@file@percent }
-\newlabel{fig:rs-fMRI_matrix}{{7}{7}{Organization based on brain regions of interest (ROIs) of resting-state fMRI correlation dataset consisting of transformed correlation matrices for $m$ subjects. Each column corresponds to an instance (or subject) $I_j$ and each subset of rows corresponds to the correlations for an ROI attribute ($p$ sets). The notation $\hat {A}^{(j)}_{ak}$ represents the r-to-z transformed correlation between attributes (ROIs) $a$ and $k \neq a$ for instance $j$.\relax }{figure.caption.6}{}}
-\newlabel{eq:diff_rs-fMRI}{{3}{7}{Relative importance of ROIs}{equation.2.3}{}}
-\newlabel{eq:D_rs-fMRI}{{4}{7}{Relative importance of ROIs}{equation.2.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Results}{7}{section.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}New brain atlas}{7}{subsection.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4}Discussion}{7}{section.4}\protected@file@percent }
 \bibcite{shen2013}{4}
 \bibcite{cox1996}{5}
 \bibcite{collins1994}{6}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Nearest-neighbor Projected Distance Regression for binary response (case-control)\nobreakspace  {}\cite  {npdr}. For each attribute $a \in \mathcal  {A}$, we compute standardized beta coefficients for a generalized linear model, where the predictors ($\text  {d}_{ij}(a) = |X_{ia} - X_{ja}|$) are one-dimensional projected distances (diffs) with respect to a particular attribute. The argument $\text  {p}^\text  {miss}_{ij}$ is the probability that instances $i,j \in \mathcal  {I}$ are in different phenotype classes. The logit function models the binary hit-miss phenotype projection (Eq.\nobreakspace  {}\ref  {eq:diff_outcome}). Significant adjusted pseudo P values ($p_\text  {adj}$) lead to the rejection of the null hypothesis $\beta _a \leq 0$. The set $\mathcal  {N}(k)$ is the collection of all neighbor ordered pairs such that each target instances neighborhood as exactly $k$ nearest neighbors.\relax }}{8}{figure.8}\protected@file@percent }
+\newlabel{fig:npdr_finished}{{8}{8}{Nearest-neighbor Projected Distance Regression for binary response (case-control)~\cite {npdr}. For each attribute $a \in \mathcal {A}$, we compute standardized beta coefficients for a generalized linear model, where the predictors ($\text {d}_{ij}(a) = |X_{ia} - X_{ja}|$) are one-dimensional projected distances (diffs) with respect to a particular attribute. The argument $\text {p}^\text {miss}_{ij}$ is the probability that instances $i,j \in \mathcal {I}$ are in different phenotype classes. The logit function models the binary hit-miss phenotype projection (Eq.~\ref {eq:diff_outcome}). Significant adjusted pseudo P values ($p_\text {adj}$) lead to the rejection of the null hypothesis $\beta _a \leq 0$. The set $\mathcal {N}(k)$ is the collection of all neighbor ordered pairs such that each target instances neighborhood as exactly $k$ nearest neighbors.\relax }{figure.8}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Results}{8}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}New brain atlas}{8}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Discussion}{8}{section.4}\protected@file@percent }
 \bibcite{pentico2007}{7}
 \bibcite{R}{8}
 \bibcite{lpsolve}{9}
 \bibcite{robnik2003}{10}
 \bibcite{urbanowicz17}{11}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Nearest-neighbor Projected Distance Regression for binary response (case-control). For each attribute $a \in \mathcal  {A}$, we estimate beta coefficients for a generalized linear model, where the predictors ($\text  {d}_{ij}(a) = |X_{ia} - X_{ja}|$) are one-dimensional projected distances (diffs) with respect to a particular attribute. The argument $\text  {p}^\text  {miss}_{ij}$ is the probability that instances $i,j \in \mathcal  {I}$ are in a different phenotype classes.\relax }}{8}{figure.8}\protected@file@percent }
-\newlabel{fig:npdr_finished}{{8}{8}{Nearest-neighbor Projected Distance Regression for binary response (case-control). For each attribute $a \in \mathcal {A}$, we estimate beta coefficients for a generalized linear model, where the predictors ($\text {d}_{ij}(a) = |X_{ia} - X_{ja}|$) are one-dimensional projected distances (diffs) with respect to a particular attribute. The argument $\text {p}^\text {miss}_{ij}$ is the probability that instances $i,j \in \mathcal {I}$ are in a different phenotype classes.\relax }{figure.8}{}}
-\newlabel{LastPage}{{}{8}{}{page.8}{}}
-\xdef\lastpage@lastpage{8}
-\xdef\lastpage@lastpageHy{8}
+\newlabel{LastPage}{{}{9}{}{page.9}{}}
+\xdef\lastpage@lastpage{9}
+\xdef\lastpage@lastpageHy{9}
