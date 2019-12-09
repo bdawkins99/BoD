@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  5 DEC 2019 13:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  8 DEC 2019 22:01
 entering extended mode
 **./rs-fMRI_application_paper.tex
 (rs-fMRI_application_paper.tex
@@ -1041,7 +1041,7 @@ ne 345.
 File: npdr_finished_diagram.pdf Graphic file (type pdf)
 <use npdr_finished_diagram.pdf>
 Package pdftex.def Info: npdr_finished_diagram.pdf  used on input line 367.
-(pdftex.def)             Requested size: 371.82751pt x 217.97624pt.
+(pdftex.def)             Requested size: 349.0634pt x 204.63187pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1092,7 +1092,7 @@ am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files
 .9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts
 /type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/hel
 vetic/uhvr8a.pfb>
-Output written on rs-fMRI_application_paper.pdf (8 pages, 1505574 bytes).
+Output written on rs-fMRI_application_paper.pdf (8 pages, 1505576 bytes).
 PDF statistics:
  457 PDF objects out of 1000 (max. 8388607)
  42 named destinations out of 1000 (max. 500000)
