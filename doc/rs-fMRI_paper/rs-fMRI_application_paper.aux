@@ -54,13 +54,16 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Relative importance of ROIs}{6}{subsection.2.3}\protected@file@percent }
 \citation{npdr}
 \citation{robnik2003,urbanowicz17}
-\citation{npdr}
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Organization based on brain regions of interest (ROIs) of resting-state fMRI correlation dataset consisting of transformed correlation matrices for $m$ subjects. Each column corresponds to an instance (or subject) $I_j$ and each subset of rows corresponds to the correlations for an ROI attribute ($p$ sets). The notation $\mathaccentV {hat}05E{A}^{(j)}_{ak}$ represents the r-to-z transformed correlation between attributes (ROIs) $a$ and $k \neq a$ for instance $j$.\relax }}{7}{figure.caption.6}\protected@file@percent }
 \newlabel{fig:rs-fMRI_matrix}{{7}{7}{Organization based on brain regions of interest (ROIs) of resting-state fMRI correlation dataset consisting of transformed correlation matrices for $m$ subjects. Each column corresponds to an instance (or subject) $I_j$ and each subset of rows corresponds to the correlations for an ROI attribute ($p$ sets). The notation $\hat {A}^{(j)}_{ak}$ represents the r-to-z transformed correlation between attributes (ROIs) $a$ and $k \neq a$ for instance $j$.\relax }{figure.caption.6}{}}
 \newlabel{eq:diff_outcome}{{3}{7}{Relative importance of ROIs}{equation.2.3}{}}
 \newlabel{eq:diff_rs-fMRI}{{4}{7}{Relative importance of ROIs}{equation.2.4}{}}
 \newlabel{eq:D_rs-fMRI}{{5}{7}{Relative importance of ROIs}{equation.2.5}{}}
 \newlabel{eq:glm_roi}{{6}{7}{Relative importance of ROIs}{equation.2.6}{}}
+\citation{npdr}
+\citation{mckinney13}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Nearest-neighbor Projected Distance Regression for binary response (case-control)\nobreakspace  {}\cite  {npdr}. For each attribute $a \in \mathcal  {A}$, we compute standardized beta coefficients for a generalized linear model, where the predictors ($\text  {d}_{ij}(a) = |X_{ia} - X_{ja}|$) are one-dimensional projected distances (diffs) with respect to a particular attribute. The argument $\text  {p}^\text  {miss}_{ij}$ is the probability that instances $i,j \in \mathcal  {I}$ are in different phenotype classes. The logit function models the binary hit-miss phenotype projection (Eq.\nobreakspace  {}\ref  {eq:diff_outcome}). Significant adjusted pseudo P values ($p_\text  {adj}$) lead to the rejection of the null hypothesis $\beta _a \leq 0$. The set $\mathcal  {N}(k)$ is the collection of all neighbor ordered pairs such that each target instances neighborhood as exactly $k$ nearest neighbors.\relax }}{8}{figure.8}\protected@file@percent }
+\newlabel{fig:npdr_finished}{{8}{8}{Nearest-neighbor Projected Distance Regression for binary response (case-control)~\cite {npdr}. For each attribute $a \in \mathcal {A}$, we compute standardized beta coefficients for a generalized linear model, where the predictors ($\text {d}_{ij}(a) = |X_{ia} - X_{ja}|$) are one-dimensional projected distances (diffs) with respect to a particular attribute. The argument $\text {p}^\text {miss}_{ij}$ is the probability that instances $i,j \in \mathcal {I}$ are in different phenotype classes. The logit function models the binary hit-miss phenotype projection (Eq.~\ref {eq:diff_outcome}). Significant adjusted pseudo P values ($p_\text {adj}$) lead to the rejection of the null hypothesis $\beta _a \leq 0$. The set $\mathcal {N}(k)$ is the collection of all neighbor ordered pairs such that each target instances neighborhood as exactly $k$ nearest neighbors.\relax }{figure.8}{}}
 \bibstyle{unsrt}
 \bibdata{BoD}
 \bibcite{caballero2017}{1}
@@ -68,17 +71,18 @@
 \bibcite{power2011}{3}
 \bibcite{shen2013}{4}
 \bibcite{cox1996}{5}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Feature-wise adaptive-$k$ method for choosing optimal values of $k$ in nearest-neighbor feature selection. For each attribute $a \in \mathcal  {A}$ and each value of $k=1,2,\dots  ,m-1$, a score or weight is computed with a nearest-neighbor feature selection method like Relief-Based Algorithms (RBAs) or another similar method. Each feature is assigned the value of $k$ that maximizes its importance score. Winning scores are then sorted in decreasing order and some fraction of the top scoring attributes are chosen for further analysis. We use the adjusted pseudo P values from NPDR to filter out attributes that are determined irrelevant to the phenotype. With NPDR, attribute scores are simply the standardized beta coefficients computed for the corresponding GLM (Eq.\nobreakspace  {}\ref  {eq:glm_roi}).\relax }}{9}{figure.9}\protected@file@percent }
+\newlabel{fig:gwak}{{9}{9}{Feature-wise adaptive-$k$ method for choosing optimal values of $k$ in nearest-neighbor feature selection. For each attribute $a \in \mathcal {A}$ and each value of $k=1,2,\dots ,m-1$, a score or weight is computed with a nearest-neighbor feature selection method like Relief-Based Algorithms (RBAs) or another similar method. Each feature is assigned the value of $k$ that maximizes its importance score. Winning scores are then sorted in decreasing order and some fraction of the top scoring attributes are chosen for further analysis. We use the adjusted pseudo P values from NPDR to filter out attributes that are determined irrelevant to the phenotype. With NPDR, attribute scores are simply the standardized beta coefficients computed for the corresponding GLM (Eq.~\ref {eq:glm_roi}).\relax }{figure.9}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Results}{9}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}New brain atlas}{9}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Discussion}{9}{section.4}\protected@file@percent }
 \bibcite{collins1994}{6}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Nearest-neighbor Projected Distance Regression for binary response (case-control)\nobreakspace  {}\cite  {npdr}. For each attribute $a \in \mathcal  {A}$, we compute standardized beta coefficients for a generalized linear model, where the predictors ($\text  {d}_{ij}(a) = |X_{ia} - X_{ja}|$) are one-dimensional projected distances (diffs) with respect to a particular attribute. The argument $\text  {p}^\text  {miss}_{ij}$ is the probability that instances $i,j \in \mathcal  {I}$ are in different phenotype classes. The logit function models the binary hit-miss phenotype projection (Eq.\nobreakspace  {}\ref  {eq:diff_outcome}). Significant adjusted pseudo P values ($p_\text  {adj}$) lead to the rejection of the null hypothesis $\beta _a \leq 0$. The set $\mathcal  {N}(k)$ is the collection of all neighbor ordered pairs such that each target instances neighborhood as exactly $k$ nearest neighbors.\relax }}{8}{figure.8}\protected@file@percent }
-\newlabel{fig:npdr_finished}{{8}{8}{Nearest-neighbor Projected Distance Regression for binary response (case-control)~\cite {npdr}. For each attribute $a \in \mathcal {A}$, we compute standardized beta coefficients for a generalized linear model, where the predictors ($\text {d}_{ij}(a) = |X_{ia} - X_{ja}|$) are one-dimensional projected distances (diffs) with respect to a particular attribute. The argument $\text {p}^\text {miss}_{ij}$ is the probability that instances $i,j \in \mathcal {I}$ are in different phenotype classes. The logit function models the binary hit-miss phenotype projection (Eq.~\ref {eq:diff_outcome}). Significant adjusted pseudo P values ($p_\text {adj}$) lead to the rejection of the null hypothesis $\beta _a \leq 0$. The set $\mathcal {N}(k)$ is the collection of all neighbor ordered pairs such that each target instances neighborhood as exactly $k$ nearest neighbors.\relax }{figure.8}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Results}{8}{section.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}New brain atlas}{8}{subsection.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4}Discussion}{8}{section.4}\protected@file@percent }
 \bibcite{pentico2007}{7}
 \bibcite{R}{8}
 \bibcite{lpsolve}{9}
 \bibcite{robnik2003}{10}
 \bibcite{urbanowicz17}{11}
-\newlabel{LastPage}{{}{9}{}{page.9}{}}
-\xdef\lastpage@lastpage{9}
-\xdef\lastpage@lastpageHy{9}
+\bibcite{mckinney13}{12}
+\newlabel{LastPage}{{}{10}{}{page.10}{}}
+\xdef\lastpage@lastpage{10}
+\xdef\lastpage@lastpageHy{10}

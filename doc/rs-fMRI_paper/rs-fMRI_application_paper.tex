@@ -383,12 +383,22 @@ Using our attribute diff (Eq.~\ref{eq:diff_rs-fMRI}), we compute standardized be
 \text{logit}\left(\text{p}^\text{miss}_{ij}\right) = \beta_0 + \beta_a \text{d}^\text{ROI}_{ij}(a) + \epsilon_{ij}, \quad \forall(i,j) \in \mathcal{N}(k),
 \end{equation}
 %
-which is the standard GLM that NPDR uses to compute standardized beta coefficients for binary outcomes with $\text{d}_{ij}(a)$ (Fig.~\ref{fig:npdr_finished}) replaced by our diff for ROIs $\text{d}^\text{ROI}_{ij}(a)$ (Eq.~\ref{eq:diff_rs-fMRI}).
+which is the GLM that NPDR uses to compute standardized beta coefficients for binary outcomes with $\text{d}_{ij}(a)$ (Fig.~\ref{fig:npdr_finished}) replaced by our diff for ROIs $\text{d}^\text{ROI}_{ij}(a)$ (Eq.~\ref{eq:diff_rs-fMRI}). The collection of all neighbor ordered pairs is denoted by $\mathcal{N}(k)$. This set is a function of $k$ because we use a fixed-$k$ approach in NPDR to allow each attribute $a \in \mathcal{A}$ to have its own optimal value of $k$.
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.85\textwidth]{npdr_finished_diagram.pdf}
 	\caption{Nearest-neighbor Projected Distance Regression for binary response (case-control)~\cite{npdr}. For each attribute $a \in \mathcal{A}$, we compute standardized beta coefficients for a generalized linear model, where the predictors ($\text{d}_{ij}(a) = |X_{ia} - X_{ja}|$) are one-dimensional projected distances (diffs) with respect to a particular attribute. The argument $\text{p}^\text{miss}_{ij}$ is the probability that instances $i,j \in \mathcal{I}$ are in different phenotype classes. The logit function models the binary hit-miss phenotype projection (Eq.~\ref{eq:diff_outcome}). Significant adjusted pseudo P values ($p_\text{adj}$) lead to the rejection of the null hypothesis $\beta_a \leq 0$. The set $\mathcal{N}(k)$ is the collection of all neighbor ordered pairs such that each target instances neighborhood as exactly $k$ nearest neighbors.}\label{fig:npdr_finished}
+\end{figure}
+
+We employ an adaptive-$k$ algorithm called Gene-Wise Adaptive $k$ (GWAK) that was originally developed for gene expression data~\cite{mckinney13} to determine the optimal $k$ for each ROI in the two atlases we are analyzing. Although developed for gene expression data, this method can be used for other data types to which nearest-neighbor feature selection is applied. GWAK uses a greedy approach to optimize the relevance score for each attribute as a function of $k$ (Fig.~\ref{fig:gwak}). For each attribute $a \in \mathcal{A}$, a relevance score is computed for each value of $k=1,2,\dots,m-1$ using some nearest-neighbor feature selection algorithm. Each attribute is assigned the value of $k$ that maximizes its relevance score. For noise attributes, scores do not change significantly as a function of $k$. On the other hand, the scores of relevant attributes will change significantly as a function of $k$. This implies that GWAK maximizes the probability of detecting relevant attributes when nearest-neighbor feature selection is utilized. 
+
+We have previously shown that cross-validation approaches for tuning $k$ to optimally select relevant features do not perform well in nearest-neighbor feature selection as compared to GWAK. This is due largely to the fact that cross-validation is optimizing test classification accuracy, which does not necessarily correlate with the relevance or quality of selected features. Partitioning data into training and test folds also limits the choice of $k$ because the training data has only a subset of available instances in the full data set. This partitioning may cause the selection of a suboptimal $k$ for a relevant attribute, which could be detrimental to the quality of selected features.
+
+\begin{figure}[h!]
+	\centering
+	\framebox{\includegraphics[width=0.8\textwidth]{feature_wise_opt_diagram3.pdf}}
+	\caption{Feature-wise adaptive-$k$ method for choosing optimal values of $k$ in nearest-neighbor feature selection. For each attribute $a \in \mathcal{A}$ and each value of $k=1,2,\dots,m-1$, a score or weight is computed with a nearest-neighbor feature selection method like Relief-Based Algorithms (RBAs) or another similar method. Each feature is assigned the value of $k$ that maximizes its importance score. Winning scores are then sorted in decreasing order and some fraction of the top scoring attributes are chosen for further analysis. We use the adjusted pseudo P values from NPDR to filter out attributes that are determined irrelevant to the phenotype. With NPDR, attribute scores are simply the standardized beta coefficients computed for the corresponding GLM (Eq.~\ref{eq:glm_roi}).}\label{fig:gwak}
 \end{figure}
 
 \section{Results}

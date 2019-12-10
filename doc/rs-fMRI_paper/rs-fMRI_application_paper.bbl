@@ -69,4 +69,12 @@ Ryan~J. Urbanowicz, Randal~S. Olson, Peter Schmitt, Melissa Meeker, and
   bioinformatics data mining.
 \newblock {\em Journal of Biomedical Informatics}, 85:168--188, 2018.
 
+\bibitem{mckinney13}
+{B}rett~{A} McKinney, {B}ill~{C} {W}hite, {D}iane~{E} {G}rill, {P}eter~{W}
+  {Li}, {R}ichard~{B} {K}ennedy, {G}regory~{A} {P}oland, and {A}nn~{L} {O}berg.
+\newblock {ReliefSeq: a gene-wise adaptive-K nearest-neighbor feature selection
+  tool for finding gene-gene interactions and main effects in mRNA-Seq gene
+  expression data}.
+\newblock {\em {PloS one}}, 8(12):e81527, 2013.
+
 \end{thebibliography}

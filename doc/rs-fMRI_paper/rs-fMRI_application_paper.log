@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  9 DEC 2019 17:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  10 DEC 2019 15:32
 entering extended mode
 **./rs-fMRI_application_paper.tex
 (rs-fMRI_application_paper.tex
@@ -1176,38 +1176,45 @@ File: fig5_rs_fmri_all_instance_matrix.pdf Graphic file (type pdf)
 Package pdftex.def Info: fig5_rs_fmri_all_instance_matrix.pdf  used on input li
 ne 349.
 (pdftex.def)             Requested size: 252.31071pt x 242.76582pt.
- [6 <./mapped-unmapped-montage.png>]
-<npdr_finished_diagram.pdf, id=268, 357.66623pt x 209.67133pt>
+ [6 <./mapped-unmapped-montage.png>] [7 <./fig5_rs_fmri_all_instance_matrix.pdf
+>]
+<npdr_finished_diagram.pdf, id=323, 357.66623pt x 209.67133pt>
 File: npdr_finished_diagram.pdf Graphic file (type pdf)
 <use npdr_finished_diagram.pdf>
 Package pdftex.def Info: npdr_finished_diagram.pdf  used on input line 390.
 (pdftex.def)             Requested size: 322.50719pt x 189.06396pt.
+<feature_wise_opt_diagram3.pdf, id=328, 458.20486pt x 292.69853pt>
+File: feature_wise_opt_diagram3.pdf Graphic file (type pdf)
+<use feature_wise_opt_diagram3.pdf>
+Package pdftex.def Info: feature_wise_opt_diagram3.pdf  used on input line 400.
+
+(pdftex.def)             Requested size: 303.53514pt x 193.90067pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[7 <./fig5_rs_fmri_all_instance_matrix.pdf>] (rs-fMRI_application_paper.bbl
-[8 <./npdr_finished_diagram.pdf>]) 
+[8 <./npdr_finished_diagram.pdf>] (rs-fMRI_application_paper.bbl [9 <./feature_
+wise_opt_diagram3.pdf>]) 
 AED: lastpage setting LastPage
-[9]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 402.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 402.
+[10]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 412.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 412.
  (rs-fMRI_application_paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 402.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 402.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 412.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 412.
 Package rerunfilecheck Info: File `rs-fMRI_application_paper.out' has not chang
 ed.
 (rerunfilecheck)             Checksum: 5FE30FC2D06A7C4195F8DE25420FE387;474.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 402.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 412.
  ) 
 Here is how much of TeX's memory you used:
- 22869 strings out of 492946
- 406135 string characters out of 3135528
- 517533 words of memory out of 3000000
- 26182 multiletter control sequences out of 15000+200000
- 17963 words of font info for 100 fonts, out of 3000000 for 9000
+ 22887 strings out of 492946
+ 406435 string characters out of 3135528
+ 518364 words of memory out of 3000000
+ 26188 multiletter control sequences out of 15000+200000
+ 18167 words of font info for 104 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,13n,92p,1917b,473s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,13n,92p,1917b,471s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\bdawk\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/fdsymbol/dpi
 420\FdSymbolB-Book.pk> <C:\Users\bdawk\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour
 /public/fdsymbol/dpi600\FdSymbolE-Book.pk> <C:\Users\bdawk\AppData\Local\MiKTeX
@@ -1218,33 +1225,34 @@ i600\FdSymbolB-Book.pk> <C:\Users\bdawk\AppData\Local\MiKTeX\2.9\fonts/pk/ljfou
 r/public/fdsymbol/dpi600\FdSymbolF-Book.pk> <C:\Users\bdawk\AppData\Local\MiKTe
 X\2.9\fonts/pk/ljfour/public/fdsymbol/dpi600\FdSymbolA-Book.pk> <C:\Users\bdawk
 \AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/fdsymbol/dpi420\FdSymbolA-Book
-.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb
-><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pro
-gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.
-pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:
-/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
-nts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
-s10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss8.pfb><
-C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Pro
-gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/h
-elvetic/uhvr8a.pfb>
-Output written on rs-fMRI_application_paper.pdf (9 pages, 1521865 bytes).
+.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><C:
+/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Program Files/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
+1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi
+7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:
+/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Progra
+m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb><C:/Program F
+iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
+cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
+1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic
+/uhvr8a.pfb>
+Output written on rs-fMRI_application_paper.pdf (10 pages, 1565114 bytes).
 PDF statistics:
- 530 PDF objects out of 1000 (max. 8388607)
- 45 named destinations out of 1000 (max. 500000)
- 13459 words of extra memory for PDF output out of 14400 (max. 10000000)
+ 563 PDF objects out of 1000 (max. 8388607)
+ 48 named destinations out of 1000 (max. 500000)
+ 13464 words of extra memory for PDF output out of 14400 (max. 10000000)
 
