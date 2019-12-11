@@ -6,6 +6,13 @@ C\'{e}sar {C}aballero {G}audes and {R}ichard {C}.~{R}eynolds.
 \newblock {Methods for cleaning the BOLD fMRI signal}.
 \newblock {\em NeuroImage}, 154:128--149, December 2017.
 
+\bibitem{le17}
+Trang~T Le, W~Kyle Simmons, Masaya Misaki, Jerzy Bodurka, Bill~C White,
+  Jonathan Savitz, and Brett~A McKinney.
+\newblock Differential privacy-based evaporative cooling feature selection and
+  classification with relief-f and random forests.
+\newblock {\em Bioinformatics}, 33(18):2906--2913, 2017.
+
 \bibitem{npdr}
 Trang~{T}. {L}e, {B}ryan {A}.~{D}awkins, and {B}rett {A}.~{M}c{K}inney.
 \newblock {Nearest-neighbor Projected-Distance Regression (NPDR) detects

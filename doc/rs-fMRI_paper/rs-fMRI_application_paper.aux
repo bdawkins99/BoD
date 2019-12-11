@@ -17,6 +17,7 @@
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
 \citation{caballero2017}
+\citation{le17}
 \citation{npdr}
 \citation{power2011}
 \citation{shen2013}
@@ -27,12 +28,12 @@
 \citation{collins1994}
 \citation{power2011,shen2013}
 \citation{pentico2007}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Two-dimensional slices trough brain atlases with spherical\nobreakspace  {}\cite  {power2011} and anatomically shaped\nobreakspace  {}\cite  {shen2013} ROIs. Slices are shown at the same locations in each atlas for the three different orientiations. Atlases are in MNI space\nobreakspace  {}\cite  {collins1994} so that voxel and ROI locations are comparable between them. Each atlas is labeled by the first author of the manuscripts in which they were introduced\nobreakspace  {}\cite  {power2011,shen2013}.\relax }}{2}{figure.caption.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Two-dimensional slices through Power\nobreakspace  {}\cite  {power2011} and Shen\nobreakspace  {}\cite  {shen2013} atlas ROIs. Slices are shown at the same locations in each atlas for the three different orientiations. Atlases are in MNI space\nobreakspace  {}\cite  {collins1994} so that voxel and ROI locations are comparable between them. Each atlas is labeled by the first author of the manuscripts in which they were introduced\nobreakspace  {}\cite  {power2011,shen2013}.\relax }}{2}{figure.caption.2}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:power_shen_unmapped}{{1}{2}{Two-dimensional slices trough brain atlases with spherical~\cite {power2011} and anatomically shaped~\cite {shen2013} ROIs. Slices are shown at the same locations in each atlas for the three different orientiations. Atlases are in MNI space~\cite {collins1994} so that voxel and ROI locations are comparable between them. Each atlas is labeled by the first author of the manuscripts in which they were introduced~\cite {power2011,shen2013}.\relax }{figure.caption.2}{}}
+\newlabel{fig:power_shen_unmapped}{{1}{2}{Two-dimensional slices through Power~\cite {power2011} and Shen~\cite {shen2013} atlas ROIs. Slices are shown at the same locations in each atlas for the three different orientiations. Atlases are in MNI space~\cite {collins1994} so that voxel and ROI locations are comparable between them. Each atlas is labeled by the first author of the manuscripts in which they were introduced~\cite {power2011,shen2013}.\relax }{figure.caption.2}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Methods}{2}{section.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Real rs-fMRI data}{2}{subsection.2.1}\protected@file@percent }
 \citation{pentico2007}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Real rs-fMRI data}{3}{subsection.2.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Spatial overlap between brain atlases}{3}{subsection.2.2}\protected@file@percent }
 \newlabel{eq:jaccard}{{1}{3}{Spatial overlap between brain atlases}{equation.2.1}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Example computation of Jaccard distance between ROIs $R_A$ and $R_B$ from two atlases $A$ and $B$, respectively. There are $n_1$, $n_2$, $n_3$ voxels in $R_A$ only, $R_B$ only, and both $R_A$ and $R_B$, respectively. The numerator gives the number of voxels unique to $R_A$ ($n_1$) plus the number of voxels unique to $R_B$ ($n_2$). The denominator contains the total number of voxels in $R_A$ or $R_B$.\relax }}{3}{figure.caption.3}\protected@file@percent }
@@ -47,10 +48,10 @@
 \citation{lpsolve}
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Assignment problem for brain atlas ROI-ROI mapping. Before the minimum distance pairwise mapping is found, all possible pairwise mappings are possible (dashed lines). Each ROI in atlas $A$ must have exactly one partner in atlas $B$. After mapping, the minimum distance pairs are selected to give a one-to-one correspondence between ROIs (solid lines).\relax }}{5}{figure.4}\protected@file@percent }
 \newlabel{fig:assignment_atlases}{{4}{5}{Assignment problem for brain atlas ROI-ROI mapping. Before the minimum distance pairwise mapping is found, all possible pairwise mappings are possible (dashed lines). Each ROI in atlas $A$ must have exactly one partner in atlas $B$. After mapping, the minimum distance pairs are selected to give a one-to-one correspondence between ROIs (solid lines).\relax }{figure.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Visualization of mapping between spherical and anatomically shaped ROIs in two brain atlases\nobreakspace  {}\cite  {power2011,shen2013}. ROIs that are in similar locations are potential partners in the resulting mapping from solving the assignment problem (Fig.\nobreakspace  {}\ref  {fig:assignment_problem}). The atlas with spherical ROIs\nobreakspace  {}\cite  {power2011} is labeled as atlas $A$, while the atlas with anatomically shapped ROIs is labeled as $B$.\relax }}{5}{figure.caption.5}\protected@file@percent }
-\newlabel{fig:power_shen_mapped}{{5}{5}{Visualization of mapping between spherical and anatomically shaped ROIs in two brain atlases~\cite {power2011,shen2013}. ROIs that are in similar locations are potential partners in the resulting mapping from solving the assignment problem (Fig.~\ref {fig:assignment_problem}). The atlas with spherical ROIs~\cite {power2011} is labeled as atlas $A$, while the atlas with anatomically shapped ROIs is labeled as $B$.\relax }{figure.caption.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Visualization of mapped and unmapped ROIs from atlases with spherical and anatomically shaped ROIs, respectively, from Assignment Problem solution. Two-dimensional slices from each atlas are overlaid on top of each other. The upper slices highlight the mapped ROIs from each atlas. The lower slices highlight the unmapped ROIs from each atlas.\relax }}{6}{figure.6}\protected@file@percent }
-\newlabel{fig:power_shen_mapped-unmapped}{{6}{6}{Visualization of mapped and unmapped ROIs from atlases with spherical and anatomically shaped ROIs, respectively, from Assignment Problem solution. Two-dimensional slices from each atlas are overlaid on top of each other. The upper slices highlight the mapped ROIs from each atlas. The lower slices highlight the unmapped ROIs from each atlas.\relax }{figure.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Visualization of mapping between Power and Shen atlas ROIs\nobreakspace  {}\cite  {power2011,shen2013}. ROIs that are in similar locations are potential partners in the resulting mapping from solving the assignment problem (Fig.\nobreakspace  {}\ref  {fig:assignment_problem}). The Power atlas\nobreakspace  {}\cite  {power2011} is labeled atlas $A$, while the Shen atlas is labeled $B$.\relax }}{5}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:power_shen_mapped}{{5}{5}{Visualization of mapping between Power and Shen atlas ROIs~\cite {power2011,shen2013}. ROIs that are in similar locations are potential partners in the resulting mapping from solving the assignment problem (Fig.~\ref {fig:assignment_problem}). The Power atlas~\cite {power2011} is labeled atlas $A$, while the Shen atlas is labeled $B$.\relax }{figure.caption.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Visualization of mapped and unmapped ROIs from Power and Shen ROIs, respectively, from Assignment Problem solution. Two-dimensional slices from each atlas are overlaid on top of each other. The upper slices highlight the mapped ROIs from each atlas. The lower slices highlight the unmapped ROIs from each atlas.\relax }}{6}{figure.6}\protected@file@percent }
+\newlabel{fig:power_shen_mapped-unmapped}{{6}{6}{Visualization of mapped and unmapped ROIs from Power and Shen ROIs, respectively, from Assignment Problem solution. Two-dimensional slices from each atlas are overlaid on top of each other. The upper slices highlight the mapped ROIs from each atlas. The lower slices highlight the unmapped ROIs from each atlas.\relax }{figure.6}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Relative importance of ROIs}{6}{subsection.2.3}\protected@file@percent }
 \citation{npdr}
 \citation{robnik2003,urbanowicz17}
@@ -67,22 +68,23 @@
 \bibstyle{unsrt}
 \bibdata{BoD}
 \bibcite{caballero2017}{1}
-\bibcite{npdr}{2}
-\bibcite{power2011}{3}
-\bibcite{shen2013}{4}
-\bibcite{cox1996}{5}
+\bibcite{le17}{2}
+\bibcite{npdr}{3}
+\bibcite{power2011}{4}
+\bibcite{shen2013}{5}
 \@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Feature-wise adaptive-$k$ method for choosing optimal values of $k$ in nearest-neighbor feature selection. For each attribute $a \in \mathcal  {A}$ and each value of $k=1,2,\dots  ,m-1$, a score or weight is computed with a nearest-neighbor feature selection method like Relief-Based Algorithms (RBAs) or another similar method. Each feature is assigned the value of $k$ that maximizes its importance score. Winning scores are then sorted in decreasing order and some fraction of the top scoring attributes are chosen for further analysis. We use the adjusted pseudo P values from NPDR to filter out attributes that are determined irrelevant to the phenotype. With NPDR, attribute scores are simply the standardized beta coefficients computed for the corresponding GLM (Eq.\nobreakspace  {}\ref  {eq:glm_roi}).\relax }}{9}{figure.9}\protected@file@percent }
 \newlabel{fig:gwak}{{9}{9}{Feature-wise adaptive-$k$ method for choosing optimal values of $k$ in nearest-neighbor feature selection. For each attribute $a \in \mathcal {A}$ and each value of $k=1,2,\dots ,m-1$, a score or weight is computed with a nearest-neighbor feature selection method like Relief-Based Algorithms (RBAs) or another similar method. Each feature is assigned the value of $k$ that maximizes its importance score. Winning scores are then sorted in decreasing order and some fraction of the top scoring attributes are chosen for further analysis. We use the adjusted pseudo P values from NPDR to filter out attributes that are determined irrelevant to the phenotype. With NPDR, attribute scores are simply the standardized beta coefficients computed for the corresponding GLM (Eq.~\ref {eq:glm_roi}).\relax }{figure.9}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Results}{9}{section.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}New brain atlas}{9}{subsection.3.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4}Discussion}{9}{section.4}\protected@file@percent }
-\bibcite{collins1994}{6}
-\bibcite{pentico2007}{7}
-\bibcite{R}{8}
-\bibcite{lpsolve}{9}
-\bibcite{robnik2003}{10}
-\bibcite{urbanowicz17}{11}
-\bibcite{mckinney13}{12}
+\bibcite{cox1996}{6}
+\bibcite{collins1994}{7}
+\bibcite{pentico2007}{8}
+\bibcite{R}{9}
+\bibcite{lpsolve}{10}
+\bibcite{robnik2003}{11}
+\bibcite{urbanowicz17}{12}
+\bibcite{mckinney13}{13}
 \newlabel{LastPage}{{}{10}{}{page.10}{}}
 \xdef\lastpage@lastpage{10}
 \xdef\lastpage@lastpageHy{10}
