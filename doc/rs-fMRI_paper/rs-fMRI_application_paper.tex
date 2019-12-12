@@ -328,19 +328,6 @@ Each row and each column of $Y$ has a sum-to-one constraint, which means that ea
 
 \vspace{0.25cm}
 
-Since there are 277 and 278 ROIs in Power and Shen atlases, respectively, we first compute a distance matrix $D$ that contains all pairwise distances between atlas ROIs. This gives us a $278 \times 277$ distance matrix to which we add a column of large numeric entries to represent distances from ROIs to an artificial variable. This makes the distance matrix square, which allows us to satisfy the one-to-one constraint of the Assignment Problem (Fig.~\ref{fig:assignment_problem}). We used the open source statistical computing software \textbf{\textsf{R}}~\cite{R}, which includes a package called \textsf{lpSolve}~\cite{lpsolve} for solving a variety of linear and integer programs. The \textsf{lpSolve} package contains a function \textsf{lp.assign()}, which simply takes a square distance matrix as input and produces solution matrix $Y$ and an objective function value as output. For distance matrices comparable in dimension to $D$, the function elapses only a few seconds in run time.
-
-The solution matrix from \textsf{lp.assign()} has a total of 230 actual mapped pairs. Some of the entries in the solution matrix $Y$ are extraneous, which we define as one of the following: an ROI pair including an artificial variable, an ROI pair for which the Jaccard dissimilarity is maximal (e.g., $\text{d}^\text{J}(R_A,R_B)=1$), or an ROI pair for which the Jaccard dissimilarity is simply larger than another pairwise dissimilarity. Therefore, there are 47 and 48 unmapped ROIs from Power and Shen atlases, respectively. We give a summary of both mapped and unmapped ROIs from each atlas that includes the mapping assignment solution, corresponding brain region for each ROI, and corresponding functional network for each ROI (cite supplementary spreadsheets/tables). We also show a visualization of one atlas overlaid onto another (Fig.~\ref{fig:power_shen_mapped-unmapped}). Mapped ROIs from each atlas are highlighted to show relative spatial similarity (top of Fig.~\ref{fig:power_shen_mapped-unmapped}), which shows validation of the Assignment Problem solution. Unmapped ROIs from each atlas are highlighted to show relative spatial dissimilarity (bottom of Fig.~\ref{fig:power_shen_mapped-unmapped}), which similarly validates their categorization as extraneous mappings.
-
-% trim=left botm right top
-\begin{figure}[h!]
-\centering
-\includegraphics[width=1\textwidth,clip,trim=0cm 0cm 0cm 0.0cm]{mapped-unmapped-montage.png}
-\caption{Visualization of mapped and unmapped ROIs from Power and Shen ROIs, respectively, from Assignment Problem solution. Two-dimensional slices from each atlas are overlaid on top of each other. The upper slices highlight the mapped ROIs from each atlas. The lower slices highlight the unmapped ROIs from each atlas.}\label{fig:power_shen_mapped-unmapped}
-\end{figure}
-
-Mapped ROIs are an indication of informational and spatial similarity shared by both atlases. Subject data that is derived from the mapped ROIs are highly correlated because each ROI pair shares voxels from which ROI time series are created. Unmapped ROIs in a single atlas may or may not intersect one of the mapped ROIs in another atlas. These unmapped ROIs indicate the most unique aspects of each atlas relative to one another. Hence, unmapped ROIs should be considered for inclusion in a customized atlas if determined to be important for predicting the outcome.
-
 \subsection{Relative importance of ROIs}
 
 We load all subject-level resting-state fMRI (rs-fMRI) correlation matrices into a single matrix for our analysis (Fig.~\ref{fig:rs-fMRI_matrix}). Each column represents a single instance $i \in \mathcal{I}$ and each consecutive collection of $p-1$ rows represents a single ROI $a \in \mathcal{A}$. We apply a Fisher r-to-z transform to all pairwise correlations and then standardize so that each column is approximately standard normally distributed ($\mathcal{N}(0,1)$).
@@ -395,7 +382,7 @@ which is the GLM that NPDR uses to compute standardized beta coefficients for bi
 
 We employ an adaptive-$k$ algorithm called Gene-Wise Adaptive $k$ (GWAK) that was originally developed for gene expression data~\cite{mckinney13} to determine the optimal $k$ for each ROI in the two atlases we are analyzing. Although developed for gene expression data, this method can be used for other data types to which nearest-neighbor feature selection is applied. GWAK uses a greedy approach to optimize the relevance score for each attribute as a function of $k$ (Fig.~\ref{fig:gwak}). For each attribute $a \in \mathcal{A}$, a relevance score is computed for each value of $k=1,2,\dots,m-1$ using some nearest-neighbor feature selection algorithm. Each attribute is assigned the value of $k$ that maximizes its relevance score. For noise attributes, scores do not change significantly as a function of $k$. On the other hand, the scores of relevant attributes will change significantly as a function of $k$. This implies that GWAK maximizes the probability of detecting relevant attributes when nearest-neighbor feature selection is utilized. 
 
-We have previously shown that cross-validation approaches for tuning $k$ to optimally select relevant features do not perform well in nearest-neighbor feature selection as compared to GWAK. This is due largely to the fact that cross-validation is optimizing test classification accuracy, which does not necessarily correlate with the relevance or quality of selected features. Partitioning data into training and test folds also limits the choice of $k$ because the training data has only a subset of available instances in the full data set. This partitioning may cause the selection of a suboptimal $k$ for a relevant attribute, which could be detrimental to the quality of selected features.
+We have previously shown that cross-validation approaches for tuning $k$ to optimally select relevant features do not perform well in nearest-neighbor feature selection as compared to GWAK (cite simulation paper). This is due largely to the fact that cross-validation is optimizing test classification accuracy, which does not necessarily correlate with the relevance or quality of selected features. Partitioning data into training and test folds also limits the choice of $k$ because the training data has only a subset of available instances in the full data set. This partitioning may cause the selection of a suboptimal $k$ for a relevant attribute, which could be detrimental to the quality of selected features.
 
 \begin{figure}[h!]
 	\centering
@@ -404,8 +391,25 @@ We have previously shown that cross-validation approaches for tuning $k$ to opti
 \end{figure}
 
 \section{Results}
+In this section, we first give a pairwise mapping between the Power and Shen brain atlases. We describe the process of solving for a minimum distance one-to-one mapping. We then show which ROIs in the two atlases are determined important by NPDR, which are partitioned by those that are mapped and unmapped. Finally, we demonstrate the validity of important ROIs by referencing other analyses that have produced similar results.
 
-\subsection{New brain atlas}
+\subsection{Power and Shen atlas mapping}
+Since there are 277 and 278 ROIs in Power and Shen atlases, respectively, we first compute a distance matrix $D$ that contains all pairwise distances between atlas ROIs. This gives us a $278 \times 277$ distance matrix to which we add a column of large numeric entries to represent distances from ROIs to an artificial variable. This makes the distance matrix square, which allows us to satisfy the one-to-one constraint of the Assignment Problem (Fig.~\ref{fig:assignment_problem}). We used the open source statistical computing software \textbf{\textsf{R}}~\cite{R}, which includes a package called \textsf{lpSolve}~\cite{lpsolve} for solving a variety of linear and integer programs. The \textsf{lpSolve} package contains a function \textsf{lp.assign()}, which simply takes a square distance matrix as input and produces solution matrix $Y$ and an objective function value as output. For distance matrices comparable in dimension to $D$, the function elapses only a few seconds in run time.
+
+The solution matrix from \textsf{lp.assign()} has a total of 230 actual mapped pairs. Some of the entries in the solution matrix $Y$ are extraneous, which we define as one of the following: an ROI pair including an artificial variable, an ROI pair for which the Jaccard dissimilarity is maximal (e.g., $\text{d}^\text{J}(R_A,R_B)=1$), or an ROI pair for which the Jaccard dissimilarity is simply larger than another pairwise dissimilarity. Therefore, there are 47 and 48 unmapped ROIs from Power and Shen atlases, respectively. We give a summary of both mapped and unmapped ROIs from each atlas that includes the mapping assignment solution, corresponding brain region for each ROI, and corresponding functional network for each ROI (cite supplementary spreadsheets/tables). We also show a visualization of one atlas overlaid onto another (Fig.~\ref{fig:power_shen_mapped-unmapped}). Mapped ROIs from each atlas are highlighted to show relative spatial similarity (top of Fig.~\ref{fig:power_shen_mapped-unmapped}), which shows validation of the Assignment Problem solution. Unmapped ROIs from each atlas are highlighted to show relative spatial dissimilarity (bottom of Fig.~\ref{fig:power_shen_mapped-unmapped}), which similarly validates their categorization as extraneous mappings.
+
+% trim=left botm right top
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=1\textwidth,clip,trim=0cm 0cm 0cm 0.0cm]{mapped-unmapped-montage.png}
+	\caption{Visualization of mapped and unmapped ROIs from Power and Shen ROIs, respectively, from Assignment Problem solution. Two-dimensional slices from each atlas are overlaid on top of each other. The upper slices highlight the mapped ROIs from each atlas. The lower slices highlight the unmapped ROIs from each atlas.}\label{fig:power_shen_mapped-unmapped}
+\end{figure}
+
+Mapped ROIs are an indication of informational and spatial similarity shared by both atlases. Subject data that is derived from the mapped ROIs are highly correlated because each ROI pair shares voxels from which ROI time series are created. Unmapped ROIs in a single atlas may or may not intersect one of the mapped ROIs in another atlas. These unmapped ROIs indicate the most unique aspects of each atlas relative to one another. Hence, unmapped ROIs should be considered for inclusion in a customized atlas if determined to be important for predicting the outcome.
+
+\subsection{Power and Shen atlas ROIs relevant to MDD}
+
+\subsection{Validation of NPDR detected ROIs}
 
 \section{Discussion}
 
