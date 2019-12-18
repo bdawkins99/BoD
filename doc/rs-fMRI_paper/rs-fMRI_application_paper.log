@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  12 DEC 2019 10:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  17 DEC 2019 17:17
 entering extended mode
 **./rs-fMRI_application_paper.tex
 (rs-fMRI_application_paper.tex
@@ -752,49 +752,89 @@ File: pgfmodulematrix.code.tex 2019/02/02 v3.1.1 (3.1.1)
 librarytopaths.code.tex"
 File: tikzlibrarytopaths.code.tex 2019/02/02 v3.1.1 (3.1.1)
 )))
-("C:\Program Files\MiKTeX 2.9\tex/latex/arydshln\arydshln.sty"
-Package: arydshln 2019/02/21 v1.76 
-\dashlinedash=\dimen184
-\dashlinegap=\dimen185
-\adl@box=\box43
-\adl@height=\dimen186
-\adl@heightsave=\dimen187
-\adl@depth=\dimen188
-\adl@depthsave=\dimen189
-\adl@finaldepth=\dimen190
-\adl@columns=\count147
-\adl@ncol=\count148
-\adl@currentcolumn=\count149
-\adl@currentcolumnsave=\count150
-\adl@totalheight=\count151
-\adl@totalheightsave=\count152
-\adl@dash=\count153
-\adl@gap=\count154
-\adl@cla=\count155
-\adl@clb=\count156
-\adl@everyvbox=\toks42
-\adl@LTpagetotal=\dimen191
-)
 ("C:\Program Files\MiKTeX 2.9\tex/latex/float\float.sty"
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count157
-\float@exts=\toks43
-\float@box=\box44
-\@float@everytoks=\toks44
-\@floatcapt=\box45
+\c@float@type=\count147
+\float@exts=\toks42
+\float@box=\box43
+\@float@everytoks=\toks43
+\@floatcapt=\box44
 )
-("C:\Program Files\MiKTeX 2.9\tex/latex/wrapfig\wrapfig.sty"
-\wrapoverhang=\dimen192
-\WF@size=\dimen193
-\c@WF@wrappedlines=\count158
-\WF@box=\box46
-\WF@everypar=\toks45
-Package: wrapfig 2003/01/31  v 3.6
+("C:\Program Files\MiKTeX 2.9\tex/latex/tools\longtable.sty"
+Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)+ FMi change
+\LTleft=\skip52
+\LTright=\skip53
+\LTpre=\skip54
+\LTpost=\skip55
+\LTchunksize=\count148
+\LTcapwidth=\dimen184
+\LT@head=\box45
+\LT@firsthead=\box46
+\LT@foot=\box47
+\LT@lastfoot=\box48
+\LT@cols=\count149
+\LT@rows=\count150
+\c@LT@tables=\count151
+\c@LT@chunks=\count152
+\LT@p@ftn=\toks44
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/booktabs\booktabs.sty"
+Package: booktabs 2005/04/14 v1.61803 publication quality tables
+\heavyrulewidth=\dimen185
+\lightrulewidth=\dimen186
+\cmidrulewidth=\dimen187
+\belowrulesep=\dimen188
+\belowbottomsep=\dimen189
+\aboverulesep=\dimen190
+\abovetopsep=\dimen191
+\cmidrulesep=\dimen192
+\cmidrulekern=\dimen193
+\defaultaddspace=\dimen194
+\@cmidla=\count153
+\@cmidlb=\count154
+\@aboverulesep=\dimen195
+\@belowrulesep=\dimen196
+\@thisruleclass=\count155
+\@lastruleclass=\count156
+\@thisrulewidth=\dimen197
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/tabu\tabu.sty"
+Package: tabu 2019/01/11 v2.9 - flexible LaTeX tabulars (FC+tabu-fixed)
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/varwidth\varwidth.sty"
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box49
+\sift@deathcycles=\count157
+\@vwid@loff=\dimen198
+\@vwid@roff=\dimen199
+)
+\c@taburow=\count158
+\tabu@nbcols=\count159
+\tabu@cnt=\count160
+\tabu@Xcol=\count161
+\tabu@alloc=\count162
+\tabu@nested=\count163
+\tabu@target=\dimen256
+\tabu@spreadtarget=\dimen257
+\tabu@naturalX=\dimen258
+\tabucolX=\dimen259
+\tabu@Xsum=\dimen260
+\extrarowdepth=\dimen261
+\abovetabulinesep=\dimen262
+\belowtabulinesep=\dimen263
+\tabustrutrule=\dimen264
+\tabu@thebody=\toks45
+\tabu@footnotes=\toks46
+\tabu@box=\box50
+\tabu@arstrutbox=\box51
+\tabu@hleads=\box52
+\tabu@vleads=\box53
+\tabu@cellskip=\skip56
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/harpoon\harpoon.sty"
 Package: harpoon 1994/11/02 Harpoon drawing package by Tobias Kuipers
-\argwd=\skip52
-\arght=\skip53
+\argwd=\skip57
+\arght=\skip58
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/fdsymbol\fdsymbol.sty"
 Package: fdsymbol 2011/11/01 v0.8 FdSymbol support package
@@ -804,10 +844,10 @@ Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 
 ("C:\Program Files\MiKTeX 2.9\tex/generic/xkeyval\xkeyval.tex"
 ("C:\Program Files\MiKTeX 2.9\tex/generic/xkeyval\xkvutils.tex"
-\XKV@toks=\toks46
-\XKV@tempa@toks=\toks47
+\XKV@toks=\toks47
+\XKV@tempa@toks=\toks48
 )
-\XKV@depth=\count159
+\XKV@depth=\count164
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
 LaTeX Info: Redefining \dagger on input line 81.
@@ -895,7 +935,7 @@ LaTeX Info: Redefining \overbrace on input line 1963.
 LaTeX Info: Redefining \underbrace on input line 1966.
 LaTeX Font Info:    Redeclaring math symbol \surd on input line 1980.
 )
-\savedwidth=\skip54
+\savedwidth=\skip59
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/caption\caption.sty"
 Package: caption 2018/10/06 v3.3-154 Customizing captions (AR)
@@ -903,22 +943,25 @@ Package: caption 2018/10/06 v3.3-154 Customizing captions (AR)
 ("C:\Program Files\MiKTeX 2.9\tex/latex/caption\caption3.sty"
 Package: caption3 2018/09/12 v1.8c caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 64.
-\captionmargin=\dimen194
-\captionmargin@=\dimen195
-\captionwidth=\dimen196
-\caption@tempdima=\dimen197
-\caption@indent=\dimen198
-\caption@parindent=\dimen199
-\caption@hangindent=\dimen256
+\captionmargin=\dimen265
+\captionmargin@=\dimen266
+\captionwidth=\dimen267
+\caption@tempdima=\dimen268
+\caption@indent=\dimen269
+\caption@parindent=\dimen270
+\caption@hangindent=\dimen271
 )
-\c@caption@flags=\count160
-\c@ContinuedFloat=\count161
+\c@caption@flags=\count165
+\c@ContinuedFloat=\count166
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
-Package caption Info: wrapfig package is loaded.
-)
-\c@theorem=\count162
-\c@definition=\count163
+Package caption Info: longtable package is loaded.
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/caption\ltcaption.sty"
+Package: ltcaption 2018/08/26 v1.4-95 longtable captions (AR)
+))
+\c@theorem=\count167
+\c@definition=\count168
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/lastpage\lastpage.sty"
 Package: lastpage 2015/03/29 v1.2m Refers to last page's name (HMM; JPG)
@@ -926,15 +969,15 @@ Package: lastpage 2015/03/29 v1.2m Refers to last page's name (HMM; JPG)
 ("C:\Program Files\MiKTeX 2.9\tex/latex/fancyhdr\fancyhdr.sty"
 Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footer
 s
-\f@nch@headwidth=\skip55
-\f@nch@O@elh=\skip56
-\f@nch@O@erh=\skip57
-\f@nch@O@olh=\skip58
-\f@nch@O@orh=\skip59
-\f@nch@O@elf=\skip60
-\f@nch@O@erf=\skip61
-\f@nch@O@olf=\skip62
-\f@nch@O@orf=\skip63
+\f@nch@headwidth=\skip60
+\f@nch@O@elh=\skip61
+\f@nch@O@erh=\skip62
+\f@nch@O@olh=\skip63
+\f@nch@O@orh=\skip64
+\f@nch@O@elf=\skip65
+\f@nch@O@erf=\skip66
+\f@nch@O@olf=\skip67
+\f@nch@O@orf=\skip68
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/oberdiek\epstopdf.sty"
 Package: epstopdf 2016/05/15 v2.6 Conversion with epstopdf on the fly (HO)
@@ -952,7 +995,7 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 ))
-\@float@every@figure=\toks48
+\@float@every@figure=\toks49
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/upquote\upquote.sty"
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
@@ -961,42 +1004,42 @@ tim
 (rs-fMRI_application_paper.aux)
 \openout1 = `rs-fMRI_application_paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 198.
-LaTeX Font Info:    ... okay on input line 198.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 198.
-LaTeX Font Info:    ... okay on input line 198.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 198.
-LaTeX Font Info:    ... okay on input line 198.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 198.
-LaTeX Font Info:    ... okay on input line 198.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 198.
-LaTeX Font Info:    ... okay on input line 198.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 198.
-LaTeX Font Info:    ... okay on input line 198.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 198.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 198.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 200.
+LaTeX Font Info:    ... okay on input line 200.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 200.
+LaTeX Font Info:    ... okay on input line 200.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 200.
+LaTeX Font Info:    ... okay on input line 200.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 200.
+LaTeX Font Info:    ... okay on input line 200.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 200.
+LaTeX Font Info:    ... okay on input line 200.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 200.
+LaTeX Font Info:    ... okay on input line 200.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 200.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 200.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 198.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 198.
-LaTeX Font Info:    ... okay on input line 198.
+LaTeX Font Info:    ... okay on input line 200.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 200.
+LaTeX Font Info:    ... okay on input line 200.
 
 ("C:\Program Files\MiKTeX 2.9\tex/context/base/mkii\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count164
-\scratchdimen=\dimen257
-\scratchbox=\box47
-\nofMPsegments=\count165
-\nofMParguments=\count166
-\everyMPshowfont=\toks49
-\MPscratchCnt=\count167
-\MPscratchDim=\dimen258
-\MPnumerator=\count168
-\makeMPintoPDFobject=\count169
-\everyMPtoPDFconversion=\toks50
+\scratchcounter=\count169
+\scratchdimen=\dimen272
+\scratchbox=\box54
+\nofMPsegments=\count170
+\nofMParguments=\count171
+\everyMPshowfont=\toks50
+\MPscratchCnt=\count172
+\MPscratchDim=\dimen273
+\MPnumerator=\count173
+\makeMPintoPDFobject=\count174
+\everyMPtoPDFconversion=\toks51
 )
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1035,17 +1078,17 @@ LaTeX Font Info:    ... okay on input line 198.
 ("C:\Program Files\MiKTeX 2.9\tex/latex/ucs\ucsencs.def"
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 )
-\AtBeginShipoutBox=\box48
-Package hyperref Info: Link coloring OFF on input line 198.
-LaTeX Info: Redefining \ref on input line 198.
-LaTeX Info: Redefining \pageref on input line 198.
-LaTeX Info: Redefining \nameref on input line 198.
+\AtBeginShipoutBox=\box55
+Package hyperref Info: Link coloring OFF on input line 200.
+LaTeX Info: Redefining \ref on input line 200.
+LaTeX Info: Redefining \pageref on input line 200.
+LaTeX Info: Redefining \nameref on input line 200.
 
 (rs-fMRI_application_paper.out) (rs-fMRI_application_paper.out)
 \@outlinefile=\write4
 \openout4 = `rs-fMRI_application_paper.out'.
 
-LaTeX Info: Redefining \microtypecontext on input line 198.
+LaTeX Info: Redefining \microtypecontext on input line 200.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1065,20 +1108,20 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 198.
+(lastpage)             ! on input line 200.
 LaTeX Font Info:    Font shape `U/FdSymbolA/m/n' will be
-(Font)              scaled to size 10.0pt on input line 209.
+(Font)              scaled to size 10.0pt on input line 211.
 LaTeX Font Info:    Font shape `U/FdSymbolA/m/n' will be
-(Font)              scaled to size 7.0pt on input line 209.
+(Font)              scaled to size 7.0pt on input line 211.
 LaTeX Font Info:    Font shape `U/FdSymbolA/m/n' will be
-(Font)              scaled to size 5.0pt on input line 209.
+(Font)              scaled to size 5.0pt on input line 211.
 LaTeX Font Info:    Font shape `U/FdSymbolE/m/n' will be
-(Font)              scaled to size 10.0pt on input line 209.
+(Font)              scaled to size 10.0pt on input line 211.
 LaTeX Font Info:    Font shape `U/FdSymbolE/m/n' will be
-(Font)              scaled to size 7.0pt on input line 209.
+(Font)              scaled to size 7.0pt on input line 211.
 LaTeX Font Info:    Font shape `U/FdSymbolE/m/n' will be
-(Font)              scaled to size 5.0pt on input line 209.
-LaTeX Font Info:    Try loading font information for U+msa on input line 209.
+(Font)              scaled to size 5.0pt on input line 211.
+LaTeX Font Info:    Try loading font information for U+msa on input line 211.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -1086,7 +1129,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ("C:\Program Files\MiKTeX 2.9\tex/latex/microtype\mt-msa.cfg"
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 209.
+LaTeX Font Info:    Try loading font information for U+msb on input line 211.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1095,29 +1138,29 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `U/FdSymbolB/m/n' will be
-(Font)              scaled to size 10.0pt on input line 209.
+(Font)              scaled to size 10.0pt on input line 211.
 LaTeX Font Info:    Font shape `U/FdSymbolB/m/n' will be
-(Font)              scaled to size 7.0pt on input line 209.
+(Font)              scaled to size 7.0pt on input line 211.
 LaTeX Font Info:    Font shape `U/FdSymbolB/m/n' will be
-(Font)              scaled to size 5.0pt on input line 209.
+(Font)              scaled to size 5.0pt on input line 211.
 LaTeX Font Info:    Font shape `U/FdSymbolC/m/n' will be
-(Font)              scaled to size 10.0pt on input line 209.
+(Font)              scaled to size 10.0pt on input line 211.
 LaTeX Font Info:    Font shape `U/FdSymbolC/m/n' will be
-(Font)              scaled to size 7.0pt on input line 209.
+(Font)              scaled to size 7.0pt on input line 211.
 LaTeX Font Info:    Font shape `U/FdSymbolC/m/n' will be
-(Font)              scaled to size 5.0pt on input line 209.
+(Font)              scaled to size 5.0pt on input line 211.
 LaTeX Font Info:    Font shape `U/FdSymbolD/m/n' will be
-(Font)              scaled to size 10.0pt on input line 209.
+(Font)              scaled to size 10.0pt on input line 211.
 LaTeX Font Info:    Font shape `U/FdSymbolD/m/n' will be
-(Font)              scaled to size 7.0pt on input line 209.
+(Font)              scaled to size 7.0pt on input line 211.
 LaTeX Font Info:    Font shape `U/FdSymbolD/m/n' will be
-(Font)              scaled to size 5.0pt on input line 209.
+(Font)              scaled to size 5.0pt on input line 211.
 LaTeX Font Info:    Font shape `U/FdSymbolF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 209.
+(Font)              scaled to size 10.0pt on input line 211.
 LaTeX Font Info:    Font shape `U/FdSymbolF/m/n' will be
-(Font)              scaled to size 7.0pt on input line 209.
+(Font)              scaled to size 7.0pt on input line 211.
 LaTeX Font Info:    Font shape `U/FdSymbolF/m/n' will be
-(Font)              scaled to size 5.0pt on input line 209.
+(Font)              scaled to size 5.0pt on input line 211.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmss' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
@@ -1125,62 +1168,62 @@ Package microtype Info: Loading generic protrusion settings for font family
  [1
 
 {C:/Users/bdawk/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-<power_shen_montage2.png, id=68, 347.49825pt x 263.18324pt>
+<power_shen_montage2.png, id=72, 347.49825pt x 263.18324pt>
 File: power_shen_montage2.png Graphic file (type png)
 <use power_shen_montage2.png>
-Package pdftex.def Info: power_shen_montage2.png  used on input line 240.
+Package pdftex.def Info: power_shen_montage2.png  used on input line 242.
 (pdftex.def)             Requested size: 208.68077pt x 158.05171pt.
  [2 <./power_shen_montage2.png>]
-<venn_diagram.pdf, id=95, 207.68892pt x 129.9515pt>
+<venn_diagram.pdf, id=99, 207.68892pt x 129.9515pt>
 File: venn_diagram.pdf Graphic file (type pdf)
 <use venn_diagram.pdf>
-Package pdftex.def Info: venn_diagram.pdf  used on input line 276.
+Package pdftex.def Info: venn_diagram.pdf  used on input line 278.
 (pdftex.def)             Requested size: 208.68077pt x 123.13896pt.
-<assignment_problem_equations.pdf, id=99, 219.4298pt x 284.5581pt>
+<assignment_problem_equations.pdf, id=103, 219.4298pt x 284.5581pt>
 File: assignment_problem_equations.pdf Graphic file (type pdf)
 <use assignment_problem_equations.pdf>
 Package pdftex.def Info: assignment_problem_equations.pdf  used on input line 2
-92.
+94.
 (pdftex.def)             Requested size: 208.68077pt x 263.58861pt.
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 292--293
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 294--295
 [][] 
  []
 
 [3 <./venn_diagram.pdf>]
-<assignment_diagram.pdf, id=154, 413.21977pt x 259.32384pt>
+<assignment_diagram.pdf, id=158, 413.21977pt x 259.32384pt>
 File: assignment_diagram.pdf Graphic file (type pdf)
 <use assignment_diagram.pdf>
-Package pdftex.def Info: assignment_diagram.pdf  used on input line 314.
+Package pdftex.def Info: assignment_diagram.pdf  used on input line 316.
 (pdftex.def)             Requested size: 371.82751pt x 233.34576pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<power_shen_montage_mapped.png, id=155, 348.1005pt x 263.7855pt>
+<power_shen_montage_mapped.png, id=159, 348.1005pt x 263.7855pt>
 File: power_shen_montage_mapped.png Graphic file (type png)
 <use power_shen_montage_mapped.png>
-Package pdftex.def Info: power_shen_montage_mapped.png  used on input line 322.
+Package pdftex.def Info: power_shen_montage_mapped.png  used on input line 324.
 
 (pdftex.def)             Requested size: 208.68077pt x 158.13567pt.
 [4 <./assignment_problem_equations.pdf>]
-<fig5_rs_fmri_all_instance_matrix.pdf, id=210, 413.33621pt x 397.6988pt>
+<fig5_rs_fmri_all_instance_matrix.pdf, id=214, 413.33621pt x 397.6988pt>
 File: fig5_rs_fmri_all_instance_matrix.pdf Graphic file (type pdf)
 <use fig5_rs_fmri_all_instance_matrix.pdf>
 Package pdftex.def Info: fig5_rs_fmri_all_instance_matrix.pdf  used on input li
-ne 338.
+ne 340.
 (pdftex.def)             Requested size: 252.31071pt x 242.76582pt.
  [5 <./power_shen_montage_mapped.png> <./assignment_diagram.pdf>] [6 <./fig5_rs
 _fmri_all_instance_matrix.pdf>]
-<npdr_finished_diagram.pdf, id=309, 357.66623pt x 209.67133pt>
+<npdr_finished_diagram.pdf, id=313, 357.66623pt x 209.67133pt>
 File: npdr_finished_diagram.pdf Graphic file (type pdf)
 <use npdr_finished_diagram.pdf>
-Package pdftex.def Info: npdr_finished_diagram.pdf  used on input line 379.
+Package pdftex.def Info: npdr_finished_diagram.pdf  used on input line 381.
 (pdftex.def)             Requested size: 322.50719pt x 189.06396pt.
-<feature_wise_opt_diagram3.pdf, id=314, 458.20486pt x 292.69853pt>
+<feature_wise_opt_diagram3.pdf, id=318, 458.20486pt x 292.69853pt>
 File: feature_wise_opt_diagram3.pdf Graphic file (type pdf)
 <use feature_wise_opt_diagram3.pdf>
-Package pdftex.def Info: feature_wise_opt_diagram3.pdf  used on input line 389.
+Package pdftex.def Info: feature_wise_opt_diagram3.pdf  used on input line 391.
 
 (pdftex.def)             Requested size: 303.53514pt x 193.90067pt.
 
@@ -1188,41 +1231,43 @@ Package pdftex.def Info: feature_wise_opt_diagram3.pdf  used on input line 389.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [7 <./npdr_finished_diagram.pdf>] [8 <./feature_wise_opt_diagram3.pdf>]
-<mapped-unmapped-montage.png, id=442, 2252.415pt x 1293.633pt>
+<mapped-unmapped-montage.png, id=446, 2252.415pt x 1293.633pt>
 File: mapped-unmapped-montage.png Graphic file (type png)
 <use mapped-unmapped-montage.png>
-Package pdftex.def Info: mapped-unmapped-montage.png  used on input line 404.
+Package pdftex.def Info: mapped-unmapped-montage.png  used on input line 406.
 (pdftex.def)             Requested size: 379.4175pt x 217.90129pt.
 
-(rs-fMRI_application_paper.bbl [9 <./mapped-unmapped-montage.png>])
 
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[9 <./mapped-unmapped-montage.png>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+(rs-fMRI_application_paper.bbl [10]) 
 AED: lastpage setting LastPage
-[10]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 419.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 419.
+[11] [12]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 511.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 511.
  (rs-fMRI_application_paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 419.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 419.
-
-
-Package rerunfilecheck Warning: File `rs-fMRI_application_paper.out' has change
-d.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `rs-fMRI_application_paper.out':
-(rerunfilecheck)             Before: 0B929186092C85A43DF730CDC73D197A;578
-(rerunfilecheck)             After:  15578212149CE2DAD2E8DF7601EC908A;661.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 419.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 511.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 511.
+Package rerunfilecheck Info: File `rs-fMRI_application_paper.out' has not chang
+ed.
+(rerunfilecheck)             Checksum: 15578212149CE2DAD2E8DF7601EC908A;661.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 511.
  ) 
 Here is how much of TeX's memory you used:
- 22886 strings out of 492946
- 406448 string characters out of 3135528
- 518248 words of memory out of 3000000
- 26190 multiletter control sequences out of 15000+200000
+ 23480 strings out of 492946
+ 415131 string characters out of 3135528
+ 550403 words of memory out of 3000000
+ 26769 multiletter control sequences out of 15000+200000
  17986 words of font info for 101 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,13n,92p,1886b,467s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,13n,92p,1886b,517s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\bdawk\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/fdsymbol/dpi
 420\FdSymbolB-Book.pk> <C:\Users\bdawk\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour
 /public/fdsymbol/dpi600\FdSymbolE-Book.pk> <C:\Users\bdawk\AppData\Local\MiKTeX
@@ -1244,23 +1289,24 @@ nts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
 s/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi
 7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:
 /Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Progra
-m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb><C:/Program F
-iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
-sfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
-cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb
-><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
-1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic
-/uhvr8a.pfb>
-Output written on rs-fMRI_application_paper.pdf (10 pages, 1567038 bytes).
+m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb><C:/Program F
+iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb><C:/Program File
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr
+8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb><C
+:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Program
+ Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Program Files
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/u
+rw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uh
+vr8a.pfb>
+Output written on rs-fMRI_application_paper.pdf (12 pages, 1584333 bytes).
 PDF statistics:
- 571 PDF objects out of 1000 (max. 8388607)
- 51 named destinations out of 1000 (max. 500000)
- 13472 words of extra memory for PDF output out of 14400 (max. 10000000)
+ 596 PDF objects out of 1000 (max. 8388607)
+ 57 named destinations out of 1000 (max. 500000)
+ 13480 words of extra memory for PDF output out of 14400 (max. 10000000)
 

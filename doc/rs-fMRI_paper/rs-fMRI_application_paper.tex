@@ -92,14 +92,16 @@
 \usepackage{tikz}
 
 % vertical and horizontal dashed lines
-\usepackage{arydshln}
+%\usepackage{arydshln}
 
 %\usepackage{setspace}
 
 %\usepackage{floatflt}
 %\usepackage{nonfloat}
 \usepackage{float}
-\usepackage{wrapfig}
+%\usepackage{wrapfig}
+\usepackage{longtable,booktabs}
+\usepackage{tabu}
 
 \usepackage{harpoon}
 \usepackage{fdsymbol}
@@ -408,6 +410,97 @@ The solution matrix from \textsf{lp.assign()} has a total of 230 actual mapped p
 Mapped ROIs are an indication of informational and spatial similarity shared by both atlases. Subject data that is derived from the mapped ROIs are highly correlated because each ROI pair shares voxels from which ROI time series are created. Unmapped ROIs in a single atlas may or may not intersect one of the mapped ROIs in another atlas. These unmapped ROIs indicate the most unique aspects of each atlas relative to one another. Hence, unmapped ROIs should be considered for inclusion in a customized atlas if determined to be important for predicting the outcome.
 
 \subsection{Power and Shen atlas ROIs relevant to MDD}
+We used GWAK to determine the value of $k$ that maximized the NPDR standardized beta coefficient $\beta_a$ (Eq.~\ref{eq:glm_roi}) for each atlas ROI. 
+
+\begin{table}[h!]
+	\centering
+	\caption{Standardized beta coefficients, P values, and brain regions for important mapped Power atlas ROIs.}\label{tab:mapped-power-tab}
+	\begin{tabular}[h!]{|c|c|c|c|c|}\hline
+		\textbf{ROI} & \bm{$\beta_a$} & \textbf{P Value} & \textbf{Brain Region} & \textbf{Func. Network} \\ \hline
+		89 & 5.6464 & 5.87e-06 & Right Precuneus & Dorsal DMN \\
+		4 & 5.3591 & 2.49e-05 & Left Inferior Temporal Gyrus & LECN \\
+		77 & 5.1431 & 8.35e-05 & Left Parahippocampal Gyrus & Dorsal DMN \\
+		181 & 4.7650 & 4.28e-04 & Right Middle Frontal Gyrus & RECN \\
+		59 & 4.6523 & 7.55e-04 & Left Cingulate Gyrus & Anterior Salience \\
+		180 & 4.6062 & 8.86e-04 & Right Superior Frontal Gyrus & NA \\
+		204 & 4.5755 & 1.04e-03 & Right Supramarginal Gyrus & RECN \\
+		5 & 4.5654 & 1.07e-03 & Right Orbital Gyrus & Dorsal DMN \\
+		110 & 4.3227 & 3.08e-03 & Right Medial Frontal Gyrus & Dorsal DMN \\
+		129 & 4.2442 & 4.23e-03 & Left Middle Temporal Gyrus & Language \\
+		76 & 4.2390 & 4.60e-03 & Right Medial Frontal Gyrus & Dorsal DMN \\
+		270 & 4.1885 & 5.29e-03 & Right Caudate Head & NA \\
+		85 & 3.8958 & 1.72e-02 & Right Inferior Frontal Gyrus & NA \\
+		82 & 3.8729 & 1.88e-02 & Right Superior Temporal Gyrus & NA \\
+		160 & 3.7058 & 3.54e-02 & Left Lingual Gyrus & Primary Visual\\
+		145 & 3.6940 & 3.76e-02 & Right Cuneus & Primary Visual \\ \hline
+	\end{tabular}
+\end{table}
+
+\begin{table}[h!]
+	\centering
+    \caption{Standardized beta coefficients, P values, and brain regions for important unmapped Power atlas ROIs.}\label{tab:unmapped-power-tab}
+	\begin{tabular}[h!]{|c|c|c|c|c|}\hline
+		\textbf{ROI} & \bm{$\beta_a$} & \textbf{P Value} & \textbf{Brain Region} & \textbf{Func. Network} \\ \hline
+		83 & 5.6804 & 4.92e-06 & Left Middle Temporal Gyrus & LECN \\
+		128 & 4.9002 & 2.32e-04 & Right Middle Temporal Gyrus & NA \\
+		192 & 4.0946 & 7.95e-03 & Right Inferior Parietal Lobule & RECN \\
+		35 & 4.0692 & 8.59e-03 & Left Medial Frontal Gyrus & Sensorimotor \\
+		73 & 4.0154 & 1.08e-02 & Left Insula & NA \\
+		36 & 3.8673 & 2.19e-02 & Right Postcentral Gyrus & Sensorimotor \\
+		213 & 3.6807 & 4.52e-02 & Left Cingulate Gyrus & Anterior Salience \\ \hline
+	\end{tabular}
+\end{table}
+
+\begin{center}
+\begin{longtable}{|c|c|c|c|}
+	%\tablecaption{Standardized beta coefficients, P values, and brain regions for important mapped Shen atlas ROIs. Brain regions were assigned to each Shen ROI based on overlap with known Power ROI brain regions. Brain regions for Shen ROIs that did not overlap any Power ROIs were assigned NA.}\label{tab:mapped-shen-tab}
+	%\textbf{ROI} & \bm{$\beta_a$} & \textbf{P Value} & \textbf{Brain Region} \\ \hline
+	49 & 9.5173 & 3.40e-19 & NA \\
+	3 & 9.3489 & 1.67e-18 & Right Medial Frontal Gyrus \\
+	76 & 9.0332 & 3.04e-17 & NA \\
+	79 & 9.0313 & 3.08e-17 & NA \\
+	175 & 8.4150 & 6.68e-15 & Right Declive \\
+	219 & 7.8334 & 7.68e-13 & NA\\
+	35 & 7.7575 & 1.39e-12 & Right Middle Temporal Gyrus\\
+	231 & 7.5458 & 7.13e-12 & Left Declive, Right Declive, Left Lingual Gyrus\\
+	174 & 7.5352 & 7.72e-12 & NA \\
+	256 & 7.3053 & 4.32e-11 & Left Declive \\
+	141 & 7.2127 & 8.50e-11 & NA \\
+	13 & 6.2918 & 4.65e-08 & NA \\
+	158 & 6.2916 & 4.67e-08 & NA \\
+	196 & 5.9340 & 4.33e-07 & NA \\
+	126 & 4.9343 & 1.15e-04 & Right Uvula\\
+	31 & 4.8789 & 1.52e-04 & NA \\
+	70 & 4.8009 & 2.25e-04 & NA \\
+	115 & 4.6691 & 4.33e-04 & Locus Coeruleus \\
+\end{longtable}
+\end{center}
+
+\begin{table}[h!]
+	\centering
+	\caption{Standardized beta coefficients, P values, and brain regions for important unmapped Shen atlas ROIs. Brain regions were assigned to each Shen ROI based on overlap with known Power ROI brain regions. Brain regions for Shen ROIs that did not overlap any Power ROIs were assigned NA.}\label{tab:unmapped-shen-tab}
+\begin{tabular}[h!]{|c|c|c|c|}\hline
+	\textbf{ROI} & \bm{$\beta_a$} & \textbf{P Value} & \textbf{Brain Region} \\ \hline
+	49 & 9.5173 & 3.40e-19 & NA \\
+	3 & 9.3489 & 1.67e-18 & Right Medial Frontal Gyrus \\
+	76 & 9.0332 & 3.04e-17 & NA \\
+	79 & 9.0313 & 3.08e-17 & NA \\
+	175 & 8.4150 & 6.68e-15 & Right Declive \\
+	219 & 7.8334 & 7.68e-13 & NA\\
+	35 & 7.7575 & 1.39e-12 & Right Middle Temporal Gyrus\\
+	231 & 7.5458 & 7.13e-12 & Left Declive, Right Declive, Left Lingual Gyrus\\
+	174 & 7.5352 & 7.72e-12 & NA \\
+	256 & 7.3053 & 4.32e-11 & Left Declive \\
+	141 & 7.2127 & 8.50e-11 & NA \\
+	13 & 6.2918 & 4.65e-08 & NA \\
+	158 & 6.2916 & 4.67e-08 & NA \\
+	196 & 5.9340 & 4.33e-07 & NA \\
+	126 & 4.9343 & 1.15e-04 & Right Uvula\\
+	31 & 4.8789 & 1.52e-04 & NA \\
+	70 & 4.8009 & 2.25e-04 & NA \\
+	115 & 4.6691 & 4.33e-04 & Locus Coeruleus \\ \hline
+\end{tabular}
+\end{table}
 
 \subsection{Validation of NPDR detected ROIs}
 
