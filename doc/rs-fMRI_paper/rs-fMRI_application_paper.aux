@@ -67,14 +67,20 @@
 \newlabel{fig:gwak}{{8}{8}{Feature-wise adaptive-$k$ method for choosing optimal values of $k$ in nearest-neighbor feature selection. For each attribute $a \in \mathcal {A}$ and each value of $k=1,2,\dots ,m-1$, a score or weight is computed with a nearest-neighbor feature selection method like Relief-Based Algorithms (RBAs) or another similar method. Each feature is assigned the value of $k$ that maximizes its importance score. Winning scores are then sorted in decreasing order and some fraction of the top scoring attributes are chosen for further analysis. We use the adjusted pseudo P values from NPDR to filter out attributes that are determined irrelevant to the phenotype. With NPDR, attribute scores are simply the standardized beta coefficients computed for the corresponding GLM (Eq.~\ref {eq:glm_roi}).\relax }{figure.8}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Results}{8}{section.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Power and Shen atlas mapping}{8}{subsection.3.1}\protected@file@percent }
-\gdef \LT@i {\LT@entry 
-    {1}{27.80003pt}\LT@entry 
-    {1}{40.17786pt}\LT@entry 
-    {1}{47.95563pt}\LT@entry 
-    {1}{220.05312pt}}
 \@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Visualization of mapped and unmapped ROIs from Power and Shen ROIs, respectively, from Assignment Problem solution. Two-dimensional slices from each atlas are overlaid on top of each other. The upper slices highlight the mapped ROIs from each atlas. The lower slices highlight the unmapped ROIs from each atlas.\relax }}{9}{figure.9}\protected@file@percent }
 \newlabel{fig:power_shen_mapped-unmapped}{{9}{9}{Visualization of mapped and unmapped ROIs from Power and Shen ROIs, respectively, from Assignment Problem solution. Two-dimensional slices from each atlas are overlaid on top of each other. The upper slices highlight the mapped ROIs from each atlas. The lower slices highlight the unmapped ROIs from each atlas.\relax }{figure.9}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Power and Shen atlas ROIs relevant to MDD}{9}{subsection.3.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Standardized beta coefficients, P values, and brain regions for important mapped Power atlas ROIs.\relax }}{10}{table.caption.7}\protected@file@percent }
+\newlabel{tab:mapped-power-tab}{{1}{10}{Standardized beta coefficients, P values, and brain regions for important mapped Power atlas ROIs.\relax }{table.caption.7}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Standardized beta coefficients, P values, and brain regions for important unmapped Power atlas ROIs.\relax }}{10}{table.caption.8}\protected@file@percent }
+\newlabel{tab:unmapped-power-tab}{{2}{10}{Standardized beta coefficients, P values, and brain regions for important unmapped Power atlas ROIs.\relax }{table.caption.8}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Standardized beta coefficients, P values, and brain regions for important mapped Shen atlas ROIs. Brain regions were assigned to each Shen ROI based on overlap with known Power ROI brain regions. Brain regions for Shen ROIs that did not overlap any Power ROIs were assigned NA.\relax }}{10}{table.3}\protected@file@percent }
+\newlabel{tab:mapped-shen-tab}{{3}{10}{Standardized beta coefficients, P values, and brain regions for important mapped Shen atlas ROIs. Brain regions were assigned to each Shen ROI based on overlap with known Power ROI brain regions. Brain regions for Shen ROIs that did not overlap any Power ROIs were assigned NA.\relax }{table.3}{}}
+\gdef \LT@i {\LT@entry 
+    {1}{34.10542pt}\LT@entry 
+    {1}{40.17786pt}\LT@entry 
+    {1}{52.27477pt}\LT@entry 
+    {1}{220.05312pt}}
 \bibstyle{unsrt}
 \bibdata{BoD}
 \bibcite{caballero2017}{1}
@@ -82,22 +88,18 @@
 \bibcite{npdr}{3}
 \bibcite{power2011}{4}
 \bibcite{shen2013}{5}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Standardized beta coefficients, P values, and brain regions for important unmapped Shen atlas ROIs. Brain regions were assigned to each Shen ROI based on overlap with known Power ROI brain regions. Brain regions for Shen ROIs that did not overlap any Power ROIs were assigned NA.\relax }}{11}{table.caption.9}\protected@file@percent }
+\newlabel{tab:unmapped-shen-tab}{{4}{11}{Standardized beta coefficients, P values, and brain regions for important unmapped Shen atlas ROIs. Brain regions were assigned to each Shen ROI based on overlap with known Power ROI brain regions. Brain regions for Shen ROIs that did not overlap any Power ROIs were assigned NA.\relax }{table.caption.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Validation of NPDR detected ROIs}{11}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Discussion}{11}{section.4}\protected@file@percent }
 \bibcite{cox1996}{6}
 \bibcite{collins1994}{7}
 \bibcite{pentico2007}{8}
 \bibcite{R}{9}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Validation of NPDR detected ROIs}{10}{subsection.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4}Discussion}{10}{section.4}\protected@file@percent }
 \bibcite{lpsolve}{10}
 \bibcite{robnik2003}{11}
 \bibcite{urbanowicz17}{12}
 \bibcite{mckinney13}{13}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Standardized beta coefficients, P values, and brain regions for important mapped Power atlas ROIs.\relax }}{11}{table.caption.7}\protected@file@percent }
-\newlabel{tab:mapped-power-tab}{{1}{11}{Standardized beta coefficients, P values, and brain regions for important mapped Power atlas ROIs.\relax }{table.caption.7}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Standardized beta coefficients, P values, and brain regions for important unmapped Power atlas ROIs.\relax }}{11}{table.caption.8}\protected@file@percent }
-\newlabel{tab:unmapped-power-tab}{{2}{11}{Standardized beta coefficients, P values, and brain regions for important unmapped Power atlas ROIs.\relax }{table.caption.8}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Standardized beta coefficients, P values, and brain regions for important unmapped Shen atlas ROIs. Brain regions were assigned to each Shen ROI based on overlap with known Power ROI brain regions. Brain regions for Shen ROIs that did not overlap any Power ROIs were assigned NA.\relax }}{12}{table.caption.9}\protected@file@percent }
-\newlabel{tab:unmapped-shen-tab}{{4}{12}{Standardized beta coefficients, P values, and brain regions for important unmapped Shen atlas ROIs. Brain regions were assigned to each Shen ROI based on overlap with known Power ROI brain regions. Brain regions for Shen ROIs that did not overlap any Power ROIs were assigned NA.\relax }{table.caption.9}{}}
 \newlabel{LastPage}{{}{12}{}{page.12}{}}
 \xdef\lastpage@lastpage{12}
 \xdef\lastpage@lastpageHy{12}
