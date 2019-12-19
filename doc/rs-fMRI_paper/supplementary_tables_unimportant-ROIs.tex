@@ -80,7 +80,7 @@
 \usepackage[table]{xcolor}
 
 % array package and thick rules for tables
-\usepackage{array}
+\usepackage{array,ragged2e}
 
 % bold math symbols package
 \usepackage{bm}
@@ -165,6 +165,8 @@
 \restylefloat{figure}
 
 \renewcommand{\thetable}{S\arabic{table}}
+
+\newcolumntype{P}[1]{>{\RaggedRight\arraybackslash}p{#1}}
 
 \begin{document}
 	
@@ -929,7 +931,7 @@
 \end{center}
 
 \begin{center}
-	\begin{longtable}[c]{cp{1.1in}p{1.1in}p{1.1in}p{1.1in}p{1.1in}}
+	\begin{longtable}[c]{cP{1.1in}P{1.1in}P{1.1in}P{1.1in}P{1.1in}}
 		\caption{Brain regions associated with mapped Shen atlas ROIs. Brain regions were assigned to Shen ROIs based on overlap with Power ROIs within known brain regions.}\label{tab:mapped_shen_brain_regions}\\ \toprule
 		
 		\multicolumn{1}{c}{\textbf{ROI}} & \multicolumn{1}{c}{\textbf{Region 1}} & \multicolumn{1}{c}{\textbf{Region 2}} & \multicolumn{1}{c}{\textbf{Region 3}} & \multicolumn{1}{c}{\textbf{Region 4}} & \multicolumn{1}{c}{\textbf{Region 5}} \\ \bottomrule 
@@ -1178,5 +1180,389 @@
 	\end{longtable}
 \end{center}
 
+\begin{center}
+	\begin{longtable}[c]{cP{1.1in}P{1.1in}P{1.1in}cc}
+		\caption{Brain regions associated with unmapped Shen atlas ROIs. Brain regions were assigned to Shen ROIs based on overlap with Power ROIs within known brain regions.}\label{tab:unmapped_shen_brain_regions}\\ \toprule
+		
+		\multicolumn{1}{c}{\textbf{ROI}} & \multicolumn{1}{c}{\textbf{Region 1}} & \multicolumn{1}{c}{\textbf{Region 2}} & \multicolumn{1}{c}{\textbf{Region 3}} & \multicolumn{1}{c}{\textbf{Region 4}} & \multicolumn{1}{c}{\textbf{Region 5}} \\ \bottomrule 
+		\endfirsthead
+		
+		\multicolumn{6}{c}%
+		{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+		\hline 		\multicolumn{1}{c}{\textbf{ROI}} & \multicolumn{1}{c}{\textbf{Region 1}} & \multicolumn{1}{c}{\textbf{Region 2}} & \multicolumn{1}{c}{\textbf{Region 3}} & \multicolumn{1}{c}{\textbf{Region 4}} & \multicolumn{1}{c}{\textbf{Region 5}}\\ \bottomrule
+		\endhead
+		
+		\midrule \multicolumn{6}{r}{\textbf{Continued on next page}} \\ \bottomrule
+		\endfoot
+		
+		\bottomrule
+		\endlastfoot
+		3 & Right Medial Frontal Gyrus & NA	& NA & NA & NA \\
+		13 & NA	& NA & NA & NA & NA \\
+		30 & Locus Coeruleus & NA & NA & NA	& NA \\
+		31 & NA	& NA & NA & NA & NA \\
+		35 & Right Middle Temporal Gyrus & NA & NA & NA	& NA \\
+		47 & Right Cingulate Gyrus & Left Cingulate Gyrus & NA & NA	& NA \\
+		49 & NA	& NA & NA & NA & NA \\
+		51 & Right Inferior Temporal Gyrus & Right Middle Temporal Gyrus & NA & NA & NA \\
+		66 & NA	& NA & NA & NA & NA \\
+		70 & NA	& NA & NA & NA & NA \\
+		72 & Right Precentral Gyrus	& NA & NA & NA & NA \\
+		73 & Right Uvula & Right Declive & Right Lingual Gyrus & NA	& NA \\
+		76 & NA	& NA & NA & NA & NA \\
+		79 & NA	& NA & NA & NA & NA \\
+		86 & Right Uvula & NA & NA & NA	& NA \\
+		110	& Right Uvula & Right Lingual Gyrus	& Right Inferior Occipital Gyrus & NA & NA \\
+		115	& Locus Coeruleus & NA & NA	& NA & NA \\
+		117	& Right Parahippocampal Gyrus & Right Lingual Gyrus	& NA & NA & NA \\
+		126	& Right Uvula & NA & NA	& NA & NA \\
+		141	& NA & NA & NA & NA	& NA \\
+		142	& NA & NA & NA & NA	& NA \\
+		145	& Left Superior Temporal Gyrus & Left Inferior Frontal Gyrus & NA & NA & NA \\
+		150	& NA & NA & NA & NA	& NA \\
+		158	& NA & NA & NA & NA	& NA \\
+		159	& NA & NA & NA & NA	& NA \\
+		162	& NA & NA & NA & NA	& NA \\
+		164	& Left Superior Frontal Gyrus & NA & NA	& NA & NA \\
+		165	& NA & NA & NA & NA	& NA \\
+		169	& Left Insula & Left Inferior Frontal Gyrus	& NA & NA & NA \\
+		174	& NA & NA & NA & NA	& NA \\
+		175	& Right Declive	& NA & NA & NA & NA \\
+		176	& NA & NA & NA & NA	& NA \\
+		184	& Left Lingual Gyrus & NA & NA & NA	& NA \\
+		188	& Left Superior Frontal Gyrus & Left Medial Frontal Gyrus & NA & NA	& NA \\
+		196	& NA & NA & NA & NA	& NA \\
+		200	& Left Superior Frontal Gyrus & NA & NA	& NA & NA \\
+		211	& NA & NA & NA & NA	& NA \\
+		219	& NA & NA & NA & NA	& NA \\
+		220	& NA & NA & NA & NA	& NA \\
+		227	& Left Cuneus & NA & NA	& NA & NA \\
+		231	& Left Declive & Right Declive & Left Lingual Gyrus	& NA & NA \\
+		232	& NA & NA & NA & NA	& NA \\
+		251	& Left Superior Frontal Gyrus & NA & NA	& NA & NA \\
+		256	& Left Declive & NA	& NA & NA & NA \\
+		260	& Left Thalamus	& NA & NA & NA & NA \\
+		261	& Locus Coeruleus & NA & NA	& NA & NA \\
+		265	& NA & NA & NA & NA	& NA \\
+		272	& NA & NA & NA & NA	& NA \\
+	\end{longtable}
+\end{center}
+
+\begin{center}
+	\begin{longtable}[c]{ccc}
+		\caption{Brain regions and functional networks associated with mapped Power atlas ROIs.}\label{tab:mapped_power_brain_regions}\\ \toprule
+		
+		\multicolumn{1}{c}{\textbf{ROI}} & \multicolumn{1}{c}{\textbf{Brain Region}} & \multicolumn{1}{c}{\textbf{Functional Network}} \\ \bottomrule 
+		\endfirsthead
+		
+		\multicolumn{3}{c}%
+		{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+		\hline \multicolumn{1}{c}{\textbf{ROI}} & \multicolumn{1}{c}{\textbf{Brain Region}} & \multicolumn{1}{c}{\textbf{Functional Network}}\\ \bottomrule
+		\endhead
+		
+		\midrule \multicolumn{3}{r}{\textbf{Continued on next page}} \\ \bottomrule
+		\endfoot
+		
+		\bottomrule
+		\endlastfoot
+		71 & Right Precentral Gyrus & Auditory \\
+		121	& Right Superior Frontal Gyrus & Dorsal DMN \\
+		28 & Right Precentral Gyrus	& Sensorimotor \\
+		72 & Right Postcentral Gyrus & Post Salience \\
+		181	& Right Middle Frontal Gyrus & RECN \\
+		49 & Right Middle Frontal Gyrus	& Sensorimotor \\
+		25 & Right Postcentral Gyrus & Visuospatial \\
+		193	& Right Superior Frontal Gyrus	& RECN \\
+		116	& Right Inferior Temporal Gyrus	& NA \\
+		225	& Right Thalamus & Post Salience \\
+		140	& Right Lingual Gyrus & High Visual \\
+		170	& Right Cuneus & Primary Visual \\
+		67 & Right Insula & Post Salience \\
+		135	& Right Precuneus & Precuneus \\
+		48 & Right Inferior Parietal Lobule	& Post Salience \\
+		238	& Right Superior Temporal Gyrus	& Language \\
+		9 & Right Middle Temporal Gyrus	& NA \\
+		189	& Right Middle Frontal Gyrus & RECN \\
+		89 & Right Precuneus & Dorsal DMN \\
+		5 & Right Orbital Gyrus	& Dorsal DMN \\
+		144	& Right Middle Occipital Gyrus & Ventral DMN \\
+		96 & Right Angular Gyrus & RECN \\
+		270	& Right Caudate Head & NA \\
+		249	& Right Inferior Temporal Gyrus	& NA \\
+		217	& Right Anterior Cingulate & Anterior Salience \\
+		41 & Right Precentral Gyrus	& Sensorimotor \\
+		32 & Right Postcentral Gyrus & Post Salience \\
+		19 & Right Precentral Gyrus	& Sensorimotor \\
+		119	& Right Middle Temporal Gyrus & Language \\
+		44 & Right Precentral Gyrus	& Sensorimotor \\
+		156	& Right Precuneus & Precuneus \\
+		75 & Right Medial Frontal Gyrus	& Dorsal DMN \\
+		127	& Right Uvula & Visuospatial \\
+		80 & Right Middle Temporal Gyrus & Ventral DMN \\
+		194	& Right Inferior Parietal Lobule & RECN \\
+		136	& Right Precuneus & Ventral DMN \\
+		125	& Right Parahippocampal Gyrus & Ventral DMN \\
+		211	& Right Inferior Frontal Gyrus & Anterior Salience \\
+		62 & Right Superior Temporal Gyrus & Post Salience \\
+		22 & Right Postcentral Gyrus & Post Salience \\
+		102	& Right Superior Frontal Gyrus & Dorsal DMN \\
+		95 & Right Posterior Cingulate & Ventral DMN \\
+		46 & Right Precentral Gyrus	& NA \\
+		233	& Right Lentiform Nucleus & Basal Ganglia \\
+		145	& Right Cuneus & Primary Visual \\
+		122	& Right Anterior Cingulate & Anterior Salience \\
+		203	& Right Paracentral Lobule & Ventral DMN \\
+		63 & Right Superior Temporal Gyrus & Auditory \\
+		26 & Right Postcentral Gyrus & Visuospatial \\
+		277	& Raphe	& NA \\
+		54 & Right Medial Frontal Gyrus	& Anterior Salience \\
+		256	& Right Precuneus & Visuospatial \\
+		185	& Right Uvula & LECN \\
+		239	& Right Middle Temporal Gyrus & Language \\
+		205	& Right Middle Frontal Gyrus & Sensorimotor \\
+		53 & Right Superior Frontal Gyrus & Anterior Salience \\
+		76 & Right Medial Frontal Gyrus	& Dorsal DMN \\
+		218	& Right Middle Frontal Gyrus & RECN \\
+		246	& Right Declive	& Sensorimotor \\
+		105	& Right Medial Frontal Gyrus & Dorsal DMN \\
+		16 & Right Cingulate Gyrus & Anterior Salience \\
+		85 & Right Inferior Frontal Gyrus & NA \\
+		235	& Right Inferior Parietal Lobule & Language \\
+		274	& Right Ventral Hippocampus	& NA \\
+		139	& Right Inferior Frontal Gyrus & Language \\
+		258	& Right Superior Parietal Lobule & Visuospatial \\
+		108	& Right Medial Frontal Gyrus & Dorsal DMN \\
+		60 & Right Insula & Anterior Salience \\
+		56 & Right Superior Temporal Gyrus & Auditory \\
+		163	& Right Precuneus & Precuneus \\
+		264	& Right Middle Frontal Gyrus & Visuospatial \\
+		254	& Right Fusiform Gyrus & Visuospatial \\
+		206	& Right Middle Frontal Gyrus & Anterior Salience \\
+		123	& Right Middle Temporal Gyrus & Language \\
+		179	& Right Middle Temporal Gyrus & Visuospatial \\
+		209	& Right Insula & Anterior Salience \\
+		221	& Right Cingulate Gyrus	& Precuneus \\
+		43 & Right Insula & NA \\
+		204	& Right Supramarginal Gyrus	& RECN \\
+		257	& Right Middle Temporal Gyrus & NA \\
+		141	& Right Inferior Occipital Gyrus & High Visual \\
+		150	& Right Parahippocampal Gyrus & NA \\
+		229	& Right Lentiform Nucleus & Post Salience \\
+		52 & Right Insula & Post Salience \\
+		255	& Right Postcentral Gyrus & Visuospatial \\
+		101	& Right Superior Frontal Gyrus & Dorsal DMN \\
+		153	& Right Inferior Occipital Gyrus & High Visual \\
+		241	& Right Inferior Frontal Gyrus & Language \\
+		245	& Right Declive	& Sensorimotor \\
+		31 & Right Medial Frontal Gyrus	& Sensorimotor \\
+		157	& Right Cuneus & High Visual \\
+		175	& Right Middle Frontal Gyrus & RECN \\
+		165	& Right Lingual Gyrus & High Visual \\
+		10 & Right Fusiform Gyrus & NA \\
+		207	& Right Inferior Frontal Gyrus & Basal Ganglia \\
+		247	& Right Uncus & NA \\
+		7 & Right Culmen & Ventral DMN \\
+		266	& Right Nucleus Accumbens & NA \\
+		186	& Right Middle Frontal Gyrus & Visuospatial \\
+		222	& Right Thalamus & Sensorimotor \\
+		110	& Right Medial Frontal Gyrus & Dorsal DMN \\
+		169	& Right Middle Occipital Gyrus & High Visual \\
+		158	& Right Lingual Gyrus & High Visual \\
+		240	& Right Superior Temporal Gyrus	& Language \\
+		82 & Right Superior Temporal Gyrus & NA \\
+		196	& Right Precentral Gyrus & RECN \\
+		199	& Right Inferior Parietal Lobule & Visuospatial \\
+		148	& Right Lingual Gyrus & Primary Visual \\
+		230	& Right Lentiform Nucleus & Basal Ganglia \\
+		200	& Right Middle Frontal Gyrus & RECN \\
+		184	& Right Uvula & NA \\
+		106	& Right Medial Frontal Gyrus & Dorsal DMN \\
+		93 & Right Precuneus & Precuneus \\
+		272	& Right Amygdala & NA \\
+		180	& Right Superior Frontal Gyrus & NA \\
+		92 & Right Cingulate Gyrus & Dorsal DMN \\
+		143	& Right Parahippocampal Gyrus & Sensorimotor \\
+		219	& Right Superior Frontal Gyrus & Anterior Salience \\
+		216	& Right Cingulate Gyrus	& Anterior Salience \\
+		29 & Right Precentral Gyrus	& Sensorimotor \\
+		188	& Left Middle Frontal Gyrus	& Post Salience \\
+		201	& Left Middle Frontal Gyrus	& LECN \\
+		276	& Ventral Tegmental Area & NA \\
+		13 & Left Precuneus	& Ventral DMN \\
+		262	& Left Middle Occipital Gyrus & Visuospatial \\
+		24 & Left Precentral Gyrus & Sensorimotor \\
+		227	& Left Lentiform Nucleus & Basal Ganglia \\
+		265	& Left Nucleus Accumbens & NA \\
+		15 & Left Paracentral Lobule & Dorsal DMN \\
+		149	& Left Cuneus & High Visual \\
+		45 & Left Precentral Gyrus & Auditory \\
+		223	& Left Thalamus	& Dorsal DMN \\
+		152	& Left Cuneus & Primary Visual \\
+		30 & Left Postcentral Gyrus	& Visuospatial \\
+		259	& Left Inferior Parietal Lobule	& Visuospatial \\
+		212	& Left Anterior Cingulate & Anterior Salience \\
+		132	& Left Inferior Frontal Gyrus & NA \\
+		33 & Left Postcentral Gyrus	& Visuospatial \\
+		224	& Left Thalamus	& Post Salience \\
+		146	& Left Cuneus & Primary Visual \\
+		267	& Left Subgenual Anterior Cingulate Cortext	& NA \\
+		90 & Left Posterior Cingulate & Ventral DMN \\
+		138	& Left Superior Frontal Gyrus & Anterior Salience \\
+		59 & Left Cingulate Gyrus & Anterior Salience \\
+		187	& Left Inferior Frontal Gyrus & Visuospatial \\
+		243	& Left Declive & Sensorimotor \\
+		198	& Left Middle Frontal Gyrus	& LECN \\
+		112	& Left Medial Frontal Gyrus	& LECN \\
+		81 & Left Superior Temporal Gyrus & NA \\
+		113	& Left Anterior Cingulate & Dorsal DMN \\
+		64 & Left Superior Temporal Gyrus & Auditory \\
+		147	& Left Middle Occipital Gyrus & Ventral DMN \\
+		88 & Left Cingulate Gyrus & Dorsal DMN \\
+		202	& Left Medial Frontal Gyrus & Anterior Salience \\
+		137	& Left Inferior Frontal Gyrus & Language \\
+		166	& Left Precuneus & Precuneus \\
+		124	& Left Parahippocampal Gyrus & Ventral DMN \\
+		86	& Left Angular Gyrus & LECN \\
+		197	& Left Middle Frontal Gyrus	& LECN \\
+		195	& Left Inferior Parietal Lobule	& LECN \\
+		20 & Left Postcentral Gyrus	& Visuospatial \\
+		174	& Left Middle Frontal Gyrus	& Visuospatial \\
+		250	& Left Inferior Temporal Gyrus & NA \\
+		271	& Left Amygdala & NA \\
+		4 & Left Inferior Temporal Gyrus & LECN \\
+		183	& Left Declive & RECN \\
+		178	& Left Middle Frontal Gyrus	& Ventral DMN \\
+		91 & Left Posterior Cingulate & Dorsal DMN \\
+		151	& Left Lingual Gyrus & High Visual \\
+		176	& Left Inferior Frontal Gyrus & Visuospatial \\
+		232	& Left Lentiform Nucleus & Post Salience \\
+		160	& Left Lingual Gyrus & Primary Visual \\
+		182	& Left Superior Frontal Gyrus & NA \\
+		118	& Left Middle Temporal Gyrus & Language \\
+		120	& Left Middle Temporal Gyrus & LECN \\
+		248	& Left Uncus & NA \\
+		260	& Left Precuneus & Visuospatial \\
+		242	& Left Inferior Frontal Gyrus & Language \\
+		208	& Left Insula & Anterior Salience \\
+		6 & Left Parahippocampal Gyrus & Dorsal DMN \\
+		70 & Left Precentral Gyrus & Auditory \\
+		177	& Left Inferior Parietal Lobule	& LECN \\
+		164	& Left Middle Occipital Gyrus & High Visual \\
+		155	& Left Cuneus & NA \\
+		94 & Left Cingulate Gyrus & Ventral DMN \\
+		107	& Left Medial Frontal Gyrus	& Dorsal DMN \\
+		100	& Left Middle Frontal Gyrus	& LECN \\
+		99 & Left Superior Frontal Gyrus & LECN \\
+		252	& Left Middle Temporal Gyrus & Language \\
+		14 & Left Cingulate Gyrus & NA \\
+		77 & Left Parahippocampal Gyrus	& Dorsal DMN \\
+		117	& Left Middle Temporal Gyrus & Language \\
+		253	& Left Fusiform Gyrus & LECN \\
+		142	& Left Lingual Gyrus & High Visual \\
+		58 & Left Superior Temporal Gyrus & Anterior Salience \\
+		84 & Left Middle Temporal Gyrus	& LECN \\
+		275	& Locus Coeruleus & NA \\
+		263	& Left Superior Parietal Lobule	& Ventral DMN \\
+		236	& Left Superior Temporal Gyrus & Language \\
+		261	& Left Middle Frontal Gyrus	& Visuospatial \\
+		8 & Left Parahippocampal Gyrus & Ventral DMN \\
+		129	& Left Middle Temporal Gyrus & Language \\
+		68 & Left Inferior Parietal Lobule & Post Salience \\
+		55 & Left Precentral Gyrus & Auditory \\
+		172	& Left Middle Occipital Gyrus & High Visual \\
+		104	& Left Superior Frontal Gyrus & Dorsal DMN \\
+		134	& Left Precuneus & Precuneus \\
+		191	& Left Superior Parietal Lobule	& Visuospatial \\
+		244	& Left Culmen & Anterior Salience \\
+		18 & Left Paracentral Lobule & Sensorimotor \\
+		69 & Left Postcentral Gyrus	& Auditory \\
+		38 & Left Postcentral Gyrus	& Post Salience \\
+		1 & Left Lingual Gyrus & High Visual \\
+		133	& Left Cingulate Gyrus & Precuneus \\
+		214	& Left Superior Frontal Gyrus & Anterior Salience \\
+		34 & Left Postcentral Gyrus	& Sensorimotor \\
+		269	& Left Caudate Head	& NA \\
+		51 & Left Cingulate Gyrus & NA \\
+		273	& Left Ventral Hippocampus & NA \\
+		114 & Left Superior Frontal Gyrus & Dorsal DMN \\
+		65 & Left Postcentral Gyrus	& Auditory \\
+		57 & Left Claustrum	& Anterior Salience \\
+		167	& Left Cuneus & Primary Visual \\
+		109	& Left Medial Frontal Gyrus	& Dorsal DMN \\
+		228	& Left Lentiform Nucleus & Basal Ganglia \\
+		78 & Left Superior Frontal Gyrus & Dorsal DMN \\
+		74 & Left Middle Temporal Gyrus	& Ventral DMN \\
+		220	& Left Middle Frontal Gyrus	& Anterior Salience \\
+		50 & Left Superior Frontal Gyrus & Sensorimotor \\
+		42 & Left Precentral Gyrus & Sensorimotor \\
+	\end{longtable}
+\end{center}
+
+\begin{center}
+	\begin{longtable}[c]{ccc}
+		\caption{Brain regions and functional networks associated with unmapped Power atlas ROIs.}\label{tab:unmapped_power_brain_regions}\\ \toprule
+		
+		\multicolumn{1}{c}{\textbf{ROI}} & \multicolumn{1}{c}{\textbf{Brain Region}} & \multicolumn{1}{c}{\textbf{Functional Network}} \\ \bottomrule 
+		\endfirsthead
+		
+		\multicolumn{3}{c}%
+		{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+		\hline \multicolumn{1}{c}{\textbf{ROI}} & \multicolumn{1}{c}{\textbf{Brain Region}} & \multicolumn{1}{c}{\textbf{Functional Network}}\\ \bottomrule
+		\endhead
+		
+		\midrule \multicolumn{3}{r}{\textbf{Continued on next page}} \\ \bottomrule
+		\endfoot
+		
+		\bottomrule
+		\endlastfoot
+		2 & Right Inferior Occipital Gyrus & High Visual \\
+		3 & Right Middle Frontal Gyrus & NA \\
+		11 & Right Middle Temporal Gyrus & Language \\
+		12 & Right Middle Frontal Gyrus	& RECN \\
+		17 & Left Medial Frontal Gyrus & Sensorimotor \\
+		21 & Right Precentral Gyrus	& Sensorimotor \\
+		23 & Left Precentral Gyrus & Sensorimotor \\
+		27 & Left Precentral Gyrus & Sensorimotor \\
+		35 & Left Medial Frontal Gyrus & Sensorimotor \\
+		36 & Right Postcentral Gyrus & Sensorimotor \\
+		37 & Left Precentral Gyrus & Sensorimotor \\
+		39 & Right Medial Frontal Gyrus	& Sensorimotor \\
+		40 & Right Medial Frontal Gyrus	& Sensorimotor \\
+		47 & Left Superior Frontal Gyrus & Anterior Salience \\
+		61 & Right Insula & NA \\
+		66 & Left Superior Temporal Gyrus & Auditory \\
+		73 & Left Insula & NA \\
+		79 & Left Middle Temporal Gyrus	& Language \\
+		83 & Left Middle Temporal Gyrus	& LECN \\
+		87 & Left Superior Parietal Lobule & LECN \\
+		97 & Right Middle Frontal Gyrus	& RECN \\
+		98 & Left Superior Frontal Gyrus & Dorsal DMN \\
+		103	& Left Superior Frontal Gyrus & Dorsal DMN \\
+		111	& Left Anterior Cingulate & Dorsal DMN \\
+		115	& Left Medial Frontal Gyrus	& Dorsal DMN \\
+		126	& Left Fusiform Gyrus & Ventral DMN \\
+		128	& Right Middle Temporal Gyrus & NA \\
+		130	& Right Supramarginal Gyrus	& Language \\
+		131	& Left Middle Temporal Gyrus & Language \\
+		154	& Left Middle Occipital Gyrus & High Visual \\
+		159	& Right Cuneus & Precuneus \\
+		161	& Right Middle Occipital Gyrus & High Visual \\
+		162	& Right Cuneus & High Visual \\
+		168	& Left Inferior Occipital Gyrus	& High Visual \\
+		171	& Left Middle Occipital Gyrus & High Visual \\
+		173	& Right Middle Occipital Gyrus & High Visual \\
+		190	& Right Inferior Parietal Lobule & RECN \\
+		192	& Right Inferior Parietal Lobule & RECN \\
+		210	& Right Inferior Frontal Gyrus & Anterior Salience \\
+		213	& Left Cingulate Gyrus & Anterior Salience \\
+		215	& Left Anterior Cingulate & Anterior Salience \\
+		226	& Left Thalamus	& Sensorimotor \\
+		231	& Right Lentiform Nucleus & Basal Ganglia \\
+		234	& Right Thalamus & Basal Ganglia \\
+		237	& Left Superior Temporal Gyrus & Language \\
+		251	& Right Precuneus & Ventral DMN \\
+		268	& Right Subgenual Anterior Cingulate Cortex	& NA \\
+	\end{longtable}
+\end{center}
 
 \end{document}
