@@ -82,6 +82,9 @@
 % array package and thick rules for tables
 \usepackage{array}
 
+% highlighting
+\usepackage{soul}
+
 % bold math symbols package
 \usepackage{bm}
 
@@ -452,7 +455,7 @@ We used GWAK to determine the value of $k$ that maximized the NPDR standardized 
 \end{table}
 
 \begin{longtable}[c]{cccp{3.2in}}
-	\caption{Standardized beta coefficients, P values, and brain regions for important mapped Shen atlas ROIs. Brain regions were assigned to each Shen ROI based on overlap with known Power ROI brain regions. Brain regions for Shen ROIs that did not overlap any Power ROIs were assigned NA.}\label{tab:mapped-shen-tab}\\ \toprule
+	\caption{Standardized beta coefficients, P values, and brain regions for important mapped Shen atlas ROIs. Brain regions were assigned to each Shen ROI based on overlap with known Power ROI brain regions. Brain regions for Shen ROIs that did not overlap any Power ROIs were assigned NA. Brain regions that did not show up in the list of important Power ROIs (Tables~\ref{tab:mapped-power-tab}-\ref{tab:unmapped-power-tab}) are highlighted.}\label{tab:mapped-shen-tab}\\ \toprule
 	
 	\multicolumn{1}{c}{\textbf{ROI}} & \multicolumn{1}{c}{\bm{$\beta_a$}} & \multicolumn{1}{c}{\textbf{P Value}} & \multicolumn{1}{c}{\textbf{Brain Region}} \\ \bottomrule 
 	\endfirsthead
@@ -467,54 +470,54 @@ We used GWAK to determine the value of $k$ that maximized the NPDR standardized 
 	
 	\bottomrule
 	\endlastfoot
-	243 & 13.4157 & 2.41e-38 & Left Inferior Temporal Gyrus, Left Parahippocampal Gyrus, Left Fusiform Gyrus \\
-	99 & 13.1216 & 1.09e-36 & Right Middle Temporal Gyrus, Right Insula, Right Lentiform Nucleus \\
+	243 & 13.4157 & 2.41e-38 & Left Inferior Temporal Gyrus, Left Parahippocampal Gyrus, \hl{Left Fusiform Gyrus} \\
+	99 & 13.1216 & 1.09e-36 & Right Middle Temporal Gyrus, \hl{Right Insula}, \hl{Right Lentiform Nucleus} \\
 	5 & 11.6413 & 7.29e-29 & Right Postcentral Gyrus, Right Inferior Parietal Lobule \\
 	29 & 11.3464 & 2.06e-27 & Right Postcentral Gyrus \\
-	277 & 9.5110 & 3.64e-19 & Left Superior Frontal Gyrus, Left Medial Frontal Gyrus \\
-	178 & 9.1192 & 1.40e-17 & Left Culmen, Left Declive \\
-	127 & 8.5795 & 1.66e-15 & Right Lingual Gyrus \\
+	277 & 9.5110 & 3.64e-19 & \hl{Left Superior Frontal Gyrus}, Left Medial Frontal Gyrus \\
+	178 & 9.1192 & 1.40e-17 & \hl{Left Culmen}, \hl{Left Declive} \\
+	127 & 8.5795 & 1.66e-15 & \hl{Right Lingual Gyrus} \\
 	105 & 7.4976 & 1.03e-11 & Right Medial Frontal Gyrus, Right Middle Frontal Gyrus, Right Superior Frontal Gyrus\\
-	262 & 7.4889 & 1.10e-11 & Left Postcentral Gyrus, Left Precentral Gyrus, Left Medial Frontal Gyrus \\
-	96 & 7.0001 & 3.94e-10 & Right Inferior Occipital Gyrus, Right Lingual Gyrus \\
-	239 & 6.9550 & 5.39e-10 & Locus Coeruleus \\
-	104 & 6.8045 & 1.54e-09 & Right Declive \\
-	217 & 6.6554 & 4.25e-09 & Left Parahippocampal Gyrus, Left Fusiform Gyrus \\
+	262 & 7.4889 & 1.10e-11 & \hl{Left Postcentral Gyrus}, \hl{Left Precentral Gyrus}, Left Medial Frontal Gyrus \\
+	96 & 7.0001 & 3.94e-10 & \hl{Right Inferior Occipital Gyrus}, \hl{Right Lingual Gyrus} \\
+	239 & 6.9550 & 5.39e-10 & \hl{Locus Coeruleus} \\
+	104 & 6.8045 & 1.54e-09 & \hl{Right Declive} \\
+	217 & 6.6554 & 4.25e-09 & Left Parahippocampal Gyrus, \hl{Left Fusiform Gyrus} \\
 	238 & 6.4225 & 2.00e-08 & Left Middle Temporal Gyrus \\
 	83 & 6.3879 & 2.55e-08 & Right Superior Temporal Gyrus \\
 	57 & 6.3269 & 3.71e-08 & Right Inferior Parietal Lobule, Right Postcentral Gyrus \\
-	7 & 6.2803 & 5.01e-08 & Right Middle Frontal Gyrus, Right Precentral Gyrus \\
-	12 & 6.2222 & 7.29e-08 & Right Lingual Gyrus, Right Cuneus \\
+	7 & 6.2803 & 5.01e-08 & Right Middle Frontal Gyrus, \hl{Right Precentral Gyrus} \\
+	12 & 6.2222 & 7.29e-08 & \hl{Right Lingual Gyrus}, Right Cuneus \\
 	32 & 6.1985 & 8.42e-08 & Right Precentral Gyrus, Right Postcentral Gyrus \\
-	102 & 6.1316 & 1.28e-07 & Right Inferior Occipital Gyrus, Right Middle Occipital Gyrus \\
-	19 & 6.0343 & 2.34e-07 & Right Fusiform Gyrus, Right Middle Temporal Gyrus, Right Inferior Temporal Gyrus \\
-	21 & 6.0037 & 2.83e-07 & Right Cingulate Gyrus, Right Precuneus \\
-	202 & 5.7008 & 1.74e-06 & Left Declive, Left Culmen \\
-	136 & 5.6781 & 1.98e-06 & Right Parahippocampal Gyrus \\
-	253 & 5.5841 & 3.40e-06 & Right Medial Frontal Gyrus, Left Medial Frontal Gyrus, Left Paracentral Lobule \\
-	113 & 5.4798 & 6.17e-06 & Right Culmen, Right Parahippocampal Gyrus \\
+	102 & 6.1316 & 1.28e-07 & \hl{Right Inferior Occipital Gyrus}, Right Middle Occipital Gyrus \\
+	19 & 6.0343 & 2.34e-07 & \hl{Right Fusiform Gyrus}, Right Middle Temporal Gyrus, \hl{Right Inferior Temporal Gyrus} \\
+	21 & 6.0037 & 2.83e-07 & \hl{Right Cingulate Gyrus}, Right Precuneus \\
+	202 & 5.7008 & 1.74e-06 & \hl{Left Declive}, \hl{Left Culmen} \\
+	136 & 5.6781 & 1.98e-06 & \hl{Right Parahippocampal Gyrus} \\
+	253 & 5.5841 & 3.40e-06 & Right Medial Frontal Gyrus, Left Medial Frontal Gyrus, \hl{Left Paracentral Lobule} \\
+	113 & 5.4798 & 6.17e-06 & \hl{Right Culmen}, \hl{Right Parahippocampal Gyrus} \\
 	271 & 5.3379 & 1.41e-05 & Left Medial Frontal Gyrus \\
-	215 & 5.2170 & 2.86e-05 & Left Inferior Frontal Gyrus \\
-	130 & 5.1917 & 2.99e-05 & Right Uvula \\
-	257 & 5.0391 & 6.68e-05 & Leeft Lingual Gyrus, Left Inferior Occipital Gyrus, Left Middle Occipital Gyrus \\
-	237 & 5.0153 & 7.61e-05 & Left Superior Temporal Gyrus, Left Precentral Gyrus \\
-	245 & 5.0136 & 7.68e-05 & Left Superior Temporal Gyrus, Left Inferior Parietal Lobule \\
-	80 & 4.7380 & 3.07e-04 & Right Superior Parietal Lobule, Right Precuneus \\
-	247 & 4.7039 & 3.63e-04 & Left Middle Occipital Gyrus, Left Inferior Occipital Gyrus \\
-	55 & 4.5641 & 7.10e-04 & Right Paracentral Lobule, Left Cingulate Gyrus, Right Medial Frontal Gyrus \\
+	215 & 5.2170 & 2.86e-05 & \hl{Left Inferior Frontal Gyrus} \\
+	130 & 5.1917 & 2.99e-05 & \hl{Right Uvula} \\
+	257 & 5.0391 & 6.68e-05 & Left Lingual Gyrus, \hl{Left Inferior Occipital Gyrus}, \hl{Left Middle Occipital Gyrus} \\
+	237 & 5.0153 & 7.61e-05 & \hl{Left Superior Temporal Gyrus}, \hl{Left Precentral Gyrus} \\
+	245 & 5.0136 & 7.68e-05 & \hl{Left Superior Temporal Gyrus}, \hl{Left Inferior Parietal Lobule} \\
+	80 & 4.7380 & 3.07e-04 & \hl{Right Superior Parietal Lobule}, Right Precuneus \\
+	247 & 4.7039 & 3.63e-04 & \hl{Left Middle Occipital Gyrus}, \hl{Left Inferior Occipital Gyrus} \\
+	55 & 4.5641 & 7.10e-04 & \hl{Right Paracentral Lobule}, Left Cingulate Gyrus, Right Medial Frontal Gyrus \\
 	8 & 4.5240 & 8.59e-04 & Right Postcentral Gyrus \\
 	45 & 4.4630 & 1.14e-03 & Right Medial Frontal Gyrus, Right Postcentral Gyrus \\
-	24 & 4.4623 & 1.15e-03 & Right Supramarginal Gyrus, Right Angular Gyrus, Right Inferior Parietal Lobule \\
-	84 & 4.4571 & 1.18e-03 & Left Cuneus, Right Precuneus, Right Cuneus \\
-	121 & 4.3935 & 1.58e-03 & Right Lingual Gyrus \\
-	206 & 4.1698 & 4.32e-03 & Left Inferior Frontal Gyrus \\
-	38 & 4.1499 & 4.83e-03 & Right Uvula \\
-	193 & 4.1029 & 5.74e-03 & Left Middle Frontal Gyrus \\
-	28 & 4.0366 & 7.66e-03 & Right Postcentral Gyrus, Right Precentral Gyrus \\
-	213 & 3.9603 & 1.05e-02 & Left Uncus, Left Parahippocampal Gyrus \\
-	147 & 3.8788 & 1.48e-02 & Left Middle Occipital Gyrus, Left Middle Temporal Gyrus \\
-	87 & 3.8019 & 2.01e-02 & Right Fusiform Gyrus, Right Middle Temporal Gyrus, Right Middle Occipital Gyrus \\
-	218 & 3.6315 & 3.96e-02 & Left Precentral Gyrus \\
+	24 & 4.4623 & 1.15e-03 & Right Supramarginal Gyrus, \hl{Right Angular Gyrus}, Right Inferior Parietal Lobule \\
+	84 & 4.4571 & 1.18e-03 & \hl{Left Cuneus}, Right Precuneus, Right Cuneus \\
+	121 & 4.3935 & 1.58e-03 & \hl{Right Lingual Gyrus} \\
+	206 & 4.1698 & 4.32e-03 & \hl{Left Inferior Frontal Gyrus} \\
+	38 & 4.1499 & 4.83e-03 & \hl{Right Uvula} \\
+	193 & 4.1029 & 5.74e-03 & \hl{Left Middle Frontal Gyrus} \\
+	28 & 4.0366 & 7.66e-03 & Right Postcentral Gyrus, \hl{Right Precentral Gyrus} \\
+	213 & 3.9603 & 1.05e-02 & \hl{Left Uncus}, Left Parahippocampal Gyrus \\
+	147 & 3.8788 & 1.48e-02 & \hl{Left Middle Occipital Gyrus}, Left Middle Temporal Gyrus \\
+	87 & 3.8019 & 2.01e-02 & \hl{Right Fusiform Gyrus}, Right Middle Temporal Gyrus, \hl{Right Middle Occipital Gyrus} \\
+	218 & 3.6315 & 3.96e-02 & \hl{Left Precentral Gyrus} \\
 	103 & 3.5907 & 4.64e-02 & Right Inferior Frontal Gyrus \\
 \end{longtable}
 
@@ -527,20 +530,20 @@ We used GWAK to determine the value of $k$ that maximized the NPDR standardized 
 	3 & 9.3489 & 1.67e-18 & Right Medial Frontal Gyrus \\
 	76 & 9.0332 & 3.04e-17 & NA \\
 	79 & 9.0313 & 3.08e-17 & NA \\
-	175 & 8.4150 & 6.68e-15 & Right Declive \\
+	175 & 8.4150 & 6.68e-15 & \hl{Right Declive} \\
 	219 & 7.8334 & 7.68e-13 & NA\\
 	35 & 7.7575 & 1.39e-12 & Right Middle Temporal Gyrus\\
-	231 & 7.5458 & 7.13e-12 & Left Declive, Right Declive, Left Lingual Gyrus\\
+	231 & 7.5458 & 7.13e-12 & \hl{Left Declive}, \hl{Right Declive}, Left Lingual Gyrus\\
 	174 & 7.5352 & 7.72e-12 & NA \\
-	256 & 7.3053 & 4.32e-11 & Left Declive \\
+	256 & 7.3053 & 4.32e-11 & \hl{Left Declive} \\
 	141 & 7.2127 & 8.50e-11 & NA \\
 	13 & 6.2918 & 4.65e-08 & NA \\
 	158 & 6.2916 & 4.67e-08 & NA \\
 	196 & 5.9340 & 4.33e-07 & NA \\
-	126 & 4.9343 & 1.15e-04 & Right Uvula\\
+	126 & 4.9343 & 1.15e-04 & \hl{Right Uvula} \\
 	31 & 4.8789 & 1.52e-04 & NA \\
 	70 & 4.8009 & 2.25e-04 & NA \\
-	115 & 4.6691 & 4.33e-04 & Locus Coeruleus \\ \bottomrule
+	115 & 4.6691 & 4.33e-04 & \hl{Locus Coeruleus} \\ \bottomrule
 \end{tabular}
 \end{table}
 
