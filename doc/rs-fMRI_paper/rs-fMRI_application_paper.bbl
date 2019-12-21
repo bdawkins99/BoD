@@ -52,17 +52,6 @@ David~{W}. {P}entico.
 \newblock {\em {European Journal of Operational Research}}, 176:774--793,
   November 2007.
 
-\bibitem{R}
-{R Core Team}.
-\newblock {\em {R: A Language and Environment for Statistical Computing}}.
-\newblock R Foundation for Statistical Computing, Vienna, Austria, 2017.
-
-\bibitem{lpsolve}
-Michel Berkelaar and {others}.
-\newblock {\em lpSolve: Interface to 'Lp\_solve' v. 5.5 to Solve Linear/Integer
-  Programs}, 2015.
-\newblock R package version 5.6.13.
-
 \bibitem{robnik2003}
 Marko {R}obnik \v{S}ikonja and {I}gor {K}ononenko.
 \newblock Theoretical and {E}mpirical {A}nalysis of {R}elief{F} and
@@ -83,5 +72,16 @@ Ryan~J. Urbanowicz, Randal~S. Olson, Peter Schmitt, Melissa Meeker, and
   tool for finding gene-gene interactions and main effects in mRNA-Seq gene
   expression data}.
 \newblock {\em {PloS one}}, 8(12):e81527, 2013.
+
+\bibitem{R}
+{R Core Team}.
+\newblock {\em {R: A Language and Environment for Statistical Computing}}.
+\newblock R Foundation for Statistical Computing, Vienna, Austria, 2017.
+
+\bibitem{lpsolve}
+Michel Berkelaar and {others}.
+\newblock {\em lpSolve: Interface to 'Lp\_solve' v. 5.5 to Solve Linear/Integer
+  Programs}, 2015.
+\newblock R package version 5.6.13.
 
 \end{thebibliography}
