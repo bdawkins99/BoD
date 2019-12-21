@@ -1123,4 +1123,38 @@ year={2018}
   doi     = {10.3389/fpsyt.2019.00255},
 }
 
+@Article{zhang2018,
+  author  = {{F}ei-{F}ei {Z}hang and {W}ei {P}eng and {J}ohn {A}. {S}weeney and {Z}hi-{Y}un {J}ia and {Q}i-{Y}ong {G}ong},
+  title   = {{Brain structure alterations in depression: Psychoradiological evidence}},
+  journal = {{CNS Neuroscience \& Therapeutics}},
+  year    = {2018},
+  volume  = {24},
+  pages   = {994-1003},
+  month   = feb,
+  doi     = {10.1111/cns.12835},
+}
+
+@Article{liu2017,
+  author  = {{L}iu {CH} and {M}a {X} and {Y}uan {Z} and {S}ong {LP} and {J}ing {B} and {L}u {H}y and {T}ang {LR} and {F}an {J} and {W}alter {M} and {L}iu {CZ} and {W}ang {L} and {W}ang {CY}},
+  title   = {{Decreased Resting-State Activity in the Precuneus Is Associated With Depressive Episodes in Recurrent Depression}},
+  journal = {{J Clin Psychiatry}},
+  year    = {2017},
+  volume  = {78},
+  number  = {4},
+  pages   = {372-382},
+  month   = apr,
+  doi     = {10.4088/JCP.15m10022.},
+}
+
+@Article{guo2014,
+  author  = {{H}ao {G}uo and {C}hen {C}heng and {X}iaohua {C}ao and {J}ie {X}iang and {J}unjie {C}hen and {K}erang {Z}hang},
+  title   = {{Resting-state functional connectivity abnormalities in first-onset unmedicated depression}},
+  journal = {{Neural Regen Res.}},
+  year    = {2014},
+  volume  = {9},
+  number  = {2},
+  month   = jan,
+  doi     = {10.4103/1673-5374.125344},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
