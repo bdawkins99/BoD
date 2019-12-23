@@ -1157,4 +1157,164 @@ year={2018}
   doi     = {10.4103/1673-5374.125344},
 }
 
+@Article{bai2018,
+  author  = {{T}ongjian {B}ai and {M}eidan {Z}u and {Y}ang {C}hen and {W}en {X}ie and {C}hunlan {C}ai and {Q}iang {W}ei and {G}ong-{J}un {J}i and {Y}anghua {T}ian and {K}ai {W}ang},
+  title   = {{Decreased Connection Between Reward Systems and Paralimbic Cortex in Depressive Patients}},
+  journal = {{Frontiers in Neuroscience}},
+  year    = {2018},
+  volume  = {12},
+  number  = {462},
+  month   = jul,
+  doi     = {10.3389/fnins.2018.00462},
+}
+
+@Article{hamilton2015,
+  author  = {{J}. {P}aul {H}amilton and {M}adison {F}armer and {P}hoebe {F}ogelman and {I}an {H}. {G}otlib},
+  title   = {{Depressive Rumination, the Default-Mode Network, and the Dark Matter of Clinical Neuroscience}},
+  journal = {{Biol Psychiatry}},
+  year    = {2015},
+  volume  = {78},
+  number  = {4},
+  pages   = {224-230},
+  month   = aug,
+  doi     = {10.1016/j.biopsych.2015.02.020.},
+}
+
+@Article{yan2019-2,
+  author  = {{C}hao-{G}an {Y}an and {X}iao {C}hen and {L}e {L}i and {F}rancisco {X}avier {C}astellanos and {T}ong-{J}ian {B}ai and {Q}i-{J}ing {B}o and {J}un {C}ao and {G}uan-{M}ao {C}hen and {N}ing-{X}uan {C}hen and {W}ei {C}hen and {C}hang {C}heng and {Y}u-{Q}i {C}heng and {X}i-{L}ong {C}ui and {J}ia {D}uan and {Y}i-{R}u {F}ang and {Q}i-{Y}ong {G}ong and {W}en-{B}in {G}uo and {Z}heng-{H}ua {H}ou and {L}an {H}u and {L}i {K}uang and {F}eng {L}i and {K}ai-{M}ing {L}i and {T}ao {L}i and {Y}an-{S}ong {L}iu and {Z}he-{N}ing {L}iu and {Y}i-{C}heng {L}ong and {Q}ing-{H}ua {L}uo and {H}ua-{Q}ing {M}eng and {D}ai-{H}ui {P}eng and {H}ai-{T}ang {Q}iu and {J}iang {Q}iu and {Y}ue-{D}i {S}hen and {Y}u-{S}hu {S}hi and {C}huan-{Y}ue {W}ang and {F}ei {W}ang and {K}ai {W}ang and {L}i {W}ang and {X}iang {W}ang and {Y}ing {W}ang and {X}iao-{P}ing {W}u and {X}in-{R}an {W}u and {C}hun-{M}ing {X}ie and {G}uang-{R}ong {X}ie and {H}ai-{Y}an {X}ie and {P}eng {X}ie and {X}iu-{F}eng {X}u and {H}ong {Y}ang and {J}ian {Y}ang and {J}ia-{S}hu {Y}ao and {S}hu-{Q}iao {Y}ao and {Y}ing-{Y}ing {Y}in and {Y}ong-{G}ui {Y}uan and {A}i-{X}ia {Z}hang and {H}ong {Z}hang and {K}e-{R}ang {Z}hang and {L}ei {Z}hang and {Z}hi-{J}un {Z}hang and {R}u-{B}ai {Z}hou and {Yi}-{T}ing {Z}hou and {J}un-{J}uan {Z}hu and {C}hao-{J}ie {Z}ou and {T}ian-{M}ei {S}i and {X}i-{N}ian {Z}uo and {J}ing-{P}ing {Z}hao and {Y}u-{F}eng {Z}ang},
+  title   = {{Reduced default mode network functional connectivity in patients with recurrent major depressive disorder}},
+  journal = {{PNAS}},
+  year    = {2019},
+  volume  = {116},
+  number  = {18},
+  pages   = {9078-9083},
+  month   = apr,
+  url     = {www.pnas.org/cgi/doi/10.1073/pnas.1900390116},
+}
+
+@Article{lois2016,
+  author  = {{G}iannis {L}ois and {M}ich\'{e}le {W}essa},
+  title   = {{Differential association of default mode network connectivity and rumination in healthy individuals and remitted MDD patients}},
+  journal = {{Social Cognitive and Affective Neuroscience}},
+  year    = {2016},
+  pages   = {1792-1801},
+  month   = jul,
+  doi     = {10.1093/scan/nsw085},
+}
+
+@Article{guo2014-2,
+  author  = {{W}enbin {G}uo and {F}eng {L}iu and {J}ian {Z}hang and {Z}hikun {Z}hang and {L}iuyu {Y}u and {J}ianrong {L}iu and {H}uafu {C}hen and {C}hangqing {X}iao},
+  title   = {{Abnormal Default-Mode Network Homogeneity in First-Episode, Drug-Naive Major Depressive Disorder}},
+  journal = {{PLoS ONE}},
+  year    = {2014},
+  volume  = {9},
+  number  = {3},
+  month   = mar,
+  doi     = {10.1371/journal.pone.0091102},
+}
+
+@Article{menon2011,
+  author  = {{V}inod {M}enon},
+  title   = {{Large-scale brain networks and psychopathology: a unifying triple network model}},
+  journal = {{Trends in Cognitive Sciences}},
+  year    = {2011},
+  doi     = {10.1016/j.tics.2011.08.003},
+}
+
+@Article{zhao2019,
+  author  = {{Q}inghua {Z}hao and {Z}arnawab {N}. {K}. {S}wati and {H}ichem {M}etmer and {X}iaoshuang {S}ang and {J}ianfeng {L}u},
+  title   = {{Investigating executive control network and default mode network dysfunction in major depressive disorder}},
+  journal = {{Neuroscience Letters}},
+  year    = {2019},
+  volume  = {701},
+  month   = mar,
+  url     = {https://doi.org/10.1016/j.neulet.2019.02.045},
+}
+
+@Article{ellard2018,
+  author  = {{K}risten {K}. {E}llard and {J}ared {P}. {Z}immerman and {N}avneet {K}aur and {K}oene {R}. {A}. {V}an {D}ijk and {J}oshua {L}. {R}offman and {A}ndrew {A}. {N}ierenberg and {D}arin {D}. {D}ougherty and {T}hilo {D}eckersbach and {J}oan {A}. {C}amprodon},
+  title   = {{Functional Connectivity Between Anterior Insula and Key Nodes of Frontoparietal Executive Control and Salience Networks Distinguish Bipolar Depression From Unipolar Depression and Healthy Control Subjects}},
+  journal = {{Biological Psychiatry: Cognitive Neuroscience and Neuroimaging}},
+  year    = {2018},
+  volume  = {3},
+  pages   = {473-484},
+  month   = may,
+  issn    = {2451-9022},
+  url     = {https://doi.org/10.1016/j.bpsc.2018.01.013},
+}
+
+@Article{liu2012,
+  author  = {{L}i {L}iu and {L}ing-{L}i {Z}eng and {Y}aming {L}i and {Q}iongmin {M}a and {B}aojuan {L}i and {H}ui {S}hen and {D}ewen {H}u},
+  title   = {{Altered Cerebellar Functional Connectivity with Intrinsic Connectivity Networks in Adults with Major Depressive Disorder}},
+  journal = {{PLoS ONE}},
+  year    = {2012},
+  volume  = {7},
+  number  = {6},
+  month   = jun,
+  doi     = {10.1371/journal.pone.0039516},
+}
+
+@Article{schultz2018,
+  author  = {{D}ouglas {H}. {S}chultz and {T}akuya {L}to and {L}evi {I}. {S}olomyak and {R}ichard {H}. {C}hen and {R}avi {D}. {M}ill and {A}lan {A}ntecevic and {M}ichael {W}. {C}ole},
+  title   = {{Global connectivity of the fronto-parietal cognitive control network is related to depression symptoms in the general population}},
+  journal = {{Network Neuroscience}},
+  year    = {2018},
+  month   = apr,
+  url     = {https://doi.org/10.1162/netn_a_00056},
+}
+
+@Article{wu2017,
+  author  = {{X}ing-jie {W}u and {L}ing-{L}i {Z}eng and {H}ui {S}hen and {L}in {Y}uan and {J}ian {Q}in and {P}eng {Z}hang and {D}ewen {H}u},
+  title   = {{Functional network connectivity alterations in schizophrenia and depression}},
+  journal = {{Psychiatry Research: Neuroimaging}},
+  year    = {2017},
+  volume  = {263},
+  pages   = {113-120},
+  month   = mar,
+  doi     = {http://dx.doi.org/10.1016/j.pscychresns.2017.03.012},
+}
+
+@Article{zhi2018,
+  author  = {{D}ongmei {Z}hi and {V}ince {D}. {C}alhoun and {L}uxian {L}v and {X}iaohong {M}a and {Q}ing {K}e and {Z}ening {F}u and {Y}uhui {D}u and {Y}ongfeng {Y}ang and {X}iao {Y}ang and {M}iao {P}an and {S}hile {Q}i and {R}ongtao {J}iang and {Q}ingbao {Y}u and {J}ing {S}ui},
+  title   = {{Aberrant Dynamic Functional Network Connectivity and Graph Properties in Major Depressive Disorder}},
+  journal = {{Frontiers in Psychiatry}},
+  year    = {2018},
+  volume  = {9},
+  number  = {339},
+  month   = jul,
+  doi     = {10.3389/fpsyt.2018.00339},
+}
+
+@Article{zhuo2017,
+  author  = {{C}huanjun {Z}huo and {J}iajia {Z}hu and {C}hunli {W}ang and {H}ongru {Q}u and {X}iaolei {M}a and {W}en {Q}in},
+  title   = {{Different spatial patterns of brain atrophy and global functional connectivity impairments in major depressive disorder}},
+  journal = {{Brain Imaging and Behavior}},
+  year    = {2017},
+  volume  = {11},
+  pages   = {1678-1689},
+  doi     = {10.1007/s11682-016-9645-z},
+}
+
+@Article{sikora2017,
+  author  = {{M}agdalena {S}ikora and {J}oseph {H}effernan and {E}rich {T}. {A}very and {B}rian {J}. {M}ickey and {J}on-{K}ar {Z}ubieta and {M}arta {P}eci\~{n}a},
+  title   = {{Salience Network Functional Connectivity Predicts Placebo Effects in Major Depression}},
+  journal = {{Biol Psychiatry Cogn Neurosci Neuroimaging}},
+  year    = {2017},
+  volume  = {1},
+  number  = {1},
+  month   = jan,
+  doi     = {10.1016/j.bpsc.2015.10.002.},
+}
+
+@Article{wang2016,
+  author  = {{X}iang {W}ang and {D}ost \"{O}ng\"{u}r and {R}andy {P}. {A}uerbach and {S}huqiao {Y}ao},
+  title   = {{Cognitive Vulnerability to Majory Depression: View from the Intrinsic Network and Cross-network Interactions}},
+  journal = {{Harvard Review of Psychiatry}},
+  year    = {2016},
+  volume  = {24},
+  number  = {3},
+  month   = jun,
+  doi     = {10.1097/HRP.0000000000000081},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

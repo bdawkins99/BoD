@@ -1314,7 +1314,7 @@ year={2018}
   volume  = {24},
   number  = {3},
   month   = jun,
-  doi     = {10.1097/HRP.0000000000000081},
+  doi     = {10.1097/HRP.0000000000000081?},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
