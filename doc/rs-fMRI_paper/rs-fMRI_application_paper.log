@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  25 DEC 2019 13:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  25 DEC 2019 17:16
 entering extended mode
 **./rs-fMRI_application_paper.tex
 (rs-fMRI_application_paper.tex
@@ -1256,32 +1256,28 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[10] [11]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-(rs-fMRI_application_paper.bbl [12] [13] [14] [15] [16] [17])
-
+[10] [11] [12] (rs-fMRI_application_paper.bbl [13] [14] [15] [16] [17] [18]
+[19]) 
 AED: lastpage setting LastPage
-[18]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 566.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 566.
+[20]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 568.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 568.
  (rs-fMRI_application_paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 566.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 566.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 568.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 568.
 Package rerunfilecheck Info: File `rs-fMRI_application_paper.out' has not chang
 ed.
 (rerunfilecheck)             Checksum: 15578212149CE2DAD2E8DF7601EC908A;661.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 566.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 568.
  ) 
 Here is how much of TeX's memory you used:
- 23764 strings out of 492946
- 418547 string characters out of 3135528
- 577622 words of memory out of 3000000
- 26978 multiletter control sequences out of 15000+200000
- 19538 words of font info for 114 fonts, out of 3000000 for 9000
+ 23816 strings out of 492946
+ 419179 string characters out of 3135528
+ 573390 words of memory out of 3000000
+ 27000 multiletter control sequences out of 15000+200000
+ 19754 words of font info for 116 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,13n,92p,1886b,474s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,13n,92p,2002b,476s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\bdawk\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/fdsymbol/dpi
 420\FdSymbolB-Book.pk> <C:\Users\bdawk\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour
 /public/fdsymbol/dpi600\FdSymbolE-Book.pk> <C:\Users\bdawk\AppData\Local\MiKTeX
@@ -1318,9 +1314,9 @@ nts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr
 /type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/u
 rw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uh
 vr8a.pfb>
-Output written on rs-fMRI_application_paper.pdf (18 pages, 1632006 bytes).
+Output written on rs-fMRI_application_paper.pdf (20 pages, 1650723 bytes).
 PDF statistics:
- 733 PDF objects out of 1000 (max. 8388607)
- 103 named destinations out of 1000 (max. 500000)
+ 814 PDF objects out of 1000 (max. 8388607)
+ 129 named destinations out of 1000 (max. 500000)
  13480 words of extra memory for PDF output out of 14400 (max. 10000000)
 

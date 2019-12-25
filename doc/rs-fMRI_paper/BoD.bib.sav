@@ -1405,7 +1405,7 @@ https://doi.org/10.1186/s12888-018-1955-9},
   volume  = {13},
   number  = {89},
   month   = may,
-  doi     = {10.3389/fnbeh.2019.00089},
+  doi     = {10.3389/fnbeh.2019.00089?},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
