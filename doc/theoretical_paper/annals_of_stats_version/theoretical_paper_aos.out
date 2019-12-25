@@ -1,0 +1,40 @@
+\BOOKMARK [1][-]{section*.2}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.1}{Limit distribution for \040on null data}{}% 2
+\BOOKMARK [2][-]{subsection.1.1}{Asymptotic normality of pairwise distances}{section.1}% 3
+\BOOKMARK [1][-]{section.2}{ metric moments for continuous data distributions}{}% 4
+\BOOKMARK [2][-]{subsection.2.1}{Distribution of }{section.2}% 5
+\BOOKMARK [3][-]{subsubsection.2.1.1}{Standard normal data}{subsection.2.1}% 6
+\BOOKMARK [3][-]{subsubsection.2.1.2}{Standard uniform data}{subsection.2.1}% 7
+\BOOKMARK [2][-]{subsection.2.2}{Manhattan }{section.2}% 8
+\BOOKMARK [3][-]{subsubsection.2.2.1}{Standard normal data}{subsection.2.2}% 9
+\BOOKMARK [3][-]{subsubsection.2.2.2}{Standard uniform data}{subsection.2.2}% 10
+\BOOKMARK [3][-]{subsubsection.2.2.3}{Distribution of one-dimensional projected pairwise distance onto an attribute}{subsection.2.2}% 11
+\BOOKMARK [2][-]{subsection.2.3}{Euclidean }{section.2}% 12
+\BOOKMARK [3][-]{subsubsection.2.3.1}{Standard normal data}{subsection.2.3}% 13
+\BOOKMARK [3][-]{subsubsection.2.3.2}{Standard uniform data}{subsection.2.3}% 14
+\BOOKMARK [2][-]{subsection.2.4}{Distributions of attribute range-normalized \040metric}{section.2}% 15
+\BOOKMARK [3][-]{subsubsection.2.4.1}{Standard normal data}{subsection.2.4}% 16
+\BOOKMARK [3][-]{subsubsection.2.4.2}{Standard uniform data}{subsection.2.4}% 17
+\BOOKMARK [2][-]{subsection.2.5}{Range-Normalized Manhattan }{section.2}% 18
+\BOOKMARK [3][-]{subsubsection.2.5.1}{Standard normal data}{subsection.2.5}% 19
+\BOOKMARK [3][-]{subsubsection.2.5.2}{Standard uniform data}{subsection.2.5}% 20
+\BOOKMARK [2][-]{subsection.2.6}{Range-Normalized Euclidean }{section.2}% 21
+\BOOKMARK [3][-]{subsubsection.2.6.1}{Standard normal data}{subsection.2.6}% 22
+\BOOKMARK [3][-]{subsubsection.2.6.2}{Standard uniform data}{subsection.2.6}% 23
+\BOOKMARK [1][-]{section.3}{GWAS distance distributions}{}% 24
+\BOOKMARK [2][-]{subsection.3.1}{GM distance distribution}{section.3}% 25
+\BOOKMARK [2][-]{subsection.3.2}{AM distance distribution}{section.3}% 26
+\BOOKMARK [2][-]{subsection.3.3}{TiTv distance distribution}{section.3}% 27
+\BOOKMARK [2][-]{subsection.3.4}{Distribution of one-dimensional projected GWAS distance onto a SNP}{section.3}% 28
+\BOOKMARK [1][-]{section.4}{Time series correlation-based distance distribution}{}% 29
+\BOOKMARK [2][-]{subsection.4.1}{Max-min normalized time series correlation-based distance distribution}{section.4}% 30
+\BOOKMARK [2][-]{subsection.4.2}{One-dimensional projection of rs-fMRI distance onto a single ROI}{section.4}% 31
+\BOOKMARK [2][-]{subsection.4.3}{Normalized Manhattan \040for rs-fMRI}{section.4}% 32
+\BOOKMARK [1][-]{section.5}{Comparison of theoretical and sample moments}{}% 33
+\BOOKMARK [1][-]{section.6}{Effects of correlation on distances}{}% 34
+\BOOKMARK [2][-]{subsection.6.1}{Continuous data}{section.6}% 35
+\BOOKMARK [2][-]{subsection.6.2}{GWAS data}{section.6}% 36
+\BOOKMARK [2][-]{subsection.6.3}{Time-series derived correlation-based datasets}{section.6}% 37
+\BOOKMARK [1][-]{section.7}{Discussion}{}% 38
+\BOOKMARK [1][-]{section*.4}{References}{}% 39
+\BOOKMARK [1][-]{section*.5}{Author's addresses}{}% 40

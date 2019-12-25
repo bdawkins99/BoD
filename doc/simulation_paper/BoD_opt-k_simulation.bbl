@@ -1,0 +1,31 @@
+ \newcommand{\noop}[1]{}
+\begin{thebibliography}{1}
+
+\bibitem{urbanowicz17}
+Ryan~J. Urbanowicz, Randal~S. Olson, Peter Schmitt, Melissa Meeker, and
+  Jason~H. Moore.
+\newblock Benchmarking relief-based feature selection methods for
+  bioinformatics data mining.
+\newblock {\em Journal of Biomedical Informatics}, 85:168--188, 2018.
+
+\bibitem{mckinney13}
+{B}rett~{A} McKinney, {B}ill~{C} {W}hite, {D}iane~{E} {G}rill, {P}eter~{W}
+  {Li}, {R}ichard~{B} {K}ennedy, {G}regory~{A} {P}oland, and {A}nn~{L} {O}berg.
+\newblock {ReliefSeq: a gene-wise adaptive-K nearest-neighbor feature selection
+  tool for finding gene-gene interactions and main effects in mRNA-Seq gene
+  expression data}.
+\newblock {\em {PloS one}}, 8(12):e81527, 2013.
+
+\bibitem{stir}
+Trang~T Le, Ryan~J Urbanowicz, Jason~H Moore, and Brett~A McKinney.
+\newblock Statistical inference relief (stir) feature selection.
+\newblock {\em Bioinformatics}, page bty788, 2018.
+
+\bibitem{lareau15}
+Caleb~A Lareau, Bill~C White, Ann~L Oberg, and Brett~A McKinney.
+\newblock Differential co-expression network centrality and machine learning
+  feature selection for identifying susceptibility hubs in networks with
+  scale-free structure.
+\newblock {\em BioData mining}, 8(1):5, 2015.
+
+\end{thebibliography}

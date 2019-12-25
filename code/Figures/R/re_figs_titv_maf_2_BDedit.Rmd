@@ -1,0 +1,197 @@
+---
+title: "Ridgelines for varying maf and titv: BD edit"
+output: html_document
+---
+
+Setup:
+
+```{r}
+library(tidyverse)
+rm(list = ls())
+
+lowers <- c(0.01, 0.1, 0.2, 0.3)
+uppers <- c(0.1, 0.2, 0.3, 0.4)
+etas <- c(2, 1.5, 1, 0.5)
+
+n_iters <- 100
+m <- 100
+p <- 100
+
+source('C:/Users/bdawk/Documents/KNN_project_output/R_code_and_output/code/util_funcs2.R') # assumes the working directory is the main project folder
+
+```
+
+Vary MAF:
+
+```{r}
+# rm(list = ls())
+source('C:/Users/bdawk/Documents/KNN_project_output/R_code_and_output/code/util_funcs2.R') # assumes the working directory is the main project folder
+
+sim_dfs <- data.frame()  
+for (maf_idx in 1:4) {
+  long.dist.vec <- NULL
+  results <- matrix(nrow = n_iters, ncol = 5)
+  set.seed(1989)
+  
+  my.eta <- 2
+  
+  g0 <- runif(1, min = 0.01, max = (my.eta / (my.eta + 1) - 0.01))
+  g1 <- 1/(my.eta+1)
+  g2 <- my.eta / (my.eta + 1) - g0
+  
+  PuPy.samp <- sample(
+    c(3, 4, 5),
+    size = p,
+    prob = c(g0, g1, g2),
+    replace = T
+  )
+  
+  probs <- runif(p, lowers[maf_idx], uppers[maf_idx])
+  
+  for(myiter in 1:n_iters){
+    results_list <- get_means_sds(my.eta = 2, m=m, p=p, probs=probs, gammas=c(g0,g1,g2), PuPy=PuPy.samp)
+  }
+
+  sim_df <- tibble(Value = results_list$long.dist.vec)
+  sim_dfs <- rbind(sim_dfs, data.frame(sim_df))
+}
+
+```
+
+
+```{r}
+sim_dfs$maf <- rep((lowers + uppers) / 2, each = p * (p - 1) / 2)
+
+joy_9 <-
+  sim_dfs %>%
+  mutate(mafFct = fct_rev(as.factor(paste(
+    'MAF = ', format(maf, 3)
+  )))) %>%
+  ggplot(aes(x = Value, y = mafFct, fill = ..x..)) +
+  # geom_density(alpha = 0.5) +
+  ggridges::geom_density_ridges_gradient(
+    aes(),
+    gradient_lwd = 1.,
+    scale = 2,
+    alpha = .8,
+    color = "white"
+  ) +
+  ggridges::theme_ridges(grid = F) +
+  scale_fill_viridis_c() +
+  labs(x = NULL, y = NULL) +
+  theme(legend.position = 'None',
+        legend.title = element_blank()) +
+  scale_x_continuous(limits = c(0, 35)) +
+  scale_y_discrete(expand = c(0.01, 0))
+
+joy_9
+# joy_6 %>%
+  # ggsave(filename = 'code/Figures/R/re_fig_6b.pdf', width = 5, height = 4)
+```
+
+
+
+
+Generate varied Ti/Tv histograms
+```{r}
+sim_dfs <- data.frame()  
+
+for (titv in 1:4) {
+  my.eta <- etas[titv]
+  results <- matrix(nrow = n_iters, ncol = 5)
+  set.seed(1989)
+  
+  g0 <- runif(1, min = 0.01, max = (my.eta / (my.eta + 1) - 0.01))
+  g1 <- 1/(my.eta+1)
+  g2 <- my.eta / (my.eta + 1) - g0
+  
+  PuPy.samp <- sample(
+    c(3, 4, 5),
+    size = p,
+    prob = c(g0, g1, g2),
+    replace = T
+  )
+  
+  probs <- runif(p, lowers[2], uppers[2])
+  
+  for(myiter in 1:n_iters){
+    # print(myiter)
+    results_list <- get_means_sds(my.eta, m=m, p=p, probs=probs, gammas=c(g0,g1,g2), PuPy=PuPy.samp)
+  }
+
+  sim_df <- tibble(Value = results_list$long.dist.vec)
+  sim_dfs <- rbind(sim_dfs, data.frame(sim_df))
+}
+
+```
+
+
+Now let's draw:
+
+```{r}
+# deltas_df$titv <- etas
+# deltas_df$titv <- rep(etas, each = 2)
+# fig_null <- deltas_df %>%
+#   ggplot(aes(titv, Means, 
+#              color = fct_reorder2(Type, titv, Means),
+#              fill = fct_reorder2(Type, titv, Means))) +
+#   geom_line() +
+#   geom_line(aes(y = Means - SDs), linetype = 2) +
+#   geom_line(aes(y = Means + SDs), linetype = 2) +
+#   labs(x = 'Ti/Tv', y = 'Mean ± SD') +
+#   theme_bw() +
+#   theme(legend.position = 'None',
+#         legend.title = element_blank()) +
+#   scale_color_viridis_d() +
+#   scale_fill_viridis_d()
+# fig_null
+
+# cowplot::plot_grid(fig_10, fig_9, labels = 'AUTO') %>%
+#   ggsave(filename = 'code/Figures/R/re_fig_9_10.pdf',
+#        width = 7, height = 3)
+```
+
+
+```{r}
+sim_dfs$titv <- rep(etas, each = p * (p - 1) / 2)
+
+joy_10 <-
+  sim_dfs %>%
+  mutate(mafFct = fct_rev(as.factor(paste(
+    'Ti/Tv = ', format(titv, 3)
+  )))) %>%
+  ggplot(aes(x = Value, y = mafFct, fill = ..x..)) +
+  # geom_density(alpha = 0.5) +
+  ggridges::geom_density_ridges_gradient(
+    aes(),
+    gradient_lwd = 1.,
+    scale = 2,
+    alpha = .8,
+    color = "white"
+  ) +
+  ggridges::theme_ridges(grid = F) +
+  scale_fill_viridis_c() +
+  labs(x = NULL, y = NULL) +
+  theme(legend.position = 'None',
+        legend.title = element_blank()) +
+  scale_x_continuous(limits = c(5, 30)) +
+  scale_y_discrete(expand = c(0.01, 0))
+
+joy_10
+maf_titv_plot <- cowplot::plot_grid(joy_10, joy_9, labels = 'AUTO') 
+my_title <- cowplot::ggdraw() + 
+  cowplot::draw_label("") 
+  #cowplot::draw_label("Ti/Tv distance as a function of Ti/Tv ratio and average MAF") 
+
+final_ab <- cowplot::plot_grid(my_title, maf_titv_plot, ncol = 1, rel_heights=c(0.1, 1))
+save(my_title, joy_10, joy_9, file = 'C:/Users/bdawk/Documents/KNN_project_output/R_code_and_output/code/titv_maf.Rdata')
+
+# final_ab %>%
+#   ggsave(filename = 'code/Figures/R/re_fig_9_10b.pdf',
+#        width = 7, height = 3)
+
+```
+
+
+
+

@@ -1,0 +1,92 @@
+\RequirePackage[hyphens]{url}
+\documentclass[hidelinks,a4paper,border=1pt]{standalone}
+%\usepackage[top=0.1in, bottom=0.1in, left=0.1in, right=0.1in]{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{url}
+%\usepackage[hyphens]{url}
+\usepackage{hyperref}
+\usepackage{breakurl}
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{amssymb}
+\usepackage[mathscr]{euscript}
+%\renewcommand{\rmdefault}{bch} % change default font
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{shapes}
+\usepackage{enumitem}
+\setlength{\parindent}{0in}
+\usepackage{bm}
+\usepackage{multirow}
+\usepackage{adjustbox}
+\usepackage{scalerel}
+\usepackage[many]{tcolorbox}
+\usepackage{booktabs}
+%\usepackage{adjustbox}
+%>{\centering\arraybackslash}m{3cm}
+%\newcolumntype{Y}{>{\small\raggedright\arraybackslash}X}
+%\newcolumntype{C}{>{\centering\arraybackslash}m{3cm}}
+\newcolumntype{C}{>{$}c<{$}}
+%\captionsetup{
+%	justification = centering
+%}
+
+\newcommand{\myfrac}[2]{\displaystyle \frac{#1}{#2}}
+\newcommand{\dsum}{\displaystyle \sum}
+%\newcommand{\mystrut}{\rule[10pt]{10pt}{20pt}}
+\newcommand{\mystrut}{\rule[1\dp\strutbox]{0pt}{\baselineskip}}
+\newcommand{\mysup}[1]{\scaleto{\rule[2.9\dp\strutbox]{0pt}{-1\baselineskip}^{#1}}{12pt}}
+\newcommand{\mysub}[1]{\scaleto{\rule[-1.5\dp\strutbox]{-2.5pt}{-1\baselineskip}_{#1}}{5pt}}
+
+\doublespacing
+\pagenumbering{gobble}
+\begin{document}
+	
+	%\begin{table}[h!]
+	\setlength\arrayrulewidth{1.2pt}
+	\def\arraystretch{1.8}
+	\begin{tabular}{|@{\hspace{-0.3em}}c@{\hspace{-0.3em}}|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{1.3cm}|@{\hspace{0.1em}}c@{\hspace{-0.8em}}|@{}m{0pt}@{}}\hline 
+		& & & & \\ [-10ex]
+		{\bm{$q$}-\textbf{Metric}} & {\textbf{Data}} & {\textbf{Stat}} & {\textbf{Formula}} (\textbf{Eq.} \bm{$\#$}) & \\ [0ex] \hline 
+		\multirow{4}{*}{\vspace{-2.5cm} {\begin{tabular}{c} max-min \\ [-5ex] normalized \\ [-5ex] (\bm{$L_1$})\end{tabular}}} & \multirow{2}{*}{\vspace{-2.3cm} $\mathcal{N}(0,1)$} & \vspace{0.3cm} mean & 
+		{\begin{tabular}{c} \\ [-9.15ex]
+				\hspace{0.6cm} {\Large $\frac{p}{\sqrt{\pi} \mu^{(1)}_\text{max}(m)}$} \hspace{0.2cm} ({\small \textbf{93}})\\ [2ex]
+				$\begin{aligned}
+				&\hspace{0.1cm} \text{where } \hspace{0.2cm} \mu^{(1)}_\text{max}(m) = \frac{\text{log}(\text{log}(2))}{\Phi^{-1}\left(\frac{1}{m}\right)} - \Phi^{-1}\left(\frac{1}{m}\right)
+				\end{aligned}$
+		\end{tabular}} & \\ [7.5ex] \cline{3-4}
+		& & \vspace{0.3cm} variance & {\begin{tabular}{c} \\ [-8ex]
+				\hspace{0.6cm} {\Large $\frac{12p(\pi-2)\text{log}(m)}{\pi\left(\pi^2 + 24\left[\mu^{(1)}_\text{max}(m)\right]^2\text{log}(m)\right)}$} \hspace{0.2cm} ({\small \textbf{93}})\\ [3ex]
+				$\begin{aligned}
+				&\hspace{0.1cm} \text{where } \hspace{0.2cm} \mu^{(1)}_\text{max}(m) = \frac{\text{log}(\text{log}(2))}{\Phi^{-1}\left(\frac{1}{m}\right)} - \Phi^{-1}\left(\frac{1}{m}\right)
+				\end{aligned}$
+		\end{tabular}} & \\ [8.5ex] \cline{2-4}
+		& \multirow{2}{*}{\vspace{-0.5cm} $\mathcal{U}(0,1)$} & mean & {\begin{tabular}{cc} & \\ [-10ex]
+				{\Large \hspace{0.92cm} $\frac{(m+1)p}{3(m-1)}$} & ({\small \textbf{101}})\end{tabular}} & \\ [1.5ex] \cline{3-4}
+		& & variance & {\begin{tabular}{cc} & \\ [-10ex]
+				{\Large \hspace{0.92cm} $\frac{(m+2)(m+1)^2p}{18(m^3-m+2)}$} & ({\small \textbf{48}})\end{tabular}} & \\ [1.5ex] \cline{1-4}
+		\multirow{4}{*}{\vspace{-2.5cm} {\begin{tabular}{c} max-min \\ [-5ex] normalized \\ [-5ex] (\bm{$L_2$})\end{tabular}}} & \multirow{2}{*}{\vspace{-2.5cm} $\mathcal{N}(0,1)$} & mean & 
+		{\begin{tabular}{c} \\ [-8ex]
+				\hspace{0.8cm} {\Large $\frac{\sqrt{2p - 1}}{2 \mu^{(1)}_\text{max}(m)}$} \hspace{0.2cm} ({\small \textbf{93}})\\ [2ex]
+				$\begin{aligned}
+				&\hspace{0.1cm} \text{where } \hspace{0.2cm} \mu^{(1)}_\text{max}(m) = \frac{\text{log}(\text{log}(2))}{\Phi^{-1}\left(\frac{1}{m}\right)} - \Phi^{-1}\left(\frac{1}{m}\right)
+				\end{aligned}$
+		\end{tabular}} & \\ [8ex] \cline{3-4}
+		& & variance &
+		{\begin{tabular}{c} \\ [-8.1ex]
+				\hspace{0.6cm} {\Large $\frac{6\text{log}(m)}{\pi^2 + 24\left[\mu^{(1)}_\text{max}(m)\right]^2\text{log}(m)}$} \hspace{0.2cm} ({\small \textbf{93}})\\ [3ex]
+				$\begin{aligned}
+				&\hspace{0.1cm} \text{where } \hspace{0.2cm} \mu^{(1)}_\text{max}(m) = \frac{\text{log}(\text{log}(2))}{\Phi^{-1}\left(\frac{1}{m}\right)} - \Phi^{-1}\left(\frac{1}{m}\right)
+				\end{aligned}$
+		\end{tabular}} & \\ [8.5ex] \cline{2-4}
+		& \multirow{2}{*}{\vspace{-0.5cm} $\mathcal{U}(0,1)$} & mean &
+		{\begin{tabular}{cc} & \\ [-10ex]
+				{\Large \hspace{0.8cm} $\sqrt{\frac{p}{6} - \frac{7}{120}}\left(\frac{m+1}{m-1}\right)$} & ({\small \textbf{101}})\end{tabular}} & \\ [1.5ex] \cline{3-4}
+		& & variance & 
+		{\begin{tabular}{cc} & \\ [-10ex]
+				{\Large \hspace{0.87cm} $\frac{7(m+2)(m+1)^2}{120(m^3-m+2)}$} & ({\small \textbf{101}})\end{tabular}} & \\ [1.5ex] \hline
+	\end{tabular}
+	%\end{table}
+	
+\end{document}

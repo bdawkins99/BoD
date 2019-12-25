@@ -1,0 +1,45 @@
+\documentclass[hidelinks,12pt,dvipsnames,border=2pt]{standalone}
+%\usepackage[top=0.7in, bottom=0.8in, left=1in, right=1in]{geometry}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usetikzlibrary{arrows}
+\usetikzlibrary{shapes}
+\usepackage{enumitem}
+\usepackage{bm}
+\usepackage{mathdots}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usetikzlibrary{shadings}
+\usetikzlibrary{decorations.pathreplacing}
+\usepackage{helvet}
+\usepackage{url}
+\usepackage{graphicx}
+\usetikzlibrary{arrows.meta,positioning,fit,calc}
+\renewcommand{\familydefault}{\sfdefault}
+
+
+\usetikzlibrary{arrows,decorations.pathmorphing,backgrounds,fit,positioning,shapes.symbols,chains}
+
+\begin{document}
+	
+% trim=left botm right top
+\begin{tikzpicture}
+
+% histograms
+\node at (0,0) {\includegraphics[width=\textwidth]{fmri_histogram_p10.pdf}};
+\node at (14,0) {\includegraphics[width=\textwidth]{fmri_histogram_p50.pdf}};
+\node at (0,-9.2) {\includegraphics[width=\textwidth]{fmri_histogram_p150.pdf}};
+\node at (14,-9.2) {\includegraphics[width=\textwidth]{fmri_histogram_p300.pdf}};
+
+% y label
+\node[rotate=90,xscale=2,yscale=2] at (-7.7,-3.9) {Density};
+
+% x label
+\node[xscale=2,yscale=2] at (7.75,-14) {Distances};
+
+% title
+\node[xscale=2,yscale=2] at (7.75,5.5) {Gaussian Convergence of rs-fMRI Distances};
+
+\end{tikzpicture}
+
+\end{document}

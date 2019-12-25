@@ -1,0 +1,45 @@
+\documentclass[border=1pt]{standalone}
+\usepackage{pgfplots}
+\usetikzlibrary{patterns}
+\begin{document}
+
+\pgfmathdeclarefunction{gauss}{2}{%
+  \pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}%
+}
+
+\begin{tikzpicture}
+\begin{axis}[
+  %no markers, domain=-4:4, samples=100,
+    no markers, domain=-4:4, samples=100,
+%  axis lines*=left,xlabel=$x$,
+  axis lines=none,xlabel=$\{D_{ij}\}_{j \neq i}$, xticklabels={$\bar{D}_i$},
+  every axis y label/.style={at=(current axis.above origin),anchor=south},
+  every axis x label/.style={at=(current axis.right of origin),anchor=west},
+  height=6cm, width=12cm,
+  xtick={0}, ytick=\empty,
+  enlargelimits=0.05, clip=false, axis on top,
+  grid = major
+  ]
+  \addplot [fill=black!20,draw=none, domain=-4:-1,postaction={pattern=north west lines, pattern color=black!30}] {gauss(0,1)} \closedcycle;
+  %\addplot [very thick,cyan!50!black] {gauss(4,1)};
+  %\addplot [very thick,cyan!50!black] {gauss(6.5,1)};
+  \addplot [very thick,black] {gauss(0,1)};
+
+%\draw [yshift=-0.6cm, latex-latex](axis cs:4,0) -- node [fill=white] {$1.96\sigma$} (axis cs:5.96,0);
+\end{axis}
+
+\node [text width=2cm] at (6,-0.2) (0lab) {$\bar{D}_i$};
+
+\draw [thick,dashed] (5.2,0.2) -- (5.2,4.22);
+\draw [-latex,line width=0.3mm] (0.2,0.2) -- (10,0.2);
+\draw [thick] (4.02,0.2) -- (4.02,2.65);
+\draw [-latex,line width=0.2mm] (4.02,-0.6) -- (4.02,0.1);
+\draw [thin] (4.024,-0.6) -- (3.72,-0.6);
+\node [rectangle,rounded corners,draw=black,text width=2.45cm,line width=0.2mm] at (2.39,-0.6) (form) {$R^\alpha_i = \bar{D}_i - \alpha \sigma_{\bar{D}_i}$};
+\node [text width=1.4cm] at (10.8,0.2) (x-axis) {$\{D_{ij}\}_{j \neq i}$};
+
+\node [rectangle,rounded corners,draw=black,text width=3.63cm,line width=0.2mm] at (2,3.0) (q) {$q_{\alpha} = \frac{1}{2}\left(1 - \texttt{erf}\left(\frac{\alpha}{\sqrt{2}}\right)\right)$};
+\draw [-latex,line width=0.2mm] (1.99,2.57) -- (2.9,0.9);
+
+\end{tikzpicture}
+\end{document}

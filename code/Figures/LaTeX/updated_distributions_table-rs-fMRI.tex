@@ -1,0 +1,71 @@
+\RequirePackage[hyphens]{url}
+\documentclass[hidelinks,a4paper,border=1pt]{standalone}
+%\usepackage[top=0.1in, bottom=0.1in, left=0.1in, right=0.1in]{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{url}
+%\usepackage[hyphens]{url}
+\usepackage{hyperref}
+\usepackage{breakurl}
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{amssymb}
+\usepackage[mathscr]{euscript}
+%\renewcommand{\rmdefault}{bch} % change default font
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{shapes}
+\usepackage{enumitem}
+\setlength{\parindent}{0in}
+\usepackage{bm}
+\usepackage{multirow}
+\usepackage{adjustbox}
+\usepackage{scalerel}
+\usepackage[many]{tcolorbox}
+\usepackage{booktabs}
+%\usepackage{adjustbox}
+%>{\centering\arraybackslash}m{3cm}
+%\newcolumntype{Y}{>{\small\raggedright\arraybackslash}X}
+%\newcolumntype{C}{>{\centering\arraybackslash}m{3cm}}
+\newcolumntype{C}{>{$}c<{$}}
+%\captionsetup{
+%	justification = centering
+%}
+
+\newcommand{\myfrac}[2]{\displaystyle \frac{#1}{#2}}
+\newcommand{\dsum}{\displaystyle \sum}
+%\newcommand{\mystrut}{\rule[10pt]{10pt}{20pt}}
+\newcommand{\mystrut}{\rule[1\dp\strutbox]{0pt}{\baselineskip}}
+\newcommand{\mysup}[1]{\scaleto{\rule[2.9\dp\strutbox]{0pt}{-1\baselineskip}^{#1}}{12pt}}
+\newcommand{\mysub}[1]{\scaleto{\rule[-1.5\dp\strutbox]{-2.5pt}{-1\baselineskip}_{#1}}{5pt}}
+
+\doublespacing
+\pagenumbering{gobble}
+\begin{document}
+
+%\begin{table}[h!]
+\setlength\arrayrulewidth{1.2pt}
+\def\arraystretch{1.9}
+\begin{tabular}{|c|>{\centering\arraybackslash}m{1.3cm}|@{\hspace{-0.3em}}c@{\hspace{-0.9em}}|@{}m{0pt}@{}}\hline 
+	& & & \\ [-10ex]
+	{\textbf{rs-fMRI - Metric}} & {\textbf{Stat}} & {\textbf{Formula} (\textbf{Eq.} \bm{$\#$})} & \\ [0ex] \hline
+	\multirow{2}{*}{\vspace{-0.1cm} \begin{tabular}{c} standard \\ [-5ex] (\textbf{Eq. 132}) \end{tabular}}  & mean & \hspace{1.1cm} $\displaystyle \frac{2p(p-1)}{\sqrt{\pi}}$ \hspace{0.2cm} ({\small \textbf{139}})&\\ [1.5ex] \cline{2-3}
+	& variance & \hspace{1.1cm} $\displaystyle \frac{9p(\pi - 2)(p - 1)}{4\pi}$ \hspace{0.2cm} ({\small \textbf{139}})& \\ [1.5ex] \hline
+	\multirow{2}{*}{\vspace{-1.5cm} {\begin{tabular}{c} max-min \\ [-5ex] normalized \\ [-5ex] (\textbf{Eq. 140}) \end{tabular}}}  & mean &
+{\begin{tabular}{c} \\ [-10ex]
+		\hspace{1cm} {$\displaystyle \frac{\mu_{D_{ij}}}{2\mu^{(1)}_\text{max}(m,p)}$} \hspace{0.2cm} ({\small \textbf{143}})\\ [-1.8ex]
+		$\begin{aligned}
+		&\hspace{0.1cm} \text{where } \mu_{D_{ij}} \text{ and } \mu^{(1)}_\text{max}(m,p) \text{ are given by Eqs. 140 and 142}
+		\end{aligned}$
+\end{tabular}} & \\ [1.5ex] \cline{2-3}
+& variance &
+{\begin{tabular}{c} \\ [-8.5ex]
+		\hspace{1cm} {$\displaystyle \frac{6\sigma^2_{D_{ij}}\text{log}[m(p-1)]}{\pi^2 + 24\left[\mu^{(1)}_\text{max}(m,p)\right]^2\text{log}[m(p-1)]}$} \hspace{0.2cm} ({\small \textbf{143}})\\ [-1.8ex]
+		$\begin{aligned}
+		&\hspace{0.1cm} \text{where } \sigma^2_{D_{ij}} \text{ and } \mu^{(1)}_\text{max}(m,p) \text{ are given by Eqs. 140 and 142}
+		\end{aligned}$
+\end{tabular}} & \\ [1.5ex] \hline
+\end{tabular}
+%\end{table}
+
+\end{document}

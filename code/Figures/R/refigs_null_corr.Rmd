@@ -1,0 +1,473 @@
+---
+title: 'Redraw null vs correlated'
+output: html_document
+---
+
+```{r}
+# install.packages(c('devtools'))
+# devtools::install_github('insilico/npdr')
+# rm(list = ls())
+library(npdr)
+library(tidyverse)
+library(bindata)
+
+# Also need these other packages but do not need to call library():
+# cowplot, ggridges
+
+source('code/Figures/R/util_funcs.R') # assumes the working directory is the main project folder
+```
+
+Make figures showing null vs correlated data distance distributions
+
+```{r}
+# standard normal
+#####################################################################
+lowers <- c(0.0, 0.25, 0.5, 0.75)
+uppers <- c(0.0, 0.35, 0.6, 0.85)
+num.variables <- 100
+num.samples <- 100
+n_iters <- 4
+```
+
+
+```{r}
+dens_err <- vector('list', length = n_iters)
+sim_dfs <- data.frame()
+for(iter in 1:n_iters){
+  plot.graph <- F
+  nbias <- round(0.1*num.variables)
+  hi.cor <- 0
+  lo.cor <- 0
+  
+  set.seed(1987)
+  null.dats <-
+    matrix(rnorm(num.variables * num.samples),
+           nrow = num.samples,
+           ncol = num.variables)
+  
+  e <- 1    # fudge factor to the number of nodes to avoid giant component
+  prob <- 1/(num.variables+e) # probability of a node being connected to another node is less than 1/N to avoid giant component
+
+  prob <- 0.95
+  set.seed(1989)
+  g <- igraph::erdos.renyi.game(num.variables, prob) # Erdos-Renyi network
+
+  # generate correlation matrix from g
+  set.seed(1991)
+  network.atts <- npdr::generate_structured_corrmat(g=g,
+                                              num.variables=num.variables, 
+                                              hi.cor.tmp=hi.cor, 
+                                              lo.cor.tmp=lo.cor, 
+                                              hi.cor.fixed=hi.cor,
+                                              graph.type='Erdos-Renyi',
+                                              plot.graph=plot.graph,
+                                              nbias=nbias)
+
+  R <- as.matrix(network.atts$corrmat) # correlation matrix
+
+  U <- t(chol(R))                             # upper tri cholesky
+  hi.cor <- uppers[iter]
+  lo.cor <- lowers[iter]
+  
+  prob <- 0.2
+  set.seed(1989)
+  g <- erdos.renyi.game(num.variables, prob) # Erdos-Renyi network
+  
+  set.seed(1991)
+  network.atts <- npdr::generate_structured_corrmat(g=g,
+                                              num.variables=num.variables, 
+                                              hi.cor.tmp=hi.cor, 
+                                              lo.cor.tmp=lo.cor,
+                                              hi.cor.fixed=hi.cor,
+                                              graph.type='Erdos-Renyi',
+                                              plot.graph=plot.graph,
+                                              nbias=nbias)
+
+  R <- as.matrix(network.atts$corrmat) # correlation matrix
+
+  set.seed(1987)
+  tmp <- matrix(rnorm(num.variables*num.samples),nrow=num.samples,ncol=num.variables)
+  U <- t(chol(R))                             # upper tri cholesky
+  dats <- t(U %*% t(tmp)) # correlated data
+
+  d.mat.null <- as.matrix(dist(null.dats, upper = T, method = 'euclidean'))
+  d.mat.corr <- as.matrix(dist(dats, upper = T, method = 'euclidean'))
+  dist.null <- d.mat.null[upper.tri(d.mat.null)]
+  dist.corr <- d.mat.corr[upper.tri(d.mat.corr)]
+  print(mean(cor(dats)[upper.tri(cor(dats))]))
+  mean.cor.null <- mean(abs(cor(null.dats)[upper.tri(cor(null.dats))]))
+  mean.cor.corr <- mean(abs(cor(dats)[upper.tri(cor(dats))]))
+  
+  sim_df <- tibble(
+    Value = c(dist.corr, dist.null),
+    Type = c(rep('Correlated', length(dist.corr)),
+             rep('Uncorrelated', length(dist.null))))
+  
+  sim_dfs <- rbind(sim_dfs, data.frame(sim_df, r = mean.cor.corr))
+  
+  # x_limits <- c(min(sim_df$Value), max(sim_df$Value))
+  # print(x_limits)
+  x_limits <- c(6, 45)
+  x_pos <- x_limits[1] + (x_limits[2]-x_limits[1])*5/6
+  
+  histo <- sim_df %>%
+    draw_densities(x_limits) +
+      annotate('text', x = x_pos, y = 0.35, 
+               label = paste('r =', round(mean.cor.corr,4)))
+  
+  error_bars <- tibble(
+    Means = c(mean(dist.corr), mean(dist.null)),
+    SD = c(sd(dist.corr), sd(dist.null)),
+    Type = c('Correlated', 'Uncorrelated')) %>%
+    mutate(lower_bound = Means - SD,
+           upper_bound = Means + SD) %>%
+    draw_intervals(x_limits)
+  
+  dens_err[[iter]] <- cowplot::plot_grid(histo, error_bars, nrow = 2, align = 'v', 
+            rel_heights = c(2.5, 1))
+}
+
+# do.call(cowplot::plot_grid, c(dens_err, labels = 'AUTO')) %>%
+#   ggsave(filename = 'code/Figures/R/re_fig_6.pdf', width = 6, height = 5)
+
+```
+
+Try ridge plots:
+
+```{r}
+joy_6 <- sim_dfs %>%
+  mutate(TypeFct = fct_rev(as.factor(Type)),
+         rFct = fct_rev(as.factor(paste('r = ', round(r, 3))))) %>%
+  ggplot(aes(y = rFct, fill = TypeFct)) +
+  # geom_density(alpha = 0.5) +
+  ggridges::geom_density_ridges(
+    aes(x = Value, fill = paste(TypeFct)), 
+    scale = 2, alpha = .8, color = 'white'
+  ) +
+    ggridges::theme_ridges(grid = F) +
+    scale_fill_viridis_d() +
+    labs(x = NULL, y = NULL, caption = 'Euclidean distance') +
+    theme(legend.position = 'None',
+          legend.title = element_blank(),
+          plot.margin = unit(c(0, 0, 0, 0.15), 'cm'),         
+          plot.caption = element_text(hjust=0.4),
+          axis.text.y = element_text(margin = margin(t = 0, r = -7, b = 0, l = 0))) +
+    scale_x_continuous(limits = c(7, 28)) +
+  scale_y_discrete(expand = c(0.01, 0)) 
+# joy_6
+# joy_6 %>%
+#   ggsave(filename = 'code/Figures/R/re_fig_6b.pdf', width = 5, height = 4)
+```
+
+
+## GWAS - TiTv
+
+```{r}
+sim_dfs <- data.frame()
+dens_err <- vector('list', length = n_iters)
+
+lowers <- c(0.0,0.25,0.5,0.75)
+uppers <- c(0.0,0.35,0.6,0.85)
+avg.abs.cors <- c(0.0846,0.1477,0.2333,0.3130)
+num.variables <- 100
+nbias <- round(0.1*num.variables)
+
+for(iter in 1:n_iters){
+
+  hi.cor <- uppers[iter]
+  lo.cor <- lowers[iter]
+
+  e <- 1    # fudge factor to the number of nodes to avoid giant component
+  prob <- 1/(num.variables+e) # probability of a node being connected to another node is less than 1/N to avoid giant component
+  prob <- 0.95
+
+  set.seed(1989)
+  g <- erdos.renyi.game(num.variables, prob) # Erdos-Renyi network
+
+  # generate correlation matrix from g
+  set.seed(1991)
+  network.atts <- npdr::generate_structured_corrmat(g=g,
+                                            num.variables=num.variables, 
+                                            hi.cor.tmp=hi.cor, 
+                                            lo.cor.tmp=lo.cor, 
+                                            graph.type='Erdos-Renyi',
+                                            plot.graph=plot.graph,
+                                            nbias=nbias)
+
+  R <- as.matrix(network.atts$corrmat) # correlation matrix
+
+  set.seed(1987)
+  f.a <- runif(num.variables,min=0.01,max=0.95)
+
+  set.seed(1990)
+  X <- rmvBinomial2(n=100,size=2,probs=f.a,corrmat=R)
+
+  data.mat <- X
+  corr.dats <- X
+
+  m <- dim(X)[1]
+  p <- dim(X)[2]
+
+  my.eta <- 2
+  g1 <- 1/(my.eta+1)
+
+  set.seed(1964)
+  g0 <- runif(1,min=0.01,max=(my.eta/(my.eta+1) - 0.01))
+  g2 <- my.eta/(my.eta + 1) - g0
+
+  set.seed(1962)
+  PuPy.samp <- sample(c(3,4,5),size=p,prob=c(g0,g1,g2),replace=T)
+  d.mat <- compute_dmat(m, data.mat, PuPy.samp)
+  tmp <- d.mat + t(d.mat)
+
+  F.a <- ((1 - f.a)^3)*f.a + (f.a^3)*(1 - f.a)
+  G.a <- ((1 - f.a)^2)*(f.a^2)
+  mean.titv.corr <- (g0+g2+2*g1)*sum(F.a) + (1.5*(g0 + g2) + 2*g1)*sum(G.a)
+  var.titv.corr <- (0.25*(g0+g2)+g1)*sum(F.a)+((9/8)*(g0+g2)+2*g1)*sum(G.a)-sum(((g0+g2+2*g1)*F.a+(1.5*(g0+g2)+2*g1)*G.a)^2)
+
+  dist.vec.corr <- tmp[upper.tri(tmp)]
+
+  # null data
+  data.mat <- matrix(rep(0,length=m*p),nrow=m,ncol=p)
+  set.seed(1991)
+  for(i in 1:m){
+    samp <- matrix(as.double(rbinom(p,2,f.a)),nrow=1,ncol=p)
+    data.mat[i,] <- samp
+  }
+
+  set.seed(1990)
+  X <- rmvBinomial2(n=100,size=2,probs=f.a,corrmat=diag(length(f.a)))
+  null.dats <- data.mat
+  d.mat <- compute_dmat(m, data.mat, PuPy.samp)
+
+  tmp <- d.mat + t(d.mat)
+
+  F.a <- ((1 - f.a)^3)*f.a + (f.a^3)*(1 - f.a)
+  G.a <- ((1 - f.a)^2)*(f.a^2)
+  mean.titv.null <- (g0+g2+2*g1)*sum(F.a) + (1.5*(g0 + g2) + 2*g1)*sum(G.a)
+  var.titv.null <- (0.25*(g0+g2)+g1)*sum(F.a)+((9/8)*(g0+g2)+2*g1)*sum(G.a)-sum(((g0+g2+2*g1)*F.a+(1.5*(g0+g2)+2*g1)*G.a)^2)
+
+  dist.vec.null <- tmp[upper.tri(tmp)]
+  # plots
+  tmp <- c(dist.vec.null,dist.vec.corr)
+  my.breaks <- seq(min(tmp)-1,max(tmp)+1,length.out=40)
+  tmp.hist <- hist(tmp,breaks=my.breaks,plot=F)
+  ymax <- 5*max(tmp.hist$density)
+  ymax <- 0.3
+  mean.cor.null <- mean(abs(cor(null.dats)[upper.tri(cor(null.dats))]))
+  mean.cor.corr <- mean(abs(cor(corr.dats)[upper.tri(cor(corr.dats))]))
+  print(mean.cor.corr)
+
+  sim_df <- tibble(
+    Value = c(dist.vec.corr, dist.vec.null),
+    Type = c(rep('Correlated', length(dist.vec.corr)),
+             rep('Uncorrelated', length(dist.vec.null))))
+  sim_dfs <- rbind(sim_dfs, data.frame(sim_df, r = mean.cor.corr))
+
+  
+  # x_limits <- c(min(sim_df$Value), max(sim_df$Value))
+  # print(x_limits)
+  x_limits <- c(5, 65)
+  x_pos <- x_limits[1] + (x_limits[2]-x_limits[1])*5/6
+  
+  histo <- sim_df %>%
+    draw_densities(x_limits) +
+      annotate('text', x = x_pos, y = 0.14, 
+               label = paste('r =', round(mean.cor.corr,4)))
+  error_bars <- tibble(
+    Means = c(mean(dist.vec.corr), mean(dist.vec.null)),
+    SD = c(sd(dist.vec.corr), sd(dist.vec.null)),
+    Type = c('Correlated', 'Uncorrelated')) %>%
+    mutate(lower_bound = Means - SD,
+           upper_bound = Means + SD) %>%
+    draw_intervals(x_limits)
+  
+  
+  dens_err[[iter]] <- cowplot::plot_grid(histo, error_bars, nrow = 2, align = 'v', 
+            rel_heights = c(2.5, 1))
+}
+
+# do.call(cowplot::plot_grid, c(dens_err, labels = 'AUTO')) %>%
+#   ggsave(filename = 'code/Figures/R/re_fig_7.pdf', width = 6, height = 5)
+
+#####################################################################
+```
+
+```{r}
+joy_7 <- sim_dfs %>%
+  mutate(TypeFct = fct_rev(as.factor(Type)),
+         rFct = fct_rev(as.factor(paste('r = ', round(r, 3))))) %>%
+  ggplot(aes(y = rFct, fill = TypeFct)) +
+  # geom_density(alpha = 0.5) +
+  ggridges::geom_density_ridges(
+    aes(x = Value, fill = paste(TypeFct)), 
+    scale = 2, alpha = .8, color = 'white', from = 0, to = 100
+  ) +
+  ggridges::theme_ridges(grid = F) +
+  scale_fill_viridis_d() +
+  labs(x = NULL, y = NULL, caption = 'TiTv distance') +
+  theme(legend.position = 'None',
+        legend.title = element_blank(),
+        plot.margin = unit(c(0, 0, 0, 0.15), 'cm'),         
+        plot.caption = element_text(hjust=0.4),
+        axis.text.y = element_text(margin = margin(t = 0, r = -7, b = 0, l = 0))) +
+  scale_x_continuous(limits = c(8, 40)) +
+  scale_y_discrete(expand = c(0.01, 0)) 
+
+# joy_7
+# joy_7 %>%
+#   ggsave(filename = 'code/Figures/R/re_fig_7b.pdf', width = 5, height = 4)
+```
+
+
+## Correlation data (rs-fMRI):
+```{r}
+num.variables <- 30
+num.samples <- 100
+lowers <- c(0.0,0.15,0.25,0.35)
+uppers <- c(0.0,0.25,0.35,0.45)
+
+m <- num.samples
+p <- num.variables
+nbias <- round(0.1*((p*(p-1))/2))
+```
+
+
+```{r}
+dens_err <- vector('list', length = n_iters)
+sim_dfs <- data.frame()
+
+for(iter in 1:n_iters){
+  hi.cor <- uppers[iter]
+  lo.cor <- lowers[iter]
+
+
+  e <- 1    # fudge factor to the number of nodes to avoid giant component
+  prob <- 1/(((p*(p-1))/2)+e) # probability of a node being connected to another node is less than 1/N to avoid giant component
+  #prob <- 0.9
+  set.seed(1989)
+  g <- igraph::erdos.renyi.game(((p*(p-1))/2), prob) # Erdos-Renyi network
+
+  set.seed(1991)
+  network.atts <- npdr::generate_structured_corrmat(g=g,
+                                                  num.variables=((p*(p-1))/2), 
+                                                  hi.cor.tmp=hi.cor, 
+                                                  lo.cor.tmp=lo.cor, 
+                                                  hi.cor.fixed=hi.cor,
+                                                  graph.type='Erdos-Renyi',
+                                                  plot.graph=plot.graph,
+                                                  nbias=nbias)               
+
+  A <- network.atts$A.mat
+
+  R <- as.matrix(network.atts$corrmat) # correlation matrix
+  U <- t(chol(R))
+  Y <- matrix(0, nrow=m, ncol=((p*(p-1))/2))
+  
+  set.seed(1990)
+  for(k in 1:m){
+    
+    null.mat <- matrix(rnorm(m*p),nrow=m,ncol=p)
+    cor.tmp <- cor(null.mat) # correlation matrix
+    zcorr <- apply(matrix(stretch_mat2(cor.tmp),ncol=1),1,r_to_z_fn)
+    Y[k,] <- matrix(zcorr,ncol=((p*(p-1))/2),nrow=1)
+  
+  }
+  Y <- scale(t(Y))
+  Y <- t(Y)
+  Y.new <- t(U %*% t(Y))
+
+  Y.full <- matrix(0, nrow=m, ncol=(p*(p-1)))
+  for(k in 1:m){
+    mat.tmp <- Y.new[k,]
+    zero.mat <- matrix(0,nrow=p,ncol=p)
+  
+    zero.mat[lower.tri(zero.mat,diag=F)] <- mat.tmp
+    zero.mat <- t(zero.mat)
+    zero.mat <- zero.mat + t(zero.mat)
+  
+    Y.full[k,] <- c(stretch_mat(zero.mat))
+  
+  }
+  my.cor <- cor(Y.full)[upper.tri(cor(Y.full))]
+  mean.cor.corr <- mean(abs(my.cor))
+  
+  Y.null <- matrix(rnorm(m*p*(p-1)),nrow=m)
+  tmp <- as.matrix(dist(Y.full,upper=T,method='manhattan'))
+  h <- hist(tmp[upper.tri(tmp)],breaks=30,plot=F)
+  xmin <- 0.8*min(h$breaks)
+  xmax <- 2.5*max(h$breaks)
+  ymax <- 0.02
+  d.mat2 <- as.matrix(dist(Y.null, upper=T, method='manhattan'))
+  dist_tmp <- tmp[upper.tri(tmp)]
+  dist_dmat2 <- d.mat2[upper.tri(d.mat2)]
+  
+  sim_df <- tibble(
+    Value = c(dist_tmp, dist_dmat2),
+    Type = c(rep('Correlated', length(dist_tmp)),
+             rep('Uncorrelated', length(dist_dmat2))))
+  sim_dfs <- rbind(sim_dfs, data.frame(sim_df, r = mean.cor.corr))
+
+  # x_limits <- c(min(sim_df$Value), max(sim_df$Value))
+  # print(x_limits)
+  x_limits <- c(740, 2050)
+  x_pos <- x_limits[1] + (x_limits[2]-x_limits[1])*5/6
+  histo <- sim_df %>%
+    draw_densities(x_limits) +
+      annotate('text', x = x_pos, y = 0.014, 
+               label = paste('r =', round(mean.cor.corr,4)))
+  error_bars <- tibble(
+    Means = c(mean(dist_tmp), mean(dist_dmat2)),
+    SD = c(sd(dist_tmp), sd(dist_dmat2)),
+    Type = c('Correlated', 'Uncorrelated')) %>%
+    mutate(lower_bound = Means - SD,
+           upper_bound = Means + SD) %>%
+    draw_intervals(x_limits)
+  
+  
+  dens_err[[iter]] <- cowplot::plot_grid(histo, error_bars, nrow = 2, align = 'v', 
+            rel_heights = c(2.5, 1))
+}
+
+# do.call(cowplot::plot_grid, c(dens_err, labels = 'AUTO')) %>%
+#   ggsave(filename = 'code/Figures/R/re_fig_8.pdf', width = 6, height = 5)
+```
+
+
+```{r}
+joy_8 <- sim_dfs %>%
+  mutate(TypeFct = fct_rev(as.factor(Type)),
+         rFct = fct_rev(as.factor(paste('r = ', round(r, 3))))) %>%
+  ggplot(aes(y = rFct, fill = TypeFct)) +
+  # geom_density(alpha = 0.5) +
+  ggridges::geom_density_ridges(
+    aes(x = Value, fill = paste(TypeFct)), 
+    scale = 2, alpha = .8, color = 'white'
+  ) +
+  ggridges::theme_ridges(grid = F) +
+  scale_fill_viridis_d() +
+  labs(x = NULL, y = NULL, caption = 'rs-fMRI distance') +
+  theme(legend.position = c(0.46, 0.95),
+        legend.title = element_blank(),
+        plot.margin = unit(c(0, 0, 0, 0.15), 'cm'),
+        plot.caption = element_text(hjust=0.4),
+        axis.text.y = element_text(margin = margin(t = 0, r = -7, b = 0, l = 0))) +
+  guides(fill = guide_legend(reverse = TRUE)) +
+  scale_x_continuous(limits = c(780, 1350)) +
+  scale_y_discrete(expand = c(0.01, 0)) 
+# joy_8
+# joy_8 %>%
+#   ggsave(filename = 'code/Figures/R/re_fig_8b.pdf', width = 5, height = 4)
+```
+
+
+```{r}
+my_title <- cowplot::ggdraw() + 
+  cowplot::draw_label('Correlated and uncorrelated distances') 
+my_plots <- cowplot::plot_grid(joy_6, joy_7, joy_8, labels = 'AUTO', ncol = 3)
+ 
+my_title %>%
+  cowplot::plot_grid(my_plots, ncol = 1, rel_heights=c(0.1, 1)) %>%
+  ggsave(filename = 'code/Figures/R/null_corr.pdf', width = 10, height = 3.5 )
+```
+
