@@ -1397,4 +1397,37 @@ https://doi.org/10.1186/s12888-018-1955-9
 https://doi.org/10.1186/s12888-018-1955-9},
 }
 
+@Article{ma2019,
+  author  = {{X}iaoyue {M}a and {J}ia {L}iu and {T}aiyuan {L}iu and {L}un {M}a and {W}enhui {W}ang and {S}haojie {S}hi and {Y}an {W}ang and {Q}iyong {G}ong and {M}eiyun {W}ang},
+  title   = {{Altered Resting-State Functional Activity in Medication-Naive Patients With First-Episode Major Depression Disorder vs. Healthy Control: A Quantitative Meta-Analysis}},
+  journal = {{Frontiers in Behavioral Neuroscience}},
+  year    = {2019},
+  volume  = {13},
+  number  = {89},
+  month   = may,
+  doi     = {10.3389/fnbeh.2019.00089},
+}
+
+@Article{chen2015,
+  author  = {{Z}iqi {C}hen and {H}uawei {Z}hang and {Z}hiyun {J}ia and {J}ingjie {Z}hang and {X}iaoqi {H}uang and {M}ingying {D}u and {L}izhou {C}hen and {W}eihong {K}uang and {J}ohn {A}. {S}weeney and {Q}iyong {G}ong},
+  title   = {{Magnetization Transfer Imaging of Suicidal Patients with Major Depressive Disorder}},
+  journal = {{Scientific Reports}},
+  year    = {2015},
+  volume  = {5},
+  number  = {9670},
+  month   = apr,
+  doi     = {10.1038/srep09670},
+}
+
+@Article{zhang2017,
+  author  = {{F}ei-{F}ei {Z}hang and {W}ei {P}eng and {J}ohn {A}. {S}weeney and {Z}hi-{Y}un {J}ia and {Q}i-{Y}ong {G}ong},
+  title   = {{Brain structure alterations in depression: Psychoradiological evidence}},
+  journal = {{CNS Neuroscience \& Therapeutics}},
+  year    = {2017},
+  volume  = {24},
+  pages   = {994-1003},
+  month   = feb,
+  doi     = {10.1111/cns.12835},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

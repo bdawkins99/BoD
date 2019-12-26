@@ -1427,7 +1427,7 @@ https://doi.org/10.1186/s12888-018-1955-9},
   volume  = {24},
   pages   = {994-1003},
   month   = feb,
-  doi     = {10.1111/cns.12835},
+  doi     = {10.1111/cns.12835?},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
