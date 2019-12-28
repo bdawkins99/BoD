@@ -1430,4 +1430,80 @@ https://doi.org/10.1186/s12888-018-1955-9},
   doi     = {10.1111/cns.12835},
 }
 
+@Article{fradkin2017,
+  author  = {{F}radkin {Y} and {K}hadka {S} and {B}essette {KL} and {S}tevens {MC}},
+  title   = {{The relationship of impulsivity and cortical thickness in depressed and non-depressed adolescents}},
+  journal = {{Brain Imaging Behav}},
+  year    = {2017},
+  volume  = {11},
+  number  = {5},
+  pages   = {1515-1525},
+  month   = oct,
+  doi     = {10.1007/s11682-016-9612-8.},
+}
+
+@Article{tokuda2018,
+  author  = {{T}omoki {T}okuda and {J}unichiro {Y}oshimoto and {Y}u {S}himizu and {G}o {O}kada and {M}asahiro {T}akamura and {Y}asumasa {O}kamoto and {S}higeto {Y}amawaki and {K}enji {D}oya},
+  title   = {{Identification of depression dubtypes and relevant brain regions using a data-driven approach}},
+  journal = {{Scientfic Reports}},
+  year    = {2018},
+  volume  = {8},
+  number  = {14082},
+  month   = sep,
+  doi     = {10.1038/s41598-018-32521-z},
+}
+
+@Article{weng2019,
+  author  = {{J}un-{C}heng {W}eng and {Y}u-{S}yuan {C}hou and {Y}uan-{H}siung {T}sai and {C}hun-{T}e {L}ee and {M}ing-{H}ong {H}sieh and {V}incent {C}hin-{H}ung {C}hen},
+  title   = {{Connectome Analysis of Brain Functional Network Alterations in Depressive Patients with Suicidal Attempt}},
+  journal = {{Journal of Clinical Medicine}},
+  year    = {2019},
+  volume  = {8},
+  number  = {1966},
+  month   = nov,
+  doi     = {10.3390/jcm8111966},
+}
+
+@Article{wei2018,
+  author  = {{S}hengnan {W}ei and {M}iao {C}hang and {R}an {Z}hang and {X}iaowei {J}iang and {F}ei {W}ang and {Y}anqing {T}ang},
+  title   = {{Amygdala functional connectivity in female patients with major depressive disorder with and without suicidal ideation}},
+  journal = {{Ann Gen Psychiatry}},
+  year    = {2018},
+  volume  = {17},
+  number  = {37},
+  url     = {https://doi.org/10.1186/s12991-018-0208-0},
+}
+
+@Article{li2018,
+  author  = {{G}aizhi {L}i and {K}athryn {R}ossbach and {A}ixia {Z}hang and {P}enghong {L}iu and {K}erang {Z}hang},
+  title   = {{Resting-state functional changes in the precuneus within first-episode drug-naive patients with MDD}},
+  journal = {{Neuropsychiatric Disease and Treatment}},
+  year    = {2018},
+  volume  = {14},
+  pages   = {1991-1998},
+  url     = {http://dx.doi.org/10.2147/NDT.S168060},
+}
+
+@Article{abe2010,
+  author  = {{O}samu {A}be and {H}idenori {Y}amasue and {K}iyoto {K}asai and {H}aruyasu {Y}amada and {S}higeki {A}oki and {H}ideyuki {I}noue and {K}unio {T}akei and {M}otomu {S}uga and {K}oji {M}atsuo and {T}adafumi {K}ato and {Y}oshitaka {M}asutani and {K}uni {O}htomo},
+  title   = {{Voxel-based analyses of gray/white matter volume and diffusion tensor data in major depression}},
+  journal = {{Psychiatry Research: Neuroimaging}},
+  year    = {2010},
+  volume  = {181},
+  pages   = {64-70},
+  month   = jul,
+  doi     = {10.1016/j.pscychresns.2009.07.007},
+}
+
+@Article{chen2015-2,
+  author  = {{Z}i-{Q}i {C}hen and {M}ing-{Y}ing {D}u and {Y}ou-{J}in {Z}hao and {X}iao-{Q}i {H}uang and {J}ing {L}i and {S}u {L}ui and {J}un-{M}ei {H}u and {H}uai-{Q}iang {S}un and {J}ia {L}iu and {G}raham {J}. {K}emp and {Q}i-{Y}ong {G}ong},
+  title   = {{Voxel-wise meta-analyses of brain blood flow and local synchrony abnormalities in medication-free patients with major depressive disorder}},
+  journal = {{J Psychiatry Neurosci}},
+  year    = {2015},
+  volume  = {40},
+  number  = {6},
+  month   = apr,
+  doi     = {10.1503/jpn.140119},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

@@ -247,12 +247,12 @@ Michel Berkelaar and {others}.
   Depressive Patients}.
 \newblock {\em {Frontiers in Neuroscience}}, 12(462), July 2018.
 
-\bibitem{guo2014}
-{H}ao {G}uo, {C}hen {C}heng, {X}iaohua {C}ao, {J}ie {X}iang, {J}unjie {C}hen,
-  and {K}erang {Z}hang.
-\newblock {Resting-state functional connectivity abnormalities in first-onset
-  unmedicated depression}.
-\newblock {\em {Neural Regen Res.}}, 9(2), January 2014.
+\bibitem{wei2018}
+{S}hengnan {W}ei, {M}iao {C}hang, {R}an {Z}hang, {X}iaowei {J}iang, {F}ei
+  {W}ang, and {Y}anqing {T}ang.
+\newblock {Amygdala functional connectivity in female patients with major
+  depressive disorder with and without suicidal ideation}.
+\newblock {\em {Ann Gen Psychiatry}}, 17(37), 2018.
 
 \bibitem{cooney2010}
 {R}ebecca {E}.~{C}ooney, {J}utta {J}oorman, {F}anny {E}ug\'{e}ne, {E}mily
@@ -575,5 +575,50 @@ Michel Berkelaar and {others}.
 \newblock {Magnetization Transfer Imaging of Suicidal Patients with Major
   Depressive Disorder}.
 \newblock {\em {Scientific Reports}}, 5(9670), April 2015.
+
+\bibitem{fradkin2017}
+{F}radkin {Y}, {K}hadka {S}, {B}essette {KL}, and {S}tevens {MC}.
+\newblock {The relationship of impulsivity and cortical thickness in depressed
+  and non-depressed adolescents}.
+\newblock {\em {Brain Imaging Behav}}, 11(5):1515--1525, October 2017.
+
+\bibitem{tokuda2018}
+{T}omoki {T}okuda, {J}unichiro {Y}oshimoto, {Y}u {S}himizu, {G}o {O}kada,
+  {M}asahiro {T}akamura, {Y}asumasa {O}kamoto, {S}higeto {Y}amawaki, and
+  {K}enji {D}oya.
+\newblock {Identification of depression dubtypes and relevant brain regions
+  using a data-driven approach}.
+\newblock {\em {Scientfic Reports}}, 8(14082), September 2018.
+
+\bibitem{weng2019}
+{J}un-{C}heng {W}eng, {Y}u-{S}yuan {C}hou, {Y}uan-{H}siung {T}sai, {C}hun-{T}e
+  {L}ee, {M}ing-{H}ong {H}sieh, and {V}incent {C}hin-{H}ung {C}hen.
+\newblock {Connectome Analysis of Brain Functional Network Alterations in
+  Depressive Patients with Suicidal Attempt}.
+\newblock {\em {Journal of Clinical Medicine}}, 8(1966), November 2019.
+
+\bibitem{li2018}
+{G}aizhi {L}i, {K}athryn {R}ossbach, {A}ixia {Z}hang, {P}enghong {L}iu, and
+  {K}erang {Z}hang.
+\newblock {Resting-state functional changes in the precuneus within
+  first-episode drug-naive patients with MDD}.
+\newblock {\em {Neuropsychiatric Disease and Treatment}}, 14:1991--1998, 2018.
+
+\bibitem{chen2015-2}
+{Z}i-{Q}i {C}hen, {M}ing-{Y}ing {D}u, {Y}ou-{J}in {Z}hao, {X}iao-{Q}i {H}uang,
+  {J}ing {L}i, {S}u {L}ui, {J}un-{M}ei {H}u, {H}uai-{Q}iang {S}un, {J}ia {L}iu,
+  {G}raham {J}.~{K}emp, and {Q}i-{Y}ong {G}ong.
+\newblock {Voxel-wise meta-analyses of brain blood flow and local synchrony
+  abnormalities in medication-free patients with major depressive disorder}.
+\newblock {\em {J Psychiatry Neurosci}}, 40(6), April 2015.
+
+\bibitem{abe2010}
+{O}samu {A}be, {H}idenori {Y}amasue, {K}iyoto {K}asai, {H}aruyasu {Y}amada,
+  {S}higeki {A}oki, {H}ideyuki {I}noue, {K}unio {T}akei, {M}otomu {S}uga,
+  {K}oji {M}atsuo, {T}adafumi {K}ato, {Y}oshitaka {M}asutani, and {K}uni
+  {O}htomo.
+\newblock {Voxel-based analyses of gray/white matter volume and diffusion
+  tensor data in major depression}.
+\newblock {\em {Psychiatry Research: Neuroimaging}}, 181:64--70, July 2010.
 
 \end{thebibliography}

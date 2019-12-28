@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  1 NOV 2019 16:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  27 DEC 2019 15:18
 entering extended mode
 **./mixed_simulation_diagram_gwas.tex
 (mixed_simulation_diagram_gwas.tex
@@ -806,10 +806,10 @@ File: interaction_simulation6_gwas.pdf Graphic file (type pdf)
 Package pdftex.def Info: interaction_simulation6_gwas.pdf  used on input line 6
 4.
 (pdftex.def)             Requested size: 183.66612pt x 113.10368pt.
-<main_effect_gwas.pdf, id=24, 337.3122pt x 184.23631pt>
-File: main_effect_gwas.pdf Graphic file (type pdf)
-<use main_effect_gwas.pdf>
-Package pdftex.def Info: main_effect_gwas.pdf  used on input line 66.
+<main_effect_gwas2.pdf, id=24, 337.3122pt x 184.23631pt>
+File: main_effect_gwas2.pdf Graphic file (type pdf)
+<use main_effect_gwas2.pdf>
+Package pdftex.def Info: main_effect_gwas2.pdf  used on input line 66.
 (pdftex.def)             Requested size: 331.62053pt x 178.54501pt.
 <mixed_effects_combining_main-interaction.pdf, id=26, 138.1431pt x 59.04459pt>
 File: mixed_effects_combining_main-interaction.pdf Graphic file (type pdf)
@@ -824,31 +824,31 @@ LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
 {C:/Users/bdawk/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./interacti
 on_simulation1.pdf> <./interaction_simulation2.pdf> <./interaction_simulation3.
 pdf> <./interaction_simulation4.pdf> <./interaction_simulation5_gwas.pdf> <./in
-teraction_simulation6_gwas.pdf> <./main_effect_gwas.pdf> <./mixed_effects_combi
-ning_main-interaction.pdf>] (mixed_simulation_diagram_gwas.aux) ) 
+teraction_simulation6_gwas.pdf> <./main_effect_gwas2.pdf> <./mixed_effects_comb
+ining_main-interaction.pdf>] (mixed_simulation_diagram_gwas.aux) ) 
 Here is how much of TeX's memory you used:
  26573 strings out of 492946
- 699021 string characters out of 3135528
+ 699026 string characters out of 3135528
  914034 words of memory out of 3000000
  29986 multiletter control sequences out of 15000+200000
  8118 words of font info for 20 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  78i,8n,136p,754b,642s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Fi
-les/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/public/amsfonts/cm/cmbsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cmextra/cmbsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/cm/cmbx7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cme
-x10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Pro
-gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb><C:/Progra
-m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/M
-iKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/font
-s/type1/urw/helvetic/uhvr8a.pfb>
-Output written on mixed_simulation_diagram_gwas.pdf (1 page, 419971 bytes).
+{C:/Program F
+iles/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/amsfonts/cm/cmbsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
+ublic/amsfonts/cmextra/cmbsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmbx7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
+ex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb><C:/Progr
+am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/
+MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/urw/helvetic/uhvr8a.pfb>
+Output written on mixed_simulation_diagram_gwas.pdf (1 page, 418984 bytes).
 PDF statistics:
- 254 PDF objects out of 1000 (max. 8388607)
+ 248 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  141 words of extra memory for PDF output out of 10000 (max. 10000000)
 
