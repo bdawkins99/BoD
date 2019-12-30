@@ -1506,4 +1506,38 @@ https://doi.org/10.1186/s12888-018-1955-9},
   doi     = {10.1503/jpn.140119},
 }
 
+@Article{zhou2017-2,
+  author  = {{Y}ongjie {Z}hou and {Z}hongqiang {C}ao and {M}ei {Y}ang and {X}iaoyan {X}i and {Y}iyang {G}uo and {M}aosheng {F}ang and {L}ijuan {C}heng and {Y}ukai {D}u},
+  title   = {{Comorbid generalized anxiety disorder and its association with quality of life in patients with major depressive disorder}},
+  journal = {{Scientific Reports}},
+  year    = {2017},
+  volume  = {7},
+  number  = {40511},
+  month   = jan,
+  doi     = {10.1038/srep40511},
+}
+
+@Article{hirschfeld2001,
+  author  = {{R}obert {M}. {A}. {H}irschfeld},
+  title   = {{The Comorbidity of Major Depression and Anxiety Disorders: Recognition and Management in Primary Care}},
+  journal = {{Primary Care Companion J Clin Psychiatry}},
+  year    = {2001},
+  volume  = {3},
+  number  = {6},
+  pages   = {244-254},
+  month   = dec,
+}
+
+@Article{zbozinek2012,
+  author  = {{T}omislav {D}. {Z}bozinek and {R}aphael {D}. {R}ose and {K}ate {B}. {W}olitzky-{T}aylor and {C}athy {S}herbourne and {G}reer {S}ullivan and {M}urray {B}. {S}tein and {P}eter {P}. {R}oy-{B}yrne and {M}ichelle {G}. {C}raske},
+  title   = {{Diagnostic Overlap of Generalized Anxiety Disorder and Major Depressive Disorder in a Primary Care Sample}},
+  journal = {{Depress Anxiety}},
+  year    = {2012},
+  volume  = {29},
+  number  = {12},
+  pages   = {1065-1071},
+  month   = dec,
+  doi     = {10.1002/da.22026.},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

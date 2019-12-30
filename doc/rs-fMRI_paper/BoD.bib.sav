@@ -1537,7 +1537,7 @@ https://doi.org/10.1186/s12888-018-1955-9},
   number  = {12},
   pages   = {1065-1071},
   month   = dec,
-  doi     = {10.1002/da.22026.},
+  doi     = {10.1002/da.22026.?},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
