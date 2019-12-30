@@ -13,6 +13,12 @@ Trang~T Le, W~Kyle Simmons, Masaya Misaki, Jerzy Bodurka, Bill~C White,
   classification with relief-f and random forests.
 \newblock {\em Bioinformatics}, 33(18):2906--2913, 2017.
 
+\bibitem{dawkins2019}
+{B}ryan {A}.~{D}awkins, {T}rang {T}.~{L}e, and {B}rett {A}.~{M}c{K}inney.
+\newblock {Theoretical properties of nearest-neighbor distance distributions
+  and novel metrics for high dimensional bioinformatics data}.
+\newblock {\em {Under Review}}, 2019.
+
 \bibitem{npdr}
 Trang~{T}. {L}e, {B}ryan {A}.~{D}awkins, and {B}rett {A}.~{M}c{K}inney.
 \newblock {Nearest-neighbor Projected-Distance Regression (NPDR) detects
@@ -107,6 +113,32 @@ Michel Berkelaar and {others}.
 \newblock {Decreased Resting-State Activity in the Precuneus Is Associated With
   Depressive Episodes in Recurrent Depression}.
 \newblock {\em {J Clin Psychiatry}}, 78(4):372--382, April 2017.
+
+\bibitem{xu2019-2}
+{J}inping {X}u, {J}iaojian {W}ang, {T}ongjian {B}ai, {X}iaodong {Z}hang, {T}ian
+  {L}i, {Q}ingmao {H}u, {H}ongming {L}i, {L}i {Z}hang, {Q}iang {W}ei, {Y}anghua
+  {T}ian, and {K}ai {W}ang.
+\newblock {Electroconvulsive Therapy Induces Cortical Morphological Alterations
+  in Major Depressive Disorder Revealed with Surface-Based Morphometry
+  Analysis}.
+\newblock {\em {International Journal of Neural Systems}}, 29(7), 2019.
+
+\bibitem{peterson2009}
+{B}radley {S}.~{P}eterson, {V}irginia {W}arner, {R}avi {B}ansal, {H}ongtu
+  {Z}hu, {X}uejun {H}ao, {J}un {L}iu, {K}athleen {D}urkin, {P}hillip
+  {B}.~{A}dams, {P}riya {W}ickramaratne, and {M}yrna {M}.~{W}eissman.
+\newblock {Cortical thinning in persons at increased familial risk for major
+  depression}.
+\newblock {\em {PNAS}}, 106(15):6273--6278, April 2009.
+
+\bibitem{husain2019}
+{S}yeda {F}.~{H}usain, {T}ong-{B}oon {T}ang, {R}ongjun {Y}u, {W}ilson
+  {W}.~{T}am, {B}ach {T}ran, {T}ravis {T}.~{Q}uek, {S}hi-{H}ui {H}wang,
+  {C}heryl {W}.~{C}hang, {C}yrus {S}.~{H}o, and {R}oger {C}.~{H}o.
+\newblock {Cortical haemodynamic response measured by functional near infrared
+  spectroscopy during a verbal fluency task in patients with major depression
+  and borderline personality disorder}.
+\newblock {\em {EBioMedicine}}, November 2019.
 
 \bibitem{ramezani2014}
 {M}ahdi {R}amezani, {I}ngrid {J}ohnsrude, {A}btin {R}asoulian, {R}achael
@@ -477,14 +509,6 @@ Michel Berkelaar and {others}.
   {E}vian {G}ordon, and {L}eanne {M}.~{W}illiams.
 \newblock {Widespread reductions in gray matter volume in depression}.
 \newblock {\em {NeuroImage: Clinical}}, 3:332--339, September 2013.
-
-\bibitem{peterson2009}
-{B}radley {S}.~{P}eterson, {V}irginia {W}arner, {R}avi {B}ansal, {H}ongtu
-  {Z}hu, {X}uejun {H}ao, {J}un {L}iu, {K}athleen {D}urkin, {P}hillip
-  {B}.~{A}dams, {P}riya {W}ickramaratne, and {M}yrna {M}.~{W}eissman.
-\newblock {Cortical thinning in persons at increased familial risk for major
-  depression}.
-\newblock {\em {PNAS}}, 106(15):6273--6278, April 2009.
 
 \bibitem{wang2017}
 {B}in {W}ang, {Y}ing {W}ang, {Q}iong {W}u, {H}ong-ping {H}uang, and {S}hao

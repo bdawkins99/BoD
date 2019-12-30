@@ -18,6 +18,7 @@
 \providecommand\HyField@AuxAddToCoFields[2]{}
 \citation{caballero2017}
 \citation{le17}
+\citation{dawkins2019}
 \citation{npdr}
 \citation{power2011}
 \citation{shen2013}
@@ -41,8 +42,8 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Example computation of Jaccard distance between ROIs $R_A$ and $R_B$ from two atlases $A$ and $B$, respectively. There are $n_1$, $n_2$, $n_3$ voxels in $R_A$ only, $R_B$ only, and both $R_A$ and $R_B$, respectively. The numerator gives the number of voxels unique to $R_A$ ($n_1$) plus the number of voxels unique to $R_B$ ($n_2$). The denominator contains the total number of voxels in $R_A$ or $R_B$.\relax }}{3}{figure.caption.3}\protected@file@percent }
 \newlabel{fig:jaccard}{{2}{3}{Example computation of Jaccard distance between ROIs $R_A$ and $R_B$ from two atlases $A$ and $B$, respectively. There are $n_1$, $n_2$, $n_3$ voxels in $R_A$ only, $R_B$ only, and both $R_A$ and $R_B$, respectively. The numerator gives the number of voxels unique to $R_A$ ($n_1$) plus the number of voxels unique to $R_B$ ($n_2$). The denominator contains the total number of voxels in $R_A$ or $R_B$.\relax }{figure.caption.3}{}}
 \citation{collins1994}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Assignment problem mathematical definition. The assignment matrix $Y$ is binary, where $y_{ij}=0$ if nodes $i$ and $j$ are assigned to each other and 0 otherwise. The distance matrix $D$ between all nodes is computed to assign costs to arcs (or edges) between nodes. The distance between nodes $i$ and $j$ is denoted by $d_{ij}$. Therefore, the objective function is the sum of all pairwise distances in the collection of assigned arcs. the column and row constraints dictate that each node is connected to exactly one and only one other node.\relax }}{4}{figure.caption.4}\protected@file@percent }
-\newlabel{fig:assignment_problem}{{3}{4}{Assignment problem mathematical definition. The assignment matrix $Y$ is binary, where $y_{ij}=0$ if nodes $i$ and $j$ are assigned to each other and 0 otherwise. The distance matrix $D$ between all nodes is computed to assign costs to arcs (or edges) between nodes. The distance between nodes $i$ and $j$ is denoted by $d_{ij}$. Therefore, the objective function is the sum of all pairwise distances in the collection of assigned arcs. the column and row constraints dictate that each node is connected to exactly one and only one other node.\relax }{figure.caption.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Assignment problem mathematical definition. The assignment matrix $Y$ is binary, where $y_{ij}=0$ if nodes $i$ and $j$ are assigned to each other and 0 otherwise. The distance matrix $D$ between all nodes is computed to assign costs to arcs (or edges) between nodes. The distance between nodes $i$ and $j$ is denoted by $d_{ij}$. Therefore, the objective function is the sum of all pairwise distances in the collection of assigned arcs. The column and row constraints dictate that each node is connected to exactly one and only one other node.\relax }}{4}{figure.caption.4}\protected@file@percent }
+\newlabel{fig:assignment_problem}{{3}{4}{Assignment problem mathematical definition. The assignment matrix $Y$ is binary, where $y_{ij}=0$ if nodes $i$ and $j$ are assigned to each other and 0 otherwise. The distance matrix $D$ between all nodes is computed to assign costs to arcs (or edges) between nodes. The distance between nodes $i$ and $j$ is denoted by $d_{ij}$. Therefore, the objective function is the sum of all pairwise distances in the collection of assigned arcs. The column and row constraints dictate that each node is connected to exactly one and only one other node.\relax }{figure.caption.4}{}}
 \newlabel{eq:assignment_sol}{{2}{4}{Spatial overlap between brain atlases}{equation.2.2}{}}
 \citation{power2011,shen2013}
 \citation{power2011}
@@ -53,6 +54,7 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Relative importance of ROIs}{5}{subsection.2.3}\protected@file@percent }
 \citation{npdr}
 \citation{robnik2003,urbanowicz17}
+\citation{dawkins2019}
 \@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Organization based on brain regions of interest (ROIs) of resting-state fMRI correlation dataset consisting of transformed correlation matrices for $m$ subjects. Each column corresponds to an instance (or subject) $I_j$ and each subset of rows corresponds to the correlations for an ROI attribute ($p$ sets). The notation $\mathaccentV {hat}05E{A}^{(j)}_{ak}$ represents the r-to-z transformed correlation between attributes (ROIs) $a$ and $k \neq a$ for instance $j$.\relax }}{6}{figure.caption.6}\protected@file@percent }
 \newlabel{fig:rs-fMRI_matrix}{{6}{6}{Organization based on brain regions of interest (ROIs) of resting-state fMRI correlation dataset consisting of transformed correlation matrices for $m$ subjects. Each column corresponds to an instance (or subject) $I_j$ and each subset of rows corresponds to the correlations for an ROI attribute ($p$ sets). The notation $\hat {A}^{(j)}_{ak}$ represents the r-to-z transformed correlation between attributes (ROIs) $a$ and $k \neq a$ for instance $j$.\relax }{figure.caption.6}{}}
 \newlabel{eq:diff_outcome}{{3}{6}{Relative importance of ROIs}{equation.2.3}{}}
@@ -61,8 +63,8 @@
 \newlabel{eq:glm_roi}{{6}{6}{Relative importance of ROIs}{equation.2.6}{}}
 \citation{npdr}
 \citation{mckinney13}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Nearest-neighbor Projected Distance Regression for binary response (case-control)\nobreakspace  {}\cite  {npdr}. For each attribute $a \in \mathcal  {A}$, we compute standardized beta coefficients for a generalized linear model, where the predictors ($\text  {d}_{ij}(a) = |X_{ia} - X_{ja}|$) are one-dimensional projected distances (diffs) with respect to a particular attribute. The argument $\text  {p}^\text  {miss}_{ij}$ is the probability that instances $i,j \in \mathcal  {I}$ are in different phenotype classes. The logit function models the binary hit-miss phenotype projection (Eq.\nobreakspace  {}\ref  {eq:diff_outcome}). Significant adjusted pseudo P values ($p_\text  {adj}$) lead to the rejection of the null hypothesis $\beta _a \leq 0$. The set $\mathcal  {N}(k)$ is the collection of all neighbor ordered pairs such that each target instances neighborhood as exactly $k$ nearest neighbors.\relax }}{7}{figure.7}\protected@file@percent }
-\newlabel{fig:npdr_finished}{{7}{7}{Nearest-neighbor Projected Distance Regression for binary response (case-control)~\cite {npdr}. For each attribute $a \in \mathcal {A}$, we compute standardized beta coefficients for a generalized linear model, where the predictors ($\text {d}_{ij}(a) = |X_{ia} - X_{ja}|$) are one-dimensional projected distances (diffs) with respect to a particular attribute. The argument $\text {p}^\text {miss}_{ij}$ is the probability that instances $i,j \in \mathcal {I}$ are in different phenotype classes. The logit function models the binary hit-miss phenotype projection (Eq.~\ref {eq:diff_outcome}). Significant adjusted pseudo P values ($p_\text {adj}$) lead to the rejection of the null hypothesis $\beta _a \leq 0$. The set $\mathcal {N}(k)$ is the collection of all neighbor ordered pairs such that each target instances neighborhood as exactly $k$ nearest neighbors.\relax }{figure.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Nearest-neighbor Projected Distance Regression for binary response (case-control)\nobreakspace  {}\cite  {npdr}. For each attribute $a \in \mathcal  {A}$, we compute standardized beta coefficients for a generalized linear model, where the predictors ($\text  {d}_{ij}(a) = |X_{ia} - X_{ja}|$) are one-dimensional projected distances (diffs) with respect to a particular attribute. The argument $\text  {p}^\text  {miss}_{ij}$ is the probability that instances $i,j \in \mathcal  {I}$ are in different phenotype classes. The logit function models the binary hit-miss phenotype projection (Eq.\nobreakspace  {}\ref  {eq:diff_outcome}). Significant adjusted pseudo P values ($p_\text  {adj}$) lead to the rejection of the null hypothesis $\beta _a \leq 0$. The set $\mathcal  {N}(k)$ is the collection of all neighbor ordered pairs such that each target instances neighborhood has exactly $k$ nearest neighbors.\relax }}{7}{figure.7}\protected@file@percent }
+\newlabel{fig:npdr_finished}{{7}{7}{Nearest-neighbor Projected Distance Regression for binary response (case-control)~\cite {npdr}. For each attribute $a \in \mathcal {A}$, we compute standardized beta coefficients for a generalized linear model, where the predictors ($\text {d}_{ij}(a) = |X_{ia} - X_{ja}|$) are one-dimensional projected distances (diffs) with respect to a particular attribute. The argument $\text {p}^\text {miss}_{ij}$ is the probability that instances $i,j \in \mathcal {I}$ are in different phenotype classes. The logit function models the binary hit-miss phenotype projection (Eq.~\ref {eq:diff_outcome}). Significant adjusted pseudo P values ($p_\text {adj}$) lead to the rejection of the null hypothesis $\beta _a \leq 0$. The set $\mathcal {N}(k)$ is the collection of all neighbor ordered pairs such that each target instances neighborhood has exactly $k$ nearest neighbors.\relax }{figure.7}{}}
 \citation{R}
 \citation{lpsolve}
 \@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Feature-wise adaptive-$k$ method for choosing optimal values of $k$ in nearest-neighbor feature selection. For each attribute $a \in \mathcal  {A}$ and each value of $k=1,2,\dots  ,m-1$, a score or weight is computed with a nearest-neighbor feature selection method like Relief-Based Algorithms (RBAs) or another similar method. Each feature is assigned the value of $k$ that maximizes its importance score. Winning scores are then sorted in decreasing order and some fraction of the top scoring attributes are chosen for further analysis. We use the adjusted pseudo P values from NPDR to filter out attributes that are determined irrelevant to the phenotype. With NPDR, attribute scores are simply the standardized beta coefficients computed for the corresponding GLM (Eq.\nobreakspace  {}\ref  {eq:glm_roi}).\relax }}{8}{figure.8}\protected@file@percent }
@@ -72,6 +74,7 @@
 \citation{cheng2018,dutta2019,liu2017}
 \@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Visualization of mapped and unmapped ROIs from Power and Shen ROIs, respectively, from Assignment Problem solution. Two-dimensional slices from each atlas are overlaid on top of each other. The upper slices highlight the mapped ROIs from each atlas. The lower slices highlight the unmapped ROIs from each atlas.\relax }}{9}{figure.9}\protected@file@percent }
 \newlabel{fig:power_shen_mapped-unmapped}{{9}{9}{Visualization of mapped and unmapped ROIs from Power and Shen ROIs, respectively, from Assignment Problem solution. Two-dimensional slices from each atlas are overlaid on top of each other. The upper slices highlight the mapped ROIs from each atlas. The lower slices highlight the unmapped ROIs from each atlas.\relax }{figure.9}{}}
+\citation{xu2019-2,peterson2009,husain2019}
 \citation{ramezani2014,rolls2017}
 \citation{ramezani2014,zeng2012}
 \citation{reynolds2014,fitzgerald2008}
@@ -85,6 +88,7 @@
 \citation{pan2015}
 \citation{jung2014,couvy-duchesne2018}
 \citation{bai2018,wei2018}
+\citation{xu2019-2,peterson2009,husain2019}
 \citation{rolls2017}
 \citation{cooney2010}
 \citation{fitzgerald2008}
@@ -153,92 +157,95 @@
 \bibdata{BoD}
 \bibcite{caballero2017}{1}
 \bibcite{le17}{2}
-\bibcite{npdr}{3}
-\bibcite{power2011}{4}
-\bibcite{shen2013}{5}
-\bibcite{cox1996}{6}
-\bibcite{collins1994}{7}
-\bibcite{pentico2007}{8}
-\bibcite{robnik2003}{9}
-\bibcite{urbanowicz17}{10}
-\bibcite{mckinney13}{11}
-\bibcite{R}{12}
-\bibcite{lpsolve}{13}
-\bibcite{cheng2018}{14}
-\bibcite{dutta2019}{15}
-\bibcite{liu2017}{16}
-\bibcite{ramezani2014}{17}
-\bibcite{rolls2017}{18}
-\bibcite{zeng2012}{19}
-\bibcite{reynolds2014}{20}
-\bibcite{fitzgerald2008}{21}
-\bibcite{hamani2011}{22}
-\bibcite{mclaren2016}{23}
-\bibcite{tao2013}{24}
-\bibcite{salvadore2011}{25}
-\bibcite{peng2015}{26}
-\bibcite{tu2018}{27}
-\bibcite{yan2019}{28}
-\bibcite{lemogne2009}{29}
-\bibcite{pizzagalli2009}{30}
-\bibcite{bluhm2009}{31}
-\bibcite{pan2015}{32}
-\bibcite{jung2014}{33}
-\bibcite{couvy-duchesne2018}{34}
-\bibcite{bai2018}{35}
-\bibcite{wei2018}{36}
-\bibcite{cooney2010}{37}
-\bibcite{schmaal2017}{38}
-\bibcite{li2017}{39}
-\bibcite{hamilton2015}{40}
-\bibcite{yan2019-2}{41}
-\bibcite{lois2016}{42}
-\bibcite{guo2014-2}{43}
-\bibcite{menon2011}{44}
-\bibcite{zhao2019}{45}
-\bibcite{ellard2018}{46}
-\bibcite{liu2012}{47}
-\bibcite{schultz2018}{48}
-\bibcite{wu2017}{49}
-\bibcite{zhi2018}{50}
-\bibcite{zhuo2017}{51}
-\bibcite{sikora2017}{52}
-\bibcite{wang2016}{53}
-\bibcite{iwabuchi2015}{54}
-\bibcite{kroes2011}{55}
-\bibcite{avery2014}{56}
-\bibcite{iwabuchi2014}{57}
-\bibcite{lui2009}{58}
-\bibcite{helm2018}{59}
-\bibcite{su2014}{60}
-\bibcite{yamamura2016}{61}
-\bibcite{lin2012}{62}
-\bibcite{zhang2019}{63}
-\bibcite{tsujii2017}{64}
-\bibcite{shen2015}{65}
-\bibcite{grieve2013}{66}
-\bibcite{peterson2009}{67}
-\bibcite{wang2017}{68}
-\bibcite{seki2019}{69}
-\bibcite{lin2017}{70}
-\bibcite{zamoscik2014}{71}
-\bibcite{kalsi2017}{72}
-\bibcite{sinha2019}{73}
-\bibcite{xu2019}{74}
-\bibcite{deldonno2018}{75}
-\bibcite{ma2019}{76}
-\bibcite{teng2018}{77}
-\bibcite{zhang2017}{78}
-\bibcite{chen2015}{79}
-\bibcite{fradkin2017}{80}
-\bibcite{tokuda2018}{81}
-\bibcite{weng2019}{82}
-\bibcite{li2018}{83}
-\bibcite{chen2015-2}{84}
-\bibcite{abe2010}{85}
-\bibcite{zbozinek2012}{86}
-\bibcite{hirschfeld2001}{87}
-\bibcite{zhou2017-2}{88}
-\newlabel{LastPage}{{}{22}{}{page.22}{}}
-\xdef\lastpage@lastpage{22}
-\xdef\lastpage@lastpageHy{22}
+\bibcite{dawkins2019}{3}
+\bibcite{npdr}{4}
+\bibcite{power2011}{5}
+\bibcite{shen2013}{6}
+\bibcite{cox1996}{7}
+\bibcite{collins1994}{8}
+\bibcite{pentico2007}{9}
+\bibcite{robnik2003}{10}
+\bibcite{urbanowicz17}{11}
+\bibcite{mckinney13}{12}
+\bibcite{R}{13}
+\bibcite{lpsolve}{14}
+\bibcite{cheng2018}{15}
+\bibcite{dutta2019}{16}
+\bibcite{liu2017}{17}
+\bibcite{xu2019-2}{18}
+\bibcite{peterson2009}{19}
+\bibcite{husain2019}{20}
+\bibcite{ramezani2014}{21}
+\bibcite{rolls2017}{22}
+\bibcite{zeng2012}{23}
+\bibcite{reynolds2014}{24}
+\bibcite{fitzgerald2008}{25}
+\bibcite{hamani2011}{26}
+\bibcite{mclaren2016}{27}
+\bibcite{tao2013}{28}
+\bibcite{salvadore2011}{29}
+\bibcite{peng2015}{30}
+\bibcite{tu2018}{31}
+\bibcite{yan2019}{32}
+\bibcite{lemogne2009}{33}
+\bibcite{pizzagalli2009}{34}
+\bibcite{bluhm2009}{35}
+\bibcite{pan2015}{36}
+\bibcite{jung2014}{37}
+\bibcite{couvy-duchesne2018}{38}
+\bibcite{bai2018}{39}
+\bibcite{wei2018}{40}
+\bibcite{cooney2010}{41}
+\bibcite{schmaal2017}{42}
+\bibcite{li2017}{43}
+\bibcite{hamilton2015}{44}
+\bibcite{yan2019-2}{45}
+\bibcite{lois2016}{46}
+\bibcite{guo2014-2}{47}
+\bibcite{menon2011}{48}
+\bibcite{zhao2019}{49}
+\bibcite{ellard2018}{50}
+\bibcite{liu2012}{51}
+\bibcite{schultz2018}{52}
+\bibcite{wu2017}{53}
+\bibcite{zhi2018}{54}
+\bibcite{zhuo2017}{55}
+\bibcite{sikora2017}{56}
+\bibcite{wang2016}{57}
+\bibcite{iwabuchi2015}{58}
+\bibcite{kroes2011}{59}
+\bibcite{avery2014}{60}
+\bibcite{iwabuchi2014}{61}
+\bibcite{lui2009}{62}
+\bibcite{helm2018}{63}
+\bibcite{su2014}{64}
+\bibcite{yamamura2016}{65}
+\bibcite{lin2012}{66}
+\bibcite{zhang2019}{67}
+\bibcite{tsujii2017}{68}
+\bibcite{shen2015}{69}
+\bibcite{grieve2013}{70}
+\bibcite{wang2017}{71}
+\bibcite{seki2019}{72}
+\bibcite{lin2017}{73}
+\bibcite{zamoscik2014}{74}
+\bibcite{kalsi2017}{75}
+\bibcite{sinha2019}{76}
+\bibcite{xu2019}{77}
+\bibcite{deldonno2018}{78}
+\bibcite{ma2019}{79}
+\bibcite{teng2018}{80}
+\bibcite{zhang2017}{81}
+\bibcite{chen2015}{82}
+\bibcite{fradkin2017}{83}
+\bibcite{tokuda2018}{84}
+\bibcite{weng2019}{85}
+\bibcite{li2018}{86}
+\bibcite{chen2015-2}{87}
+\bibcite{abe2010}{88}
+\bibcite{zbozinek2012}{89}
+\bibcite{hirschfeld2001}{90}
+\bibcite{zhou2017-2}{91}
+\newlabel{LastPage}{{}{23}{}{page.23}{}}
+\xdef\lastpage@lastpage{23}
+\xdef\lastpage@lastpageHy{23}
