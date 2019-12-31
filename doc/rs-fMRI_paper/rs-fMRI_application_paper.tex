@@ -206,20 +206,24 @@
 % Title must be 250 characters or less.
 % \begin{flushleft}
 {\Large
-\textbf\newline{Novel metrics and application of nearest-neighbor feature selection for comparing resting-state fMRI brain atlases} % Please use "sentence case" for title and headings (capitalize only the first word in a title (or heading), the first word in a subtitle (or subheading), and any proper nouns).
+\textbf\newline{Nearest-neighbor projected distance regression feature selection for resting-state fMRI study of major depressive disorder using multiple brain atlases} % Please use "sentence case" for title and headings (capitalize only the first word in a title (or heading), the first word in a subtitle (or subheading), and any proper nouns).
 }
 %\newline
 % Insert author names, affiliations and corresponding author email (do not include titles, positions, or degrees).
 \begin{center}
   \begin{tabular}{l}
-  Bryan A. Dawkins$^{\text{1}}$, Rayus Kuplicki$^{\text{2}}$, Trang T. Le$^{\text{3}}$, Alejandro A. Hernandez$^{\text{1}}$, \\
-  and Brett A. McKinney$^{\text{1,4,}*}$ \\
+  Bryan A. Dawkins$^{\text{1}}$ and Brett A. McKinney$^{\text{1,2,}*}$ \\
   $^{\text{1}}$Department of Mathematics, University of Tulsa, Tulsa, OK 74104, USA \\
-  $^{\text{2}}$Laureate Institute for Brain Research, Tulsa, OK 74136, USA \\
-  $^{\text{3}}$Department of Biostatistics, Epidemiology and Informatics, University of \\
-  \hphantom{2}Pennsylvania, Philadelphia, PA 19104 \\
-  $^{\text{4}}$Tandy School of Computer Science, University of Tulsa, Tulsa, OK 74104, USA\\
+  $^{\text{2}}$Tandy School of Computer Science, University of Tulsa, Tulsa, OK 74104, USA\\
   $*$Correspondence: brett.mckinney@gmail.com
+  %Bryan A. Dawkins$^{\text{1}}$, Rayus Kuplicki$^{\text{2}}$, Trang T. Le$^{\text{3}}$, Alejandro A. Hernandez$^{\text{1}}$, \\
+  %and Brett A. McKinney$^{\text{1,4,}*}$ \\
+  %$^{\text{1}}$Department of Mathematics, University of Tulsa, Tulsa, OK 74104, USA \\
+  %$^{\text{2}}$Laureate Institute for Brain Research, Tulsa, OK 74136, USA \\
+  %$^{\text{3}}$Department of Biostatistics, Epidemiology and Informatics, University of \\
+  %\hphantom{2}Pennsylvania, Philadelphia, PA 19104 \\
+  %$^{\text{4}}$Tandy School of Computer Science, University of Tulsa, Tulsa, OK 74104, USA\\
+  %$*$Correspondence: brett.mckinney@gmail.com
   \end{tabular}
 \end{center}
 
@@ -227,7 +231,9 @@
 % \end{flushleft}
 % Please keep the abstract below 300 words
 \section*{Abstract}
-Resting-state functional connectivity MRI (rs-fMRI) data consists of correlation matrices, where correlations are computed between the time series from brain Regions of Interest (ROIs). There are many different parcellations of the human brain into collections of ROIs. These parcellations, or atlases, can be used in case-control studies in order to understand and accurately classify subject phenotypes. We present new metrics for nearest-neighbor distance-based feature selection at the ROI level. Using our new metrics, we apply a novel nearest-neighbor feature selection algorithm to calculate relative importance of ROIs for classification of a binary outcome including major depression and healthy controls in two existing brain atlases. We use integer programming to derive a mapping between brain atlases to determine spatially similar ROIs. With ROI importance scores and spatial similarity between atlases, we present a novel modality for the comparison of brain atlases and the selection of ROIs relevant to major depression.
+Nearest-neighbor projected distance regression (NPDR) is a new machine learning feature selection algorithm that uses metrics to detect interaction effects between predictor variables that affect disease outcomes. In a resting-state functional MRI (rs-fMRI) study, the subject level data consists of correlation matrices between the time series from brain Regions of Interest (ROIs). We present new metrics for NPDR tailored to correlation-based features so that feature selection can be targeted at the ROI level. An additional challenge of rs-fMRI data is the variety of parcellations of the brain or atlases that may lead to differences in brain region importance in feature selection. We use integer programming to derive a mapping between brain atlases to determine spatially similar ROIs. We apply the new NPDR to calculate relative importance of ROIs for classification of major depression versus healthy controls in two existing brain atlases. With ROI importance scores and spatial similarity between atlases, we present a novel modality for the comparison of brain atlases and the selection of ROIs relevant to major depression.
+
+%Resting-state functional connectivity MRI (rs-fMRI) data consists of correlation matrices, where correlations are computed between the time series from brain Regions of Interest (ROIs). There are many different parcellations of the human brain into collections of ROIs. These parcellations, or atlases, can be used in case-control studies in order to understand and accurately classify subject phenotypes. We present new metrics for nearest-neighbor distance-based feature selection at the ROI level. Using our new metrics, we apply a novel nearest-neighbor feature selection algorithm to calculate relative importance of ROIs for classification of a binary outcome including major depression and healthy controls in two existing brain atlases. We use integer programming to derive a mapping between brain atlases to determine spatially similar ROIs. With ROI importance scores and spatial similarity between atlases, we present a novel modality for the comparison of brain atlases and the selection of ROIs relevant to major depression.
 \linenumbers
 
 %\doublespacing
