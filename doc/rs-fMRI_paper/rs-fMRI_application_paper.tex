@@ -212,9 +212,10 @@
 % Insert author names, affiliations and corresponding author email (do not include titles, positions, or degrees).
 \begin{center}
   \begin{tabular}{l}
-  Bryan A. Dawkins$^{\text{1}}$ and Brett A. McKinney$^{\text{1,2,}*}$ \\
+  Bryan A. Dawkins$^{\text{1}}$, LIBR collaborators$^{\text{2}}$, and Brett A. McKinney$^{\text{1,3,}*}$ \\
   $^{\text{1}}$Department of Mathematics, University of Tulsa, Tulsa, OK 74104, USA \\
-  $^{\text{2}}$Tandy School of Computer Science, University of Tulsa, Tulsa, OK 74104, USA\\
+  $^{\text{2}}$Laureate Institute for Brain Research, Tulsa, OK 74136, USA \\
+  $^{\text{3}}$Tandy School of Computer Science, University of Tulsa, Tulsa, OK 74104, USA\\
   $*$Correspondence: brett.mckinney@gmail.com
   %Bryan A. Dawkins$^{\text{1}}$, Rayus Kuplicki$^{\text{2}}$, Trang T. Le$^{\text{3}}$, Alejandro A. Hernandez$^{\text{1}}$, \\
   %and Brett A. McKinney$^{\text{1,4,}*}$ \\
@@ -262,87 +263,9 @@ In order to make spatial comparisons between any pair of brain atlases, we first
 Our spatial mapping between atlases and relative importance scores for ROIs in each respective atlas provides a way to combine relevant and distinct aspects of each brain atlas into a new parcellation. This new atlas could include important ROIs that are in the optimal one-to-one mapping from the solution to the assignment problem and any important unmapped ROIs from each atlas. Spatial overlap and attribute importance can serve as a useful tool for other researchers to compare, contrast, and combine two atlases. In particular, our results show how one might choose either of the two atlases to study the phenotype of interest we are considering in this work or a completely different phenotype.
 
 \section{Methods}
-In this section, we first describe real rs-fMRI data generated from healthy controls (HC) and subjects with major depressive disorder (MDD), where several of the MDD subjects also have an Anxiety Disorder (AD). Using integer programming, we then derive a one-to-one mapping between the ROIs in two brain atlases used to generate the real data mentioned previously. Finally, we use our new distance metric for rs-fMRI data, along with NPDR, to compute importance scores for ROIs in each atlas from the real data.
+In this section, we first provide a brief description of NPDR in the context of dichotomous outcomes in resting-state fMRI. We then present our method of deriving a one-to-one mapping between the ROIs in two fMRI brain atlases, which we use to compare and contrast the spatial distribution of ROIs in a pair of atlases. Furthermore, we describe real rs-fMRI data generated on healthy controls (HC) and subjects with major depressive disorder (MDD) that we analyze in this work. In the next section, we use NPDR to rank ROIs in each atlas with respect to their relevance in classifying the binary MDD-HC outcome, which will allow us to identify important brain regions and functional networks applicable to MDD.
 
-\subsection{Real rs-fMRI data}
-% need to get with Rayus to discuss the details on what the data is, how it was processed,
-% more demographics info for subjects, and anything else that might be important
-%
-% how were subjects assessed? What diagnostic tests were used to assign subjects to MDD or MDD+Anx?
-% What anxiety disorder did the subjects have? Were these generalized anxiety disorder (GAD) subjects?
-% How were subjects screened for anxiety? DSM-IV, DSM-5, etc.?
-
-Resting-state fMRI data was collected for a total of 59 healthy controls and 243 subjects with MDD. After filtering subjects based on head motion in the scanner, we have 40 healthy controls and 171 subjects with MDD. A total of 116 of the 171 MDD subjects also exhibit symptoms of an anxiety disorder, which leaves 55 that are without significant anxiety. For each subject, we generated a matrix of pairwise correlations between ROI time series. We used both the Power~\cite{power2011} and Shen~\cite{shen2013} fMRI brain atlases, which consist of 277 and 278 ROIs, respectively. 
-
-\subsection{Spatial overlap between brain atlases}
-Let $R_A$ and $R_B$ represent regions of interest (ROIs) in atlases $A$ and $B$, respectively. We assume that atlases $A$ and $B$ are in the same coordinate space. Since $R_A$ and $R_B$ are just collections of voxels that have well defined three-dimensional coordinates, the spatial overlap between $R_A$ and $R_B$ can be defined as the set intersection between the two ROIs. Spatial dissimilarity between $R_A$ and $R_B$ can be computed with the Jaccard metric, which is given by the following
-%
-\begin{equation}\label{eq:jaccard}
-\text{d}^\text{J}(R_A,R_B) = \frac{|R_A \cup R_B - R_A \cap R_B|}{|R_A \cup R_B|},
-\end{equation}
-%
-where the ($-$) sign denotes set complement and $|\cdot|$ represents set cardinality. If the intersection $R_A \cap R_B$ is empty, then the two ROIs do not share any voxels and the Jaccard distance (Eq.~\ref{eq:jaccard}) between them is 1. On the other hand, the Jaccard distance is 0 if the union $R_A \cup R_B$ and intersection $R_A \cap R_B$ are the same sets, which means the two ROIs have exactly the same voxels. All other possible Jaccard distances between $R_A$ and $R_B$ are strictly within $(0,1)$. Hence, the Jaccard metric is contained within $[0,1]$. The reason for division by $|R_A \cup R_B|$ in the denominator of the Jaccard metric (Eq.~\ref{eq:jaccard}) is specifically to normalize the distance to be within $[0,1]$. Otherwise, this distance between two ROIs would be affected by the cardinalities of $R_A$ and $R_B$, respectively. The Jaccard metric is intuitive in this context because ROIs are not just points in space, but rather they can have irregular three-dimensional shapes. Therefore, a Euclidean metric that gives the straight-line distance between two points does not necessarily indicate `closeness' between two ROIs. It is possible to compute the Euclidean distance between the centroids of two ROIs, but the ROIs may not share many voxels due to their potentially irregular shapes. Therefore, it is more informative to use a distance metric that uses set operations like the Jaccard metric (Eq.~\ref{eq:jaccard}). We show an example (Fig.~\ref{fig:jaccard}) of the Jaccard distance between ROIs $R_A$ and $R_B$ that contain $n_1$ and $n_2$ voxels, respectively. 
-
-\vspace{0.25cm}
-
-% trim=left botm right top
-%\begin{figure}[h!]\label{fig:jaccard}
-	{\centering
-	\begin{minipage}[c]{0.55\textwidth}
-	\includegraphics[width=1\textwidth,clip,trim=0cm 0cm 0cm 0.26cm]{venn_diagram.pdf}
-	\end{minipage}\hfill
-	\begin{minipage}[c]{0.43\textwidth}
-	\captionsetup{type=figure}\captionof{figure}{Example computation of Jaccard distance between ROIs $R_A$ and $R_B$ from two atlases $A$ and $B$, respectively. There are $n_1$, $n_2$, $n_3$ voxels in $R_A$ only, $R_B$ only, and both $R_A$ and $R_B$, respectively. The numerator gives the number of voxels unique to $R_A$ ($n_1$) plus the number of voxels unique to $R_B$ ($n_2$). The denominator contains the total number of voxels in $R_A$ or $R_B$.}\label{fig:jaccard}
-	\end{minipage}}
-%\end{figure}
-
-\vspace{0.25cm}
-
-Each ROI in atlas $A$ may overlap many different ROIs in atlas $B$. On the other hand, some ROIs in $A$ may not overlap any ROIs in $B$. Furthermore, it is likely that $A$ and $B$ contain different numbers of ROIs. If we want to compute a minimum distance one-to-one mapping between the atlases, it is possible that some ROIs in $A$ will not have a mapped partner in $B$. In order to efficiently compute this atlas-atlas mapping, we formulate this task as a standard Assignment Problem~\cite{pentico2007}, which has a very concise definition (Fig.~\ref{fig:assignment_problem}).
-
-\vspace{0.25cm}
-
-%\begin{figure}[h!]\label{fig:jaccard}
-{\centering
-	\begin{minipage}[c]{0.55\textwidth}
-		\framebox{\includegraphics[width=1\textwidth,clip,trim=0cm 0cm 0cm 0.26cm]{assignment_problem_equations.pdf}}
-	\end{minipage}\hfill
-	\begin{minipage}[c]{0.4\textwidth}
-		\captionsetup{type=figure}\captionof{figure}{Assignment problem mathematical definition. The assignment matrix $Y$ is binary, where $y_{ij}=0$ if nodes $i$ and $j$ are assigned to each other and 0 otherwise. The distance matrix $D$ between all nodes is computed to assign costs to arcs (or edges) between nodes. The distance between nodes $i$ and $j$ is denoted by $d_{ij}$. Therefore, the objective function is the sum of all pairwise distances in the collection of assigned arcs. The column and row constraints dictate that each node is connected to exactly one and only one other node.}\label{fig:assignment_problem}
-\end{minipage}}
-%\end{figure}
-
-\vspace{0.25cm}
-
-The objective function is the sum over all pairwise distances between nodes included in the mapping, where inclusion is determined by the binary solution matrix $Y$ that has the following definition
-%
-\begin{equation}\label{eq:assignment_sol}
-y_{ij}=\begin{cases}
-1 & \text{nodes } i \text{ and } j \text{ connected,} \\
-0 & \text{otherwise.}
-\end{cases}
-\end{equation}
-
-Each row and each column of $Y$ has a sum-to-one constraint, which means that each node in one collection is connected to exactly one other node in another disjoint collection. This problem assumes that the order (or size) of each collection is equal ($M=N$ in Fig.~\ref{fig:assignment_problem}), so that a one-to-one assignment is possible. In the context of brain atlases, we will satisfy this requirement by adding artificial variables to our solution matrix $Y$. Pairwise distances between actual ROIs in a brain atlas and an artificial variable will be given a large constant value, so that ROIs in atlas $A$ will preferentially map to another ROI in $B$ if a mapping is possible. ROIs will be excluded from the mapping if they do not sufficiently overlap any ROI in the opposing atlas or if they map to an artificial variable. We show a diagram of atlas-atlas mapping (Fig.~\ref{fig:assignment_atlases}) that depicts ROIs as nodes and possible mappings as dashed lines between nodes in atlases $A$ and $B$. Each possible mapping has a distance ($d_{ij}$) associated with its inclusion in the solution matrix $Y$. The solution is ultimately found by choosing connections (solid lines) between atlas ROIs so that each ROI in $A$ is connected to exactly one ROI in $B$, which simultaneously minimizes the sum of all distances in the mapping. We also show how this mapping might look with respect to the actual brain atlases we consider in this manuscript (Fig.~\ref{fig:power_shen_mapped}), where we have taken the unlabeled two-dimensional slices through each atlas (Fig.~\ref{fig:power_shen_unmapped}) and assigned ROIs to each other based on similar location. Each of the atlases are in the Montreal Neurological Institute (MNI) coordinate space~\cite{collins1994}, which allows us to validly compare collections of voxels between them.
-
-\begin{figure}[h!]
-	\centering
-	\framebox{\includegraphics[width=0.98\textwidth]{assignment_diagram.pdf}}
-	\caption{Assignment problem for brain atlas ROI-ROI mapping. Before the minimum distance pairwise mapping is found, all possible pairwise mappings are possible (dashed lines). Each ROI in atlas $A$ must have exactly one partner in atlas $B$. After mapping, the minimum distance pairs are selected to give a one-to-one correspondence between ROIs (solid lines).}\label{fig:assignment_atlases}
-\end{figure}
-
-% trim=left botm right top
-%\begin{figure}[h!]\label{fig:jaccard}
-{\centering
-	\begin{minipage}[c]{0.55\textwidth}
-		\includegraphics[width=1\textwidth,clip,trim=0cm 0cm 0cm 0.0cm]{power_shen_montage_mapped.png}
-	\end{minipage}\hfill
-	\begin{minipage}[c]{0.43\textwidth}
-		\captionsetup{type=figure}\captionof{figure}{Visualization of mapping between Power and Shen atlas ROIs~\cite{power2011,shen2013}. ROIs that are in similar locations are potential partners in the resulting mapping from solving the assignment problem (Fig.~\ref{fig:assignment_problem}). The Power atlas~\cite{power2011} is labeled atlas $A$, while the Shen atlas is labeled $B$.}\label{fig:power_shen_mapped}
-\end{minipage}}
-%\end{figure}
-
-\vspace{0.25cm}
+%In this section, we first describe real rs-fMRI data generated from healthy controls (HC) and subjects with major depressive disorder (MDD), where several of the MDD subjects also have an Anxiety Disorder (AD). Using integer programming, we then derive a one-to-one mapping between the ROIs in two brain atlases used to generate the real data mentioned previously. Finally, we use our new distance metric for rs-fMRI data, along with NPDR, to compute importance scores for ROIs in each atlas from the real data.
 
 \subsection{Relative importance of ROIs}
 
@@ -382,7 +305,7 @@ where $A^{(i)}_{ak}$ and $A^{(j)}_{ak}$ are the correlations between ROI $a$ and
 D^\text{fMRI}_{ij} = \sum_{a \in \mathcal{A}} \text{d}^\text{ROI}_{ij}(a).
 \end{equation}
 
-Using our attribute diff (Eq.~\ref{eq:diff_rs-fMRI}), we compute standardized beta coefficients of the generalized linear model given by
+Using our attribute diff (Eq.~\ref{eq:diff_rs-fMRI}), we compute NPDR standardized beta coefficients of the generalized linear model given by
 %
 \begin{equation}\label{eq:glm_roi}
 \text{logit}\left(\text{p}^\text{miss}_{ij}\right) = \beta_0 + \beta_a \text{d}^\text{ROI}_{ij}(a) + \epsilon_{ij}, \quad \forall(i,j) \in \mathcal{N}(k),
@@ -396,15 +319,97 @@ which is the GLM that NPDR uses to compute standardized beta coefficients for bi
 	\caption{Nearest-neighbor Projected Distance Regression for binary response (case-control)~\cite{npdr}. For each attribute $a \in \mathcal{A}$, we compute standardized beta coefficients for a generalized linear model, where the predictors ($\text{d}_{ij}(a) = |X_{ia} - X_{ja}|$) are one-dimensional projected distances (diffs) with respect to a particular attribute. The argument $\text{p}^\text{miss}_{ij}$ is the probability that instances $i,j \in \mathcal{I}$ are in different phenotype classes. The logit function models the binary hit-miss phenotype projection (Eq.~\ref{eq:diff_outcome}). Significant adjusted pseudo P values ($p_\text{adj}$) lead to the rejection of the null hypothesis $\beta_a \leq 0$. The set $\mathcal{N}(k)$ is the collection of all neighbor ordered pairs such that each target instances neighborhood has exactly $k$ nearest neighbors.}\label{fig:npdr_finished}
 \end{figure}
 
-We employ an adaptive-$k$ algorithm called Gene-Wise Adaptive $k$ (GWAK) that was originally developed for gene expression data~\cite{mckinney13} to determine the optimal $k$ for each ROI in the two atlases we are analyzing. Although developed for gene expression data, this method can be used for other data types to which nearest-neighbor feature selection is applied. GWAK uses a greedy approach to optimize the relevance score for each attribute as a function of $k$ (Fig.~\ref{fig:gwak}). For each attribute $a \in \mathcal{A}$, a relevance score is computed for each value of $k=1,2,\dots,m-1$ using some nearest-neighbor feature selection algorithm. Each attribute is assigned the value of $k$ that maximizes its relevance score. For noise attributes, scores do not change significantly as a function of $k$. On the other hand, the scores of relevant attributes will change significantly as a function of $k$. This implies that GWAK maximizes the probability of detecting relevant attributes when nearest-neighbor feature selection is utilized. 
+We employ an adaptive-$k$ algorithm, previously referred to as Gene-Wise Adaptive $k$ (GWAK)~\cite{mckinney13} for gene expression data, that we call Variable-Wise Optimized $k$ (VWOK) to determine the optimal $k$ for each ROI in the two atlases we are analyzing. Although developed for gene expression data, this method can easily be used for any data type to which nearest-neighbor feature selection is applied. VWOK uses a greedy approach to optimize the relevance score for each attribute as a function of $k$ (Fig.~\ref{fig:gwak}). For each attribute $a \in \mathcal{A}$, a relevance score is computed for each value of $k=1,2,\dots,m-1$ using some nearest-neighbor feature selection algorithm. Each attribute is assigned the value of $k$ that maximizes its relevance score. For noise attributes, scores do not change significantly as a function of $k$. On the other hand, the scores of relevant attributes will change significantly as a function of $k$. This implies that VWOK maximizes the probability of detecting relevant attributes when nearest-neighbor feature selection is utilized. 
 
-We have determined empirically with simulated data that cross-validation approaches for tuning $k$ to optimally select relevant features do not perform well in nearest-neighbor feature selection as compared to GWAK. This is due largely to the fact that cross-validation optimizes test classification accuracy, which does not necessarily give the highest quality features. Partitioning data into training and test folds also limits the choice of $k$ because the training data has only a subset of available instances in the full data set. Partitioning the data into training and test sets to choose a single value of $k$ for the entire data set will cause the selection of a suboptimal $k$ for a given relevant attribute, which could be detrimental to the quality of selected features. Our goal is to rank features in terms of relevance to a phenotype of interest as accurately as possible using a nearest-neighbor approach. Therefore, we use GWAK in our current analysis.
+We have determined empirically with simulated data that cross-validation approaches for tuning $k$ to optimally select relevant features do not perform well in nearest-neighbor feature selection as compared to VWOK. This is due largely to the fact that cross-validation optimizes test classification accuracy, which does not necessarily give the highest quality features. Partitioning data into training and test folds also limits the choice of $k$ because the training data has only a subset of available instances in the full data set. Partitioning the data into training and test sets to choose a single value of $k$ for the entire data set will cause the selection of a suboptimal $k$ for a given relevant attribute, which could be detrimental to the quality of selected features. Our goal is to rank features in terms of relevance to a phenotype of interest as accurately as possible using a nearest-neighbor approach. Therefore, we use VWOK in our current analysis.
 
 \begin{figure}[h!]
 	\centering
 	\framebox{\includegraphics[width=0.8\textwidth]{feature_wise_opt_diagram3.pdf}}
-	\caption{Feature-wise adaptive-$k$ method for choosing optimal values of $k$ in nearest-neighbor feature selection. For each attribute $a \in \mathcal{A}$ and each value of $k=1,2,\dots,m-1$, a score or weight is computed with a nearest-neighbor feature selection method like Relief-Based Algorithms (RBAs) or another similar method. Each feature is assigned the value of $k$ that maximizes its importance score. Winning scores are then sorted in decreasing order and some fraction of the top scoring attributes are chosen for further analysis. We use the adjusted pseudo P values from NPDR to filter out attributes that are determined irrelevant to the phenotype. With NPDR, attribute scores are simply the standardized beta coefficients computed for the corresponding GLM (Eq.~\ref{eq:glm_roi}).}\label{fig:gwak}
+	\caption{Variable-Wise Optimized $k$ (VWOK) method for choosing optimal values of $k$ in nearest-neighbor feature selection. For each attribute $a \in \mathcal{A}$ and each value of $k=1,2,\dots,m-1$, a score or weight is computed with a nearest-neighbor feature selection method like Relief-Based Algorithms (RBAs) or another similar method. Each feature is assigned the value of $k$ that maximizes its importance score. Winning scores are then sorted in decreasing order and some fraction of the top scoring attributes are chosen for further analysis. We use the adjusted pseudo P values from NPDR to filter out attributes that are determined irrelevant to the phenotype. In our current context, attribute scores are simply the NPDR standardized beta coefficients computed for the corresponding GLM (Eq.~\ref{eq:glm_roi}).}\label{fig:gwak}
 \end{figure}
+
+\subsection{Spatial overlap between brain atlases}
+Let $R_A$ and $R_B$ represent regions of interest (ROIs) in atlases $A$ and $B$, respectively. We assume that atlases $A$ and $B$ are in the same coordinate space. Since $R_A$ and $R_B$ are just collections of voxels that have well defined three-dimensional coordinates, the spatial overlap between $R_A$ and $R_B$ can be defined as the set intersection between the two ROIs. Spatial dissimilarity between $R_A$ and $R_B$ can be computed with the Jaccard metric, which is given by the following
+%
+\begin{equation}\label{eq:jaccard}
+\text{d}^\text{J}(R_A,R_B) = \frac{|R_A \cup R_B - R_A \cap R_B|}{|R_A \cup R_B|},
+\end{equation}
+%
+where the ($-$) sign denotes set complement and $|\cdot|$ represents set cardinality. If the intersection $R_A \cap R_B$ is empty, then the two ROIs do not share any voxels and the Jaccard distance (Eq.~\ref{eq:jaccard}) between them is 1. On the other hand, the Jaccard distance is 0 if the union $R_A \cup R_B$ and intersection $R_A \cap R_B$ are the same sets, which means the two ROIs have exactly the same voxels. All other possible Jaccard distances between $R_A$ and $R_B$ are strictly within $(0,1)$. Hence, the Jaccard metric is contained within $[0,1]$. The reason for division by $|R_A \cup R_B|$ in the denominator of the Jaccard metric (Eq.~\ref{eq:jaccard}) is specifically to normalize the distance to be within $[0,1]$. Otherwise, this distance between two ROIs would be affected by the cardinalities of $R_A$ and $R_B$, respectively. The Jaccard metric is intuitive in this context because ROIs are not just points in space, but rather they can have irregular three-dimensional shapes. Therefore, a Euclidean metric that gives the straight-line distance between two points does not necessarily indicate `closeness' between two ROIs. It is possible to compute the Euclidean distance between the centroids of two ROIs, but the ROIs may not share many voxels due to their potentially irregular shapes. Therefore, it is more informative to use a distance metric that uses set operations like the Jaccard metric (Eq.~\ref{eq:jaccard}). We show an example (Fig.~\ref{fig:jaccard}) of the Jaccard distance between ROIs $R_A$ and $R_B$ that contain $n_1$ and $n_2$ voxels, respectively. 
+
+\vspace{0.25cm}
+
+% trim=left botm right top
+%\begin{figure}[h!]\label{fig:jaccard}
+	{\centering
+	\begin{minipage}[c]{0.55\textwidth}
+	\includegraphics[width=1\textwidth,clip,trim=0cm 0cm 0cm 0.26cm]{venn_diagram.pdf}
+	\end{minipage}\hfill
+	\begin{minipage}[c]{0.43\textwidth}
+	\captionsetup{type=figure}\captionof{figure}{Example computation of Jaccard distance between ROIs $R_A$ and $R_B$ from two atlases $A$ and $B$, respectively. There are $n_1$, $n_2$, $n_3$ voxels in $R_A$ only, $R_B$ only, and both $R_A$ and $R_B$, respectively. The numerator gives the number of voxels unique to $R_A$ ($n_1$) plus the number of voxels unique to $R_B$ ($n_2$). The denominator contains the total number of voxels in $R_A$ or $R_B$.}\label{fig:jaccard}
+	\end{minipage}}
+%\end{figure}
+
+\vspace{0.25cm}
+
+Each ROI in atlas $A$ may overlap many different ROIs in atlas $B$. On the other hand, some ROIs in $A$ may not overlap any ROIs in $B$. Furthermore, it is likely that $A$ and $B$ contain different numbers of ROIs. If we want to compute a minimum distance one-to-one mapping between the atlases, it is possible that some ROIs in $A$ will not have a mapped partner in $B$. In order to efficiently compute this atlas-atlas mapping, we formulate this task as a standard Assignment Problem~\cite{pentico2007}, which has a very concise definition (Fig.~\ref{fig:assignment_problem}).
+
+\vspace{0.25cm}
+
+%\begin{figure}[h!]\label{fig:jaccard}
+{\centering
+	\begin{minipage}[c]{0.48\textwidth}
+		\framebox{\includegraphics[width=1\textwidth,clip,trim=0cm 0cm 0cm 0.26cm]{assignment_problem_equations.pdf}}
+	\end{minipage}\hfill
+	\begin{minipage}[c]{0.45\textwidth}
+		\captionsetup{type=figure}\captionof{figure}{Assignment problem mathematical definition. The assignment matrix $Y$ is binary, where $y_{ij}=0$ if nodes $i$ and $j$ are assigned to each other and 0 otherwise. The distance matrix $D$ between all nodes is computed to assign costs to arcs (or edges) between nodes. The distance between nodes $i$ and $j$ is denoted by $d_{ij}$. Therefore, the objective function is the sum of all pairwise distances in the collection of assigned arcs. The column and row constraints dictate that each node is connected to exactly one and only one other node.}\label{fig:assignment_problem}
+\end{minipage}}
+%\end{figure}
+
+\vspace{0.25cm}
+
+The objective function is the sum over all pairwise distances between nodes included in the mapping, where inclusion is determined by the binary solution matrix $Y$ that has the following definition
+%
+\begin{equation}\label{eq:assignment_sol}
+y_{ij}=\begin{cases}
+1 & \text{nodes } i \text{ and } j \text{ connected,} \\
+0 & \text{otherwise.}
+\end{cases}
+\end{equation}
+
+Each row and each column of $Y$ has a sum-to-one constraint, which means that each node in one collection is connected to exactly one other node in another disjoint collection. This problem assumes that the order (or size) of each collection is equal ($M=N$ in Fig.~\ref{fig:assignment_problem}), so that a one-to-one assignment is possible. In the context of brain atlases, we will satisfy this requirement by adding artificial variables to our solution matrix $Y$. Pairwise distances between actual ROIs in a brain atlas and an artificial variable will be given a large constant value, so that ROIs in atlas $A$ will preferentially map to another ROI in $B$ if a mapping is possible. ROIs will be excluded from the mapping if they do not sufficiently overlap any ROI in the opposing atlas or if they map to an artificial variable. We show a diagram of atlas-atlas mapping (Fig.~\ref{fig:assignment_atlases}) that depicts ROIs as nodes and possible mappings as dashed lines between nodes in atlases $A$ and $B$. Each possible mapping has a distance ($d_{ij}$) associated with its inclusion in the solution matrix $Y$. The solution is ultimately found by choosing connections (solid lines) between atlas ROIs so that each ROI in $A$ is connected to exactly one ROI in $B$, which simultaneously minimizes the sum of all distances in the mapping. We also show how this mapping might look with respect to the actual brain atlases we consider in this manuscript (Fig.~\ref{fig:power_shen_mapped}), where we have taken the unlabeled two-dimensional slices through each atlas (Fig.~\ref{fig:power_shen_unmapped}) and assigned ROIs to each other based on similar location. Each of the atlases are in the Montreal Neurological Institute (MNI) coordinate space~\cite{collins1994}, which allows us to validly compare collections of voxels between them.
+
+\begin{figure}[h!]
+	\centering
+	\framebox{\includegraphics[width=0.98\textwidth]{assignment_diagram.pdf}}
+	\caption{Assignment problem for brain atlas ROI-ROI mapping. Before the minimum distance pairwise mapping is found, all possible pairwise mappings are possible (dashed lines). Each ROI in atlas $A$ must have exactly one partner in atlas $B$. After mapping, the minimum distance pairs are selected to give a one-to-one correspondence between ROIs (solid lines).}\label{fig:assignment_atlases}
+\end{figure}
+
+\vspace{0.25cm}
+
+% trim=left botm right top
+%\begin{figure}[h!]\label{fig:jaccard}
+{\centering
+	\begin{minipage}[c]{0.55\textwidth}
+		\includegraphics[width=1\textwidth,clip,trim=0cm 0cm 0cm 0.0cm]{power_shen_montage_mapped.png}
+	\end{minipage}\hfill
+	\begin{minipage}[c]{0.43\textwidth}
+		\captionsetup{type=figure}\captionof{figure}{Visualization of mapping between Power and Shen atlas ROIs~\cite{power2011,shen2013}. ROIs that are in similar locations are potential partners in the resulting mapping from solving the assignment problem (Fig.~\ref{fig:assignment_problem}). The Power atlas~\cite{power2011} is labeled atlas $A$, while the Shen atlas is labeled $B$.}\label{fig:power_shen_mapped}
+\end{minipage}}
+%\end{figure}
+
+\vspace{0.25cm}
+
+\subsection{Real rs-fMRI data}
+% need to get with Rayus to discuss the details on what the data is, how it was processed,
+% more demographics info for subjects, and anything else that might be important
+%
+% how were subjects assessed? What diagnostic tests were used to assign subjects to MDD or MDD+Anx?
+% What anxiety disorder did the subjects have? Were these generalized anxiety disorder (GAD) subjects?
+% How were subjects screened for anxiety? DSM-IV, DSM-5, etc.?
+
+Resting-state fMRI data was collected for a total of 59 healthy controls and 243 subjects with MDD. After filtering subjects based on head motion in the scanner, we have 40 healthy controls and 171 subjects with MDD. A total of 116 of the 171 MDD subjects also exhibit symptoms of an anxiety disorder, which leaves 55 that are without significant anxiety. For each subject, we generated a matrix of pairwise correlations between ROI time series. We used both the Power~\cite{power2011} and Shen~\cite{shen2013} fMRI brain atlases, which consist of 277 and 278 ROIs, respectively. 
 
 \section{Results}
 In this section, we first give a pairwise mapping between the Power and Shen brain atlases. We describe the process of solving for a minimum distance one-to-one mapping. We then show which ROIs in the two atlases are determined important by NPDR, which are partitioned by those that are mapped and unmapped. Finally, we demonstrate the validity of important ROIs by referencing other analyses that have produced similar results.
@@ -426,7 +431,7 @@ We summarize the solution matrix from the Power-Shen ROI mapping given by \texts
 Mapped ROIs are an indication of informational and spatial similarity shared by both atlases. Subject data that is derived from the mapped ROIs are highly correlated because each ROI pair shares voxels from which ROI time series are created. Unmapped ROIs in a single atlas may or may not intersect one of the mapped ROIs in another atlas. These unmapped ROIs indicate the most spatially unique aspects of each atlas relative to one another. Hence, unmapped ROIs should be considered for inclusion in a customized atlas if determined to be important for predicting the outcome.
 
 \subsection{Power and Shen atlas ROIs relevant to MDD}
-We used GWAK to determine the value of $k$ that maximized the NPDR standardized beta coefficient $\beta_a$ (Eq.~\ref{eq:glm_roi}) for each atlas ROI. ROIs with a Bonferroni adjusted pseudo P value less than 0.05 were categorized as important, while those with P values exceeding 0.05 were categorized as unimportant. Important mapped (Table~\ref{tab:mapped-power-tab}) and unmapped (Table~\ref{tab:unmapped-power-tab}) Power ROIs correspond to several brain regions with known associations with MDD. The highest ranking mapped Power ROI is designated as 89 with respect to that atlas, which is in the right precuneus brain region in the dorsal default mode network (DMN). The precuneus in general, and the right precuneues in particular, has previously been associated with MDD~\cite{cheng2018,dutta2019,liu2017}. We also summarize standardized beta coefficients, P values, brain regions, and functional networks for ROIs that were not significantly relevant to the outcome in the Power (Tables S1) and Shen (Table S2) atlases.
+We used VWOK to determine the value of $k$ that maximized the NPDR standardized beta coefficient $\beta_a$ (Eq.~\ref{eq:glm_roi}) for each atlas ROI. ROIs with a Bonferroni adjusted pseudo P value less than 0.05 were categorized as important, while those with P values exceeding 0.05 were categorized as unimportant. Important mapped (Table~\ref{tab:mapped-power-tab}) and unmapped (Table~\ref{tab:unmapped-power-tab}) Power ROIs correspond to several brain regions with known associations with MDD. The highest ranking mapped Power ROI is designated as 89 with respect to that atlas, which is in the right precuneus brain region in the dorsal default mode network (DMN). The precuneus in general, and the right precuneues in particular, has previously been associated with MDD~\cite{cheng2018,dutta2019,liu2017}. We also summarize standardized beta coefficients, P values, brain regions, and functional networks for ROIs that were not significantly relevant to the outcome in the Power (Tables S1) and Shen (Table S2) atlases.
 
 We have found that each of the important mapped Power ROI brain regions (Table~\ref{tab:mapped-power-tab}) has been identified in several other studies regarding MDD: left middle temporal gyrus~\cite{xu2019-2,peterson2009,husain2019}, left inferior temporal gyrus~\cite{ramezani2014,rolls2017}, left parahippocampal gyrus~\cite{ramezani2014,zeng2012}, right middle frontal gyrus~\cite{reynolds2014,fitzgerald2008}, left cingulate gyrus~\cite{hamani2011,mclaren2016}, right superior frontal gyrus~\cite{tao2013,salvadore2011}, right supramarginal gyrus~\cite{peng2015,tu2018}, right orbital gyrus~\cite{rolls2017,yan2019}, right medial frontal gyrus~\cite{lemogne2009,tao2013}, right caudate head~\cite{pizzagalli2009,bluhm2009}, right inferior frontal gyrus~\cite{tao2013,tu2018}, right superior temporal gyrus~\cite{pan2015}, left lingual gyrus~\cite{jung2014,couvy-duchesne2018}, and right cuneus~\cite{bai2018,wei2018}.
 
@@ -579,9 +584,9 @@ Our method of assigning importance to ROIs with Nearest-neighbor Projected Dista
 
 The outcome in our data consists of 40 healthy controls and 171 subjects with MDD, which is heavily imbalanced. Relief-based algorithms have typically dealt with imbalance by using the same number of hits and misses with respect to target instances to compute attribute scores~\cite{urbanowicz17}. Running NPDR on simulated data with imbalanced outcome, we have seen empirically that attribute quality is optimized by allowing each target instance to have a neighborhood that consists of the $k$ closest hits or misses. That is, each target instance's neighborhood is chosen without regard to class label. This implies that each neighborhood can have a different proportion of hits and misses, however, results from simulated data indicate that this optimizes the quality of selected features.
 
-We used GWAK~\cite{mckinney13} to assign scores to each ROI, which is also a novel application. When a nearest-neighbor feature selection algorithm is applied to data with a dichotomous outcome, GWAK optimizes the quality of feature rankings with respect to their scores. In the context of nearest-neighbor feature selection, we have observed that GWAK performs much better than cross-validation approaches that split the data into training and test folds. The superiority of GWAK is based on the fact that it optimizes outcome relevance scores for all attributes, which significantly affects only those attributes that are relevant to the given outcome. The average score of irrelevant attributes remains approximately unchanged as a function of the number of nearest neighbors $k$, whereas scores of relevant attributes can dramatically change with the choice of $k$. By optimizing $k$ for each feature, we maximize the probability of detecting relevant attributes.
+We used VWOK (Fig.~\ref{fig:gwak}), formerly referred to as GWAK~\cite{mckinney13}, to assign scores to each ROI, which is also a novel application. When a nearest-neighbor feature selection algorithm is applied to data with a dichotomous outcome, VWOK optimizes the quality of feature rankings with respect to their scores. In the context of nearest-neighbor feature selection, we have observed that VWOK performs much better than cross-validation approaches that split the data into training and test folds. The superiority of VWOK is based on the fact that it optimizes outcome relevance scores for all attributes, which significantly affects only those attributes that are relevant to the given outcome. The average score of irrelevant attributes remains approximately unchanged as a function of the number of nearest neighbors $k$, whereas scores of relevant attributes can dramatically change with the choice of $k$. By optimizing $k$ for each feature, we maximize the probability of detecting relevant attributes.
 
-NPDR-GWAK detected a total of 23 important Power ROIs (Tables~\ref{tab:mapped-power-tab}-\ref{tab:unmapped-power-tab}) and 66 important Shen ROIs (Tables~\ref{tab:mapped-shen-tab}-\ref{tab:unmapped-shen-tab}). We have found that nearly all detected ROIs have been formerly associated with MDD, which at least to some degree implies that our method of determining ROI importance using a novel nearest-neighbor approach is valid. Power ROIs are localized to single brain regions and functional networks, which allows for more precision in the identification of MDD-relevant localities within the brain. There are many more significant Shen ROIs for our MDD-HC outcome, but each of these ROIs may intersect multiple brain regions. There are some important Shen ROIs that intersect only a single Power ROI and corresponding brain region (Table~\ref{tab:mapped-shen-tab}-\ref{tab:unmapped-shen-tab}). More work needs to be done to determine what aspects of these ROIs make them relevant to MDD. However, we have shown that nearly all of the highlighted brain regions (Tables~\ref{tab:mapped-shen-tab}-\ref{tab:unmapped-shen-tab}) associated with important Shen ROIs that simultaneously do not exist among important Power ROIs have been correlated with MDD in other studies. This further supports the validity of our NPDR-GWAK method for assigning importance to ROIs.
+NPDR-VWOK detected a total of 23 important Power ROIs (Tables~\ref{tab:mapped-power-tab}-\ref{tab:unmapped-power-tab}) and 66 important Shen ROIs (Tables~\ref{tab:mapped-shen-tab}-\ref{tab:unmapped-shen-tab}). We have found that nearly all detected ROIs have been formerly associated with MDD, which at least to some degree implies that our method of determining ROI importance using a novel nearest-neighbor approach is valid. Power ROIs are localized to single brain regions and functional networks, which allows for more precision in the identification of MDD-relevant localities within the brain. There are many more significant Shen ROIs for our MDD-HC outcome, but each of these ROIs may intersect multiple brain regions. There are some important Shen ROIs that intersect only a single Power ROI and corresponding brain region (Table~\ref{tab:mapped-shen-tab}-\ref{tab:unmapped-shen-tab}). More work needs to be done to determine what aspects of these ROIs make them relevant to MDD. However, we have shown that nearly all of the highlighted brain regions (Tables~\ref{tab:mapped-shen-tab}-\ref{tab:unmapped-shen-tab}) associated with important Shen ROIs that simultaneously do not exist among important Power ROIs have been correlated with MDD in other studies. This further supports the validity of our NPDR-VWOK method for assigning importance to ROIs.
 
 The MDD outcome group includes both subjects with only MDD and others with MDD and an anxiety disorder as well. It is well known that there is a high degree of comorbidity between MDD and anxiety disorders~\cite{zbozinek2012,hirschfeld2001,zhou2017-2}. This enhanced comorbidity could be the result of overlapping characteristics between the two disorders from diagnostic tests~\cite{zbozinek2012}. We have primarily been concerned with MDD in our analysis, but the combination of subjects with only MDD and those with both MDD and anxiety could be a potential drawback. Combination of these two distinct groups of MDD subjects was done in order to increase statistical power, so that our ability to detect MDD-relevant ROIs was maximized. More work needs to be done to determine whether the inclusion of subjects with both MDD and anxiety is a significant confounding factor for the determination of MDD-relevant ROIs.
 

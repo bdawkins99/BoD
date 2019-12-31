@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  30 OCT 2019 09:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  31 DEC 2019 11:36
 entering extended mode
 **./BoD_opt-k_simulation.tex
 (BoD_opt-k_simulation.tex
@@ -985,16 +985,16 @@ Package microtype Info: Loading generic protrusion settings for font family
 <2by2_arrangementABC.pdf, id=48, 703.36679pt x 803.92747pt>
 File: 2by2_arrangementABC.pdf Graphic file (type pdf)
 <use 2by2_arrangementABC.pdf>
-Package pdftex.def Info: 2by2_arrangementABC.pdf  used on input line 229.
+Package pdftex.def Info: 2by2_arrangementABC.pdf  used on input line 228.
 (pdftex.def)             Requested size: 379.4175pt x 433.67276pt.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 230.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 229.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/psnfss\ot1ptm.fd"
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 230.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 229.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/microtype\mt-ptm.cfg"
 File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
@@ -1002,27 +1002,27 @@ File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
 
 {C:/Users/bdawk/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2 <./2by2_
 arrangementABC.pdf>]
-<betas_and_pvals_vs_p_ABC.pdf, id=254, 794.23924pt x 402.00288pt>
+<betas_and_pvals_vs_p_ABC.pdf, id=253, 794.23924pt x 402.00288pt>
 File: betas_and_pvals_vs_p_ABC.pdf Graphic file (type pdf)
 <use betas_and_pvals_vs_p_ABC.pdf>
-Package pdftex.def Info: betas_and_pvals_vs_p_ABC.pdf  used on input line 303.
+Package pdftex.def Info: betas_and_pvals_vs_p_ABC.pdf  used on input line 302.
 (pdftex.def)             Requested size: 379.4175pt x 192.04521pt.
  [3 <./betas_and_pvals_vs_p_ABC.pdf>] [4] [5]
-<shaded_bell_curve.pdf, id=328, 334.22667pt x 149.06891pt>
+<shaded_bell_curve.pdf, id=327, 334.22667pt x 149.06891pt>
 File: shaded_bell_curve.pdf Graphic file (type pdf)
 <use shaded_bell_curve.pdf>
-Package pdftex.def Info: shaded_bell_curve.pdf  used on input line 395.
+Package pdftex.def Info: shaded_bell_curve.pdf  used on input line 394.
 (pdftex.def)             Requested size: 252.31071pt x 112.53383pt.
  [6 <./shaded_bell_curve.pdf>]
 
 LaTeX Warning: Reference `fig:interaction_simulation_diagram' on page 7 undefin
-ed on input line 439.
+ed on input line 438.
 
 [7]
-<mixed_simulation_diagram2.pdf, id=397, 484.14978pt x 545.6465pt>
+<mixed_simulation_diagram2.pdf, id=396, 484.14978pt x 545.6465pt>
 File: mixed_simulation_diagram2.pdf Graphic file (type pdf)
 <use mixed_simulation_diagram2.pdf>
-Package pdftex.def Info: mixed_simulation_diagram2.pdf  used on input line 488.
+Package pdftex.def Info: mixed_simulation_diagram2.pdf  used on input line 487.
 
 (pdftex.def)             Requested size: 371.82751pt x 419.07506pt.
  [8] [9]
@@ -1033,23 +1033,23 @@ Overfull \vbox (10.42918pt too high) has occurred while \output is active []
 
 AED: lastpage setting LastPage
 [11]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 496.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 496.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 495.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 495.
  (BoD_opt-k_simulation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 496.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 496.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 495.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 495.
 Package rerunfilecheck Info: File `BoD_opt-k_simulation.out' has not changed.
 (rerunfilecheck)             Checksum: 9F8ECCA153959147576E94ABB21F2F92;729.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 496.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 495.
  ) 
 Here is how much of TeX's memory you used:
- 21428 strings out of 492946
- 388151 string characters out of 3135528
- 511501 words of memory out of 3000000
+ 21427 strings out of 492946
+ 388143 string characters out of 3135528
+ 511535 words of memory out of 3000000
  24754 multiletter control sequences out of 15000+200000
  22503 words of font info for 112 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1071,9 +1071,9 @@ nts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
 mtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/
 Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files/
 MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb>
-Output written on BoD_opt-k_simulation.pdf (11 pages, 1239171 bytes).
+Output written on BoD_opt-k_simulation.pdf (11 pages, 1238910 bytes).
 PDF statistics:
- 681 PDF objects out of 1000 (max. 8388607)
- 51 named destinations out of 1000 (max. 500000)
+ 680 PDF objects out of 1000 (max. 8388607)
+ 50 named destinations out of 1000 (max. 500000)
  14961 words of extra memory for PDF output out of 17280 (max. 10000000)
 
