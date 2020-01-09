@@ -387,7 +387,7 @@ And finally using Eqs. (\ref{eq:binomial_average} and \ref{eq:q_prob}) we find
 \end{equation}
 where we apply the floor function to ensure the number of neighbors is integer. For data with balanced hits and misses in standard fixed $k$ Relief, one divides this formula by 2. For MultiSURF ($\alpha=1/2$), this formula gives $\bar{k}_{\alpha}^{\text{hit/miss}} = \bar{k}_{1/2}^{\text{hit/miss}} = \frac{1}{2}\bar{k}_{1/2} = .154 (m-1)$, which is very close to our previous empirical estimate $m/6$. When we compare MultiSURF neighborhood methods with fixed $k$ neighborhoods, we use $\bar{k}_{1/2}$. Using this $\alpha=1/2$ value has been shown to give good performance for simulated data sets. However, the best value for $\alpha$ is likely data-specific and should probably be determined for each individual data set.
 
-\begin{figure}[ht!]
+\begin{figure}[H]
 \centering
 \begin{minipage}[h]{0.7\textwidth}
 		\framebox{\includegraphics[width=0.95\textwidth]{shaded_bell_curve.pdf}}
@@ -397,36 +397,27 @@ where we apply the floor function to ensure the number of neighbors is integer. 
 \end{minipage}
 \end{figure} 
 
-\section{Optimal neighborhood parameters for detecting effects}\label{sec:optim-k}
-k or $\alpha$. 
-Balancing blessing and curse of dimensionality.
-
-
-\section{ICA?}
-
-Using same interaction, increase background noise genes to see degrading of A and B Relief importance because of curse of dimensionality (sparseness).  
-
 \section{Data simulations}\label{sec:sim_methods}
-
-Each simulated data set $X^{(m \times p)}$ generated contained $m$ instances and $p$ features, where $m \in \{100, 250, 500\} \text{ and } p \in \{1000,2500,5000\}$. All combinations of $m$ and $p$ were explored in order to determine how neighborhood selection parameters change with dimensionality. We considered a balanced binary outcome only so that there were exactly $m/2$ cases and $m/2$ controls. In each simulation, 10\% of the total number of features $p$ were functionally related to the outcome variable while the remaining 90\% were simply background features with no effect. Functional features were given either main or interaction effect in order to create a random mixed effects data set for which optimal neighborhood method parameters could be calculated. In the next few sections, we describe our methods of generating interactions, main effects, and mixed effects consisting of a combination of main effects and interactions.
+In this section, we discuss our methods of generating interaction effects, main effects, and a combination of main and interaction effects. In our analysis of optimizing $k$, we use mixed simulations containing main and interaction effects to determine the best overall strategy of choosing $k$ for a given scenario on the data.
 
 \subsection{Interaction effects}
 
 We extend an interaction effect simulation method that generates differential correlation starting from a random graph from either Erd\H{o}s-R\'{e}nyi or Scale-free degree distribution~\cite{lareau15}. With this method, functional features in the control group are given large pairwise correlations with all other features. Differential correlations (interaction effects) are created by randomly permuting functional feature data entries within the case group only, which destroys the correlation structure in the case group but preserves the correlation structure in the control group. This method creates large effect sizes, which are easily detected by nearest-neighbor distance based methods. The reason for this ease of detection is the uniformity in low and high correlations in case and control groups, respectively. 
 
-In order to establish more influence over the number of differential pairwise correlations, we simulate correlation matrices for case and control groups directly. We allowed only functional connections to be given differential correlation between case and control groups, where a functional connection is simply the presence of an edge (or link) from one feature to a functional feature in the random network that is generated. We show a flow diagram that displays our simulation method for interactions (Figure~\ref{fig:mixed_sim}). Analogous to the former method~\cite{lareau15}, we start with a random graph with either Erd\"{o}s-R\'{e}nyi or Scale-free degree distribution (Figure~\ref{fig:mixed_sim}-\textbf{(1)}). From the random graph, we choose which attributes will be given functional interactions ($F$) among those with non-zero degree (Figure~\ref{fig:mixed_sim}-\textbf{(2)}). Using adjacency matrix $A$, along with the indices of interaction attributes $F$, we create correlation matrices for cases and controls (Figure~\ref{fig:mixed_sim}-\textbf{(3)}). For the control group, we assign high correlations ($\rho^\text{hi}$) to connected attribute pairs from the random graph while non-connected pairs are given low correlation ($\rho^\text{lo}$). We add noise ($\varepsilon_{ij} \sim \mathcal{N}(0,0.1)$) to the high and low correlation parameters as well, which gives each pair of attributes a different correlation. The case group starts out with the same exact correlation matrix as the controls. For attributes that are connected to another attribute that is functional ($F$), we create differential correlation for these pairs using the parameter
+In order to establish more influence over the number of differential pairwise correlations, we simulate correlation matrices for case and control groups directly. We allowed only functional connections to be given differential correlation between case and control groups, where a functional connection is simply the presence of an edge (or link) from one feature to a functional feature in the random network that is generated. We show a flow diagram that displays our simulation method for interactions (Figure~\ref{fig:mixed_sim}). Analogous to the former method~\cite{lareau15}, we start with a random graph with either Erd\"{o}s-R\'{e}nyi or Scale-free degree distribution (Figure~\ref{fig:mixed_sim}\textbf{(1)}). From the random graph, we choose which attributes will be given functional interactions ($F$) among those with non-zero degree (Figure~\ref{fig:mixed_sim}\textbf{(2)}). Using adjacency matrix $A$, along with the indices of interaction attributes $F$, we create correlation matrices for cases and controls (Figure~\ref{fig:mixed_sim}\textbf{(3)}). For the control group, we assign high correlations ($\rho^\text{hi}$) to connected attribute pairs from the random graph while non-connected pairs are given low correlation ($\rho^\text{lo}$). We add noise ($\varepsilon_{ij} \sim \mathcal{N}(0,0.1)$) to the high and low correlation parameters as well, which gives each pair of attributes a different correlation. The case group starts out with the same exact correlation matrix as the controls ($P^\text{ctrl}$). For attributes that are connected to another attribute that is functional ($F$), we create differential correlation for these pairs using the parameter
 \begin{equation}\label{eq:b_int}
 b^\text{int} = - t \rho^\text{hi} + (1 - t) \rho^\text{hi}, \text{ where } t \in [0,1].
 \end{equation}
 As $t \to 0$, the effect size decreases monotonically. On the other hand, the effect size increases monotonically as $t \to 1$. By controlling $\rho^\text{hi}$, $b^\text{int}$, and the level of network connectivity, we have the ability to more finely control the interaction effect size than the preceding simulation method upon which ours is drawn~\cite{lareau15}. 
 
-After correlation matrices are created for cases and controls, we compute the upper triangular Cholesky factors ($U^\text{case}$ and $U^\text{ctrl}$) for each correlation matrix. We simulate null data matrices $X^\text{case}$ and $X^\text{ctrl}$ for cases and controls, respectively, such that 
+After correlation matrices are created for cases ($P^\text{case}$) and controls ($P^\text{ctrl}$), we compute the upper triangular Cholesky factors ($U^\text{case}$ and $U^\text{ctrl}$) for each correlation matrix (Figure~\ref{fig:mixed_sim}\textbf{(4)}). We then simulate null data matrices $X^\text{case}$ and $X^\text{ctrl}$  (Figure~\ref{fig:mixed_sim}\textbf{(5)}) for cases and controls, respectively, such that 
 \begin{equation}\label{eq:null_case_ctrl}
 x^\text{case}_{ij}, x^\text{ctrl}_{ij} \sim \mathcal{N}(0,1) \quad \forall i,j.
 \end{equation}
 Multiplication of $X^\text{case}$ and $X^\text{ctrl}$ by the Cholesky factors $U^\text{case}$ and $U^\text{ctrl}$, respectively, produce case and control sub-matrices $Y^\text{case}$ and $Y^\text{ctrl}$ with the correlation structure described previously. These sub-matrices are then combined into a single data $m \times p$ matrix given by
+%
 \begin{equation}\label{eq:full_interaction_data}
-X = \left[
+X^\text{int} = \left[
 \begin{array}{c}
 Y^\text{ctrl} \\ [0.5ex]
 \hdashline \\ [-1.7ex]
@@ -434,33 +425,9 @@ Y^\text{case}
 \end{array}
 \right].
 \end{equation}
-A diagram outlining the interaction simulation algorithm for a data set consisting of 7 features is shown in Fig.~\ref{fig:interaction_simulation_diagram}. Boxes 1 and 2 display the random network and its characteristics, such as, adjacencies and node degrees. In particular, boxes 1 and 2 show the features that are selected to be functional (highlighted in \textcolor{black!50!green}{green}). Box 3 shows the case and control correlation matrices generated using input parameters $\rho^\text{hi}$, $\rho^\text{lo}$, and $b^\text{int}$. In the control group, high correlation (\textcolor{red}{red}) is assigned to all connected pairs from the network. That is,
-\begin{equation}\label{eq:control_connected_corrs}
-P^\text{ctrl}_{ij} = \rho^\text{hi} + \varepsilon_{ij}, \quad \varepsilon_{ij} \sim \mathcal{N}(0,1).
-\end{equation}
-In both case and control groups, low correlation (\textcolor{red!45}{red}) is assigned to non-connected features from the network. These low correlations are given by
-\begin{equation}\label{eq:non-connected_corrs}
-P^\text{case} = P^\text{ctrl} = \rho^\text{lo} + \varepsilon_{ij}, \quad \varepsilon_{ij} \sim \mathcal{N}(0,1).
-\end{equation}
-In the case group, pairwise correlations associated with functional connections (\textcolor{blue!80}{blue}) from the network are assigned a correlation that is functionally related (see Eq.~\ref{eq:b_int}) to high correlations in the control group. These correlations are given by
-\begin{equation}\label{eq:case_connected_corrs}
-P^\text{case}_{ij} = b^\text{int} + \varepsilon_{ij}, \quad \varepsilon_{ij} \in \mathcal{N}(0,1).
-\end{equation}
-Other than entries associated with functional connections, the case and control correlation matrices are identical. Box 4 shows the Cholesky decompositions for $P^\text{ctrl}$ and $P^\text{case}$, which are given by
-\begin{equation}\label{eq:cholesky_decomp}
-\begin{aligned}
-P^\text{ctrl} &= U^\text{ctrl} \left(U^\text{ctrl}\right)^\text{T} \quad \text{and}\\
-P^\text{case} &= U^\text{case} \left(U^\text{case}\right)^\text{T}.
-\end{aligned}
-\end{equation}
-Random case and control data with correlation structure determined by $P^\text{case}$ and $P^\text{ctrl}$, respectively, are created as mentioned previously (box 5). These sub-matrices are given by
-\begin{equation}\label{eq:case_control_sub-mats}
-\begin{aligned}
-Y^\text{ctrl} &= X^\text{ctrl} \left(U^\text{ctrl}\right)^\text{T}, \quad x^\text{ctrl}_{ij} \sim \mathcal{N}(0,1) \quad \text{and}\\
-Y^\text{case} &= X^\text{case} \left(U^\text{case}\right)^\text{T}, \quad x^\text{case}_{ij} \sim \mathcal{N}(0,1).
-\end{aligned}
-\end{equation}
-The full data set, given previously by Eq.~\ref{eq:full_interaction_data}, concludes the generation of the full $m \times p$ data set $X$ with interaction effects.
+%
+
+The final interaction data set ($X^\text{int}$) contains both functional interacting attributes and noise attributes with no effect. We can use the interaction simulation algorithm (Figure~\ref{fig:mixed_sim}\textbf{(1)}\textbf{(5)}) to generate only interactions, or we can use the final step of the algorithm (Figure~\ref{fig:mixed_sim}\textbf{(5)}) in combination with main effect simulations to create data with mixed effects (Figure~\ref{fig:mixed_sim}\textbf{(6)}-\textbf{(7)}). We explain the main effect simulations (Figure~\ref{fig:mixed_sim}\textbf{(6)}) in the next section.
 
 %\begin{figure}[H]
 %\centering
@@ -469,26 +436,32 @@ The full data set, given previously by Eq.~\ref{eq:full_interaction_data}, concl
 % \caption{Algorithm for interaction simulations from a random undirected network with seven nodes (or features). \textbf{Box 1:} A random network is generated, whose degree distribution is either Erd\H{o}s-R\'{e}nyi or Scale-free. \textbf{Box 2:} Adjacency matrix ($A$) and degree vector ($v_d$) corresponding to the random network are computed and functional features ($F$) are randomly selected from those with positive degree. \textbf{Box 3:} Two correlation matrices are generated for cases and controls. In the control group, high ($\rho^\text{hi}$) and low ($\rho^\text{lo}$) correlations are assigned to connected ($A_{ij}=1$) and non-connected ($A_{ij}=0$) feature pairs, respectively. In the case group, differential correlation ($b^\text{int}$) is applied to functional connections. \textbf{Box 4:} Upper triangular Cholesky factors are computed for case/control correlation matrices. \textbf{Box 5:} Standard normal random data matrices ($X^\text{ctrl}$ and $X^\text{case}$) are given correlation structure associated with case and control groups and combined into full data matrix with interaction effects ($X$).}\label{fig:interaction_simulation_diagram}
 %\end{figure}
 
-\subsection{Main effects with correlation}
 
-%\begin{figure}[H]
-%	\centering
-	
-% \framebox{\includegraphics[width=0.98\textwidth]{main_plus_correlation_diagram.pdf}}
-% \caption{Algorithm for simulating main effects with correlation from a random undirected network with seven nodes (or features). \textbf{Box 1:} A random network is generated, whose degree distribution is either Erd\H{o}s-R\'{e}nyi or Scale-free. \textbf{Box 2:} Adjacency matrix ($A$) and degree vector ($v_d$) corresponding to the random network are computed and functional features ($F$) are randomly selected from those with positive degree. \textbf{Box 3:} Correlation matrix generated with high ($\rho^\text{hi}$) and low ($\rho^\text{lo}$) correlations assigned to connected ($A_{ij}=1$) and non-connected ($A_{ij}=0$) features, respectively. \textbf{Box 4:} Upper triangular Cholesky factors are computed for correlation matrix. \textbf{Box 5:} Main effects are simulated for functional variables ($F$) with effect sizes determined by $b^\text{main}$. Data is given correlation by multiplying main effects ($Z$) by Cholesky factor ($U$).z}\label{fig:main_plus_correlation_diagram}
-%\end{figure}
+\subsection{Main effects}
+We use a method for generating main effects that was previously applied to the study of gene expression data~\cite{leek2007}. This method uses a linear model given by
+%
+\begin{equation}\label{eq:lin-mod}
+X_{ia} = b_a y_i + \varepsilon_{ia},
+\end{equation}
+%
+where $b_a \sim \mathcal{N}(0,b^\text{main})$ for some fixed $b^\text{main}>0$, $y_i \in \{0 (\text{control}),1 (\text{case})\}$, and $\varepsilon_{ia} \sim \mathcal{N}(0,1)$. We show an illustration of this method (Figure~\ref{fig:mixed_sim}\textbf{(6)}), where the end result ($X^\text{main}$) contains three main effect attributes with effects sizes determined by $B^\text{T}=[b_1,b_2,b_3]$. The effect sizes vanish in the lower block of matrix $(BY)^\text{T}$ because this lower block represents the control group whose class labels are 0. The magnitude of $b^\text{main}>0$ determines the effect size between case and control groups. We add noise ($E$) so that case and control groups are both normally distributed with different means with respect to each main effect, but have approximately the equal variance.
 
 \subsection{Mixed effects: interactions and main effects}
+In order to simulate data with both interactions and main effects, we combine the interaction simulations (Figure~\ref{fig:mixed_sim}\textbf{(5)}) and main effect simulations (Figure~\ref{fig:mixed_sim}\textbf{(6)}) into a single data set ($X$) (Figure~\ref{fig:mixed_sim}\textbf{(7)}), where the left block matrix of $X$ contains interactions and noise and the right block of $X$ contains only main effects. 
 
-\begin{figure}[H]
+\begin{figure}[!ht]
  \centering
-	
- \framebox{\includegraphics[width=0.98\textwidth]{mixed_simulation_diagram2.pdf}}	
- \caption{Algorithm for simulating mixed effects data with interactions and main effects. \textbf{Box 1:} A random network is generated, whose degree distribution is either Erd\H{o}s-R\'{e}nyi or Scale-free. \textbf{Box 2:} Adjacency matrix ($A$) and degree vector ($v_d$) corresponding to the random network are computed and functional features ($F$) are randomly selected from those with positive degree. \textbf{Box 3:} Two correlation matrices are generated for cases and controls. In the control group, high ($\rho^\text{hi}$) and low ($\rho^\text{lo}$) correlations are assigned to connected ($A_{ij}=1$) and non-connected ($A_{ij}=0$) feature pairs, respectively. In the case group, differential correlation ($b^\text{int}$) is applied to functional connections. \textbf{Box 4:} Upper triangular Cholesky factors are computed for case/control correlation matrices. \textbf{Box 5:} Standard normal random data matrices ($X^\text{ctrl}$ and $X^\text{case}$) are given correlation structure associated with case and control groups and combined into full data matrix with interaction effects ($X$). \textbf{Box 6:} Main effects a simulated with effect sizes randomly sampled from $\mathcal{N}(0,b^\text{main})$. \textbf{Box 7:} Interactions ($X^\text{int}$) and main effects ($X^\text{main}$) combined into a single mixed effects data matrix $X$.}\label{fig:mixed_sim}
+ \framebox{\includegraphics[width=0.9\textwidth]{mixed_simulation_diagram2.pdf}}	
+ \caption{Algorithm for simulating mixed effects data with interactions and main effects. \textbf{(1)} Random network is generated, whose degree distribution is either Erd\H{o}s-R\'{e}nyi or Scale-free. \textbf{(2)} Adjacency matrix ($A$) and degree vector ($v_d$) corresponding to the random network are computed and functional features ($F$) are randomly selected from those with positive degree. \textbf{(3)} Correlation matrices are generated for cases and controls. In the control group, high ($\rho^\text{hi}$) and low ($\rho^\text{lo}$) correlations are assigned to connected ($A_{ij}=1$) and non-connected ($A_{ij}=0$) feature pairs, respectively. In the case group, differential correlation ($b^\text{int}$) is applied to functional connections. \textbf{(4)} Upper triangular Cholesky factors are computed for case/control correlation matrices. \textbf{(5)} Standard normal random data matrices ($X^\text{ctrl}$ and $X^\text{case}$) are given correlation structure associated with case and control groups and combined into full data matrix with interaction effects ($X$). \textbf{(6)} Main effects simulated with effect sizes randomly sampled from $\mathcal{N}(0,b^\text{main})$. \textbf{(8)} Interactions ($X^\text{int}$) and main effects ($X^\text{main}$) combined $X$.}\label{fig:mixed_sim}
 \end{figure}
+
+\section{Optimizing \texorpdfstring{$k$}{} for detecting effects}\label{sec:optim-k}
+All simulation scripts for interactions, main effects, and mixed effects, were written in \textbf{\textsf{R}}~\cite{R}, and are available on Github (\url{https://github.com/insilico/npdr}). We generated simulation replicates for many different scenarios on the data. Each simulated data set $X^{(m \times p)}$ generated contained $m$ instances and $p$ features, where $m \in \{100, 250, 500\} \text{ and } p \in \{1000,2500,5000\}$. All combinations of $m$ and $p$ were explored in order to determine how neighborhood selection parameters change with dimensionality. We considered a balanced binary outcome only so that there were exactly $m/2$ cases and $m/2$ controls. In each simulation, 10\% of the total number of features $p$ were functionally related to the outcome variable while the remaining 90\% were simply background features with no effect. Along with exploring all combinations of $m$ and $p$, we also considered different ratios of main-to-interaction effect among functional attributes. We considered ratios of 0.1, 0.2, 0.3, $\dots$, 0.9 of main-to-interaction, where 0.1 means that 10\% of the functional attributes are main effects while 90\% are interactions. For each simulation, we kept the main effect size parameter ($b^\text{main}$) fixed at 0.5 to reduce the total number of simulations. We explored different interaction effect sizes by varying the high correlation parameter ($\rho^\text{hi}$) only. The effect size increases monotonically with increasing $\rho^\text{hi}$ because $b^\text{int}$ is simply a point on the line from $-\rho^\text{hi}$ to $\rho^\text{hi}$, which is controlled by an input $t$ in our simulation \textbf{\textsf{R}} function. We considered values of $\rho^\text{hi} \in \{0.3,0.6,0.9\}$ so that we can explore small, medium, and large interaction effect sizes across all scenarios. The non-connection, low correlation parameter ($\rho^\text{lo}$) was fixed at 0.1 for all simulations. Taking all of the simulation parameters into account, we have a total of $3 \times 3 \times 9 \times 3 = 243$ different scenarios on data within our simulated data sets. For each scenario, we generate 30 replicates so that we can see the average value of fixed $k$ that optimizes functional attribute scores. 
+
 
 \section{Discussion}
 
 \bibliographystyle{unsrt}
-\bibliography{BoD}   % name of bib file
+%\bibliography{BoD}   % name of bib file
+\bibliography{BoD-rsfmri}
 \end{document}

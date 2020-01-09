@@ -35,35 +35,34 @@
 \newlabel{eq:binomial_average}{{7}{5}{Predicted number of neighbors in the MultiSURF \texorpdfstring {$\alpha $}{} neighborhood}{equation.2.7}{}}
 \newlabel{eq:q_prob}{{8}{5}{Predicted number of neighbors in the MultiSURF \texorpdfstring {$\alpha $}{} neighborhood}{equation.2.8}{}}
 \citation{lareau15}
+\citation{lareau15}
 \newlabel{eq:kbar}{{9}{6}{Predicted number of neighbors in the MultiSURF \texorpdfstring {$\alpha $}{} neighborhood}{equation.2.9}{}}
 \newlabel{fig:gaussPlot}{{3}{6}{Predicted number of neighbors in the MultiSURF \texorpdfstring {$\alpha $}{} neighborhood}{figure.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Optimal neighborhood parameters for detecting effects}{6}{section.3}\protected@file@percent }
-\newlabel{sec:optim-k}{{3}{6}{Optimal neighborhood parameters for detecting effects}{section.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}ICA?}{6}{section.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5}Data simulations}{6}{section.5}\protected@file@percent }
-\newlabel{sec:sim_methods}{{5}{6}{Data simulations}{section.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Data simulations}{6}{section.3}\protected@file@percent }
+\newlabel{sec:sim_methods}{{3}{6}{Data simulations}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Interaction effects}{6}{subsection.3.1}\protected@file@percent }
 \citation{lareau15}
-\citation{lareau15}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Interaction effects}{7}{subsection.5.1}\protected@file@percent }
-\newlabel{eq:b_int}{{10}{7}{Interaction effects}{equation.5.10}{}}
-\newlabel{eq:null_case_ctrl}{{11}{7}{Interaction effects}{equation.5.11}{}}
-\newlabel{eq:full_interaction_data}{{12}{7}{Interaction effects}{equation.5.12}{}}
-\newlabel{eq:control_connected_corrs}{{13}{8}{Interaction effects}{equation.5.13}{}}
-\newlabel{eq:non-connected_corrs}{{14}{8}{Interaction effects}{equation.5.14}{}}
-\newlabel{eq:case_connected_corrs}{{15}{8}{Interaction effects}{equation.5.15}{}}
-\newlabel{eq:cholesky_decomp}{{16}{8}{Interaction effects}{equation.5.16}{}}
-\newlabel{eq:case_control_sub-mats}{{17}{8}{Interaction effects}{equation.5.17}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Main effects with correlation}{10}{subsection.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Mixed effects: interactions and main effects}{10}{subsection.5.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Algorithm for simulating mixed effects data with interactions and main effects. \textbf  {Box 1:} A random network is generated, whose degree distribution is either Erd\H {o}s-R\'{e}nyi or Scale-free. \textbf  {Box 2:} Adjacency matrix ($A$) and degree vector ($v_d$) corresponding to the random network are computed and functional features ($F$) are randomly selected from those with positive degree. \textbf  {Box 3:} Two correlation matrices are generated for cases and controls. In the control group, high ($\rho ^\text  {hi}$) and low ($\rho ^\text  {lo}$) correlations are assigned to connected ($A_{ij}=1$) and non-connected ($A_{ij}=0$) feature pairs, respectively. In the case group, differential correlation ($b^\text  {int}$) is applied to functional connections. \textbf  {Box 4:} Upper triangular Cholesky factors are computed for case/control correlation matrices. \textbf  {Box 5:} Standard normal random data matrices ($X^\text  {ctrl}$ and $X^\text  {case}$) are given correlation structure associated with case and control groups and combined into full data matrix with interaction effects ($X$). \textbf  {Box 6:} Main effects a simulated with effect sizes randomly sampled from $\mathcal  {N}(0,b^\text  {main})$. \textbf  {Box 7:} Interactions ($X^\text  {int}$) and main effects ($X^\text  {main}$) combined into a single mixed effects data matrix $X$.\relax }}{10}{figure.4}\protected@file@percent }
-\newlabel{fig:mixed_sim}{{4}{10}{Algorithm for simulating mixed effects data with interactions and main effects. \textbf {Box 1:} A random network is generated, whose degree distribution is either Erd\H {o}s-R\'{e}nyi or Scale-free. \textbf {Box 2:} Adjacency matrix ($A$) and degree vector ($v_d$) corresponding to the random network are computed and functional features ($F$) are randomly selected from those with positive degree. \textbf {Box 3:} Two correlation matrices are generated for cases and controls. In the control group, high ($\rho ^\text {hi}$) and low ($\rho ^\text {lo}$) correlations are assigned to connected ($A_{ij}=1$) and non-connected ($A_{ij}=0$) feature pairs, respectively. In the case group, differential correlation ($b^\text {int}$) is applied to functional connections. \textbf {Box 4:} Upper triangular Cholesky factors are computed for case/control correlation matrices. \textbf {Box 5:} Standard normal random data matrices ($X^\text {ctrl}$ and $X^\text {case}$) are given correlation structure associated with case and control groups and combined into full data matrix with interaction effects ($X$). \textbf {Box 6:} Main effects a simulated with effect sizes randomly sampled from $\mathcal {N}(0,b^\text {main})$. \textbf {Box 7:} Interactions ($X^\text {int}$) and main effects ($X^\text {main}$) combined into a single mixed effects data matrix $X$.\relax }{figure.4}{}}
+\citation{leek2007}
+\newlabel{eq:b_int}{{10}{7}{Interaction effects}{equation.3.10}{}}
+\newlabel{eq:null_case_ctrl}{{11}{7}{Interaction effects}{equation.3.11}{}}
+\newlabel{eq:full_interaction_data}{{12}{7}{Interaction effects}{equation.3.12}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Main effects}{7}{subsection.3.2}\protected@file@percent }
+\newlabel{eq:lin-mod}{{13}{7}{Main effects}{equation.3.13}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Mixed effects: interactions and main effects}{8}{subsection.3.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Algorithm for simulating mixed effects data with interactions and main effects. \textbf  {(1)} Random network is generated, whose degree distribution is either Erd\H {o}s-R\'{e}nyi or Scale-free. \textbf  {(2)} Adjacency matrix ($A$) and degree vector ($v_d$) corresponding to the random network are computed and functional features ($F$) are randomly selected from those with positive degree. \textbf  {(3)} Correlation matrices are generated for cases and controls. In the control group, high ($\rho ^\text  {hi}$) and low ($\rho ^\text  {lo}$) correlations are assigned to connected ($A_{ij}=1$) and non-connected ($A_{ij}=0$) feature pairs, respectively. In the case group, differential correlation ($b^\text  {int}$) is applied to functional connections. \textbf  {(4)} Upper triangular Cholesky factors are computed for case/control correlation matrices. \textbf  {(5)} Standard normal random data matrices ($X^\text  {ctrl}$ and $X^\text  {case}$) are given correlation structure associated with case and control groups and combined into full data matrix with interaction effects ($X$). \textbf  {(6)} Main effects simulated with effect sizes randomly sampled from $\mathcal  {N}(0,b^\text  {main})$. \textbf  {(8)} Interactions ($X^\text  {int}$) and main effects ($X^\text  {main}$) combined $X$.\relax }}{8}{figure.4}\protected@file@percent }
+\newlabel{fig:mixed_sim}{{4}{8}{Algorithm for simulating mixed effects data with interactions and main effects. \textbf {(1)} Random network is generated, whose degree distribution is either Erd\H {o}s-R\'{e}nyi or Scale-free. \textbf {(2)} Adjacency matrix ($A$) and degree vector ($v_d$) corresponding to the random network are computed and functional features ($F$) are randomly selected from those with positive degree. \textbf {(3)} Correlation matrices are generated for cases and controls. In the control group, high ($\rho ^\text {hi}$) and low ($\rho ^\text {lo}$) correlations are assigned to connected ($A_{ij}=1$) and non-connected ($A_{ij}=0$) feature pairs, respectively. In the case group, differential correlation ($b^\text {int}$) is applied to functional connections. \textbf {(4)} Upper triangular Cholesky factors are computed for case/control correlation matrices. \textbf {(5)} Standard normal random data matrices ($X^\text {ctrl}$ and $X^\text {case}$) are given correlation structure associated with case and control groups and combined into full data matrix with interaction effects ($X$). \textbf {(6)} Main effects simulated with effect sizes randomly sampled from $\mathcal {N}(0,b^\text {main})$. \textbf {(8)} Interactions ($X^\text {int}$) and main effects ($X^\text {main}$) combined $X$.\relax }{figure.4}{}}
+\citation{R}
 \bibstyle{unsrt}
-\bibdata{BoD}
+\bibdata{BoD-rsfmri}
 \bibcite{urbanowicz17}{1}
 \bibcite{mckinney13}{2}
 \bibcite{stir}{3}
 \bibcite{lareau15}{4}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Discussion}{11}{section.6}\protected@file@percent }
-\newlabel{LastPage}{{}{11}{}{page.11}{}}
-\xdef\lastpage@lastpage{11}
-\xdef\lastpage@lastpageHy{11}
+\bibcite{leek2007}{5}
+\bibcite{R}{6}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Optimizing $k$ for detecting effects}{9}{section.4}\protected@file@percent }
+\newlabel{sec:optim-k}{{4}{9}{Optimizing \texorpdfstring {$k$}{} for detecting effects}{section.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{9}{section.5}\protected@file@percent }
+\newlabel{LastPage}{{}{9}{}{page.9}{}}
+\xdef\lastpage@lastpage{9}
+\xdef\lastpage@lastpageHy{9}
