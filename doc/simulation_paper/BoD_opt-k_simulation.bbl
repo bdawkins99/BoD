@@ -39,4 +39,10 @@ Caleb~A Lareau, Bill~C White, Ann~L Oberg, and Brett~A McKinney.
 \newblock {\em {R: A Language and Environment for Statistical Computing}}.
 \newblock R Foundation for Statistical Computing, Vienna, Austria, 2017.
 
+\bibitem{npdr}
+Trang~{T}. {L}e, {B}ryan {A}.~{D}awkins, and {B}rett {A}.~{M}c{K}inney.
+\newblock {Nearest-neighbor Projected-Distance Regression (NPDR) detects
+  network interactions and controls for confounding and multiple testing}.
+\newblock {\em Under Review}, 2019.
+
 \end{thebibliography}
