@@ -28,4 +28,21 @@ Caleb~A Lareau, Bill~C White, Ann~L Oberg, and Brett~A McKinney.
   scale-free structure.
 \newblock {\em BioData mining}, 8(1):5, 2015.
 
+\bibitem{leek2007}
+{J}effrey {T}.~{L}eek and {J}ohn {D}~{S}torey.
+\newblock {Capturing Heterogeneity in Gene Expression Studies by Surrogate
+  Variable Analysis}.
+\newblock {\em {PLoS Genet}}, 3(9), September 2007.
+
+\bibitem{R}
+{R Core Team}.
+\newblock {\em {R: A Language and Environment for Statistical Computing}}.
+\newblock R Foundation for Statistical Computing, Vienna, Austria, 2017.
+
+\bibitem{npdr}
+Trang~{T}. {L}e, {B}ryan {A}.~{D}awkins, and {B}rett {A}.~{M}c{K}inney.
+\newblock {Nearest-neighbor Projected-Distance Regression (NPDR) detects
+  network interactions and controls for confounding and multiple testing}.
+\newblock {\em Under Review}, 2019.
+
 \end{thebibliography}
