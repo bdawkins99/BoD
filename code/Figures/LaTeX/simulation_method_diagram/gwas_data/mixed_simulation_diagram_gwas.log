@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  27 DEC 2019 15:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  2 JAN 2020 14:16
 entering extended mode
 **./mixed_simulation_diagram_gwas.tex
 (mixed_simulation_diagram_gwas.tex
@@ -772,8 +772,6 @@ G,.JBIG2,.JB2,.eps]
 Package pgfplots notification 'compat/show suggested version=true': document ha
 s been generated with the most recent feature set (\pgfplotsset{compat=1.16}).
 
-LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <17.28> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 31.
 <interaction_simulation1.pdf, id=12, 212.6886pt x 107.4133pt>
 File: interaction_simulation1.pdf Graphic file (type pdf)
 <use interaction_simulation1.pdf>
@@ -827,11 +825,11 @@ pdf> <./interaction_simulation4.pdf> <./interaction_simulation5_gwas.pdf> <./in
 teraction_simulation6_gwas.pdf> <./main_effect_gwas2.pdf> <./mixed_effects_comb
 ining_main-interaction.pdf>] (mixed_simulation_diagram_gwas.aux) ) 
 Here is how much of TeX's memory you used:
- 26573 strings out of 492946
- 699026 string characters out of 3135528
+ 26569 strings out of 492946
+ 698968 string characters out of 3135528
  914034 words of memory out of 3000000
- 29986 multiletter control sequences out of 15000+200000
- 8118 words of font info for 20 fonts, out of 3000000 for 9000
+ 29983 multiletter control sequences out of 15000+200000
+ 5879 words of font info for 17 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  78i,8n,136p,754b,642s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program F
@@ -846,7 +844,7 @@ ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb><C:/Progr
 am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/
 MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fon
 ts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on mixed_simulation_diagram_gwas.pdf (1 page, 418984 bytes).
+Output written on mixed_simulation_diagram_gwas.pdf (1 page, 418875 bytes).
 PDF statistics:
  248 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
