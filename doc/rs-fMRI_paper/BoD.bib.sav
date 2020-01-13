@@ -319,20 +319,21 @@ number = "6",
   publisher={Springer}
 }
 
-@InProceedings{rendell92,
-  author    = {{K}ira, {K}enji and {R}endell, {L}arry {A}.},
-  title     = {{The Feature Selection Problem: Traditional Methods and a New Algorithm}},
-  booktitle = {{Proceedings Tenth National Conference on Artificial Intelligence}},
-  year      = {1992},
-  pages     = {129-134},
+
+@inproceedings{rendell92,
+  added-at = {2012-12-11T00:00:00.000+0100},
+  author = {Kira, Kenji and Rendell, Larry A.},
+  biburl = {https://www.bibsonomy.org/bibtex/252b5db025715606232b5355333f1d70f/dblp},
+  booktitle = {Proceedings Tenth National Conference on Artificial Intelligence},
+  ee = {http://www.aaai.org/Library/AAAI/1992/aaai92-020.php},
+  isbn = {0-262-51063-4},
+  keywords = {dblp},
+  pages = {129-134},
   publisher = {AAAI Press/The MIT Press},
-  added-at  = {2012-12-11T00:00:00.000+0100},
-  biburl    = {https://www.bibsonomy.org/bibtex/252b5db025715606232b5355333f1d70f/dblp},
-  ee        = {http://www.aaai.org/Library/AAAI/1992/aaai92-020.php},
-  isbn      = {0-262-51063-4},
-  keywords  = {dblp},
   timestamp = {2012-12-12T11:41:52.000+0100},
-  url       = {http://dblp.uni-trier.de/db/conf/aaai/aaai92.html#KiraR92},
+  title = {The Feature Selection Problem: Traditional Methods and a New Algorithm.},
+  url = {http://dblp.uni-trier.de/db/conf/aaai/aaai92.html#KiraR92},
+  year = 1992
 }
 
 
@@ -1563,144 +1564,6 @@ https://doi.org/10.1186/s12888-018-1955-9},
   title   = {{Theoretical properties of nearest-neighbor distance distributions and novel metrics for high dimensional bioinformatics data}},
   journal = {{Under Review}},
   year    = {2019},
-}
-
-@Article{arslan2018,
-  author  = {{S}alim {A}rslan and {S}ofia {I}ra {K}tena and {A}ntonios {M}akropoulos and {E}mma {C}. {R}obinson and {D}aniel {R}ueckert and {S}arah {P}arisot},
-  title   = {{Human Brain Mapping: A Systematic Comparison of Parcellation Methods for the Human Cerebral Cortex}},
-  journal = {{NeuroImage}},
-  year    = {2018},
-  volume  = {170},
-  pages   = {5-30},
-  month   = apr,
-  url     = {https://doi.org/10.1016/j.neuroimage.2017.04.014},
-}
-
-@Article{thirion2014,
-  author  = {{B}ertrand {T}hirion and {G}a\"{e}l {V}aroquaux and {E}lvis {D}ohmatob and {J}ean-{B}aptiste {P}oline},
-  title   = {{Which fMRI clustering gives good brain parcellations?}},
-  journal = {{Neuroscience}},
-  year    = {2014},
-  month   = jul,
-  url     = {https://doi.org/10.3389/fnins.2014.00167},
-}
-
-@Book{alberts2002,
-  title     = {{Molecular Biology of the Cell}},
-  publisher = {{Garland}},
-  year      = {2002},
-  author    = {{B}ruce {A}lberts and {A}lexander {J}ohnson and {J}ulian {L}ewis and {M}artin {R}aff and {K}eith {R}oberts and {P}eter {W}alter},
-  edition   = {Fourth},
-  isbn      = {9780815332183},
-  url       = {https://books.google.com/books?id=0PhGswEACAAJ},
-}
-
-@Article{herrero2003,
-  author  = {{J}. {H}errero and {R}. {D}\'{i}az-{U}riarte and {J}. {D}opazo},
-  title   = {{Gene expression data preprocessing}},
-  journal = {{Bioinformatics}},
-  year    = {2003},
-  volume  = {19},
-  number  = {5},
-  pages   = {655-656},
-  month   = mar,
-  url     = {https://doi.org/10.1093/bioinformatics/btg040},
-}
-
-@Article{bolstad2003,
-  author  = {{B}. {M}. {B}olstad and {R}. {A} {I}rizarry and {M}. \r{A}strand {T}. {P}. {S}peed},
-  title   = {{A comparison of normalization methods for high density oligonucleotide array data based on variance and bias}},
-  journal = {{Bioinformatics}},
-  year    = {2003},
-  volume  = {19},
-  number  = {2},
-  pages   = {185-193},
-  month   = jan,
-  url     = {https://doi.org/10.1093/bioinformatics/19.2.185},
-}
-
-@Article{bush2012,
-  author    = {{B}ush, {W}illiam {S}. and {M}oore, {J}ason {H}.},
-  title     = {{Chapter 11: Genome-Wide Association Studies}},
-  journal   = {{PLoS Computational Biology}},
-  year      = {2012},
-  volume    = {8},
-  number    = {12},
-  pages     = {1-11},
-  month     = {12},
-  abstract  = {Genome-wide association studies (GWAS) have evolved over the last ten years into a powerful tool for investigating the genetic architecture of human disease. In this work, we review the key concepts underlying GWAS, including the architecture of common diseases, the structure of common human genetic variation, technologies for capturing genetic information, study designs, and the statistical methods used for data analysis. We also look forward to the future beyond GWAS.},
-  doi       = {10.1371/journal.pcbi.1002822},
-  publisher = {Public Library of Science},
-  url       = {https://doi.org/10.1371/journal.pcbi.1002822},
-}
-
-@Article{heuvel2010,
-  author  = {Martijn {P}. van den {H}euvel and {H}illeke {E}. {H}ulshoff {P}ol},
-  title   = {{Exploring the brain network: A review on resting-state fMRI functional connectivity}},
-  journal = {{European Neuropsychopharmacology}},
-  year    = {2010},
-  volume  = {20},
-  pages   = {519-534},
-  month   = mar,
-  doi     = {doi:10.1016/j.euroneuro.2010.03.008},
-}
-
-@Article{salvador2005,
-  author  = {Raymond {S}alvador and {J}ohn {S}uckling and {M}artin {R}. {C}oleman and {J}ohn {D}. {P}ickard and {D}avid {M}enon and {E}d {B}ullmore},
-  title   = {{Neurophysiological Architecture of Functional Magnetic Resonance Images of Human Brain}},
-  journal = {{Cerebral Cortex}},
-  year    = {2005},
-  volume  = {15},
-  pages   = {1332-1342},
-  month   = jan,
-  doi     = {doi:10.1093/cercor/bhi016},
-}
-
-@Article{iraji2016,
-  author  = {Armin {I}raji and {V}ince {D}. {C}alhoun and {N}atalie {M}. {W}iseman and {E}smaeil {D}avoodi-{B}ojd and {M}ohammad {R}.{N}. {A}vanaki},
-  title   = {{The connectivity domain: Analyzing resting state fMRI data using feature-based data-driven and model-based methods}},
-  journal = {{NeuroImage}},
-  year    = {2016},
-  volume  = {134},
-  pages   = {494-507},
-  month   = apr,
-  url     = {http://dx.doi.org/10.1016/j.neuroimage.2016.04.006},
-}
-
-@Article{preti2017,
-  author  = {Maria {G}iulia {P}reti and {T}homas {AW} {B}olton and {D}imitri {V}an {D}e {V}ille},
-  title   = {{The dynamic functional connectome: State-of-the-art and perspectives}},
-  journal = {{NeuroImage}},
-  year    = {2017},
-  volume  = {160},
-  pages   = {41-54},
-  month   = dec,
-  url     = {http://dx.doi.org/10.1016/j.neuroimage.2016.12.061},
-}
-
-@Article{leek2007,
-  author  = {{J}effrey {T}. {L}eek and {J}ohn {D} {S}torey},
-  title   = {{Capturing Heterogeneity in Gene Expression Studies by Surrogate Variable Analysis}},
-  journal = {{PLoS Genet}},
-  year    = {2007},
-  volume  = {3},
-  number  = {9},
-  month   = sep,
-  url     = {https://doi.org/10.1371/journal.pgen.0030161},
-}
-
-@Article{npdr2,
-  author   = {Le, Trang T and Dawkins, Bryan A and McKinney, Brett A},
-  title    = {{Nearest-neighbor Projected-Distance Regression (NPDR) for detecting network interactions with adjustments for multiple tests and confounding}},
-  journal  = {Bioinformatics},
-  year     = {2020},
-  month    = {01},
-  issn     = {1367-4803},
-  note     = {btaa024},
-  abstract = {{Machine learning feature selection methods are needed to detect complex interaction-network effects in complicated modeling scenarios in high-dimensional data, such as GWAS, gene expression, eQTL, and structural/functional neuroimage studies for case-control or continuous outcomes. In addition, many machine learning methods have limited ability to address the issues of controlling false discoveries and adjusting for covariates. To address these challenges, we develop a new feature selection technique called Nearest-neighbor Projected-Distance Regression (NPDR) that calculates the importance of each predictor using generalized linear model (GLM) regression of distances between nearest-neighbor pairs projected onto the predictor dimension. NPDR captures the underlying interaction structure of data using nearest-neighbors in high dimensions, handles both dichotomous and continuous outcomes and predictor data types, statistically corrects for covariates, and permits statistical inference and penalized regression. We use realistic simulations with interactions and other effects to show that NPDR has better precision-recall than standard Relief-based feature selection and random forest importance, with the additional benefit of covariate adjustment and multiple testing correction. Using RNA-Seq data from a study of major depressive disorder (MDD), we show that NPDR with covariate adjustment removes spurious associations due to confounding. We apply NPDR to eQTL data to identify potentially interacting variants that regulate transcripts associated with MDD and demonstrate NPDR’s utility for GWAS and continuous outcomes.}},
-  doi      = {10.1093/bioinformatics/btaa024},
-  eprint   = {https://academic.oup.com/bioinformatics/advance-article-pdf/doi/10.1093/bioinformatics/btaa024/31812241/btaa024.pdf},
-  url      = {https://doi.org/10.1093/bioinformatics/btaa024},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}

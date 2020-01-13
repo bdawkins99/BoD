@@ -101,6 +101,12 @@
 \usepackage{float}
 \usepackage{wrapfig}
 
+\usepackage{harpoon}
+\usepackage{fdsymbol}
+
+\usepackage{longtable,booktabs}
+\usepackage{tabu}
+
 %\renewcommand{\arraystretch}{1.2}
 %\setlength{\tabcolsep}{12pt}
 
@@ -217,13 +223,13 @@
 % \end{flushleft}
 % Please keep the abstract below 300 words
 \section*{Abstract}
-It is commonly known that high-throughput data has many inherent statistical challenges, such as multiple testing, sparsity and over fitting. Collectively, these challenges are known as the Curse of Dimensionality. Here we highlight an important Blessing of Dimensionality: the ability to identify interactions and main effects with neighborhoods of instances. We review the nearest-neighbor concept for finding interactions among attributes. We present a novel simulation method for generating data with both main effects and interactions from random networks with fine-tuned control over interaction effect size. Using our new simulation strategy, we determine optimal fixed $k$ for neighborhood computation in nearest-neighbor distance-based feature selection for different combinations of data dimensions $m$ (number of instances) and $p$ (number of attributes), different ratios of main/interaction effect among functional attributes, and different combinations of main and interaction effect sizes. We discuss ways to maximize the blessings and minimize the curses of dimensionality to reliably identify interactions. Our results will show how optimal fixed $k$ changes under a variety of conditions that we see in real data, which will serve as a guide for other researchers using nearest-neighbor distance-based feature selection. 
+It is commonly known that high-throughput data has many inherent statistical challenges, such as multiple testing, sparsity and over fitting. Collectively, these challenges are known as the Curse of Dimensionality. Here we highlight an important Blessing of Dimensionality: the ability to identify interactions and main effects with neighborhoods of instances. We review the nearest-neighbor concept for finding interactions among attributes. We present a novel simulation method for generating data with both main effects and interactions from random networks with fine-tuned control over interaction effect size. Using our new simulation strategy, we determine optimal fixed $k$ for neighborhood computation in nearest-neighbor distance-based feature selection for different ratios of main/interaction effect among functional attributes and different combinations of main and interaction effect sizes. We discuss ways to maximize the blessings and minimize the curses of dimensionality to reliably identify interactions and main effects. Our results will show how optimal fixed $k$ changes under a variety of conditions that we see in real data, which will serve as a guide for other researchers using nearest-neighbor distance-based feature selection. 
 
 \linenumbers
 
 \section*{Introduction}
 
-Relief-based methods identify interacting attributes as important by using nearest-neighbor information in higher dimensions (the ``blessings of dimensionality''). Myopic methods that do not account for information from higher dimensions such as univariate tests are susceptible to false negatives when there are interactions. For example, in the plot of variable A versus C in a three-variable simulation (Fig.~\ref{fig:ABC}-I), variable A appears to show no difference between cases and controls (the marginal group means are the same). However, A is actually simulated to have a strong differential correlation with B, conditioned on the outcome variable (Fig.~\ref{fig:ABC}-II). Current Relief-based methods determine the importance of an attribute by computing the average difference of attribute $A$ value between a target instance (X) and its nearest instance from the opposite class (Miss), $d_{\text{X,M}}(A)$, subtracted from the similarly projected difference of target X and its nearest instance from the same class (Hit), $d_{\text{X,H}}(A)$. A positive value from this calculation, i.e., $d_{\text{X,M}}(A)-d_{\text{X,H}}(A) > 0$, suggests that attribute A is useful for discriminating between cases and controls.  
+Relief-based methods identify interacting attributes as important by using nearest-neighbor information in higher dimensions (the ``blessings of dimensionality''). Myopic methods that do not account for information from higher dimensions such as univariate tests are susceptible to false negatives when there are interactions. For example, in the plot of variable A versus C in a three-variable simulation (Figure~\ref{fig:ABC}-I), variable A appears to show no difference between cases and controls (the marginal group means are the same). However, A is actually simulated to have a strong differential correlation with B, conditioned on the outcome variable (Figure~\ref{fig:ABC}-II). Current Relief-based methods determine the importance of an attribute by computing the average difference of attribute $A$ value between a target instance (X) and its nearest instance from the opposite class (Miss), $d_{\text{X,M}}(A)$, subtracted from the similarly projected difference of target X and its nearest instance from the same class (Hit), $d_{\text{X,H}}(A)$. A positive value from this calculation, i.e., $d_{\text{X,M}}(A)-d_{\text{X,H}}(A) > 0$, suggests that attribute A is useful for discriminating between cases and controls.  
 
 \begin{figure}[H]
 	\centering
@@ -304,10 +310,25 @@ Relief-based methods use information from all available attributes (omnigenic) t
 \end{figure}
 
 
-Using the same interaction partners (A and B), we explored the effects of increasing the level of noise (sparsity) in the data (Fig.~\ref{fig:ABC_plus_noise}). We iteratively added random null standard normal features and computed standardized beta coefficients (Fig.~\ref{fig:ABC_plus_noise}-I) and corresponding P values (Fig.~\ref{fig:ABC_plus_noise}-II) using NPDR~\cite{npdr}. For each value of $p$, we generated 10 separate sets of irrelevant attributes, combined them with attributes A and B, and computed beta coefficients and P values. After all 10 iterations for a fixed value of $p$, we took the average of the beta coefficients (Fig.~\ref{fig:ABC_plus_noise}-I) and the average of the corresponding P values (Fig.~\ref{fig:ABC_plus_noise}-II). As functionality becomes more sparse with respect to all features, it becomes increasingly difficult to detect interacting partners A and B. In fact, the beta coefficients are approximately zero when there are approximately 200 features in this simulated data. By chance, there are many irrelevant attributes that have larger beta coefficients than A and B. 
+Using the same interaction partners (A and B), we explored the effects of increasing the level of noise (sparsity) in the data (Figure~\ref{fig:ABC_plus_noise}). We iteratively added random null standard normal features and computed standardized beta coefficients (Figure~\ref{fig:ABC_plus_noise}-I) and corresponding pseudo P values (Figure~\ref{fig:ABC_plus_noise}-II) using a new method called Nearest-neighbor Projected Distance Regression (NPDR)~\cite{npdr2}. For binary response variables, like case-control outcomes, NPDR computes a standardized beta coefficient for a generalized linear model (GLM) (Figure~\ref{fig:npdr_finished}). The argument to the logit function is $\text{p}^\text{miss}_{ij}$, which is the probability that instances $i,j$ are in different phenotype classes. This argument models the binary outcome diff, which is given by the following
+%
+\begin{equation}\label{eq:diff_outcome}
+\text{d}^\text{miss}_{ij}(\overrightharpoon{y})=\begin{cases}
+0 & y_i = y_j, \\
+1 & \text{else}.
+\end{cases}
+\end{equation} 
+
+For each value of $p$, we generated 10 separate sets of irrelevant attributes, combined them with attributes A and B, and computed beta coefficients and P values. After all 10 iterations for a fixed value of $p$, we took the average of the beta coefficients (Figure~\ref{fig:ABC_plus_noise}-I) and the average of the corresponding pseudo P values (Figure~\ref{fig:ABC_plus_noise}-II). As functionality becomes more sparse with respect to all features, it becomes increasingly difficult to detect interacting partners A and B. In fact, the beta coefficients are approximately zero when there are approximately 200 features in this simulated data. By chance, there are many irrelevant attributes that have larger beta coefficients than A and B. 
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.85\textwidth]{npdr_finished_diagram.pdf}
+	\caption{Nearest-neighbor Projected Distance Regression for binary response (case-control)~\cite{npdr2}. For each attribute $a \in \mathcal{A}$, where $\mathcal{A}$ is the collection of all attributes, we compute standardized beta coefficients for a generalized linear model, where the predictors ($\text{d}_{ij}(a) = |X_{ia} - X_{ja}|$) are one-dimensional projected distances (diffs) with respect to a particular attribute ($a$). The argument $\text{p}^\text{miss}_{ij}$ is the probability that instances ($i,j$) are in different phenotype classes. The logit function models the binary hit-miss phenotype projection (Eq.~\ref{eq:diff_outcome}). Significant adjusted pseudo P values ($p_\text{adj}$) lead to the rejection of the null hypothesis $\beta_a \leq 0$. The set $\mathcal{N}(k)$ is the collection of all neighbor ordered pairs such that each target instances neighborhood has exactly $k$ nearest neighbors.}\label{fig:npdr_finished}
+\end{figure}
 
 \section{Neighborhood methods}
-Nearest-neighbor projected distance (NPD) methods rely on a neighborhood algorithm for feature selection. One may specify a fixed $k$ number of neighbors, a fixed radius, an average radius SURF, a MultiSURF radius that adapts for each instance~\cite{urbanowicz17}, or a variable-wise optimized $k$~\cite{mckinney13}. The definitive difference between fixed $k$ and either fixed or adaptive radius methods is that there is always a deterministic number of neighbors in fixed $k$ neighborhoods, but there is a variable neighborhood order in each fixed or adaptive radius method. In nearest-neighbor feature selection, neighborhood order is directly related to selected feature quality. Correlation and interaction effects change the distribution of pairwise distances between instances, which ultimately changes the probability of neighborhood inclusion for fixed or adaptive radius methods. In order to select the best set of features from data, it is important to know how pairwise feature correlation changes the optimal neighborhood order. We approach this problem by first determining the functional relationship between fixed $k$ and MultiSURF radius in data with negligible pairwise feature correlation and no effects.
+Nearest-neighbor projected distance (NPD) methods rely on a neighborhood algorithm for feature selection. One may specify a fixed $k$ number of neighbors, a fixed radius, an average radius SURF, a MultiSURF radius that adapts for each instance~\cite{urbanowicz17}, or a variable-wise optimized $k$~\cite{mckinney13}. The definitive difference between fixed $k$ and either fixed or adaptive radius methods is that there is always a deterministic number of neighbors in fixed $k$ neighborhoods, but there is a variable neighborhood order in each fixed or adaptive radius method. In nearest-neighbor feature selection, neighborhood order is directly related to selected feature quality. Correlation and interaction effects change the distribution of pairwise distances between instances, which can change the probability of neighborhood inclusion for fixed or adaptive radius methods. In order to select the best set of features from data, it is important to know how pairwise feature correlation changes the optimal neighborhood order. We approach this problem by first determining the functional relationship between fixed $k$ and MultiSURF radius in data with negligible pairwise feature correlation and no effects.
 
 \section{Derivation of expected \texorpdfstring{$k$}{} for MultiSURF neighborhoods}\label{sec:expected-k}
 The MultiSURF radius for an instance is the mean of its distances to all other instances subtracted by $\alpha=1/2$ of the standard deviation of this mean. Previously we showed empirically for balanced case-control datasets that a good constant $k$ approximation to the expected number of neighbors within the multiSURF radii is $k=m/6$~\cite{stir}, where $m$ is the number of samples. Here we derive a more exact theoretical mean that shows the mathematical connection between neighbor-finding methods. This fixed $k$ approximation to MultiSURF is independent of the type of data and the particular radii of each instance in the data.
@@ -336,16 +357,15 @@ For example, the projected difference between two instances $i$ and $j$ for a co
 \end{equation}
 where $\hat{X}$ represents the standardized data matrix $X$.
 We use a simplified d$_{ij}(a)$ notation in place of the $\text{diff}(a,(i,j))$ notation that is customary in Relief-based methods.
-We omit the division by $\max(a)-\min(a)$ used by Relief to constrain scores to the interval from $-1$ to $1$.
-As we show in subsequent sections, NPDR scores are standardized regression coefficients with corresponding P values, so any scaling operation at this stage is unnecessary for comparing attribute scores. 
+NPDR omits the division by $\max(a)-\min(a)$ used by Relief to constrain scores to the interval from $-1$ to $1$ because NPDR scores are standardized regression coefficients with corresponding P values, so any scaling operation at this stage is unnecessary for comparing attribute scores. 
 %\emph{Omit: The scaling may alleviate bias in the distance calculation. However, standardizing the data matrix $X$ ($\hat{X}$) should have the same effect without division by $\max(a)-\min(a)$, which has usual distribution properties for distances (expand).}
 The numeric d$^{\text{num}}_{ij}(a)$ projection is simply the absolute difference between row elements $i$ and $j$ of the data matrix $X^{m \times p}$ for the attribute column $a$. 
 
-We define the NPDR neighborhood set $\mathcal{N}$ of ordered pair indices as follows. Instance $i$ is a point in $p$ dimensions, and we designate the topological neighborhood of $i$ as $N_{i}$. This neighborhood is a set of other instances trained on the data $X^{m \times p}$ and depends on the type of Relief neighborhood method (e.g., fixed $k$ or adaptive radius) and the type of metric (e.g., Manhattan or Euclidean). If instance $j$ is in the neighborhood of $i$ ($j \in N_{i}$), then the ordered pair $(i,j) \in \mathcal{N}$ for the projected-distance regression analysis. The ordered pairs constituting the neighborhood can then be represented as nested sets:
+The NPDR neighborhood set $\mathcal{N}$ of ordered pair indices is defined as follows. Instance $i$ is a point in $p$ dimensions, and we designate the topological neighborhood of $i$ as $N_{i}$. This neighborhood is a set of other instances trained on the data $X^{m \times p}$ and depends on the type of Relief neighborhood method (e.g., fixed $k$ or adaptive radius) and the type of metric (e.g., Manhattan or Euclidean). If instance $j$ is in the neighborhood of $i$ ($j \in N_{i}$), then the ordered pair $(i,j) \in \mathcal{N}$ for the projected-distance regression analysis. The ordered pairs constituting the neighborhood can then be represented as nested sets:
 \begin{equation}\label{eq:N}
 \mathcal{N}=\{\{(i, j)\}_{i=1}^{m}\}_{\{j \ne i : j \in N_{i}\}}.
 \end{equation}
-The cardinality of the set $\{j \ne i : j \in N_{i}\}$ is $k_i$, the number of nearest neighbors for subject $i$. 
+The cardinality of the set $\{j \ne i : j \in N_{i}\}$ is $k_i$, the number of nearest neighbors for subject $i$. For fixed $k$, this cardinality is just $k_i = k$ for each target instance $i \in \mathcal{I}$.
 
 \subsection{Predicted number of neighbors in the MultiSURF \texorpdfstring{$\alpha$}{} neighborhood}
 
@@ -369,19 +389,19 @@ and
 \begin{equation}
 \bar{D}_i = \frac{1}{m-1} \sum_{j \ne i} D^{(\cdot)}_{ij}
 \end{equation}
-is the average of instance $i$'s pairwise distances (Eq. \ref{eq:D}) with standard deviation $\sigma_{\bar{D}_i}$. MultiSURF implements $\alpha=1/2$~\cite{urbanowicz17}.
+is the average of instance $i$'s pairwise distances (Eq.~\ref{eq:D}) with standard deviation $\sigma_{\bar{D}_i}$. MultiSURF implements $\alpha=1/2$~\cite{urbanowicz17}.
 
-The probability of the remaining $m-1$ instances being inside the $\alpha$-radius of instance $i$ ($R_i^{\alpha}$) can be viewed as $m-1$ Bernoulli trials each with a probability of success $q_{\alpha}$. Then the average average number of neighbors is given by
+The probability of the remaining $m-1$ instances being inside the $\alpha$-radius of instance $i$ ($R_i^{\alpha}$) can be viewed as $m-1$ Bernoulli trials each with a probability of success $q_{\alpha}$. Then the average number of neighbors is given by
 \begin{equation}
 \label{eq:binomial_average}
   {\bar{k}}_{\alpha} = (m-1)q_{\alpha},
 \end{equation}
-from the mean of a binomial random variable. To calculate $q_{\alpha}$, we assume the distribution of distances $\{D_{ij} \}_{j \ne i}$ of neighbors of instance $i$ is normal $N(\bar{D}_i,\sigma_{\bar{D}_i})$. Our empirical studies confirm a normal distribution and that it is robust to data type and metric. Extreme violations of independence of attributes (extreme correlations or interactions) will cause the distribution to be right skewed, but this effect is difficult to observe in real data. Thus, for a Gaussian pairwise distance distribution, the probability $q_{\alpha}$ for one instance $j \ne i$ to be in the neighborhood of $i$ ($j \in N^{\alpha}_{i}$) is given by the area under the mean-centered ($\bar{D}_i$) Gaussian from $-\infty$ to $R_i^{\alpha}$. An illustration of the area computed to estimate $q_{\alpha}$ is given by Fig. \ref{fig:gaussPlot}. This integral can be written in terms of the error function (erf):
+from the mean of a binomial random variable. To calculate $q_{\alpha}$, we assume the distribution of distances $\{D_{ij} \}_{j \ne i}$ of neighbors of instance $i$ is normal $N(\bar{D}_i,\sigma_{\bar{D}_i})$. Our empirical studies confirm a normal distribution and that it is robust to data type and metric. Extreme violations of independence of attributes (extreme correlations or interactions) will cause the distribution to be right skewed, but this effect is difficult to observe in real data. Thus, for a Gaussian pairwise distance distribution, the probability $q_{\alpha}$ for one instance $j \ne i$ to be in the neighborhood of $i$ ($j \in N^{\alpha}_{i}$) is given by the area under the mean-centered ($\bar{D}_i$) Gaussian from $-\infty$ to $R_i^{\alpha}$. An illustration of the area computed to estimate $q_{\alpha}$ is given by Figure~\ref{fig:gaussPlot}. This integral can be written in terms of the error function (erf):
 \begin{equation}
 \label{eq:q_prob}
 q_{\alpha} = \frac{1}{2} \left( 1 - \mathrm{erf}\left( \frac{\alpha}{\sqrt{2}} \right) \right).
 \end{equation}
-And finally using Eqs. (\ref{eq:binomial_average} and \ref{eq:q_prob}) we find
+And finally using Eqs.~(\ref{eq:binomial_average} and \ref{eq:q_prob}) we find
 \begin{equation}\label{eq:kbar}
 {\bar{k}}_{\alpha} = \left \lfloor \frac{m-1}{2}  \left( 1 - \mathrm{erf}\left( \frac{\alpha}{\sqrt{2}} \right) \right) \right \rfloor,
 \end{equation}
@@ -447,18 +467,17 @@ X_{ia} = b_a y_i + \varepsilon_{ia},
 where $b_a \sim \mathcal{N}(0,b^\text{main})$ for some fixed $b^\text{main}>0$, $y_i \in \{0 (\text{control}),1 (\text{case})\}$, and $\varepsilon_{ia} \sim \mathcal{N}(0,1)$. We show an illustration of this method (Figure~\ref{fig:mixed_sim}\textbf{(6)}), where the end result ($X^\text{main}$) contains three main effect attributes with effects sizes determined by $B^\text{T}=[b_1,b_2,b_3]$. The effect sizes vanish in the lower block of matrix $(BY)^\text{T}$ because this lower block represents the control group whose class labels are 0. The magnitude of $b^\text{main}>0$ determines the effect size between case and control groups. We add noise ($E$) so that case and control groups are both normally distributed with different means with respect to each main effect, but have approximately the equal variance.
 
 \subsection{Mixed effects: interactions and main effects}
-In order to simulate data with both interactions and main effects, we combine the interaction simulations (Figure~\ref{fig:mixed_sim}\textbf{(5)}) and main effect simulations (Figure~\ref{fig:mixed_sim}\textbf{(6)}) into a single data set ($X$) (Figure~\ref{fig:mixed_sim}\textbf{(7)}), where the left block matrix of $X$ contains interactions and noise and the right block of $X$ contains only main effects. 
+In order to simulate data with both interactions and main effects, we combine the interaction simulations (Figure~\ref{fig:mixed_sim}\textbf{(5)}) and main effect simulations (Figure~\ref{fig:mixed_sim}\textbf{(6)}) into a single data set ($X$) (Figure~\ref{fig:mixed_sim}\textbf{(7)}), where the left block matrix of $X$ contains interactions and noise and the right block of $X$ contains only main effects. Our mixed effects (interactions + main effects) simulation method can be used to create a wide variety of different types of data sets. In particular, our interaction simulation strategy is novel in that we simulate correlation matrices for cases and controls directly. We tune the interaction effect size by adjusting $\rho^\text{hi}$, $b^\text{int}$ (Eq.~\ref{eq:b_int}), and the degree of connectivity of interacting attributes in the random graph (Figure~\ref{fig:mixed_sim}\textbf{(1)}).
 
-\begin{figure}[!ht]
+\begin{figure}[H]
  \centering
  \framebox{\includegraphics[width=0.9\textwidth]{mixed_simulation_diagram2.pdf}}	
  \caption{Algorithm for simulating mixed effects data with interactions and main effects. \textbf{(1)} Random network is generated, whose degree distribution is either Erd\H{o}s-R\'{e}nyi or Scale-free. \textbf{(2)} Adjacency matrix ($A$) and degree vector ($v_d$) corresponding to the random network are computed and functional features ($F$) are randomly selected from those with positive degree. \textbf{(3)} Correlation matrices are generated for cases and controls. In the control group, high ($\rho^\text{hi}$) and low ($\rho^\text{lo}$) correlations are assigned to connected ($A_{ij}=1$) and non-connected ($A_{ij}=0$) feature pairs, respectively. In the case group, differential correlation ($b^\text{int}$) is applied to functional connections. \textbf{(4)} Upper triangular Cholesky factors are computed for case/control correlation matrices. \textbf{(5)} Standard normal random data matrices ($X^\text{ctrl}$ and $X^\text{case}$) are given correlation structure associated with case and control groups and combined into full data matrix with interaction effects ($X$). \textbf{(6)} Main effects simulated with effect sizes randomly sampled from $\mathcal{N}(0,b^\text{main})$. \textbf{(8)} Interactions ($X^\text{int}$) and main effects ($X^\text{main}$) combined $X$.}\label{fig:mixed_sim}
 \end{figure}
 
 \section{Optimizing \texorpdfstring{$k$}{} for detecting effects}\label{sec:optim-k}
-All simulation scripts for interactions, main effects, and mixed effects, were written in \textbf{\textsf{R}}~\cite{R}, and are available on Github (\url{https://github.com/insilico/npdr}). We generated simulation replicates for many different scenarios on the data. Each simulated data set $X^{(m \times p)}$ generated contained $m$ instances and $p$ features, where $m \in \{100, 250, 500\} \text{ and } p \in \{1000,2500,5000\}$. All combinations of $m$ and $p$ were explored in order to determine how neighborhood selection parameters change with dimensionality. We considered a balanced binary outcome only so that there were exactly $m/2$ cases and $m/2$ controls. In each simulation, 10\% of the total number of features $p$ were functionally related to the outcome variable while the remaining 90\% were simply background features with no effect. Along with exploring all combinations of $m$ and $p$, we also considered different ratios of main-to-interaction effect among functional attributes. We considered ratios of 0.1, 0.2, 0.3, $\dots$, 0.9 of main-to-interaction, where 0.1 means that 10\% of the functional attributes are main effects while 90\% are interactions. For each simulation, we kept the main effect size parameter ($b^\text{main}$) fixed at 0.5 to reduce the total number of simulations. We explored different interaction effect sizes by varying the high correlation parameter ($\rho^\text{hi}$) only. The effect size increases monotonically with increasing $\rho^\text{hi}$ because $b^\text{int}$ is simply a point on the line from $-\rho^\text{hi}$ to $\rho^\text{hi}$, which is controlled by an input $t$ in our simulation \textbf{\textsf{R}} function. We considered values of $\rho^\text{hi} \in \{0.3,0.6,0.9\}$ so that we can explore small, medium, and large interaction effect sizes across all scenarios. The non-connection, low correlation parameter ($\rho^\text{lo}$) was fixed at 0.1 for all simulations. Taking all of the simulation parameters into account, we have a total of $3 \times 3 \times 9 \times 3 = 243$ different scenarios on data within our simulated data sets. For each scenario, we generate 30 replicates so that we can see the average value of fixed $k$ that optimizes functional attribute scores. 
 
-We use a method that we call Variable-Wise Optimized $k$ (VWOK), formerly referred to as Gene-wise Adaptive $k$ (GWAK)~\cite{mckinney13}, to determine the optimal $k$ for each attribute in a particular simulated data set (Figure~\ref{fig:vwok}). VWOK maximizes the scoring metric for each individual attribute, where we use standardized NPDR beta coefficients for scoring attributes in our analysis. The winning score is the one that maximizes the NPDR beta coefficient for each attribute. Winning scores are sorted from largest to smallest, along with the corresponding pseudo P values from NPDR, and those with significant adjusted P values are selected for further analysis. The VWOK method can be applied similarly using any nearest-neighbor feature selection algorithm, such as Relief-Based Algorithms~\cite{urbanowicz17}. The success of VWOK relies on the fact that scores of noise attributes do not change significantly as a function of $k$, while functional attribute scores do change significantly and have a well defined maximum with respect to $k$. Another reason we use VWOK is because we can explore all values of $k$, from $k=1$ to $k=m-1$, for each attribute. 
+We use a method that we call Variable-Wise Optimized $k$ (VWOK), formerly referred to as Gene-wise Adaptive $k$ (GWAK)~\cite{mckinney13}, to determine the optimal $k$ for each attribute in a particular simulated data set (Figure~\ref{fig:vwok}). VWOK maximizes the scoring metric for each individual attribute, where we use standardized NPDR beta coefficients for scoring attributes in our analysis. The winning score is the one that maximizes the NPDR beta coefficient for each attribute. Winning scores are sorted from largest to smallest, along with the corresponding pseudo P values from NPDR, and those with significant adjusted P values are selected for further analysis. The VWOK method can be applied similarly using any nearest-neighbor feature selection algorithm, such as Relief-Based Algorithms~\cite{urbanowicz17}. The success of VWOK relies on the fact that scores of noise attributes do not change significantly as a function of $k$, while functional attribute scores do change significantly and have a well defined maximum with respect to $k$. Another reason we use VWOK is because we can explore all values of $k$, from $k=1$ to $k=m-1$, for each attribute.  
 
 \begin{figure}[!hbt]
 	\centering
@@ -471,7 +490,7 @@ The ability to detect main effects increases monotonically with increasing $k$, 
 \begin{figure}[!bht]
 	\centering
 	\includegraphics[width=0.8\textwidth]{auPRC_vs_k.pdf}
-	\caption{Area Under the Precision-Recall Curve (auPRC) as a function of $k$ for simulated data. Each point on the plot is the average auPRC from 30 simulated data sets with interactions or main effects. Each data set has $m=p=100$ instances and attributes. Attribute scores were computed with NPDR~\cite{npdr}. The auPRC monotonically increases with increasing $k$ and is maximized at $k=m-1=99$ for main effects. For interactions, auPRC increases between $k=1$ and $k=18$ and remains relatively constant until $k=38$. After $k=38$, auPRC decreases monotonically between $k=39$ and $k=99$.}\label{fig:auPRC-vs-k}
+	\caption{Area Under the Precision-Recall Curve (auPRC) as a function of $k$ for simulated data. Each point on the plot is the average auPRC from 30 simulated data sets with interactions or main effects. Each data set has $m=p=100$ instances and attributes. Attribute scores were computed with NPDR~\cite{npdr2}. The auPRC monotonically increases with increasing $k$ and is maximized at $k=m-1=99$ for main effects. For interactions, auPRC increases between $k=1$ and $k=18$ and remains relatively constant until $k=38$. After $k=38$, auPRC decreases monotonically between $k=39$ and $k=99$.}\label{fig:auPRC-vs-k}
 \end{figure}
 
 %\vspace{0.2cm}
@@ -486,9 +505,109 @@ The ability to detect main effects increases monotonically with increasing $k$, 
 
 %\vspace{0.2cm}
 
-Because our goal in this analysis is not necessarily model selection, but rather feature selection where we know which features are functionally related to the outcome, we apply VWOK without splitting the data into training and test folds. Generally, one would intuitively apply a cross-validation method for parameter tuning to avoid overfitting. However, we have seen empirically that cross-validation does not produce high quality attributes in the context of nearest-neighbor feature selection. One reason that cross-validation does not perform well in nearest-neighbor feature selection algorithms is because it optimizes classification accuracy and does not optimize attribute scores. With nearest-neighbor feature selection, we have seen that cross-validation methods tend to produce highly predictive models composed of largely irrelevant attributes. Also, we have the advantage of knowing which attributes are functional in simulated data so our only concern is to determine which value of $k$ maximizes the scores of these attributes. Because noise attribute scores do not change significantly as a function of $k$ but functional attribute scores do, we maximize the probability of selecting these functional attributes among those at the top of the ranking with VWOK.
+Because our goal in this analysis is not necessarily model selection, but rather feature selection where we know which features are functionally related to the outcome, we apply VWOK without splitting the data into training and test folds. Generally, one would intuitively apply a cross-validation method, such as nested cross-validation (nested-CV), for parameter tuning to avoid overfitting (Figure~\ref{fig:nCV}). 
+
+\begin{figure}[!bht]
+	\centering
+	\framebox{\includegraphics[width=0.7\textwidth]{nested_cv_diagram.pdf}}
+	\caption{Nested cross-validation algorithm for simultaneously tuning parameters and selecting models. The data is split into training and test folds, where each outer training fold is further split into training and validation folds in order to tune parameters and select features. Parameters and features are chosen in the inner folds to optimize validation accuracy. Selected features and tuned parameters from the inner loop are used to train on the full outer training fold. Features and tuned parameters corresponding with the highest outer test accuracy are ultimately selected.}\label{fig:nCV}
+\end{figure}
+
+However, we have seen empirically that cross-validation does not produce high quality attributes in the context of nearest-neighbor feature selection. We compared the Area Under the Precision-Recall Curve (auPRC) for Global best fixed $k$, VWOK, and (nested-CV) on simulated data (Figure~\ref{fig:auPRC-compare-global-vwok-nCV}). Using our simulation method (Figure~\ref{fig:mixed_sim}), we generated 30 data sets with main effects and 30 data sets with interaction effects. The best auPRC was computed for each data set with respect to $k$ using each of these methods. For a given data set, Global best fixed $k$ simply loops through each possible value of $k$, computes attribute scores with a nearest-neighbor feature selection algorithm, and chooses the value of $k$ that maximizes auPRC. One reason that cross-validation does not perform well in nearest-neighbor feature selection algorithms is because it optimizes classification accuracy and does not optimize attribute scores. With nearest-neighbor feature selection, we have seen that cross-validation methods tend to produce highly predictive models composed of largely irrelevant attributes. Also, we have the advantage of knowing which attributes are functional in simulated data so our only concern is to determine which value of $k$ maximizes the scores of these attributes. Because noise attribute scores do not change significantly as a function of $k$ but functional attribute scores do, we maximize the probability of selecting these functional attributes among those at the top of the ranking with VWOK. 
+
+\begin{figure}[!bht]
+	\centering
+	\begin{tikzpicture}
+	\node at (0,0) {\includegraphics[clip,trim=0.2cm 0cm 0cm 0cm,width=0.98\textwidth]{global_best-k_auRC_vs_gwak_auRC_nestedCV_auRC.pdf}};
+	
+	\node[fill=white,xscale=0.8,yscale=0.8] at (-4.55,-3.73) {\textbf{Interaction}};
+	\node[fill=white,xscale=0.8,yscale=0.8] at (-4.55,-4.1) {\textbf{(Global} \bm{$k$}\textbf{)}};
+	
+	\node[fill=white,xscale=0.8,yscale=0.8] at (-2.6,-3.73) {\textbf{Main}};
+	\node[fill=white,xscale=0.8,yscale=0.8] at (-2.6,-4.1) {\textbf{(Global} \bm{$k$}\textbf{)}};
+	
+	\node[fill=white,text width=2cm,text height=0.2cm] at (-0.65,-3.73) {};
+	\node[fill=white,xscale=0.8,yscale=0.8] at (-0.63,-3.73) {\textbf{Interaction}};
+	\node[fill=white,xscale=0.8,yscale=0.8] at (-0.63,-4.1) {\textbf{(VWOK)}};
+	
+	\node[fill=white,text width=2cm,text height=0.2cm] at (1.3,-3.73) {};
+	\node[fill=white,xscale=0.8,yscale=0.8] at (1.34,-3.73) {\textbf{Main}};
+	\node[fill=white,xscale=0.8,yscale=0.8] at (1.34,-4.1) {\textbf{(VWOK)}};
+	
+	\node[fill=white,text width=2cm,text height=0.2cm] at (3.25,-3.73) {};
+	\node[fill=white,xscale=0.8,yscale=0.8] at (3.32,-3.73) {\textbf{Interaction}};
+	\node[fill=white,xscale=0.8,yscale=0.8] at (3.32,-4.1) {\textbf{(nested-CV)}};
+	
+	\node[fill=white,text width=2cm,text height=0.2cm] at (5.2,-3.73) {};
+	\node[fill=white,xscale=0.8,yscale=0.8] at (5.3,-3.73) {\textbf{Main}};
+	\node[fill=white,xscale=0.8,yscale=0.8] at (5.3,-4.1) {\textbf{(nested-CV)}};
+	
+	\node[fill=white,xscale=0.8,yscale=0.8,rotate=90] at (-6.45,0.15) {\textbf{Area Under Precision Recall Curve}};
+	\end{tikzpicture}
+	\caption{Comparison of Area Under the Precision-Recall Curve (auPRC) for three methods on simulated data with main effects or interactions. Each point on any particular boxplot represents the max auPRC for one of 30 simulated data sets, where auPRC is maximized as a function of $k$. We compared auPRC for each data set with respect to Global fixed $k$, Variable-Wise Optimized $k$ (VWOK), and nested cross-validation (nested-CV). VWOK has the best performance overall and the lowest variance in auPRC. Unlike the other methods, VWOK auPRC is balanced between interactions and main effects because each attribute has its own best $k$.}\label{fig:auPRC-compare-global-vwok-nCV}
+\end{figure}
+
+Using the same 30 simulated data sets with either interactions or main effects, we compared auPRC between VWOK, MultiSURF (MSURF), and MultiSURF average $k$ ($\bar{k}_\alpha$, Eq.~\ref{eq:kbar}) (Figure~\ref{fig:auPRC-compare-vwok-msurf-predk}). As in the comparison of VWOK with nested-CV and Global best $k$, we see that VWOK outperforms the other methods by consistently giving a higher auPRC on simulated data. The imbalance in interaction and main effect detection that is seen with MultiSURF vanishes with VWOK. The performances of adaptive radius MultiSURF and MultiSURF average $k$ ($\bar{k}_\alpha$, Eq.~\ref{eq:kbar}) are essentially the same. This provides further justification for using VWOK in nearest-neighbor feature selection algorithms.
+
+\begin{figure}[!bht]
+	\centering
+	\begin{tikzpicture}
+	\node at (0,0) {\includegraphics[clip,trim=0.2cm 0cm 0cm 0cm,width=0.98\textwidth]{gwak_auRC_vs_multisurf_auRC_vs_multisurf-predk_auRC.pdf}};
+	
+	\node[fill=white,text width=2cm,text height=0.2cm] at (-4.55,-3.73) {};
+	\node[fill=white,xscale=0.8,yscale=0.8] at (-4.55,-3.73) {\textbf{Interaction}};
+	\node[fill=white,xscale=0.8,yscale=0.8] at (-4.55,-4.1) {\textbf{(VWOK)}};
+	
+	\node[fill=white,text width=2cm,text height=0.2cm] at (-2.6,-3.73) {};
+	\node[fill=white,xscale=0.8,yscale=0.8] at (-2.6,-3.73) {\textbf{Main}};
+	\node[fill=white,xscale=0.8,yscale=0.8] at (-2.6,-4.1) {\textbf{(VWOK)}};
+	
+	\node[fill=white,text width=2cm,text height=0.2cm] at (-0.65,-3.73) {};
+	\node[fill=white,xscale=0.8,yscale=0.8] at (-0.63,-3.73) {\textbf{Interaction}};
+	\node[fill=white,xscale=0.8,yscale=0.8] at (-0.63,-4.1) {\textbf{(MSURF)}};
+	
+	\node[fill=white,text width=2cm,text height=0.2cm] at (1.3,-3.73) {};
+	\node[fill=white,xscale=0.8,yscale=0.8] at (1.34,-3.73) {\textbf{Main}};
+	\node[fill=white,xscale=0.8,yscale=0.8] at (1.34,-4.1) {\textbf{(MSURF)}};
+	
+	\node[fill=white,text width=2cm,text height=0.2cm] at (3.25,-3.73) {};
+	\node[fill=white,xscale=0.8,yscale=0.8] at (3.32,-3.73) {\textbf{Interaction}};
+	\node[fill=white,xscale=0.8,yscale=0.8] at (3.32,-4.1) {\textbf{(MSURF} \bm{$k$}\textbf{)}};
+	
+	\node[fill=white,text width=2cm,text height=0.2cm] at (5.2,-3.73) {};
+	\node[fill=white,xscale=0.8,yscale=0.8] at (5.3,-3.73) {\textbf{Main}};
+	\node[fill=white,xscale=0.8,yscale=0.8] at (5.3,-4.1) {\textbf{(MSURF} \bm{$k$}\textbf{)}};
+	
+	\node[fill=white,xscale=0.8,yscale=0.8,rotate=90] at (-6.45,0.15) {\textbf{Area Under Precision Recall Curve}};
+	\end{tikzpicture}
+	\caption{Comparison of Area Under the Precision-Recall Curve (auPRC) for three methods on simulated data with main effects or interactions. Each point on any particular boxplot represents the max auPRC for one of 30 simulated data sets, where auPRC is maximized as a function of $k$. We compared auPRC for each data set with respect to Variable-Wise Optimized $k$ (VWOK), adaptive radius method MultiSURF (MSURF), and predicted MultiSURF fixed $k$ (MSURF $k$). VWOK has the best performance overall and the lowest variance in auPRC. Unlike the other methods, VWOK auPRC is balanced between interactions and main effects because each attribute has its own best $k$.}\label{fig:auPRC-compare-vwok-msurf-predk}
+\end{figure}
+
+All simulation scripts for interactions, main effects, and mixed effects, were written in \textbf{\textsf{R}}~\cite{R}, and are available on Github (\url{https://github.com/insilico/npdr}). To explore how the optimal choice of $k$ changes in different contexts, we generated simulation replicates for several different scenarios on the data. Each simulated data set $X^{(m \times p)}$ generated contained $m=100$ instances and $p=1000$ features. We considered a balanced binary outcome only so that there were exactly $m/2$ cases and $m/2$ controls. In each simulation, 10\% of the total number of features $p$ were functionally related to the outcome variable while the remaining 90\% were simply background features with no effect. We also considered different ratios of main-to-interaction effect among functional attributes. Ratios of 0.2, 0.4, 0.6, and 0.8 of main-to-interaction, where 0.2 means that 20\% of the functional attributes are main effects while 80\% are interactions. For each simulation, we kept the main effect size parameter ($b^\text{main}$, Figure~\ref{fig:mixed_sim}\textbf{(6)}) fixed at 0.5 to reduce the total number of simulations. We explored different interaction effect sizes by varying the high correlation parameter ($\rho^\text{hi}$, Figure~\ref{fig:mixed_sim}\textbf{(3)}) only. The effect size increases monotonically with increasing $\rho^\text{hi}$ because $b^\text{int}$ is simply a point on the line from $-\rho^\text{hi}$ to $\rho^\text{hi}$, which is controlled by an input $t$ in our simulation \textbf{\textsf{R}} function. We considered values of $\rho^\text{hi} \in \{0.3,0.6,0.9\}$ so that we can explore small, medium, and large interaction effect sizes across all scenarios. The non-connection, low correlation parameter ($\rho^\text{lo}$, Figure~\ref{fig:mixed_sim}\textbf{(3)}) was fixed at 0.1 for all simulations. Taking all of the simulation parameters into account, we have a total of 12 different scenarios on data within our simulated data sets. For each scenario, we generate 30 replicates so that we can see the average value of fixed $k$ that optimizes functional attribute scores. We ran VWOK on each simulated data set to compute a value of $k$ for each attribute. Across all iterations for a given simulation scenario, the average VWOK value of $k$ that maximized the scores of interactions ($k^\text{int}_\text{ave}$), main effects ($k^\text{main}_\text{ave}$), and noise attributes ($k^\text{noise}_\text{ave}$) was computed. We also computed the average Global best $k$ ($k^\text{auPRC}_\text{ave}$), which is the average value of $k$ across all iterations of a given simulation scenario that maximized auPRC. For reasons we have already mentioned, we consider the VWOK values of $k$ to be the best choice for a given data set. Therefore, the average VWOK values of $k$ we computed are considered optimal for each simulation scenario. We give a summary from all of our simulation scenarios that shows the different values of $k$ for VWOK, Global best $k$, and MultiSURF (Table~\ref{tab:summary-k}). The VWOK average $k$ changes slightly for each type of attribute (e.g., main effects, interactions, and noise). The average VWOK $k$ for interactions ($k^\text{int}_\text{ave}$) is either 28 or 29, depending on different scenarios on the data. On the other hand, the average VWOK $k$ for main effects ($k^\text{main}_\text{ave}$) is either 58 or 61. There was no change in VWOK average $k$ for noise attributes ($k^\text{noise}_\text{ave}$), which remained fixed at 31 for each scenario. Interestingly, the average Global $k$ for optimizing auPRC ($k^\text{auPRC}_\text{ave}$) remained fixed at 27, which seems to favor interactions due to the similarity with the average VWOK $k$ for interaction effects ($k^\text{int}_\text{ave}$). For comparison, we computed the average MultiSURF neighborhood order ($k^\text{msurf}_\text{ave}$), which also remained fixed across each simulation scenario. The MultiSURF average $k$ is slightly larger than the corresponding VWOK average $k$, which could have implications for the ability of MultiSURF to optimally detect attributes. Skewness in the distance distribution, which is largely a result of high correlation simulation parameter ($\rho^\text{hi}$, Figure~\ref{fig:mixed_sim}), increases the probability of neighborhood inclusion ($q_\alpha$, Eq.~\ref{eq:q_prob}) slightly for MultiSURF. For any given target instance, this could lead to too many neighbors, which could reduce the ability to detect interactions as we have seen previously (Figure~\ref{fig:auPRC-vs-k}).
+
+\begin{table}[H]
+	\centering
+	\caption{Summary of average fixed $k$ for three different methods. Using VWOK (Figure~\ref{fig:vwok}), we computed the average optimized $k$ for interactions ($k^\text{int}_\text{ave}$), main effects ($k^\text{int}_\text{ave}$), and noise attributes ($k^\text{noise}_\text{ave}$). We also applied Global best $k$ to optimize auPRC ($k^\text{auPRC}_\text{ave}$). The average MultiSURF $k$ ($k^\text{msurf}_\text{ave}$) is given for comparison. The high correlation parameter ($\rho^\text{hi}$, Fiure~\ref{fig:mixed_sim}\textbf{(3)}) was varied within $\{0.3,0.6,0.9\}$ to explore low, medium, and high correlation. Mix Ratio represents the ratio of main-to-interaction effects among functional attributes, where 0.2 means 20\% main effects and 80\% interactions.}\label{tab:summary-k}
+	\begin{tabular}[h!]{ccccccc}\toprule
+		\bm{$\rho^\textbf{hi}$} & \textbf{Mix Ratio} & \bm{$k^\text{int}_\text{ave}$} & \bm{$k^\text{main}_\text{ave}$} & \bm{$k^\text{noise}_\text{ave}$} & \bm{$k^\text{auPRC}_\text{ave}$} & \bm{$k^\text{msurf}_\text{ave}$} \\ \midrule
+		0.3 & 0.2 & 28 & 61 & 31 & 27 & 32 \\
+		0.3 & 0.4 & 28 & 61 & 31 & 27 & 32 \\
+		0.3 & 0.6 & 28 & 61 & 31 & 27 & 32 \\
+		0.3 & 0.8 & 28 & 61 & 31 & 27 & 32 \\
+		0.6 & 0.2 & 29 & 58 & 31 & 27 & 32 \\
+		0.6 & 0.4 & 29 & 58 & 31 & 27 & 32 \\
+		0.6 & 0.6 & 29 & 58 & 31 & 27 & 32 \\
+		0.6 & 0.8 & 29 & 58 & 31 & 27 & 32 \\
+		0.9 & 0.2 & 28 & 61 & 31 & 27 & 32 \\
+		0.9 & 0.4 & 28 & 61 & 31 & 27 & 32 \\
+		0.9 & 0.6 & 28 & 61 & 31 & 27 & 32 \\
+		0.9 & 0.8 & 28 & 61 & 31 & 27 & 32 \\ \bottomrule
+	\end{tabular}
+\end{table}
 
 \section{Discussion}
+
+In our analysis of optimizing the neighborhood selection parameter $k$ in nearest-neighbor feature selection algorithms, we have determined that there is no single value of $k$ that produces the best set of attributes from a given data set. The value of $k$ should adapt to each attribute in the data in order to maximize the ability to detect those that are relevant to a given outcome. 
 
 \bibliographystyle{unsrt}
 %\bibliography{BoD}   % name of bib file

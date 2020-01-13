@@ -1689,7 +1689,7 @@ https://doi.org/10.1186/s12888-018-1955-9},
   url     = {https://doi.org/10.1371/journal.pgen.0030161},
 }
 
-@Article{npdr2,
+@Article{n,
   author   = {Le, Trang T and Dawkins, Bryan A and McKinney, Brett A},
   title    = {{Nearest-neighbor Projected-Distance Regression (NPDR) for detecting network interactions with adjustments for multiple tests and confounding}},
   journal  = {Bioinformatics},
