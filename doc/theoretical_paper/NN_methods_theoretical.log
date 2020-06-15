@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  27 NOV 2019 12:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  1 JUN 2020 14:57
 entering extended mode
 **./NN_methods_theoretical.tex
 (NN_methods_theoretical.tex
@@ -1139,7 +1139,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2575.
 Here is how much of TeX's memory you used:
  22985 strings out of 492946
  414888 string characters out of 3135528
- 552126 words of memory out of 3000000
+ 551126 words of memory out of 3000000
  25988 multiletter control sequences out of 15000+200000
  25270 words of font info for 135 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1171,7 +1171,7 @@ nts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
 amsfonts/symbols/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvet
 ic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb>
 
-Output written on NN_methods_theoretical.pdf (59 pages, 1577826 bytes).
+Output written on NN_methods_theoretical.pdf (59 pages, 1577356 bytes).
 PDF statistics:
  1658 PDF objects out of 1728 (max. 8388607)
  312 named destinations out of 1000 (max. 500000)
