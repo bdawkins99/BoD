@@ -1,0 +1,81 @@
+\RequirePackage[hyphens]{url}
+\documentclass[hidelinks,a4paper,border=1pt]{standalone}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{url}
+%\usepackage[hyphens]{url}
+\usepackage{hyperref}
+\usepackage{breakurl}
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{amssymb}
+\usepackage[mathscr]{euscript}
+%\renewcommand{\rmdefault}{bch} % change default font
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{shapes}
+\usepackage{enumitem}
+\setlength{\parindent}{0in}
+\usepackage{bm}
+\usepackage{multirow}
+\usepackage{adjustbox}
+\usepackage{scalerel}
+\usepackage[many]{tcolorbox}
+\usepackage{booktabs}
+\usepackage{float}
+%\usepackage{adjustbox}
+%>{\centering\arraybackslash}m{3cm}
+%\newcolumntype{Y}{>{\small\raggedright\arraybackslash}X}
+%\newcolumntype{C}{>{\centering\arraybackslash}m{3cm}}
+\newcolumntype{C}{>{$}c<{$}}
+%\captionsetup{
+%	justification = centering
+%}
+
+\newcommand{\myfrac}[2]{\displaystyle \frac{#1}{#2}}
+\newcommand{\dsum}{\displaystyle \sum}
+%\newcommand{\mystrut}{\rule[10pt]{10pt}{20pt}}
+\newcommand{\mystrut}{\rule[1\dp\strutbox]{0pt}{\baselineskip}}
+\newcommand{\mysup}[1]{\scaleto{\rule[2.9\dp\strutbox]{0pt}{-1\baselineskip}^{#1}}{12pt}}
+\newcommand{\mysub}[1]{\scaleto{\rule[-1.5\dp\strutbox]{-2.5pt}{-1\baselineskip}_{#1}}{5pt}}
+
+% create "+" rule type for thick vertical lines
+\newcolumntype{+}{!{\vrule width 2pt}}
+
+% create \thickcline for thick horizontal lines of variable length
+\newlength\savedwidth
+\newcommand\thickcline[1]{%
+	\noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+	\cline{#1}%
+	\noalign{\vskip\arrayrulewidth}%
+	\noalign{\global\arrayrulewidth\savedwidth}%
+}
+
+% \thickhline command for thick horizontal lines that span the table
+\newcommand\thickhline{\noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+	\hline
+	\noalign{\global\arrayrulewidth\savedwidth}}
+
+
+% Remove comment for double spacing
+%\usepackage{setspace} 
+%\doublespacing
+
+%\doublespacing
+\pagenumbering{gobble}
+\begin{document}
+
+
+
+\begin{tikzpicture}
+		
+% trim=left botm right top
+\node at (0,0) {\includegraphics[clip,trim=0.27cm 0.0cm 0.0cm 0.05cm,width=0.7\textwidth]{updated_typical_metrics_table.pdf}};
+
+\end{tikzpicture}
+
+
+
+\end{document}

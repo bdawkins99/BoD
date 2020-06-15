@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  15 JUN 2020 18:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  15 JUN 2020 18:39
 entering extended mode
-**./updated_distributions_table(6-1-2020).tex
-(updated_distributions_table(6-1-2020).tex
+**./updated_typical_metrics_table(6-15-2020).tex
+(updated_typical_metrics_table(6-15-2020).tex
 LaTeX2e <2018-12-01>
 ("C:\Program Files\MiKTeX 2.9\tex/latex/url\url.sty"
 \Urlmuskip=\muskip10
@@ -980,8 +980,8 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 )
 \savedwidth=\skip68
 
-(updated_distributions_table(6-1-2020).aux)
-\openout1 = `updated_distributions_table(6-1-2020).aux'.
+(updated_typical_metrics_table(6-15-2020).aux)
+\openout1 = `updated_typical_metrics_table(6-15-2020).aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 68.
 LaTeX Font Info:    ... okay on input line 68.
@@ -1039,57 +1039,53 @@ LaTeX Info: Redefining \ref on input line 68.
 LaTeX Info: Redefining \pageref on input line 68.
 LaTeX Info: Redefining \nameref on input line 68.
 
-(updated_distributions_table(6-1-2020).out)
-(updated_distributions_table(6-1-2020).out)
+(updated_typical_metrics_table(6-15-2020).out)
+(updated_typical_metrics_table(6-15-2020).out)
 \@outlinefile=\write6
-\openout6 = `updated_distributions_table(6-1-2020).out'.
+\openout6 = `updated_typical_metrics_table(6-15-2020).out'.
 
 
 ABD: EveryShipout initializing macros
-<updated_distributions_table(5-23-2019).pdf, id=6, 481.5611pt x 524.43027pt>
-File: updated_distributions_table(5-23-2019).pdf Graphic file (type pdf)
-<use updated_distributions_table(5-23-2019).pdf>
-Package pdftex.def Info: updated_distributions_table(5-23-2019).pdf  used on in
-put line 90.
-(pdftex.def)             Requested size: 345.0pt x 380.76286pt.
+<updated_typical_metrics_table.pdf, id=6, 325.95274pt x 374.28532pt>
+File: updated_typical_metrics_table.pdf Graphic file (type pdf)
+<use updated_typical_metrics_table.pdf>
+Package pdftex.def Info: updated_typical_metrics_table.pdf  used on input line 
+75.
+(pdftex.def)             Requested size: 241.49895pt x 282.92339pt.
  [1
 
- <./updated_distributions_table(5-23-2019).pdf{C:/Users/bdawk/AppData/Local/MiK
-TeX/2.9/pdftex/config/pdftex.map}>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 96.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 96.
+ <./updated_typical_metrics_table.pdf{C:/Users/bdawk/AppData/Local/MiKTeX/2.9/p
+dftex/config/pdftex.map}>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 81.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 81.
 
-(updated_distributions_table(6-1-2020).aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 96.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 96.
-Package rerunfilecheck Info: File `updated_distributions_table(6-1-2020).out' h
-as not changed.
+(updated_typical_metrics_table(6-15-2020).aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 81.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 81.
+Package rerunfilecheck Info: File `updated_typical_metrics_table(6-15-2020).out
+' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
  33189 strings out of 492946
- 680759 string characters out of 3135528
- 777311 words of memory out of 3000000
+ 680756 string characters out of 3135528
+ 777350 words of memory out of 3000000
  36661 multiletter control sequences out of 15000+200000
  532338 words of font info for 24 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 58i,7n,93p,885b,637s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 58i,7n,93p,888b,637s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmmib10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12
-.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/P
-rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on updated_distributions_table(6-1-2020).pdf (1 page, 409079 byt
-es).
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmmib10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmsy10.pfb>
+Output written on updated_typical_metrics_table(6-15-2020).pdf (1 page, 249472 
+bytes).
 PDF statistics:
- 96 PDF objects out of 1000 (max. 8388607)
+ 66 PDF objects out of 1000 (max. 8388607)
  2 named destinations out of 1000 (max. 500000)
  24 words of extra memory for PDF output out of 10000 (max. 10000000)
 
