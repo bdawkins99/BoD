@@ -136,8 +136,11 @@
 % Bold the 'Figure #' in the caption and separate it from the title/caption with a period
 % Captions will be left justified
 \usepackage[aboveskip=1pt,labelfont=bf,labelsep=period,justification=raggedright,singlelinecheck=off]{caption}
-%\renewcommand{\figurename}{Supplementary Fig.}
-\renewcommand{\thefigure}{S\arabic{figure}}
+\DeclareCaptionLabelFormat{Sformat}{S#2 #1}
+\captionsetup[figure]{labelformat=Sformat} 
+\renewcommand{\figurename}{Fig}
+%\renewcommand{\figurename}{S\arabic{figure} Fig}
+%\renewcommand{\thefigure}{S\arabic{figure} Fig}
 
 % Use the PLoS provided BiBTeX style
 %\bibliographystyle{plos2015}
