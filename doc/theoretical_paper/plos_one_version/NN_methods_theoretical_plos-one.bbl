@@ -1,0 +1,149 @@
+ \newcommand{\noop}[1]{}
+\begin{thebibliography}{10}
+
+\bibitem{urbanowicz17}
+Urbanowicz RJ, Olson RS, Schmitt P, Meeker M, Moore JH.
+\newblock Benchmarking Relief-Based Feature Selection Methods for
+  Bioinformatics Data Mining.
+\newblock Journal of Biomedical Informatics. 2018;85:168--188.
+\newblock doi:{10.1016/j.jbi.2018.07.015}.
+
+\bibitem{urbanowicz17b}
+Urbanowicz RJ, Meeker M, Cava WL, Olson RS, Moore JH.
+\newblock Relief-Based Feature Selection: Introduction and Review.
+\newblock Journal of Biomedical Informatics.
+  2018;doi:{10.1016/j.jbi.2018.07.014}.
+
+\bibitem{robnik2003}
+{R}obnik \v{S}ikonja M, {I}gor {K}ononenko.
+\newblock Theoretical and {E}mpirical {A}nalysis of {R}elief{F} and
+  {R}{R}elief{F}.
+\newblock Machine {L}earning. 2003;53:23 -- 69.
+
+\bibitem{npdr}
+{L}e TT, {B}ryan {A}~{D}awkins, {B}rett {A}~{M}c{K}inney.
+\newblock {Nearest-neighbor Projected-Distance Regression (NPDR) detects
+  network interactions and controls for confounding and multiple testing}.
+\newblock Under Review. 2019;.
+
+\bibitem{stir}
+Le TT, Urbanowicz RJ, Moore JH, McKinney BA.
+\newblock STatistical Inference Relief (STIR) feature selection.
+\newblock Bioinformatics. 2018; p. bty788.
+\newblock doi:{10.1093/bioinformatics/bty788}.
+
+\bibitem{mckinney13}
+McKinney BA, {W}hite BC, {G}rill DE, {Li} PW, {K}ennedy RB, {P}oland GA, et~al.
+\newblock {ReliefSeq: a gene-wise adaptive-K nearest-neighbor feature selection
+  tool for finding gene-gene interactions and main effects in mRNA-Seq gene
+  expression data}.
+\newblock {PloS one}. 2013;8(12):e81527.
+
+\bibitem{arabnejad2018}
+{A}rabnejad M, {D}awkins BA, {B}ush WS, {W}hite BC, {H}arkness AR, {M}c{K}inney
+  BA.
+\newblock {Transition-transversion encoding and genetic relationship metfic in
+  ReliefF feature selection improves pathway enrichment in GWAS}.
+\newblock {BioData Mining}. 2018;11(23).
+
+\bibitem{venkataraman2010}
+{V}enkataraman A, {M}arek {K}ubicki, {C}arl-{F}redrik {W}estin, {P}olina
+  {G}olland.
+\newblock {Robust Feature Selection in Resting-State fMRI Connectivity Based on
+  Population Studies}.
+\newblock {Conf Comput Vis Pattern Recognit Workshops}. 2010; p. 63--70.
+\newblock doi:{10.1109/CVPRW.2010.5543446}.
+
+\bibitem{hay2017}
+{H}ay E, {P}etra {R}itter, {N}ancy {J}~{L}obaugh, {A}nthony {R}~McIntosh.
+\newblock {Multiregional integration in the brain during resting-state fMRI
+  activity}.
+\newblock {PLOS Computational Biology}.
+  2017;doi:{10.1371/journal.pcbi.1005410}.
+
+\bibitem{sundermann2014}
+{S}undermann B, {M}ona {O}lde~l\"{u}tke {B}everborg, {B}ettina {P}fleiderer.
+\newblock {Toward literature-based feature selection for diagnostic
+  classification: a meta-analysis of resting-state fMRI in depression}.
+\newblock {Frontiers in Human Neuroscience}.
+  2014;doi:{10.3389/fnhum.2014.00692}.
+
+\bibitem{vergun2013}
+{V}ergun S, {A}lok {S}~{D}eshpande, {T}imothy {B}~{M}eier, {J}ie {S}ong, {D}ana
+  {L}~{T}udorascu, {V}eena {A}~{N}air, et~al.
+\newblock {Characterizing functional connectivity differences in aging adults
+  using machine learning on resting state fMRI data}.
+\newblock {Frontiers in Computational Neuroscience}.
+  2013;doi:{10.3389/fncom.2013.00038}.
+
+\bibitem{le17}
+Le TT, Simmons WK, Misaki M, Bodurka J, White BC, Savitz J, et~al.
+\newblock Differential privacy-based evaporative cooling feature selection and
+  classification with relief-F and random forests.
+\newblock Bioinformatics. 2017;33(18):2906--2913.
+
+\bibitem{gotts2012}
+{G}otts SJ, {K}yle {S}immons W, {L}ydia {A}~{M}ilbury, {G}regory {L}~{W}allace,
+  {R}obert {W}~{C}ox, {A}lex {M}artin.
+\newblock {Fractionation of social brain circuits in autism spectrum
+  disorders}.
+\newblock {Brain}. 2012;135:2711--2725.
+\newblock doi:{10.1093/brain/aws160}.
+
+\bibitem{allStats}
+{W}asserman L.
+\newblock All of {S}tatistics: {A} {C}oncise {C}ourse in {S}tatistical
+  {I}nference.
+\newblock Springer, New York, NY; 2004.
+
+\bibitem{freund2004}
+{M}iller I, {M}arylees {M}iller.
+\newblock {John E. Freund's Mathematical Statistics with Applications}.
+\newblock 7th ed. {Y}agan S, editor. {Pearson Prentice Hall}; 2004.
+
+\bibitem{brazma2000}
+{B}razma A, {J}aak {V}ilo.
+\newblock {Gene expression data analysis}.
+\newblock {FEBS Letters}. 2000;480:17--24.
+
+\bibitem{wang2018}
+{W}ang D, {J}in {G}u.
+\newblock {VASC: Dimension Reduction and Visualization of Single-cell RNA-seq
+  Data by Deep Variational Autoencoder}.
+\newblock {Genomics Proteomics Bioinformatics}. 2018;16:320--331.
+
+\bibitem{gumbel1947}
+{G}umbel EJ.
+\newblock {The Distribution of the Range}.
+\newblock {The Annals of Mathematical Statistics}. 1947;18(3):384--412.
+
+\bibitem{chatterjee2014}
+{C}hatterjee S.
+\newblock {Superconcentration and Related Topics}.
+\newblock 1st ed. 1439-7382. {Springer International Publishing}; 2014.
+
+\bibitem{cramer1999}
+{C}ram\'{e}r H.
+\newblock {Mathematical Methods of Statistics}. vol.~1.
+\newblock Reprint, revised ed. Princeton University Press; 1999.
+
+\bibitem{li2014}
+{L}i P, {M}aozu {G}uo, {C}hunyu {W}ang, {X}iaoyan {L}iu, {Q}uan {Z}ou.
+\newblock {An overview of SNP interactions in genome-wide association studies}.
+\newblock {Briefings in Functional Genomics}. 2014;14(2):143--155.
+\newblock doi:{10.1093/bfgp/elu036}.
+
+\bibitem{lee2013}
+{L}ee MH, {C}hristopher {D}~{S}myser, {J}oshua {S}~{S}himony.
+\newblock {Resting state fMRI: A review of methods and clinical applications}.
+\newblock {AJNR Am J Neuroradiol}. 2013;34(10):1866--1872.
+\newblock doi:{10.3174/ajnr.A3263}.
+
+\bibitem{dickie2017}
+{A}lexander {D}ickie D, {S}usan {D}~{S}henkin, {D}evasuda {A}nblagan, {J}uyoung
+  {L}ee, {M}anuel~{B}lesa {C}abez, {D}avid {R}odriguez, et~al.
+\newblock {Whole Brain Magnetic Resonance Image Atlases: A Systematic Review of
+  Existing Atlases and Caveats for Use in Population Imaging}.
+\newblock {Frontiers in Neuroinformatics}. 2017;doi:{10.3389/fninf.2017.00001}.
+
+\end{thebibliography}
