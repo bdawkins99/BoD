@@ -1,3 +1,4 @@
+% Encoding: UTF-8
 % bmc_article.bib
 % 
 %  An example of bibtex entries.
@@ -179,4 +180,4 @@
 	url = {http://tumor.informatics.jax.org/cancer\_links.html}
 }
 
-
+@Comment{jabref-meta: databaseType:bibtex;}

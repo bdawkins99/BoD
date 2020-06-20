@@ -20,11 +20,11 @@ Urbanowicz RJ, Meeker M, Cava WL, Olson RS, Moore JH.
   {R}{R}elief{F}.
 \newblock Machine {L}earning. 2003;53:23 -- 69.
 
-\bibitem{npdr}
-{L}e TT, {B}ryan {A}~{D}awkins, {B}rett {A}~{M}c{K}inney.
-\newblock {Nearest-neighbor Projected-Distance Regression (NPDR) detects
-  network interactions and controls for confounding and multiple testing}.
-\newblock Under Review. 2019;.
+\bibitem{npdr2}
+{L}e TT, {D}awkins BA, {M}c{K}inney BA.
+\newblock {Nearest-neighbor Projected-Distance Regression (NPDR) for detecting
+  network interactions with adjustments for multiple tests and confounding}.
+\newblock {Bioinformatics}. 2020;doi:{10.1093/bioinformatics/btaa024}.
 
 \bibitem{stir}
 Le TT, Urbanowicz RJ, Moore JH, McKinney BA.

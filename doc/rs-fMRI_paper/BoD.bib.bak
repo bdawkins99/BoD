@@ -1559,4 +1559,11 @@ https://doi.org/10.1186/s12888-018-1955-9},
   url     = {https://doi.org/10.1016/j.ebiom.2019.11.047},
 }
 
+@Article{dawkins2019,
+  author  = {{B}ryan {A}. {D}awkins and {T}rang {T}. {L}e and {B}rett {A}. {M}c{K}inney},
+  title   = {{Theoretical properties of nearest-neighbor distance distributions and novel metrics for high dimensional bioinformatics data}},
+  journal = {{Under Review}},
+  year    = {2019},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
