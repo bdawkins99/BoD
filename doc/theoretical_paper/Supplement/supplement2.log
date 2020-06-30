@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  29 JUN 2020 16:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  30 JUN 2020 09:40
 entering extended mode
 **./supplement2.tex
 (supplement2.tex
@@ -1711,32 +1711,48 @@ Package pdftex.def Info: manhattan-distance_hist_GSE48200.pdf  used on input li
 ne 700.
 (pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
  [49 <./manhattan-distance_hist_GSE98634.pdf> <./manhattan-distance_hist_GSE992
-95.pdf>] 
+95.pdf>]
+<manhattan-distance_hist_power-atlas.pdf, id=1440, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_power-atlas.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_power-atlas.pdf>
+Package pdftex.def Info: manhattan-distance_hist_power-atlas.pdf  used on input
+ line 705.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_shen-atlas.pdf, id=1442, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_shen-atlas.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_shen-atlas.pdf>
+Package pdftex.def Info: manhattan-distance_hist_shen-atlas.pdf  used on input 
+line 710.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [50 <./manhattan-distance_hist_GSE48200.pdf> <./manhattan-distance_hist_power-
+atlas.pdf>] (supplement2.bbl) 
 AED: lastpage setting LastPage
-[50 <./manhattan-distance_hist_GSE48200.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 706.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 706.
+[51 <./manhattan-distance_hist_shen-atlas.pdf>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 716.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 716.
  (supplement2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 706.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 706.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 716.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 716.
 Package rerunfilecheck Info: File `supplement2.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 706.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 716.
  ) 
 Here is how much of TeX's memory you used:
- 22610 strings out of 492946
- 420893 string characters out of 3135528
- 516346 words of memory out of 3000000
- 25844 multiletter control sequences out of 15000+200000
- 4706 words of font info for 20 fonts, out of 3000000 for 9000
+ 22642 strings out of 492946
+ 421638 string characters out of 3135528
+ 516407 words of memory out of 3000000
+ 25858 multiletter control sequences out of 15000+200000
+ 5319 words of font info for 24 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,11n,92p,407b,421s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,11n,92p,526b,421s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-Output written on supplement2.pdf (50 pages, 11676473 bytes).
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on supplement2.pdf (51 pages, 13546724 bytes).
 PDF statistics:
- 1500 PDF objects out of 1728 (max. 8388607)
- 150 named destinations out of 1000 (max. 500000)
- 4092 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1543 PDF objects out of 1728 (max. 8388607)
+ 156 named destinations out of 1000 (max. 500000)
+ 6150 words of extra memory for PDF output out of 10000 (max. 10000000)
 
