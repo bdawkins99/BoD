@@ -146,4 +146,26 @@ Le TT, Simmons WK, Misaki M, Bodurka J, White BC, Savitz J, et~al.
   Existing Atlases and Caveats for Use in Population Imaging}.
 \newblock {Frontiers in Neuroinformatics}. 2017;doi:{10.3389/fninf.2017.00001}.
 
+\bibitem{t1000}
+{V}ictor TA, {S}ahib {S}~{K}halsa, {K}yle {S}immons W, {J}ustin
+  {S}~{F}einstein, {J}onathan {S}avitz, {R}obin {L}~{A}upperle, et~al.
+\newblock {Tulsa 1000: a naturalistic study protocol for multilevel assessment
+  and outcome prediction in a large psychiatric sample}.
+\newblock {BMJ Open}. 2018;8(1).
+\newblock doi:{10.1136/bmjopen-2017-016620}.
+
+\bibitem{power2011}
+{P}ower JD, {A}lexander {L}~{C}ohen, {S}tephen {M}~{N}elson, {G}agan {S}~{W}ig,
+  {K}elly~{A}nne {B}arnes, {J}essica {A}~{C}hurch, et~al.
+\newblock {Functional network organization of the human brain}.
+\newblock {Neuron}. 2011;72(4):665--678.
+\newblock doi:{10.1016/j.neuron.2011.09.006.}
+
+\bibitem{shen2013}
+{S}hen X, {T}okoglu F, {P}apademetris X, {C}onstable RT.
+\newblock {Groupwise whole-brain parcellation from resting-state fMRI data for
+  network node identification}.
+\newblock {Neuroimage}. 2013;(0):403--415.
+\newblock doi:{10.1016/j.neuroimage.2013.05.081.}
+
 \end{thebibliography}

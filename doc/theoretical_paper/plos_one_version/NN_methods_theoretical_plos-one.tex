@@ -243,7 +243,7 @@ Brett A. McKinney\textsuperscript{3,4*},
 \end{flushleft}
 % Please keep the abstract below 300 words
 \section*{Abstract}
-	The performance of nearest-neighbor feature selection and prediction methods depends on the metric for computing neighborhoods and the distribution properties of the underlying data. The effects of the distribution and metric, as well as the presence of correlation between predictors and instances (or samples), are reflected in the expected moments of the distribution of pairwise distances. Much work to introduce new and improved nearest-neighbor feature selection algorithms has been done, which includes new neighborhood methods and distance metrics, but not much attention has been given to the distributional properties of distances as a function of particular data types. We derive general analytical expressions for the mean and variance of pairwise distances for $L_q$ metrics for normal and uniform random data with $p$ attributes and $m$ instances. We use extreme value theory to derive results for metrics that are normalized by the range of each attribute (max - min). In addition to these expressions for continuous data, we derive similar analytical formulas for a new metric for genetic variants (categorical data) in genome-wide association studies (GWAS). The genetic distance distributions account for minor allele frequency and transition/transversion ratio. We introduce a new metric for resting-state functional MRI data (rs-fMRI) and derive its distance properties. This metric is applicable to correlation-based predictors derived from time series data. Derivations assume independent data, which is necessary for defining closed form expressions of moment estimates, but empirically we also consider the effect of correlation between attributes. These analytical results and new metrics can be used to inform the optimization of nearest neighbor methods for a broad range of studies including gene expression, GWAS, and fMRI data. The summary of distribution moments and detailed derivations provide a resource for understanding the distance properties for various metrics and data types.
+	The performance of nearest-neighbor feature selection and prediction methods depends on the metric for computing neighborhoods and the distribution properties of the underlying data. The effects of the distribution and metric, as well as the presence of correlation between predictors and instances (or samples), are reflected in the expected moments of the distribution of pairwise distances. Much work to introduce new and improved nearest-neighbor feature selection algorithms has been done, which includes new neighborhood methods and distance metrics, but not much attention has been given to the distributional properties of distances as a function of particular data types. We derive general analytical expressions for the mean and variance of pairwise distances for $L_q$ metrics for normal and uniform random data with $p$ attributes and $m$ instances. We use extreme value theory to to produce novel results for metrics that are normalized by the range of each attribute (max - min). In addition to these expressions for continuous data, we derive similar analytical formulas for a new metric for genetic variants (categorical data) in genome-wide association studies (GWAS). The genetic distance distributions account for minor allele frequency and transition/transversion ratio. We introduce a new metric for resting-state functional MRI data (rs-fMRI) and derive its distance properties. This metric is applicable to correlation-based predictors derived from time series data. Derivations assume independent data, which is necessary for defining closed form expressions of moment estimates, but empirically we also consider the effect of correlation between attributes. These analytical results and new metrics can be used to inform the optimization of nearest neighbor methods for a broad range of studies including gene expression, GWAS, and fMRI data. The summary of distribution moments and detailed derivations provide a resource for understanding the distance properties for various metrics and data types.
 
 
 % Please keep the Author Summary between 150 and 200 words
@@ -258,9 +258,9 @@ Brett A. McKinney\textsuperscript{3,4*},
 \section*{Introduction}
 Statistical models can deviate from expected behavior depending on whether certain properties of the underlying data are satisfied, such as being normally distributed. The expected behavior of nearest neighbor models is further influenced by the choice of metric, such as Euclidean or Manhattan. For random normal data ($\mathcal{N}(0,1)$), for example, the variance of the pairwise distances of a Manhattan metric is proportional to the number of attributes ($p$) whereas the variance is constant for a Euclidean metric. Relief methods~\cite{urbanowicz17,urbanowicz17b,robnik2003} and nearest-neighbor projected-distance regression (NDPR)~\cite{npdr2} use nearest neighbors to compute attribute importance scores and often use adaptive neighborhoods that rely on the mean and variance of the distance distribution. The ability of this class of methods to identify association effects, like main effects or interaction effects, depends on parameters such as neighborhood radii or number of neighbors k~\cite{stir,mckinney13}. Thus, knowledge of the expected values for a given metric and data distribution may improve the performance of these feature selection methods by informing the selection of neighborhood parameters. 
 
-For continuous data, the metrics most commonly used in nearest neighbor methods are $L_q$ with $q=1$ (Manhattan) or $q=2$ (Euclidean). For data from standard normal ($\mathcal{N}(0,1)$) or standard uniform ($\mathcal{U}(0,1)$) distributions, the asymptotic behavior of the $L_q$ metrics is known. However, detailed derivations of these distance distribution asymptotics are not readily available in the literature. We provide detailed derivations of generalized expressions parameterized by metric $q$, attributes $p$, and samples $m$, and we extend the derivations to $L_q$ metrics normalized by the range of the attributes using Extreme Value Theory (EVT). These range (max-min) normalized metrics are often used in Relief-based algorithms~\cite{robnik2003}. 
+For continuous data, the metrics most commonly used in nearest neighbor methods are $L_q$ with $q=1$ (Manhattan) or $q=2$ (Euclidean). For data from standard normal ($\mathcal{N}(0,1)$) or standard uniform ($\mathcal{U}(0,1)$) distributions, the asymptotic behavior of the $L_q$ metrics is known. However, detailed derivations of these distance distribution asymptotics are not readily available in the literature. We provide detailed derivations of generalized expressions parameterized by metric $q$, attributes $p$, and samples $m$, and we extend the derivations to $L_q$ metrics normalized by the range of the attributes using Extreme Value Theory (EVT). These range (max-min) normalized metrics are often used in Relief-based algorithms~\cite{robnik2003}, but their asymptotic distributions have not yet been characterized. Therefore, our moment estimates on random data for range normalized metrics are novel.
 
-For genome-wide association study (GWAS) data, which is categorical, various metrics have been developed for feature selection and for computing similarity between individuals based on shared genetic variation. We build on the mathematical formalism for continuous data to derive the asymptotic properties of various categorical data metrics for GWAS. We derive asymptotic formulas for the mean and variance for three recently introduced GWAS metrics~\cite{arabnejad2018}. These metrics were developed for Relief-based feature selection to account for binary genotype differences (two levels), allelic differences (three levels), and transition/transversion differences (five levels). The mean and variance expressions we derive for these multi-level categorical data types are parameterized by the minor allele frequency and the transition/transversion ratio. 
+For genome-wide association study (GWAS) data, which is categorical, various metrics have been developed for feature selection and for computing similarity between individuals based on shared genetic variation. We build on the mathematical formalism for continuous data to derive the asymptotic properties of various categorical data metrics for GWAS. We derive asymptotic formulas for the mean and variance for three recently introduced GWAS metrics~\cite{arabnejad2018}. These metrics were developed for Relief-based feature selection to account for binary genotype differences (two levels), allelic differences (three levels), and transition/transversion differences (five levels). The mean and variance expressions we derive for these multi-level categorical data types are parameterized by the minor allele frequency and the transition/transversion ratio. In addition to our new moment estimates in random continuous data, our derivations for the new transition/transversion metric~\cite{arabnejad2018} are also new results.
 
 Resting-state fMRI (rs-fMRI) is a growing application area for machine learning and feature selection~\cite{venkataraman2010,hay2017,sundermann2014,vergun2013}, which involves correlation data derived from time-series brain activity. For a given subject, a correlation or similar matrix is computed between brain regions of interest (ROIs) from their time series. Each time series represents functional activity of the ROI while the subject is not performing any task, and the ROI typically corresponds to a region with known function for emotion or cognition. Thus, the dataset consists of pairwise ROI correlations for each of the $m$ subjects. Nearest-neighbor based feature selection was applied to rs-fMRI in the private evaporative cooling method~\cite{le17}, where the predictors were pairwise correlations between ROIs. The use of pairwise correlation predictors is a common practice because of convenience and differential connectivity between brain regions may be of biological importance~\cite{gotts2012}. However, one may be interested in the importance of attributes at the ROI level. Thus, in the current study we introduce a new metric to be used in NPDR~\cite{npdr2} with resting state correlation matrices that provides attribute importance for ROIs. This metric is applicable to general time series derived correlation data, and we derive asymptotic estimates for the mean and variance of distance distributions for our new time series, correlation based metric.
 
@@ -2526,6 +2526,406 @@ Correlations between attributes and instances can cause significant deviations f
 \paragraph*{S25 Fig.}
 \label{S25_Fig}
 {\bf One-dimensional projected TiTv distance (diff) onto an attribute vs minor allele frequency (MAF).} For each possible value of the TiTv diff ($\text{d} = 0,1/4,1/2,3/4,1$), the exact density of the TiTv diff is plotted for all possible values of MAF. The Ti/Tv ratio $\eta$ was fixed to be 2. The expected value of MAF at a particular locus $a$ is $f_a$ for all $a \in \mathcal{A}$, where $f_a$ is the probability of a minor allele occurring at locus $a$. For each element $X_{ia}$ of the data matrix for a fixed attribute $a$, we have $X_{ia} \sim \mathcal{B}(2,f_a)$. Depending on the MAF, the frequency of TiTv diff taking on a value of 0, 1/4, 1/2, 3/4, or 1 changes. The density of the TiTv diff for $\text{d} = 1/4, 1/2, \text{ and } 3/4$ has the same resulting curve as a function of MAF. The most common value of TiTv diff at any MAF is 0, the second most common is 1/4, 1/2, or 3/4, and the least common is 1. As MAF increases beyond 0.5, the minor allele switches.
+
+\paragraph*{S26 Fig.}
+\label{S26_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE26585.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S27 Fig.}
+\label{S27_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE488.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S28 Fig.}
+\label{S28_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE100642.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S29 Fig.}
+\label{S29_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE10072.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S30 Fig.}
+\label{S30_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE103184.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S31 Fig.}
+\label{S31_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE103430.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S32 Fig.}
+\label{S32_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE106635.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S33 Fig.}
+\label{S33_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE106912.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S34 Fig.}
+\label{S34_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE110398.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S35 Fig.}
+\label{S35_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE12196.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S36 Fig.}
+\label{S36_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE12452.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S37 Fig.}
+\label{S37_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE13220.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S38 Fig.}
+\label{S38_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE13597.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S39 Fig.}
+\label{S39_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE13911.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S40 Fig.}
+\label{S40_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE14304.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S41 Fig.}
+\label{S41_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE16765.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S42 Fig.}
+\label{S42_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE18608.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S43 Fig.}
+\label{S43_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE20347.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S44 Fig.}
+\label{S44_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE20466.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S45 Fig.}
+\label{S45_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE20489.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S46 Fig.}
+\label{S46_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE20586.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S47 Fig.}
+\label{S47_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE21947.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S48 Fig.}
+\label{S48_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE22356.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S49 Fig.}
+\label{S49_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE22671.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S50 Fig.}
+\label{S50_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE23400.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S51 Fig.}
+\label{S51_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE24342.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S52 Fig.}
+\label{S52_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE24988.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S53 Fig.}
+\label{S53_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE25156.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S54 Fig.}
+\label{S54_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE2685.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S55 Fig.}
+\label{S55_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE27114.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S56 Fig.}
+\label{S56_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE29110.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S57 Fig.}
+\label{S57_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE29633.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S58 Fig.}
+\label{S58_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE3017.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S59 Fig.}
+\label{S59_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE30502.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S60 Fig.}
+\label{S60_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE31564.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S61 Fig.}
+\label{S61_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE31738.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S62 Fig.}
+\label{S62_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE32515.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S63 Fig.}
+\label{S63_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE3268.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S64 Fig.}
+\label{S64_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE33003.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S65 Fig.}
+\label{S65_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE33373.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S66 Fig.}
+\label{S66_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE33459.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S67 Fig.}
+\label{S67_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE33463.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S68 Fig.}
+\label{S68_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE33672.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S69 Fig.}
+\label{S69_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE34400.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S70 Fig.}
+\label{S70_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE34667.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S71 Fig.}
+\label{S71_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE34872.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S72 Fig.}
+\label{S72_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE3494.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S73 Fig.}
+\label{S73_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE3519.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S74 Fig.}
+\label{S74_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE35240.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S75 Fig.}
+\label{S75_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE37404.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S76 Fig.}
+\label{S76_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE37902.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S77 Fig.}
+\label{S77_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE38531.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S78 Fig.}
+\label{S78_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE38783.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S79 Fig.}
+\label{S79_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE39549.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S80 Fig.}
+\label{S80_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE41221.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S81 Fig.}
+\label{S81_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE46727.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S82 Fig.}
+\label{S82_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE46728.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S83 Fig.}
+\label{S83_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE47406.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S84 Fig.}
+\label{S84_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE48964.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S85 Fig.}
+\label{S85_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE49382.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S86 Fig.}
+\label{S86_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE49486.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S87 Fig.}
+\label{S87_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE50604.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S88 Fig.}
+\label{S88_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE5281.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S89 Fig.}
+\label{S89_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE53122.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S90 Fig.}
+\label{S90_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE54129.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S91 Fig.}
+\label{S91_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE54216.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S92 Fig.}
+\label{S92_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE54350.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S93 Fig.}
+\label{S93_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE54917.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S94 Fig.}
+\label{S94_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE55503.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S95 Fig.}
+\label{S95_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE57002.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S96 Fig.}
+\label{S96_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE5859.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S97 Fig.}
+\label{S97_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE61140.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S98 Fig.}
+\label{S98_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE62598.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S99 Fig.}
+\label{S99_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE6414.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S100 Fig.}
+\label{S100_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE64670.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S101 Fig.}
+\label{S101_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE64718.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S102 Fig.}
+\label{S102_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE65517.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S103 Fig.}
+\label{S103_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE6720.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S104 Fig.}
+\label{S104_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE67492.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S105 Fig.}
+\label{S105_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE67865.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S106 Fig.}
+\label{S106_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE68918.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S107 Fig.}
+\label{S107_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE7124.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S108 Fig.}
+\label{S108_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE71868.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S109 Fig.}
+\label{S109_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE7197.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S110 Fig.}
+\label{S110_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE75037.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S111 Fig.}
+\label{S111_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE7511.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S112 Fig.}
+\label{S112_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE7567.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S113 Fig.}
+\label{S113_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE7592.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S114 Fig.}
+\label{S114_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE7670.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S115 Fig.}
+\label{S115_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE7881.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S116 Fig.}
+\label{S116_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE79973.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S117 Fig.}
+\label{S117_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE83077.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S118 Fig.}
+\label{S118_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE8498.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S119 Fig.}
+\label{S119_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE9687.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S120 Fig.}
+\label{S120_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE9820.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S121 Fig.}
+\label{S121_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE98634.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S122 Fig.}
+\label{S122_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE99295.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S123 Fig.}
+\label{S123_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in GSE48200.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S124 Fig.}
+\label{S124_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in real resting-state fMRI data~\cite{t1000} generated using a parcellation of spherical ROIs~\cite{power2011}.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
+
+\paragraph*{S125 Fig.}
+\label{S125_Fig}
+{\bf Density and quantile-quantile plots for distances between samples in real resting-state fMRI data~\cite{t1000} generated using a graph theoretic parcellation of ROIs~\cite{shen2013}.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.
 
 %\section{Acknowledgments}
 %Cras egestas velit mauris, eu mollis turpis pellentesque sit amet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam id pretium nisi. Sed ac quam id nisi malesuada congue. Sed interdum aliquet augue, at pellentesque quam rhoncus vitae.
