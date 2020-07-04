@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  3 JUL 2020 14:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  4 JUL 2020 11:28
 entering extended mode
 **./NN_methods_theoretical_plos-one.tex
 (NN_methods_theoretical_plos-one.tex
@@ -988,25 +988,25 @@ Package microtype Info: Loading generic protrusion settings for font family
 
 AED: lastpage setting LastPage
 [70]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2959.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2959.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2958.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2958.
  (NN_methods_theoretical_plos-one.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2959.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2959.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2958.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2958.
 
 Package rerunfilecheck Info: File `NN_methods_theoretical_plos-one.out' has not
  changed.
 (rerunfilecheck)             Checksum: 41D427F399A51F382AC87B69F761F6D7;3209.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2959.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2958.
  ) 
 Here is how much of TeX's memory you used:
  22668 strings out of 492946
  407737 string characters out of 3135528
- 547755 words of memory out of 3000000
+ 548755 words of memory out of 3000000
  25613 multiletter control sequences out of 15000+200000
  23845 words of font info for 110 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,25n,92p,2067b,460s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,25n,92p,1874b,460s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program Files/Mi
@@ -1027,7 +1027,7 @@ msy5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Prog
 ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Program Files
 /MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on NN_methods_theoretical_plos-one.pdf (70 pages, 673871 bytes).
+Output written on NN_methods_theoretical_plos-one.pdf (70 pages, 673719 bytes).
 
 PDF statistics:
  1483 PDF objects out of 1728 (max. 8388607)
