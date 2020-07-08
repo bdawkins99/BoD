@@ -645,4 +645,27 @@ year={2018}
   url      = {https://doi.org/10.1093/bioinformatics/btaa024},
 }
 
+@Article{t1000,
+  author  = {Teresa {A} {V}ictor and {S}ahib {S} {K}halsa and {W} {K}yle {S}immons and {J}ustin {S} {F}einstein and {J}onathan {S}avitz and {R}obin {L} {A}upperle and {H}ung-{W}eh {Y}eh and {J}erzy {B}odurka and {M}artin {P} {P}aulus},
+  title   = {{Tulsa 1000: a naturalistic study protocol for multilevel assessment and outcome prediction in a large psychiatric sample}},
+  journal = {{BMJ Open}},
+  year    = {2018},
+  volume  = {8},
+  number  = {1},
+  month   = jan,
+  doi     = {10.1136/bmjopen-2017-016620},
+}
+
+@Article{liu2019,
+  author  = {Han-{M}ing {L}iu and {D}an {Y}ang and {Z}hao-{F}a {L}iu and {S}heng-{Z}hou {H}u and {S}hen-{H}ai {Y}an and {X}ian-{W}en {H}e},
+  title   = {{Density distribution of gene expression profiles and evaluation of using maximal information coefficient to identify differentially expressed genes}},
+  journal = {{PLoS one}},
+  year    = {2019},
+  volume  = {14},
+  number  = {7},
+  month   = jul,
+  url     = {https://doi.org/10.1371/journal
+pone.0219551?},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

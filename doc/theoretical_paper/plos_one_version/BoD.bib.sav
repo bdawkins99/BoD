@@ -656,4 +656,16 @@ year={2018}
   doi     = {10.1136/bmjopen-2017-016620},
 }
 
+@Article{liu2019,
+  author  = {Han-{M}ing {L}iu and {D}an {Y}ang and {Z}hao-{F}a {L}iu and {S}heng-{Z}hou {H}u and {S}hen-{H}ai {Y}an and {X}ian-{W}en {H}e},
+  title   = {{Density distribution of gene expression profiles and evaluation of using maximal information coefficient to identify differentially expressed genes}},
+  journal = {{PLoS one}},
+  year    = {2019},
+  volume  = {14},
+  number  = {7},
+  month   = jul,
+  url     = {https://doi.org/10.1371/journal.
+pone.0219551?},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

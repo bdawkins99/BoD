@@ -90,6 +90,14 @@ Le TT, Simmons WK, Misaki M, Bodurka J, White BC, Savitz J, et~al.
 \newblock {Brain}. 2012;135:2711--2725.
 \newblock doi:{10.1093/brain/aws160}.
 
+\bibitem{liu2019}
+{M}ing {L}iu H, {D}an {Y}ang, {Z}hao-{F}a {L}iu, {S}heng-{Z}hou {H}u,
+  {S}hen-{H}ai {Y}an, {X}ian-{W}en {H}e.
+\newblock {Density distribution of gene expression profiles and evaluation of
+  using maximal information coefficient to identify differentially expressed
+  genes}.
+\newblock {PLoS one}. 2019;14(7).
+
 \bibitem{allStats}
 {W}asserman L.
 \newblock All of {S}tatistics: {A} {C}oncise {C}ourse in {S}tatistical
