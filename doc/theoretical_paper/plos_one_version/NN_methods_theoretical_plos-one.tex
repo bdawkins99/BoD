@@ -354,9 +354,8 @@ g\left(\left(D^{(q)}_{ij}\right)^q\right) &= g\left(\displaystyle \sum_{a \in \m
 \end{aligned}
 \end{equation}
 
-Therefore, the distance between two fixed, distinct instances $i$ and $j$ given by Eq. \ref{eq:D} is asymptotically normal.
-Specifically, when $q = 2$, the distribution of $D_{ij}^{(2)}$ asymptotically approaches $\mathcal{N}\left(\sqrt{\mu_{z^2_a}p}, \frac{\sigma^2_{z^2_a}}{4\mu_{z^2_a}}\right)$. 
-When $p$ is small, however, we observe empirically that a closer estimate of the sample mean is 
+Therefore, the distance between two fixed, distinct instances $i$ and $j$ (Eq.~\ref{eq:D}) is asymptotically normal.
+In particular, when $q = 2$, the distribution of $D_{ij}^{(2)}$ asymptotically approaches $\mathcal{N}\left(\sqrt{\mu_{z^2_a}p}, \frac{\sigma^2_{z^2_a}}{4\mu_{z^2_a}}\right)$. A unique characteristic inherent to the $q=2$ case is the fact that we get not only an asymptotic estimate for the average second raw moment of the $L_q$ metric (Eq.~\ref{eq:DqDeltaMethod}, $q=2$), but also the variance of the second raw moment. This leads to the following higher order estimate of the sample mean in the case of $q=2$
 % \begin{equation}\label{eq:DqMeanImproved}
 % \text{E}\left(D^{(q)}_{ij}\right) = \left(\mu_{z^q}p - \frac{\sigma^2_{z^q}p}{q^2\left(\mu_{z^q}p\right)^{2\left(1 - \frac{1}{q}\right)}}\right)^{1/q}
 % \end{equation}
@@ -368,20 +367,18 @@ When $p$ is small, however, we observe empirically that a closer estimate of the
 \end{aligned}
 \end{equation}
 %
-We estimate rate of convergence to normality for Euclidean ($q=2$) and Manhattan ($q=1$)  metrics by comparing the distribution of pairwise distances in simulated data to a Gaussian (Fig.~\ref{fig:central_limit_convergence}). We compute the distance between all pairs of instances in simulated datasets of uniformly distributed random data. We simulate data with fixed $m=100$ instances, and, by varying the number of attributes ($p=10,100,10000$), we observe rapid convergence to Gaussian. For $p$ as low as $10$ attributes, Gaussian is a good approximation. The number of attributes in bioinformatics data is typically quite large, at least on the order of $10^3$. The Euclidean metric has stronger convergence to a Gaussian than Manhattan. This may be due to Euclidean's use of the square root, which is a common transformation of data in statistics. Normality was assessed using the Shapiro-Wilk test. 
+We estimate rate of convergence to normality for Euclidean ($q=2$) and Manhattan ($q=1$)  metrics by comparing the distribution of pairwise distances in simulated data to a Gaussian (Fig.~\ref{fig:central_limit_convergence}). We compute the distance between all pairs of instances in simulated datasets of uniformly distributed random data. We simulate data with fixed $m=100$ instances, and, by varying the number of attributes ($p=10,100,10000$), we observe rapid convergence to Gaussian. For $p$ as low as $10$ attributes, Gaussian is a good approximation. The number of attributes in bioinformatics data is typically quite large, at least on the order of $10^3$. The Shapiro-Wilk statistic approaches 1 more rapidly for the Euclidean than Manhattan, which may indicate more rapid convergence in the case of Euclidean. This may be partly due to Euclidean's use of the square root, which is a common transformation of data in statistics. 
 
-To show asymptotic normality of distances, we did not specify whether the data distribution $\mathcal{F}_X$ was discrete or continuous. This is because asymptotic normality is a general phenomenon in high attribute dimension $p$ for any data distribution $\mathcal{F}_X$ satisfying the assumptions we have made. Therefore, the simulated distances we have shown (Fig.~\ref{fig:central_limit_convergence}) has an analogous representation for discrete data, as well as all other continuous data distributions.
-
-For distance based learning methods, all pairwise distances are used to determine relative importances for attributes. The collection of all distances above the diagonal in an $m \times m$ distance matrix does not satisfy the independence assumption used in the previous derivations. This is because of the redundancy that is inherent to the distance matrix calculation. However, this collection is still asymptotically normal with mean and variance approximately equal to those we have previously given (Eq.~\ref{eq:DqDeltaMethod}). In the next section, we assume actual data distributions in order to define more specific general formulas for standard $L_q$ and max-min normalized $L_q$ metrics. We also derive asymptotic moments for a new discrete metric in GWAS data and a new metric for time series correlation-based data, such as, resting-state fMRI.
+To show asymptotic normality of distances, we did not specify whether the data distribution $\mathcal{F}_X$ was discrete or continuous. This is because asymptotic normality is a general phenomenon in high attribute dimension $p$ for any data distribution $\mathcal{F}_X$ satisfying the assumptions we have made. Therefore, the simulated distances we have shown (Fig.~\ref{fig:central_limit_convergence}) have an analogous representation for discrete data, as well as all other continuous data distributions. In addition to showing Gaussian convergence for Manhattan and Euclidean distances on standard uniform data, we show a similar result for standard normal data (\hyperlink{S2_Fig}{S2 Fig.}). 
 
 \begin{figure}[H]
 	\centering
-	%\includegraphics[width=0.98\textwidth]{central_limit_hist_uniform-data.pdf}
+	%\includegraphics[width=0.98\textwidth]{central_limit_hist_uniform_standard.pdf}
 	\caption{{\bf Convergence to Gaussian for Manhattan and Euclidean distances for simulated standard uniform data with $m=100$ instances and $p=10, 100,$ and $10000$ attributes.} Convergence to Gaussian occurs rapidly with increasing $p$, and Gaussian is a good approximation for $p$ as low as $10$ attributes. The number of attributes in bioinformatics data is typically much larger, at least on the order of $10^3$. The Euclidean metric has stronger convergence to normal than Manhattan.  P values from Shapiro-Wilk test, where the null hypothesis is a Gaussian distribution.}
 	\label{fig:central_limit_convergence}
 \end{figure}
 
-For distance based learning methods, all pairwise distances are used to determine relative importances for attributes. The collection of all distances above the diagonal in an $m \times m$ distance matrix does not satisfy the independence assumption used in the previous derivations. This is because of the redundancy that is inherent to the distance matrix calculation. However, this collection is still asymptotically normal with mean and variance approximately equal to those we have previously given (Eq.~\ref{eq:DqDeltaMethod}). In the next section, we assume actual data distributions in order to define more specific general formulas for standard $L_q$ and max-min normalized $L_q$ metrics. We also derive asymptotic moments for a new discrete metric in GWAS data and a new metric for time series correlation-based data, such as, resting-state fMRI.
+For distance based learning methods, all pairwise distances are used to determine relative importances for attributes. The collection of all distances above the diagonal in an $m \times m$ distance matrix does not satisfy the independence assumption used in the previous derivations. This is because of the redundancy that is inherent to the distance matrix calculation. However, this collection is still asymptotically normal with mean and variance approximately equal to those we have previously given (Eq.~\ref{eq:DqDeltaMethod}). In the next section, we assume actual data distributions in order to define more specific general formulas for standard $L_q$ and max-min normalized $L_q$ metrics. We also derive asymptotic moments for a new discrete metric in GWAS data and a new metric for time series correlation-based data, such as, resting-state fMRI. 
 
 \section{\texorpdfstring{$L_q$}{} metric moments for continuous data distributions}\label{sec:moment_derivations}
 
@@ -493,7 +490,7 @@ and
 It follows immediately from the mean (Eq.~\ref{eq:1DDqMean}) and variance (Eq.~\ref{eq:1DDqVar}) and the Classical Central Limit Theorem (CCLT) that
 %
 \begin{equation}\label{eq:DqDistr}
-\left(D^{(q)}_{ij}\right)^q = \sum_{a \in \mathcal{A}} Z^q_a = \sum_{a \in \mathcal{A}} |X_{ia} - X_{ja}|^q \overset{.}{\sim} \mathcal{N}\left(\mu_{z^q}p,\sigma^2_{z^q}p\right).
+\left(D^{(q)}_{ij}\right)^q = \sum_{a \in \mathcal{A}} Z^q_a = \sum_{a \in \mathcal{A}} |X_{ia} - X_{ja}|^q \overset{.}{\sim} \mathcal{N}\left(\mu_{z^q_a}p,\sigma^2_{z^q_a}p\right).
 \end{equation}
 
 Applying the convergence result we derived previously (Eq.~\ref{eq:DqDeltaMethod}), the distribution of $D^{(q)}_{ij}$ is given by
@@ -745,7 +742,7 @@ Substituting $q=1$ into Eq.~\ref{eq:1DnormalDqVar} for the variance, we have the
 \end{aligned}
 \end{equation}
 
-These last few results (Eqs.~\ref{eq:projected_distance_density_normal1}-\ref{eq:1DnormalD1Var}) provide us with the distribution for NPDR predictors when the data is from the standard normal distribution. 
+These last few results (Eqs.~\ref{eq:projected_distance_density_normal1}-\ref{eq:1DnormalD1Var}) provide us with the distribution for NPDR predictors when the data is from the standard normal distribution. We show density curves for $q=1,2,\dots,5$ for the one-dimensional projection for standard normal data (\hyperlink{S22_Fig}{S22 Fig. A}).
 
 If we have standard uniform data, we substitute $q=1$ into the density function of $Z^q_a$ (Eq.~\ref{eq:uniformDqPDF}) to obtain the following density function
 %
@@ -774,7 +771,9 @@ Substituting $q=1$ into the formula for the variance of $Z^q_a$ (Eq.~\ref{eq:1Du
 \end{aligned}
 \end{equation}
 
-In the event that the data distribution is standard uniform, the density function (Eq.~\ref{eq:projected_distance_density_uniform1}), the mean (Eq.~\ref{eq:1DuniformD1Mean}, and the variance (Eq.~\ref{eq:1DuniformD1Var}) sufficiently define the distribution for NPDR predictors. The means (Eqs.~\ref{eq:1DnormalD1Mean} and \ref{eq:1DuniformD1Mean}) and variances (Eqs.\ref{eq:1DnormalD1Var} and \ref{eq:1DuniformD1Var}) come from the exact distribution of pairwise distances with respect to a single attribute $a \in \mathcal{A}$. This is the distribution of the so-called ``projection" of the pairwise distance onto a single attribute to which we have been referring, which is a direct implication from our more general derivations. In a similar manner, one can substitute any value of $q \geq 2$ into the general densities of $Z^q_a$ for standard normal (Eq.~\ref{eq:normalPDF}) and standard uniform (Eq.~\ref{eq:uniformDqPDF}) to derive the associated density of $Z^q_a = |X_{ia} - X_{ja}|^q$ for the given data type.
+In the event that the data distribution is standard uniform, the density function (Eq.~\ref{eq:projected_distance_density_uniform1}), the mean (Eq.~\ref{eq:1DuniformD1Mean}, and the variance (Eq.~\ref{eq:1DuniformD1Var}) sufficiently define the distribution for NPDR predictors. As in the case of NPDR predictors for standard normal data, we show density curves for $q=1,2,\dots,5$ for the NPDR predictor distribution for standard uniform data (\hyperlink{S22_Fig}{S22 Fig. B}). 
+
+The means (Eqs.~\ref{eq:1DnormalD1Mean} and \ref{eq:1DuniformD1Mean}) and variances (Eqs.\ref{eq:1DnormalD1Var} and \ref{eq:1DuniformD1Var}) come from the exact distribution of pairwise distances with respect to a single attribute $a \in \mathcal{A}$. This is the distribution of the so-called ``projection" of the pairwise distance onto a single attribute to which we have been referring, which is a direct implication from our more general derivations. In a similar manner, one can substitute any value of $q \geq 2$ into the general densities of $Z^q_a$ for standard normal (Eq.~\ref{eq:normalPDF}) and standard uniform (Eq.~\ref{eq:uniformDqPDF}) to derive the associated density of $Z^q_a = |X_{ia} - X_{ja}|^q$ for the given data type.
 
 \subsection{Euclidean \texorpdfstring{($L_2$)}{}}
 
@@ -869,7 +868,7 @@ D^{(q*)}_{ij} &= \left(\sum_{a\in \mathcal{A}}|\text{d}_{ij}(a)|^q\right)^{1/q} 
 \end{aligned}
 \end{equation}
 
-In order to determine moments of asymptotic max-min normalized distance (Eq.~\ref{eq:normDiff}) distributions, we will first derive the asymptotic extreme value distributions of the attribute maximum and minimum. Although the exact distribution of the maximum or minimum requires an assumption about the data distribution, the Fisher-Tippett-Gnedenko Theorem is an important result that allows one to generally categorize the extreme value distribution for a collection of independent and identically distributed random variables into one of three distributional families. This theorem does not, however, tell us the exact distribution of the maximum that we require in order to determine asymptotic results for the max-min normalized distance (Eq.~\ref{eq:D*}). We mention this theorem simply to provide some background on convergence of extreme values. Before stating the theorem, we first need the following definition
+We observe empirically that Gaussian convergence applies to the max-min normalized $L_q$ metric in the case of continuous data. We show this behavior for the special cases of standard uniform (\hyperlink{S1_Fig}{S1 Fig.}) and standard normal (\hyperlink{S3_Fig}{S3 Fig.}). In order to determine moments of asymptotic max-min normalized distance (Eq.~\ref{eq:normDiff}) distributions, we will first derive the asymptotic extreme value distributions of the attribute maximum and minimum. Although the exact distribution of the maximum or minimum requires an assumption about the data distribution, the Fisher-Tippett-Gnedenko Theorem is an important result that allows one to generally categorize the extreme value distribution for a collection of independent and identically distributed random variables into one of three distributional families. This theorem does not, however, tell us the exact distribution of the maximum that we require in order to determine asymptotic results for the max-min normalized distance (Eq.~\ref{eq:D*}). We mention this theorem simply to provide some background on convergence of extreme values. Before stating the theorem, we first need the following definition
 %
 \begin{definition}
 	A distribution $\mathcal{F}_X$ is said to be \textbf{degenerate} if its density function $f_X$ is the Dirac delta $\delta(x - c_0)$ centered at a constant $c_0 \in \mathbb{R}$, with corresponding distribution function $F_X$ defined as
@@ -1094,7 +1093,7 @@ D^{(q*)}_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{\mu_{D^{(q)}_{ij}}}{\mu^{
 %
 where $m$ is the size of the sample from which extremes are derived, $\mu^{(1)}_\text{max}(m)$ is the expected value of the sample maximum (Eq.~\ref{eq:mu_max}), and $\mu^{(1)}_\text{min}$ is the expected value of the sample minimum.
 
-For data with zero skewness and support that is symmetric about 0, the expected sample maximum is the additive inverse of the expected sample minimum. This allows us to express the expected max-min normalized pairwise distance (Eq.~\ref{eq:max-min_D_mean}) exclusively in terms of the expected sample maximum. This result is given by the following
+For data with zero skewness, infinite support, and even density function, the expected sample maximum is the additive inverse of the expected sample minimum. This allows us to express the expected max-min normalized pairwise distance (Eq.~\ref{eq:max-min_D_mean}) exclusively in terms of the expected sample maximum. This result is given by the following
 %
 \begin{equation}\label{eq:max-min_D_mean_symm}
 \mu_{D^{(q*)}_{ij}} \approx \frac{\mu_{D^{(q)}_{ij}}}{2\mu^{(1)}_\text{max}(m)},
@@ -1121,7 +1120,7 @@ D^{(q*)}_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{\mu_{D^{(q)}_{ij}}}{2\mu^
 %
 where $m$ is the size of the sample from which extremes are derived, $\mu^{(1)}_\text{max}(m)$ is the expected value of the sample maximum (Eq.~\ref{eq:mu_max}), and $\sigma^2_\text{max}(m)$ is the variance of the sample maximum (Eq.~\ref{eq:sig_max}). 
 
-We have now derived asymptotic estimates of the moments of the max-min normalized $L_q$ distance metric (Eq.~\ref{eq:D*}) for any continuous data distribution. In the next two sections, we examine the max-min normalized $L_q$ distance on standard normal and standard uniform data. As in previous sections in which we analyzed the standard $L_q$ metric (Eq.~\ref{eq:D}), we will use the more general results for the max-min $L_q$ metric to derive asymptotic estimates for normalized Manhattan ($q=1$) and Euclidean ($q=2$).
+We have now derived asymptotic estimates of the moments of the max-min normalized $L_q$ distance metric (Eq.~\ref{eq:D*}) for any continuous data distribution. In the next two sections, we examine the max-min normalized $L_q$ distance on standard normal and standard uniform data. As in previous sections in which we analyzed the standard $L_q$ metric (Eq.~\ref{eq:D}), we will use the more general results for the max-min $L_q$ metric to derive asymptotic estimates for normalized Manhattan ($q=1$) and Euclidean ($q=2$). 
 
 \subsubsection{Standard normal data}
 
@@ -1540,7 +1539,7 @@ D^\text{AM}_{ij}(a) = \sum_{a \in \mathcal{A}} \text{d}^\text{AM}_{ij}(a), \text
 D^\text{TiTv}_{ij}(a) = \sum_{a \in \mathcal{A}} \text{d}^\text{TiTv}_{ij}(a).
 \end{equation}
 
-Assuming that all data entries $X_{ia}$ are independent and identically distributed, we have already shown that the distribution of pairwise distances is asymptotically normal regardless of data distribution and value of $q$. Therefore, the distance distributions induced by each of the GWAS metrics (Eqs.~\ref{eq:diff_GM}-\ref{eq:diff_TiTv}) are asymptotically normal. With this Gaussian limiting behavior, we will proceed by deriving the mean and variance for each distance distribution induced by these three GWAS metrics. 
+Assuming that all data entries $X_{ia}$ are independent and identically distributed, we have already shown that the distribution of pairwise distances is asymptotically normal regardless of data distribution and value of $q$. Therefore, it follows that the distance distributions induced by each of the GWAS metrics (Eqs.~\ref{eq:diff_GM}-\ref{eq:diff_TiTv}) are asymptotically normal. We illustrate Gaussian convergence in the case of GM (\hyperlink{S4_Fig}{S4 Fig.}), AM (\hyperlink{S5_Fig}{S5 Fig.}), and TiTv (\hyperlink{S6_Fig}{S6 Fig.}). With this Gaussian limiting behavior, we will proceed by deriving the mean and variance for each distance distribution induced by these three GWAS metrics. 
 
 \subsection{GM distance distribution}
 
@@ -2172,7 +2171,7 @@ These indices allow us to extract just the rows necessary to compute the rs-fMRI
 %\right],
 %\end{equation}
 
-We further transform the data matrix $X$ by standardizing so that each of the $m$ columns has zero mean and unit variance. Therefore, the data in matrix $X$ are approximately standard normal. Recall that the mean (Eq.~\ref{eq:normalManMean}) and variance (Eq.~\ref{eq:normalManVar}) of the Manhattan ($L_1$) distance distribution for standard normal data are $\frac{2p}{\sqrt{\pi}}$ and $\frac{2(\pi - 2)p}{\pi}$, respectively. This allows us to easily derive the expected pairwise distance between instances $i,j \in \mathcal{I}$ in rs-fMRI data as follows
+We further transform the data matrix $X$ by standardizing so that each of the $m$ columns has zero mean and unit variance. Therefore, the data in matrix $X$ are approximately standard normal. Since we assume independent samples, the standard rs-fMRI distance is asymptotically normal. Gaussian limiting behavior is illustrated in the form of histograms as shown previously (\hyperlink{S7_Fig}{S7 Fig.}). Recall that the mean (Eq.~\ref{eq:normalManMean}) and variance (Eq.~\ref{eq:normalManVar}) of the Manhattan ($L_1$) distance distribution for standard normal data are $\frac{2p}{\sqrt{\pi}}$ and $\frac{2(\pi - 2)p}{\pi}$, respectively. This allows us to easily derive the expected pairwise distance between instances $i,j \in \mathcal{I}$ in rs-fMRI data as follows
 %
 \begin{equation}\label{eq:mu_DDistr_rs-fMRI}
 \begin{aligned}
@@ -2218,7 +2217,7 @@ We begin the derivation of our corrected formula by writing the variance as a tw
 \end{aligned}
 \end{equation}
 
-In order to have a formula in terms of the number of ROIs $p$ only, we estimate the double sum on the right-hand side of the equation of rs-fMRI distance variance (Eq.~\ref{eq:var_DDistr_rs-fMRI}). Through simulation, it can be seen that the difference between sample variance $S^2_{D_{ij}}$ and $\frac{2p(\pi-2)(p-1)}{\pi}$ has a quadratic relationship with $p$. More explicitly, we have the following relationship
+In order to have a formula in terms of the number of ROIs $p$ only, we estimate the double sum on the right-hand side of the equation of rs-fMRI distance variance (Eq.~\ref{eq:var_DDistr_rs-fMRI}). Through simulation, it can be seen that the difference between the actual sample variance $S^2_{D_{ij}}$ and the corresponding variance under the independence assumption $\frac{2p(\pi-2)(p-1)}{\pi}$ has a quadratic relationship with $p$. More explicitly, we have the following relationship
 %
 \begin{equation}\label{eq:estimate_cov}
 S^2_{D^\text{fMRI}_{ij}} - \frac{2p(\pi-2)(p-1)}{\pi} = \beta_1 p^2 + \beta_0 p.
@@ -2246,7 +2245,7 @@ D^\text{fMRI}_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{2p(p-1)}{\sqrt{\pi}}
 
 \subsection{Max-min normalized time series correlation-based distance distribution}
 
-Previously (Section~\ref{sec:extremes}) we determined the asymptotic distribution of the sample maximum of size $m$ from a standard normal distribution. We can naturally extend these results to our transformed rs-fMRI data because $X$ (Fig.~\ref{fig:rs-fMRI_matrix}) is approximately standard normal. We proceed with the definition of the max-min normalized rs-fMRI pairwise distance.
+Previously (Section~\ref{sec:extremes}) we determined the asymptotic distribution of the sample maximum of size $m$ from a standard normal distribution. We can naturally extend these results to our transformed rs-fMRI data because $X$ (Fig.~\ref{fig:rs-fMRI_matrix}) is approximately standard normal. Furthermore, we have previously mentioned that the max-min normalized $L_q$ metric yields approximately normal distances with the iid assumption. We show a similar result for max-min normalized rs-fMRI distances (\hyperlink{S8_Fig}{S8 Fig.}). We proceed with the definition of the max-min normalized rs-fMRI pairwise distance.
 
 Consider the max-min normalized rs-fMRI distance given by the following equation
 %
@@ -2316,7 +2315,7 @@ Empirically, the first estimate (Eq.~\ref{eq:rs-fMRI_diffVar1}) of the variance 
 \text{d}^\text{ROI}_{ij}(a) \overset{.}{\sim} \mathcal{N}\left(\frac{2(p-1)}{\sqrt{\pi}},\frac{2(\pi - 2)(p-1)}{\pi}\right),
 \end{equation}
 %
-where $a$ is a single fixed ROI.
+where $a$ is a single fixed ROI. We compare moment estimates for the rs-fMRI diff (Eqs.~\ref{eq:rs-fMRI_diffMean} and \ref{eq:rs-fMRI_diffVar1}) with sample moments from simulated data with $m=100$ samples and $p=1000,2000,\dots,5000$ attributes (\hyperlink{S21_Fig}{S21 Fig.}). Our estimates follow the sample moments from simulated data very closely.
 
 \subsection{Normalized Manhattan \texorpdfstring{($q=1$)}{} for rs-fMRI}
 
@@ -2354,7 +2353,7 @@ We summarize the moment estimates for the rs-fMRI metrics for correlation-based 
 
 \section{Comparison of theoretical and sample moments}
 
-We compare our analytical asymptotic estimates of sample moments for distributions of pairwise distances in high attribute dimension by generating random data for various dimensions $m$ and $p$ (Fig.~\ref{fig:compare_theoretical_sample_moments}). We fix $m=100$ samples and compute Manhattan (Eq.~\ref{eq:D}) distance matrices from standard normal data for $p=1000,2000,3000,4000,$ and $5000$ attributes. For each value of $p$, we generate 20 random datasets and compute the mean and standard deviation of pairwise distances. We then average these 20 simulated means and standard deviations. For comparison, we compute the theoretical moments (Eqs.~\ref{eq:normalManMean} and \ref{eq:normalManVar}) for each value of $p$ and fixed $m=100$ from the theoretical formulas. Scatter plots of theoretical versus simulated mean (Fig.~\ref{fig:compare_theoretical_sample_moments}A) and theoretical versus simulated standard deviation (Fig.~\ref{fig:compare_theoretical_sample_moments}B) indicate that our theoretical asymptotic formulas for sample moments are reliable for both large and relatively small numbers of attributes. For other combinations of data type, distance metric, sample size $m$, and number of attributes $p$, we find similar agreement between theoretical formulas and simulated moments (not shown).
+We compare our analytical asymptotic estimates of sample moments for distributions of pairwise distances in high attribute dimension by generating random data for various dimensions $m$ and $p$ (Fig.~\ref{fig:compare_theoretical_sample_moments}). We fix $m=100$ samples and compute Manhattan (Eq.~\ref{eq:D}) distance matrices from standard normal data for $p=1000,2000,3000,4000,$ and $5000$ attributes. For each value of $p$, we generate 20 random datasets and compute the mean and standard deviation of pairwise distances. We then average these 20 simulated means and standard deviations. For comparison, we compute the theoretical moments (Eqs.~\ref{eq:normalManMean} and \ref{eq:normalManVar}) for each value of $p$ and fixed $m=100$ from the theoretical formulas. Scatter plots of theoretical versus simulated mean (Fig.~\ref{fig:compare_theoretical_sample_moments}A) and theoretical versus simulated standard deviation (Fig.~\ref{fig:compare_theoretical_sample_moments}B) indicate that our theoretical asymptotic formulas for sample moments are reliable for both large and relatively small numbers of attributes. For other combinations of data type, distance metric, sample size $m$, and number of attributes $p$, we find similar agreement between theoretical formulas and simulated moments (\hyperlink{S9_Fig}{S9}-\hyperlink{S21_Fig}{S21 Figs.}).
 
 \begin{figure}[H]
 	\centering
@@ -2364,7 +2363,7 @@ We compare our analytical asymptotic estimates of sample moments for distributio
 
 \section{Effects of correlation on distances}\label{sec:correlation}
 
-All of the derivations presented in previous sections were for the cases where there is no correlation between instances or between attributes. We assumed that any pair $(X_{ia},X_{ja})$ of data points for instances $i$ and $j$ and fixed attribute $a$ were independent and identically distributed. This was assumed in order to determine asymptotic estimates in null data. That is, data with no main effects, interaction effects, or pairwise correlations between attributes. Within this simplified context, our asymptotic formulas for distributional moments are reliable. However, in real data are numerous statistical effects that impact distance distributional properties. We find that deviation from normality is caused primarily by large magnitude pairwise correlation between attributes. Pairwise attribute correlation can be the result of main effects, where attributes have different within-group means. On the other hand, there could be an underlying interaction network in which there are strong associations between attributes. If attributes are differentially correlated between phenotype groups, then interactions exist that change the distance distribution. In the following few sections, we consider particular cases of the $L_q$ metric for continuous and discrete data under the effects of pairwise attribute correlation.
+All of the derivations presented in previous sections were for the cases where there is no correlation between instances or between attributes. We assumed that any pair $(X_{ia},X_{ja})$ of data points for instances $i$ and $j$ and fixed attribute $a$ were independent and identically distributed. This was assumed in order to determine asymptotic estimates in null data. That is, data with no main effects, interaction effects, or pairwise correlations between attributes. Within this simplified context, our asymptotic formulas for distributional moments are reliable. However, in real data are numerous statistical effects that impact distance distributional properties. That being said, we have shown that for Manhattan distances generated on real gene expression microarray data (\hyperlink{S26_Fig}{S26}-\hyperlink{S124_Fig}{S124 Figs.}) and distances generated with our new metric (Eq.~\ref{eq:D_rs-fMRI}) on real rs-fMRI data (\hyperlink{S125_Fig}{S125}-\hyperlink{S126}{S126 Figs.}) that the normality assumption is approximately satisfied in many cases. In simulated data, we find that deviation from normality is caused primarily by large magnitude pairwise correlation between attributes. Pairwise attribute correlation can be the result of main effects, where attributes have different within-group means. On the other hand, there could be an underlying interaction network in which there are strong associations between attributes. If attributes are differentially correlated between phenotype groups, then interactions exist that change the distance distribution. In the following few sections, we consider particular cases of the $L_q$ metric for continuous and discrete data under the effects of pairwise attribute correlation.
 
 \subsection{Continuous data}
 
@@ -2443,7 +2442,7 @@ Correlations between attributes and instances can cause significant deviations f
 
 % Include only the SI item label in the paragraph heading. Use the \nameref{label} command to cite SI items in the text.
 \paragraph*{S1 Fig.}
-\hypertarget{S1_Fig}{{\bf Convergence to Gaussian for Manhattan and Euclidean distances for simulated standard uniform data with $m=100$ instances and $p=10, 100,$ and $10000$ attributes.} Convergence to Gaussian occurs rapidly with increasing $p$, and Gaussian is a good approximation for $p$ as low as $10$ attributes. The number of attributes in bioinformatics data is typically much larger, at least on the order of $10^3$. The Euclidean metric has stronger convergence to normal than Manhattan. P values from Shapiro-Wilk test, where the null hypothesis is a Gaussian distribution.}
+\hypertarget{S1_Fig}{{\bf Convergence to Gaussian for max-min normalized Manhattan and Euclidean distances for simulated standard uniform data with $m=100$ instances and $p=10, 100,$ and $10000$ attributes.} Convergence to Gaussian occurs rapidly with increasing $p$, and Gaussian is a good approximation for $p$ as low as $10$ attributes. The number of attributes in bioinformatics data is typically much larger, at least on the order of $10^3$. The Euclidean metric has stronger convergence to normal than Manhattan. P values from Shapiro-Wilk test, where the null hypothesis is a Gaussian distribution.}
 
 \paragraph*{S2 Fig.}
 \hypertarget{S2_Fig}{
