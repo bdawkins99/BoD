@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  9 JUL 2020 17:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  10 JUL 2020 15:13
 entering extended mode
 **./NN_methods_theoretical_plos-one.tex
 (NN_methods_theoretical_plos-one.tex
@@ -1002,11 +1002,11 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2976.
 Here is how much of TeX's memory you used:
  22673 strings out of 492946
  407532 string characters out of 3135528
- 545873 words of memory out of 3000000
+ 545858 words of memory out of 3000000
  25489 multiletter control sequences out of 15000+200000
  23845 words of font info for 110 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,25n,92p,2680b,460s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,25n,92p,2680b,459s stack positions out of 5000i,500n,10000p,200000b,50000s
 pdfTeX warning (dest): name{S126} has been referenced but does not exist, rep
 laced by a fixed one
 
@@ -1030,10 +1030,10 @@ y5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C
 :/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Progra
 m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Program Files/M
 iKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on NN_methods_theoretical_plos-one.pdf (70 pages, 699593 bytes).
+Output written on NN_methods_theoretical_plos-one.pdf (70 pages, 702922 bytes).
 
 PDF statistics:
- 1667 PDF objects out of 1728 (max. 8388607)
+ 1677 PDF objects out of 1728 (max. 8388607)
  585 named destinations out of 1000 (max. 500000)
  17221 words of extra memory for PDF output out of 17280 (max. 10000000)
 
