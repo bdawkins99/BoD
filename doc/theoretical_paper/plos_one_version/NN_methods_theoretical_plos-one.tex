@@ -324,7 +324,7 @@ where rejecting the null hypothesis ($H_0$) implies that there is significant ev
 
 All derivations in the following sections are applicable to nearest-neighbor distance-based methods in general, which includes not only NPDR, but also Relief-based algorithms. Each of these methods uses a distance metric (Eq.~\ref{eq:D}) to compute neighbors for each instance $i \in \mathcal{I}$. Therefore, our derivations of asymptotic distance distributions are applicable to all methods that compute neighbors in order to weight features. The predictors used by NPDR (Eq.~\ref{eq:npdr-logit}), however, are the one-dimensional projected distances between two instances $i,j \in \mathcal{I}$ (Eq.~\ref{eq:diff}). Hence, all asymptotic estimates we derive for diff metrics (Eq.~\ref{eq:diff}) are particularly relevant to NPDR. Since the standard distance metric (Eq.~\ref{eq:D}) is a function of the one-dimensional projection (Eq.~\ref{eq:diff}), asymptotic estimates derived for this projection (Eq.~\ref{eq:diff}) are implicitly relevant to older nearest-neighbor distance-based methods like Relief-based algorithms. 
 
-We proceed in the following section by applying the Classical Central Limit Theorem and the Delta Method to derive the limit distribution of pairwise distances on any data distribution that is induced by the standard distance metric (Eq.~\ref{eq:D}). We assume independent samples in order to derive closed-form moment estimates and to show that distances are asymptotically normal. In real data, it is obviously not the case that samples or attributes will be independent, however the normality assumption for distances is approximately satisfied in a large number of cases. For example, it has been shown using 100 real gene expression data sets from microarrays, that approximately 80\% of the data sets are either approximately normal or log-normal in distribution~\cite{liu2019}. We generated Manhattan distances (Eq.~\ref{eq:D}, $q=1$) on 99 of the same 100 gene expression data sets after applying a pre-processing pipeline. We excluded GSE67376 because this data included only a single sample. Before generating distance matrices, we transformed the data using quantile normalization, removed genes with high coefficient of variation, and standardized samples to have zero mean and unit variance. We generated plots of the estimated densities for each distance matrix, as well as quantile-quantile plots to visually assess normality (\hyperlink{S26_Fig}{S26}-\hyperlink{S124_Fig}{S124 Figs.}). The estimated densities and quantile-quantile plots indicate that most of the gene expression data sets yield approximately normally distributed distances between instances. Another example involves real resting-state fMRI data from a study of mood and anxiety disorders~\cite{t1000}, where the data was generated both from a spherical ROI parcellation~\cite{power2011} and a graph theoretic parcellation~\cite{shen2013}. The data consists of correlation matrices between ROI time series with respect to each parcellation and each subject. Each subject correlation matrix, excluding the diagonal entries, was vectorized and combined into a single matrix containing all subject ROI correlations. We then applied a Fisher r-to-z transformation and standardized samples to be zero mean and unit variance. The output of this process was two data matrices corresponding to each parcellation, respectively. Analogous to the gene expression microarray data, we computed Manhattan distance matrices for each of the two resting-state fMRI data sets. We generated quantile-quantile and density plots for each matrix (\hyperlink{S125_Fig}{S125 Fig.} and \hyperlink{S126_Fig}{S126 Fig.}). Both sets of pairwise distances were approximately normal.
+We proceed in the following section by applying the Classical Central Limit Theorem and the Delta Method to derive the limit distribution of pairwise distances on any data distribution that is induced by the standard distance metric (Eq.~\ref{eq:D}). We assume independent samples in order to derive closed-form moment estimates and to show that distances are asymptotically normal. In real data, it is obviously not the case that samples or attributes will be independent, however the normality assumption for distances is approximately satisfied in a large number of cases. For example, it has been shown using 100 real gene expression data sets from microarrays, that approximately 80\% of the data sets are either approximately normal or log-normal in distribution~\cite{liu2019}. We generated Manhattan distances (Eq.~\ref{eq:D}, $q=1$) on 99 of the same 100 gene expression data sets after applying a pre-processing pipeline. We excluded GSE67376 because this data included only a single sample. Before generating distance matrices, we transformed the data using quantile normalization, removed genes with high coefficient of variation, and standardized samples to have zero mean and unit variance. We generated plots of the estimated densities for each distance matrix, as well as quantile-quantile plots to visually assess normality (Figs.~S26-S124). The estimated densities and quantile-quantile plots indicate that most of the gene expression data sets yield approximately normally distributed distances between instances. Another example involves real resting-state fMRI data from a study of mood and anxiety disorders~\cite{t1000}, where the data was generated both from a spherical ROI parcellation~\cite{power2011} and a graph theoretic parcellation~\cite{shen2013}. The data consists of correlation matrices between ROI time series with respect to each parcellation and each subject. Each subject correlation matrix, excluding the diagonal entries, was vectorized and combined into a single matrix containing all subject ROI correlations. We then applied a Fisher r-to-z transformation and standardized samples to be zero mean and unit variance. The output of this process was two data matrices corresponding to each parcellation, respectively. Analogous to the gene expression microarray data, we computed Manhattan distance matrices for each of the two resting-state fMRI data sets. We generated quantile-quantile and density plots for each matrix (Figs. S125 and S126). Both sets of pairwise distances were approximately normal.
 
 \subsection{Asymptotic normality of pairwise distances}
 %Discuss Central Limit Theorem argument for the distribution being Gaussian. We can always say this is an assumption, but I think we can invoke the CLT. [I would be cautious here - TTL. We will be cautious invoking the CLT - BAM.]
@@ -370,7 +370,7 @@ In particular, when $q = 2$, the distribution of $D_{ij}^{(2)}$ asymptotically a
 %
 We estimate rate of convergence to normality for Euclidean ($q=2$) and Manhattan ($q=1$)  metrics by comparing the distribution of pairwise distances in simulated data to a Gaussian (Fig.~\ref{fig:central_limit_convergence}). We compute the distance between all pairs of instances in simulated datasets of uniformly distributed random data. We simulate data with fixed $m=100$ instances, and, by varying the number of attributes ($p=10,100,10000$), we observe rapid convergence to Gaussian. For $p$ as low as $10$ attributes, Gaussian is a good approximation. The number of attributes in bioinformatics data is typically quite large, at least on the order of $10^3$. The Shapiro-Wilk statistic approaches 1 more rapidly for the Euclidean than Manhattan, which may indicate more rapid convergence in the case of Euclidean. This may be partly due to Euclidean's use of the square root, which is a common transformation of data in statistics. 
 
-To show asymptotic normality of distances, we did not specify whether the data distribution $\mathcal{F}_X$ was discrete or continuous. This is because asymptotic normality is a general phenomenon in high attribute dimension $p$ for any data distribution $\mathcal{F}_X$ satisfying the assumptions we have made. Therefore, the simulated distances we have shown (Fig.~\ref{fig:central_limit_convergence}) have an analogous representation for discrete data, as well as all other continuous data distributions. In addition to showing Gaussian convergence for Manhattan and Euclidean distances on standard uniform data, we show a similar result for standard normal data (\hyperlink{S2_Fig}{S2 Fig.}). 
+To show asymptotic normality of distances, we did not specify whether the data distribution $\mathcal{F}_X$ was discrete or continuous. This is because asymptotic normality is a general phenomenon in high attribute dimension $p$ for any data distribution $\mathcal{F}_X$ satisfying the assumptions we have made. Therefore, the simulated distances we have shown (Fig.~\ref{fig:central_limit_convergence}) have an analogous representation for discrete data, as well as all other continuous data distributions. In addition to showing Gaussian convergence for Manhattan and Euclidean distances on standard uniform data, we show a similar result for standard normal data (Fig.~S2). 
 
 \begin{figure}[H]
 	\centering
@@ -743,7 +743,7 @@ Substituting $q=1$ into Eq.~\ref{eq:1DnormalDqVar} for the variance, we have the
 \end{aligned}
 \end{equation}
 
-These last few results (Eqs.~\ref{eq:projected_distance_density_normal1}-\ref{eq:1DnormalD1Var}) provide us with the distribution for NPDR predictors when the data is from the standard normal distribution. We show density curves for $q=1,2,\dots,5$ for the one-dimensional projection for standard normal data (\hyperlink{S22_Fig}{S22 Fig. A}).
+These last few results (Eqs.~\ref{eq:projected_distance_density_normal1}-\ref{eq:1DnormalD1Var}) provide us with the distribution for NPDR predictors when the data is from the standard normal distribution. We show density curves for $q=1,2,\dots,5$ for the one-dimensional projection for standard normal data (Fig.~S22 A).
 
 If we have standard uniform data, we substitute $q=1$ into the density function of $Z^q_a$ (Eq.~\ref{eq:uniformDqPDF}) to obtain the following density function
 %
@@ -772,7 +772,7 @@ Substituting $q=1$ into the formula for the variance of $Z^q_a$ (Eq.~\ref{eq:1Du
 \end{aligned}
 \end{equation}
 
-In the event that the data distribution is standard uniform, the density function (Eq.~\ref{eq:projected_distance_density_uniform1}), the mean (Eq.~\ref{eq:1DuniformD1Mean}, and the variance (Eq.~\ref{eq:1DuniformD1Var}) sufficiently define the distribution for NPDR predictors. As in the case of NPDR predictors for standard normal data, we show density curves for $q=1,2,\dots,5$ for the NPDR predictor distribution for standard uniform data (\hyperlink{S22_Fig}{S22 Fig. B}). 
+In the event that the data distribution is standard uniform, the density function (Eq.~\ref{eq:projected_distance_density_uniform1}), the mean (Eq.~\ref{eq:1DuniformD1Mean}, and the variance (Eq.~\ref{eq:1DuniformD1Var}) sufficiently define the distribution for NPDR predictors. As in the case of NPDR predictors for standard normal data, we show density curves for $q=1,2,\dots,5$ for the NPDR predictor distribution for standard uniform data (Fig.~S22 B). 
 
 The means (Eqs.~\ref{eq:1DnormalD1Mean} and \ref{eq:1DuniformD1Mean}) and variances (Eqs.\ref{eq:1DnormalD1Var} and \ref{eq:1DuniformD1Var}) come from the exact distribution of pairwise distances with respect to a single attribute $a \in \mathcal{A}$. This is the distribution of the so-called ``projection" of the pairwise distance onto a single attribute to which we have been referring, which is a direct implication from our more general derivations. In a similar manner, one can substitute any value of $q \geq 2$ into the general densities of $Z^q_a$ for standard normal (Eq.~\ref{eq:normalPDF}) and standard uniform (Eq.~\ref{eq:uniformDqPDF}) to derive the associated density of $Z^q_a = |X_{ia} - X_{ja}|^q$ for the given data type.
 
@@ -869,7 +869,7 @@ D^{(q*)}_{ij} &= \left(\sum_{a\in \mathcal{A}}|\text{d}_{ij}(a)|^q\right)^{1/q} 
 \end{aligned}
 \end{equation}
 
-We observe empirically that Gaussian convergence applies to the max-min normalized $L_q$ metric in the case of continuous data. We show this behavior for the special cases of standard uniform (\hyperlink{S1_Fig}{S1 Fig.}) and standard normal (\hyperlink{S3_Fig}{S3 Fig.}). In order to determine moments of asymptotic max-min normalized distance (Eq.~\ref{eq:normDiff}) distributions, we will first derive the asymptotic extreme value distributions of the attribute maximum and minimum. Although the exact distribution of the maximum or minimum requires an assumption about the data distribution, the Fisher-Tippett-Gnedenko Theorem is an important result that allows one to generally categorize the extreme value distribution for a collection of independent and identically distributed random variables into one of three distributional families. This theorem does not, however, tell us the exact distribution of the maximum that we require in order to determine asymptotic results for the max-min normalized distance (Eq.~\ref{eq:D*}). We mention this theorem simply to provide some background on convergence of extreme values. Before stating the theorem, we first need the following definition
+We observe empirically that Gaussian convergence applies to the max-min normalized $L_q$ metric in the case of continuous data. We show this behavior for the special cases of standard uniform (Fig.~S1) and standard normal (Fig.~S3). In order to determine moments of asymptotic max-min normalized distance (Eq.~\ref{eq:normDiff}) distributions, we will first derive the asymptotic extreme value distributions of the attribute maximum and minimum. Although the exact distribution of the maximum or minimum requires an assumption about the data distribution, the Fisher-Tippett-Gnedenko Theorem is an important result that allows one to generally categorize the extreme value distribution for a collection of independent and identically distributed random variables into one of three distributional families. This theorem does not, however, tell us the exact distribution of the maximum that we require in order to determine asymptotic results for the max-min normalized distance (Eq.~\ref{eq:D*}). We mention this theorem simply to provide some background on convergence of extreme values. Before stating the theorem, we first need the following definition
 %
 \begin{definition}
 	A distribution $\mathcal{F}_X$ is said to be \textbf{degenerate} if its density function $f_X$ is the Dirac delta $\delta(x - c_0)$ centered at a constant $c_0 \in \mathbb{R}$, with corresponding distribution function $F_X$ defined as
@@ -1540,7 +1540,7 @@ D^\text{AM}_{ij}(a) = \sum_{a \in \mathcal{A}} \text{d}^\text{AM}_{ij}(a), \text
 D^\text{TiTv}_{ij}(a) = \sum_{a \in \mathcal{A}} \text{d}^\text{TiTv}_{ij}(a).
 \end{equation}
 
-Assuming that all data entries $X_{ia}$ are independent and identically distributed, we have already shown that the distribution of pairwise distances is asymptotically normal regardless of data distribution and value of $q$. Therefore, it follows that the distance distributions induced by each of the GWAS metrics (Eqs.~\ref{eq:diff_GM}-\ref{eq:diff_TiTv}) are asymptotically normal. We illustrate Gaussian convergence in the case of GM (\hyperlink{S4_Fig}{S4 Fig.}), AM (\hyperlink{S5_Fig}{S5 Fig.}), and TiTv (\hyperlink{S6_Fig}{S6 Fig.}). With this Gaussian limiting behavior, we will proceed by deriving the mean and variance for each distance distribution induced by these three GWAS metrics. 
+Assuming that all data entries $X_{ia}$ are independent and identically distributed, we have already shown that the distribution of pairwise distances is asymptotically normal regardless of data distribution and value of $q$. Therefore, it follows that the distance distributions induced by each of the GWAS metrics (Eqs.~\ref{eq:diff_GM}-\ref{eq:diff_TiTv}) are asymptotically normal. We illustrate Gaussian convergence in the case of GM (Fig.~S4), AM (Fig.~S5), and TiTv (Fig.~S6). With this Gaussian limiting behavior, we will proceed by deriving the mean and variance for each distance distribution induced by these three GWAS metrics. 
 
 \subsection{GM distance distribution}
 
@@ -2099,7 +2099,7 @@ The variance of the TiTv diff metric is given by
 %
 where $F^\text{TiTv}(a) = \left(1 - f_a\right)^3 f_a + f^3_a \left(1 - f_a\right)$, $G^\text{TiTv}(a) = f^2_a \left(1 - f_a\right)^2$, $f_a$ is the probability of a minor allele occurring at locus $a$, $\gamma_0$ is the probability of PuPu at locus $a$, $\gamma_1$ is the probability of PuPy at locus $a$, and $\gamma_2$ is the probability of PyPy at locus $a$.
 
-These novel distribution results for the projection of pairwise GWAS distances onto a single genetic variant, as well as results for the full space of $p$ variants, can inform NPDR and other nearest-neighbor distance-based feature selection algorithms. We show density curves for GM (\hyperlink{S23_Fig}{S23 Fig.}), AM (\hyperlink{S24_Fig}{S24 Fig.}), and TiTv (\hyperlink{S25_Fig}{S25 Fig.} for each possible support value. Next we introduce our new diff metric and distribution results for time series derived correlation-based data, with a particular application to resting-state fMRI.
+These novel distribution results for the projection of pairwise GWAS distances onto a single genetic variant, as well as results for the full space of $p$ variants, can inform NPDR and other nearest-neighbor distance-based feature selection algorithms. We show density curves for GM (Fig.~S23), AM (Fig.~S24), and TiTv (Fig.~S25) for each possible support value. Next we introduce our new diff metric and distribution results for time series derived correlation-based data, with a particular application to resting-state fMRI.
 
 %\subsection{Resting-State fMRI Distance Distribution}
 \section{Time series correlation-based distance distribution}\label{sec:rs-fMRI_distances}
@@ -2172,7 +2172,7 @@ These indices allow us to extract just the rows necessary to compute the rs-fMRI
 %\right],
 %\end{equation}
 
-We further transform the data matrix $X$ by standardizing so that each of the $m$ columns has zero mean and unit variance. Therefore, the data in matrix $X$ are approximately standard normal. Since we assume independent samples, the standard rs-fMRI distance is asymptotically normal. Gaussian limiting behavior is illustrated in the form of histograms as shown previously (\hyperlink{S7_Fig}{S7 Fig.}). Recall that the mean (Eq.~\ref{eq:normalManMean}) and variance (Eq.~\ref{eq:normalManVar}) of the Manhattan ($L_1$) distance distribution for standard normal data are $\frac{2p}{\sqrt{\pi}}$ and $\frac{2(\pi - 2)p}{\pi}$, respectively. This allows us to easily derive the expected pairwise distance between instances $i,j \in \mathcal{I}$ in rs-fMRI data as follows
+We further transform the data matrix $X$ by standardizing so that each of the $m$ columns has zero mean and unit variance. Therefore, the data in matrix $X$ are approximately standard normal. Since we assume independent samples, the standard rs-fMRI distance is asymptotically normal. Gaussian limiting behavior is illustrated in the form of histograms as shown previously (Fig.~S7). Recall that the mean (Eq.~\ref{eq:normalManMean}) and variance (Eq.~\ref{eq:normalManVar}) of the Manhattan ($L_1$) distance distribution for standard normal data are $\frac{2p}{\sqrt{\pi}}$ and $\frac{2(\pi - 2)p}{\pi}$, respectively. This allows us to easily derive the expected pairwise distance between instances $i,j \in \mathcal{I}$ in rs-fMRI data as follows
 %
 \begin{equation}\label{eq:mu_DDistr_rs-fMRI}
 \begin{aligned}
@@ -2246,7 +2246,7 @@ D^\text{fMRI}_{ij} \overset{.}{\sim} \mathcal{N}\left(\frac{2p(p-1)}{\sqrt{\pi}}
 
 \subsection{Max-min normalized time series correlation-based distance distribution}
 
-Previously (Section~\ref{sec:extremes}) we determined the asymptotic distribution of the sample maximum of size $m$ from a standard normal distribution. We can naturally extend these results to our transformed rs-fMRI data because $X$ (Fig.~\ref{fig:rs-fMRI_matrix}) is approximately standard normal. Furthermore, we have previously mentioned that the max-min normalized $L_q$ metric yields approximately normal distances with the iid assumption. We show a similar result for max-min normalized rs-fMRI distances (\hyperlink{S8_Fig}{S8 Fig.}). We proceed with the definition of the max-min normalized rs-fMRI pairwise distance.
+Previously (Section~\ref{sec:extremes}) we determined the asymptotic distribution of the sample maximum of size $m$ from a standard normal distribution. We can naturally extend these results to our transformed rs-fMRI data because $X$ (Fig.~\ref{fig:rs-fMRI_matrix}) is approximately standard normal. Furthermore, we have previously mentioned that the max-min normalized $L_q$ metric yields approximately normal distances with the iid assumption. We show a similar result for max-min normalized rs-fMRI distances (Fig.~S8). We proceed with the definition of the max-min normalized rs-fMRI pairwise distance.
 
 Consider the max-min normalized rs-fMRI distance given by the following equation
 %
@@ -2316,7 +2316,7 @@ Empirically, the first estimate (Eq.~\ref{eq:rs-fMRI_diffVar1}) of the variance 
 \text{d}^\text{ROI}_{ij}(a) \overset{.}{\sim} \mathcal{N}\left(\frac{2(p-1)}{\sqrt{\pi}},\frac{2(\pi - 2)(p-1)}{\pi}\right),
 \end{equation}
 %
-where $a$ is a single fixed ROI. We compare moment estimates for the rs-fMRI diff (Eqs.~\ref{eq:rs-fMRI_diffMean} and \ref{eq:rs-fMRI_diffVar1}) with sample moments from simulated data with $m=100$ samples and $p=1000,2000,\dots,5000$ attributes (\hyperlink{S21_Fig}{S21 Fig.}). Our estimates follow the sample moments from simulated data very closely.
+where $a$ is a single fixed ROI. We compare moment estimates for the rs-fMRI diff (Eqs.~\ref{eq:rs-fMRI_diffMean} and \ref{eq:rs-fMRI_diffVar1}) with sample moments from simulated data with $m=100$ samples and $p=1000,2000,\dots,5000$ attributes (Fig.~S21). Our estimates follow the sample moments from simulated data very closely.
 
 \subsection{Normalized Manhattan \texorpdfstring{($q=1$)}{} for rs-fMRI}
 
@@ -2354,7 +2354,7 @@ We summarize the moment estimates for the rs-fMRI metrics for correlation-based 
 
 \section{Comparison of theoretical and sample moments}
 
-We compare our analytical asymptotic estimates of sample moments for distributions of pairwise distances in high attribute dimension by generating random data for various dimensions $m$ and $p$ (Fig.~\ref{fig:compare_theoretical_sample_moments}). We fix $m=100$ samples and compute Manhattan (Eq.~\ref{eq:D}) distance matrices from standard normal data for $p=1000,2000,3000,4000,$ and $5000$ attributes. For each value of $p$, we generate 20 random datasets and compute the mean and standard deviation of pairwise distances. We then average these 20 simulated means and standard deviations. For comparison, we compute the theoretical moments (Eqs.~\ref{eq:normalManMean} and \ref{eq:normalManVar}) for each value of $p$ and fixed $m=100$ from the theoretical formulas. Scatter plots of theoretical versus simulated mean (Fig.~\ref{fig:compare_theoretical_sample_moments}A) and theoretical versus simulated standard deviation (Fig.~\ref{fig:compare_theoretical_sample_moments}B) indicate that our theoretical asymptotic formulas for sample moments are reliable for both large and relatively small numbers of attributes. For other combinations of data type, distance metric, sample size $m$, and number of attributes $p$, we find similar agreement between theoretical formulas and simulated moments (\hyperlink{S9_Fig}{S9}-\hyperlink{S21_Fig}{S21 Figs.}).
+We compare our analytical asymptotic estimates of sample moments for distributions of pairwise distances in high attribute dimension by generating random data for various dimensions $m$ and $p$ (Fig.~\ref{fig:compare_theoretical_sample_moments}). We fix $m=100$ samples and compute Manhattan (Eq.~\ref{eq:D}) distance matrices from standard normal data for $p=1000,2000,3000,4000,$ and $5000$ attributes. For each value of $p$, we generate 20 random datasets and compute the mean and standard deviation of pairwise distances. We then average these 20 simulated means and standard deviations. For comparison, we compute the theoretical moments (Eqs.~\ref{eq:normalManMean} and \ref{eq:normalManVar}) for each value of $p$ and fixed $m=100$ from the theoretical formulas. Scatter plots of theoretical versus simulated mean (Fig.~\ref{fig:compare_theoretical_sample_moments}A) and theoretical versus simulated standard deviation (Fig.~\ref{fig:compare_theoretical_sample_moments}B) indicate that our theoretical asymptotic formulas for sample moments are reliable for both large and relatively small numbers of attributes. For other combinations of data type, distance metric, sample size $m$, and number of attributes $p$, we find similar agreement between theoretical formulas and simulated moments (Figs.~S9-S21).
 
 \begin{figure}[H]
 	\centering
@@ -2364,7 +2364,7 @@ We compare our analytical asymptotic estimates of sample moments for distributio
 
 \section{Effects of correlation on distances}\label{sec:correlation}
 
-All of the derivations presented in previous sections were for the cases where there is no correlation between instances or between attributes. We assumed that any pair $(X_{ia},X_{ja})$ of data points for instances $i$ and $j$ and fixed attribute $a$ were independent and identically distributed. This was assumed in order to determine asymptotic estimates in null data. That is, data with no main effects, interaction effects, or pairwise correlations between attributes. Within this simplified context, our asymptotic formulas for distributional moments are reliable. However, in real data are numerous statistical effects that impact distance distributional properties. That being said, we have shown that for Manhattan distances generated on real gene expression microarray data (\hyperlink{S26_Fig}{S26}-\hyperlink{S124_Fig}{S124 Figs.}) and distances generated with our new metric (Eq.~\ref{eq:D_rs-fMRI}) on real rs-fMRI data (\hyperlink{S125_Fig}{S125}-\hyperlink{S126}{S126 Figs.}) that the normality assumption is approximately satisfied in many cases. In simulated data, we find that deviation from normality is caused primarily by large magnitude pairwise correlation between attributes. Pairwise attribute correlation can be the result of main effects, where attributes have different within-group means. On the other hand, there could be an underlying interaction network in which there are strong associations between attributes. If attributes are differentially correlated between phenotype groups, then interactions exist that change the distance distribution. In the following few sections, we consider particular cases of the $L_q$ metric for continuous and discrete data under the effects of pairwise attribute correlation.
+All of the derivations presented in previous sections were for the cases where there is no correlation between instances or between attributes. We assumed that any pair $(X_{ia},X_{ja})$ of data points for instances $i$ and $j$ and fixed attribute $a$ were independent and identically distributed. This was assumed in order to determine asymptotic estimates in null data. That is, data with no main effects, interaction effects, or pairwise correlations between attributes. Within this simplified context, our asymptotic formulas for distributional moments are reliable. However, in real data are numerous statistical effects that impact distance distributional properties. That being said, we have shown that for Manhattan distances generated on real gene expression microarray data (Figs.~S26-S124) and distances generated with our new metric (Eq.~\ref{eq:D_rs-fMRI}) on real rs-fMRI data (Figs.~S125-S126) that the normality assumption is approximately satisfied in many cases. In simulated data, we find that deviation from normality is caused primarily by large magnitude pairwise correlation between attributes. Pairwise attribute correlation can be the result of main effects, where attributes have different within-group means. On the other hand, there could be an underlying interaction network in which there are strong associations between attributes. If attributes are differentially correlated between phenotype groups, then interactions exist that change the distance distribution. In the following few sections, we consider particular cases of the $L_q$ metric for continuous and discrete data under the effects of pairwise attribute correlation.
 
 \subsection{Continuous data}
 
@@ -2437,513 +2437,513 @@ The recently introduced transition-transversion metric (Eq.~\ref{eq:diff_TiTv}) 
 
 In addition to asymptotic $L_q$ distance distributions, we have also provided the exact distributions for the one-dimensional projection of the $L_q$ distance onto individual attributes (Sections.~\ref{sec:continuous_diff}, \ref{sec:GWAS_diff}, and \ref{sec:rs-fMRI_diff}). These distributions are important for all nearest-neighbor distance-based feature selection algorithms, such as Relief or NPDR, because the $L_q$ distance is a function of the one-dimensional attribute projection (diff). In particular, these projected distance distributions are important for improving inference for predictors in NPDR, which are one-dimensional attribute projections.
 
-Correlations between attributes and instances can cause significant deviations from the asymptotic results for uncorrelated data we have derived in this work. To illustrate this behavior, we showed how strong correlations lead to positive skewness in the distance distribution of random normal, binomial, and rs-fMRI data (Figs.~\ref{fig:null_vs_correlated_ridge}A, \ref{fig:null_vs_correlated_ridge}B, and \ref{fig:null_vs_correlated_ridge}C). Pairwise correlation between attributes does not change the average distance, so our asymptotic results for uncorrelated data also approximately apply when attributes are not independent. In contrast, the sample variance of distances deviates from the uncorrelated case substantially as the average absolute pairwise attribute correlation increases (Eq.~\ref{eq:abs_corr}). For fixed or adaptive-radius neighborhood methods, this deviation can increase the probability of including neighbors for a given instance and may reduce the power to detect interactions. The increased variability for distances with correlated data may inform the choice of metric and optimization of neighborhoods in nearest-neighbor feature selection. We explored Gaussianity of Manhattan distances in real gene expression microarrays (\hyperlink{S26_Fig}{S26})-\hyperlink{S124_Fig}{S124 Figs.}) and rs-fMRI data (\hyperlink{S125_Fig}{S125}-\hyperlink{S126_Fig}{S126 Figs.}). In most of the cases we considered, distances are approximately normally distributed after standardizing samples to be zero mean and unit variance. One implication of this is that we can roughly predict how many neighbors to expect within a fixed radius about a given target instance. This new understanding will help us define a fixed-k algorithm for NPDR that chooses approximately the same number of neighbors as any given fixed or adaptive-radius algorithm. This will allow us to avoid the potentially high variability of radius-based neighborhood sizes, which could cause important statistical effects to go undetected.
+Correlations between attributes and instances can cause significant deviations from the asymptotic results for uncorrelated data we have derived in this work. To illustrate this behavior, we showed how strong correlations lead to positive skewness in the distance distribution of random normal, binomial, and rs-fMRI data (Figs.~\ref{fig:null_vs_correlated_ridge}A, \ref{fig:null_vs_correlated_ridge}B, and \ref{fig:null_vs_correlated_ridge}C). Pairwise correlation between attributes does not change the average distance, so our asymptotic results for uncorrelated data also approximately apply when attributes are not independent. In contrast, the sample variance of distances deviates from the uncorrelated case substantially as the average absolute pairwise attribute correlation increases (Eq.~\ref{eq:abs_corr}). For fixed or adaptive-radius neighborhood methods, this deviation can increase the probability of including neighbors for a given instance and may reduce the power to detect interactions. The increased variability for distances with correlated data may inform the choice of metric and optimization of neighborhoods in nearest-neighbor feature selection. We explored Gaussianity of Manhattan distances in real gene expression microarrays (Figs.~S26-S124) and rs-fMRI data (Figs.~S125-S126). In most of the cases we considered, distances are approximately normally distributed after standardizing samples to be zero mean and unit variance. One implication of this is that we can roughly predict how many neighbors to expect within a fixed radius about a given target instance. This new understanding will help us define a fixed-k algorithm for NPDR that chooses approximately the same number of neighbors as any given fixed or adaptive-radius algorithm. This will allow us to avoid the potentially high variability of radius-based neighborhood sizes, which could cause important statistical effects to go undetected.
 
-\section{Supporting information}
+%\section{Supporting information}
 
 % Include only the SI item label in the paragraph heading. Use the \nameref{label} command to cite SI items in the text.
-\paragraph*{S1 Fig.}
-\hypertarget{S1_Fig}{{\bf Convergence to Gaussian for max-min normalized Manhattan and Euclidean distances for simulated standard uniform data with $m=100$ instances and $p=10, 100,$ and $10000$ attributes.} Convergence to Gaussian occurs rapidly with increasing $p$, and Gaussian is a good approximation for $p$ as low as $10$ attributes. The number of attributes in bioinformatics data is typically much larger, at least on the order of $10^3$. The Euclidean metric has stronger convergence to normal than Manhattan. P values from Shapiro-Wilk test, where the null hypothesis is a Gaussian distribution.}
-
-\paragraph*{S2 Fig.}
-\hypertarget{S2_Fig}{
-{\bf Convergence to Gaussian for Manhattan and Euclidean distances for simulated standard normal data with $m=100$ instances and $p=10, 100,$ and $10000$ attributes.} Convergence to Gaussian occurs rapidly with increasing $p$, and Gaussian is a good approximation for $p$ as low as $10$ attributes. The number of attributes in bioinformatics data is typically much larger, at least on the order of $10^3$. The Euclidean metric has stronger convergence to normal than Manhattan.  P values from Shapiro-Wilk test, where the null hypothesis is a Gaussian distribution.}
-
-\paragraph*{S3 Fig.}
-\hypertarget{S3_Fig}{
-{\bf Convergence to Gaussian for max-min normalized Manhattan and Euclidean distances for simulated standard normal data with $m=100$ instances and $p=10, 100,$ and $10000$ attributes.} Convergence to Gaussian occurs rapidly with increasing $p$, and Gaussian is a good approximation for $p$ as low as $10$ attributes. The number of attributes in bioinformatics data is typically much larger, at least on the order of $10^3$. The Euclidean metric has stronger convergence to normal than Manhattan.  P values from Shapiro-Wilk test, where the null hypothesis is a Gaussian distribution.}
-
-\paragraph*{S4 Fig.}
-\hypertarget{S4_Fig}{
-{\bf Convergence to Gaussian for GM distances for simulated binomial GWAS data with $m=100$ instances and $p=10, 100, 1000,$ and $10000$ attributes.} The average MAF was set to 0.205 for all simulations. Convergence to Gaussian occurs more gradually with increasing $p$ than in continuous data. Significant convergence seems to occur when $p \geq 1000$, however, this is actually a relatively small number of features in the context of GWAS. Considering a realistic number of features for GWAS, the normality assumption of GM distances holds. This metric has the slowest convergence to Gaussian among all we have considered. P values from Shapiro-Wilk test, where the null hypothesis is a Gaussian distribution.}
-
-\paragraph*{S5 Fig.}
-\hypertarget{S5_Fig}{
-{\bf Convergence to Gaussian for AM distances for simulated binomial GWAS data with $m=100$ instances and $p=10, 100, 1000,$ and $10000$ attributes.} The average MAF was set to 0.205 for all simulations. Convergence to Gaussian occurs more gradually with increasing $p$ than in continuous data. Significant convergence seems to occur when $p \geq 1000$, however, this is actually a relatively small number of features in the context of GWAS. Considering a realistic number of features for GWAS, the normality assumption of AM distances holds. This metric has the slightly faster convergence to Gaussian than the GM metric, which is probably due to the fact that the AM metric has one more value in its range (e.g., 1/2). P values from Shapiro-Wilk test, where the null hypothesis is a Gaussian distribution.}
-
-\paragraph*{S6 Fig.}
-\hypertarget{S6_Fig}{
-{\bf Convergence to Gaussian for TiTv distances for simulated binomial GWAS data with $m=100$ instances and $p=10, 100, 1000,$ and $10000$ attributes.} The average MAF was set to 0.205 for all simulations and the Ti/Tv ratio ($\eta$) was set to 2. Convergence to Gaussian occurs more gradually with increasing $p$ than in continuous data. Significant convergence seems to occur when $p \geq 1000$, however, this is actually a relatively small number of features in the context of GWAS. Considering a realistic number of features for GWAS, the normality assumption of TiTv distances holds. This metric has the significantly faster convergence to Gaussian than the AM metric, which is probably due to the fact that the TiTv metric contains 2 more values in its range (e.g., 1/4 \& 3/4). P values from Shapiro-Wilk test, where the null hypothesis is a Gaussian distribution.}
-
-\paragraph*{S7 Fig.}
-\hypertarget{S7_Fig}{
-{\bf Convergence to Gaussian for rs-fMRI distances for simulated correlation matrices with $m=100$ instances and $p=10, 50, 150,$ and $300$ attributes (or ROIs).} Correlation matrices were generated for each instance from random normal $m \times p$ data matrices. Each correlation matrix was then stretched out into a long vector, Fisher r-to-z transformed, stored in a $p(p-1) \times m$ matrix, and standardized so that the $m$ columns are mean 0 and unit variance. Convergence to Gaussian occurs very rapidly for this data because the dimensions are larger than a typical $m \times p$ data set. The large attribute dimension $p(p-1)$ means that there are significantly more terms in each sum to compute pairwise distances. Therefore, Classical Central Limit Theorem dictates that distances in this context will be closer to Gaussian. P values from Shapiro-Wilk test, where the null hypothesis is a Gaussian distribution.}
-
-\paragraph*{S8 Fig.}
-\hypertarget{S8_Fig}{
-{\bf Convergence to Gaussian for max-min normalized rs-fMRI distances for simulated correlation matrices with $m=100$ instances and $p=10, 50, 150,$ and $300$ attributes (or ROIs).} Correlation matrices were generated for each instance from random normal $m \times p$ data matrices. Each correlation matrix was then stretched out into a long vector, Fisher r-to-z transformed, stored in a $p(p-1) \times m$ matrix, and standardized so that the $m$ columns are mean 0 and unit variance. Convergence to Gaussian occurs approximately as rapidly as the standard rs-fMRI metric. Just as in the standard rs-fMRI metric, the large attribute dimension $p(p-1)$ means that there are significantly more terms in each sum to compute pairwise distances. Therefore, Classical Central Limit Theorem dictates that distances in this context will be closer to Gaussian. P values from Shapiro-Wilk test, where the null hypothesis is a Gaussian distribution.}
-
-\paragraph*{S9 Fig.}
-\hypertarget{S9_Fig}{
-{\bf Comparison of theoretical and simulated moments of Manhattan distances in standard normal data.} (\textbf{A}) Scatter plot of theoretical vs simulated mean Manhattan distance. Each point represents a different number of attributes $p$. For each value of $p$ we fixed $m=100$ and generated 20 distance matrices from standard normal data and computed the average simulated pairwise distance from the 20 iterations. The corresponding theoretical mean was then computed for each value of $p$ for comparison. The dashed line represents the identity (or $y=x$) line for reference. (\textbf{B}) Scatter plot of theoretical vs simulated standard deviation of Manhattan distance. These standard deviations come from the same random distance matrices for which mean distance was computed for \textbf{A}. Both theoretical mean and standard deviation approximate the simulated moments quite well.}
-
-\paragraph*{S10 Fig.}
-\hypertarget{S10_Fig}{
-{\bf Comparison of theoretical and simulated moments of max-min normalized Manhattan distances in standard normal data.} (\textbf{A}) Scatter plot of theoretical vs simulated mean max-min normalized Manhattan distance. Each point represents a different number of attributes $p$. For each value of $p$ we fixed $m=100$ and generated 20 distance matrices from standard normal data and computed the average simulated pairwise distance from the 20 iterations. The corresponding theoretical mean was then computed for each value of $p$ for comparison. The dashed line represents the identity (or $y=x$) line for reference. (\textbf{B}) Scatter plot of theoretical vs simulated standard deviation of max-min normalized Manhattan distance. These standard deviations come from the same random distance matrices for which mean distance was computed for \textbf{A}. Both theoretical mean and standard deviation approximate the simulated moments quite well.}
-
-\paragraph*{S11 Fig.}
-\hypertarget{S11_Fig}{
-{\bf Comparison of theoretical and simulated moments of Euclidean distances in standard normal data.} (\textbf{A}) Scatter plot of theoretical vs simulated mean Euclidean distance. Each point represents a different number of attributes $p$. For each value of $p$ we fixed $m=100$ and generated 20 distance matrices from standard normal data and computed the average simulated pairwise distance from the 20 iterations. The corresponding theoretical mean was then computed for each value of $p$ for comparison. The dashed line represents the identity (or $y=x$) line for reference. (\textbf{B}) Scatter plot of theoretical vs simulated standard deviation of Euclidean distance. These standard deviations come from the same random distance matrices for which mean distance was computed for \textbf{A}. Theoretical and simulated means lie approximately on the identity line because the mean is proportional to attribute dimension $p$. Theoretical standard deviation is constant, which is why each horizontal coordinate is the same for $p=1000,2000,3000,4000,$ and $5000$. The variation in sample standard deviation of Euclidean distance is quite small, so each simulated moment is clustered about 1.}
-
-\paragraph*{S12 Fig.}
-\hypertarget{S12_Fig}{
-{\bf Comparison of theoretical and simulated moments of max-min normalized Euclidean distances in standard normal data.} (\textbf{A}) Scatter plot of theoretical vs simulated mean max-min normalized Euclidean distance. Each point represents a different number of attributes $p$. For each value of $p$ we fixed $m=100$ and generated 20 distance matrices from standard normal data and computed the average simulated pairwise distance from the 20 iterations. The corresponding theoretical mean was then computed for each value of $p$ for comparison. The dashed line represents the identity (or $y=x$) line for reference. (\textbf{B}) Scatter plot of theoretical vs simulated standard deviation of max-min normalized Euclidean distance. These standard deviations come from the same random distance matrices for which mean distance was computed for \textbf{A}. Theoretical and simulated means lie approximately on the identity line because the mean is proportional to $\sqrt{p}$. Theoretical standard deviation is a function of the fixed attribute dimension $m$, which is why each horizontal coordinate is the same for $p=1000,2000,3000,4000,$ and $5000$. The variation in sample standard deviation of max-min normalized Euclidean distance is quite small, so each simulated moment is clustered about the theoretical value that depends on $m$.}
-
-\paragraph*{S13 Fig.}
-\hypertarget{S13_Fig}{
-{\bf Comparison of theoretical and simulated moments of Manhattan distances in standard uniform data.} (\textbf{A}) Scatter plot of theoretical vs simulated mean Manhattan distance. Each point represents a different number of attributes $p$. For each value of $p$ we fixed $m=100$ and generated 20 distance matrices from standard uniform data and computed the average simulated pairwise distance from the 20 iterations. The corresponding theoretical mean was then computed for each value of $p$ for comparison. The dashed line represents the identity (or $y=x$) line for reference. (\textbf{B}) Scatter plot of theoretical vs simulated standard deviation of Manhattan distance. These standard deviations come from the same random distance matrices for which mean distance was computed for \textbf{A}. Both theoretical mean and standard deviation approximate the simulated moments quite well.}
-
-\paragraph*{S14 Fig.}
-\hypertarget{S14_Fig}{
-{\bf Comparison of theoretical and simulated moments of Euclidean distances in standard uniform data.} (\textbf{A}) Scatter plot of theoretical vs simulated mean Euclidean distance. Each point represents a different number of attributes $p$. For each value of $p$ we fixed $m=100$ and generated 20 distance matrices from standard uniform data and computed the average simulated pairwise distance from the 20 iterations. The corresponding theoretical mean was then computed for each value of $p$ for comparison. The dashed line represents the identity (or $y=x$) line for reference. (\textbf{B}) Scatter plot of theoretical vs simulated standard deviation of Euclidean distance. These standard deviations come from the same random distance matrices for which mean distance was computed for \textbf{A}. Theoretical and simulated means lie approximately on the identity line because the mean is proportional to attribute dimension $p$. Theoretical standard deviation is constant, which is why each horizontal coordinate is the same for $p=1000,2000,3000,4000,$ and $5000$. The variation in sample standard deviation of Euclidean distance is quite small, so each simulated moment is clustered about 7/120.}
-
-\paragraph*{S15 Fig.}
-\hypertarget{S15_Fig}{
-{\bf Comparison of theoretical and simulated moments of max-min normalized Euclidean distances in standard uniform data.} (\textbf{A}) Scatter plot of theoretical vs simulated mean max-min normalized Euclidean distance. Each point represents a different number of attributes $p$. For each value of $p$ we fixed $m=100$ and generated 20 distance matrices from standard uniform data and computed the average simulated pairwise distance from the 20 iterations. The corresponding theoretical mean was then computed for each value of $p$ for comparison. The dashed line represents the identity (or $y=x$) line for reference. (\textbf{B}) Scatter plot of theoretical vs simulated standard deviation of max-min normalized Euclidean distance. These standard deviations come from the same random distance matrices for which mean distance was computed for \textbf{A}. Theoretical and simulated means lie approximately on the identity line because the mean is proportional to $\sqrt{p}$. Theoretical standard deviation is a function of the fixed attribute dimension $m$, which is why each horizontal coordinate is the same for $p=1000,2000,3000,4000,$ and $5000$. The variation in sample standard deviation of max-min normalized Euclidean distance is quite small, so each simulated moment is clustered about the theoretical value that depends on $m$.}
-
-\paragraph*{S16 Fig.}
-\hypertarget{S16_Fig}{
-{\bf Comparison of theoretical and simulated moments of GM distances in binomial GWAS data.} (\textbf{A}) Scatter plot of theoretical vs simulated mean GM distance. Each point represents a different number of attributes $p$. For each value of $p$ we fixed $m=100$ and generated 20 distance matrices from binomial GWAS data and computed the average simulated pairwise distance from the 20 iterations. The corresponding theoretical mean was then computed for each value of $p$ for comparison. The dashed line represents the identity (or $y=x$) line for reference. (\textbf{B}) Scatter plot of theoretical vs simulated standard deviation of GM distance. These standard deviations come from the same random distance matrices for which mean distance was computed for \textbf{A}. Both theoretical mean and standard deviation approximate the simulated moments quite well.}
-
-\paragraph*{S17 Fig.}
-\hypertarget{S17_Fig}{
-{\bf Comparison of theoretical and simulated moments of AM distances in binomial GWAS data.} (\textbf{A}) Scatter plot of theoretical vs simulated mean AM distance. Each point represents a different number of attributes $p$. For each value of $p$ we fixed $m=100$ and generated 20 distance matrices from binomial GWAS data and computed the average simulated pairwise distance from the 20 iterations. The corresponding theoretical mean was then computed for each value of $p$ for comparison. The dashed line represents the identity (or $y=x$) line for reference. (\textbf{B}) Scatter plot of theoretical vs simulated standard deviation of AM distance. These standard deviations come from the same random distance matrices for which mean distance was computed for \textbf{A}. Both theoretical mean and standard deviation approximate the simulated moments quite well.}
-
-\paragraph*{S18 Fig.}
-\hypertarget{S18_Fig}{
-{\bf Comparison of theoretical and simulated moments of TiTv distances in binomial GWAS data.} For each simulated data set, the average MAF was set to be 0.205 and the Ti/Tv ratio ($\eta$) was fixed to be 2. (\textbf{A}) Scatter plot of theoretical vs simulated mean TiTv distance. Each point represents a different number of attributes $p$. For each value of $p$ we fixed $m=100$ and generated 20 distance matrices from binomial GWAS data and computed the average simulated pairwise distance from the 20 iterations. The corresponding theoretical mean was then computed for each value of $p$ for comparison. The dashed line represents the identity (or $y=x$) line for reference. (\textbf{B}) Scatter plot of theoretical vs simulated standard deviation of TiTv distance. These standard deviations come from the same random distance matrices for which mean distance was computed for \textbf{A}. Both theoretical mean and standard deviation approximate the simulated moments quite well.}
-
-\paragraph*{S19 Fig.}
-\hypertarget{S19_Fig}{
-{\bf Comparison of theoretical and simulated moments of rs-fMRI distances from random correlation matrices.} For each instance, we generated a $p \times p$ correlation matrix from a random $m \times p$ standard normal data set. We then stretched out each correlation matrix into a long vector, Fisher r-to-z transformed the correlations, stored the vector in a column of a large $p(p-1) \times m$ matrix, and then standardized columns to be mean 0 and unit variance. (\textbf{A}) Scatter plot of theoretical vs simulated mean rs-fMRI distance. Each point represents a different number of attributes $p$. For each value of $p$ we fixed $m=100$ and generated 20 distance matrices from rs-fMRI data and computed the average simulated pairwise distance from the 20 iterations. The corresponding theoretical mean was then computed for each value of $p$ for comparison. The dashed line represents the identity (or $y=x$) line for reference. (\textbf{B}) Scatter plot of theoretical vs simulated standard deviation of rs-fMRI distance. These standard deviations come from the same random distance matrices for which mean distance was computed for \textbf{A}. Both theoretical mean and standard deviation approximate the simulated moments quite well.}
-
-\paragraph*{S20 Fig.}
-\hypertarget{S20_Fig}{
-{\bf Comparison of theoretical and simulated moments of max-min normalized rs-fMRI distances from random correlation matrices.} For each instance, we generated a $p \times p$ correlation matrix from a random $m \times p$ standard normal data set. We then stretched out each correlation matrix into a long vector, Fisher r-to-z transformed the correlations, stored the vector in a column of a large $p(p-1) \times m$ matrix, and then standardized columns to be mean 0 and unit variance. (\textbf{A}) Scatter plot of theoretical vs simulated mean max-min normalized rs-fMRI distance. Each point represents a different number of attributes $p$. For each value of $p$ we fixed $m=100$ and generated 20 distance matrices from rs-fMRI data and computed the average simulated pairwise distance from the 20 iterations. The corresponding theoretical mean was then computed for each value of $p$ for comparison. The dashed line represents the identity (or $y=x$) line for reference. (\textbf{B}) Scatter plot of theoretical vs simulated standard deviation of max-min normalized rs-fMRI distance. These standard deviations come from the same random distance matrices for which mean distance was computed for \textbf{A}. Both theoretical mean and standard deviation approximate the simulated moments quite well.}
-
-\paragraph*{S21 Fig.}
-\hypertarget{S21_Fig}{
-{\bf Comparison of theoretical and simulated moments of rs-fMRI diff metric from random correlation matrices.} For each instance, we generated a $p \times p$ correlation matrix from a random $m \times p$ standard normal data set. We then stretched out each correlation matrix into a long vector, Fisher r-to-z transformed the correlations, stored the vector in a column of a large $p(p-1) \times m$ matrix, and then standardized columns to be mean 0 and unit variance. (\textbf{A}) Scatter plot of theoretical vs simulated mean rs-fMRI diff. Each point represents a different number of attributes $p$. For each value of $p$ we fixed $m=100$ and generated 20 diff metric values from the rs-fMRI data and computed the average simulated diff from the 20 iterations. The corresponding theoretical mean was then computed for each value of $p$ for comparison. The dashed line represents the identity (or $y=x$) line for reference. (\textbf{B}) Scatter plot of theoretical vs simulated standard deviation of rs-fMRI diff. These standard deviations come from the same random diff values from which mean diffs were computed for \textbf{A}. Both theoretical mean and standard deviation approximate the simulated moments quite well.}
-
-\paragraph*{S22 Fig.}
-\hypertarget{S22_Fig}{
-{\bf Density curves for one-dimensional projected distances (diffs) onto a fixed attribute $a$ for standard normal and standard uniform data.} (\textbf{A}) Density curves for the distribution of attribute diff in standard normal data for $q=1,2,3,4,$ and $5$. This density is that of a Generalized Gamma distribution. For $q=1$, this is also known as a half-normal distribution. (\textbf{B}) Density curves for the distribution of attribute diff in standard uniform data for $q=1,2,3,4,$ and $5$. This density is that of a Kumaraswamy distribution. For $q=1$, this is also known as a triangular distribution.}
-
-\paragraph*{S23 Fig.}
-\hypertarget{S23_Fig}{
-{\bf One-dimensional projected GM distance (diff) onto an attribute vs minor allele frequency (MAF).} For each possible value of the GM diff ($\text{d} = 0,1$), the exact density of the GM diff is plotted for all possible values of MAF. The expected value of MAF at a particular locus $a$ is $f_a$ for all $a \in \mathcal{A}$, where $f_a$ is the probability of a minor allele occurring at locus $a$. For each element $X_{ia}$ of the data matrix for a fixed attribute $a$, we have $X_{ia} \sim \mathcal{B}(2,f_a)$. Depending on the MAF, the frequency of GM diff taking on a value of 0 or 1 changes. For small MAF, the GM diff will be 0 most often. As MAF increases beyond 0.5, the minor allele switches.}
-
-\paragraph*{S24 Fig.}
-\hypertarget{S24_Fig}{
-{\bf One-dimensional projected AM distance (diff) onto an attribute vs minor allele frequency (MAF).} For each possible value of the AM diff ($\text{d} = 0,1/2,1$), the exact density of the AM diff is plotted for all possible values of MAF. The expected value of MAF at a particular locus $a$ is $f_a$ for all $a \in \mathcal{A}$, where $f_a$ is the probability of a minor allele occurring at locus $a$. For each element $X_{ia}$ of the data matrix for a fixed attribute $a$, we have $X_{ia} \sim \mathcal{B}(2,f_a)$. Depending on the MAF, the frequency of AM diff taking on a value of 0, 1/2, or 1 changes. For small MAF, the AM diff will be 0 most often. For large MAF ($\approx$0.5), the AM diff will be mostly 1/2 with 1 being the second most common value. The least common value of the AM diff is 1. As MAF increases beyond 0.5, the minor allele switches.}
-
-\paragraph*{S25 Fig.}
-\hypertarget{S25_Fig}{
-{\bf One-dimensional projected TiTv distance (diff) onto an attribute vs minor allele frequency (MAF).} For each possible value of the TiTv diff ($\text{d} = 0,1/4,1/2,3/4,1$), the exact density of the TiTv diff is plotted for all possible values of MAF. The Ti/Tv ratio $\eta$ was fixed to be 2. The expected value of MAF at a particular locus $a$ is $f_a$ for all $a \in \mathcal{A}$, where $f_a$ is the probability of a minor allele occurring at locus $a$. For each element $X_{ia}$ of the data matrix for a fixed attribute $a$, we have $X_{ia} \sim \mathcal{B}(2,f_a)$. Depending on the MAF, the frequency of TiTv diff taking on a value of 0, 1/4, 1/2, 3/4, or 1 changes. The density of the TiTv diff for $\text{d} = 1/4, 1/2, \text{ and } 3/4$ has the same resulting curve as a function of MAF. The most common value of TiTv diff at any MAF is 0, the second most common is 1/4, 1/2, or 3/4, and the least common is 1. As MAF increases beyond 0.5, the minor allele switches.}
-
-\paragraph*{S26 Fig.}
-\hypertarget{S26_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE26585.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S27 Fig.}
-\hypertarget{S27_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE488.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S28 Fig.}
-\hypertarget{S28_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE100642.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S29 Fig.}
-\hypertarget{S29_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE10072.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S30 Fig.}
-\hypertarget{S30_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE103184.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S31 Fig.}
-\hypertarget{S31_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE103430.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S32 Fig.}
-\hypertarget{S32_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE106635.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S33 Fig.}
-\hypertarget{S33_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE106912.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S34 Fig.}
-\hypertarget{S34_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE110398.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S35 Fig.}
-\hypertarget{S35_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE12196.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S36 Fig.}
-\hypertarget{S36_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE12452.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S37 Fig.}
-\hypertarget{S37_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE13220.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S38 Fig.}
-\hypertarget{S38_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE13597.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S39 Fig.}
-\hypertarget{S39_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE13911.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S40 Fig.}
-\hypertarget{S40_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE14304.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S41 Fig.}
-\hypertarget{S41_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE16765.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S42 Fig.}
-\hypertarget{S42_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE18608.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S43 Fig.}
-\hypertarget{S43_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE20347.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S44 Fig.}
-\hypertarget{S44_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE20466.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S45 Fig.}
-\hypertarget{S45_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE20489.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S46 Fig.}
-\hypertarget{S46_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE20586.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S47 Fig.}
-\hypertarget{S47_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE21947.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S48 Fig.}
-\hypertarget{S48_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE22356.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S49 Fig.}
-\hypertarget{S49_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE22671.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S50 Fig.}
-\hypertarget{S50_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE23400.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S51 Fig.}
-\hypertarget{S51_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE24342.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S52 Fig.}
-\hypertarget{S52_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE24988.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S53 Fig.}
-\hypertarget{S53_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE25156.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S54 Fig.}
-\hypertarget{S54_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE2685.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S55 Fig.}
-\hypertarget{S55_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE26623.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S56 Fig.}
-\hypertarget{S56_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE27114.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S57 Fig.}
-\hypertarget{S57_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE29110.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S58 Fig.}
-\hypertarget{S58_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE29633.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S59 Fig.}
-\hypertarget{S59_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE3017.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S60 Fig.}
-\hypertarget{S60_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE30502.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S61 Fig.}
-\hypertarget{S61_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE31564.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S62 Fig.}
-\hypertarget{S62_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE31738.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S63 Fig.}
-\hypertarget{S63_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE32515.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S64 Fig.}
-\hypertarget{S64_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE3268.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S65 Fig.}
-\hypertarget{S65_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE33003.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S66 Fig.}
-\hypertarget{S66_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE33373.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S67 Fig.}
-\hypertarget{S67_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE33459.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S68 Fig.}
-\hypertarget{S68_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE33463.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S69 Fig.}
-\hypertarget{S69_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE33672.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S70 Fig.}
-\hypertarget{S70_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE34400.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S71 Fig.}
-\hypertarget{S71_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE34667.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S72 Fig.}
-\hypertarget{S72_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE34872.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S73 Fig.}
-\hypertarget{S73_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE3494.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S74 Fig.}
-\hypertarget{S74_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE3519.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S75 Fig.}
-\hypertarget{S75_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE35240.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S76 Fig.}
-\hypertarget{S76_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE37404.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S77 Fig.}
-\hypertarget{S77_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE37902.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S78 Fig.}
-\hypertarget{S78_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE38531.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S79 Fig.}
-\hypertarget{S79_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE38783.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S80 Fig.}
-\hypertarget{S80_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE39549.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S81 Fig.}
-\hypertarget{S81_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE41221.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S82 Fig.}
-\hypertarget{S82_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE46727.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S83 Fig.}
-\hypertarget{S83_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE46728.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S84 Fig.}
-\hypertarget{S84_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE47406.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S85 Fig.}
-\hypertarget{S85_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE48964.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S86 Fig.}
-\hypertarget{S86_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE49382.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S87 Fig.}
-\hypertarget{S87_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE49486.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S88 Fig.}
-\hypertarget{S88_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE50604.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S89 Fig.}
-\hypertarget{S89_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE5281.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S90 Fig.}
-\hypertarget{S90_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE53122.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S91 Fig.}
-\hypertarget{S91_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE54129.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S92 Fig.}
-\hypertarget{S92_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE54216.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S93 Fig.}
-\hypertarget{S93_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE54350.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S94 Fig.}
-\hypertarget{S94_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE54917.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S95 Fig.}
-\hypertarget{S95_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE55503.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S96 Fig.}
-\hypertarget{S96_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE57002.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S97 Fig.}
-\hypertarget{S97_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE5859.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S98 Fig.}
-\hypertarget{S98_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE61140.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S99 Fig.}
-\hypertarget{S99_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE62598.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S100 Fig.}
-\hypertarget{S100_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE6414.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S101 Fig.}
-\hypertarget{S101_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE64670.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S102 Fig.}
-\hypertarget{S102_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE64718.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S103 Fig.}
-\hypertarget{S103_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE65517.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S104 Fig.}
-\hypertarget{S104_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE6720.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S105 Fig.}
-\hypertarget{S105_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE67492.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S106 Fig.}
-\hypertarget{S106_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE67865.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S107 Fig.}
-\hypertarget{S107_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE68918.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S108 Fig.}
-\hypertarget{S108_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE7124.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S109 Fig.}
-\hypertarget{S109_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE71868.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S110 Fig.}
-\hypertarget{S110_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE7197.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S111 Fig.}
-\hypertarget{S111_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE75037.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S112 Fig.}
-\hypertarget{S112_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE7511.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S113 Fig.}
-\hypertarget{S113_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE7567.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S114 Fig.}
-\hypertarget{S114_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE7592.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S115 Fig.}
-\hypertarget{S115_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE7670.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S116 Fig.}
-\hypertarget{S116_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE7881.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S117 Fig.}
-\hypertarget{S117_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE79973.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S118 Fig.}
-\hypertarget{S118_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE83077.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S119 Fig.}
-\hypertarget{S119_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE8498.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S120 Fig.}
-\hypertarget{S120_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE9687.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S121 Fig.}
-\hypertarget{S121_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE9820.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S122 Fig.}
-\hypertarget{S122_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE98634.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S123 Fig.}
-\hypertarget{S123_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE99295.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S124 Fig.}
-\hypertarget{S124_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in GSE48200.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S125 Fig.}
-\hypertarget{S125_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in real resting-state fMRI data~\cite{t1000} generated using a parcellation of spherical ROIs~\cite{power2011}.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
-
-\paragraph*{S126 Fig.}
-\hypertarget{S126_Fig}{
-{\bf Density and quantile-quantile plots for distances between samples in real resting-state fMRI data~\cite{t1000} generated using a graph theoretic parcellation of ROIs~\cite{shen2013}.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+%\paragraph*{S1 Fig.}
+%\hypertarget{S1_Fig}{{\bf Convergence to Gaussian for max-min normalized Manhattan and Euclidean distances for simulated standard uniform data with $m=100$ instances and $p=10, 100,$ and $10000$ attributes.} Convergence to Gaussian occurs rapidly with increasing $p$, and Gaussian is a good approximation for $p$ as low as $10$ attributes. The number of attributes in bioinformatics data is typically much larger, at least on the order of $10^3$. The Euclidean metric has stronger convergence to normal than Manhattan. P values from Shapiro-Wilk test, where the null hypothesis is a Gaussian distribution.}
+
+%\paragraph*{S2 Fig.}
+%\hypertarget{S2_Fig}{
+%{\bf Convergence to Gaussian for Manhattan and Euclidean distances for simulated standard normal data with $m=100$ instances and $p=10, 100,$ and $10000$ attributes.} Convergence to Gaussian occurs rapidly with increasing $p$, and Gaussian is a good approximation for $p$ as low as $10$ attributes. The number of attributes in bioinformatics data is typically much larger, at least on the order of $10^3$. The Euclidean metric has stronger convergence to normal than Manhattan.  P values from Shapiro-Wilk test, where the null hypothesis is a Gaussian distribution.}
+
+%\paragraph*{S3 Fig.}
+%\hypertarget{S3_Fig}{
+%{\bf Convergence to Gaussian for max-min normalized Manhattan and Euclidean distances for simulated standard normal data with $m=100$ instances and $p=10, 100,$ and $10000$ attributes.} Convergence to Gaussian occurs rapidly with increasing $p$, and Gaussian is a good approximation for $p$ as low as $10$ attributes. The number of attributes in bioinformatics data is typically much larger, at least on the order of $10^3$. The Euclidean metric has stronger convergence to normal than Manhattan.  P values from Shapiro-Wilk test, where the null hypothesis is a Gaussian distribution.}
+
+%\paragraph*{S4 Fig.}
+%\hypertarget{S4_Fig}{
+%{\bf Convergence to Gaussian for GM distances for simulated binomial GWAS data with $m=100$ instances and $p=10, 100, 1000,$ and $10000$ attributes.} The average MAF was set to 0.205 for all simulations. Convergence to Gaussian occurs more gradually with increasing $p$ than in continuous data. Significant convergence seems to occur when $p \geq 1000$, however, this is actually a relatively small number of features in the context of GWAS. Considering a realistic number of features for GWAS, the normality assumption of GM distances holds. This metric has the slowest convergence to Gaussian among all we have considered. P values from Shapiro-Wilk test, where the null hypothesis is a Gaussian distribution.}
+
+%\paragraph*{S5 Fig.}
+%\hypertarget{S5_Fig}{
+%{\bf Convergence to Gaussian for AM distances for simulated binomial GWAS data with $m=100$ instances and $p=10, 100, 1000,$ and $10000$ attributes.} The average MAF was set to 0.205 for all simulations. Convergence to Gaussian occurs more gradually with increasing $p$ than in continuous data. Significant convergence seems to occur when $p \geq 1000$, however, this is actually a relatively small number of features in the context of GWAS. Considering a realistic number of features for GWAS, the normality assumption of AM distances holds. This metric has the slightly faster convergence to Gaussian than the GM metric, which is probably due to the fact that the AM metric has one more value in its range (e.g., 1/2). P values from Shapiro-Wilk test, where the null hypothesis is a Gaussian distribution.}
+
+%\paragraph*{S6 Fig.}
+%\hypertarget{S6_Fig}{
+%{\bf Convergence to Gaussian for TiTv distances for simulated binomial GWAS data with $m=100$ instances and $p=10, 100, 1000,$ and $10000$ attributes.} The average MAF was set to 0.205 for all simulations and the Ti/Tv ratio ($\eta$) was set to 2. Convergence to Gaussian occurs more gradually with increasing $p$ than in continuous data. Significant convergence seems to occur when $p \geq 1000$, however, this is actually a relatively small number of features in the context of GWAS. Considering a realistic number of features for GWAS, the normality assumption of TiTv distances holds. This metric has the significantly faster convergence to Gaussian than the AM metric, which is probably due to the fact that the TiTv metric contains 2 more values in its range (e.g., 1/4 \& 3/4). P values from Shapiro-Wilk test, where the null hypothesis is a Gaussian distribution.}
+
+%\paragraph*{S7 Fig.}
+%\hypertarget{S7_Fig}{
+%{\bf Convergence to Gaussian for rs-fMRI distances for simulated correlation matrices with $m=100$ instances and $p=10, 50, 150,$ and $300$ attributes (or ROIs).} Correlation matrices were generated for each instance from random normal $m \times p$ data matrices. Each correlation matrix was then stretched out into a long vector, Fisher r-to-z transformed, stored in a $p(p-1) \times m$ matrix, and standardized so that the $m$ columns are mean 0 and unit variance. Convergence to Gaussian occurs very rapidly for this data because the dimensions are larger than a typical $m \times p$ data set. The large attribute dimension $p(p-1)$ means that there are significantly more terms in each sum to compute pairwise distances. Therefore, Classical Central Limit Theorem dictates that distances in this context will be closer to Gaussian. P values from Shapiro-Wilk test, where the null hypothesis is a Gaussian distribution.}
+
+%\paragraph*{S8 Fig.}
+%\hypertarget{S8_Fig}{
+%{\bf Convergence to Gaussian for max-min normalized rs-fMRI distances for simulated correlation matrices with $m=100$ instances and $p=10, 50, 150,$ and $300$ attributes (or ROIs).} Correlation matrices were generated for each instance from random normal $m \times p$ data matrices. Each correlation matrix was then stretched out into a long vector, Fisher r-to-z transformed, stored in a $p(p-1) \times m$ matrix, and standardized so that the $m$ columns are mean 0 and unit variance. Convergence to Gaussian occurs approximately as rapidly as the standard rs-fMRI metric. Just as in the standard rs-fMRI metric, the large attribute dimension $p(p-1)$ means that there are significantly more terms in each sum to compute pairwise distances. Therefore, Classical Central Limit Theorem dictates that distances in this context will be closer to Gaussian. P values from Shapiro-Wilk test, where the null hypothesis is a Gaussian distribution.}
+
+%\paragraph*{S9 Fig.}
+%\hypertarget{S9_Fig}{
+%{\bf Comparison of theoretical and simulated moments of Manhattan distances in standard normal data.} (\textbf{A}) Scatter plot of theoretical vs simulated mean Manhattan distance. Each point represents a different number of attributes $p$. For each value of $p$ we fixed $m=100$ and generated 20 distance matrices from standard normal data and computed the average simulated pairwise distance from the 20 iterations. The corresponding theoretical mean was then computed for each value of $p$ for comparison. The dashed line represents the identity (or $y=x$) line for reference. (\textbf{B}) Scatter plot of theoretical vs simulated standard deviation of Manhattan distance. These standard deviations come from the same random distance matrices for which mean distance was computed for \textbf{A}. Both theoretical mean and standard deviation approximate the simulated moments quite well.}
+
+%\paragraph*{S10 Fig.}
+%\hypertarget{S10_Fig}{
+%{\bf Comparison of theoretical and simulated moments of max-min normalized Manhattan distances in standard normal data.} (\textbf{A}) Scatter plot of theoretical vs simulated mean max-min normalized Manhattan distance. Each point represents a different number of attributes $p$. For each value of $p$ we fixed $m=100$ and generated 20 distance matrices from standard normal data and computed the average simulated pairwise distance from the 20 iterations. The corresponding theoretical mean was then computed for each value of $p$ for comparison. The dashed line represents the identity (or $y=x$) line for reference. (\textbf{B}) Scatter plot of theoretical vs simulated standard deviation of max-min normalized Manhattan distance. These standard deviations come from the same random distance matrices for which mean distance was computed for \textbf{A}. Both theoretical mean and standard deviation approximate the simulated moments quite well.}
+
+%\paragraph*{S11 Fig.}
+%\hypertarget{S11_Fig}{
+%{\bf Comparison of theoretical and simulated moments of Euclidean distances in standard normal data.} (\textbf{A}) Scatter plot of theoretical vs simulated mean Euclidean distance. Each point represents a different number of attributes $p$. For each value of $p$ we fixed $m=100$ and generated 20 distance matrices from standard normal data and computed the average simulated pairwise distance from the 20 iterations. The corresponding theoretical mean was then computed for each value of $p$ for comparison. The dashed line represents the identity (or $y=x$) line for reference. (\textbf{B}) Scatter plot of theoretical vs simulated standard deviation of Euclidean distance. These standard deviations come from the same random distance matrices for which mean distance was computed for \textbf{A}. Theoretical and simulated means lie approximately on the identity line because the mean is proportional to attribute dimension $p$. Theoretical standard deviation is constant, which is why each horizontal coordinate is the same for $p=1000,2000,3000,4000,$ and $5000$. The variation in sample standard deviation of Euclidean distance is quite small, so each simulated moment is clustered about 1.}
+
+%\paragraph*{S12 Fig.}
+%\hypertarget{S12_Fig}{
+%{\bf Comparison of theoretical and simulated moments of max-min normalized Euclidean distances in standard normal data.} (\textbf{A}) Scatter plot of theoretical vs simulated mean max-min normalized Euclidean distance. Each point represents a different number of attributes $p$. For each value of $p$ we fixed $m=100$ and generated 20 distance matrices from standard normal data and computed the average simulated pairwise distance from the 20 iterations. The corresponding theoretical mean was then computed for each value of $p$ for comparison. The dashed line represents the identity (or $y=x$) line for reference. (\textbf{B}) Scatter plot of theoretical vs simulated standard deviation of max-min normalized Euclidean distance. These standard deviations come from the same random distance matrices for which mean distance was computed for \textbf{A}. Theoretical and simulated means lie approximately on the identity line because the mean is proportional to $\sqrt{p}$. Theoretical standard deviation is a function of the fixed attribute dimension $m$, which is why each horizontal coordinate is the same for $p=1000,2000,3000,4000,$ and $5000$. The variation in sample standard deviation of max-min normalized Euclidean distance is quite small, so each simulated moment is clustered about the theoretical value that depends on $m$.}
+
+%\paragraph*{S13 Fig.}
+%\hypertarget{S13_Fig}{
+%{\bf Comparison of theoretical and simulated moments of Manhattan distances in standard uniform data.} (\textbf{A}) Scatter plot of theoretical vs simulated mean Manhattan distance. Each point represents a different number of attributes $p$. For each value of $p$ we fixed $m=100$ and generated 20 distance matrices from standard uniform data and computed the average simulated pairwise distance from the 20 iterations. The corresponding theoretical mean was then computed for each value of $p$ for comparison. The dashed line represents the identity (or $y=x$) line for reference. (\textbf{B}) Scatter plot of theoretical vs simulated standard deviation of Manhattan distance. These standard deviations come from the same random distance matrices for which mean distance was computed for \textbf{A}. Both theoretical mean and standard deviation approximate the simulated moments quite well.}
+
+%\paragraph*{S14 Fig.}
+%\hypertarget{S14_Fig}{
+%{\bf Comparison of theoretical and simulated moments of Euclidean distances in standard uniform data.} (\textbf{A}) Scatter plot of theoretical vs simulated mean Euclidean distance. Each point represents a different number of attributes $p$. For each value of $p$ we fixed $m=100$ and generated 20 distance matrices from standard uniform data and computed the average simulated pairwise distance from the 20 iterations. The corresponding theoretical mean was then computed for each value of $p$ for comparison. The dashed line represents the identity (or $y=x$) line for reference. (\textbf{B}) Scatter plot of theoretical vs simulated standard deviation of Euclidean distance. These standard deviations come from the same random distance matrices for which mean distance was computed for \textbf{A}. Theoretical and simulated means lie approximately on the identity line because the mean is proportional to attribute dimension $p$. Theoretical standard deviation is constant, which is why each horizontal coordinate is the same for $p=1000,2000,3000,4000,$ and $5000$. The variation in sample standard deviation of Euclidean distance is quite small, so each simulated moment is clustered about 7/120.}
+
+%\paragraph*{S15 Fig.}
+%\hypertarget{S15_Fig}{
+%{\bf Comparison of theoretical and simulated moments of max-min normalized Euclidean distances in standard uniform data.} (\textbf{A}) Scatter plot of theoretical vs simulated mean max-min normalized Euclidean distance. Each point represents a different number of attributes $p$. For each value of $p$ we fixed $m=100$ and generated 20 distance matrices from standard uniform data and computed the average simulated pairwise distance from the 20 iterations. The corresponding theoretical mean was then computed for each value of $p$ for comparison. The dashed line represents the identity (or $y=x$) line for reference. (\textbf{B}) Scatter plot of theoretical vs simulated standard deviation of max-min normalized Euclidean distance. These standard deviations come from the same random distance matrices for which mean distance was computed for \textbf{A}. Theoretical and simulated means lie approximately on the identity line because the mean is proportional to $\sqrt{p}$. Theoretical standard deviation is a function of the fixed attribute dimension $m$, which is why each horizontal coordinate is the same for $p=1000,2000,3000,4000,$ and $5000$. The variation in sample standard deviation of max-min normalized Euclidean distance is quite small, so each simulated moment is clustered about the theoretical value that depends on $m$.}
+
+%\paragraph*{S16 Fig.}
+%\hypertarget{S16_Fig}{
+%{\bf Comparison of theoretical and simulated moments of GM distances in binomial GWAS data.} (\textbf{A}) Scatter plot of theoretical vs simulated mean GM distance. Each point represents a different number of attributes $p$. For each value of $p$ we fixed $m=100$ and generated 20 distance matrices from binomial GWAS data and computed the average simulated pairwise distance from the 20 iterations. The corresponding theoretical mean was then computed for each value of $p$ for comparison. The dashed line represents the identity (or $y=x$) line for reference. (\textbf{B}) Scatter plot of theoretical vs simulated standard deviation of GM distance. These standard deviations come from the same random distance matrices for which mean distance was computed for \textbf{A}. Both theoretical mean and standard deviation approximate the simulated moments quite well.}
+
+%\paragraph*{S17 Fig.}
+%\hypertarget{S17_Fig}{
+%{\bf Comparison of theoretical and simulated moments of AM distances in binomial GWAS data.} (\textbf{A}) Scatter plot of theoretical vs simulated mean AM distance. Each point represents a different number of attributes $p$. For each value of $p$ we fixed $m=100$ and generated 20 distance matrices from binomial GWAS data and computed the average simulated pairwise distance from the 20 iterations. The corresponding theoretical mean was then computed for each value of $p$ for comparison. The dashed line represents the identity (or $y=x$) line for reference. (\textbf{B}) Scatter plot of theoretical vs simulated standard deviation of AM distance. These standard deviations come from the same random distance matrices for which mean distance was computed for \textbf{A}. Both theoretical mean and standard deviation approximate the simulated moments quite well.}
+
+%\paragraph*{S18 Fig.}
+%\hypertarget{S18_Fig}{
+%{\bf Comparison of theoretical and simulated moments of TiTv distances in binomial GWAS data.} For each simulated data set, the average MAF was set to be 0.205 and the Ti/Tv ratio ($\eta$) was fixed to be 2. (\textbf{A}) Scatter plot of theoretical vs simulated mean TiTv distance. Each point represents a different number of attributes $p$. For each value of $p$ we fixed $m=100$ and generated 20 distance matrices from binomial GWAS data and computed the average simulated pairwise distance from the 20 iterations. The corresponding theoretical mean was then computed for each value of $p$ for comparison. The dashed line represents the identity (or $y=x$) line for reference. (\textbf{B}) Scatter plot of theoretical vs simulated standard deviation of TiTv distance. These standard deviations come from the same random distance matrices for which mean distance was computed for \textbf{A}. Both theoretical mean and standard deviation approximate the simulated moments quite well.}
+
+%\paragraph*{S19 Fig.}
+%\hypertarget{S19_Fig}{
+%{\bf Comparison of theoretical and simulated moments of rs-fMRI distances from random correlation matrices.} For each instance, we generated a $p \times p$ correlation matrix from a random $m \times p$ standard normal data set. We then stretched out each correlation matrix into a long vector, Fisher r-to-z transformed the correlations, stored the vector in a column of a large $p(p-1) \times m$ matrix, and then standardized columns to be mean 0 and unit variance. (\textbf{A}) Scatter plot of theoretical vs simulated mean rs-fMRI distance. Each point represents a different number of attributes $p$. For each value of $p$ we fixed $m=100$ and generated 20 distance matrices from rs-fMRI data and computed the average simulated pairwise distance from the 20 iterations. The corresponding theoretical mean was then computed for each value of $p$ for comparison. The dashed line represents the identity (or $y=x$) line for reference. (\textbf{B}) Scatter plot of theoretical vs simulated standard deviation of rs-fMRI distance. These standard deviations come from the same random distance matrices for which mean distance was computed for \textbf{A}. Both theoretical mean and standard deviation approximate the simulated moments quite well.}
+
+%\paragraph*{S20 Fig.}
+%\hypertarget{S20_Fig}{
+%{\bf Comparison of theoretical and simulated moments of max-min normalized rs-fMRI distances from random correlation matrices.} For each instance, we generated a $p \times p$ correlation matrix from a random $m \times p$ standard normal data set. We then stretched out each correlation matrix into a long vector, Fisher r-to-z transformed the correlations, stored the vector in a column of a large $p(p-1) \times m$ matrix, and then standardized columns to be mean 0 and unit variance. (\textbf{A}) Scatter plot of theoretical vs simulated mean max-min normalized rs-fMRI distance. Each point represents a different number of attributes $p$. For each value of $p$ we fixed $m=100$ and generated 20 distance matrices from rs-fMRI data and computed the average simulated pairwise distance from the 20 iterations. The corresponding theoretical mean was then computed for each value of $p$ for comparison. The dashed line represents the identity (or $y=x$) line for reference. (\textbf{B}) Scatter plot of theoretical vs simulated standard deviation of max-min normalized rs-fMRI distance. These standard deviations come from the same random distance matrices for which mean distance was computed for \textbf{A}. Both theoretical mean and standard deviation approximate the simulated moments quite well.}
+
+%\paragraph*{S21 Fig.}
+%\hypertarget{S21_Fig}{
+%{\bf Comparison of theoretical and simulated moments of rs-fMRI diff metric from random correlation matrices.} For each instance, we generated a $p \times p$ correlation matrix from a random $m \times p$ standard normal data set. We then stretched out each correlation matrix into a long vector, Fisher r-to-z transformed the correlations, stored the vector in a column of a large $p(p-1) \times m$ matrix, and then standardized columns to be mean 0 and unit variance. (\textbf{A}) Scatter plot of theoretical vs simulated mean rs-fMRI diff. Each point represents a different number of attributes $p$. For each value of $p$ we fixed $m=100$ and generated 20 diff metric values from the rs-fMRI data and computed the average simulated diff from the 20 iterations. The corresponding theoretical mean was then computed for each value of $p$ for comparison. The dashed line represents the identity (or $y=x$) line for reference. (\textbf{B}) Scatter plot of theoretical vs simulated standard deviation of rs-fMRI diff. These standard deviations come from the same random diff values from which mean diffs were computed for \textbf{A}. Both theoretical mean and standard deviation approximate the simulated moments quite well.}
+
+%\paragraph*{S22 Fig.}
+%\hypertarget{S22_Fig}{
+%{\bf Density curves for one-dimensional projected distances (diffs) onto a fixed attribute $a$ for standard normal and standard uniform data.} (\textbf{A}) Density curves for the distribution of attribute diff in standard normal data for $q=1,2,3,4,$ and $5$. This density is that of a Generalized Gamma distribution. For $q=1$, this is also known as a half-normal distribution. (\textbf{B}) Density curves for the distribution of attribute diff in standard uniform data for $q=1,2,3,4,$ and $5$. This density is that of a Kumaraswamy distribution. For $q=1$, this is also known as a triangular distribution.}
+
+%\paragraph*{S23 Fig.}
+%\hypertarget{S23_Fig}{
+%{\bf One-dimensional projected GM distance (diff) onto an attribute vs minor allele frequency (MAF).} For each possible value of the GM diff ($\text{d} = 0,1$), the exact density of the GM diff is plotted for all possible values of MAF. The expected value of MAF at a particular locus $a$ is $f_a$ for all $a \in \mathcal{A}$, where $f_a$ is the probability of a minor allele occurring at locus $a$. For each element $X_{ia}$ of the data matrix for a fixed attribute $a$, we have $X_{ia} \sim \mathcal{B}(2,f_a)$. Depending on the MAF, the frequency of GM diff taking on a value of 0 or 1 changes. For small MAF, the GM diff will be 0 most often. As MAF increases beyond 0.5, the minor allele switches.}
+
+%\paragraph*{S24 Fig.}
+%\hypertarget{S24_Fig}{
+%{\bf One-dimensional projected AM distance (diff) onto an attribute vs minor allele frequency (MAF).} For each possible value of the AM diff ($\text{d} = 0,1/2,1$), the exact density of the AM diff is plotted for all possible values of MAF. The expected value of MAF at a particular locus $a$ is $f_a$ for all $a \in \mathcal{A}$, where $f_a$ is the probability of a minor allele occurring at locus $a$. For each element $X_{ia}$ of the data matrix for a fixed attribute $a$, we have $X_{ia} \sim \mathcal{B}(2,f_a)$. Depending on the MAF, the frequency of AM diff taking on a value of 0, 1/2, or 1 changes. For small MAF, the AM diff will be 0 most often. For large MAF ($\approx$0.5), the AM diff will be mostly 1/2 with 1 being the second most common value. The least common value of the AM diff is 1. As MAF increases beyond 0.5, the minor allele switches.}
+
+%\paragraph*{S25 Fig.}
+%\hypertarget{S25_Fig}{
+%{\bf One-dimensional projected TiTv distance (diff) onto an attribute vs minor allele frequency (MAF).} For each possible value of the TiTv diff ($\text{d} = 0,1/4,1/2,3/4,1$), the exact density of the TiTv diff is plotted for all possible values of MAF. The Ti/Tv ratio $\eta$ was fixed to be 2. The expected value of MAF at a particular locus $a$ is $f_a$ for all $a \in \mathcal{A}$, where $f_a$ is the probability of a minor allele occurring at locus $a$. For each element $X_{ia}$ of the data matrix for a fixed attribute $a$, we have $X_{ia} \sim \mathcal{B}(2,f_a)$. Depending on the MAF, the frequency of TiTv diff taking on a value of 0, 1/4, 1/2, 3/4, or 1 changes. The density of the TiTv diff for $\text{d} = 1/4, 1/2, \text{ and } 3/4$ has the same resulting curve as a function of MAF. The most common value of TiTv diff at any MAF is 0, the second most common is 1/4, 1/2, or 3/4, and the least common is 1. As MAF increases beyond 0.5, the minor allele switches.}
+
+%\paragraph*{S26 Fig.}
+%\hypertarget{S26_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE26585.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S27 Fig.}
+%\hypertarget{S27_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE488.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S28 Fig.}
+%\hypertarget{S28_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE100642.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S29 Fig.}
+%\hypertarget{S29_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE10072.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S30 Fig.}
+%\hypertarget{S30_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE103184.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S31 Fig.}
+%\hypertarget{S31_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE103430.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S32 Fig.}
+%\hypertarget{S32_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE106635.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S33 Fig.}
+%\hypertarget{S33_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE106912.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S34 Fig.}
+%\hypertarget{S34_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE110398.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S35 Fig.}
+%\hypertarget{S35_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE12196.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S36 Fig.}
+%\hypertarget{S36_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE12452.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S37 Fig.}
+%\hypertarget{S37_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE13220.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S38 Fig.}
+%\hypertarget{S38_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE13597.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S39 Fig.}
+%\hypertarget{S39_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE13911.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S40 Fig.}
+%\hypertarget{S40_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE14304.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S41 Fig.}
+%\hypertarget{S41_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE16765.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S42 Fig.}
+%\hypertarget{S42_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE18608.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S43 Fig.}
+%\hypertarget{S43_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE20347.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S44 Fig.}
+%\hypertarget{S44_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE20466.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S45 Fig.}
+%\hypertarget{S45_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE20489.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S46 Fig.}
+%\hypertarget{S46_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE20586.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S47 Fig.}
+%\hypertarget{S47_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE21947.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S48 Fig.}
+%\hypertarget{S48_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE22356.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S49 Fig.}
+%\hypertarget{S49_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE22671.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S50 Fig.}
+%\hypertarget{S50_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE23400.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S51 Fig.}
+%\hypertarget{S51_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE24342.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S52 Fig.}
+%\hypertarget{S52_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE24988.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S53 Fig.}
+%\hypertarget{S53_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE25156.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S54 Fig.}
+%\hypertarget{S54_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE2685.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S55 Fig.}
+%\hypertarget{S55_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE26623.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S56 Fig.}
+%\hypertarget{S56_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE27114.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S57 Fig.}
+%\hypertarget{S57_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE29110.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S58 Fig.}
+%\hypertarget{S58_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE29633.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S59 Fig.}
+%\hypertarget{S59_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE3017.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S60 Fig.}
+%\hypertarget{S60_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE30502.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S61 Fig.}
+%\hypertarget{S61_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE31564.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S62 Fig.}
+%\hypertarget{S62_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE31738.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S63 Fig.}
+%\hypertarget{S63_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE32515.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S64 Fig.}
+%\hypertarget{S64_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE3268.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S65 Fig.}
+%\hypertarget{S65_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE33003.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S66 Fig.}
+%\hypertarget{S66_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE33373.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S67 Fig.}
+%\hypertarget{S67_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE33459.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S68 Fig.}
+%\hypertarget{S68_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE33463.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S69 Fig.}
+%\hypertarget{S69_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE33672.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S70 Fig.}
+%\hypertarget{S70_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE34400.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S71 Fig.}
+%\hypertarget{S71_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE34667.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S72 Fig.}
+%\hypertarget{S72_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE34872.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S73 Fig.}
+%\hypertarget{S73_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE3494.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S74 Fig.}
+%\hypertarget{S74_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE3519.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S75 Fig.}
+%\hypertarget{S75_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE35240.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S76 Fig.}
+%\hypertarget{S76_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE37404.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S77 Fig.}
+%\hypertarget{S77_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE37902.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S78 Fig.}
+%\hypertarget{S78_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE38531.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S79 Fig.}
+%\hypertarget{S79_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE38783.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S80 Fig.}
+%\hypertarget{S80_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE39549.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S81 Fig.}
+%\hypertarget{S81_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE41221.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S82 Fig.}
+%\hypertarget{S82_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE46727.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S83 Fig.}
+%\hypertarget{S83_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE46728.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S84 Fig.}
+%\hypertarget{S84_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE47406.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S85 Fig.}
+%\hypertarget{S85_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE48964.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S86 Fig.}
+%\hypertarget{S86_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE49382.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S87 Fig.}
+%\hypertarget{S87_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE49486.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S88 Fig.}
+%\hypertarget{S88_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE50604.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S89 Fig.}
+%\hypertarget{S89_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE5281.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S90 Fig.}
+%\hypertarget{S90_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE53122.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S91 Fig.}
+%\hypertarget{S91_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE54129.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S92 Fig.}
+%\hypertarget{S92_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE54216.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S93 Fig.}
+%\hypertarget{S93_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE54350.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S94 Fig.}
+%\hypertarget{S94_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE54917.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S95 Fig.}
+%\hypertarget{S95_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE55503.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S96 Fig.}
+%\hypertarget{S96_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE57002.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S97 Fig.}
+%\hypertarget{S97_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE5859.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S98 Fig.}
+%\hypertarget{S98_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE61140.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S99 Fig.}
+%\hypertarget{S99_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE62598.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S100 Fig.}
+%\hypertarget{S100_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE6414.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S101 Fig.}
+%\hypertarget{S101_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE64670.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S102 Fig.}
+%\hypertarget{S102_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE64718.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S103 Fig.}
+%\hypertarget{S103_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE65517.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S104 Fig.}
+%\hypertarget{S104_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE6720.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S105 Fig.}
+%\hypertarget{S105_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE67492.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S106 Fig.}
+%\hypertarget{S106_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE67865.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S107 Fig.}
+%\hypertarget{S107_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE68918.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S108 Fig.}
+%\hypertarget{S108_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE7124.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S109 Fig.}
+%\hypertarget{S109_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE71868.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S110 Fig.}
+%\hypertarget{S110_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE7197.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S111 Fig.}
+%\hypertarget{S111_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE75037.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S112 Fig.}
+%\hypertarget{S112_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE7511.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S113 Fig.}
+%\hypertarget{S113_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE7567.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S114 Fig.}
+%\hypertarget{S114_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE7592.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S115 Fig.}
+%\hypertarget{S115_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE7670.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S116 Fig.}
+%\hypertarget{S116_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE7881.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S117 Fig.}
+%\hypertarget{S117_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE79973.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S118 Fig.}
+%\hypertarget{S118_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE83077.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S119 Fig.}
+%\hypertarget{S119_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE8498.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S120 Fig.}
+%\hypertarget{S120_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE9687.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S121 Fig.}
+%\hypertarget{S121_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE9820.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S122 Fig.}
+%\hypertarget{S122_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE98634.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S123 Fig.}
+%\hypertarget{S123_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE99295.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S124 Fig.}
+%\hypertarget{S124_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in GSE48200.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S125 Fig.}
+%\hypertarget{S125_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in real resting-state fMRI data~\cite{t1000} generated using a parcellation of spherical ROIs~\cite{power2011}.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+
+%\paragraph*{S126 Fig.}
+%\hypertarget{S126_Fig}{
+%{\bf Density and quantile-quantile plots for distances between samples in real resting-state fMRI data~\cite{t1000} generated using a graph theoretic parcellation of ROIs~\cite{shen2013}.} \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
 
 %\section{Acknowledgments}
 %Cras egestas velit mauris, eu mollis turpis pellentesque sit amet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam id pretium nisi. Sed ac quam id nisi malesuada congue. Sed interdum aliquet augue, at pellentesque quam rhoncus vitae.
