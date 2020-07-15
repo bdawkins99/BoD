@@ -203,12 +203,12 @@
 % Title must be 250 characters or less.
 % \begin{flushleft}
 {\Large	
-	\textbf\newline{Theoretical properties of nearest-neighbor distance distributions and novel metrics for high dimensional bioinformatics data: \\ Supplementary figures} % Please use "sentence case" for title and headings (capitalize only the first word in a title (or heading), the first word in a subtitle (or subheading), and any proper nouns).	
+	\textbf\newline{Theoretical properties of distance distributions and novel metrics for nearest-neighbor feature selection: \\ Supplementary figures} % Please use "sentence case" for title and headings (capitalize only the first word in a title (or heading), the first word in a subtitle (or subheading), and any proper nouns).	
 }
 
 \begin{figure}[H]
 	\includegraphics[width=\textwidth]{central_limit_hist_uniform_max-min.pdf}
-	\caption{Convergence to Gaussian for Manhattan and Euclidean distances for simulated standard uniform data with $m=100$ instances and $p=10, 100,$ and $10000$ attributes. Convergence to Gaussian occurs rapidly with increasing $p$, and Gaussian is a good approximation for $p$ as low as $10$ attributes. The number of attributes in bioinformatics data is typically much larger, at least on the order of $10^3$. The Euclidean metric has stronger convergence to normal than Manhattan. P values from Shapiro-Wilk test, where the null hypothesis is a Gaussian distribution.}
+	\caption{Convergence to Gaussian for max-min normalized Manhattan and Euclidean distances for simulated standard uniform data with $m=100$ instances and $p=10, 100,$ and $10000$ attributes.C onvergence to Gaussian occurs rapidly with increasing $p$, and Gaussian is a good approximation for $p$ as low as $10$ attributes. The number of attributes in bioinformatics data is typically much larger, at least on the order of $10^3$. The Euclidean metric has stronger convergence to normal than Manhattan. P values from Shapiro-Wilk test, where the null hypothesis is a Gaussian distribution.}
 \end{figure}
 
 \begin{figure}[H]
@@ -351,6 +351,512 @@
 \end{minipage}
 %\end{figure}
 
-%\bibliographystyle{unsrt}
-%\bibliography{BoD}   % name of bib file
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE26585.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE26585. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE488.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE488. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE100642.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE100642. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE10072.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE10072. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE103184.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE103184. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE103430.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE103430. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE106635.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE106635. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE106912.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE106912. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE110398.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE110398. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE12196.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE12196. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE12452.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE12452. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE13220.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE13220. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE13597.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE13597. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE13911.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE13911. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE14304.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE14304. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE16765.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE16765. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE18608.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE18608. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE20347.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE20347. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE20466.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE20466. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE20489.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE20489. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE20586.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE20586. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE21947.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE21947. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE22356.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE22356. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE22671.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE22671. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE23400.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE23400. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE24342.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE24342. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE24988.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE24988. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE25156.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE25156. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE2685.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE2685. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE27114.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE27114. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE29110.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE29110. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE29633.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE29633. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE3017.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE3017. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE30502.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE30502. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE31564.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE31564. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE31738.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE31738. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE32515.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE32515. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE3268.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE3268. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE33003.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE33003. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE33373.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE33373. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE33459.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE33459. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE33463.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE33463. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE33672.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE33672. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE34400.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE34400. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE34667.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE34667. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE34872.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE34872. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE3494.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE3494. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE3519.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE3519. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE35240.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE35240. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE37404.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE37404. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE37902.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE37902. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE38531.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE38531. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE38783.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE38783. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE39549.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE39549. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE41221.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE41221. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE46727.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE46727. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE46728.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE46728. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE47406.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE47406. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE48964.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE48964. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE49382.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE49382. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE49486.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE49486. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE50604.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE50604. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE5281.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE5281. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE53122.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE53122. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE54129.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE54129. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE54216.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE54216. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE54350.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE54350. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE54917.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE54917. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE55503.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE55503. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE57002.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE57002. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE5859.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE5859. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE61140.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE61140. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE62598.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE62598. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE6414.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE6414. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE64670.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE64670. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE64718.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE64718. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE65517.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE65517. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE6720.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE6720. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE67376.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE67376. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE67492.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE67492. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE67865.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE67865. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE68918.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE68918. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE7124.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE7124. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE71868.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE71868. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE7197.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE7197. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE75037.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE75037. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE7511.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE7511. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE7567.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE7567. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE7592.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE7592. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE7670.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE7670. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE7881.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE7881. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE79973.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE79973. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE83077.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE83077. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE8498.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE8498. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE9687.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE9687. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE9820.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE9820. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE98634.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE98634. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE99295.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE99295. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_GSE48200.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in GSE48200. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_power-atlas.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in real resting-state fMRI data generated using a parcellation of spherical ROIs~\cite{power2011}. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{manhattan-distance_hist_shen-atlas.pdf}
+	\caption{Density and quantile-quantile plots for distances between samples in real resting-state fMRI data generated using a graph theoretic parcellation of ROIs~\cite{shen2013}. \textbf{A} Estimated density curve for distances. \textbf{B} Quantile-quantile plot between theoretical (standard normal) quantiles and sample distance quantiles.}
+\end{figure}
+
+
+\bibliographystyle{unsrt}
+\bibliography{BoD}   % name of bib file
 \end{document}

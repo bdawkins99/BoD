@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  20 JUN 2020 09:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  15 JUL 2020 15:53
 entering extended mode
 **./theoretical_paper_supplement.tex
 (theoretical_paper_supplement.tex
@@ -1017,11 +1017,11 @@ Package caption Info: End \AtBeginDocument code.
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
 (lastpage)             ! on input line 200.
-<central_limit_hist_uniform_standard.pdf, id=6, 839.66095pt x 854.32774pt>
-File: central_limit_hist_uniform_standard.pdf Graphic file (type pdf)
-<use central_limit_hist_uniform_standard.pdf>
-Package pdftex.def Info: central_limit_hist_uniform_standard.pdf  used on input
- line 210.
+<central_limit_hist_uniform_max-min.pdf, id=6, 839.66095pt x 854.32774pt>
+File: central_limit_hist_uniform_max-min.pdf Graphic file (type pdf)
+<use central_limit_hist_uniform_max-min.pdf>
+Package pdftex.def Info: central_limit_hist_uniform_max-min.pdf  used on input 
+line 210.
 (pdftex.def)             Requested size: 379.4175pt x 386.03432pt.
 LaTeX Font Info:    Try loading font information for U+msa on input line 211.
 
@@ -1048,7 +1048,7 @@ line 215.
  [1
 
 {C:/Users/bdawk/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./central_l
-imit_hist_uniform_standard.pdf>]
+imit_hist_uniform_max-min.pdf>]
 <central_limit_hist_normal_max-min.pdf, id=69, 839.66095pt x 854.32774pt>
 File: central_limit_hist_normal_max-min.pdf Graphic file (type pdf)
 <use central_limit_hist_normal_max-min.pdf>
@@ -1076,8 +1076,7 @@ File: central_limit_hist_gwas_TiTv.pdf Graphic file (type pdf)
 Package pdftex.def Info: central_limit_hist_gwas_TiTv.pdf  used on input line 2
 35.
 (pdftex.def)             Requested size: 379.4175pt x 268.94945pt.
-
-[5 <./central_limit_hist_gwas_AM.pdf>]
+ [5 <./central_limit_hist_gwas_AM.pdf>]
 <central_limit_hist_rs-fMRI_standard.pdf, id=254, 839.66095pt x 595.20868pt>
 File: central_limit_hist_rs-fMRI_standard.pdf Graphic file (type pdf)
 <use central_limit_hist_rs-fMRI_standard.pdf>
@@ -1091,6 +1090,7 @@ File: central_limit_hist_rs-fMRI_max-min.pdf Graphic file (type pdf)
 Package pdftex.def Info: central_limit_hist_rs-fMRI_max-min.pdf  used on input 
 line 245.
 (pdftex.def)             Requested size: 379.4175pt x 268.94945pt.
+
 [7 <./central_limit_hist_rs-fMRI_standard.pdf>]
 <compared_moments_normal_manhattan_standard.pdf, id=333, 798.03645pt x 432.5861
 4pt>
@@ -1212,39 +1212,751 @@ File: TiTv_density-vs-MAF.pdf Graphic file (type pdf)
 <use TiTv_density-vs-MAF.pdf>
 Package pdftex.def Info: TiTv_density-vs-MAF.pdf  used on input line 347.
 (pdftex.def)             Requested size: 197.2987pt x 197.29851pt.
- 
+<manhattan-distance_hist_GSE26585.pdf, id=763, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE26585.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE26585.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE26585.pdf  used on input li
+ne 355.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [23 <./AM_density-vs-MAF.pdf> <./TiTv_density-vs-MAF.pdf>]
+<manhattan-distance_hist_GSE488.pdf, id=783, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE488.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE488.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE488.pdf  used on input line
+ 360.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE100642.pdf, id=784, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE100642.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE100642.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE100642.pdf  used on input l
+ine 365.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [24 <./manhattan-distance_hist_GSE26585.pdf> <./manhattan-distance_hist_GSE488
+.pdf>]
+<manhattan-distance_hist_GSE10072.pdf, id=812, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE10072.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE10072.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE10072.pdf  used on input li
+ne 370.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE103184.pdf, id=813, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE103184.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE103184.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE103184.pdf  used on input l
+ine 375.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [25 <./manhattan-distance_hist_GSE100642.pdf> <./manhattan-distance_hist_GSE10
+072.pdf>]
+<manhattan-distance_hist_GSE103430.pdf, id=842, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE103430.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE103430.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE103430.pdf  used on input l
+ine 380.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE106635.pdf, id=843, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE106635.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE106635.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE106635.pdf  used on input l
+ine 385.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [26 <./manhattan-distance_hist_GSE103184.pdf> <./manhattan-distance_hist_GSE10
+3430.pdf>]
+<manhattan-distance_hist_GSE106912.pdf, id=871, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE106912.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE106912.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE106912.pdf  used on input l
+ine 390.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE110398.pdf, id=872, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE110398.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE110398.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE110398.pdf  used on input l
+ine 395.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [27 <./manhattan-distance_hist_GSE106635.pdf> <./manhattan-distance_hist_GSE10
+6912.pdf>]
+<manhattan-distance_hist_GSE12196.pdf, id=900, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE12196.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE12196.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE12196.pdf  used on input li
+ne 400.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE12452.pdf, id=901, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE12452.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE12452.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE12452.pdf  used on input li
+ne 405.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [28 <./manhattan-distance_hist_GSE110398.pdf> <./manhattan-distance_hist_GSE12
+196.pdf>]
+<manhattan-distance_hist_GSE13220.pdf, id=929, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE13220.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE13220.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE13220.pdf  used on input li
+ne 410.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE13597.pdf, id=930, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE13597.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE13597.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE13597.pdf  used on input li
+ne 415.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [29 <./manhattan-distance_hist_GSE12452.pdf> <./manhattan-distance_hist_GSE132
+20.pdf>]
+<manhattan-distance_hist_GSE13911.pdf, id=958, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE13911.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE13911.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE13911.pdf  used on input li
+ne 420.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE14304.pdf, id=959, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE14304.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE14304.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE14304.pdf  used on input li
+ne 425.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [30 <./manhattan-distance_hist_GSE13597.pdf> <./manhattan-distance_hist_GSE139
+11.pdf>]
+<manhattan-distance_hist_GSE16765.pdf, id=987, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE16765.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE16765.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE16765.pdf  used on input li
+ne 430.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE18608.pdf, id=988, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE18608.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE18608.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE18608.pdf  used on input li
+ne 435.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [31 <./manhattan-distance_hist_GSE14304.pdf> <./manhattan-distance_hist_GSE167
+65.pdf>]
+<manhattan-distance_hist_GSE20347.pdf, id=1017, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE20347.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE20347.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE20347.pdf  used on input li
+ne 440.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE20466.pdf, id=1018, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE20466.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE20466.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE20466.pdf  used on input li
+ne 445.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [32 <./manhattan-distance_hist_GSE18608.pdf> <./manhattan-distance_hist_GSE203
+47.pdf>]
+<manhattan-distance_hist_GSE20489.pdf, id=1046, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE20489.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE20489.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE20489.pdf  used on input li
+ne 450.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE20586.pdf, id=1047, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE20586.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE20586.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE20586.pdf  used on input li
+ne 455.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+
+[33 <./manhattan-distance_hist_GSE20466.pdf> <./manhattan-distance_hist_GSE2048
+9.pdf>]
+<manhattan-distance_hist_GSE21947.pdf, id=1075, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE21947.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE21947.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE21947.pdf  used on input li
+ne 460.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE22356.pdf, id=1076, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE22356.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE22356.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE22356.pdf  used on input li
+ne 465.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [34 <./manhattan-distance_hist_GSE20586.pdf> <./manhattan-distance_hist_GSE219
+47.pdf>]
+<manhattan-distance_hist_GSE22671.pdf, id=1104, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE22671.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE22671.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE22671.pdf  used on input li
+ne 470.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE23400.pdf, id=1105, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE23400.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE23400.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE23400.pdf  used on input li
+ne 475.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [35 <./manhattan-distance_hist_GSE22356.pdf> <./manhattan-distance_hist_GSE226
+71.pdf>]
+<manhattan-distance_hist_GSE24342.pdf, id=1133, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE24342.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE24342.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE24342.pdf  used on input li
+ne 480.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE24988.pdf, id=1134, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE24988.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE24988.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE24988.pdf  used on input li
+ne 485.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [36 <./manhattan-distance_hist_GSE23400.pdf> <./manhattan-distance_hist_GSE243
+42.pdf>]
+<manhattan-distance_hist_GSE25156.pdf, id=1162, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE25156.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE25156.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE25156.pdf  used on input li
+ne 490.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE2685.pdf, id=1163, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE2685.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE2685.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE2685.pdf  used on input lin
+e 495.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [37 <./manhattan-distance_hist_GSE24988.pdf> <./manhattan-distance_hist_GSE251
+56.pdf>]
+<manhattan-distance_hist_GSE27114.pdf, id=1192, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE27114.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE27114.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE27114.pdf  used on input li
+ne 500.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE29110.pdf, id=1193, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE29110.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE29110.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE29110.pdf  used on input li
+ne 505.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [38 <./manhattan-distance_hist_GSE2685.pdf> <./manhattan-distance_hist_GSE2711
+4.pdf>]
+<manhattan-distance_hist_GSE29633.pdf, id=1221, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE29633.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE29633.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE29633.pdf  used on input li
+ne 510.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE3017.pdf, id=1222, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE3017.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE3017.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE3017.pdf  used on input lin
+e 515.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [39 <./manhattan-distance_hist_GSE29110.pdf> <./manhattan-distance_hist_GSE296
+33.pdf>]
+<manhattan-distance_hist_GSE30502.pdf, id=1250, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE30502.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE30502.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE30502.pdf  used on input li
+ne 520.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE31564.pdf, id=1251, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE31564.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE31564.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE31564.pdf  used on input li
+ne 525.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [40 <./manhattan-distance_hist_GSE3017.pdf> <./manhattan-distance_hist_GSE3050
+2.pdf>]
+<manhattan-distance_hist_GSE31738.pdf, id=1279, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE31738.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE31738.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE31738.pdf  used on input li
+ne 530.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE32515.pdf, id=1280, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE32515.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE32515.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE32515.pdf  used on input li
+ne 535.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [41 <./manhattan-distance_hist_GSE31564.pdf> <./manhattan-distance_hist_GSE317
+38.pdf>]
+<manhattan-distance_hist_GSE3268.pdf, id=1308, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE3268.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE3268.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE3268.pdf  used on input lin
+e 540.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE33003.pdf, id=1309, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE33003.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE33003.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE33003.pdf  used on input li
+ne 545.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [42 <./manhattan-distance_hist_GSE32515.pdf> <./manhattan-distance_hist_GSE326
+8.pdf>]
+<manhattan-distance_hist_GSE33373.pdf, id=1337, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE33373.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE33373.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE33373.pdf  used on input li
+ne 550.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE33459.pdf, id=1338, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE33459.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE33459.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE33459.pdf  used on input li
+ne 555.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+
+[43 <./manhattan-distance_hist_GSE33003.pdf> <./manhattan-distance_hist_GSE3337
+3.pdf>]
+<manhattan-distance_hist_GSE33463.pdf, id=1367, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE33463.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE33463.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE33463.pdf  used on input li
+ne 560.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE33672.pdf, id=1368, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE33672.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE33672.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE33672.pdf  used on input li
+ne 565.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [44 <./manhattan-distance_hist_GSE33459.pdf> <./manhattan-distance_hist_GSE334
+63.pdf>]
+<manhattan-distance_hist_GSE34400.pdf, id=1396, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE34400.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE34400.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE34400.pdf  used on input li
+ne 570.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE34667.pdf, id=1397, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE34667.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE34667.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE34667.pdf  used on input li
+ne 575.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [45 <./manhattan-distance_hist_GSE33672.pdf> <./manhattan-distance_hist_GSE344
+00.pdf>]
+<manhattan-distance_hist_GSE34872.pdf, id=1425, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE34872.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE34872.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE34872.pdf  used on input li
+ne 580.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE3494.pdf, id=1426, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE3494.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE3494.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE3494.pdf  used on input lin
+e 585.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [46 <./manhattan-distance_hist_GSE34667.pdf> <./manhattan-distance_hist_GSE348
+72.pdf>]
+<manhattan-distance_hist_GSE3519.pdf, id=1454, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE3519.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE3519.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE3519.pdf  used on input lin
+e 590.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE35240.pdf, id=1455, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE35240.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE35240.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE35240.pdf  used on input li
+ne 595.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [47 <./manhattan-distance_hist_GSE3494.pdf> <./manhattan-distance_hist_GSE3519
+.pdf>]
+<manhattan-distance_hist_GSE37404.pdf, id=1483, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE37404.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE37404.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE37404.pdf  used on input li
+ne 600.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE37902.pdf, id=1484, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE37902.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE37902.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE37902.pdf  used on input li
+ne 605.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [48 <./manhattan-distance_hist_GSE35240.pdf> <./manhattan-distance_hist_GSE374
+04.pdf>]
+<manhattan-distance_hist_GSE38531.pdf, id=1512, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE38531.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE38531.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE38531.pdf  used on input li
+ne 610.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE38783.pdf, id=1513, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE38783.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE38783.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE38783.pdf  used on input li
+ne 615.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [49 <./manhattan-distance_hist_GSE37902.pdf> <./manhattan-distance_hist_GSE385
+31.pdf>]
+<manhattan-distance_hist_GSE39549.pdf, id=1542, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE39549.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE39549.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE39549.pdf  used on input li
+ne 620.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE41221.pdf, id=1543, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE41221.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE41221.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE41221.pdf  used on input li
+ne 625.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [50 <./manhattan-distance_hist_GSE38783.pdf> <./manhattan-distance_hist_GSE395
+49.pdf>]
+<manhattan-distance_hist_GSE46727.pdf, id=1571, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE46727.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE46727.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE46727.pdf  used on input li
+ne 630.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE46728.pdf, id=1572, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE46728.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE46728.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE46728.pdf  used on input li
+ne 635.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [51 <./manhattan-distance_hist_GSE41221.pdf> <./manhattan-distance_hist_GSE467
+27.pdf>]
+<manhattan-distance_hist_GSE47406.pdf, id=1600, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE47406.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE47406.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE47406.pdf  used on input li
+ne 640.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE48964.pdf, id=1601, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE48964.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE48964.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE48964.pdf  used on input li
+ne 645.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [52 <./manhattan-distance_hist_GSE46728.pdf> <./manhattan-distance_hist_GSE474
+06.pdf>]
+<manhattan-distance_hist_GSE49382.pdf, id=1629, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE49382.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE49382.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE49382.pdf  used on input li
+ne 650.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE49486.pdf, id=1630, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE49486.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE49486.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE49486.pdf  used on input li
+ne 655.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+
+[53 <./manhattan-distance_hist_GSE48964.pdf> <./manhattan-distance_hist_GSE4938
+2.pdf>]
+<manhattan-distance_hist_GSE50604.pdf, id=1658, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE50604.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE50604.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE50604.pdf  used on input li
+ne 660.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE5281.pdf, id=1659, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE5281.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE5281.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE5281.pdf  used on input lin
+e 665.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [54 <./manhattan-distance_hist_GSE49486.pdf> <./manhattan-distance_hist_GSE506
+04.pdf>]
+<manhattan-distance_hist_GSE53122.pdf, id=1687, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE53122.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE53122.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE53122.pdf  used on input li
+ne 670.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE54129.pdf, id=1688, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE54129.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE54129.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE54129.pdf  used on input li
+ne 675.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [55 <./manhattan-distance_hist_GSE5281.pdf> <./manhattan-distance_hist_GSE5312
+2.pdf>]
+<manhattan-distance_hist_GSE54216.pdf, id=1717, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE54216.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE54216.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE54216.pdf  used on input li
+ne 680.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE54350.pdf, id=1718, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE54350.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE54350.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE54350.pdf  used on input li
+ne 685.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [56 <./manhattan-distance_hist_GSE54129.pdf> <./manhattan-distance_hist_GSE542
+16.pdf>]
+<manhattan-distance_hist_GSE54917.pdf, id=1746, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE54917.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE54917.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE54917.pdf  used on input li
+ne 690.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE55503.pdf, id=1747, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE55503.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE55503.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE55503.pdf  used on input li
+ne 695.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [57 <./manhattan-distance_hist_GSE54350.pdf> <./manhattan-distance_hist_GSE549
+17.pdf>]
+<manhattan-distance_hist_GSE57002.pdf, id=1775, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE57002.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE57002.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE57002.pdf  used on input li
+ne 700.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE5859.pdf, id=1776, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE5859.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE5859.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE5859.pdf  used on input lin
+e 705.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [58 <./manhattan-distance_hist_GSE55503.pdf> <./manhattan-distance_hist_GSE570
+02.pdf>]
+<manhattan-distance_hist_GSE61140.pdf, id=1804, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE61140.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE61140.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE61140.pdf  used on input li
+ne 710.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE62598.pdf, id=1805, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE62598.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE62598.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE62598.pdf  used on input li
+ne 715.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [59 <./manhattan-distance_hist_GSE5859.pdf> <./manhattan-distance_hist_GSE6114
+0.pdf>]
+<manhattan-distance_hist_GSE6414.pdf, id=1833, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE6414.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE6414.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE6414.pdf  used on input lin
+e 720.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE64670.pdf, id=1834, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE64670.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE64670.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE64670.pdf  used on input li
+ne 725.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [60 <./manhattan-distance_hist_GSE62598.pdf> <./manhattan-distance_hist_GSE641
+4.pdf>]
+<manhattan-distance_hist_GSE64718.pdf, id=1862, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE64718.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE64718.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE64718.pdf  used on input li
+ne 730.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE65517.pdf, id=1863, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE65517.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE65517.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE65517.pdf  used on input li
+ne 735.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [61 <./manhattan-distance_hist_GSE64670.pdf> <./manhattan-distance_hist_GSE647
+18.pdf>]
+<manhattan-distance_hist_GSE6720.pdf, id=1892, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE6720.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE6720.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE6720.pdf  used on input lin
+e 740.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE67376.pdf, id=1893, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE67376.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE67376.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE67376.pdf  used on input li
+ne 745.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [62 <./manhattan-distance_hist_GSE65517.pdf> <./manhattan-distance_hist_GSE672
+0.pdf>]
+<manhattan-distance_hist_GSE67492.pdf, id=1921, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE67492.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE67492.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE67492.pdf  used on input li
+ne 750.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE67865.pdf, id=1922, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE67865.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE67865.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE67865.pdf  used on input li
+ne 755.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+
+[63 <./manhattan-distance_hist_GSE67376.pdf> <./manhattan-distance_hist_GSE6749
+2.pdf>]
+<manhattan-distance_hist_GSE68918.pdf, id=1949, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE68918.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE68918.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE68918.pdf  used on input li
+ne 760.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE7124.pdf, id=1950, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE7124.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE7124.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE7124.pdf  used on input lin
+e 765.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [64 <./manhattan-distance_hist_GSE67865.pdf> <./manhattan-distance_hist_GSE689
+18.pdf>]
+<manhattan-distance_hist_GSE71868.pdf, id=1978, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE71868.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE71868.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE71868.pdf  used on input li
+ne 770.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE7197.pdf, id=1979, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE7197.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE7197.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE7197.pdf  used on input lin
+e 775.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [65 <./manhattan-distance_hist_GSE7124.pdf> <./manhattan-distance_hist_GSE7186
+8.pdf>]
+<manhattan-distance_hist_GSE75037.pdf, id=2007, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE75037.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE75037.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE75037.pdf  used on input li
+ne 780.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE7511.pdf, id=2008, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE7511.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE7511.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE7511.pdf  used on input lin
+e 785.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [66 <./manhattan-distance_hist_GSE7197.pdf> <./manhattan-distance_hist_GSE7503
+7.pdf>]
+<manhattan-distance_hist_GSE7567.pdf, id=2036, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE7567.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE7567.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE7567.pdf  used on input lin
+e 790.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE7592.pdf, id=2037, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE7592.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE7592.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE7592.pdf  used on input lin
+e 795.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [67 <./manhattan-distance_hist_GSE7511.pdf> <./manhattan-distance_hist_GSE7567
+.pdf>]
+<manhattan-distance_hist_GSE7670.pdf, id=2066, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE7670.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE7670.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE7670.pdf  used on input lin
+e 800.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE7881.pdf, id=2067, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE7881.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE7881.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE7881.pdf  used on input lin
+e 805.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [68 <./manhattan-distance_hist_GSE7592.pdf> <./manhattan-distance_hist_GSE7670
+.pdf>]
+<manhattan-distance_hist_GSE79973.pdf, id=2095, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE79973.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE79973.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE79973.pdf  used on input li
+ne 810.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE83077.pdf, id=2096, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE83077.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE83077.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE83077.pdf  used on input li
+ne 815.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [69 <./manhattan-distance_hist_GSE7881.pdf> <./manhattan-distance_hist_GSE7997
+3.pdf>]
+<manhattan-distance_hist_GSE8498.pdf, id=2124, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE8498.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE8498.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE8498.pdf  used on input lin
+e 820.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE9687.pdf, id=2125, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE9687.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE9687.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE9687.pdf  used on input lin
+e 825.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [70 <./manhattan-distance_hist_GSE83077.pdf> <./manhattan-distance_hist_GSE849
+8.pdf>]
+<manhattan-distance_hist_GSE9820.pdf, id=2153, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE9820.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE9820.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE9820.pdf  used on input lin
+e 830.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE98634.pdf, id=2154, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE98634.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE98634.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE98634.pdf  used on input li
+ne 835.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [71 <./manhattan-distance_hist_GSE9687.pdf> <./manhattan-distance_hist_GSE9820
+.pdf>]
+<manhattan-distance_hist_GSE99295.pdf, id=2182, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE99295.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE99295.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE99295.pdf  used on input li
+ne 840.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_GSE48200.pdf, id=2183, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_GSE48200.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_GSE48200.pdf>
+Package pdftex.def Info: manhattan-distance_hist_GSE48200.pdf  used on input li
+ne 845.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [72 <./manhattan-distance_hist_GSE98634.pdf> <./manhattan-distance_hist_GSE992
+95.pdf>]
+<manhattan-distance_hist_power-atlas.pdf, id=2211, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_power-atlas.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_power-atlas.pdf>
+Package pdftex.def Info: manhattan-distance_hist_power-atlas.pdf  used on input
+ line 850.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+<manhattan-distance_hist_shen-atlas.pdf, id=2213, 867.24pt x 433.62pt>
+File: manhattan-distance_hist_shen-atlas.pdf Graphic file (type pdf)
+<use manhattan-distance_hist_shen-atlas.pdf>
+Package pdftex.def Info: manhattan-distance_hist_shen-atlas.pdf  used on input 
+line 855.
+(pdftex.def)             Requested size: 379.4175pt x 189.70828pt.
+ [73 <./manhattan-distance_hist_GSE48200.pdf> <./manhattan-distance_hist_power-
+atlas.pdf>] (theoretical_paper_supplement.bbl) 
 AED: lastpage setting LastPage
-[23 <./AM_density-vs-MAF.pdf> <./TiTv_density-vs-MAF.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 356.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 356.
+[74 <./manhattan-distance_hist_shen-atlas.pdf>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 862.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 862.
 
 (theoretical_paper_supplement.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 356.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 356.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 862.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 862.
 Package rerunfilecheck Info: File `theoretical_paper_supplement.out' has not ch
 anged.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 356.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 862.
  ) 
 Here is how much of TeX's memory you used:
- 22253 strings out of 492946
- 405573 string characters out of 3135528
- 519397 words of memory out of 3000000
- 25601 multiletter control sequences out of 15000+200000
- 9619 words of font info for 51 fonts, out of 3000000 for 9000
+ 22929 strings out of 492946
+ 429665 string characters out of 3135528
+ 519458 words of memory out of 3000000
+ 26011 multiletter control sequences out of 15000+200000
+ 10232 words of font info for 55 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,11n,92p,1520b,488s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
-fonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8
-a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on theoretical_paper_supplement.pdf (23 pages, 2792971 bytes).
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Progra
+m Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb>
+Output written on theoretical_paper_supplement.pdf (74 pages, 16297223 bytes).
 PDF statistics:
- 819 PDF objects out of 1000 (max. 8388607)
- 49 named destinations out of 1000 (max. 500000)
- 5770 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2339 PDF objects out of 2487 (max. 8388607)
+ 204 named destinations out of 1000 (max. 500000)
+ 8323 words of extra memory for PDF output out of 10000 (max. 10000000)
 
