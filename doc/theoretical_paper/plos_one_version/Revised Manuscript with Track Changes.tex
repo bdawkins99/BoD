@@ -2426,14 +2426,40 @@ For our correlation data-based metric (Eq.~\ref{eq:D_rs-fMRI}), we consider addi
 \section{Improving feature selection with distance distribution informed k}
 }
 
-\begin{figure}[H]
-	\includegraphics[width=\textwidth]{interaction-main_sim_m100-p1000_main-bias-pt8_int-bias-pt2_pct-signals-pt1_predk_vs_naivek(grouped).pdf}
-	\caption{\bf{Performance comparison between rule-of-thumb k=10 and distance distribution informed k.} Attribute precision and recall are significantly improved using informed k rather than naive rule-of-thumb k=10, whereas no significant difference exists for either training or validation classification accuracy between the two values of k.}\label{fig:sim_study}
-\end{figure}
+\textcolor{red}{
+	Our focus on asymptotic moments of distance distributions is motivated by the desire to improve performance of feature selection in nearest-neighbor algorithms. The choice of $k$ or a neighborhood radius will tend to yield selected features with superior functionality if the neighborhood sizes are neither too large nor too small~\cite{stir}. The general rule-of-thumb for fixed $k$ is $k=10$ or equivalently a radius that gives approximately as many neighbors in each target instance neighborhood. However, this rule-of-thumb does not account for the radically different sample sizes $m$ or number of features $p$ that occur in real data. As we have shown for random data with uncorrelated attributes, expected distance or standard deviation of sample distances increases in direct proportion to some function of $p$. This means that the rule-of-thumb can be largely out of step with the average distance between neighbors in a real data set. By parameterizing the choice of neighborhood sizes by the expected moments of the distance distribution, under the assumption of independent data and uncorrelated features, we can improve upon naive neighborhood approaches. 
+}
 
-%\textcolor{red}{
-	
-%}
+\textcolor{red}{
+	Adaptive radius methods may perform particularly well for detecting main effects and interactions. One such method called MultiSURF outperformed other adaptive algorithms and also fixed $k$ methods on detecting interaction effects in simulated data~\cite{urbanowicz17}. In another simulation study for data with $m=100$ instances and $p=1000$ attributes with 100 functional, it was shown that MultiSURF performed relatively well in detecting both interaction effects and main effects~\cite{stir}. This latter study used fixed $k=\lfloor m/6 \rfloor = 16$ that empirically gave approximately the same neighborhood size as MultiSURF on average, but the fixed $k=\lfloor m/6 \rfloor = 16$ method modestly improved the detection of main effects and performed approximately the same for interaction effects in 100 replicated simulations. The MultiSURF approach gives each target instance $i$ its own tailored neighborhood radius $R_i$ (Eq.~\ref{eq:msurf_rad}) as a function of the average pairwise distance to the target instance $i$ ($\bar{D}_{ij \neq i}$) and the sample standard deviation of the same distances ($D_{ij \neq i}$). 
+	%
+	\begin{equation}\label{eq:msurf_rad}
+	R_i = \bar{D}_{ij \neq i} - \alpha \sigma_{D_{ij \neq i}},
+	\end{equation}
+	%
+	where $\bar{D}_{ij \neq i} = (m-1)^{-1}\sum_{j \neq i} D_{ij}$, $\sigma_{D_{ij \neq i}} = \sqrt{\text{Var}\left(D_{ij \neq i}\right)}$, and $\alpha=0.5$.
+}
+
+\textcolor{red}{
+    The approximation of $k=\lfloor m/6 \rfloor$ to the average MultiSURF radius (Eq.~\ref{eq:msurf_rad}) neighborhood order, although exceptionally accurate for $m=100$, was more precisely shown to be
+    %
+    \begin{equation}\label{eq:k_alpha}
+    \bar{k}_\alpha = \left \lfloor \frac{m-1}{2} \left(1 - \text{erf}\left(\frac{\alpha}{\sqrt{2}}\right)\right) \right \rfloor,
+    \end{equation}
+    %
+    where $\alpha=0.5$ for MultiSURF~\cite{npdr2}. This formula for $\bar{k}_\alpha$ (Eq.~\ref{eq:k_alpha}) is simply the transformation $\lfloor \cdot \rfloor$ of the expected value of a binomial random variable with $n=m-1$ trials and success probability $q_\alpha = 0.5(1 - \text{erf}(\alpha / \sqrt{2}))$. The value of $q_\alpha$ is the probability of a random instance $j \neq i$ being in the neighborhood of target instance $i$, which is equivalent to satisfying $D_{ij \neq i} \leq R_i$ (Eq.~\ref{eq:msurf_rad}). When we take $\alpha=0.5$, we find that $\bar{k}_{1/2} \approx \lfloor 0.154(m-1) \rfloor = 15$, which differs from the empirically determined $k=16$ by only a single neighbor.
+}
+
+\textcolor{red}{
+	A standard approach to avoid over fitting in feature and model selection is through some form of cross-validation. Our approach for choosing a distance distribution-informed fixed $k_\alpha$ can be implemented with any cross-validation method, nearest-neighbor feature selection algorithm, and model type. We chose to demonstrate the improved performance of fixed $k_{1/2}$ over the rule-of-thumb $k=10$ within the context of consensus features nested cross-validation (cnCV)~\cite{cncv}. Using simulated data, cnCV has been shown to select fewer false positive features on average across all simulation replicates than standard nested cross-validation while simultaneously maintaining a low false negative rate for functional features. Our implementation of cnCV uses the cncv package (\hyperlink{cncv}{https://github.com/insilico/cncv}). We use random forest as the model type for classification, which was parameterized by $\text{ntree}=1000$ trees and $\text{mtry}=p_\text{fold}/3$ ($p_\text{fold}$ = total features in training fold) randomly selected features at each node split.
+}
+
+\begin{figure}[H]
+	%\renewcommand{\figurename}{\textcolor{red}{Fig}}
+	\captionsetup{labelfont={color=red, bf}, textfont={color=red, normalfont}}
+	\includegraphics[width=\textwidth]{interaction-main_sim_m100-p1000_main-bias-pt8_int-bias-pt2_pct-signals-pt1_predk_vs_naivek(grouped).pdf}
+	\caption{\textcolor{red}{Performance comparison between rule-of-thumb $k=10$ and distance distribution informed $k$. Attribute precision and recall are significantly improved using informed $k$ rather than naive rule-of-thumb $k=10$, whereas no significant difference exists for either training or validation classification accuracy between the two values of $k$.}}\label{fig:sim_study}
+\end{figure}
 
 \section{Discussion}\label{sec:discussion}
 

@@ -176,4 +176,11 @@ Le TT, Simmons WK, Misaki M, Bodurka J, White BC, Savitz J, et~al.
   Existing Atlases and Caveats for Use in Population Imaging}.
 \newblock {Frontiers in Neuroinformatics}. 2017;doi:{10.3389/fninf.2017.00001}.
 
+\bibitem{cncv}
+{P}arvandeh S, {H}ung-{W}en {Y}eh, {M}artin {P}~{P}aulus, {B}rett
+  {A}~{M}c{K}inney.
+\newblock {Consensus features nested cross-validation}.
+\newblock {Bioinformatics}. 2020;36(10):3093--3098.
+\newblock doi:{https://doi.org/10.1093/bioinformatics/btaa046}.
+
 \end{thebibliography}

@@ -290,15 +290,22 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Continuous data}{51}{subsection.6.1}\protected@file@percent }
 \newlabel{eq:abs_corr}{{176}{51}{Continuous data}{equation.6.176}{}}
 \newlabel{eq:cholesky}{{177}{51}{Continuous data}{equation.6.177}{}}
+\citation{stir}
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.2}GWAS data}{52}{subsection.6.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Time-series derived correlation-based datasets}{52}{subsection.6.3}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces {\bf  Distance densities from uncorrelated vs correlated bioinformatics data.} (\textbf  {A}) Euclidean distance densities for random normal data with and without correlation. Correlated data was created by multiplying random normal data by upper-triangular Cholesky factor from randomly generated correlation matrix. We created correlated data for average absolute pairwise correlation (Eq.\nobreakspace  {}\ref  {eq:abs_corr}) $\mathaccentV {bar}016{r}_\text  {abs} = 0.105, 0.263, 0.458, \text  { and } 0.612$. (\textbf  {B}) TiTv distance densities for random binomial data with and without correlation. Correlated data was created by first generating correlated standard normal data using the Cholesky method from (A). Then we applied the standard normal CDF to create correlated uniformly distributed data, which was then transformed by the inverse binomial CDF with $n=2$ trials and success probabilites $f_a \text  { for all } a \in \mathcal  {A}$. (\textbf  {C}) Time series correlation-based distance densities for random rs-fMRI data (Fig.\nobreakspace  {}\ref  {fig:rs-fMRI_matrix}) with and without additional pairwise feature correlation. Correlation was added to the transformed rs-fMRI data matrix (Fig.\nobreakspace  {}\ref  {fig:rs-fMRI_matrix}) using the Cholesky algorithm from (A).\relax }}{52}{figure.caption.14}\protected@file@percent }
 \newlabel{fig:null_vs_correlated_ridge}{{12}{52}{{\bf Distance densities from uncorrelated vs correlated bioinformatics data.} (\textbf {A}) Euclidean distance densities for random normal data with and without correlation. Correlated data was created by multiplying random normal data by upper-triangular Cholesky factor from randomly generated correlation matrix. We created correlated data for average absolute pairwise correlation (Eq.~\ref {eq:abs_corr}) $\bar {r}_\text {abs} = 0.105, 0.263, 0.458, \text { and } 0.612$. (\textbf {B}) TiTv distance densities for random binomial data with and without correlation. Correlated data was created by first generating correlated standard normal data using the Cholesky method from (A). Then we applied the standard normal CDF to create correlated uniformly distributed data, which was then transformed by the inverse binomial CDF with $n=2$ trials and success probabilites $f_a \text { for all } a \in \mathcal {A}$. (\textbf {C}) Time series correlation-based distance densities for random rs-fMRI data (Fig.~\ref {fig:rs-fMRI_matrix}) with and without additional pairwise feature correlation. Correlation was added to the transformed rs-fMRI data matrix (Fig.~\ref {fig:rs-fMRI_matrix}) using the Cholesky algorithm from (A).\relax }{figure.caption.14}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {7}Improving feature selection with distance distribution informed k}{52}{section.7}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces \bf  {Performance comparison between rule-of-thumb k=10 and distance distribution informed k.} Attribute precision and recall are significantly improved using informed k rather than naive rule-of-thumb k=10, whereas no significant difference exists for either training or validation classification accuracy between the two values of k.\relax }}{53}{figure.caption.15}\protected@file@percent }
-\newlabel{fig:sim_study}{{13}{53}{\bf {Performance comparison between rule-of-thumb k=10 and distance distribution informed k.} Attribute precision and recall are significantly improved using informed k rather than naive rule-of-thumb k=10, whereas no significant difference exists for either training or validation classification accuracy between the two values of k.\relax }{figure.caption.15}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {8}Discussion}{53}{section.8}\protected@file@percent }
-\newlabel{sec:discussion}{{8}{53}{Discussion}{section.8}{}}
+\citation{urbanowicz17}
+\citation{stir}
+\citation{npdr2}
+\citation{cncv}
+\newlabel{eq:msurf_rad}{{178}{53}{Time-series derived correlation-based datasets}{equation.7.178}{}}
+\newlabel{eq:k_alpha}{{179}{53}{Time-series derived correlation-based datasets}{equation.7.179}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces \leavevmode {\color  {red}Performance comparison between rule-of-thumb $k=10$ and distance distribution informed $k$. Attribute precision and recall are significantly improved using informed $k$ rather than naive rule-of-thumb $k=10$, whereas no significant difference exists for either training or validation classification accuracy between the two values of $k$.}\relax }}{54}{figure.caption.15}\protected@file@percent }
+\newlabel{fig:sim_study}{{13}{54}{\textcolor {red}{Performance comparison between rule-of-thumb $k=10$ and distance distribution informed $k$. Attribute precision and recall are significantly improved using informed $k$ rather than naive rule-of-thumb $k=10$, whereas no significant difference exists for either training or validation classification accuracy between the two values of $k$.}\relax }{figure.caption.15}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Discussion}{54}{section.8}\protected@file@percent }
+\newlabel{sec:discussion}{{8}{54}{Discussion}{section.8}{}}
 \bibdata{BoD}
 \bibcite{urbanowicz17}{1}
 \bibcite{urbanowicz17b}{2}
@@ -327,6 +334,7 @@
 \bibcite{li2014}{25}
 \bibcite{lee2013}{26}
 \bibcite{dickie2017}{27}
-\newlabel{LastPage}{{}{57}{}{page.57}{}}
-\xdef\lastpage@lastpage{57}
-\xdef\lastpage@lastpageHy{57}
+\bibcite{cncv}{28}
+\newlabel{LastPage}{{}{58}{}{page.58}{}}
+\xdef\lastpage@lastpage{58}
+\xdef\lastpage@lastpageHy{58}
