@@ -183,4 +183,11 @@ Le TT, Simmons WK, Misaki M, Bodurka J, White BC, Savitz J, et~al.
 \newblock {Bioinformatics}. 2020;36(10):3093--3098.
 \newblock doi:{https://doi.org/10.1093/bioinformatics/btaa046}.
 
+\bibitem{lareau15}
+Lareau CA, White BC, Oberg AL, McKinney BA.
+\newblock Differential co-expression network centrality and machine learning
+  feature selection for identifying susceptibility hubs in networks with
+  scale-free structure.
+\newblock BioData mining. 2015;8(1):5.
+
 \end{thebibliography}

@@ -2451,7 +2451,15 @@ For our correlation data-based metric (Eq.~\ref{eq:D_rs-fMRI}), we consider addi
 }
 
 \textcolor{red}{
-	A standard approach to avoid over fitting in feature and model selection is through some form of cross-validation. Our approach for choosing a distance distribution-informed fixed $k_\alpha$ can be implemented with any cross-validation method, nearest-neighbor feature selection algorithm, and model type. We chose to demonstrate the improved performance of fixed $k_{1/2}$ over the rule-of-thumb $k=10$ within the context of consensus features nested cross-validation (cnCV)~\cite{cncv}. Using simulated data, cnCV has been shown to select fewer false positive features on average across all simulation replicates than standard nested cross-validation while simultaneously maintaining a low false negative rate for functional features. Our implementation of cnCV uses the cncv package (\hyperlink{cncv}{https://github.com/insilico/cncv}). We use random forest as the model type for classification, which was parameterized by $\text{ntree}=1000$ trees and $\text{mtry}=p_\text{fold}/3$ ($p_\text{fold}$ = total features in training fold) randomly selected features at each node split.
+	A standard approach to avoid over fitting in feature and model selection is through some form of cross-validation. Our methodology for choosing a distance distribution-informed fixed $k_\alpha$ can be implemented with any cross-validation method, nearest-neighbor feature selection algorithm, and model type. We chose to demonstrate the improved performance of fixed $k_{1/2}$ over the rule-of-thumb $k=10$ within the context of consensus features nested cross-validation (cnCV)~\cite{cncv}. Using simulated data, cnCV has been shown to select fewer false positive features on average across all simulation replicates than standard nested cross-validation while simultaneously maintaining a low false negative rate for functional features. Our implementation of cnCV uses the cncv package (\hyperlink{cncv}{https://github.com/insilico/cncv}). We use random forest model type for classification, which was parameterized by $\text{ntree}=1000$ trees and $\text{mtry}=p_\text{f}/3$ randomly selected features at each node split. The value $p_\text{f}$ is the total features in a given training fold.
+}
+
+\textcolor{red}{
+	\subsection{Data simulation}
+}
+
+\textcolor{red}{
+	We simulate data with an underlying interaction network, where interacting features have no main effects~\cite{lareau15}. Each simulated data set has $p=1000$ attributes, where 100 are functional, and $m=100$ instances. Furthermore, we consider only a balanced binary response so that instances are split equally into 50 cases and 50 controls. Finally, simulated data set is split into training and validation sets of equal dimensions. 
 }
 
 \begin{figure}[H]

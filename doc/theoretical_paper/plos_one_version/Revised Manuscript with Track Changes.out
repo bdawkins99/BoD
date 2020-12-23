@@ -36,4 +36,5 @@
 \BOOKMARK [2][-]{subsection.6.2}{GWAS data}{section.6}% 36
 \BOOKMARK [2][-]{subsection.6.3}{Time-series derived correlation-based datasets}{section.6}% 37
 \BOOKMARK [1][-]{section.7}{Improving feature selection with distance distribution informed k}{}% 38
-\BOOKMARK [1][-]{section.8}{Discussion}{}% 39
+\BOOKMARK [2][-]{subsection.7.1}{Data simulation}{section.7}% 39
+\BOOKMARK [1][-]{section.8}{Discussion}{}% 40
