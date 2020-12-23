@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  17 NOV 2020 10:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.6)  23 DEC 2020 12:39
 entering extended mode
 **"./Revised Manuscript with Track Changes.tex"
 ("Revised Manuscript with Track Changes.tex"
@@ -986,16 +986,16 @@ Package microtype Info: Loading generic protrusion settings for font family
 [37] [38] [39] [40] [41] [42] [43] [44] [45] [46] [47] [48] [49] [50] [51]
 [52] [53]
 <interaction-main_sim_m100-p1000_main-bias-pt8_int-bias-pt2_pct-signals-pt1_pre
-dk_vs_naivek(grouped).pdf, id=1100, 794.97pt x 505.89pt>
+dk_vs_naivek(grouped)-2.pdf, id=1100, 794.97pt x 505.89pt>
 File: interaction-main_sim_m100-p1000_main-bias-pt8_int-bias-pt2_pct-signals-pt
-1_predk_vs_naivek(grouped).pdf Graphic file (type pdf)
+1_predk_vs_naivek(grouped)-2.pdf Graphic file (type pdf)
 <use interaction-main_sim_m100-p1000_main-bias-pt8_int-bias-pt2_pct-signals-pt1
-_predk_vs_naivek(grouped).pdf>
+_predk_vs_naivek(grouped)-2.pdf>
 Package pdftex.def Info: interaction-main_sim_m100-p1000_main-bias-pt8_int-bias
--pt2_pct-signals-pt1_predk_vs_naivek(grouped).pdf  used on input line 2468.
+-pt2_pct-signals-pt1_predk_vs_naivek(grouped)-2.pdf  used on input line 2468.
 (pdftex.def)             Requested size: 379.4175pt x 241.45041pt.
  [54 <./interaction-main_sim_m100-p1000_main-bias-pt8_int-bias-pt2_pct-signals-
-pt1_predk_vs_naivek(grouped).pdf>] [55]
+pt1_predk_vs_naivek(grouped)-2.pdf>] [55]
 ("Revised Manuscript with Track Changes.bbl" [56] [57])
 
 AED: lastpage setting LastPage
@@ -1013,12 +1013,12 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3024.
  ) 
 Here is how much of TeX's memory you used:
  22426 strings out of 492946
- 405932 string characters out of 3135528
+ 405942 string characters out of 3135528
  546461 words of memory out of 3000000
  25499 multiletter control sequences out of 15000+200000
  23845 words of font info for 110 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,25n,92p,2613b,458s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,25n,92p,2613b,459s stack positions out of 5000i,500n,10000p,200000b,50000s
 pdfTeX warning (dest): name{cncv} has been referenced but does not exist, rep
 laced by a fixed one
 
@@ -1042,7 +1042,7 @@ y5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C
 :/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Progra
 m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Program Files/M
 iKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "Revised Manuscript with Track Changes.pdf" (58 pages, 661138
+Output written on "Revised Manuscript with Track Changes.pdf" (58 pages, 661119
  bytes).
 PDF statistics:
  1308 PDF objects out of 1440 (max. 8388607)
